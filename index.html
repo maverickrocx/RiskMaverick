@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RiskMaverick — Global Risk Intelligence</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0f1117;
+  --bg2: #161b27;
+  --bg3: #1e2535;
+  --bg4: #252d3d;
+  --cyan: #00d4ff;
+  --cyan2: #00b8db;
+  --cyan-dim: rgba(0,212,255,0.12);
+  --cyan-dim2: rgba(0,212,255,0.06);
+  --white: #f0f4ff;
+  --gray1: #c8d0e0;
+  --gray2: #8892a4;
+  --gray3: #4a5568;
+  --border: rgba(255,255,255,0.07);
+  --border2: rgba(0,212,255,0.2);
+  --red: #ff4d4d;
+  --green: #00e676;
+  --amber: #ffb300;
+  --font: 'Inter', sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--white);font-family:var(--font);font-size:15px;line-height:1.6;min-height:100vh;}
+
+/* ── TICKER ── */
+.ticker-wrap{background:var(--bg2);border-bottom:1px solid var(--border);height:36px;overflow:hidden;position:relative;}
+.ticker-wrap::before,.ticker-wrap::after{content:'';position:absolute;top:0;width:80px;height:100%;z-index:2;}
+.ticker-wrap::before{left:0;background:linear-gradient(to right,var(--bg2),transparent);}
+.ticker-wrap::after{right:0;background:linear-gradient(to left,var(--bg2),transparent);}
+.ticker{display:flex;gap:2.5rem;padding:0 1rem;height:100%;align-items:center;white-space:nowrap;animation:ticker 30s linear infinite;}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.tick-item{display:flex;gap:0.5rem;align-items:center;font-size:12px;font-family:var(--mono);}
+.tick-label{color:var(--gray2);}
+.tick-val{color:var(--white);font-weight:500;}
+.tick-up{color:var(--green);}
+.tick-dn{color:var(--red);}
+
+/* ── NAV ── */
+nav{background:rgba(15,17,23,0.96);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;gap:2rem;height:60px;}
+.logo{display:flex;align-items:center;gap:0.6rem;text-decoration:none;flex-shrink:0;}
+.logo-icon{width:32px;height:32px;background:var(--cyan);border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:var(--bg);font-family:var(--mono);}
+.logo-text{font-weight:600;font-size:16px;color:var(--white);}
+.logo-text span{color:var(--cyan);}
+.nav-tabs{display:flex;gap:0;flex:1;overflow-x:auto;scrollbar-width:none;}
+.nav-tabs::-webkit-scrollbar{display:none;}
+.nav-tab{padding:0 1.1rem;height:60px;display:flex;align-items:center;font-size:13px;font-weight:500;color:var(--gray2);cursor:pointer;white-space:nowrap;border-bottom:2px solid transparent;transition:all 0.2s;}
+.nav-tab:hover{color:var(--white);}
+.nav-tab.active{color:var(--cyan);border-bottom-color:var(--cyan);}
+.nav-pill{background:var(--cyan-dim);color:var(--cyan);border:1px solid var(--border2);padding:0.35rem 1rem;border-radius:20px;font-size:12px;font-weight:600;cursor:pointer;margin-left:auto;flex-shrink:0;}
+
+/* ── PAGES ── */
+.page{display:none;max-width:1280px;margin:0 auto;padding:2rem;}
+.page.active{display:block;}
+
+/* ── HERO ── */
+.hero{text-align:center;padding:5rem 2rem 4rem;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:600px;height:400px;background:radial-gradient(ellipse,rgba(0,212,255,0.07) 0%,transparent 70%);pointer-events:none;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:0.5rem;background:var(--cyan-dim);border:1px solid var(--border2);border-radius:20px;padding:0.3rem 0.9rem;font-size:12px;font-family:var(--mono);color:var(--cyan);margin-bottom:1.5rem;}
+.hero-eyebrow span{width:6px;height:6px;background:var(--cyan);border-radius:50%;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+h1.hero-title{font-size:clamp(2rem,5vw,3.5rem);font-weight:700;line-height:1.15;margin-bottom:1rem;letter-spacing:-0.02em;}
+h1.hero-title .accent{color:var(--cyan);}
+.hero-sub{font-size:1.1rem;color:var(--gray1);max-width:600px;margin:0 auto 2.5rem;}
+.hero-cta{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+.btn-primary{background:var(--cyan);color:var(--bg);padding:0.75rem 1.75rem;border-radius:8px;font-weight:600;font-size:14px;cursor:pointer;border:none;transition:all 0.2s;}
+.btn-primary:hover{background:var(--cyan2);transform:translateY(-1px);}
+.btn-ghost{background:transparent;color:var(--cyan);padding:0.75rem 1.75rem;border-radius:8px;font-weight:600;font-size:14px;cursor:pointer;border:1px solid var(--border2);transition:all 0.2s;}
+.btn-ghost:hover{background:var(--cyan-dim);}
+
+/* ── STAT ROW ── */
+.stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:3rem 0;}
+.stat-card{background:var(--bg2);padding:1.5rem;text-align:center;}
+.stat-val{font-size:2rem;font-weight:700;font-family:var(--mono);color:var(--cyan);line-height:1;}
+.stat-label{font-size:12px;color:var(--gray2);margin-top:0.4rem;text-transform:uppercase;letter-spacing:0.05em;}
+
+/* ── SECTION TITLES ── */
+.section-header{display:flex;align-items:center;gap:1rem;margin-bottom:2rem;}
+.section-line{flex:1;height:1px;background:var(--border);}
+.section-tag{font-size:11px;font-family:var(--mono);color:var(--cyan);text-transform:uppercase;letter-spacing:0.1em;background:var(--cyan-dim);border:1px solid var(--border2);padding:0.3rem 0.7rem;border-radius:4px;white-space:nowrap;}
+h2.section-title{font-size:1.6rem;font-weight:600;margin-bottom:0.5rem;}
+.section-sub{color:var(--gray2);margin-bottom:2rem;}
+
+/* ── FRAMEWORK STEPS ── */
+.framework-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;position:relative;}
+.framework-steps::before{content:'';position:absolute;top:28px;left:calc(10% + 1rem);right:calc(10% + 1rem);height:1px;background:linear-gradient(to right,transparent,var(--cyan),transparent);z-index:0;}
+.step-card{background:var(--bg2);border:1px solid var(--border);padding:1.5rem;text-align:center;position:relative;z-index:1;transition:all 0.2s;}
+.step-card:first-child{border-radius:12px 0 0 12px;}
+.step-card:last-child{border-radius:0 12px 12px 0;}
+.step-card:hover{background:var(--bg3);border-color:var(--border2);}
+.step-num{width:36px;height:36px;border-radius:50%;background:var(--cyan);color:var(--bg);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;margin:0 auto 1rem;font-family:var(--mono);}
+.step-title{font-weight:600;font-size:14px;color:var(--white);margin-bottom:0.4rem;}
+.step-desc{font-size:12px;color:var(--gray2);}
+
+/* ── PROFILE SECTION ── */
+.profile-grid{display:grid;grid-template-columns:1fr 2fr;gap:2rem;align-items:start;}
+.profile-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:2rem;text-align:center;}
+.profile-avatar{width:80px;height:80px;background:var(--cyan-dim);border:2px solid var(--border2);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:2rem;color:var(--cyan);}
+.profile-name{font-weight:600;font-size:1.1rem;margin-bottom:0.25rem;}
+.profile-role{color:var(--cyan);font-size:13px;margin-bottom:1rem;}
+.skill-bar-group{text-align:left;margin-top:1rem;}
+.skill-item{margin-bottom:0.75rem;}
+.skill-label{display:flex;justify-content:space-between;font-size:12px;margin-bottom:0.3rem;color:var(--gray1);}
+.skill-bar{height:4px;background:var(--bg4);border-radius:2px;overflow:hidden;}
+.skill-fill{height:100%;background:linear-gradient(to right,var(--cyan),var(--cyan2));border-radius:2px;}
+.profile-info{display:flex;flex-direction:column;gap:1.25rem;}
+.info-block{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:1.25rem;}
+.info-block h3{font-size:14px;font-weight:600;color:var(--cyan);margin-bottom:0.75rem;display:flex;align-items:center;gap:0.5rem;}
+.info-block h3::before{content:'';width:3px;height:14px;background:var(--cyan);border-radius:2px;display:inline-block;}
+.tag-list{display:flex;flex-wrap:wrap;gap:0.4rem;}
+.tag{background:var(--bg4);border:1px solid var(--border);padding:0.25rem 0.6rem;border-radius:4px;font-size:12px;color:var(--gray1);}
+table.data-table{width:100%;border-collapse:collapse;font-size:13px;}
+table.data-table th{text-align:left;color:var(--gray2);font-weight:500;padding:0.5rem 0;border-bottom:1px solid var(--border);font-size:12px;text-transform:uppercase;letter-spacing:0.05em;}
+table.data-table td{padding:0.6rem 0;border-bottom:1px solid var(--border);color:var(--gray1);}
+table.data-table td:first-child{color:var(--white);}
+table.data-table tr:last-child td{border-bottom:none;}
+
+/* ── ORG CHART ── */
+.org-wrap{overflow-x:auto;padding-bottom:1rem;}
+.org-chart{display:flex;flex-direction:column;align-items:center;gap:0;min-width:700px;}
+.org-row{display:flex;gap:1rem;justify-content:center;position:relative;}
+.org-node{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:0.75rem 1rem;text-align:center;min-width:130px;position:relative;}
+.org-node.top{border-color:var(--border2);background:var(--bg3);}
+.org-node-title{font-size:12px;font-weight:600;color:var(--white);}
+.org-node-sub{font-size:11px;color:var(--gray2);margin-top:0.2rem;}
+.org-connector{width:1px;height:28px;background:var(--border2);margin:0 auto;}
+.org-h-line{display:flex;align-items:center;}
+.org-branch{display:flex;justify-content:center;gap:1rem;}
+.org-branch-item{display:flex;flex-direction:column;align-items:center;}
+.org-h-bar{position:absolute;top:0;left:0;right:0;height:1px;background:var(--border);}
+
+/* ── CARDS GRID ── */
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin-top:1rem;}
+.info-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:1.5rem;transition:all 0.2s;cursor:default;}
+.info-card:hover{border-color:var(--border2);background:var(--bg3);}
+.card-icon{width:40px;height:40px;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;font-size:20px;}
+.card-icon.cyan{background:var(--cyan-dim);}
+.card-icon.red{background:rgba(255,77,77,0.12);}
+.card-icon.green{background:rgba(0,230,118,0.1);}
+.card-icon.amber{background:rgba(255,179,0,0.1);}
+.card-title{font-weight:600;font-size:14px;margin-bottom:0.4rem;color:var(--white);}
+.card-desc{font-size:13px;color:var(--gray2);line-height:1.5;}
+
+/* ── RISK TYPE PAGE ── */
+.risk-hero{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:2rem;margin-bottom:2rem;display:flex;align-items:center;gap:2rem;}
+.risk-icon-big{width:60px;height:60px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:2rem;flex-shrink:0;}
+.risk-hero-text h2{font-size:1.5rem;font-weight:700;margin-bottom:0.5rem;}
+.risk-hero-text p{color:var(--gray2);font-size:14px;}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;}
+.metric-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:1.25rem;}
+.metric-val{font-size:1.8rem;font-weight:700;font-family:var(--mono);color:var(--cyan);margin-bottom:0.25rem;}
+.metric-label{font-size:12px;color:var(--gray2);}
+.metric-delta{font-size:12px;margin-top:0.2rem;}
+.delta-up{color:var(--red);}
+.delta-dn{color:var(--green);}
+.panel{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem;}
+.panel h3{font-size:15px;font-weight:600;margin-bottom:1rem;color:var(--white);}
+.formula-box{background:var(--bg);border:1px solid var(--border2);border-radius:8px;padding:1rem;font-family:var(--mono);font-size:13px;color:var(--cyan);margin-bottom:1rem;}
+.chart-container{position:relative;height:220px;margin:1rem 0;}
+.tabs-inner{display:flex;gap:0.5rem;margin-bottom:1.5rem;flex-wrap:wrap;}
+.tab-btn{padding:0.4rem 0.9rem;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--gray2);font-size:13px;cursor:pointer;transition:all 0.2s;}
+.tab-btn.active,.tab-btn:hover{background:var(--cyan-dim);border-color:var(--border2);color:var(--cyan);}
+.badge{display:inline-block;padding:0.2rem 0.5rem;border-radius:4px;font-size:11px;font-weight:600;}
+.badge-red{background:rgba(255,77,77,0.15);color:var(--red);}
+.badge-green{background:rgba(0,230,118,0.1);color:var(--green);}
+.badge-amber{background:rgba(255,179,0,0.1);color:var(--amber);}
+.badge-cyan{background:var(--cyan-dim);color:var(--cyan);}
+
+/* ── TRADE EXAMPLES ── */
+.trade-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem;}
+.trade-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;flex-wrap:wrap;gap:0.5rem;}
+.trade-title{font-weight:600;font-size:15px;color:var(--white);}
+.trade-meta{display:flex;gap:0.5rem;flex-wrap:wrap;}
+.trade-scenario{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0;}
+.scenario-box{padding:1rem;border-radius:8px;border:1px solid;}
+.scenario-unhedged{background:rgba(255,77,77,0.05);border-color:rgba(255,77,77,0.2);}
+.scenario-hedged{background:rgba(0,230,118,0.04);border-color:rgba(0,230,118,0.15);}
+.scenario-label{font-size:11px;text-transform:uppercase;letter-spacing:0.06em;font-family:var(--mono);margin-bottom:0.5rem;}
+.scenario-unhedged .scenario-label{color:var(--red);}
+.scenario-hedged .scenario-label{color:var(--green);}
+.scenario-val{font-size:1.4rem;font-weight:700;font-family:var(--mono);}
+.scenario-unhedged .scenario-val{color:var(--red);}
+.scenario-hedged .scenario-val{color:var(--green);}
+.scenario-desc{font-size:12px;color:var(--gray2);margin-top:0.4rem;}
+
+/* ── METRICS TABLE ── */
+.metrics-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0.75rem;margin:1rem 0;}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:6px;height:6px;}
+::-webkit-scrollbar-track{background:var(--bg2);}
+::-webkit-scrollbar-thumb{background:var(--bg4);border-radius:3px;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+.profile-grid,.two-col,.three-col{grid-template-columns:1fr;}
+.framework-steps::before{display:none;}
+.step-card:first-child,.step-card:last-child{border-radius:0;}
+.step-card:first-child{border-radius:12px 12px 0 0;}
+.step-card:last-child{border-radius:0 0 12px 12px;}
+}
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker" id="ticker">
+    <span class="tick-item"><span class="tick-label">VaR 1D 99%</span><span class="tick-val">$4.2M</span><span class="tick-dn">▲ HIGH</span></span>
+    <span class="tick-item"><span class="tick-label">Brent Crude</span><span class="tick-val">$82.40</span><span class="tick-up">▲ +1.2%</span></span>
+    <span class="tick-item"><span class="tick-label">EUR/USD</span><span class="tick-val">1.0873</span><span class="tick-dn">▼ -0.3%</span></span>
+    <span class="tick-item"><span class="tick-label">10Y UST</span><span class="tick-val">4.52%</span><span class="tick-dn">▼ -4bps</span></span>
+    <span class="tick-item"><span class="tick-label">TTF Gas</span><span class="tick-val">€31.8/MWh</span><span class="tick-up">▲ +2.8%</span></span>
+    <span class="tick-item"><span class="tick-label">Credit Spread IG</span><span class="tick-val">85bps</span><span class="tick-dn">▲ +3bps</span></span>
+    <span class="tick-item"><span class="tick-label">S&P 500</span><span class="tick-val">5,280</span><span class="tick-up">▲ +0.7%</span></span>
+    <span class="tick-item"><span class="tick-label">VIX</span><span class="tick-val">18.4</span><span class="tick-dn">▲ ELEVATED</span></span>
+    <span class="tick-item"><span class="tick-label">USD/INR</span><span class="tick-val">83.72</span><span class="tick-dn">▼ -0.1%</span></span>
+    <span class="tick-item"><span class="tick-label">LCR Ratio</span><span class="tick-val">148%</span><span class="tick-up">✓ OK</span></span>
+    <!-- duplicate for seamless loop -->
+    <span class="tick-item"><span class="tick-label">VaR 1D 99%</span><span class="tick-val">$4.2M</span><span class="tick-dn">▲ HIGH</span></span>
+    <span class="tick-item"><span class="tick-label">Brent Crude</span><span class="tick-val">$82.40</span><span class="tick-up">▲ +1.2%</span></span>
+    <span class="tick-item"><span class="tick-label">EUR/USD</span><span class="tick-val">1.0873</span><span class="tick-dn">▼ -0.3%</span></span>
+    <span class="tick-item"><span class="tick-label">10Y UST</span><span class="tick-val">4.52%</span><span class="tick-dn">▼ -4bps</span></span>
+    <span class="tick-item"><span class="tick-label">TTF Gas</span><span class="tick-val">€31.8/MWh</span><span class="tick-up">▲ +2.8%</span></span>
+    <span class="tick-item"><span class="tick-label">Credit Spread IG</span><span class="tick-val">85bps</span><span class="tick-dn">▲ +3bps</span></span>
+    <span class="tick-item"><span class="tick-label">S&P 500</span><span class="tick-val">5,280</span><span class="tick-up">▲ +0.7%</span></span>
+    <span class="tick-item"><span class="tick-label">VIX</span><span class="tick-val">18.4</span><span class="tick-dn">▲ ELEVATED</span></span>
+    <span class="tick-item"><span class="tick-label">USD/INR</span><span class="tick-val">83.72</span><span class="tick-dn">▼ -0.1%</span></span>
+    <span class="tick-item"><span class="tick-label">LCR Ratio</span><span class="tick-val">148%</span><span class="tick-up">✓ OK</span></span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="#" onclick="showPage('home');return false;">
+      <div class="logo-icon">RM</div>
+      <span class="logo-text">Risk<span>Maverick</span></span>
+    </a>
+    <div class="nav-tabs">
+      <div class="nav-tab active" onclick="showPage('home')">Home</div>
+      <div class="nav-tab" onclick="showPage('profile')">Risk Manager Profile</div>
+      <div class="nav-tab" onclick="showPage('framework')">RM Framework</div>
+      <div class="nav-tab" onclick="showPage('market')">Market Risk</div>
+      <div class="nav-tab" onclick="showPage('credit')">Credit Risk</div>
+      <div class="nav-tab" onclick="showPage('operational')">Operational Risk</div>
+      <div class="nav-tab" onclick="showPage('liquidity')">Liquidity Risk</div>
+      <div class="nav-tab" onclick="showPage('trades')">Trade Examples</div>
+    </div>
+    <div class="nav-pill" onclick="showPage('trades')">Live Examples →</div>
+  </div>
+</nav>
+
+<!-- ═══════════════ HOME PAGE ═══════════════ -->
+<div class="page active" id="page-home">
+  <div class="hero">
+    <div class="hero-eyebrow"><span></span>Global Risk Intelligence Platform</div>
+    <h1 class="hero-title">Master the language of<br><span class="accent">enterprise risk.</span></h1>
+    <p class="hero-sub">An open knowledge platform for risk managers across financial services, energy, commodities and corporates — covering every dimension of risk from identification to mitigation.</p>
+    <div class="hero-cta">
+      <button class="btn-primary" onclick="showPage('framework')">Explore the Framework</button>
+      <button class="btn-ghost" onclick="showPage('trades')">See Trade Examples</button>
+    </div>
+  </div>
+
+  <div style="max-width:1200px;margin:0 auto;padding:0 1rem;">
+    <div class="stat-row">
+      <div class="stat-card"><div class="stat-val">4</div><div class="stat-label">Risk Domains</div></div>
+      <div class="stat-card"><div class="stat-val">12+</div><div class="stat-label">Risk Metrics Covered</div></div>
+      <div class="stat-card"><div class="stat-val">8</div><div class="stat-label">Backtested Trade Examples</div></div>
+      <div class="stat-card"><div class="stat-val">Basel IV</div><div class="stat-label">Regulatory Framework</div></div>
+      <div class="stat-card"><div class="stat-val">360°</div><div class="stat-label">Risk View</div></div>
+    </div>
+
+    <!-- WHAT IS A RISK MANAGER -->
+    <div class="section-header"><div class="section-line"></div><div class="section-tag">Who is a Risk Manager?</div><div class="section-line"></div></div>
+    <div class="cards-grid">
+      <div class="info-card">
+        <div class="card-icon cyan" style="color:var(--cyan)">🎯</div>
+        <div class="card-title">The Guardian of P&amp;L</div>
+        <div class="card-desc">Risk managers protect the firm's financial health by identifying, measuring, and controlling exposures before they translate into losses. They sit at the intersection of trading, finance, and strategy.</div>
+      </div>
+      <div class="info-card">
+        <div class="card-icon amber" style="color:var(--amber)">⚖️</div>
+        <div class="card-title">Independent Oversight</div>
+        <div class="card-desc">Operating as the "second line of defence," risk managers provide independent challenge to trading desks and business units — ensuring risk is taken deliberately, not accidentally.</div>
+      </div>
+      <div class="info-card">
+        <div class="card-icon green" style="color:var(--green)">📊</div>
+        <div class="card-title">Quantitative Backbone</div>
+        <div class="card-desc">Fluent in VaR, CVaR, Greeks, scenario analysis, and stress testing. Risk managers translate complex financial positions into clear risk metrics for senior management.</div>
+      </div>
+      <div class="info-card">
+        <div class="card-icon red" style="color:var(--red)">🌍</div>
+        <div class="card-title">Global Cross-Asset Expertise</div>
+        <div class="card-desc">From energy derivatives and FX to credit portfolios and interest rate books — the modern risk manager operates across asset classes, geographies, and regulatory regimes.</div>
+      </div>
+    </div>
+
+    <!-- QUICK NAV -->
+    <div class="section-header" style="margin-top:3rem;"><div class="section-line"></div><div class="section-tag">Explore by Risk Type</div><div class="section-line"></div></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-bottom:3rem;">
+      <div class="info-card" style="cursor:pointer;border-color:var(--border2);" onclick="showPage('market')">
+        <div style="font-size:1.5rem;margin-bottom:0.75rem;">📈</div>
+        <div class="card-title" style="color:var(--cyan)">Market Risk →</div>
+        <div class="card-desc">VaR, Greeks, Stress Tests, Commodity & FX risk, Interest Rate sensitivity</div>
+      </div>
+      <div class="info-card" style="cursor:pointer;" onclick="showPage('credit')">
+        <div style="font-size:1.5rem;margin-bottom:0.75rem;">🏦</div>
+        <div class="card-title" style="color:var(--cyan)">Credit Risk →</div>
+        <div class="card-desc">PD, LGD, EAD, CCR, CVA/DVA, Credit VaR, counterparty exposure</div>
+      </div>
+      <div class="info-card" style="cursor:pointer;" onclick="showPage('operational')">
+        <div style="font-size:1.5rem;margin-bottom:0.75rem;">⚙️</div>
+        <div class="card-title" style="color:var(--cyan)">Operational Risk →</div>
+        <div class="card-desc">Process failures, Basel AMA, RCSA, KRIs, loss event management</div>
+      </div>
+      <div class="info-card" style="cursor:pointer;" onclick="showPage('liquidity')">
+        <div style="font-size:1.5rem;margin-bottom:0.75rem;">💧</div>
+        <div class="card-title" style="color:var(--cyan)">Liquidity Risk →</div>
+        <div class="card-desc">LCR, NSFR, funding gaps, stress scenarios, HQLA buffer management</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ RISK MANAGER PROFILE ═══════════════ -->
+<div class="page" id="page-profile">
+  <div style="padding:2rem 0;">
+    <div class="section-header"><div class="section-line"></div><div class="section-tag">Risk Manager Profile</div><div class="section-line"></div></div>
+    <h2 class="section-title">Who is a Risk Manager?</h2>
+    <p class="section-sub">A structured look at the competencies, career path, tools, and responsibilities of a risk professional in a global MNC.</p>
+
+    <div class="profile-grid">
+      <div>
+        <div class="profile-card">
+          <div class="profile-avatar">👔</div>
+          <div class="profile-name">Senior Risk Manager</div>
+          <div class="profile-role">Global Markets / Commodities MNC</div>
+          <div class="skill-bar-group">
+            <div class="skill-item"><div class="skill-label"><span>Quantitative Analysis</span><span>90%</span></div><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
+            <div class="skill-item"><div class="skill-label"><span>Market Risk</span><span>95%</span></div><div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div></div>
+            <div class="skill-item"><div class="skill-label"><span>Derivatives Pricing</span><span>85%</span></div><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
+            <div class="skill-item"><div class="skill-label"><span>Regulatory Frameworks</span><span>80%</span></div><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
+            <div class="skill-item"><div class="skill-label"><span>Stakeholder Communication</span><span>88%</span></div><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></div>
+            <div class="skill-item"><div class="skill-label"><span>ETRM / Risk Systems</span><span>82%</span></div><div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="profile-info">
+        <div class="info-block">
+          <h3>Core Responsibilities</h3>
+          <table class="data-table">
+            <tr><td>Daily P&amp;L Validation</td><td>Reconcile trading desk P&amp;L vs. risk system. Investigate outliers &gt;$50K.</td></tr>
+            <tr><td>Limit Monitoring</td><td>Monitor VaR, notional, DV01, and stop-loss limits in real-time.</td></tr>
+            <tr><td>Risk Reporting</td><td>Produce daily risk dashboard for CRO and desk heads.</td></tr>
+            <tr><td>New Trade Review</td><td>Review NTAs for non-standard products; assess model and market risk.</td></tr>
+            <tr><td>Stress Testing</td><td>Monthly scenario analysis — 2008 crisis, COVID shock, energy crisis replays.</td></tr>
+            <tr><td>Regulatory Capital</td><td>Coordinate IMA / SA-CCR capital calculations under Basel IV.</td></tr>
+          </table>
+        </div>
+        <div class="info-block">
+          <h3>Career Pathway</h3>
+          <table class="data-table">
+            <tr><td>Analyst (0–3 yrs)</td><td>Risk reporting, data validation, basic VaR, Excel/Python models</td></tr>
+            <tr><td>Associate (3–6 yrs)</td><td>Independent limit monitoring, scenario analysis, CRO presentations</td></tr>
+            <tr><td>VP / Manager (6–12 yrs)</td><td>Team lead, new product approval, methodology design, regulatory liaison</td></tr>
+            <tr><td>Director / CRO (12+ yrs)</td><td>Risk appetite setting, Board reporting, enterprise risk architecture</td></tr>
+          </table>
+        </div>
+        <div class="info-block">
+          <h3>Key Certifications &amp; Tools</h3>
+          <div class="tag-list">
+            <span class="tag">FRM (GARP)</span><span class="tag">CFA</span><span class="tag">PRM</span><span class="tag">CQF</span>
+            <span class="tag">Bloomberg</span><span class="tag">Murex / OpenLink</span><span class="tag">Python / R</span>
+            <span class="tag">MATLAB</span><span class="tag">RiskMetrics</span><span class="tag">FactSet</span>
+            <span class="tag">Basel IV</span><span class="tag">FRTB</span><span class="tag">IFRS 9</span><span class="tag">EMIR</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MNC ORG STRUCTURE -->
+    <div style="margin-top:2.5rem;">
+      <div class="section-header"><div class="section-line"></div><div class="section-tag">MNC Risk Function Structure</div><div class="section-line"></div></div>
+      <h2 class="section-title">Typical Three-Line Defence Model</h2>
+      <p class="section-sub">How a global energy or financial MNC structures its risk function — roles, reporting lines, and independence requirements.</p>
+      <div class="panel">
+        <div class="org-wrap">
+          <div class="org-chart">
+            <div class="org-row"><div class="org-node top"><div class="org-node-title">Board / Risk Committee</div><div class="org-node-sub">Risk Appetite Statement</div></div></div>
+            <div class="org-connector"></div>
+            <div class="org-row"><div class="org-node top"><div class="org-node-title">Chief Risk Officer (CRO)</div><div class="org-node-sub">Enterprise Risk Strategy</div></div></div>
+            <div class="org-connector"></div>
+            <div class="org-row" style="gap:0.5rem;">
+              <div class="org-branch-item">
+                <div class="org-node"><div class="org-node-title">Market Risk</div><div class="org-node-sub">VaR · Greeks · P&amp;L</div></div>
+                <div class="org-connector"></div>
+                <div class="org-row" style="gap:0.3rem;"><div class="org-node" style="min-width:100px;"><div class="org-node-title" style="font-size:11px;">Front Office Risk</div></div><div class="org-node" style="min-width:100px;"><div class="org-node-title" style="font-size:11px;">Model Validation</div></div></div>
+              </div>
+              <div class="org-branch-item">
+                <div class="org-node"><div class="org-node-title">Credit Risk</div><div class="org-node-sub">CCR · CVA · Limits</div></div>
+                <div class="org-connector"></div>
+                <div class="org-row" style="gap:0.3rem;"><div class="org-node" style="min-width:100px;"><div class="org-node-title" style="font-size:11px;">Counterparty Risk</div></div><div class="org-node" style="min-width:100px;"><div class="org-node-title" style="font-size:11px;">Portfolio Credit</div></div></div>
+              </div>
+              <div class="org-branch-item">
+                <div class="org-node"><div class="org-node-title">Op Risk &amp; Compliance</div><div class="org-node-sub">RCSA · KRI · Controls</div></div>
+                <div class="org-connector"></div>
+                <div class="org-row" style="gap:0.3rem;"><div class="org-node" style="min-width:100px;"><div class="org-node-title" style="font-size:11px;">Operational Risk</div></div><div class="org-node" style="min-width:100px;"><div class="org-node-title" style="font-size:11px;">Compliance</div></div></div>
+              </div>
+              <div class="org-branch-item">
+                <div class="org-node"><div class="org-node-title">Liquidity &amp; Treasury</div><div class="org-node-sub">LCR · NSFR · ALM</div></div>
+                <div class="org-connector"></div>
+                <div class="org-row" style="gap:0.3rem;"><div class="org-node" style="min-width:100px;"><div class="org-node-title" style="font-size:11px;">Funding Risk</div></div><div class="org-node" style="min-width:100px;"><div class="org-node-title" style="font-size:11px;">ALM / Rates</div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:1.5rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;">
+          <div style="background:var(--bg3);border-radius:8px;padding:1rem;border-left:3px solid var(--green);">
+            <div style="font-size:12px;font-weight:600;color:var(--green);margin-bottom:0.4rem;">1st Line — Business</div>
+            <div style="font-size:12px;color:var(--gray2);">Trading desks, front office. Own and manage the risk they take. Operate within approved limits.</div>
+          </div>
+          <div style="background:var(--bg3);border-radius:8px;padding:1rem;border-left:3px solid var(--cyan);">
+            <div style="font-size:12px;font-weight:600;color:var(--cyan);margin-bottom:0.4rem;">2nd Line — Risk Function</div>
+            <div style="font-size:12px;color:var(--gray2);">Independent risk oversight, methodology, limit setting, reporting. Does NOT own the P&amp;L.</div>
+          </div>
+          <div style="background:var(--bg3);border-radius:8px;padding:1rem;border-left:3px solid var(--amber);">
+            <div style="font-size:12px;font-weight:600;color:var(--amber);margin-bottom:0.4rem;">3rd Line — Internal Audit</div>
+            <div style="font-size:12px;color:var(--gray2);">Independent assurance over both 1st and 2nd lines. Reports to Audit Committee of the Board.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ FRAMEWORK PAGE ═══════════════ -->
+<div class="page" id="page-framework">
+  <div class="section-header"><div class="section-line"></div><div class="section-tag">Risk Management Framework</div><div class="section-line"></div></div>
+  <h2 class="section-title">The Enterprise Risk Management Cycle</h2>
+  <p class="section-sub">A disciplined, repeating process that converts raw exposures into managed, limit-governed positions. Aligned with Basel IV, COSO ERM, and ISO 31000.</p>
+
+  <div class="framework-steps">
+    <div class="step-card"><div class="step-num">1</div><div class="step-title">Identify</div><div class="step-desc">Catalogue all risk sources — market, credit, operational, liquidity. Use heat maps and risk registers.</div></div>
+    <div class="step-card"><div class="step-num">2</div><div class="step-title">Measure</div><div class="step-desc">Quantify exposures using VaR, CVaR, DV01, PD/LGD/EAD, Greeks, scenario P&amp;L.</div></div>
+    <div class="step-card"><div class="step-num">3</div><div class="step-title">Monitor</div><div class="step-desc">Daily limit surveillance, breach escalation, real-time dashboards, KRI tracking.</div></div>
+    <div class="step-card"><div class="step-num">4</div><div class="step-title">Control</div><div class="step-desc">Set limits, approve new products, enforce hedging policy, manage concentrations.</div></div>
+    <div class="step-card"><div class="step-num">5</div><div class="step-title">Report</div><div class="step-desc">CRO dashboard, Board Risk Committee packs, regulatory submissions (FRTB, ICAAP).</div></div>
+    <div class="step-card"><div class="step-num">6</div><div class="step-title">Review</div><div class="step-desc">Backtesting, model validation, stress test outcomes, lessons from losses.</div></div>
+  </div>
+
+  <div style="margin-top:2.5rem;" class="two-col">
+    <div class="panel">
+      <h3>Risk Appetite Framework (RAF)</h3>
+      <table class="data-table">
+        <tr><th>Level</th><th>Description</th><th>Example</th></tr>
+        <tr><td>Risk Appetite</td><td>Max risk Board will accept</td><td>VaR ≤ $50M/day</td></tr>
+        <tr><td>Risk Tolerance</td><td>Acceptable variance around appetite</td><td>VaR $40–55M is amber</td></tr>
+        <tr><td>Risk Limit</td><td>Operational limit per desk/book</td><td>Desk VaR ≤ $8M</td></tr>
+        <tr><td>Risk Trigger</td><td>Escalation threshold</td><td>75% of limit → alert CRO</td></tr>
+        <tr><td>Stop-Loss</td><td>Hard loss ceiling</td><td>MTM loss &gt;$15M → close</td></tr>
+      </table>
+    </div>
+    <div class="panel">
+      <h3>Key Regulatory Frameworks</h3>
+      <table class="data-table">
+        <tr><th>Framework</th><th>Scope</th><th>Key Metric</th></tr>
+        <tr><td><span class="badge badge-cyan">Basel IV</span></td><td>Banks — market &amp; credit risk capital</td><td>RWA, Capital Ratio</td></tr>
+        <tr><td><span class="badge badge-cyan">FRTB</span></td><td>Trading book capital — IMA vs SA</td><td>ES, NMRF</td></tr>
+        <tr><td><span class="badge badge-cyan">EMIR</span></td><td>OTC derivatives — clearing, margin</td><td>IM, VM</td></tr>
+        <tr><td><span class="badge badge-cyan">IFRS 9</span></td><td>Expected credit loss provisioning</td><td>ECL Stage 1/2/3</td></tr>
+        <tr><td><span class="badge badge-cyan">LCR / NSFR</span></td><td>Liquidity coverage requirements</td><td>HQLA / Outflows</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="panel" style="margin-top:1.5rem;">
+    <h3>Risk Heat Map — Inherent Risk vs. Control Effectiveness</h3>
+    <div style="display:grid;grid-template-columns:auto 1fr;gap:0.5rem;align-items:center;margin-top:1rem;">
+      <div style="writing-mode:vertical-rl;transform:rotate(180deg);font-size:11px;color:var(--gray2);text-align:center;padding-right:0.5rem;">IMPACT →</div>
+      <div>
+        <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:3px;">
+          <div style="background:rgba(255,77,77,0.3);border-radius:4px;padding:0.6rem;text-align:center;font-size:11px;color:var(--red);font-weight:600;">Extreme</div>
+          <div style="background:rgba(255,77,77,0.3);border-radius:4px;padding:0.6rem;text-align:center;font-size:11px;color:var(--red);font-weight:600;">Extreme</div>
+          <div style="background:rgba(255,179,0,0.25);border-radius:4px;padding:0.6rem;text-align:center;font-size:11px;color:var(--amber);">High</div>
+          <div style="background:rgba(255,179,0,0.25);border-radius:4px;padding:0.6rem;text-align:center;font-size:11px;color:var(--amber);">High</div>
+          <div style="background:rgba(0,230,118,0.1);border-radius:4px;padding:0.6rem;text-align:center;font-size:11px;color:var(--green);">Medium</div>
+          <div style="background:rgba(255,77,77,0.3);border-radius:4px;padding:0.6rem;text-align:center;font-size:11px;color:var(--red);font-weight:600;">Extreme</div>
+          <div style="background:rgba(255,179,0,0.25);border-radius:4px;padding:0.6rem;text-align:center;font-size:11px;color:var(--amber);">High<br><span style="font-size:10px;color:var(--cyan)">Market Risk</span></div>
+          <div style="background:rgba(255,179,0,0.25);border-radius:4px;padding:0.6rem;text-align:center;font-size:11px;color:var(--amber);">High<br><span style="font-size:10px;color:var(--cyan)">Credit Risk</span></div>
+          <div style="background:rgba(0,230,118,0.1);border-radius:4px;padding:0.6rem;text-align:center;font-size:11px;color:var(--green);">Medium</div>
+          <div style="background:rgba(0,230,118,0.1);border-radius:4px;padding:0.6rem;text-align:center;font-size:11px;color:var(--green);">Low</div>
+          <div style="background:rgba(255,179,0,0.25);border-radius:4px;padding:0.6rem;text-align:center;font-size:11px;color:var(--amber);">High</div>
+          <div style="background:rgba(255,179,0,0.25);border-radius:4px;padding:0.6rem;text-align:center;font-size:11px;color:var(--amber);">Medium<br><span style="font-size:10px;color:var(--cyan)">Op Risk</span></div>
+          <div style="background:rgba(0,230,118,0.1);border-radius:4px;padding:0.6rem;text-align:center;font-size:11px;color:var(--green);">Low</div>
+          <div style="background:rgba(0,230,118,0.1);border-radius:4px;padding:0.6rem;text-align:center;font-size:11px;color:var(--green);">Low</div>
+          <div style="background:rgba(0,230,118,0.1);border-radius:4px;padding:0.6rem;text-align:center;font-size:11px;color:var(--green);">Low</div>
+          <div style="background:rgba(0,230,118,0.1);border-radius:4px;padding:0.6rem;text-align:center;font-size:11px;color:var(--green);">Low</div>
+          <div style="background:rgba(0,230,118,0.1);border-radius:4px;padding:0.6rem;text-align:center;font-size:11px;color:var(--green);">Low<br><span style="font-size:10px;color:var(--cyan)">Liq Risk</span></div>
+          <div style="background:rgba(0,230,118,0.1);border-radius:4px;padding:0.6rem;text-align:center;font-size:11px;color:var(--green);">Low</div>
+          <div style="background:rgba(0,230,118,0.1);border-radius:4px;padding:0.6rem;text-align:center;font-size:11px;color:var(--green);">Low</div>
+          <div style="background:rgba(0,230,118,0.1);border-radius:4px;padding:0.6rem;text-align:center;font-size:11px;color:var(--green);">Low</div>
+        </div>
+        <div style="display:flex;justify-content:space-between;margin-top:4px;font-size:11px;color:var(--gray2);">
+          <span>Rare</span><span>Unlikely</span><span>Possible</span><span>Likely</span><span>Almost Certain</span>
+        </div>
+        <div style="text-align:center;font-size:11px;color:var(--gray2);margin-top:4px;">LIKELIHOOD →</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ MARKET RISK PAGE ═══════════════ -->
+<div class="page" id="page-market">
+  <div class="risk-hero">
+    <div class="risk-icon-big" style="background:rgba(0,212,255,0.1);font-size:2.5rem;">📈</div>
+    <div class="risk-hero-text">
+      <h2>Market Risk</h2>
+      <p>The risk of loss arising from movements in market prices — interest rates, FX, equities, commodities. Measured primarily through Value at Risk (VaR), Greeks, and stress testing.</p>
+    </div>
+  </div>
+
+  <div class="three-col">
+    <div class="metric-card"><div class="metric-val">$4.2M</div><div class="metric-label">1-Day VaR (99%)</div><div class="metric-delta delta-dn">▲ +8% vs prior day</div></div>
+    <div class="metric-card"><div class="metric-val">$6.8M</div><div class="metric-label">Expected Shortfall (97.5%)</div><div class="metric-delta delta-dn">▲ +5% vs prior day</div></div>
+    <div class="metric-card"><div class="metric-val">-$127K</div><div class="metric-label">DV01 (IR Sensitivity)</div><div class="metric-delta">per 1bp parallel shift</div></div>
+    <div class="metric-card"><div class="metric-val">$380K</div><div class="metric-label">Daily P&amp;L</div><div class="metric-delta delta-up">▼ within limits</div></div>
+    <div class="metric-card"><div class="metric-val">3/250</div><div class="metric-label">VaR Backtest Exceptions</div><div class="metric-delta">Green zone (Basel)</div></div>
+    <div class="metric-card"><div class="metric-val">-$12.4M</div><div class="metric-label">Stress P&amp;L (2008 Shock)</div><div class="metric-delta delta-dn">Within stress limit</div></div>
+  </div>
+
+  <div class="panel" style="margin-top:1.5rem;">
+    <h3>Value at Risk (VaR) — Key Methodologies</h3>
+    <div class="two-col">
+      <div>
+        <div class="formula-box">VaR(α,T) = μ − z_α · σ · √T</div>
+        <table class="data-table">
+          <tr><th>Method</th><th>Approach</th><th>Pros / Cons</th></tr>
+          <tr><td>Historical Sim</td><td>Re-price portfolio over 250 past days</td><td>No distribution assumption / lags structural breaks</td></tr>
+          <tr><td>Parametric</td><td>Variance-covariance matrix</td><td>Fast / assumes normality (underestimates tails)</td></tr>
+          <tr><td>Monte Carlo</td><td>10,000+ simulated price paths</td><td>Flexible / computationally intensive</td></tr>
+          <tr><td>Expected Shortfall</td><td>Average loss beyond VaR threshold</td><td>Better tail risk / Basel FRTB mandated</td></tr>
+        </table>
+      </div>
+      <div>
+        <h3 style="font-size:14px;margin-bottom:0.75rem;color:var(--gray1);">The Greeks — Options &amp; Derivatives Sensitivity</h3>
+        <table class="data-table">
+          <tr><th>Greek</th><th>Measures</th><th>Typical Limit</th></tr>
+          <tr><td>Delta (Δ)</td><td>Price sensitivity to underlying</td><td>±5,000 barrels / contract</td></tr>
+          <tr><td>Gamma (Γ)</td><td>Rate of change of delta</td><td>$50K per 1% move</td></tr>
+          <tr><td>Vega (ν)</td><td>Sensitivity to volatility</td><td>$25K per 1 vol point</td></tr>
+          <tr><td>Theta (Θ)</td><td>Time decay per day</td><td>-$5K/day max</td></tr>
+          <tr><td>Rho (ρ)</td><td>Interest rate sensitivity</td><td>$10K per 1bp</td></tr>
+          <tr><td>DV01</td><td>Dollar value of 1bp IR move</td><td>±$500K book-level</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>Stress Test Scenarios — P&amp;L Impact ($M)</h3>
+    <div class="chart-container" style="height:260px;">
+      <canvas id="stressChart" role="img" aria-label="Stress test bar chart showing P&L impact across multiple shock scenarios">Stress test data: 2008 Crisis -12.4M, COVID Mar 2020 -8.9M, Energy Crisis 2022 -6.2M, Rate Shock +300bps -4.1M, FX EM Crash -3.8M, Equity Correction -5.5M</canvas>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ CREDIT RISK PAGE ═══════════════ -->
+<div class="page" id="page-credit">
+  <div class="risk-hero">
+    <div class="risk-icon-big" style="background:rgba(255,179,0,0.1);font-size:2.5rem;">🏦</div>
+    <div class="risk-hero-text">
+      <h2>Credit Risk</h2>
+      <p>The risk that a counterparty fails to meet its financial obligations. Covers default probability, loss severity, exposure at default, and counterparty credit risk (CCR) on derivative portfolios.</p>
+    </div>
+  </div>
+  <div class="three-col">
+    <div class="metric-card"><div class="metric-val">2.4%</div><div class="metric-label">Portfolio Avg PD (1Y)</div><div class="metric-delta delta-dn">▲ vs 1.8% prior quarter</div></div>
+    <div class="metric-card"><div class="metric-val">42%</div><div class="metric-label">Loss Given Default (LGD)</div><div class="metric-delta">Senior unsecured bonds</div></div>
+    <div class="metric-card"><div class="metric-val">$1.84B</div><div class="metric-label">Exposure at Default (EAD)</div><div class="metric-delta">Gross derivative exposure</div></div>
+    <div class="metric-card"><div class="metric-val">$18.7M</div><div class="metric-label">CVA (Credit Valuation Adj.)</div><div class="metric-delta delta-dn">▲ $2.1M vs last month</div></div>
+    <div class="metric-card"><div class="metric-val">$284M</div><div class="metric-label">Net CCR Exposure</div><div class="metric-delta">Post netting &amp; collateral</div></div>
+    <div class="metric-card"><div class="metric-val">$42M</div><div class="metric-label">Expected Credit Loss (ECL)</div><div class="metric-delta">IFRS 9 Stage 1+2</div></div>
+  </div>
+  <div class="panel" style="margin-top:1.5rem;">
+    <h3>Credit Risk Building Blocks</h3>
+    <div class="formula-box">Expected Loss (EL) = PD × LGD × EAD</div>
+    <div class="two-col">
+      <table class="data-table">
+        <tr><th>Component</th><th>Definition</th><th>How Measured</th></tr>
+        <tr><td>PD</td><td>Probability of Default over 1Y</td><td>Internal ratings, CDS spreads, Merton model</td></tr>
+        <tr><td>LGD</td><td>Loss as % of exposure if default</td><td>Historical recovery rates, collateral type</td></tr>
+        <tr><td>EAD</td><td>Exposure amount at time of default</td><td>Current MtM + potential future exposure</td></tr>
+        <tr><td>CVA</td><td>Value adj. for counterparty default risk</td><td>PD × LGD × Discounted Expected Exposure</td></tr>
+        <tr><td>DVA</td><td>Own-credit adjustment (liability side)</td><td>Mirror of CVA from counterparty's view</td></tr>
+      </table>
+      <div>
+        <h3 style="font-size:14px;margin-bottom:0.75rem;color:var(--gray1);">Counterparty Credit Limit Usage</h3>
+        <table class="data-table">
+          <tr><th>Counterparty</th><th>Limit</th><th>Utilisation</th><th>Status</th></tr>
+          <tr><td>Bank A (AA)</td><td>$500M</td><td>62%</td><td><span class="badge badge-green">OK</span></td></tr>
+          <tr><td>Corp B (BBB)</td><td>$150M</td><td>88%</td><td><span class="badge badge-amber">Watch</span></td></tr>
+          <tr><td>Fund C (NR)</td><td>$50M</td><td>95%</td><td><span class="badge badge-red">Breach</span></td></tr>
+          <tr><td>Bank D (A)</td><td>$300M</td><td>41%</td><td><span class="badge badge-green">OK</span></td></tr>
+          <tr><td>State E (BBB-)</td><td>$200M</td><td>75%</td><td><span class="badge badge-amber">Amber</span></td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="panel">
+    <h3>IFRS 9 — Expected Credit Loss (ECL) Staging</h3>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--border);border-radius:8px;overflow:hidden;">
+      <div style="padding:1.25rem;background:rgba(0,230,118,0.05);border-right:1px solid var(--border);">
+        <div style="font-size:12px;font-weight:600;color:var(--green);margin-bottom:0.5rem;">STAGE 1 — Performing</div>
+        <div style="font-size:12px;color:var(--gray2);">No significant increase in credit risk since origination. Provision = 12-month ECL.</div>
+        <div style="margin-top:0.75rem;font-family:var(--mono);font-size:13px;color:var(--green);">ECL = $22.4M</div>
+      </div>
+      <div style="padding:1.25rem;background:rgba(255,179,0,0.05);border-right:1px solid var(--border);">
+        <div style="font-size:12px;font-weight:600;color:var(--amber);margin-bottom:0.5rem;">STAGE 2 — Underperforming</div>
+        <div style="font-size:12px;color:var(--gray2);">Significant deterioration since origination. Provision = Lifetime ECL.</div>
+        <div style="margin-top:0.75rem;font-family:var(--mono);font-size:13px;color:var(--amber);">ECL = $14.8M</div>
+      </div>
+      <div style="padding:1.25rem;background:rgba(255,77,77,0.05);">
+        <div style="font-size:12px;font-weight:600;color:var(--red);margin-bottom:0.5rem;">STAGE 3 — Credit Impaired</div>
+        <div style="font-size:12px;color:var(--gray2);">Objective evidence of default. Provision = Lifetime ECL, interest on net carrying amount.</div>
+        <div style="margin-top:0.75rem;font-family:var(--mono);font-size:13px;color:var(--red);">ECL = $4.8M</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ OPERATIONAL RISK PAGE ═══════════════ -->
+<div class="page" id="page-operational">
+  <div class="risk-hero">
+    <div class="risk-icon-big" style="background:rgba(255,77,77,0.08);font-size:2.5rem;">⚙️</div>
+    <div class="risk-hero-text">
+      <h2>Operational Risk</h2>
+      <p>The risk of loss resulting from inadequate or failed internal processes, people, systems, or external events. Includes fraud, system failures, regulatory breaches, and human error.</p>
+    </div>
+  </div>
+  <div class="three-col">
+    <div class="metric-card"><div class="metric-val">142</div><div class="metric-label">Loss Events (YTD)</div><div class="metric-delta delta-dn">▲ +18 vs last quarter</div></div>
+    <div class="metric-card"><div class="metric-val">$3.8M</div><div class="metric-label">Gross Loss (YTD)</div><div class="metric-delta">Within annual budget</div></div>
+    <div class="metric-card"><div class="metric-val">$580M</div><div class="metric-label">Op Risk Capital (AMA)</div><div class="metric-delta">Basel III calculation</div></div>
+    <div class="metric-card"><div class="metric-val">87%</div><div class="metric-label">RCSA Control Effectiveness</div><div class="metric-delta delta-up">▼ Improved from 82%</div></div>
+    <div class="metric-card"><div class="metric-val">12</div><div class="metric-label">KRI Breaches (Q3)</div><div class="metric-delta delta-dn">▲ 3 in red zone</div></div>
+    <div class="metric-card"><div class="metric-val">4.2%</div><div class="metric-label">Incident Resolution Rate</div><div class="metric-delta">Avg 4.2 days to close</div></div>
+  </div>
+  <div class="two-col" style="margin-top:1.5rem;">
+    <div class="panel">
+      <h3>Basel Event Type Categories (Level 1)</h3>
+      <table class="data-table">
+        <tr><th>Category</th><th>Description</th><th>Frequency</th></tr>
+        <tr><td>Internal Fraud</td><td>Misappropriation, tax evasion, bribery</td><td><span class="badge badge-green">Low</span></td></tr>
+        <tr><td>External Fraud</td><td>Theft, hacking, forgery</td><td><span class="badge badge-amber">Medium</span></td></tr>
+        <tr><td>Employment Practices</td><td>HR discrimination, health &amp; safety</td><td><span class="badge badge-green">Low</span></td></tr>
+        <tr><td>Clients &amp; Products</td><td>Mis-selling, fiduciary breaches</td><td><span class="badge badge-amber">Medium</span></td></tr>
+        <tr><td>Damage to Assets</td><td>Natural disasters, terrorism</td><td><span class="badge badge-green">Rare</span></td></tr>
+        <tr><td>Business Disruption</td><td>System outages, utility failures</td><td><span class="badge badge-amber">Medium</span></td></tr>
+        <tr><td>Execution &amp; Delivery</td><td>Trade errors, settlement fails</td><td><span class="badge badge-red">High</span></td></tr>
+      </table>
+    </div>
+    <div class="panel">
+      <h3>RCSA — Risk &amp; Control Self Assessment</h3>
+      <p style="font-size:13px;color:var(--gray2);margin-bottom:1rem;">A structured process for business lines to identify inherent risks and assess the effectiveness of controls. Output drives the KRI framework and capital model.</p>
+      <table class="data-table">
+        <tr><th>Step</th><th>Action</th><th>Owner</th></tr>
+        <tr><td>1. Scope</td><td>Define process / business unit boundary</td><td>Op Risk Team</td></tr>
+        <tr><td>2. Identify Risks</td><td>Workshop to identify all risk events</td><td>Business + Risk</td></tr>
+        <tr><td>3. Rate Inherent Risk</td><td>Likelihood × Impact before controls</td><td>Business</td></tr>
+        <tr><td>4. Map Controls</td><td>Identify preventive and detective controls</td><td>Business</td></tr>
+        <tr><td>5. Rate Residual Risk</td><td>Likelihood × Impact after controls</td><td>Risk Challenge</td></tr>
+        <tr><td>6. Action Plan</td><td>For red risks: remediation plan + owner</td><td>Business Lead</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="panel">
+    <h3>Key Risk Indicators (KRI) Dashboard</h3>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0.75rem;">
+      <div style="background:var(--bg3);border-radius:8px;padding:1rem;border-left:3px solid var(--red);"><div style="font-size:11px;color:var(--gray2);margin-bottom:0.4rem;">Trade Errors / 100 Trades</div><div style="font-size:1.4rem;font-family:var(--mono);color:var(--red);font-weight:700;">3.8</div><div style="font-size:11px;color:var(--red);">▲ Above 3.0 threshold</div></div>
+      <div style="background:var(--bg3);border-radius:8px;padding:1rem;border-left:3px solid var(--amber);"><div style="font-size:11px;color:var(--gray2);margin-bottom:0.4rem;">System Downtime (hrs/month)</div><div style="font-size:1.4rem;font-family:var(--mono);color:var(--amber);font-weight:700;">4.2h</div><div style="font-size:11px;color:var(--amber);">► Near 4.0h limit</div></div>
+      <div style="background:var(--bg3);border-radius:8px;padding:1rem;border-left:3px solid var(--green);"><div style="font-size:11px;color:var(--gray2);margin-bottom:0.4rem;">Staff Turnover (Risk Dept)</div><div style="font-size:1.4rem;font-family:var(--mono);color:var(--green);font-weight:700;">8.2%</div><div style="font-size:11px;color:var(--green);">▼ Within 10% limit</div></div>
+      <div style="background:var(--bg3);border-radius:8px;padding:1rem;border-left:3px solid var(--green);"><div style="font-size:11px;color:var(--gray2);margin-bottom:0.4rem;">Overdue Audit Actions</div><div style="font-size:1.4rem;font-family:var(--mono);color:var(--green);font-weight:700;">3</div><div style="font-size:11px;color:var(--green);">▼ Below 5 threshold</div></div>
+      <div style="background:var(--bg3);border-radius:8px;padding:1rem;border-left:3px solid var(--amber);"><div style="font-size:11px;color:var(--gray2);margin-bottom:0.4rem;">Failed Settlements / Week</div><div style="font-size:1.4rem;font-family:var(--mono);color:var(--amber);font-weight:700;">18</div><div style="font-size:11px;color:var(--amber);">► Near 15 SLA limit</div></div>
+      <div style="background:var(--bg3);border-radius:8px;padding:1rem;border-left:3px solid var(--green);"><div style="font-size:11px;color:var(--gray2);margin-bottom:0.4rem;">Mandatory Training Completion</div><div style="font-size:1.4rem;font-family:var(--mono);color:var(--green);font-weight:700;">94%</div><div style="font-size:11px;color:var(--green);">▼ Above 90% target</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ LIQUIDITY RISK PAGE ═══════════════ -->
+<div class="page" id="page-liquidity">
+  <div class="risk-hero">
+    <div class="risk-icon-big" style="background:rgba(0,230,118,0.08);font-size:2.5rem;">💧</div>
+    <div class="risk-hero-text">
+      <h2>Liquidity Risk</h2>
+      <p>The risk that a firm cannot meet its short-term financial obligations without incurring unacceptable losses. Two forms: funding liquidity risk and market liquidity risk.</p>
+    </div>
+  </div>
+  <div class="three-col">
+    <div class="metric-card"><div class="metric-val">148%</div><div class="metric-label">LCR (Min: 100%)</div><div class="metric-delta delta-up">▼ 8pp vs prior month</div></div>
+    <div class="metric-card"><div class="metric-val">118%</div><div class="metric-label">NSFR (Min: 100%)</div><div class="metric-delta delta-up">▼ Stable</div></div>
+    <div class="metric-card"><div class="metric-val">$4.2B</div><div class="metric-label">HQLA Buffer (Level 1)</div><div class="metric-delta">Cash + Govt Bonds</div></div>
+    <div class="metric-card"><div class="metric-val">-$380M</div><div class="metric-label">30-Day Net Cash Outflow</div><div class="metric-delta">Stress scenario basis</div></div>
+    <div class="metric-card"><div class="metric-val">62 days</div><div class="metric-label">Survival Horizon</div><div class="metric-delta delta-up">▼ vs 45-day minimum</div></div>
+    <div class="metric-card"><div class="metric-val">$1.1B</div><div class="metric-label">Undrawn Credit Facilities</div><div class="metric-delta">Contingent Liquidity</div></div>
+  </div>
+  <div class="two-col" style="margin-top:1.5rem;">
+    <div class="panel">
+      <h3>Liquidity Coverage Ratio (LCR)</h3>
+      <div class="formula-box">LCR = HQLA ÷ Net Cash Outflows (30-day stress) ≥ 100%</div>
+      <table class="data-table">
+        <tr><th>HQLA Category</th><th>Assets</th><th>Haircut</th><th>Eligible</th></tr>
+        <tr><td>Level 1</td><td>Cash, Central Bank Reserves, Govt Bonds</td><td>0%</td><td>$4.2B</td></tr>
+        <tr><td>Level 2A</td><td>Agency MBS, Covered Bonds (AA-)</td><td>15%</td><td>$820M</td></tr>
+        <tr><td>Level 2B</td><td>Corp Bonds (BBB+), RMBS, Equities</td><td>25–50%</td><td>$340M</td></tr>
+        <tr><td colspan="3"><strong>Total HQLA</strong></td><td><strong>$5.36B</strong></td></tr>
+      </table>
+    </div>
+    <div class="panel">
+      <h3>Net Stable Funding Ratio (NSFR)</h3>
+      <div class="formula-box">NSFR = Available Stable Funding ÷ Required Stable Funding ≥ 100%</div>
+      <table class="data-table">
+        <tr><th>ASF Category</th><th>Source</th><th>Factor</th></tr>
+        <tr><td>Tier 1 Capital</td><td>Equity, retained earnings</td><td>100%</td></tr>
+        <tr><td>Long-term Funding</td><td>Bonds &gt;1Y, deposits &gt;1Y</td><td>100%</td></tr>
+        <tr><td>Stable Retail</td><td>Insured retail deposits</td><td>95%</td></tr>
+        <tr><td>Less-stable Retail</td><td>Uninsured, higher-risk</td><td>90%</td></tr>
+        <tr><td>Wholesale &lt;6M</td><td>Operational deposits</td><td>50%</td></tr>
+        <tr><td>Short-term Wholesale</td><td>Repo, short CP</td><td>0%</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="panel">
+    <h3>Cash Flow Maturity Ladder — Stress Scenario</h3>
+    <div class="chart-container" style="height:240px;">
+      <canvas id="liquidityChart" role="img" aria-label="Stacked bar chart showing cumulative cash inflows and outflows over 1 to 90 days stress scenario">Liquidity ladder data showing inflows and outflows over 1, 7, 14, 30, 60, 90 day horizons</canvas>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ TRADE EXAMPLES PAGE ═══════════════ -->
+<div class="page" id="page-trades">
+  <div class="section-header"><div class="section-line"></div><div class="section-tag">Live &amp; Backtested Trade Examples</div><div class="section-line"></div></div>
+  <h2 class="section-title">Hedge Effectiveness — Multi-Asset Examples</h2>
+  <p class="section-sub">Real-world hedging scenarios with backtested data showing how different hedge instruments reduce portfolio risk across commodities, FX, rates, and equities.</p>
+
+  <div class="tabs-inner">
+    <button class="tab-btn active" onclick="showTradeTab('all',this)">All</button>
+    <button class="tab-btn" onclick="showTradeTab('energy',this)">Energy</button>
+    <button class="tab-btn" onclick="showTradeTab('fx',this)">FX</button>
+    <button class="tab-btn" onclick="showTradeTab('rates',this)">Interest Rates</button>
+    <button class="tab-btn" onclick="showTradeTab('equity',this)">Equity</button>
+  </div>
+
+  <!-- TRADE 1 -->
+  <div class="trade-card" data-cat="energy">
+    <div class="trade-header">
+      <div><div class="trade-title">Crude Oil Long Exposure — ICE Brent Futures Hedge</div><div style="font-size:12px;color:var(--gray2);margin-top:0.2rem;">Scenario: Airline with 10,000 MT/month jet fuel exposure | Backtest period: Jan 2022 – Dec 2022</div></div>
+      <div class="trade-meta"><span class="badge badge-cyan">Energy</span><span class="badge badge-amber">Commodity</span></div>
+    </div>
+    <div class="trade-scenario">
+      <div class="scenario-box scenario-unhedged">
+        <div class="scenario-label">Unhedged</div>
+        <div class="scenario-val">-$28.4M</div>
+        <div class="scenario-desc">Brent rose from $78 → $123/bbl (Russia-Ukraine). Full fuel cost exposure. VaR: $4.2M/day.</div>
+      </div>
+      <div class="scenario-box scenario-hedged">
+        <div class="scenario-label">Hedged — Short Brent Futures (80% ratio)</div>
+        <div class="scenario-val">-$5.7M</div>
+        <div class="scenario-desc">80% of volume hedged via ICE Brent futures 3-months forward. Residual basis risk only. VaR: $0.9M/day.</div>
+      </div>
+    </div>
+    <div class="chart-container" style="height:200px;"><canvas id="tradeChart1" role="img" aria-label="Line chart showing crude oil price movement vs hedged vs unhedged P&L 2022">Crude oil hedge backtest 2022</canvas></div>
+    <div class="metrics-grid">
+      <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">78.4%</div><div class="metric-label">Hedge Effectiveness</div></div>
+      <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">-0.82</div><div class="metric-label">Correlation (Hedge)</div></div>
+      <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">$22.7M</div><div class="metric-label">P&amp;L Saved</div></div>
+      <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">$1.4M</div><div class="metric-label">Hedge Cost (Margins)</div></div>
+    </div>
+  </div>
+
+  <!-- TRADE 2 -->
+  <div class="trade-card" data-cat="fx">
+    <div class="trade-header">
+      <div><div class="trade-title">USD/INR Forward Hedge — Exporter Receivables</div><div style="font-size:12px;color:var(--gray2);margin-top:0.2rem;">Scenario: Indian IT firm with $50M USD quarterly receivables | Backtest: FY2023–24</div></div>
+      <div class="trade-meta"><span class="badge badge-cyan">FX</span><span class="badge badge-green">Currency</span></div>
+    </div>
+    <div class="trade-scenario">
+      <div class="scenario-box scenario-unhedged">
+        <div class="scenario-label">Unhedged</div>
+        <div class="scenario-val">-₹82Cr</div>
+        <div class="scenario-desc">USD/INR moved from 83.5 → 86.2 (INR appreciation). Revenue impact on $50M quarterly receipts.</div>
+      </div>
+      <div class="scenario-box scenario-hedged">
+        <div class="scenario-label">Hedged — 3M USD/INR Forward at 84.10</div>
+        <div class="scenario-val">-₹18Cr</div>
+        <div class="scenario-desc">Forward rate locked at 84.10. Only residual basis from timing mismatch remains. Saved ₹64Cr in revenue.</div>
+      </div>
+    </div>
+    <div class="metrics-grid">
+      <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">78.0%</div><div class="metric-label">Hedge Effectiveness</div></div>
+      <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">-0.94</div><div class="metric-label">Correlation (Hedge)</div></div>
+      <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">₹64Cr</div><div class="metric-label">Revenue Protected</div></div>
+      <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">₹3.2Cr</div><div class="metric-label">Hedge Cost (Fwd Premium)</div></div>
+    </div>
+  </div>
+
+  <!-- TRADE 3 -->
+  <div class="trade-card" data-cat="rates">
+    <div class="trade-header">
+      <div><div class="trade-title">Interest Rate Swap — Fixed-Rate Liability Hedge</div><div style="font-size:12px;color:var(--gray2);margin-top:0.2rem;">Scenario: Corporate with $200M floating rate loan, concerned about Fed rate hikes | Backtest: 2022</div></div>
+      <div class="trade-meta"><span class="badge badge-cyan">Interest Rates</span><span class="badge badge-amber">Derivatives</span></div>
+    </div>
+    <div class="trade-scenario">
+      <div class="scenario-box scenario-unhedged">
+        <div class="scenario-label">Unhedged — Floating Rate</div>
+        <div class="scenario-val">+$8.4M cost</div>
+        <div class="scenario-desc">Fed hiked 425bps in 2022. SOFR rose from 0.05% → 4.3%. Floating debt cost surged $8.4M beyond budget.</div>
+      </div>
+      <div class="scenario-box scenario-hedged">
+        <div class="scenario-label">Hedged — Pay-Fixed IRS at 1.8%</div>
+        <div class="scenario-val">+$0.6M cost</div>
+        <div class="scenario-desc">Entered pay-fixed, receive-float IRS at 1.8%. Net cost = 1.8% fixed vs 4.3% float = locked savings on $200M notional.</div>
+      </div>
+    </div>
+    <div class="metrics-grid">
+      <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">92.8%</div><div class="metric-label">Hedge Effectiveness</div></div>
+      <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">-0.98</div><div class="metric-label">Correlation (IRS)</div></div>
+      <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">$7.8M</div><div class="metric-label">Cost Avoided</div></div>
+      <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">$180K</div><div class="metric-label">Swap Bid-Offer Cost</div></div>
+    </div>
+  </div>
+
+  <!-- TRADE 4 -->
+  <div class="trade-card" data-cat="equity">
+    <div class="trade-header">
+      <div><div class="trade-title">Equity Portfolio Hedge — S&amp;P 500 Put Options</div><div style="font-size:12px;color:var(--gray2);margin-top:0.2rem;">Scenario: $100M equity portfolio needing downside protection | Backtest: Q1 2020 (COVID crash)</div></div>
+      <div class="trade-meta"><span class="badge badge-cyan">Equity</span><span class="badge badge-red">Options</span></div>
+    </div>
+    <div class="trade-scenario">
+      <div class="scenario-box scenario-unhedged">
+        <div class="scenario-label">Unhedged</div>
+        <div class="scenario-val">-$34.2M</div>
+        <div class="scenario-desc">S&amp;P 500 fell 34% Feb–Mar 2020 (COVID). $100M portfolio lost $34.2M. VaR massively exceeded.</div>
+      </div>
+      <div class="scenario-box scenario-hedged">
+        <div class="scenario-label">Hedged — 5% OTM Put Spread (3M)</div>
+        <div class="scenario-val">-$8.6M</div>
+        <div class="scenario-desc">Put spread (buy 95% strike, sell 80% strike). Capped downside at -8.6%. Paid $1.8M premium. Net gain on hedge: $23.8M.</div>
+      </div>
+    </div>
+    <div class="metrics-grid">
+      <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">74.8%</div><div class="metric-label">Drawdown Protected</div></div>
+      <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">+$23.8M</div><div class="metric-label">Hedge Payoff (Net)</div></div>
+      <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">$1.8M</div><div class="metric-label">Premium Paid</div></div>
+      <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">13.2x</div><div class="metric-label">Payoff / Premium Ratio</div></div>
+    </div>
+  </div>
+
+  <div class="panel" style="margin-top:1.5rem;">
+    <h3>Hedge Effectiveness Comparison — All Examples</h3>
+    <div class="chart-container" style="height:260px;"><canvas id="hedgeCompChart" role="img" aria-label="Grouped bar chart comparing unhedged vs hedged losses across four asset classes">Hedge comparison: Crude Oil unhedged -28.4M hedged -5.7M; FX -82Cr hedged -18Cr; IRS +8.4M hedged +0.6M; Equity -34.2M hedged -8.6M</canvas></div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  const tabs = document.querySelectorAll('.nav-tab');
+  const map = {home:0,profile:1,framework:2,market:3,credit:4,operational:5,liquidity:6,trades:7};
+  if(map[id]!==undefined) tabs[map[id]].classList.add('active');
+  window.scrollTo(0,0);
+  setTimeout(() => initCharts(id), 100);
+}
+
+function showTradeTab(cat, btn) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.trade-card').forEach(c => {
+    c.style.display = (cat === 'all' || c.dataset.cat === cat) ? 'block' : 'none';
+  });
+}
+
+var chartsInited = {};
+function initCharts(page) {
+  if(chartsInited[page]) return;
+  chartsInited[page] = true;
+
+  if(page === 'market') {
+    const ctx = document.getElementById('stressChart');
+    if(ctx) new Chart(ctx, {
+      type:'bar',
+      data:{
+        labels:['2008 Crisis','COVID Mar20','Energy 2022','Rate +300bps','EM FX Crash','Equity -20%'],
+        datasets:[{label:'Stress P&L ($M)',data:[-12.4,-8.9,-6.2,-4.1,-3.8,-5.5],
+          backgroundColor:['rgba(255,77,77,0.7)','rgba(255,77,77,0.7)','rgba(255,179,0,0.7)','rgba(255,179,0,0.7)','rgba(255,179,0,0.7)','rgba(255,77,77,0.7)'],
+          borderColor:['#ff4d4d','#ff4d4d','#ffb300','#ffb300','#ffb300','#ff4d4d'],borderWidth:1,borderRadius:4}]
+      },
+      options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>`$${c.raw}M`}}},
+        scales:{x:{ticks:{color:'#8892a4',font:{size:11}},grid:{color:'rgba(255,255,255,0.04)'}},
+          y:{ticks:{color:'#8892a4',callback:v=>`$${v}M`,font:{size:11}},grid:{color:'rgba(255,255,255,0.04)'},title:{display:true,text:'P&L Impact ($M)',color:'#8892a4',font:{size:11}}}}}
+    });
+  }
+
+  if(page === 'liquidity') {
+    const ctx2 = document.getElementById('liquidityChart');
+    if(ctx2) new Chart(ctx2, {
+      type:'bar',
+      data:{
+        labels:['Day 1','Day 7','Day 14','Day 30','Day 60','Day 90'],
+        datasets:[
+          {label:'Cash Inflows',data:[820,1240,1680,2800,4200,5800],backgroundColor:'rgba(0,230,118,0.6)',borderColor:'#00e676',borderWidth:1,borderRadius:4},
+          {label:'Cash Outflows',data:[-650,-1100,-1520,-2600,-3800,-5100],backgroundColor:'rgba(255,77,77,0.5)',borderColor:'#ff4d4d',borderWidth:1,borderRadius:4}
+        ]
+      },
+      options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>`$${Math.abs(c.raw)}M ${c.raw>0?'inflow':'outflow'}`}}},
+        scales:{x:{ticks:{color:'#8892a4',font:{size:11}},grid:{color:'rgba(255,255,255,0.04)'}},
+          y:{ticks:{color:'#8892a4',callback:v=>`$${Math.abs(v)}M`,font:{size:11}},grid:{color:'rgba(255,255,255,0.04)'}}}}
+    });
+  }
+
+  if(page === 'trades') {
+    const ctx3 = document.getElementById('tradeChart1');
+    if(ctx3) {
+      const months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      const unhedged=[0,-2.1,-5.4,-8.2,-12.0,-15.8,-19.2,-22.4,-24.8,-26.1,-27.5,-28.4];
+      const hedged=[0,-0.4,-1.1,-1.7,-2.5,-3.3,-4.0,-4.7,-5.0,-5.3,-5.5,-5.7];
+      new Chart(ctx3,{type:'line',data:{labels:months,datasets:[
+        {label:'Unhedged P&L',data:unhedged,borderColor:'#ff4d4d',backgroundColor:'rgba(255,77,77,0.05)',borderWidth:2,pointRadius:3,tension:0.3},
+        {label:'Hedged P&L',data:hedged,borderColor:'#00e676',backgroundColor:'rgba(0,230,118,0.05)',borderWidth:2,pointRadius:3,tension:0.3}
+      ]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{ticks:{color:'#8892a4',font:{size:10}},grid:{color:'rgba(255,255,255,0.04)'}},y:{ticks:{color:'#8892a4',callback:v=>`$${v}M`,font:{size:10}},grid:{color:'rgba(255,255,255,0.04)'}}}}});
+    }
+
+    const ctx4 = document.getElementById('hedgeCompChart');
+    if(ctx4) {
+      new Chart(ctx4,{type:'bar',data:{
+        labels:['Crude Oil ($M)','USD/INR (₹Cr)','Interest Rate ($M)','Equity ($M)'],
+        datasets:[
+          {label:'Unhedged Loss',data:[28.4,82,8.4,34.2],backgroundColor:'rgba(255,77,77,0.65)',borderColor:'#ff4d4d',borderWidth:1,borderRadius:4},
+          {label:'Hedged Loss',data:[5.7,18,0.6,8.6],backgroundColor:'rgba(0,212,255,0.55)',borderColor:'#00d4ff',borderWidth:1,borderRadius:4}
+        ]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.dataset.label+': '+c.raw}}},scales:{x:{ticks:{color:'#8892a4',font:{size:11}},grid:{color:'rgba(255,255,255,0.04)'}},y:{ticks:{color:'#8892a4',font:{size:11}},grid:{color:'rgba(255,255,255,0.04)'},title:{display:true,text:'Loss Amount',color:'#8892a4',font:{size:11}}}}}});
+    }
+  }
+}
+</script>
+</body>
+</html>
