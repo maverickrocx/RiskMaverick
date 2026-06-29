@@ -1021,7 +1021,7 @@ table.data-table tr:last-child td{border-bottom:none;}
     <!-- Quote -->
     <div style="background:var(--bg2);border:1px solid var(--border2);border-radius:12px;padding:2rem;text-align:center;margin-bottom:2.5rem;position:relative;">
       <div style="font-size:3rem;color:var(--cyan);opacity:0.3;position:absolute;top:1rem;left:1.5rem;font-family:Georgia,serif;line-height:1;">"</div>
-      <p style="font-size:1.1rem;color:var(--gray1);line-height:1.7;font-style:italic;max-width:600px;margin:0 auto 1rem;">"Most financial advice in India is built around what earns the advisor a commission — not what works for you. Risk Maverick exists to fix the knowledge gap on the risk side of that equation."</p>
+      <p style="font-size:1.1rem;color:var(--gray1);line-height:1.7;font-style:italic;max-width:600px;margin:0 auto 1rem;">"Risk is not the enemy — ignorance of risk is. The best risk managers I know don't eliminate uncertainty. They understand it, size it, and turn it into a structured edge."</p>
       <div style="font-size:13px;color:var(--cyan);font-weight:600;">— Jilesh Kadi</div>
     </div>
 
@@ -1069,36 +1069,17 @@ const FMP_KEY = 'lq7E2T0mp2X0PAwS1txXRNdxP3aZo9lp';
 const FMP = 'https://financialmodelingprep.com/stable';
 
 // ── Instrument registry ──────────────────────────
-// Only instruments confirmed available on the free FMP stable tier
+// Trimmed to 8 key instruments to stay within FMP free tier (250 calls/day).
+// Cache + 30-min refresh means ~8 calls per session, shared across visitors.
 const TICKER_INSTRUMENTS = [
-  // ── EQUITY INDICES — Americas ──
-  { symbol: '^GSPC',     label: 'S&P 500',       prefix: '',  suffix: '',      decimals: 0, cat: 'index' },
-  { symbol: '^IXIC',     label: 'NASDAQ',         prefix: '',  suffix: '',      decimals: 0, cat: 'index' },
-  { symbol: '^DJI',      label: 'Dow Jones',      prefix: '',  suffix: '',      decimals: 0, cat: 'index' },
-  { symbol: '^RUT',      label: 'Russell 2000',   prefix: '',  suffix: '',      decimals: 2, cat: 'index' },
-  // ── EQUITY INDICES — Europe / Asia ──
-  { symbol: '^FTSE',     label: 'FTSE 100',       prefix: '',  suffix: '',      decimals: 0, cat: 'index' },
-  { symbol: '^STOXX50E', label: 'Euro Stoxx 50',  prefix: '',  suffix: '',      decimals: 2, cat: 'index' },
-  { symbol: '^N225',     label: 'Nikkei 225',     prefix: '',  suffix: '',      decimals: 0, cat: 'index' },
-  { symbol: '^HSI',      label: 'Hang Seng',      prefix: '',  suffix: '',      decimals: 0, cat: 'index' },
-  // ── VOLATILITY ──
-  { symbol: '^VIX',      label: 'VIX',            prefix: '',  suffix: '',      decimals: 2, cat: 'vol'   },
-  // ── COMMODITIES — Energy ──
-  { symbol: 'BZUSD',     label: 'Brent Crude',    prefix: '$', suffix: '/bbl',  decimals: 2, cat: 'energy'},
-  // ── COMMODITIES — Metals ──
-  { symbol: 'GCUSD',     label: 'Gold',           prefix: '$', suffix: '/oz',   decimals: 1, cat: 'metal' },
-  { symbol: 'SIUSD',     label: 'Silver',         prefix: '$', suffix: '/oz',   decimals: 3, cat: 'metal' },
-  // ── FX MAJORS ──
-  { symbol: 'EURUSD',    label: 'EUR/USD',        prefix: '',  suffix: '',      decimals: 4, cat: 'fx'    },
-  { symbol: 'GBPUSD',    label: 'GBP/USD',        prefix: '',  suffix: '',      decimals: 4, cat: 'fx'    },
-  { symbol: 'USDJPY',    label: 'USD/JPY',        prefix: '',  suffix: '',      decimals: 2, cat: 'fx'    },
-  { symbol: 'USDCHF',    label: 'USD/CHF',        prefix: '',  suffix: '',      decimals: 4, cat: 'fx'    },
-  { symbol: 'AUDUSD',    label: 'AUD/USD',        prefix: '',  suffix: '',      decimals: 4, cat: 'fx'    },
-  { symbol: 'USDCAD',    label: 'USD/CAD',        prefix: '',  suffix: '',      decimals: 4, cat: 'fx'    },
-  // ── FX EMERGING MARKETS ──
-  { symbol: 'USDINR',    label: 'USD/INR',        prefix: '₹', suffix: '',      decimals: 2, cat: 'em'    },
-  { symbol: 'USDCNY',    label: 'USD/CNY',        prefix: '',  suffix: '',      decimals: 4, cat: 'em'    },
-  { symbol: 'USDMXN',    label: 'USD/MXN',        prefix: '',  suffix: '',      decimals: 3, cat: 'em'    },
+  { symbol: '^GSPC',  label: 'S&P 500',     prefix: '',  suffix: '',     decimals: 0, cat: 'index' },
+  { symbol: '^VIX',   label: 'VIX',         prefix: '',  suffix: '',     decimals: 2, cat: 'vol'   },
+  { symbol: 'BZUSD',  label: 'Brent Crude', prefix: '$', suffix: '/bbl', decimals: 2, cat: 'energy'},
+  { symbol: 'GCUSD',  label: 'Gold',        prefix: '$', suffix: '/oz',  decimals: 1, cat: 'metal' },
+  { symbol: 'EURUSD', label: 'EUR/USD',     prefix: '',  suffix: '',     decimals: 4, cat: 'fx'    },
+  { symbol: 'USDINR', label: 'USD/INR',     prefix: '₹', suffix: '',     decimals: 2, cat: 'em'    },
+  { symbol: '^N225',  label: 'Nikkei 225',  prefix: '',  suffix: '',     decimals: 0, cat: 'index' },
+  { symbol: '^FTSE',  label: 'FTSE 100',    prefix: '',  suffix: '',     decimals: 0, cat: 'index' },
 ];
 
 // ── Category colours for the dot ────────────────
@@ -1124,8 +1105,17 @@ function buildTickItem(inst, price, chgPct) {
   return `<span class="tick-item">${dot}<span class="tick-label">${inst.label}</span><span class="tick-val" style="margin:0 0.3rem">${fmtPrice}</span><span class="${cls}">${fmtChg}</span></span>`;
 }
 
-// ── Fetch quotes from FMP (one call per symbol) ──
+// ── Fetch quotes from FMP with localStorage cache ──
+// Cache TTL: 30 min. Prevents burning the 250-call/day free quota on repeat visits.
+const CACHE_KEY = 'rm_ticker_v1';
+const CACHE_TTL = 30 * 60 * 1000;
+
 async function fetchTickerData() {
+  try {
+    const cached = JSON.parse(localStorage.getItem(CACHE_KEY) || 'null');
+    if (cached && Date.now() - cached.ts < CACHE_TTL) return cached.data;
+  } catch(e) {}
+
   const results = await Promise.allSettled(
     TICKER_INSTRUMENTS.map(inst =>
       fetch(`${FMP}/quote?symbol=${encodeURIComponent(inst.symbol)}&apikey=${FMP_KEY}`)
@@ -1133,7 +1123,10 @@ async function fetchTickerData() {
         .then(data => (Array.isArray(data) && data[0]) ? data[0] : null)
     )
   );
-  return results.map(r => (r.status === 'fulfilled' ? r.value : null));
+  const quotes = results.map(r => (r.status === 'fulfilled' ? r.value : null));
+
+  try { localStorage.setItem(CACHE_KEY, JSON.stringify({ ts: Date.now(), data: quotes })); } catch(e) {}
+  return quotes;
 }
 
 // ── Render ticker from quote data ───────────────
@@ -1182,9 +1175,9 @@ async function initTicker() {
   }
 }
 
-// Run immediately, then every 5 minutes
+// Run immediately, then every 30 minutes (cache serves repeat visits in between)
 initTicker();
-setInterval(initTicker, 5 * 60 * 1000);
+setInterval(initTicker, 30 * 60 * 1000);
 
 /* ═══════════════════════════════════════════════════
    PAGE NAVIGATION & CHARTS
