@@ -498,6 +498,111 @@ table.data-table tr:last-child td{border-bottom:none;}
       </div>
     </div>
   </div>
+
+  <!-- FOUR PILLARS COMPARISON -->
+  <div style="margin-top:3rem;">
+    <div class="section-header"><div class="section-line"></div><div class="section-tag">Structural Risk Architecture</div><div class="section-line"></div></div>
+    <h2 class="section-title">The Four Pillars — Measurement, Assessment &amp; Reporting</h2>
+    <p class="section-sub">A cross-pillar view of how each risk domain is measured, assessed, and reported — enabling consistent governance across the enterprise risk framework.</p>
+
+    <div class="panel">
+      <h3>Four Pillars Comparison Matrix</h3>
+      <div style="overflow-x:auto;">
+        <table class="data-table" style="min-width:700px;">
+          <tr>
+            <th style="min-width:140px;">Dimension</th>
+            <th style="color:var(--cyan);">Market Risk</th>
+            <th style="color:var(--amber);">Credit Risk</th>
+            <th style="color:var(--red);">Operational Risk</th>
+            <th style="color:var(--green);">Liquidity Risk</th>
+          </tr>
+          <tr>
+            <td style="font-weight:600;">Primary Metric</td>
+            <td>VaR / Expected Shortfall</td>
+            <td>EL = PD × LGD × EAD</td>
+            <td>Op Risk Capital (LDA)</td>
+            <td>LCR / NSFR / LVaR</td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;">Measurement Horizon</td>
+            <td>1-day (trading) / 10-day (regulatory)</td>
+            <td>1-year PD; lifetime ECL</td>
+            <td>Annual aggregate loss distribution</td>
+            <td>30-day stress (LCR); 1-year (NSFR)</td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;">Assessment Method</td>
+            <td>Historical sim, Parametric, Monte Carlo, EVT</td>
+            <td>Merton model, CDS spread, IRB ratings, IFRS 9</td>
+            <td>RCSA, LDA, Bow-Tie, Scenario analysis</td>
+            <td>TSECF ladder, EWIs, Survival horizon</td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;">Key Model</td>
+            <td>VaR / ES + Greeks + Stress P&amp;L</td>
+            <td>Merton structural + CVA/DVA + Credit VaR</td>
+            <td>Frequency × severity Monte Carlo simulation (10,000+ runs → 99.9th percentile capital)</td>
+            <td>LCR HQLA / outflow ratio + LVaR</td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;">Reporting Frequency</td>
+            <td>Daily (desk) / Weekly (CRO)</td>
+            <td>Daily limit monitoring; monthly ECL</td>
+            <td>Monthly KRI; quarterly RCSA</td>
+            <td>Daily (intraday); monthly ALCO pack</td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;">Regulatory Framework</td>
+            <td>Basel IV FRTB (IMA / SA)</td>
+            <td>Basel IRB / SA; IFRS 9; SA-CCR</td>
+            <td>Basel SMA (post-AMA); Op Resilience</td>
+            <td>LCR / NSFR (Basel III); ILAAP</td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;">Primary Limit Type</td>
+            <td>VaR limit, DV01, notional, stop-loss</td>
+            <td>Counterparty credit limit, PFE cap</td>
+            <td>KRI threshold, RCSA red rating cap</td>
+            <td>LCR floor (100%), survival horizon min</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- RISK REGISTER + 2026 MACRO RISKS -->
+    <div class="two-col" style="margin-top:1.5rem;">
+      <div class="panel">
+        <h3>Enterprise Risk Register — Top-Down &amp; Bottom-Up</h3>
+        <p style="font-size:13px;color:var(--gray2);margin-bottom:1rem;">An effective risk register is built from both directions simultaneously — Board-level strategic risks flowing down, and granular loss events and RCSA outputs flowing up. The two streams meet at the business unit level.</p>
+        <div style="display:flex;flex-direction:column;gap:0.5rem;">
+          <div style="background:rgba(0,212,255,0.06);border:1px solid var(--border2);border-radius:8px;padding:0.85rem;">
+            <div style="font-size:12px;font-weight:600;color:var(--cyan);margin-bottom:0.3rem;">Top-Down Stream (Board → Desk)</div>
+            <div style="font-size:12px;color:var(--gray2);">Board sets Risk Appetite Statement → CRO translates to risk limits → Desks operate within those limits. Strategic risks (geopolitical, regulatory change, ESG) are identified at Group level and cascaded.</div>
+          </div>
+          <div style="background:rgba(0,230,118,0.04);border:1px solid rgba(0,230,118,0.15);border-radius:8px;padding:0.85rem;">
+            <div style="font-size:12px;font-weight:600;color:var(--green);margin-bottom:0.3rem;">Bottom-Up Stream (Events → Escalation)</div>
+            <div style="font-size:12px;color:var(--gray2);">Loss events, near-misses, and KRI breaches reported by business units → RCSA assessment → Risk Committee escalation → Risk Register updated. Drives RCSA heatmap refresh and LDA recalibration.</div>
+          </div>
+          <div style="background:var(--bg3);border-radius:8px;padding:0.85rem;border-left:3px solid var(--amber);">
+            <div style="font-size:12px;font-weight:600;color:var(--amber);margin-bottom:0.3rem;">RCSA Heatmap: Inherent vs Residual Risk</div>
+            <div style="font-size:12px;color:var(--gray2);">Every risk is rated on a 5×5 Likelihood × Impact grid twice: (1) Inherent Risk — before any controls; (2) Residual Risk — after controls. The gap between them measures control effectiveness. Red residual risks require Board-level action plans.</div>
+          </div>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>2026 Macro Risk Watchlist</h3>
+        <p style="font-size:13px;color:var(--gray2);margin-bottom:1rem;">The most material cross-pillar risks on the enterprise radar for 2025–2026 — each driving new scenarios in stress testing, ICAAP/ILAAP, and Board risk reporting.</p>
+        <div style="display:flex;flex-direction:column;gap:0.45rem;">
+          <div style="background:var(--bg3);border-radius:8px;padding:0.75rem;display:flex;justify-content:space-between;align-items:flex-start;gap:0.5rem;"><div><div style="font-size:12px;font-weight:600;color:var(--white);">Geopolitical Fragmentation</div><div style="font-size:11px;color:var(--gray2);">Supply chain re-routing, sanctions proliferation, energy market rewiring (LNG molecular flow)</div></div><span class="badge badge-red" style="flex-shrink:0;">High</span></div>
+          <div style="background:var(--bg3);border-radius:8px;padding:0.75rem;display:flex;justify-content:space-between;align-items:flex-start;gap:0.5rem;"><div><div style="font-size:12px;font-weight:600;color:var(--white);">Rate Normalisation &amp; Credit Stress</div><div style="font-size:11px;color:var(--gray2);">Higher-for-longer rates; commercial real estate repricing; corporate credit cliff (2025–2026 maturities)</div></div><span class="badge badge-red" style="flex-shrink:0;">High</span></div>
+          <div style="background:var(--bg3);border-radius:8px;padding:0.75rem;display:flex;justify-content:space-between;align-items:flex-start;gap:0.5rem;"><div><div style="font-size:12px;font-weight:600;color:var(--white);">Climate &amp; Physical Risk</div><div style="font-size:11px;color:var(--gray2);">Extreme weather events driving commodity demand spikes; TCFD / CSRD disclosure stress tests</div></div><span class="badge badge-amber" style="flex-shrink:0;">Medium</span></div>
+          <div style="background:var(--bg3);border-radius:8px;padding:0.75rem;display:flex;justify-content:space-between;align-items:flex-start;gap:0.5rem;"><div><div style="font-size:12px;font-weight:600;color:var(--white);">Cyber &amp; Operational Resilience</div><div style="font-size:11px;color:var(--gray2);">State-sponsored attacks on critical infrastructure; DORA (EU) and new BoE resilience rules live 2025</div></div><span class="badge badge-amber" style="flex-shrink:0;">Medium</span></div>
+          <div style="background:var(--bg3);border-radius:8px;padding:0.75rem;display:flex;justify-content:space-between;align-items:flex-start;gap:0.5rem;"><div><div style="font-size:12px;font-weight:600;color:var(--white);">AI / Model Risk</div><div style="font-size:11px;color:var(--gray2);">Increasing use of ML in trading and credit scoring; SR 11-7 / EBA model risk guidelines under pressure</div></div><span class="badge badge-cyan" style="flex-shrink:0;">Emerging</span></div>
+          <div style="background:var(--bg3);border-radius:8px;padding:0.75rem;display:flex;justify-content:space-between;align-items:flex-start;gap:0.5rem;"><div><div style="font-size:12px;font-weight:600;color:var(--white);">LNG Supply Wave (2025–2028)</div><div style="font-size:11px;color:var(--gray2);">&gt;120 MT new liquefaction capacity commissioning; demand-supply balance highly uncertain</div></div><span class="badge badge-cyan" style="flex-shrink:0;">Emerging</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- ═══════════════ MARKET RISK PAGE ═══════════════ -->
@@ -523,7 +628,6 @@ table.data-table tr:last-child td{border-bottom:none;}
     <h3>Value at Risk (VaR) — Key Methodologies</h3>
     <div class="two-col">
       <div>
-        <div class="formula-box">VaR(α,T) = μ − z_α · σ · √T</div>
         <table class="data-table">
           <tr><th>Method</th><th>Approach</th><th>Pros / Cons</th></tr>
           <tr><td>Historical Sim</td><td>Re-price portfolio over 250 past days</td><td>No distribution assumption / lags structural breaks</td></tr>
@@ -551,6 +655,96 @@ table.data-table tr:last-child td{border-bottom:none;}
     <h3>Stress Test Scenarios — P&amp;L Impact ($M)</h3>
     <div class="chart-container" style="height:260px;">
       <canvas id="stressChart" role="img" aria-label="Stress test bar chart showing P&L impact across multiple shock scenarios">Stress test data: 2008 Crisis -12.4M, COVID Mar 2020 -8.9M, Energy Crisis 2022 -6.2M, Rate Shock +300bps -4.1M, FX EM Crash -3.8M, Equity Correction -5.5M</canvas>
+    </div>
+  </div>
+
+  <!-- COHERENT RISK MEASURES + EVT -->
+  <div class="two-col" style="margin-top:1.5rem;">
+    <div class="panel">
+      <h3>Coherent Risk Measures — Why ES Replaced VaR</h3>
+      <p style="font-size:13px;color:var(--gray2);margin-bottom:1rem;">VaR has a critical flaw: it can show a <em>higher</em> number for a diversified portfolio than the sum of its parts — penalising diversification. Expected Shortfall (ES) fixes this by averaging all losses beyond the VaR threshold, not just counting whether the threshold was breached. Basel FRTB now mandates ES at 97.5% confidence over VaR at 99%.</p>
+      <table class="data-table">
+        <tr><th>Coherence Property</th><th>VaR</th><th>ES (CVaR)</th></tr>
+        <tr><td>Sub-additive (diversification reward)</td><td><span class="badge badge-red">Fails</span></td><td><span class="badge badge-green">Passes</span></td></tr>
+        <tr><td>Monotone (more loss = more risk)</td><td><span class="badge badge-green">Passes</span></td><td><span class="badge badge-green">Passes</span></td></tr>
+        <tr><td>Positive homogeneous</td><td><span class="badge badge-green">Passes</span></td><td><span class="badge badge-green">Passes</span></td></tr>
+        <tr><td>Translation invariant</td><td><span class="badge badge-green">Passes</span></td><td><span class="badge badge-green">Passes</span></td></tr>
+        <tr><td>Captures tail beyond threshold</td><td><span class="badge badge-red">No</span></td><td><span class="badge badge-green">Yes</span></td></tr>
+        <tr><td>Basel FRTB requirement</td><td><span class="badge badge-amber">Legacy</span></td><td><span class="badge badge-cyan">Mandated</span></td></tr>
+      </table>
+    </div>
+    <div class="panel">
+      <h3>Extreme Value Theory (EVT) — Modelling the Far Tail</h3>
+      <p style="font-size:13px;color:var(--gray2);margin-bottom:1rem;">When energy shocks or financial crises dominate risk, EVT provides a statistically rigorous framework for the far tail beyond observed data — where standard normal-distribution models dramatically underestimate.</p>
+      <div style="display:flex;flex-direction:column;gap:0.75rem;">
+        <div style="background:var(--bg3);border-radius:8px;padding:1rem;border-left:3px solid var(--cyan);">
+          <div style="font-size:12px;font-weight:600;color:var(--cyan);margin-bottom:0.3rem;">Block Maxima Approach</div>
+          <div style="font-size:12px;color:var(--gray2);">Takes the single worst loss in each time block (e.g. worst week in each month). Fits a heavy-tailed distribution to those maximums. Best for annual capital tail estimates where you care about the single catastrophic event per period.</div>
+        </div>
+        <div style="background:var(--bg3);border-radius:8px;padding:1rem;border-left:3px solid var(--amber);">
+          <div style="font-size:12px;font-weight:600;color:var(--amber);margin-bottom:0.3rem;">Peaks Over Threshold Approach</div>
+          <div style="font-size:12px;color:var(--gray2);">Uses every loss above a high threshold — not just the single worst. More data-efficient and the preferred approach in practice. The risk manager sets the threshold; the quant fits the tail distribution above it.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BACKTESTING + MODEL VALIDATION -->
+  <div class="panel">
+    <h3>Backtesting Framework — Basel Traffic Light System</h3>
+    <p style="font-size:13px;color:var(--gray2);margin-bottom:1rem;">Daily VaR predictions are compared against actual P&amp;L. Exception counts over the trailing 250-day window determine the zone, which drives the capital multiplier applied to the VaR-based capital charge.</p>
+    <div class="two-col">
+      <div>
+        <table class="data-table">
+          <tr><th>Zone</th><th>Exceptions / 250 days</th><th>Capital Multiplier</th><th>Action</th></tr>
+          <tr><td><span class="badge badge-green">Green</span></td><td>0 – 4</td><td>3.00×</td><td>No action required</td></tr>
+          <tr><td><span class="badge badge-amber">Amber</span></td><td>5 – 9</td><td>3.40 – 3.85×</td><td>Investigate model quality</td></tr>
+          <tr><td><span class="badge badge-red">Red</span></td><td>10+</td><td>4.00× (maximum)</td><td>Mandatory model review</td></tr>
+        </table>
+        <div style="margin-top:1rem;background:var(--bg3);border-radius:8px;padding:1rem;border-left:3px solid var(--cyan);">
+          <div style="font-size:12px;font-weight:600;color:var(--cyan);margin-bottom:0.4rem;">Statistical Test for Model Validity</div>
+          <div style="font-size:12px;color:var(--gray2);">The exception count over 250 days is tested to check whether it's statistically consistent with the model's confidence level. Two key errors matter: <strong style="color:var(--red);">Type I —</strong> declaring a good model broken (wastes capital). <strong style="color:var(--amber);">Type II —</strong> accepting a bad model that understates risk (the more dangerous regulatory failure).</div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:0.75rem;">Continuous Model Validation Loop</div>
+        <div style="display:flex;flex-direction:column;gap:0.5rem;">
+          <div style="background:var(--bg3);border-radius:8px;padding:0.85rem;border-left:3px solid var(--cyan);"><div style="font-size:12px;font-weight:600;color:var(--white);">1 · Conceptual Soundness</div><div style="font-size:12px;color:var(--gray2);">Model design, theory, assumptions reviewed by independent validators</div></div>
+          <div style="background:var(--bg3);border-radius:8px;padding:0.85rem;border-left:3px solid var(--cyan);"><div style="font-size:12px;font-weight:600;color:var(--white);">2 · Data Integrity</div><div style="font-size:12px;color:var(--gray2);">Input data quality, completeness, relevance to current market regime</div></div>
+          <div style="background:var(--bg3);border-radius:8px;padding:0.85rem;border-left:3px solid var(--cyan);"><div style="font-size:12px;font-weight:600;color:var(--white);">3 · Backtesting &amp; Exception Review</div><div style="font-size:12px;color:var(--gray2);">Zone classification, exception clustering analysis, P&amp;L attribution</div></div>
+          <div style="background:var(--bg3);border-radius:8px;padding:0.85rem;border-left:3px solid var(--cyan);"><div style="font-size:12px;font-weight:600;color:var(--white);">4 · Sensitivity &amp; Stress</div><div style="font-size:12px;color:var(--gray2);">Gamma risk, non-linear stress, parameter sensitivity analysis</div></div>
+          <div style="background:var(--bg3);border-radius:8px;padding:0.85rem;border-left:3px solid var(--cyan);"><div style="font-size:12px;font-weight:600;color:var(--white);">5 · Periodic Recalibration</div><div style="font-size:12px;color:var(--gray2);">Update volatility lookback, correlation matrices — minimum quarterly</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VAR MAPPING + PIT/TTC -->
+  <div class="panel">
+    <h3>VaR Mapping — Decomposition for Large Portfolios</h3>
+    <p style="font-size:13px;color:var(--gray2);margin-bottom:1rem;">Mapping converts complex positions into primitive risk factors — enabling VaR calculation via a manageable covariance matrix rather than full repricing of thousands of instruments.</p>
+    <div class="two-col">
+      <div>
+        <div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:0.75rem;">Fixed-Income Mapping (DV01-Based)</div>
+        <table class="data-table">
+          <tr><th>Approach</th><th>Risk Factor</th><th>Best For</th></tr>
+          <tr><td>Duration Mapping</td><td>Modified duration × position size</td><td>Simple bond portfolios</td></tr>
+          <tr><td>Cash Flow Mapping</td><td>Allocate coupons to tenor buckets (1M → 30Y)</td><td>Coupon bonds, mortgages</td></tr>
+          <tr><td>Principal Mapping</td><td>Map to par at maturity bucket only</td><td>Zero-coupon equivalents</td></tr>
+          <tr><td>DV01 Bucketing</td><td>Sensitivity per 1bp at each tenor vertex</td><td>Swaps, swaptions, IRS books</td></tr>
+        </table>
+      </div>
+      <div>
+        <div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:0.75rem;">Point-In-Time (PIT) vs Through-The-Cycle (TTC)</div>
+        <table class="data-table">
+          <tr><th>Approach</th><th>Characteristics</th><th>Application</th></tr>
+          <tr><td><span class="badge badge-cyan">PIT</span></td><td>Reflects current conditions; highly cyclical; sharp moves with market</td><td>Market VaR, trading book, stress testing, IFRS 9 ECL</td></tr>
+          <tr><td><span class="badge badge-amber">TTC</span></td><td>Smoothed through the cycle; stable; lags deterioration</td><td>Credit IRB ratings, ICAAP, strategic capital allocation</td></tr>
+        </table>
+        <div style="margin-top:0.75rem;background:var(--bg3);border-radius:8px;padding:0.85rem;font-size:12px;color:var(--gray2);">
+          <span style="color:var(--cyan);font-weight:600;">PIT–TTC Blending:</span> In practice most firms blend both — PIT sensitivities for short-horizon trading risk, TTC for regulatory capital stability. IFRS 9 explicitly requires PIT parameters for all three ECL staging thresholds.
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -617,6 +811,87 @@ table.data-table tr:last-child td{border-bottom:none;}
       </div>
     </div>
   </div>
+
+  <!-- PD ASSESSMENT METHODS -->
+  <div class="panel" style="margin-top:1.5rem;">
+    <h3>Estimating Probability of Default (PD) — How Risk Managers Do It</h3>
+    <p style="font-size:13px;color:var(--gray2);margin-bottom:1rem;">PD can be estimated from three sources: internal ratings (historical default rates by grade), market signals (CDS spreads, equity-implied distance-to-default), and structural models that infer asset health from observable equity data. Risk managers typically triangulate all three before setting a credit limit.</p>
+    <div class="two-col">
+      <div>
+        <table class="data-table">
+          <tr><th>Approach</th><th>Data Source</th><th>Best For</th></tr>
+          <tr><td>Internal Rating</td><td>Historical PD by rating grade (S&amp;P/Moody's or internal scorecard)</td><td>IRB capital, credit limits, IFRS 9 staging</td></tr>
+          <tr><td>CDS-Implied PD</td><td>CDS spread ÷ LGD → real-time market PD estimate</td><td>Liquid counterparties, trading book CCR</td></tr>
+          <tr><td>Equity-Implied (Structural)</td><td>Distance-to-Default — derived from equity price and volatility</td><td>Forward-looking EWI for credit deterioration</td></tr>
+          <tr><td>Accounting-Based</td><td>Altman Z-score, leverage ratios, interest coverage</td><td>Private companies without market data</td></tr>
+        </table>
+        <div style="margin-top:0.75rem;background:var(--bg3);border-radius:8px;padding:0.85rem;font-size:12px;color:var(--gray2);">
+          <span style="color:var(--cyan);font-weight:600;">CDS Market Signal:</span> A 200bps CDS spread with 40% LGD implies roughly 5% annual PD. When CDS widens sharply, the credit limit review is triggered — no model needed.
+        </div>
+      </div>
+      <div>
+        <div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:0.75rem;">Distance-to-Default — Early Warning Zones</div>
+        <div style="display:flex;flex-direction:column;gap:0.6rem;">
+          <div style="background:rgba(0,230,118,0.05);border:1px solid rgba(0,230,118,0.2);border-radius:8px;padding:0.9rem;">
+            <div style="font-size:12px;font-weight:700;color:var(--green);margin-bottom:0.3rem;">DD &gt; 4σ — Low Risk</div>
+            <div style="font-size:12px;color:var(--gray2);">Asset value comfortably above debt. Implied PD typically &lt;0.1%. Investment-grade territory. Standard monitoring only.</div>
+          </div>
+          <div style="background:rgba(255,179,0,0.05);border:1px solid rgba(255,179,0,0.2);border-radius:8px;padding:0.9rem;">
+            <div style="font-size:12px;font-weight:700;color:var(--amber);margin-bottom:0.3rem;">DD 2–4σ — Elevated Watch</div>
+            <div style="font-size:12px;color:var(--gray2);">Approaching the danger zone. PD rising. CDS spreads typically widening. Trigger credit limit review and additional collateral monitoring.</div>
+          </div>
+          <div style="background:rgba(255,77,77,0.05);border:1px solid rgba(255,77,77,0.2);border-radius:8px;padding:0.9rem;">
+            <div style="font-size:12px;font-weight:700;color:var(--red);margin-bottom:0.3rem;">DD &lt; 2σ — Distress Zone</div>
+            <div style="font-size:12px;color:var(--gray2);">High default probability. CDS-implied PD typically &gt;5%. Immediate action: exposure reduction, collateral call, novation to a stronger counterparty.</div>
+          </div>
+          <div style="background:var(--bg3);border-radius:8px;padding:0.9rem;border-left:3px solid var(--cyan);">
+            <div style="font-size:12px;font-weight:700;color:var(--cyan);margin-bottom:0.3rem;">Rating Migration Matrix</div>
+            <div style="font-size:12px;color:var(--gray2);">Annual transition probabilities (e.g. AAA → AA: 8.3%, AAA → default: 0.0%) drive IFRS 9 Stage 2 triggers and credit VaR simulation. Calibrated to historical S&amp;P/Moody's data and recalibrated quarterly.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CVA/DVA + CREDIT VAR -->
+  <div class="two-col">
+    <div class="panel">
+      <h3>CVA / DVA — What Risk Managers Track</h3>
+      <p style="font-size:13px;color:var(--gray2);margin-bottom:1rem;">Credit Valuation Adjustment (CVA) is the mark-to-market cost of counterparty default risk embedded in a derivative — what you would charge (or discount) to account for the chance the counterparty doesn't pay. DVA is the mirror: own-credit adjustment from the counterparty's perspective. Both appear on the P&amp;L and in the daily risk report.</p>
+      <table class="data-table">
+        <tr><th>Metric</th><th>What It Measures</th><th>Where It Appears</th></tr>
+        <tr><td>Expected Exposure (EE)</td><td>Average amount we're owed at a future date across many price scenarios — the "most likely" exposure</td><td>CVA calculation, daily CCR report</td></tr>
+        <tr><td>Potential Future Exposure (PFE)</td><td>95th percentile of what we could be owed — the conservative credit limit number</td><td>Counterparty credit limits, ISDAs</td></tr>
+        <tr><td>Expected Positive Exposure (EPE)</td><td>Time-averaged EE across the full trade life — the key input to regulatory CCR capital</td><td>Basel SA-CCR capital charge</td></tr>
+        <tr><td>Net CVA</td><td>CVA minus DVA — the net P&amp;L adjustment for bilateral counterparty risk on the derivatives book</td><td>Daily P&amp;L, IFRS 13 fair value</td></tr>
+      </table>
+      <div style="margin-top:0.75rem;background:rgba(255,77,77,0.05);border:1px solid rgba(255,77,77,0.2);border-radius:8px;padding:0.85rem;font-size:12px;color:var(--gray2);">
+        <span style="color:var(--red);font-weight:600;">Wrong-Way Risk (WWR):</span> When counterparty PD is positively correlated with our exposure — e.g. buying CDS protection from a bank heavily exposed to the same reference entity. EE and PD spike together, causing standard CVA models to dramatically underestimate the true adjustment.
+      </div>
+    </div>
+    <div class="panel">
+      <h3>Credit VaR &amp; Economic Capital</h3>
+      <p style="font-size:13px;color:var(--gray2);margin-bottom:1rem;">Credit VaR is the worst-case credit loss at 99.9% confidence over one year — the capital a bank must hold above expected losses. Risk managers use it to set counterparty limits, allocate economic capital by business line, and run ICAAP stress scenarios.</p>
+      <table class="data-table">
+        <tr><th>Metric</th><th>What It Means</th><th>Used For</th></tr>
+        <tr><td>Unexpected Loss (UL)</td><td>The volatility of credit losses — losses that go beyond what was budgeted</td><td>Economic capital sizing</td></tr>
+        <tr><td>Credit VaR</td><td>Worst-case loss at 99.9% confidence minus expected loss (the "tail above the budget")</td><td>Basel III IRB capital</td></tr>
+        <tr><td>Asset Correlation</td><td>0.12–0.24 for corporates — how much a single borrower's default moves with the economy</td><td>Portfolio concentration charge</td></tr>
+        <tr><td>Concentration Risk</td><td>Large single-name or sector exposures relative to total portfolio — triggers add-on capital</td><td>Single-name &amp; sector limits</td></tr>
+        <tr><td>IFRS 9 Stage 2</td><td>Significant increase in PD since origination — moves provision from 12-month to lifetime ECL</td><td>Lifetime ECL trigger</td></tr>
+      </table>
+      <div style="margin-top:0.75rem;display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;">
+        <div style="background:rgba(0,212,255,0.06);border:1px solid var(--border2);border-radius:8px;padding:0.85rem;text-align:center;">
+          <div style="font-size:1.3rem;font-weight:700;font-family:var(--mono);color:var(--cyan);">99.9%</div>
+          <div style="font-size:11px;color:var(--gray2);">Basel IRB WCL Confidence</div>
+        </div>
+        <div style="background:rgba(255,179,0,0.06);border:1px solid rgba(255,179,0,0.2);border-radius:8px;padding:0.85rem;text-align:center;">
+          <div style="font-size:1.3rem;font-weight:700;font-family:var(--mono);color:var(--amber);">1 Year</div>
+          <div style="font-size:11px;color:var(--gray2);">Capital Horizon (IRB)</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- ═══════════════ OPERATIONAL RISK PAGE ═══════════════ -->
@@ -675,6 +950,128 @@ table.data-table tr:last-child td{border-bottom:none;}
       <div style="background:var(--bg3);border-radius:8px;padding:1rem;border-left:3px solid var(--green);"><div style="font-size:11px;color:var(--gray2);margin-bottom:0.4rem;">Mandatory Training Completion</div><div style="font-size:1.4rem;font-family:var(--mono);color:var(--green);font-weight:700;">94%</div><div style="font-size:11px;color:var(--green);">▼ Above 90% target</div></div>
     </div>
   </div>
+
+  <!-- LDA -->
+  <div class="panel" style="margin-top:1.5rem;">
+    <h3>Loss Distribution Approach (LDA) — Op Risk Capital Modelling</h3>
+    <p style="font-size:13px;color:var(--gray2);margin-bottom:1rem;">LDA separately models loss frequency and severity for each Basel business-line × event-type cell, then combines them via Monte Carlo convolution to produce an aggregate annual loss distribution. Capital = 99.9th percentile − Expected Loss.</p>
+    <div class="two-col">
+      <div>
+        <div style="display:flex;flex-direction:column;gap:0.6rem;">
+          <div style="background:var(--bg3);border-radius:8px;padding:0.85rem;border-left:3px solid var(--cyan);">
+            <div style="font-size:12px;font-weight:600;color:var(--cyan);">Step 1 — Frequency Model</div>
+            <div style="font-size:12px;color:var(--gray2);">How often do loss events occur? Fitted to the annual count of internal loss events per business line and event type. Clustering behaviour (e.g. trading errors spiking during volatile markets) requires a heavier-tailed frequency assumption.</div>
+          </div>
+          <div style="background:var(--bg3);border-radius:8px;padding:0.85rem;border-left:3px solid var(--amber);">
+            <div style="font-size:12px;font-weight:600;color:var(--amber);">Step 2 — Severity Model</div>
+            <div style="font-size:12px;color:var(--gray2);">How large is each individual loss? A right-skewed distribution fits most operational losses (many small, a few enormous). The far tail — covering catastrophic events like rogue trading — is calibrated using ORX external consortium loss data where internal history is insufficient.</div>
+          </div>
+          <div style="background:var(--bg3);border-radius:8px;padding:0.85rem;border-left:3px solid var(--green);">
+            <div style="font-size:12px;font-weight:600;color:var(--green);">Step 3 — Monte Carlo Simulation (10,000+ runs)</div>
+            <div style="font-size:12px;color:var(--gray2);">Randomly draw a number of events (from Step 1), then sum that many individual loss draws (from Step 2). Repeat 10,000 times to build the full annual aggregate loss distribution. Op Risk Capital = 99.9th percentile loss minus expected loss.</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:0.75rem;">Illustrative LDA Capital by Business Line</div>
+        <table class="data-table">
+          <tr><th>Business Line</th><th>Expected Loss</th><th>99.9% Capital</th></tr>
+          <tr><td>Trading &amp; Sales</td><td>$1.2M</td><td>$42M</td></tr>
+          <tr><td>Retail Banking</td><td>$0.8M</td><td>$28M</td></tr>
+          <tr><td>Asset Management</td><td>$0.4M</td><td>$15M</td></tr>
+          <tr><td>Agency Services</td><td>$0.3M</td><td>$11M</td></tr>
+          <tr><td><strong>Total (post-diversification)</strong></td><td><strong>$2.7M</strong></td><td><strong>$77M</strong></td></tr>
+        </table>
+        <div style="margin-top:0.75rem;background:var(--bg3);border-radius:8px;padding:0.85rem;font-size:12px;color:var(--gray2);">
+          <span style="color:var(--cyan);font-weight:600;">ORX Data Integration:</span> Internal loss history is typically insufficient to calibrate the tail. LDA supplements with ORX consortium external loss data and expert-elicited scenario analysis — critical for LFHS events like rogue trading or catastrophic system outages.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOW-TIE + FOUR T'S -->
+  <div class="two-col">
+    <div class="panel">
+      <h3>Bow-Tie Analysis &amp; Swiss Cheese Model</h3>
+      <p style="font-size:13px;color:var(--gray2);margin-bottom:1rem;">Bow-Tie maps the causal chain from threats (left) through a central hazard event to consequences (right), with preventive controls on the left and recovery controls on the right — visualising the full control architecture.</p>
+      <div style="background:var(--bg3);border-radius:8px;padding:1rem;text-align:center;margin-bottom:0.75rem;">
+        <div style="display:flex;align-items:center;justify-content:center;gap:0.5rem;font-size:12px;flex-wrap:wrap;">
+          <div style="text-align:right;flex:1;min-width:100px;">
+            <div style="color:var(--red);font-weight:600;margin-bottom:0.4rem;">Threats</div>
+            <div style="color:var(--gray2);font-size:11px;">Human error</div>
+            <div style="color:var(--gray2);font-size:11px;">System failure</div>
+            <div style="color:var(--gray2);font-size:11px;">External fraud</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:2px;">
+            <div style="font-size:10px;color:var(--green);">◄ Preventive</div>
+            <div style="width:40px;height:1px;background:var(--red);"></div>
+          </div>
+          <div style="background:var(--bg4);border:2px solid var(--cyan);border-radius:8px;padding:0.6rem 0.75rem;font-weight:700;color:var(--cyan);font-size:12px;flex-shrink:0;">HAZARD<br><span style="font-size:10px;color:var(--gray2);">Unauthorised<br>trade</span></div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:2px;">
+            <div style="font-size:10px;color:var(--cyan);">Recovery ►</div>
+            <div style="width:40px;height:1px;background:var(--amber);"></div>
+          </div>
+          <div style="text-align:left;flex:1;min-width:100px;">
+            <div style="color:var(--amber);font-weight:600;margin-bottom:0.4rem;">Consequences</div>
+            <div style="color:var(--gray2);font-size:11px;">Financial loss</div>
+            <div style="color:var(--gray2);font-size:11px;">Regulatory fine</div>
+            <div style="color:var(--gray2);font-size:11px;">Reputational damage</div>
+          </div>
+        </div>
+      </div>
+      <div style="background:var(--bg3);border-radius:8px;padding:0.85rem;font-size:12px;color:var(--gray2);">
+        <span style="color:var(--cyan);font-weight:600;">Swiss Cheese Model:</span> Each control layer (4-eyes, system limits, daily P&amp;L review) has latent "holes." Risk materialises only when holes in all layers align simultaneously. This is why control <em>depth</em> matters — a single strong control is not sufficient; you need overlapping layers.
+      </div>
+    </div>
+    <div class="panel">
+      <h3>Four T's of Risk Treatment</h3>
+      <p style="font-size:13px;color:var(--gray2);margin-bottom:1rem;">Every RCSA-identified risk must be assigned a treatment strategy. The choice depends on likelihood × impact vs. cost of control. No risk should sit unassigned in the register.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;">
+        <div style="background:rgba(0,212,255,0.06);border:1px solid var(--border2);border-radius:8px;padding:1rem;">
+          <div style="font-size:14px;font-weight:700;color:var(--cyan);margin-bottom:0.4rem;">Tolerate</div>
+          <div style="font-size:12px;color:var(--gray2);">Accept the risk. Within appetite and cost of control exceeds benefit. Monitor via KRI with agreed threshold.</div>
+          <div style="margin-top:0.4rem;font-size:11px;color:var(--gray3);">e.g. Low-frequency minor settlement fails within budget tolerance</div>
+        </div>
+        <div style="background:rgba(0,230,118,0.04);border:1px solid rgba(0,230,118,0.15);border-radius:8px;padding:1rem;">
+          <div style="font-size:14px;font-weight:700;color:var(--green);margin-bottom:0.4rem;">Treat</div>
+          <div style="font-size:12px;color:var(--gray2);">Implement controls to reduce likelihood or impact. Most common response for amber RCSA risks.</div>
+          <div style="margin-top:0.4rem;font-size:11px;color:var(--gray3);">e.g. Add dual-authorisation on trades &gt;$1M</div>
+        </div>
+        <div style="background:rgba(255,179,0,0.06);border:1px solid rgba(255,179,0,0.2);border-radius:8px;padding:1rem;">
+          <div style="font-size:14px;font-weight:700;color:var(--amber);margin-bottom:0.4rem;">Transfer</div>
+          <div style="font-size:12px;color:var(--gray2);">Shift risk to a third party via insurance, outsourcing, or contractual indemnity. Risk cost moves off-balance-sheet.</div>
+          <div style="margin-top:0.4rem;font-size:11px;color:var(--gray3);">e.g. Cyber insurance, D&amp;O liability cover</div>
+        </div>
+        <div style="background:rgba(255,77,77,0.05);border:1px solid rgba(255,77,77,0.2);border-radius:8px;padding:1rem;">
+          <div style="font-size:14px;font-weight:700;color:var(--red);margin-bottom:0.4rem;">Terminate</div>
+          <div style="font-size:12px;color:var(--gray2);">Exit the activity. Risk exceeds appetite and cannot be controlled cost-effectively. Board-level decision required.</div>
+          <div style="margin-top:0.4rem;font-size:11px;color:var(--gray3);">e.g. Withdraw from a sanctioned market or product</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPERATIONAL RESILIENCE -->
+  <div class="panel">
+    <h3>Operational Resilience Framework — 7-Step Cycle</h3>
+    <p style="font-size:13px;color:var(--gray2);margin-bottom:1rem;">Operational Resilience moves beyond preventing losses to ensuring critical business services can withstand, adapt to, and recover from severe but plausible disruptions — even when individual controls fail. Mandated by FCA/PRA (UK), DORA (EU), and OCC (US) from 2022–2025.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:0.6rem;margin-bottom:1rem;">
+      <div style="background:var(--bg3);border-radius:8px;padding:0.85rem;text-align:center;"><div style="font-size:1.2rem;font-weight:700;font-family:var(--mono);color:var(--cyan);margin-bottom:0.3rem;">01</div><div style="font-size:12px;font-weight:600;color:var(--white);">Identify Important Business Services</div><div style="font-size:11px;color:var(--gray2);margin-top:0.2rem;">Map services critical to customers and financial markets</div></div>
+      <div style="background:var(--bg3);border-radius:8px;padding:0.85rem;text-align:center;"><div style="font-size:1.2rem;font-weight:700;font-family:var(--mono);color:var(--cyan);margin-bottom:0.3rem;">02</div><div style="font-size:12px;font-weight:600;color:var(--white);">Set Impact Tolerances</div><div style="font-size:11px;color:var(--gray2);margin-top:0.2rem;">Maximum tolerable disruption time and severity per service</div></div>
+      <div style="background:var(--bg3);border-radius:8px;padding:0.85rem;text-align:center;"><div style="font-size:1.2rem;font-weight:700;font-family:var(--mono);color:var(--cyan);margin-bottom:0.3rem;">03</div><div style="font-size:12px;font-weight:600;color:var(--white);">Map Dependencies</div><div style="font-size:11px;color:var(--gray2);margin-top:0.2rem;">People, process, technology, data, third-party chains</div></div>
+      <div style="background:var(--bg3);border-radius:8px;padding:0.85rem;text-align:center;"><div style="font-size:1.2rem;font-weight:700;font-family:var(--mono);color:var(--cyan);margin-bottom:0.3rem;">04</div><div style="font-size:12px;font-weight:600;color:var(--white);">Identify Vulnerabilities</div><div style="font-size:11px;color:var(--gray2);margin-top:0.2rem;">Single points of failure exposed by the dependency map</div></div>
+      <div style="background:var(--bg3);border-radius:8px;padding:0.85rem;text-align:center;"><div style="font-size:1.2rem;font-weight:700;font-family:var(--mono);color:var(--cyan);margin-bottom:0.3rem;">05</div><div style="font-size:12px;font-weight:600;color:var(--white);">Scenario Testing</div><div style="font-size:11px;color:var(--gray2);margin-top:0.2rem;">Severe but plausible: cyber attack, pandemic, key vendor failure</div></div>
+      <div style="background:var(--bg3);border-radius:8px;padding:0.85rem;text-align:center;"><div style="font-size:1.2rem;font-weight:700;font-family:var(--mono);color:var(--cyan);margin-bottom:0.3rem;">06</div><div style="font-size:12px;font-weight:600;color:var(--white);">Lessons &amp; Investment</div><div style="font-size:11px;color:var(--gray2);margin-top:0.2rem;">Remediate gaps; track remediation spend and timeline</div></div>
+      <div style="background:var(--bg3);border-radius:8px;padding:0.85rem;text-align:center;"><div style="font-size:1.2rem;font-weight:700;font-family:var(--mono);color:var(--cyan);margin-bottom:0.3rem;">07</div><div style="font-size:12px;font-weight:600;color:var(--white);">Communicate &amp; Report</div><div style="font-size:11px;color:var(--gray2);margin-top:0.2rem;">Board, regulator, and customer communication plans</div></div>
+    </div>
+    <div style="background:var(--bg3);border-radius:8px;padding:1rem;border-left:3px solid var(--amber);font-size:12px;color:var(--gray2);">
+      <span style="color:var(--amber);font-weight:600;">Crisis Management — 4 Phases: </span>
+      <span style="color:var(--white);font-weight:600;">Response</span> (first 2 hours — contain the event, protect life and data) →
+      <span style="color:var(--white);font-weight:600;">Recovery</span> (hours to days — restore minimum viable service levels) →
+      <span style="color:var(--white);font-weight:600;">Resolution</span> (weeks — full restoration and root-cause fix) →
+      <span style="color:var(--white);font-weight:600;">Review</span> (post-incident — lessons learned, regulatory reporting, RCSA update)
+    </div>
+  </div>
 </div>
 
 <!-- ═══════════════ LIQUIDITY RISK PAGE ═══════════════ -->
@@ -726,6 +1123,112 @@ table.data-table tr:last-child td{border-bottom:none;}
       <canvas id="liquidityChart" role="img" aria-label="Stacked bar chart showing cumulative cash inflows and outflows over 1 to 90 days stress scenario">Liquidity ladder data showing inflows and outflows over 1, 7, 14, 30, 60, 90 day horizons</canvas>
     </div>
   </div>
+
+  <!-- TRADING VS FUNDING LIQUIDITY + LVAR -->
+  <div class="two-col" style="margin-top:1.5rem;">
+    <div class="panel">
+      <h3>Trading vs Funding Liquidity</h3>
+      <p style="font-size:13px;color:var(--gray2);margin-bottom:1rem;">Two distinct but interconnected dimensions — both must be managed separately, yet a crisis in one rapidly transmits to the other (Brunnermeier &amp; Pedersen "liquidity spiral").</p>
+      <table class="data-table">
+        <tr><th></th><th>Trading Liquidity</th><th>Funding Liquidity</th></tr>
+        <tr><td>Definition</td><td>Ability to buy/sell without materially moving market price</td><td>Ability to raise cash to meet obligations when due</td></tr>
+        <tr><td>Risk Driver</td><td>Bid-ask spread, market depth, position concentration</td><td>Wholesale funding withdrawal, margin calls, repo runs</td></tr>
+        <tr><td>Key Metric</td><td>Liquidity-adjusted VaR (LVaR), market impact cost</td><td>LCR, NSFR, survival horizon, LGC</td></tr>
+        <tr><td>Stress Event</td><td>Flash crash, credit crunch freeze (2008)</td><td>Bank run, prime broker withdrawal (LTCM, SVB 2023)</td></tr>
+        <tr><td>Management Tool</td><td>Position limits, exit strategy, market impact model</td><td>HQLA buffer, contingent credit lines, diversified funding</td></tr>
+      </table>
+    </div>
+    <div class="panel">
+      <h3>Liquidity-Adjusted VaR (LVaR)</h3>
+      <p style="font-size:13px;color:var(--gray2);margin-bottom:1rem;">Standard VaR assumes you can exit a position instantly at mid-market. That's rarely true for large or illiquid books. LVaR adjusts VaR upward to account for two real-world costs: the time it takes to unwind (scaling VaR by the square root of exit days) and the bid-ask spread paid on the way out.</p>
+      <table class="data-table">
+        <tr><th>What Drives LVaR Higher</th><th>Why It Matters</th></tr>
+        <tr><td>Longer exit horizon</td><td>A 10-day unwind window produces roughly 3× the 1-day VaR — market can move further against you</td></tr>
+        <tr><td>Wide bid-ask spread</td><td>Illiquid assets (structured credit, physical commodities) carry large spread cost on top of price risk</td></tr>
+        <tr><td>Large position relative to market depth</td><td>Selling a position that is 10% of daily market volume will move the price against you — market impact adds to VaR</td></tr>
+      </table>
+      <div style="margin-top:0.75rem;background:rgba(255,77,77,0.05);border:1px solid rgba(255,77,77,0.2);border-radius:8px;padding:0.85rem;font-size:12px;color:var(--gray2);">
+        <span style="color:var(--red);font-weight:600;">Example:</span> A $100M illiquid bond with a 50bps bid-ask spread and 5-day exit horizon adds $0.25M in liquidation cost on top of 1-day VaR — easily the dominant risk for low-volatility assets held in size.
+      </div>
+    </div>
+  </div>
+
+  <!-- EARLY WARNING INDICATORS + TREASURY STRATEGIES -->
+  <div class="two-col">
+    <div class="panel">
+      <h3>Early Warning Indicators (EWIs)</h3>
+      <p style="font-size:13px;color:var(--gray2);margin-bottom:1rem;">Forward-looking signals that alert Treasury and Risk before a crisis materialises — enabling pre-emptive action before LCR or NSFR breach. Monitored daily by the ALCO / Treasury function.</p>
+      <div style="display:flex;flex-direction:column;gap:0.45rem;">
+        <div style="background:var(--bg3);border-radius:8px;padding:0.7rem;display:flex;justify-content:space-between;align-items:center;"><div><div style="font-size:12px;font-weight:600;color:var(--white);">Own CDS Spread Widening &gt;50bps / 5 days</div><div style="font-size:11px;color:var(--gray2);">Market counterparties raising price of own-name protection</div></div><span class="badge badge-red">Critical</span></div>
+        <div style="background:var(--bg3);border-radius:8px;padding:0.7rem;display:flex;justify-content:space-between;align-items:center;"><div><div style="font-size:12px;font-weight:600;color:var(--white);">Repo Haircuts Widening / Availability Dropping</div><div style="font-size:11px;color:var(--gray2);">Secured funding market signalling collateral stress</div></div><span class="badge badge-red">Critical</span></div>
+        <div style="background:var(--bg3);border-radius:8px;padding:0.7rem;display:flex;justify-content:space-between;align-items:center;"><div><div style="font-size:12px;font-weight:600;color:var(--white);">LCR Trending Below 115%</div><div style="font-size:11px;color:var(--gray2);">Approaching the 100% regulatory floor — 15pp buffer only</div></div><span class="badge badge-amber">Warning</span></div>
+        <div style="background:var(--bg3);border-radius:8px;padding:0.7rem;display:flex;justify-content:space-between;align-items:center;"><div><div style="font-size:12px;font-weight:600;color:var(--white);">Wholesale Funding Rollover Rate &lt;80%</div><div style="font-size:11px;color:var(--gray2);">CP / CD renewal difficulty signals institutional nervousness</div></div><span class="badge badge-amber">Warning</span></div>
+        <div style="background:var(--bg3);border-radius:8px;padding:0.7rem;display:flex;justify-content:space-between;align-items:center;"><div><div style="font-size:12px;font-weight:600;color:var(--white);">Intraday Overdraft Frequency Rising</div><div style="font-size:11px;color:var(--gray2);">Late-day settlement borrowing increasing in TARGET2/CHAPS</div></div><span class="badge badge-amber">Warning</span></div>
+        <div style="background:var(--bg3);border-radius:8px;padding:0.7rem;display:flex;justify-content:space-between;align-items:center;"><div><div style="font-size:12px;font-weight:600;color:var(--white);">Equity Price Fall &gt;20% / Credit Rating Watch</div><div style="font-size:11px;color:var(--gray2);">Market confidence deteriorating; monitor deposit outflow velocity</div></div><span class="badge badge-green">Monitor</span></div>
+      </div>
+    </div>
+    <div class="panel">
+      <h3>Treasury Portfolio Strategies</h3>
+      <p style="font-size:13px;color:var(--gray2);margin-bottom:1rem;">Treasury manages the HQLA buffer and ALM book using three core duration strategies — chosen based on the interest rate outlook and the firm's specific liquidity horizon requirements.</p>
+      <div style="display:flex;flex-direction:column;gap:0.75rem;">
+        <div style="background:rgba(0,212,255,0.06);border:1px solid var(--border2);border-radius:8px;padding:1rem;">
+          <div style="font-size:13px;font-weight:700;color:var(--cyan);margin-bottom:0.4rem;">Ladder Strategy</div>
+          <div style="font-size:12px;color:var(--gray2);">Equal allocation across all maturities. Maturing assets automatically reinvested at current rates. Simultaneously reduces reinvestment risk and liquidity risk. Lowest management overhead. Optimal in stable rate environments.</div>
+        </div>
+        <div style="background:rgba(255,179,0,0.06);border:1px solid rgba(255,179,0,0.2);border-radius:8px;padding:1rem;">
+          <div style="font-size:13px;font-weight:700;color:var(--amber);margin-bottom:0.4rem;">Barbell Strategy</div>
+          <div style="font-size:12px;color:var(--gray2);">Concentrated at very short (liquidity) and very long (yield) maturities — nothing in the middle. High convexity benefits, better yield than ladder. Requires active rebalancing as yield curve shifts.</div>
+        </div>
+        <div style="background:rgba(0,230,118,0.04);border:1px solid rgba(0,230,118,0.15);border-radius:8px;padding:1rem;">
+          <div style="font-size:13px;font-weight:700;color:var(--green);margin-bottom:0.4rem;">Carry Strategy</div>
+          <div style="font-size:12px;color:var(--gray2);">Borrow short, invest long — earning the yield spread (positive carry). Maximises net interest income but creates funding gap. Requires a robust Contingency Funding Plan (CFP). Risky in inverted yield curves (2022–2023).</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TSECF + CASH FLOW MAPPING -->
+  <div class="panel">
+    <h3>Time-Staged Expected Cash Flow (TSECF) Framework</h3>
+    <p style="font-size:13px;color:var(--gray2);margin-bottom:1rem;">TSECF maps all contractual and behavioural cash flows across time buckets under base case and stress scenarios, revealing the precise timing and size of funding gaps — the foundation of the Contingency Funding Plan (CFP).</p>
+    <div class="two-col">
+      <div>
+        <table class="data-table">
+          <tr><th>Time Bucket</th><th>Inflows ($M)</th><th>Outflows ($M)</th><th>Net Position</th><th>Status</th></tr>
+          <tr><td>Overnight</td><td>$420</td><td>-$380</td><td style="color:var(--green);font-family:var(--mono);">+$40</td><td><span class="badge badge-green">Surplus</span></td></tr>
+          <tr><td>2–7 days</td><td>$680</td><td>-$720</td><td style="color:var(--red);font-family:var(--mono);">-$40</td><td><span class="badge badge-amber">Gap</span></td></tr>
+          <tr><td>8–14 days</td><td>$850</td><td>-$900</td><td style="color:var(--red);font-family:var(--mono);">-$50</td><td><span class="badge badge-amber">Gap</span></td></tr>
+          <tr><td>15–30 days</td><td>$1,200</td><td>-$1,100</td><td style="color:var(--green);font-family:var(--mono);">+$100</td><td><span class="badge badge-green">Surplus</span></td></tr>
+          <tr><td>31–90 days</td><td>$2,400</td><td>-$2,100</td><td style="color:var(--green);font-family:var(--mono);">+$300</td><td><span class="badge badge-green">Surplus</span></td></tr>
+          <tr><td>&gt;90 days</td><td>$4,800</td><td>-$4,100</td><td style="color:var(--green);font-family:var(--mono);">+$700</td><td><span class="badge badge-green">Surplus</span></td></tr>
+        </table>
+      </div>
+      <div>
+        <div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:0.75rem;">Cash Flow Mapping — 2×2 Matrix</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-bottom:0.75rem;">
+          <div style="background:rgba(0,230,118,0.06);border:1px solid rgba(0,230,118,0.2);border-radius:6px;padding:0.85rem;">
+            <div style="font-size:11px;font-weight:600;color:var(--green);margin-bottom:0.3rem;">Contractual + Certain</div>
+            <div style="font-size:11px;color:var(--gray2);">Loan repayments, bond coupons, fixed-rate term deposits</div>
+          </div>
+          <div style="background:rgba(255,179,0,0.05);border:1px solid rgba(255,179,0,0.2);border-radius:6px;padding:0.85rem;">
+            <div style="font-size:11px;font-weight:600;color:var(--amber);margin-bottom:0.3rem;">Contractual + Uncertain</div>
+            <div style="font-size:11px;color:var(--gray2);">Committed credit lines, credit card limits, callable deposits</div>
+          </div>
+          <div style="background:rgba(255,179,0,0.05);border:1px solid rgba(255,179,0,0.2);border-radius:6px;padding:0.85rem;">
+            <div style="font-size:11px;font-weight:600;color:var(--amber);margin-bottom:0.3rem;">Behavioural + Certain</div>
+            <div style="font-size:11px;color:var(--gray2);">Non-maturity deposits (NMDs) — core retail balances with modelled stability</div>
+          </div>
+          <div style="background:rgba(255,77,77,0.05);border:1px solid rgba(255,77,77,0.2);border-radius:6px;padding:0.85rem;">
+            <div style="font-size:11px;font-weight:600;color:var(--red);margin-bottom:0.3rem;">Behavioural + Uncertain</div>
+            <div style="font-size:11px;color:var(--gray2);">Retail outflows under stress, intraday peaks, OBS commitment draws</div>
+          </div>
+        </div>
+        <div style="background:var(--bg3);border-radius:8px;padding:0.85rem;font-size:12px;color:var(--gray2);">
+          <span style="color:var(--cyan);font-weight:600;">Liquidity Gap Cascade (LGC):</span> Gaps in near-term buckets (2–14 days in the example above) must be covered by HQLA liquidation. If HQLA is insufficient at any bucket, the cascade triggers the CFP — drawing pre-arranged repo lines, central bank standing facilities, or committed revolvers.
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- ═══════════════ TRADE EXAMPLES PAGE ═══════════════ -->
@@ -733,6 +1236,38 @@ table.data-table tr:last-child td{border-bottom:none;}
   <div class="section-header"><div class="section-line"></div><div class="section-tag">Structured Hedge Examples</div><div class="section-line"></div></div>
   <h2 class="section-title">Commodity Hedge Strategies — Multi-Instrument Examples</h2>
   <p class="section-sub">Real-world hedging scenarios across plain vanilla futures &amp; forwards, options &amp; swaps for complex deals, and dynamic strategies for ongoing commodity trading operations — with backtested data showing how each approach reduces risk.</p>
+
+  <!-- 2025 LNG MARKET CONTEXT -->
+  <div class="panel" style="border-color:var(--border2);background:linear-gradient(135deg,var(--bg2),var(--bg3));">
+    <h3 style="color:var(--cyan);">2025 Global LNG Market — Context for the Trade Examples Below</h3>
+    <p style="font-size:13px;color:var(--gray2);margin-bottom:1.25rem;">The LNG hedging examples on this page sit within a market undergoing structural upheaval. 2024 saw flat global volumes (+1% to 406 MT) but a massive internal rewiring of trade flows — the basis risk, price dynamics, and hedging challenges that define the examples below are a direct product of this "Era of Permanent Agility."</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0.75rem;margin-bottom:1.25rem;">
+      <div style="background:var(--bg4);border-radius:8px;padding:1rem;text-align:center;"><div style="font-size:1.5rem;font-weight:700;font-family:var(--mono);color:var(--cyan);">406 MT</div><div style="font-size:11px;color:var(--gray2);margin-top:0.2rem;">2024 Global LNG Trade (+1% YoY)</div></div>
+      <div style="background:var(--bg4);border-radius:8px;padding:1rem;text-align:center;"><div style="font-size:1.5rem;font-weight:700;font-family:var(--mono);color:var(--red);">−24 MT</div><div style="font-size:11px;color:var(--gray2);margin-top:0.2rem;">Europe demand (-19%) — renewables &amp; demand destruction</div></div>
+      <div style="background:var(--bg4);border-radius:8px;padding:1rem;text-align:center;"><div style="font-size:1.5rem;font-weight:700;font-family:var(--mono);color:var(--green);">+21 MT</div><div style="font-size:11px;color:var(--gray2);margin-top:0.2rem;">Asia imports (+8%) — China 78.7 MT, India 27.0 MT</div></div>
+      <div style="background:var(--bg4);border-radius:8px;padding:1rem;text-align:center;"><div style="font-size:1.5rem;font-weight:700;font-family:var(--mono);color:var(--amber);">85.4 MT</div><div style="font-size:11px;color:var(--gray2);margin-top:0.2rem;">US exports (No.1 exporter) — Europe the top buyer</div></div>
+      <div style="background:var(--bg4);border-radius:8px;padding:1rem;text-align:center;"><div style="font-size:1.5rem;font-weight:700;font-family:var(--mono);color:var(--amber);">30%</div><div style="font-size:11px;color:var(--gray2);margin-top:0.2rem;">Spot market share — rising price volatility for unhedged buyers</div></div>
+      <div style="background:var(--bg4);border-radius:8px;padding:1rem;text-align:center;"><div style="font-size:1.5rem;font-weight:700;font-family:var(--mono);color:var(--cyan);">492 MTPA</div><div style="font-size:11px;color:var(--gray2);margin-top:0.2rem;">Global liquefaction capacity across 22 exporting countries</div></div>
+    </div>
+    <div class="two-col">
+      <div>
+        <div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:0.6rem;">The Great Molecular Redirection</div>
+        <div style="display:flex;flex-direction:column;gap:0.4rem;">
+          <div style="background:var(--bg4);border-radius:6px;padding:0.6rem 0.85rem;font-size:12px;color:var(--gray2);"><span style="color:var(--cyan);font-weight:600;">US Pivot:</span> 45 MT still to Europe, but 34% now flowing to Asia-Pacific chasing higher JKM premiums — increasing TTF/JKM basis risk for European hedgers</div>
+          <div style="background:var(--bg4);border-radius:6px;padding:0.6rem 0.85rem;font-size:12px;color:var(--gray2);"><span style="color:var(--amber);font-weight:600;">Qatar Pivot:</span> 81% of exports stayed in Asia (vs 71% in 2023) — cementing Asia as the foundational baseload consumer</div>
+          <div style="background:var(--bg4);border-radius:6px;padding:0.6rem 0.85rem;font-size:12px;color:var(--gray2);"><span style="color:var(--red);font-weight:600;">Egypt Exit:</span> Volumes slashed 78% — removed from reliable supply side; now a net importer due to surging domestic demand</div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:0.6rem;">Supply Wave 2025–2028 — Key Risk for Hedgers</div>
+        <div style="display:flex;flex-direction:column;gap:0.4rem;">
+          <div style="background:var(--bg4);border-radius:6px;padding:0.6rem 0.85rem;font-size:12px;color:var(--gray2);"><span style="color:var(--cyan);font-weight:600;">US 2026:</span> &gt;71 MT new capacity commissioning (Plaquemines, Corpus Christi Stage 3) — long-dated forward curve implications for 3–5Y hedges</div>
+          <div style="background:var(--bg4);border-radius:6px;padding:0.6rem 0.85rem;font-size:12px;color:var(--gray2);"><span style="color:var(--amber);font-weight:600;">Qatar 2027:</span> 33 MT via North Field expansion — new long-term SPAs reducing spot availability</div>
+          <div style="background:var(--bg4);border-radius:6px;padding:0.6rem 0.85rem;font-size:12px;color:var(--gray2);"><span style="color:var(--green);font-weight:600;">Shipping Risk:</span> Fleet spot rates crashed $97K/day (2023) → $42K/day (2024). 348 vessels on order — freight cost uncertainty is a growing unhedged exposure for FOB buyers</div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="tabs-inner">
     <button class="tab-btn active" onclick="showTradeTab('all',this)">All</button>
