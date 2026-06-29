@@ -31,7 +31,7 @@
 body{background:var(--bg);color:var(--white);font-family:var(--font);font-size:15px;line-height:1.6;min-height:100vh;}
 
 /* ── TICKER ── */
-.ticker-wrap{background:var(--bg2);border-bottom:1px solid var(--border);height:36px;overflow:hidden;position:relative;}
+.ticker-wrap{background:var(--bg2);border-bottom:1px solid var(--border);height:36px;overflow:hidden;position:sticky;top:60px;z-index:99;}
 .ticker-wrap::before,.ticker-wrap::after{content:'';position:absolute;top:0;width:80px;height:100%;z-index:2;}
 .ticker-wrap::before{left:0;background:linear-gradient(to right,var(--bg2),transparent);}
 .ticker-wrap::after{right:0;background:linear-gradient(to left,var(--bg2),transparent);}
@@ -212,13 +212,6 @@ table.data-table tr:last-child td{border-bottom:none;}
 </head>
 <body>
 
-<!-- TICKER -->
-<div class="ticker-wrap">
-  <div class="ticker" id="ticker">
-    <span class="tick-item" style="color:var(--gray2);font-size:12px;font-family:var(--mono);">⟳ Loading live markets…</span>
-  </div>
-</div>
-
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
@@ -240,6 +233,13 @@ table.data-table tr:last-child td{border-bottom:none;}
   </div>
 </nav>
 
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker" id="ticker">
+    <span class="tick-item" style="color:var(--gray2);font-size:12px;font-family:var(--mono);">⟳ Loading live markets…</span>
+  </div>
+</div>
+
 <!-- ═══════════════ HOME PAGE ═══════════════ -->
 <div class="page active" id="page-home">
   <div class="hero">
@@ -256,7 +256,7 @@ table.data-table tr:last-child td{border-bottom:none;}
     <div class="stat-row">
       <div class="stat-card"><div class="stat-val">4</div><div class="stat-label">Risk Domains</div></div>
       <div class="stat-card"><div class="stat-val">12+</div><div class="stat-label">Risk Metrics Covered</div></div>
-      <div class="stat-card"><div class="stat-val">8</div><div class="stat-label">Backtested Trade Examples</div></div>
+      <div class="stat-card"><div class="stat-val">6</div><div class="stat-label">Backtested Hedge Examples</div></div>
       <div class="stat-card"><div class="stat-val">Basel IV</div><div class="stat-label">Regulatory Framework</div></div>
       <div class="stat-card"><div class="stat-val">360°</div><div class="stat-label">Risk View</div></div>
     </div>
@@ -730,37 +730,36 @@ table.data-table tr:last-child td{border-bottom:none;}
 
 <!-- ═══════════════ TRADE EXAMPLES PAGE ═══════════════ -->
 <div class="page" id="page-trades">
-  <div class="section-header"><div class="section-line"></div><div class="section-tag">Live &amp; Backtested Trade Examples</div><div class="section-line"></div></div>
-  <h2 class="section-title">Hedge Effectiveness — Multi-Asset Examples</h2>
-  <p class="section-sub">Real-world hedging scenarios with backtested data showing how different hedge instruments reduce portfolio risk across commodities, FX, rates, and equities.</p>
+  <div class="section-header"><div class="section-line"></div><div class="section-tag">Structured Hedge Examples</div><div class="section-line"></div></div>
+  <h2 class="section-title">Commodity Hedge Strategies — Multi-Instrument Examples</h2>
+  <p class="section-sub">Real-world hedging scenarios across plain vanilla futures &amp; forwards, options &amp; swaps for complex deals, and dynamic strategies for ongoing commodity trading operations — with backtested data showing how each approach reduces risk.</p>
 
   <div class="tabs-inner">
     <button class="tab-btn active" onclick="showTradeTab('all',this)">All</button>
-    <button class="tab-btn" onclick="showTradeTab('energy',this)">Energy</button>
-    <button class="tab-btn" onclick="showTradeTab('fx',this)">FX</button>
-    <button class="tab-btn" onclick="showTradeTab('rates',this)">Interest Rates</button>
-    <button class="tab-btn" onclick="showTradeTab('equity',this)">Equity</button>
+    <button class="tab-btn" onclick="showTradeTab('vanilla',this)">Plain Vanilla</button>
+    <button class="tab-btn" onclick="showTradeTab('complex',this)">Options &amp; Swaps</button>
+    <button class="tab-btn" onclick="showTradeTab('dynamic',this)">Dynamic Strategy</button>
   </div>
 
-  <!-- TRADE 1 -->
-  <div class="trade-card" data-cat="energy">
+  <!-- VANILLA 1: Airline Jet Fuel — Short Brent Futures -->
+  <div class="trade-card" data-cat="vanilla">
     <div class="trade-header">
-      <div><div class="trade-title">Crude Oil Long Exposure — ICE Brent Futures Hedge</div><div style="font-size:12px;color:var(--gray2);margin-top:0.2rem;">Scenario: Airline with 10,000 MT/month jet fuel exposure | Backtest period: Jan 2022 – Dec 2022</div></div>
-      <div class="trade-meta"><span class="badge badge-cyan">Energy</span><span class="badge badge-amber">Commodity</span></div>
+      <div><div class="trade-title">Airline Jet Fuel — Short ICE Brent Futures Hedge</div><div style="font-size:12px;color:var(--gray2);margin-top:0.2rem;">Scenario: Airline with 10,000 MT/month jet fuel exposure | Backtest: Jan–Dec 2022 (Russia-Ukraine shock)</div></div>
+      <div class="trade-meta"><span class="badge badge-cyan">Plain Vanilla</span><span class="badge badge-amber">Futures</span></div>
     </div>
     <div class="trade-scenario">
       <div class="scenario-box scenario-unhedged">
         <div class="scenario-label">Unhedged</div>
         <div class="scenario-val">-$28.4M</div>
-        <div class="scenario-desc">Brent rose from $78 → $123/bbl (Russia-Ukraine). Full fuel cost exposure. VaR: $4.2M/day.</div>
+        <div class="scenario-desc">Brent rose $78 → $123/bbl. Full fuel cost exposure on 10,000 MT/month. VaR: $4.2M/day.</div>
       </div>
       <div class="scenario-box scenario-hedged">
-        <div class="scenario-label">Hedged — Short Brent Futures (80% ratio)</div>
+        <div class="scenario-label">Hedged — Short Brent Futures (80% ratio, 3M rolling)</div>
         <div class="scenario-val">-$5.7M</div>
-        <div class="scenario-desc">80% of volume hedged via ICE Brent futures 3-months forward. Residual basis risk only. VaR: $0.9M/day.</div>
+        <div class="scenario-desc">80% of volume hedged via 3-month ICE Brent futures. Residual = basis risk only. VaR reduced to $0.9M/day.</div>
       </div>
     </div>
-    <div class="chart-container" style="height:200px;"><canvas id="tradeChart1" role="img" aria-label="Line chart showing crude oil price movement vs hedged vs unhedged P&L 2022">Crude oil hedge backtest 2022</canvas></div>
+    <div class="chart-container" style="height:200px;"><canvas id="tradeChart1" role="img" aria-label="Crude oil unhedged vs hedged cumulative P&L 2022">Crude oil hedge backtest 2022</canvas></div>
     <div class="metrics-grid">
       <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">78.4%</div><div class="metric-label">Hedge Effectiveness</div></div>
       <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">-0.82</div><div class="metric-label">Correlation (Hedge)</div></div>
@@ -769,87 +768,139 @@ table.data-table tr:last-child td{border-bottom:none;}
     </div>
   </div>
 
-  <!-- TRADE 2 -->
-  <div class="trade-card" data-cat="fx">
+  <!-- VANILLA 2: LNG Offtaker — TTF Gas Forward -->
+  <div class="trade-card" data-cat="vanilla">
     <div class="trade-header">
-      <div><div class="trade-title">USD/INR Forward Hedge — Exporter Receivables</div><div style="font-size:12px;color:var(--gray2);margin-top:0.2rem;">Scenario: Indian IT firm with $50M USD quarterly receivables | Backtest: FY2023–24</div></div>
-      <div class="trade-meta"><span class="badge badge-cyan">FX</span><span class="badge badge-green">Currency</span></div>
+      <div><div class="trade-title">LNG Offtaker — TTF-Linked Gas Forward Hedge</div><div style="font-size:12px;color:var(--gray2);margin-top:0.2rem;">Scenario: Industrial gas buyer, 50 TJ/month floating JKM exposure | Backtest: Q3–Q4 2021 supply crunch</div></div>
+      <div class="trade-meta"><span class="badge badge-cyan">Plain Vanilla</span><span class="badge badge-amber">Forward</span></div>
+    </div>
+    <div class="trade-scenario">
+      <div class="scenario-box scenario-unhedged">
+        <div class="scenario-label">Unhedged — Floating JKM Spot Purchases</div>
+        <div class="scenario-val">+$18.4M cost overrun</div>
+        <div class="scenario-desc">JKM spiked $12 → $56/mmbtu (Oct 2021 supply crunch). 50 TJ/month at floating price created massive unbudgeted cost.</div>
+      </div>
+      <div class="scenario-box scenario-hedged">
+        <div class="scenario-label">Hedged — 3M TTF Forward at $15/mmbtu</div>
+        <div class="scenario-val">+$1.2M cost overrun</div>
+        <div class="scenario-desc">TTF-JKM basis spread locked with a 3-month forward at $15/mmbtu. Saved $17.2M vs unhedged floating purchases.</div>
+      </div>
+    </div>
+    <div class="metrics-grid">
+      <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">93.5%</div><div class="metric-label">Hedge Effectiveness</div></div>
+      <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">-0.91</div><div class="metric-label">Correlation (JKM/TTF)</div></div>
+      <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">$17.2M</div><div class="metric-label">Cost Avoided</div></div>
+      <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">$0.4M</div><div class="metric-label">Forward Spread Cost</div></div>
+    </div>
+  </div>
+
+  <!-- COMPLEX 1: Crude Oil Producer Zero-Cost Collar -->
+  <div class="trade-card" data-cat="complex">
+    <div class="trade-header">
+      <div><div class="trade-title">Crude Oil Producer — Zero-Cost Collar (Buy Put / Sell Call)</div><div style="font-size:12px;color:var(--gray2);margin-top:0.2rem;">Scenario: E&amp;P producer, 100,000 bbl/month, 6-month tenor | Backtest: H2 2023 oil price correction</div></div>
+      <div class="trade-meta"><span class="badge badge-cyan">Options</span><span class="badge badge-red">Collar</span></div>
     </div>
     <div class="trade-scenario">
       <div class="scenario-box scenario-unhedged">
         <div class="scenario-label">Unhedged</div>
-        <div class="scenario-val">-₹82Cr</div>
-        <div class="scenario-desc">USD/INR moved from 83.5 → 86.2 (INR appreciation). Revenue impact on $50M quarterly receipts.</div>
+        <div class="scenario-val">-$13.2M revenue loss</div>
+        <div class="scenario-desc">WTI dropped $92 → $70/bbl in H2 2023. 100,000 bbl/month × $22 drop × 6 months = $13.2M below budget.</div>
       </div>
       <div class="scenario-box scenario-hedged">
-        <div class="scenario-label">Hedged — 3M USD/INR Forward at 84.10</div>
-        <div class="scenario-val">-₹18Cr</div>
-        <div class="scenario-desc">Forward rate locked at 84.10. Only residual basis from timing mismatch remains. Saved ₹64Cr in revenue.</div>
+        <div class="scenario-label">Collar — Buy $72 Put / Sell $90 Call (zero net premium)</div>
+        <div class="scenario-val">-$1.2M residual</div>
+        <div class="scenario-desc">Floor at $72/bbl. Put pays $2/bbl on 600K bbl = $1.2M received. Upside capped at $90. Net collar premium: ~zero.</div>
       </div>
     </div>
     <div class="metrics-grid">
-      <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">78.0%</div><div class="metric-label">Hedge Effectiveness</div></div>
-      <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">-0.94</div><div class="metric-label">Correlation (Hedge)</div></div>
-      <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">₹64Cr</div><div class="metric-label">Revenue Protected</div></div>
-      <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">₹3.2Cr</div><div class="metric-label">Hedge Cost (Fwd Premium)</div></div>
+      <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">$12.0M</div><div class="metric-label">Revenue Protected</div></div>
+      <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">$72/bbl</div><div class="metric-label">Floor (Put Strike)</div></div>
+      <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">$90/bbl</div><div class="metric-label">Upside Cap (Call Strike)</div></div>
+      <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">~$0</div><div class="metric-label">Net Premium (Zero-Cost)</div></div>
     </div>
   </div>
 
-  <!-- TRADE 3 -->
-  <div class="trade-card" data-cat="rates">
+  <!-- COMPLEX 2: Gas Consumer Fixed-Float TTF Swap -->
+  <div class="trade-card" data-cat="complex">
     <div class="trade-header">
-      <div><div class="trade-title">Interest Rate Swap — Fixed-Rate Liability Hedge</div><div style="font-size:12px;color:var(--gray2);margin-top:0.2rem;">Scenario: Corporate with $200M floating rate loan, concerned about Fed rate hikes | Backtest: 2022</div></div>
-      <div class="trade-meta"><span class="badge badge-cyan">Interest Rates</span><span class="badge badge-amber">Derivatives</span></div>
+      <div><div class="trade-title">Industrial Gas Consumer — Fixed-Float TTF Commodity Swap</div><div style="font-size:12px;color:var(--gray2);margin-top:0.2rem;">Scenario: European manufacturer, 5 MW continuous gas load | Backtest: 2022 EU energy crisis</div></div>
+      <div class="trade-meta"><span class="badge badge-cyan">Swap</span><span class="badge badge-amber">Commodity</span></div>
     </div>
     <div class="trade-scenario">
       <div class="scenario-box scenario-unhedged">
-        <div class="scenario-label">Unhedged — Floating Rate</div>
-        <div class="scenario-val">+$8.4M cost</div>
-        <div class="scenario-desc">Fed hiked 425bps in 2022. SOFR rose from 0.05% → 4.3%. Floating debt cost surged $8.4M beyond budget.</div>
+        <div class="scenario-label">Unhedged — Floating TTF Spot Purchases</div>
+        <div class="scenario-val">+€22.8M cost overrun</div>
+        <div class="scenario-desc">TTF spiked €35 → €310/MWh (Aug 2022 energy crisis). Gas bill rose 8× vs budget. Cash flow crisis for unhedged buyers.</div>
       </div>
       <div class="scenario-box scenario-hedged">
-        <div class="scenario-label">Hedged — Pay-Fixed IRS at 1.8%</div>
-        <div class="scenario-val">+$0.6M cost</div>
-        <div class="scenario-desc">Entered pay-fixed, receive-float IRS at 1.8%. Net cost = 1.8% fixed vs 4.3% float = locked savings on $200M notional.</div>
+        <div class="scenario-label">Hedged — Pay-Fixed €40/MWh, Receive Floating TTF (12M swap)</div>
+        <div class="scenario-val">+€0.6M cost overrun</div>
+        <div class="scenario-desc">Pay-fixed €40/MWh, receive floating TTF on a 12-month commodity swap. Net cost capped — saved €22.2M vs spot purchases.</div>
       </div>
     </div>
     <div class="metrics-grid">
-      <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">92.8%</div><div class="metric-label">Hedge Effectiveness</div></div>
-      <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">-0.98</div><div class="metric-label">Correlation (IRS)</div></div>
-      <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">$7.8M</div><div class="metric-label">Cost Avoided</div></div>
-      <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">$180K</div><div class="metric-label">Swap Bid-Offer Cost</div></div>
+      <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">97.4%</div><div class="metric-label">Hedge Effectiveness</div></div>
+      <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">€22.2M</div><div class="metric-label">Cost Avoided</div></div>
+      <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">€40/MWh</div><div class="metric-label">Fixed Rate Locked</div></div>
+      <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">€0.3M</div><div class="metric-label">Swap Bid-Offer Cost</div></div>
     </div>
   </div>
 
-  <!-- TRADE 4 -->
-  <div class="trade-card" data-cat="equity">
+  <!-- DYNAMIC 1: LNG Trading Book — Rolling Monthly Futures -->
+  <div class="trade-card" data-cat="dynamic">
     <div class="trade-header">
-      <div><div class="trade-title">Equity Portfolio Hedge — S&amp;P 500 Put Options</div><div style="font-size:12px;color:var(--gray2);margin-top:0.2rem;">Scenario: $100M equity portfolio needing downside protection | Backtest: Q1 2020 (COVID crash)</div></div>
-      <div class="trade-meta"><span class="badge badge-cyan">Equity</span><span class="badge badge-red">Options</span></div>
+      <div><div class="trade-title">LNG Trading Book — Rolling Monthly Futures Hedge</div><div style="font-size:12px;color:var(--gray2);margin-top:0.2rem;">Scenario: LNG trading desk, 6-cargo portfolio, monthly delta rebalancing to 70% target | FY2022</div></div>
+      <div class="trade-meta"><span class="badge badge-cyan">Dynamic</span><span class="badge badge-amber">Rolling Hedge</span></div>
     </div>
     <div class="trade-scenario">
       <div class="scenario-box scenario-unhedged">
-        <div class="scenario-label">Unhedged</div>
-        <div class="scenario-val">-$34.2M</div>
-        <div class="scenario-desc">S&amp;P 500 fell 34% Feb–Mar 2020 (COVID). $100M portfolio lost $34.2M. VaR massively exceeded.</div>
+        <div class="scenario-label">Static Hedge (Set-and-Forget at 80%)</div>
+        <div class="scenario-val">-$8.4M residual mark-to-market</div>
+        <div class="scenario-desc">Static 80% hedge set Jan 2022. As the forward curve restructured through the year, effective hedge ratio drifted to ~55% — leaving significant unintended exposure.</div>
       </div>
       <div class="scenario-box scenario-hedged">
-        <div class="scenario-label">Hedged — 5% OTM Put Spread (3M)</div>
-        <div class="scenario-val">-$8.6M</div>
-        <div class="scenario-desc">Put spread (buy 95% strike, sell 80% strike). Capped downside at -8.6%. Paid $1.8M premium. Net gain on hedge: $23.8M.</div>
+        <div class="scenario-label">Dynamic — Monthly Rebalance to 70% Delta Target</div>
+        <div class="scenario-val">-$1.9M residual mark-to-market</div>
+        <div class="scenario-desc">Futures position re-struck monthly to maintain 70% delta. Forward curve re-evaluated each cycle. Residual risk reduced 77% vs static hedge.</div>
       </div>
     </div>
     <div class="metrics-grid">
-      <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">74.8%</div><div class="metric-label">Drawdown Protected</div></div>
-      <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">+$23.8M</div><div class="metric-label">Hedge Payoff (Net)</div></div>
-      <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">$1.8M</div><div class="metric-label">Premium Paid</div></div>
-      <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">13.2x</div><div class="metric-label">Payoff / Premium Ratio</div></div>
+      <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">77.4%</div><div class="metric-label">Risk Reduction vs Static</div></div>
+      <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">70%</div><div class="metric-label">Target Delta (Monthly Reset)</div></div>
+      <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">12×/yr</div><div class="metric-label">Rebalancing Frequency</div></div>
+      <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">$6.5M</div><div class="metric-label">Saved vs Static Approach</div></div>
+    </div>
+  </div>
+
+  <!-- DYNAMIC 2: Gas-Power Spark Spread Cross-Commodity Hedge -->
+  <div class="trade-card" data-cat="dynamic">
+    <div class="trade-header">
+      <div><div class="trade-title">Gas Peaker Plant — Spark Spread Cross-Commodity Dynamic Hedge</div><div style="font-size:12px;color:var(--gray2);margin-top:0.2rem;">Scenario: 400 MW CCGT plant buying TTF gas, selling EEX power | Backtest: 2021–2022 European markets</div></div>
+      <div class="trade-meta"><span class="badge badge-cyan">Dynamic</span><span class="badge badge-red">Cross-Commodity</span></div>
+    </div>
+    <div class="trade-scenario">
+      <div class="scenario-box scenario-unhedged">
+        <div class="scenario-label">Unhedged Spark Spread</div>
+        <div class="scenario-val">€8.4M P&amp;L volatility</div>
+        <div class="scenario-desc">Power-gas correlation broke down in 2022. Spark spread swung €8 → -€14/MWh in 6 weeks. Unhedged plant faced unbudgeted dispatch losses with no protection.</div>
+      </div>
+      <div class="scenario-box scenario-hedged">
+        <div class="scenario-label">Dynamic — Buy TTF Swap + Sell EEX Power Forward (weekly rebalance)</div>
+        <div class="scenario-val">€1.4M P&amp;L volatility</div>
+        <div class="scenario-desc">Matched TTF buy-swap + EEX power sell-forward, reweighted weekly as heat rate assumptions shifted. Spark spread P&amp;L volatility reduced 83%.</div>
+      </div>
+    </div>
+    <div class="metrics-grid">
+      <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">83.3%</div><div class="metric-label">P&amp;L Vol Reduction</div></div>
+      <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">Weekly</div><div class="metric-label">Rebalancing Frequency</div></div>
+      <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">TTF + EEX</div><div class="metric-label">Instruments Used</div></div>
+      <div class="metric-card"><div class="metric-val" style="font-size:1.2rem;">€7.0M</div><div class="metric-label">P&amp;L Volatility Saved</div></div>
     </div>
   </div>
 
   <div class="panel" style="margin-top:1.5rem;">
-    <h3>Hedge Effectiveness Comparison — All Examples</h3>
-    <div class="chart-container" style="height:260px;"><canvas id="hedgeCompChart" role="img" aria-label="Grouped bar chart comparing unhedged vs hedged losses across four asset classes">Hedge comparison: Crude Oil unhedged -28.4M hedged -5.7M; FX -82Cr hedged -18Cr; IRS +8.4M hedged +0.6M; Equity -34.2M hedged -8.6M</canvas></div>
+    <h3>Hedge Effectiveness by Strategy — All Six Examples</h3>
+    <div class="chart-container" style="height:280px;"><canvas id="hedgeCompChart" role="img" aria-label="Grouped bar chart comparing unhedged vs hedged exposures across six examples">Hedge comparison across all six examples</canvas></div>
   </div>
 </div>
 
@@ -859,7 +910,7 @@ table.data-table tr:last-child td{border-bottom:none;}
   <div style="text-align:center;padding:3rem 1rem 2rem;position:relative;">
     <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:500px;height:300px;background:radial-gradient(ellipse,rgba(0,212,255,0.06) 0%,transparent 70%);pointer-events:none;"></div>
     <div class="hero-eyebrow"><span></span>Meet the Founder</div>
-    <div style="width:96px;height:96px;border-radius:50%;background:var(--cyan-dim);border:3px solid var(--border2);display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;font-size:2.8rem;">👨‍💼</div>
+    <img src="jilesh.jpg" alt="Jilesh Kadi" style="width:110px;height:110px;border-radius:50%;object-fit:cover;object-position:center top;border:3px solid var(--border2);display:block;margin:0 auto 1.25rem;">
     <h1 style="font-size:2.2rem;font-weight:700;margin-bottom:0.5rem;">Jilesh Kadi</h1>
     <p style="color:var(--cyan);font-size:15px;font-weight:500;margin-bottom:1rem;">Trader · Risk Manager · Investor · Builder</p>
     <p style="color:var(--gray1);max-width:680px;margin:0 auto 1.5rem;font-size:14px;line-height:1.7;">CFA Charterholder, ERP &amp; SCR certified risk professional with 18+ years spanning LNG, natural gas, crude oil, power, and environmental products. Founder of <a href="https://maverickinvestor.in" target="_blank" style="color:var(--cyan);text-decoration:none;">Maverick Investor</a> — India's conflict-free personal finance platform — and <strong style="color:var(--white);">Risk Maverick</strong>, a global risk education platform for risk professionals.</p>
@@ -1015,73 +1066,39 @@ table.data-table tr:last-child td{border-bottom:none;}
 ═══════════════════════════════════════════════════ */
 
 const FMP_KEY = 'lq7E2T0mp2X0PAwS1txXRNdxP3aZo9lp';
-const FMP = 'https://financialmodelingprep.com/api/v3';
+const FMP = 'https://financialmodelingprep.com/stable';
 
 // ── Instrument registry ──────────────────────────
-// Each entry: { symbol, label, prefix, suffix, decimals, category }
+// Only instruments confirmed available on the free FMP stable tier
 const TICKER_INSTRUMENTS = [
   // ── EQUITY INDICES — Americas ──
-  { symbol: '%5EGSPC',  label: 'S&P 500',        prefix: '',  suffix: '',     decimals: 0, cat: 'index' },
-  { symbol: '%5EIXIC',  label: 'NASDAQ',          prefix: '',  suffix: '',     decimals: 0, cat: 'index' },
-  { symbol: '%5EDJI',   label: 'Dow Jones',       prefix: '',  suffix: '',     decimals: 0, cat: 'index' },
-  { symbol: '%5ERUT',   label: 'Russell 2000',    prefix: '',  suffix: '',     decimals: 2, cat: 'index' },
-  // ── EQUITY INDICES — Europe ──
-  { symbol: '%5EFTSE',  label: 'FTSE 100',        prefix: '',  suffix: '',     decimals: 0, cat: 'index' },
-  { symbol: '%5EGDAXI', label: 'DAX',             prefix: '',  suffix: '',     decimals: 0, cat: 'index' },
-  { symbol: '%5EFCHI',  label: 'CAC 40',          prefix: '',  suffix: '',     decimals: 2, cat: 'index' },
-  { symbol: '%5ESTOXX50E', label: 'Euro Stoxx 50',prefix: '',  suffix: '',     decimals: 2, cat: 'index' },
-  { symbol: '%5EIBEX',  label: 'IBEX 35',         prefix: '',  suffix: '',     decimals: 0, cat: 'index' },
-  { symbol: '%5ESSI',   label: 'SMI',             prefix: '',  suffix: '',     decimals: 0, cat: 'index' },
-  // ── EQUITY INDICES — Asia Pacific ──
-  { symbol: '%5EN225',  label: 'Nikkei 225',      prefix: '',  suffix: '',     decimals: 0, cat: 'index' },
-  { symbol: '%5EHSI',   label: 'Hang Seng',       prefix: '',  suffix: '',     decimals: 0, cat: 'index' },
-  { symbol: '000001.SS',label: 'Shanghai Comp',   prefix: '',  suffix: '',     decimals: 2, cat: 'index' },
-  { symbol: '%5EBSESN', label: 'SENSEX',          prefix: '',  suffix: '',     decimals: 0, cat: 'index' },
-  { symbol: '%5ENSEI',  label: 'Nifty 50',        prefix: '',  suffix: '',     decimals: 2, cat: 'index' },
-  { symbol: '%5EAXJO',  label: 'ASX 200',         prefix: '',  suffix: '',     decimals: 2, cat: 'index' },
-  { symbol: '%5EKOSPI', label: 'KOSPI',           prefix: '',  suffix: '',     decimals: 2, cat: 'index' },
-  { symbol: '%5ETWII',  label: 'TWSE',            prefix: '',  suffix: '',     decimals: 2, cat: 'index' },
+  { symbol: '^GSPC',     label: 'S&P 500',       prefix: '',  suffix: '',      decimals: 0, cat: 'index' },
+  { symbol: '^IXIC',     label: 'NASDAQ',         prefix: '',  suffix: '',      decimals: 0, cat: 'index' },
+  { symbol: '^DJI',      label: 'Dow Jones',      prefix: '',  suffix: '',      decimals: 0, cat: 'index' },
+  { symbol: '^RUT',      label: 'Russell 2000',   prefix: '',  suffix: '',      decimals: 2, cat: 'index' },
+  // ── EQUITY INDICES — Europe / Asia ──
+  { symbol: '^FTSE',     label: 'FTSE 100',       prefix: '',  suffix: '',      decimals: 0, cat: 'index' },
+  { symbol: '^STOXX50E', label: 'Euro Stoxx 50',  prefix: '',  suffix: '',      decimals: 2, cat: 'index' },
+  { symbol: '^N225',     label: 'Nikkei 225',     prefix: '',  suffix: '',      decimals: 0, cat: 'index' },
+  { symbol: '^HSI',      label: 'Hang Seng',      prefix: '',  suffix: '',      decimals: 0, cat: 'index' },
   // ── VOLATILITY ──
-  { symbol: '%5EVIX',   label: 'VIX',             prefix: '',  suffix: '',     decimals: 2, cat: 'vol'   },
-  { symbol: '%5EVXN',   label: 'VXN (NASDAQ Vol)',prefix: '',  suffix: '',     decimals: 2, cat: 'vol'   },
+  { symbol: '^VIX',      label: 'VIX',            prefix: '',  suffix: '',      decimals: 2, cat: 'vol'   },
   // ── COMMODITIES — Energy ──
-  { symbol: 'CLUSD',    label: 'WTI Crude',       prefix: '$', suffix: '/bbl', decimals: 2, cat: 'energy'},
-  { symbol: 'BZUSD',    label: 'Brent Crude',     prefix: '$', suffix: '/bbl', decimals: 2, cat: 'energy'},
-  { symbol: 'NGUSD',    label: 'Nat Gas HH',      prefix: '$', suffix: '/mmbtu',decimals: 3,cat: 'energy'},
-  { symbol: 'HTUSD',    label: 'Heating Oil',     prefix: '$', suffix: '/gal', decimals: 4, cat: 'energy'},
-  { symbol: 'RBUSD',    label: 'RBOB Gasoline',   prefix: '$', suffix: '/gal', decimals: 4, cat: 'energy'},
+  { symbol: 'BZUSD',     label: 'Brent Crude',    prefix: '$', suffix: '/bbl',  decimals: 2, cat: 'energy'},
   // ── COMMODITIES — Metals ──
-  { symbol: 'GCUSD',    label: 'Gold',            prefix: '$', suffix: '/oz',  decimals: 1, cat: 'metal' },
-  { symbol: 'SIUSD',    label: 'Silver',          prefix: '$', suffix: '/oz',  decimals: 3, cat: 'metal' },
-  { symbol: 'HGUSD',    label: 'Copper',          prefix: '$', suffix: '/lb',  decimals: 3, cat: 'metal' },
-  { symbol: 'PLUSD',    label: 'Platinum',        prefix: '$', suffix: '/oz',  decimals: 1, cat: 'metal' },
-  { symbol: 'PAUSD',    label: 'Palladium',       prefix: '$', suffix: '/oz',  decimals: 1, cat: 'metal' },
-  { symbol: 'ALUSD',    label: 'Aluminium',       prefix: '$', suffix: '/ton', decimals: 1, cat: 'metal' },
-  // ── COMMODITIES — Agriculture ──
-  { symbol: 'ZCUSD',    label: 'Corn',            prefix: '$', suffix: '/bu',  decimals: 2, cat: 'agri'  },
-  { symbol: 'ZSUSD',    label: 'Soybeans',        prefix: '$', suffix: '/bu',  decimals: 2, cat: 'agri'  },
-  { symbol: 'ZWUSD',    label: 'Wheat',           prefix: '$', suffix: '/bu',  decimals: 2, cat: 'agri'  },
-  { symbol: 'KTUSD',    label: 'Coffee',          prefix: '$', suffix: '/lb',  decimals: 2, cat: 'agri'  },
-  { symbol: 'SBUSD',    label: 'Sugar',           prefix: '$', suffix: '/lb',  decimals: 4, cat: 'agri'  },
-  // ── US TREASURIES / RATES ──
-  { symbol: '%5EIRX',   label: '3M T-Bill',       prefix: '',  suffix: '%',    decimals: 3, cat: 'rates' },
-  { symbol: '%5EFVX',   label: '5Y UST',          prefix: '',  suffix: '%',    decimals: 3, cat: 'rates' },
-  { symbol: '%5ETNX',   label: '10Y UST',         prefix: '',  suffix: '%',    decimals: 3, cat: 'rates' },
-  { symbol: '%5ETYX',   label: '30Y UST',         prefix: '',  suffix: '%',    decimals: 3, cat: 'rates' },
+  { symbol: 'GCUSD',     label: 'Gold',           prefix: '$', suffix: '/oz',   decimals: 1, cat: 'metal' },
+  { symbol: 'SIUSD',     label: 'Silver',         prefix: '$', suffix: '/oz',   decimals: 3, cat: 'metal' },
   // ── FX MAJORS ──
-  { symbol: 'EURUSD',   label: 'EUR/USD',         prefix: '',  suffix: '',     decimals: 4, cat: 'fx'    },
-  { symbol: 'GBPUSD',   label: 'GBP/USD',         prefix: '',  suffix: '',     decimals: 4, cat: 'fx'    },
-  { symbol: 'USDJPY',   label: 'USD/JPY',         prefix: '',  suffix: '',     decimals: 2, cat: 'fx'    },
-  { symbol: 'USDCHF',   label: 'USD/CHF',         prefix: '',  suffix: '',     decimals: 4, cat: 'fx'    },
-  { symbol: 'AUDUSD',   label: 'AUD/USD',         prefix: '',  suffix: '',     decimals: 4, cat: 'fx'    },
-  { symbol: 'USDCAD',   label: 'USD/CAD',         prefix: '',  suffix: '',     decimals: 4, cat: 'fx'    },
+  { symbol: 'EURUSD',    label: 'EUR/USD',        prefix: '',  suffix: '',      decimals: 4, cat: 'fx'    },
+  { symbol: 'GBPUSD',    label: 'GBP/USD',        prefix: '',  suffix: '',      decimals: 4, cat: 'fx'    },
+  { symbol: 'USDJPY',    label: 'USD/JPY',        prefix: '',  suffix: '',      decimals: 2, cat: 'fx'    },
+  { symbol: 'USDCHF',    label: 'USD/CHF',        prefix: '',  suffix: '',      decimals: 4, cat: 'fx'    },
+  { symbol: 'AUDUSD',    label: 'AUD/USD',        prefix: '',  suffix: '',      decimals: 4, cat: 'fx'    },
+  { symbol: 'USDCAD',    label: 'USD/CAD',        prefix: '',  suffix: '',      decimals: 4, cat: 'fx'    },
   // ── FX EMERGING MARKETS ──
-  { symbol: 'USDINR',   label: 'USD/INR',         prefix: '₹', suffix: '',     decimals: 2, cat: 'em'    },
-  { symbol: 'USDCNY',   label: 'USD/CNY',         prefix: '',  suffix: '',     decimals: 4, cat: 'em'    },
-  { symbol: 'USDBRL',   label: 'USD/BRL',         prefix: '',  suffix: '',     decimals: 4, cat: 'em'    },
-  { symbol: 'USDMXN',   label: 'USD/MXN',         prefix: '',  suffix: '',     decimals: 3, cat: 'em'    },
-  { symbol: 'USDZAR',   label: 'USD/ZAR',         prefix: '',  suffix: '',     decimals: 3, cat: 'em'    },
-  { symbol: 'USDSGD',   label: 'USD/SGD',         prefix: '',  suffix: '',     decimals: 4, cat: 'em'    },
+  { symbol: 'USDINR',    label: 'USD/INR',        prefix: '₹', suffix: '',      decimals: 2, cat: 'em'    },
+  { symbol: 'USDCNY',    label: 'USD/CNY',        prefix: '',  suffix: '',      decimals: 4, cat: 'em'    },
+  { symbol: 'USDMXN',    label: 'USD/MXN',        prefix: '',  suffix: '',      decimals: 3, cat: 'em'    },
 ];
 
 // ── Category colours for the dot ────────────────
@@ -1107,39 +1124,25 @@ function buildTickItem(inst, price, chgPct) {
   return `<span class="tick-item">${dot}<span class="tick-label">${inst.label}</span><span class="tick-val" style="margin:0 0.3rem">${fmtPrice}</span><span class="${cls}">${fmtChg}</span></span>`;
 }
 
-// ── Fetch quotes from FMP ────────────────────────
+// ── Fetch quotes from FMP (one call per symbol) ──
 async function fetchTickerData() {
-  // Split into three batches to stay within URL length limits
-  const b1 = TICKER_INSTRUMENTS.slice(0, 18).map(i => i.symbol).join(',');
-  const b2 = TICKER_INSTRUMENTS.slice(18, 36).map(i => i.symbol).join(',');
-  const b3 = TICKER_INSTRUMENTS.slice(36).map(i => i.symbol).join(',');
-
-  const [r1, r2, r3] = await Promise.allSettled([
-    fetch(`${FMP}/quote/${b1}?apikey=${FMP_KEY}`).then(r => r.json()),
-    fetch(`${FMP}/quote/${b2}?apikey=${FMP_KEY}`).then(r => r.json()),
-    fetch(`${FMP}/quote/${b3}?apikey=${FMP_KEY}`).then(r => r.json()),
-  ]);
-
-  const quotes = [
-    ...(r1.status === 'fulfilled' && Array.isArray(r1.value) ? r1.value : []),
-    ...(r2.status === 'fulfilled' && Array.isArray(r2.value) ? r2.value : []),
-    ...(r3.status === 'fulfilled' && Array.isArray(r3.value) ? r3.value : []),
-  ];
-  return quotes;
+  const results = await Promise.allSettled(
+    TICKER_INSTRUMENTS.map(inst =>
+      fetch(`${FMP}/quote?symbol=${encodeURIComponent(inst.symbol)}&apikey=${FMP_KEY}`)
+        .then(r => r.json())
+        .then(data => (Array.isArray(data) && data[0]) ? data[0] : null)
+    )
+  );
+  return results.map(r => (r.status === 'fulfilled' ? r.value : null));
 }
 
 // ── Render ticker from quote data ───────────────
 function renderTicker(quotes) {
-  const map = {};
-  quotes.forEach(q => { map[q.symbol] = q; });
-
   let items = '';
-  TICKER_INSTRUMENTS.forEach(inst => {
-    // FMP returns unencoded symbols
-    const raw = decodeURIComponent(inst.symbol);
-    const q   = map[raw] || map[inst.symbol];
+  TICKER_INSTRUMENTS.forEach((inst, i) => {
+    const q = quotes[i];
     if (!q || q.price == null) return;
-    items += buildTickItem(inst, q.price, q.changesPercentage ?? 0);
+    items += buildTickItem(inst, q.price, q.changePercentage ?? 0);
   });
 
   if (!items) return; // keep loading state if all failed
@@ -1262,11 +1265,11 @@ function initCharts(page) {
     const ctx4 = document.getElementById('hedgeCompChart');
     if(ctx4) {
       new Chart(ctx4,{type:'bar',data:{
-        labels:['Crude Oil ($M)','USD/INR (₹Cr)','Interest Rate ($M)','Equity ($M)'],
+        labels:['Jet Fuel\n($M)','LNG Gas\n($M)','Oil Collar\n($M)','TTF Swap\n(€M)','LNG Dynamic\n($M)','Spark Spread\n(€M)'],
         datasets:[
-          {label:'Unhedged Loss',data:[28.4,82,8.4,34.2],backgroundColor:'rgba(255,77,77,0.65)',borderColor:'#ff4d4d',borderWidth:1,borderRadius:4},
-          {label:'Hedged Loss',data:[5.7,18,0.6,8.6],backgroundColor:'rgba(0,212,255,0.55)',borderColor:'#00d4ff',borderWidth:1,borderRadius:4}
-        ]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.dataset.label+': '+c.raw}}},scales:{x:{ticks:{color:'#8892a4',font:{size:11}},grid:{color:'rgba(255,255,255,0.04)'}},y:{ticks:{color:'#8892a4',font:{size:11}},grid:{color:'rgba(255,255,255,0.04)'},title:{display:true,text:'Loss Amount',color:'#8892a4',font:{size:11}}}}}});
+          {label:'Unhedged Exposure',data:[28.4,18.4,13.2,22.8,8.4,8.4],backgroundColor:'rgba(255,77,77,0.65)',borderColor:'#ff4d4d',borderWidth:1,borderRadius:4},
+          {label:'Hedged Outcome',data:[5.7,1.2,1.2,0.6,1.9,1.4],backgroundColor:'rgba(0,212,255,0.55)',borderColor:'#00d4ff',borderWidth:1,borderRadius:4}
+        ]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#c8d0e0',font:{size:11},boxWidth:12}},tooltip:{callbacks:{label:c=>c.dataset.label+': '+c.raw}}},scales:{x:{ticks:{color:'#8892a4',font:{size:10}},grid:{color:'rgba(255,255,255,0.04)'}},y:{ticks:{color:'#8892a4',font:{size:11}},grid:{color:'rgba(255,255,255,0.04)'},title:{display:true,text:'Exposure / Loss',color:'#8892a4',font:{size:11}}}}}});
     }
   }
 }
