@@ -1,0 +1,28 @@
+title: RiskMaverick
+tagline: Commodity & Cross-Asset Risk Intelligence
+description: >-
+  Institutional-grade risk-management knowledge across commodities, equities,
+  fixed income, FX and interest rates.
+url: "https://riskmaverick.com"
+baseurl: ""
+lang: en
+
+markdown: kramdown
+highlighter: rouge
+permalink: /insights/:title/
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - docs/
+  - vendor/
+  - .claude/
+  - "M Falcon B.png"
+
+defaults:
+  - scope: { path: "", type: "posts" }
+    values: { layout: "post" }
+  - scope: { path: "markets" }
+    values: { layout: "hub", spine: "markets" }
+  - scope: { path: "toolkit" }
+    values: { layout: "hub", spine: "toolkit" }
