@@ -819,9 +819,16 @@ layout: default
 </section>
 ```
 
-- [ ] **Step 2: Overwrite `index.html` with home front-matter**
+- [ ] **Step 2: Preserve the legacy source, then replace `index.html`**
 
-Replace the **entire** contents of `index.html` with:
+The Tools port (Task 10) still needs to extract JS/markup from the original file, so preserve it **before** overwriting (theme CSS and the FMP module were already extracted in Tasks 2 and 4):
+
+```powershell
+New-Item -ItemType Directory -Force _legacy | Out-Null
+git mv index.html _legacy/index-legacy.html
+```
+
+Then create a new `index.html` whose entire contents are:
 
 ```html
 ---
@@ -829,7 +836,7 @@ layout: home
 ---
 ```
 
-(The legacy markup/CSS/JS has already been extracted in Tasks 2, 4, and 10; this file becomes a thin front-matter stub.)
+`_legacy/` is underscore-prefixed, so Jekyll never builds or serves it, but it stays in git as the extraction source for Task 10. Line numbers in `_legacy/index-legacy.html` are identical to the original `index.html`.
 
 - [ ] **Step 3: Add home styles to `assets/css/site.css`**
 
@@ -942,7 +949,7 @@ permalink: /insights/
 
 - [ ] **Step 4: Reference `insights.js` on this page**
 
-Add to the top of `insights.html` after the front-matter fence a script include at the end of the file:
+Append this script include at the very end of `insights.html` (after the `.wires` section):
 
 ```html
 <script src="{{ '/assets/js/insights.js' | relative_url }}"></script>
@@ -978,8 +985,8 @@ git commit -m "feat: Insights feed with client-side tag filter + Around-the-web 
 **Files:**
 - Create: `tools.html`
 - Create: `assets/js/tools.js`
-- Source markup: `index.html` VaR calculator + volatility-surface + correlation-matrix + live-board sections (within the Risk Analytics / Live Markets blocks, `index.html` body between ~line 545 and ~2205).
-- Source JS: `index.html:2365-2646` (`MARKETS`, `loadMarketTab`, `showMarketTab`, `loadHeroSnapshot`, `showRaTab` incl. nested `countTo`, plus the VaR math helpers) — extract the tools-related functions; exclude router (`showPage` 2647), `goToSection` (2686) and `initGSAP` (2748) which are not needed on this page.
+- Source markup: `_legacy/index-legacy.html` VaR calculator + volatility-surface + correlation-matrix + live-board sections (within the Risk Analytics / Live Markets blocks, body between ~line 545 and ~2205). *(This is the legacy homepage preserved in Task 8; line numbers match the original `index.html`.)*
+- Source JS: `_legacy/index-legacy.html:2365-2646` (`MARKETS`, `loadMarketTab`, `showMarketTab`, `loadHeroSnapshot`, `showRaTab` incl. nested `countTo`, plus the VaR math helpers) — extract the tools-related functions; exclude router (`showPage` 2647), `goToSection` (2686) and `initGSAP` (2748) which are not needed on this page.
 
 **Interfaces:**
 - Consumes: `window.RM` (Task 4) for live prices.
@@ -1005,13 +1012,13 @@ permalink: /tools/
 <script src="{{ '/assets/js/tools.js' | relative_url }}"></script>
 ```
 
-- [ ] **Step 2: Extract tool markup from `index.html` into `#toolsRoot`**
+- [ ] **Step 2: Extract tool markup from `_legacy/index-legacy.html` into `#toolsRoot`**
 
-Copy the VaR calculator panel, `#volSurface`, `#corrMatrix`, and the live markets board (`#grid-commodities`/`#grid-fx`/`#grid-equities` + `showMarketTab` tabs + `mkt-status`) markup from `index.html` into the `#toolsRoot` div, preserving all element IDs the JS depends on.
+Copy the VaR calculator panel, `#volSurface`, `#corrMatrix`, and the live markets board (`#grid-commodities`/`#grid-fx`/`#grid-equities` + `showMarketTab` tabs + `mkt-status`) markup from `_legacy/index-legacy.html` into the `#toolsRoot` div, preserving all element IDs the JS depends on.
 
 - [ ] **Step 3: Create `assets/js/tools.js`**
 
-Copy the tools-related functions from `index.html:2365-2646` (`MARKETS`, `loadMarketTab`, `showMarketTab`, `loadHeroSnapshot`→adapt to the board, `showRaTab`, `countTo`, the VaR/ES compute helpers, `sparkSVG`, `fmtNum`, `fmtUSD`, `chgParts`) into an IIFE. Replace any calls to the old `getQuotes`/`getQuote`/`getSparkline` with `RM.getQuotes`/`RM.getQuote`/`RM.getSparkline`. Preserve the VaR math exactly (`z95=1.6448536`, `z99=2.3263479`, `dailyVol=annualVol/√252`) and keep the `countTo` rAF + `setTimeout` fallback intact.
+Copy the tools-related functions from `_legacy/index-legacy.html:2365-2646` (`MARKETS`, `loadMarketTab`, `showMarketTab`, `loadHeroSnapshot`→adapt to the board, `showRaTab`, `countTo`, the VaR/ES compute helpers, `sparkSVG`, `fmtNum`, `fmtUSD`, `chgParts`) into an IIFE. Replace any calls to the old `getQuotes`/`getQuote`/`getSparkline` with `RM.getQuotes`/`RM.getQuote`/`RM.getSparkline`. Preserve the VaR math exactly (`z95=1.6448536`, `z99=2.3263479`, `dailyVol=annualVol/√252`) and keep the `countTo` rAF + `setTimeout` fallback intact.
 
 - [ ] **Step 4: Build and assert**
 
