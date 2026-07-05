@@ -18,7 +18,7 @@ Re-orient RiskMaverick.com from an advisory/consulting-led site into a **knowled
 - Advisory/consulting as a marketed service line (contact only).
 - Local build tooling / npm / React — the site stays statically hosted on GitHub Pages.
 - Netlify or any non-GitHub-Pages host.
-- Finalising the visual theme (colours/typography/layout) — **deferred to the next discussion**. Current dark "Bloomberg-grade" palette is the starting point but explicitly open for change.
+- A visual redesign — the existing RiskMaverick logo, dark palette and typography are **reused as-is** (see §9). New magazine templates (hubs, cards, post) inherit those tokens; only their page-level layout is new.
 
 ---
 
@@ -222,15 +222,24 @@ Ports today's interactive machinery, content-secondary:
 
 ---
 
-## 9. Deferred decisions (next discussion)
+## 9. Brand & visual identity (locked)
 
-- **Visual design:** colour theme, typography, and layout/look. Current dark "Bloomberg-grade" palette (bg #0a0f1e, cyan #00d4ff, amber #f59e0b, Inter + JetBrains Mono) is the *starting point* and explicitly open to revision.
+Reuse the existing RiskMaverick identity — no redesign:
+- **Logo:** `logo-falcon-blue.png` (the falcon mark; also the favicon). Carried into `assets/` and used in nav + footer.
+- **Palette (unchanged):** bg `#0a0f1e` · surface `#111827` · border `#1f2937` · cyan `#00d4ff` · amber `#f59e0b` · green `#10b981` · red `#ef4444` · text `#f9fafb` / `#9ca3af`.
+- **Typography (unchanged):** Inter (800 headlines / 400 body / 600 uppercase labels) + JetBrains Mono for data/prices.
+- **Theme:** dark only; "Bloomberg-grade" aesthetic retained.
+
+Templates and per-page layout are new (magazine hubs/cards/post), but they inherit these tokens from `assets/css/site.css`, extracted from today's inline CSS `:root`.
+
+## 10. Deferred decisions (next discussion)
+
 - Optional live RSS widget for "Around the web".
 - Author identity/bylines and any multi-author setup.
 
 ---
 
-## 10. Success criteria
+## 11. Success criteria
 
 - Static Jekyll site builds cleanly on GitHub Pages with no custom plugins; `riskmaverick.com` (CNAME) preserved.
 - Navigation exposes both spines; every hub auto-lists its tagged articles.
