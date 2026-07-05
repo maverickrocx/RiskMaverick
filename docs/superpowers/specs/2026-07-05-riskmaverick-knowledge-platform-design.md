@@ -183,7 +183,7 @@ VaR/ES calculator · volatility surface · correlation matrix · live markets bo
 ### E. Around the web
 Seeded with ~6 curated links to approved sources (see §8).
 
-**Launch core set ≈ 40 fully written pieces** (16 hub overviews + 10 fundamentals + ~2 flagship articles/hub); remaining titles ship as "coming soon" backlog stubs. Full inventory ≈ 65 pieces.
+**Launch core set ≈ 58 fully written pieces** (16 hub overviews + 10 fundamentals + ~2 flagship articles per hub = 32); remaining titles ship as "coming soon" backlog stubs. Full inventory ≈ 78 pieces.
 
 ---
 
@@ -234,7 +234,7 @@ Ports today's interactive machinery, content-secondary:
 
 - Static Jekyll site builds cleanly on GitHub Pages with no custom plugins; `riskmaverick.com` (CNAME) preserved.
 - Navigation exposes both spines; every hub auto-lists its tagged articles.
-- ~40 fully-written, sourced pieces at launch; backlog titles visible as stubs.
+- ~58 fully-written, sourced pieces at launch; backlog titles visible as stubs.
 - Every article carries a verifiable "Sources & further reading" block from the approved whitelist.
 - Tools (VaR/ES, heatmaps, live board) function using the retained FMP integration and shared cache.
 - Responsive (Galaxy Z Fold 7 / iPhone 17 Pro Max) with no horizontal overflow; dark theme baseline.
