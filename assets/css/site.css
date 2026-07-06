@@ -531,3 +531,9 @@ footer{border-top:1px solid var(--border);margin-top:4rem;background:var(--bg2);
 .related{border-top:1px solid var(--border);padding-top:24px;margin-top:32px;}
 @media(max-width:820px){.card-grid{grid-template-columns:1fr 1fr;}}
 @media(max-width:560px){.card-grid{grid-template-columns:1fr;} .hub-head h1{font-size:30px;} .post-head h1{font-size:28px;}}
+
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;background:var(--bg2);border-bottom:1px solid var(--border);padding:6px 20px;overflow:hidden;}
+.ticker{display:flex;gap:26px;white-space:nowrap;overflow:hidden;flex:1;font:500 13px/1 "JetBrains Mono",monospace;}
+.tick b{color:var(--gray1);font-weight:600;} .tick-px{color:var(--white);} .tick-chg.up{color:var(--green);} .tick-chg.down{color:var(--red);}
+.topbar-cta{flex-shrink:0;color:var(--cyan);font:600 12px/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.08em;text-decoration:none;}
+.ticker-loading{color:var(--gray3);}
