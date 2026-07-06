@@ -537,3 +537,5 @@ footer{border-top:1px solid var(--border);margin-top:4rem;background:var(--bg2);
 .tick b{color:var(--gray1);font-weight:600;} .tick-px{color:var(--white);} .tick-chg.up{color:var(--green);} .tick-chg.down{color:var(--red);}
 .topbar-cta{flex-shrink:0;color:var(--cyan);font:600 12px/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.08em;text-decoration:none;}
 .ticker-loading{color:var(--gray3);}
+
+.group-h{font:800 22px/1 Inter,sans-serif;margin:36px 0 4px;color:var(--white);}
