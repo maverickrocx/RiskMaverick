@@ -167,6 +167,7 @@ footer{border-top:1px solid var(--border);margin-top:4rem;background:var(--bg2);
 .card-date{color:var(--gray3);font:500 12px/1 "JetBrains Mono",monospace;margin-top:auto;}
 .card-kind{align-self:flex-start;font:600 10px/1 Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;padding:4px 8px;border-radius:4px;background:var(--bg3);color:var(--gray1);}
 .kind-basics{color:var(--green);} .kind-analysis{color:var(--cyan);} .kind-wire{color:var(--amber);}
+.card-ico{align-self:flex-start;font-size:26px;line-height:1;}
 .hub-head{padding:48px 0 8px;} .hub-head h1{font:800 40px/1.1 Inter,sans-serif;margin:0 0 12px;}
 .hub-blurb{color:var(--gray1);font:400 18px/1.5 Inter,sans-serif;max-width:720px;}
 .empty{color:var(--gray2);font-style:italic;padding:24px 0;}

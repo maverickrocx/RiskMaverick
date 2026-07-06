@@ -10,7 +10,7 @@ permalink: /markets/
 <h2 class="group-h">{{ g.name }}</h2>
 <div class="card-grid">
   {% for m in g.items %}
-  <a class="card" href="{{ m.url | relative_url }}"><span class="card-kind">{{ m.icon }}</span><h3>{{ m.label }}</h3><p>{{ m.blurb }}</p></a>
+  <a class="card" href="{{ m.url | relative_url }}"><span class="card-ico">{{ m.icon }}</span><h3>{{ m.label }}</h3><p>{{ m.blurb }}</p></a>
   {% endfor %}
 </div>
 {% endfor %}
