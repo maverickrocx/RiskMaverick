@@ -1,0 +1,125 @@
+---
+layout: default
+title: Tools
+permalink: /tools/
+---
+<section class="hub-head"><p class="eyebrow">Interactive</p><h1>Risk Tools</h1>
+<p class="hub-blurb">Parametric VaR &amp; Expected Shortfall, a volatility surface, a correlation matrix and a live markets board.</p></section>
+
+<div id="toolsRoot">
+
+  <section class="lp-section" id="markets">
+    <div class="lp-container">
+      <div class="lp-head"><span class="lp-tag">Live Markets</span><h2 class="lp-title">Live Markets</h2><p class="lp-sub">Real-time benchmarks across energy, metals, FX and equity volatility — each with a 7-day trend, streamed via the Financial Modeling Prep feed.</p></div>
+
+      <div class="mkt-bar">
+        <div class="mkt-tabs" id="mktTabs">
+          <button class="mkt-tab active" data-cat="commodities" onclick="showMarketTab('commodities',this)">Energy &amp; Metals</button>
+          <button class="mkt-tab" data-cat="fx" onclick="showMarketTab('fx',this)">FX</button>
+          <button class="mkt-tab" data-cat="equities" onclick="showMarketTab('equities',this)">Equities &amp; Vol</button>
+        </div>
+        <div class="mkt-status"><span class="mkt-dot"></span><span id="mktStatus">Live · loading…</span></div>
+      </div>
+
+      <div class="mkt-panel active" data-cat="commodities"><div class="mkt-grid" id="grid-commodities"></div></div>
+      <div class="mkt-panel" data-cat="fx"><div class="mkt-grid" id="grid-fx"></div></div>
+      <div class="mkt-panel" data-cat="equities"><div class="mkt-grid" id="grid-equities"></div></div>
+
+      <div class="mkt-disclaimer">Prices via Financial Modeling Prep · quotes cached ~30 min · 7-day sparkline from end-of-day data. Indicative only — not for trading or execution.</div>
+    </div>
+  </section>
+
+  <section class="lp-section" id="risk-analytics">
+    <div class="lp-container">
+      <div class="lp-head"><span class="lp-tag">Risk Analytics</span><h2 class="lp-title">Institutional Risk Analytics</h2><p class="lp-sub">Interactive VaR, a volatility surface and a commodity correlation matrix — plus deep-dive coverage of market, counterparty and model risk.</p></div>
+
+      <div class="mkt-bar">
+        <div class="mkt-tabs" id="raTabs">
+          <button class="mkt-tab active" data-ra="market" onclick="showRaTab('market',this)">Market Risk</button>
+          <button class="mkt-tab" data-ra="counterparty" onclick="showRaTab('counterparty',this)">Counterparty Risk</button>
+          <button class="mkt-tab" data-ra="model" onclick="showRaTab('model',this)">Model Risk</button>
+        </div>
+      </div>
+
+      <!-- ── MARKET RISK ── -->
+      <div class="ra-panel active" data-ra="market">
+        <div class="ra-grid">
+          <!-- VaR calculator -->
+          <div class="ra-card ra-var">
+            <div class="ra-card-head"><h3 class="ra-card-title">Parametric VaR Calculator</h3><span class="ra-badge">Interactive</span></div>
+            <div class="va-formula">VaR = z<sub>α</sub> · σ<sub>daily</sub> · √t · V &nbsp;&nbsp;|&nbsp;&nbsp; σ<sub>daily</sub> = σ<sub>annual</sub> ⁄ √252</div>
+            <div class="va-field">
+              <label>Portfolio Value (USD)</label>
+              <input type="number" id="vaValue" value="10000000" min="0" step="500000">
+            </div>
+            <div class="va-field">
+              <div class="va-lblrow"><label for="vaVol">Annualised Volatility</label><output id="vaVolOut">30%</output></div>
+              <input type="range" id="vaVol" min="5" max="90" value="30">
+            </div>
+            <div class="va-field">
+              <div class="va-lblrow"><label for="vaDays">Holding Period</label><output id="vaDaysOut">1 day</output></div>
+              <input type="range" id="vaDays" min="1" max="20" value="1">
+            </div>
+            <div class="va-field">
+              <label>Confidence Level</label>
+              <div class="va-toggle" id="vaConf"><button type="button" data-c="95" class="active">95%</button><button type="button" data-c="99">99%</button></div>
+            </div>
+            <div class="va-metrics">
+              <div class="va-metric"><div class="va-metric-lbl">Value-at-Risk</div><div class="va-metric-val" id="vaVaR">$0</div><div class="va-metric-sub" id="vaVaRpct">—</div></div>
+              <div class="va-metric"><div class="va-metric-lbl">Expected Shortfall (CVaR)</div><div class="va-metric-val es" id="vaES">$0</div><div class="va-metric-sub" id="vaESpct">—</div></div>
+            </div>
+            <div class="va-note" id="vaNote"></div>
+          </div>
+
+          <!-- Vol surface + correlation -->
+          <div class="ra-col">
+            <div class="ra-card">
+              <div class="ra-card-head"><h3 class="ra-card-title">Volatility Surface</h3><span class="ra-badge amber">Illustrative</span></div>
+              <p class="ra-card-sub">Implied vol (%) by option tenor and moneyness — a representative crude-oil surface showing the smile and term structure.</p>
+              <div id="volSurface" class="vol-surface"></div>
+            </div>
+            <div class="ra-card">
+              <div class="ra-card-head"><h3 class="ra-card-title">Commodity Correlation Matrix</h3><span class="ra-badge amber">Illustrative</span></div>
+              <p class="ra-card-sub">Representative price-return correlations across the energy complex — the backbone of portfolio VaR diversification.</p>
+              <div id="corrMatrix" class="corr-matrix"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── COUNTERPARTY RISK ── -->
+      <div class="ra-panel" data-ra="counterparty">
+        <div class="ra-card">
+          <div class="ra-card-head"><h3 class="ra-card-title">Counterparty Credit Risk (CCR)</h3><span class="ra-badge">Framework</span></div>
+          <p class="ra-card-sub">The risk that a trading counterparty defaults before settling its obligations — quantified through exposure, default probability and loss severity.</p>
+          <div class="ra-metrics-row">
+            <div class="ra-mini"><div class="ra-mini-val">EAD</div><div class="ra-mini-lbl">Exposure at Default</div></div>
+            <div class="ra-mini"><div class="ra-mini-val">PFE</div><div class="ra-mini-lbl">Potential Future Exposure</div></div>
+            <div class="ra-mini"><div class="ra-mini-val">CVA</div><div class="ra-mini-lbl">Credit Valuation Adjustment</div></div>
+            <div class="ra-mini"><div class="ra-mini-val">PD · LGD</div><div class="ra-mini-lbl">Default × Loss Severity</div></div>
+          </div>
+          <p class="ra-card-sub" style="margin-top:1.1rem">Expected loss on a derivative book is <strong style="color:var(--white)">EL = EAD × PD × LGD</strong>, with SA-CCR governing regulatory exposure and CVA capital charges under Basel.</p>
+        </div>
+      </div>
+
+      <!-- ── MODEL RISK ── -->
+      <div class="ra-panel" data-ra="model">
+        <div class="ra-card">
+          <div class="ra-card-head"><h3 class="ra-card-title">Model Risk &amp; Validation</h3><span class="ra-badge">Framework</span></div>
+          <p class="ra-card-sub">The risk of loss from models that are wrong, mis-calibrated or misused. Managed through independent validation, backtesting and governance across the model lifecycle.</p>
+          <div class="ra-metrics-row">
+            <div class="ra-mini"><div class="ra-mini-val">Validation</div><div class="ra-mini-lbl">Independent challenge</div></div>
+            <div class="ra-mini"><div class="ra-mini-val">Backtesting</div><div class="ra-mini-lbl">VaR exceptions (traffic-light)</div></div>
+            <div class="ra-mini"><div class="ra-mini-val">Benchmarking</div><div class="ra-mini-lbl">Champion vs challenger</div></div>
+            <div class="ra-mini"><div class="ra-mini-val">Governance</div><div class="ra-mini-lbl">Inventory &amp; approvals</div></div>
+          </div>
+          <p class="ra-card-sub" style="margin-top:1.1rem">Under FRTB, desks failing VaR backtesting are pushed from the Internal Models Approach toward the more punitive Standardised Approach — making validation a capital issue, not just a modelling one.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
+<script src="{{ '/assets/js/tools.js' | relative_url }}"></script>
