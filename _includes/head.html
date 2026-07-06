@@ -1,8 +1,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% if page.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }} — {{ site.tagline }}{% endif %}</title>
-  <meta name="description" content="{{ page.blurb | default: page.excerpt | default: site.description | strip_html | truncate: 160 }}">
+  {% capture pg_title %}{% if page.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }} — {{ site.tagline }}{% endif %}{% endcapture %}
+  {% capture pg_desc %}{{ page.blurb | default: page.excerpt | default: site.description | strip_html | strip_newlines | truncate: 160 }}{% endcapture %}
+  <title>{{ pg_title }}</title>
+  <meta name="description" content="{{ pg_desc }}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+  <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:title" content="{{ pg_title }}">
+  <meta property="og:description" content="{{ pg_desc }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:image" content="{{ '/logo-falcon-blue.png' | absolute_url }}">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{ pg_title }}">
+  <meta name="twitter:description" content="{{ pg_desc }}">
+  <meta name="twitter:image" content="{{ '/logo-falcon-blue.png' | absolute_url }}">
   <link rel="icon" type="image/png" href="{{ '/logo-falcon-blue.png' | relative_url }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
