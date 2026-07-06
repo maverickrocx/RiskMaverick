@@ -1,0 +1,16 @@
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="logo-icon"><img src="{{ '/logo-falcon-blue.png' | relative_url }}" alt="RiskMaverick"></span>
+      <p>Institutional-grade risk intelligence across commodities and cross-asset markets.</p>
+    </div>
+    <div><h4>Markets</h4>{% for m in site.data.markets %}<a href="{{ m.url | relative_url }}">{{ m.label }}</a>{% endfor %}</div>
+    <div><h4>Risk Toolkit</h4>{% for t in site.data.toolkit %}<a href="{{ t.url | relative_url }}">{{ t.label }}</a>{% endfor %}</div>
+    <div><h4>More</h4>
+      <a href="{{ '/insights/' | relative_url }}">Insights</a>
+      <a href="{{ '/tools/' | relative_url }}">Tools</a>
+      <a href="{{ '/about/' | relative_url }}">About &amp; Contact</a>
+    </div>
+  </div>
+  <div class="footer-legal">© {{ 'now' | date: "%Y" }} RiskMaverick. Educational content only — not investment advice.</div>
+</footer>

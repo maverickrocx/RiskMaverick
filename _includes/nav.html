@@ -1,0 +1,30 @@
+<header class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="{{ '/' | relative_url }}">
+      <span class="logo-icon"><img src="{{ '/logo-falcon-blue.png' | relative_url }}" alt="RiskMaverick"></span>
+      <span class="logo-word">Risk<strong>Maverick</strong></span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    <nav class="nav-links" id="navLinks">
+      <div class="nav-item has-mega">
+        <a href="{{ '/markets/' | relative_url }}">Markets</a>
+        <div class="mega mega-markets">
+          {% for m in site.data.markets %}
+          <a href="{{ m.url | relative_url }}"><span class="mega-ico">{{ m.icon }}</span>{{ m.label }}</a>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="nav-item has-mega">
+        <a href="{{ '/toolkit/' | relative_url }}">Risk Toolkit</a>
+        <div class="mega">
+          {% for t in site.data.toolkit %}
+          <a href="{{ t.url | relative_url }}">{{ t.label }}</a>
+          {% endfor %}
+        </div>
+      </div>
+      <a href="{{ '/insights/' | relative_url }}">Insights</a>
+      <a href="{{ '/tools/' | relative_url }}">Tools</a>
+      <a href="{{ '/about/' | relative_url }}">About</a>
+    </nav>
+  </div>
+</header>

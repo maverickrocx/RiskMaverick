@@ -1,0 +1,6 @@
+- { slug: market-risk,           label: "Market Risk",            url: /toolkit/market-risk/,           tag: market-risk,           blurb: "VaR, volatility, stress testing and the Greeks." }
+- { slug: hedging-derivatives,   label: "Hedging & Derivatives",  url: /toolkit/hedging-derivatives/,   tag: hedging-derivatives,   blurb: "Futures, options, swaps and structured hedges." }
+- { slug: credit-counterparty,   label: "Credit & Counterparty",  url: /toolkit/credit-counterparty/,   tag: credit-counterparty,   blurb: "Counterparty exposure, credit support and CVA." }
+- { slug: liquidity-funding,     label: "Liquidity & Funding",    url: /toolkit/liquidity-funding/,     tag: liquidity-funding,     blurb: "Margin calls, funding vs market liquidity." }
+- { slug: operational,           label: "Operational Risk",       url: /toolkit/operational/,           tag: operational,           blurb: "Process, controls and the three lines of defence." }
+- { slug: frameworks-governance, label: "Frameworks & Governance",url: /toolkit/frameworks-governance/, tag: frameworks-governance, blurb: "ERM, risk appetite, Basel and model risk." }
