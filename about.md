@@ -9,7 +9,7 @@ management, written for risk managers, traders and treasury teams.
 
 ## Contact
 <div id="contact">
-Email: <a href="mailto:hello@riskmaverick.com">hello@riskmaverick.com</a>
+Email: <a href="mailto:jileshkadi@gmail.com">jileshkadi@gmail.com</a>
 </div>
 
 For advisory or training enquiries, email us with a short description of your
