@@ -1,0 +1,3 @@
+- { title: "Oil Market Report", publisher: "IEA", url: "https://www.iea.org/topics/oil-market-report", date: 2026-07-01 }
+- { title: "Short-Term Energy Outlook", publisher: "U.S. EIA", url: "https://www.eia.gov/outlooks/steo/", date: 2026-07-01 }
+- { title: "Commodity Markets Outlook", publisher: "World Bank", url: "https://www.worldbank.org/en/research/commodity-markets", date: 2026-06-01 }

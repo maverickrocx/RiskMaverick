@@ -1,0 +1,35 @@
+---
+layout: default
+title: Insights
+permalink: /insights/
+---
+<section class="hub-head"><p class="eyebrow">Knowledge &amp; commentary</p><h1>Insights</h1>
+<p class="hub-blurb">Fundamentals, analysis and the latest from authoritative sources.</p></section>
+
+<div class="filters" id="filters">
+  <button class="filter active" data-tag="all">All</button>
+  {% for m in site.data.markets %}<button class="filter" data-tag="{{ m.tag }}">{{ m.label }}</button>{% endfor %}
+  {% for t in site.data.toolkit %}<button class="filter" data-tag="{{ t.tag }}">{{ t.label }}</button>{% endfor %}
+</div>
+
+<div class="card-grid" id="feed">
+  {% for post in site.posts %}
+  <a class="card" href="{{ post.url | relative_url }}" data-tags="{{ post.markets | join: ' ' }} {{ post.concepts | join: ' ' }}">
+    <span class="card-kind kind-{{ post.kind | default: 'analysis' }}">{{ post.kind | default: 'analysis' }}</span>
+    <h3>{{ post.title }}</h3>
+    <p>{{ post.excerpt | strip_html | truncate: 120 }}</p>
+    <span class="card-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+  </a>
+  {% endfor %}
+</div>
+
+<section class="wires">
+  <h2 class="group-h">Around the web</h2>
+  <ul class="wire-list">
+    {% for w in site.data.wires %}
+    <li><a href="{{ w.url }}" target="_blank" rel="noopener">{{ w.title }}</a> <span>— {{ w.publisher }}</span></li>
+    {% endfor %}
+  </ul>
+</section>
+
+<script src="{{ '/assets/js/insights.js' | relative_url }}"></script>

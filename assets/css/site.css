@@ -546,3 +546,9 @@ footer{border-top:1px solid var(--border);margin-top:4rem;background:var(--bg2);
 .home-tools-cta{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-top:56px;padding:28px;border:1px solid var(--border);border-radius:12px;background:var(--surface);}
 .home-tools-cta h2{font:800 22px/1.2 Inter,sans-serif;margin:0 0 6px;} .home-tools-cta p{color:var(--gray2);margin:0;max-width:520px;}
 .btn-primary{background:var(--cyan);color:#06121f;font:700 14px/1 Inter,sans-serif;padding:14px 22px;border-radius:8px;text-decoration:none;white-space:nowrap;}
+
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0;}
+.filter{background:var(--bg3);border:1px solid var(--border);color:var(--gray1);font:600 12px/1 Inter,sans-serif;padding:8px 12px;border-radius:20px;cursor:pointer;}
+.filter.active{background:var(--cyan);color:#06121f;border-color:var(--cyan);}
+.wires{margin-top:48px;border-top:1px solid var(--border);padding-top:24px;}
+.wire-list li{margin:10px 0;color:var(--gray2);} .wire-list a{color:var(--cyan);}
