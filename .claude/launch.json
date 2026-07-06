@@ -12,6 +12,12 @@
       "runtimeExecutable": "bundle",
       "runtimeArgs": ["exec", "jekyll", "serve", "--livereload", "--port", "4000"],
       "port": 4000
+    },
+    {
+      "name": "site-build",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8081", "--directory", "_site"],
+      "port": 8081
     }
   ]
 }
