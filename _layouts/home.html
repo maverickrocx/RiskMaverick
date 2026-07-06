@@ -1,0 +1,47 @@
+---
+layout: default
+---
+<section class="home-hero">
+  <p class="eyebrow">Commodity &amp; Cross-Asset Risk Intelligence</p>
+  <h1 class="home-h1">Risk management, explained by practitioners.</h1>
+  <p class="home-sub">Deep coverage of commodity and cross-asset markets, and the tools and frameworks used to manage their risk.</p>
+</section>
+
+{% assign featured = site.posts | first %}
+{% if featured %}
+<section class="home-featured">
+  {% include article-card.html post=featured %}
+</section>
+{% endif %}
+
+<section class="home-latest">
+  <h2 class="group-h">Latest</h2>
+  <div class="card-grid">
+    {% for post in site.posts limit: 6 %}
+      {% unless post.url == featured.url %}{% include article-card.html post=post %}{% endunless %}
+    {% endfor %}
+  </div>
+</section>
+
+<section class="home-browse">
+  <h2 class="group-h">Browse by market</h2>
+  <div class="card-grid">
+    {% for m in site.data.markets %}
+    <a class="card" href="{{ m.url | relative_url }}"><span class="card-kind">{{ m.icon }}</span><h3>{{ m.label }}</h3><p>{{ m.blurb }}</p></a>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="home-toolkit">
+  <h2 class="group-h">From the Risk Toolkit</h2>
+  <div class="card-grid">
+    {% for t in site.data.toolkit %}
+    <a class="card" href="{{ t.url | relative_url }}"><h3>{{ t.label }}</h3><p>{{ t.blurb }}</p></a>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="home-tools-cta">
+  <div><h2>Interactive risk tools</h2><p>VaR &amp; Expected Shortfall calculator, volatility surface, correlation matrix and a live markets board.</p></div>
+  <a class="btn-primary" href="{{ '/tools/' | relative_url }}">Open Tools</a>
+</section>
