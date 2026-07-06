@@ -1,0 +1,10 @@
+{% if page.sources %}
+<section class="sources">
+  <h2>Sources &amp; further reading</h2>
+  <ul>
+    {% for s in page.sources %}
+    <li><a href="{{ s.url }}" target="_blank" rel="noopener">{{ s.title }}</a> — <span>{{ s.publisher }}</span></li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}

@@ -1,0 +1,19 @@
+{% assign firsttag = page.markets | first %}
+{% if firsttag == nil %}{% assign firsttag = page.concepts | first %}{% assign field = 'concepts' %}{% else %}{% assign field = 'markets' %}{% endif %}
+{% if field == 'markets' %}
+  {% assign pool = site.posts | where_exp: "p", "p.markets contains firsttag" %}
+{% else %}
+  {% assign pool = site.posts | where_exp: "p", "p.concepts contains firsttag" %}
+{% endif %}
+<section class="related">
+  <h2>Related</h2>
+  <div class="card-grid">
+    {% assign shown = 0 %}
+    {% for post in pool %}
+      {% unless post.url == page.url %}{% if shown < 3 %}
+        {% include article-card.html post=post %}
+        {% assign shown = shown | plus: 1 %}
+      {% endif %}{% endunless %}
+    {% endfor %}
+  </div>
+</section>

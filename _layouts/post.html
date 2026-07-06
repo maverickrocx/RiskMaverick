@@ -1,0 +1,17 @@
+---
+layout: default
+---
+<article class="post">
+  <header class="post-head">
+    <p class="eyebrow">{{ page.kind | default: 'analysis' }}</p>
+    <h1>{{ page.title }}</h1>
+    <p class="post-meta">{{ page.date | date: "%B %-d, %Y" }}{% if page.author %} · {{ page.author }}{% endif %}</p>
+    <div class="post-tags">
+      {% for m in page.markets %}<span class="tag">{{ m | replace: '-', ' ' }}</span>{% endfor %}
+      {% for c in page.concepts %}<span class="tag concept">{{ c | replace: '-', ' ' }}</span>{% endfor %}
+    </div>
+  </header>
+  <div class="post-body">{{ content }}</div>
+  {% include sources.html %}
+  {% include related.html %}
+</article>
