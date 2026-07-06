@@ -35,5 +35,5 @@ Trade reports are the reference for these balances and flows.
 **Sources & further reading**
 
 - [World Agricultural Supply and Demand Estimates (WASDE)](https://www.usda.gov/about-usda/general-information/staff-offices/office-chief-economist/commodity-markets/wasde-report) — U.S. Department of Agriculture
-- [Grain: World Markets and Trade](https://www.fas.usda.gov/data/commodities) — USDA Foreign Agricultural Service
+- [Grain: World Markets and Trade](https://apps.fas.usda.gov/psdonline/circulars/grain.pdf) — USDA Foreign Agricultural Service
 - [Food Outlook](https://www.fao.org/giews/reports/food-outlook/en/) — UN Food and Agriculture Organization (FAO)

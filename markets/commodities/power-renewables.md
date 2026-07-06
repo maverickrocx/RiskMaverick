@@ -38,4 +38,4 @@ build.
 
 - [Electricity Market Design](https://www.iea.org/reports/electricity-market-design) — International Energy Agency (IEA)
 - [Wholesale Electricity Markets](https://www.eia.gov/electricity/wholesalemarkets/) — U.S. Energy Information Administration
-- [Electricity 2025](https://www.iea.org/reports/electricity-2025) — International Energy Agency (IEA)
+- [Electricity Mid-Year Update 2025 — wholesale price trends](https://www.iea.org/reports/electricity-mid-year-update-2025/prices-trends-in-wholesale-markets-differ-across-regions) — International Energy Agency (IEA)
