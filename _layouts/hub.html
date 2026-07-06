@@ -1,0 +1,24 @@
+---
+layout: default
+---
+<section class="hub-head">
+  <p class="eyebrow">{{ page.group | default: page.spine }}</p>
+  <h1>{{ page.title }}</h1>
+  <p class="hub-blurb">{{ page.blurb }}</p>
+</section>
+<div class="post-body">{{ content }}</div>
+<section class="hub-body">
+  {% assign tag = page.tag %}
+  {% if page.spine == "markets" %}
+    {% assign posts = site.posts | where_exp: "p", "p.markets contains tag" %}
+  {% else %}
+    {% assign posts = site.posts | where_exp: "p", "p.concepts contains tag" %}
+  {% endif %}
+  <div class="card-grid">
+    {% for post in posts %}
+      {% include article-card.html post=post %}
+    {% else %}
+      <p class="empty">In-depth articles on this topic are coming soon.</p>
+    {% endfor %}
+  </div>
+</section>
