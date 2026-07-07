@@ -231,3 +231,13 @@ footer{border-top:1px solid var(--border);margin-top:4rem;background:var(--bg2);
   .nav-item.mega-open .mega{display:grid;}
 }
 @media(max-width:640px){ .footer-grid{grid-template-columns:1fr 1fr;} }
+
+/* ══════════════════════════════════════════════════════════
+   TRADE-FLOW INFOGRAPHICS (original, source-attributed SVG)
+══════════════════════════════════════════════════════════ */
+.flowviz{margin:32px 0;border:1px solid var(--border);border-radius:12px;background:var(--surface);padding:18px 18px 14px;overflow-x:auto;}
+.flowviz-title{font:700 15px/1.35 Inter,sans-serif;color:var(--white);margin:0 0 14px;}
+.flowviz svg{width:100%;height:auto;min-width:600px;display:block;}
+.flowviz-src{font:400 12px/1.55 Inter,sans-serif;color:var(--gray3);margin:14px 0 0;}
+.flowviz-src a{color:var(--cyan);text-decoration:none;}
+.flowviz-src a:hover{text-decoration:underline;}
