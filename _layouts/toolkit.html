@@ -1,0 +1,113 @@
+---
+layout: default
+---
+<article class="tkit">
+
+  <p class="tkit-crumb"><a href="{{ '/toolkit/' | relative_url }}">Risk Toolkit</a> <span>›</span>
+    <b>{{ page.title }}</b></p>
+
+  <header class="tkit-hero">
+    <div class="tkit-hero-top">
+      {% if page.emoji %}<div class="tkit-emoji">{{ page.emoji }}</div>{% endif %}
+      <div>
+        <p class="tkit-grp">{{ page.group | default: 'Risk Toolkit' }}</p>
+        <h1>{{ page.title }}</h1>
+      </div>
+    </div>
+    {% if page.standfirst %}<p class="tkit-stand">{{ page.standfirst }}</p>{% endif %}
+    {% if page.concepts %}
+    <div class="tkit-concepts">
+      {% for c in page.concepts %}<span class="cchip"><span class="k">{{ forloop.index0 | plus: 1 | prepend: '0' | slice: -2, 2 }}</span>{{ c }}</span>{% endfor %}
+    </div>
+    {% endif %}
+  </header>
+
+  <div class="tkit-doc">
+    <nav class="tkit-toc" aria-label="On this page">
+      <p class="h">On this page</p>
+      <ol id="tocList">
+        <li><a href="#overview" class="active">Overview</a></li>
+        {% if content contains 'id="how-it-works"' %}<li><a href="#how-it-works">How it works</a></li>{% endif %}
+        {% if content contains 'id="in-practice"' %}<li><a href="#in-practice">In practice</a></li>{% endif %}
+        {% if page.methods %}<li><a href="#methods">Key methods</a></li>{% endif %}
+        {% if page.sources %}<li><a href="#sources">Sources &amp; credits</a></li>{% endif %}
+      </ol>
+    </nav>
+
+    <div class="tkit-sect">
+      <h2 id="overview"><span class="n">01</span>Overview</h2>
+      <div class="tkit-lead">{{ content }}</div>
+
+      {% if page.methods %}
+      <h2 id="methods"><span class="n">02</span>Key methods</h2>
+      <div class="tkit-methods">
+        {% for m in page.methods %}
+        <div class="method"><div class="t">{{ m.t }}</div><p>{{ m.d }}</p></div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      {% if page.regulation %}
+      <div class="tkit-reg"><span class="ic">§</span><div>
+        <div class="rt">{{ page.regulation.title }}</div>
+        <p>{{ page.regulation.body }}</p></div></div>
+      {% endif %}
+
+      {% if page.sources %}
+      <section class="tkit-refs" id="sources">
+        <h2>Sources &amp; credits</h2>
+        <p class="rsub">Standard-setting and primary sources. Links open the original publication.</p>
+        <ol>
+          {% for s in page.sources %}
+          <li><span class="rt2">{% if s.url %}<a href="{{ s.url }}" target="_blank" rel="noopener">{{ s.title }}</a>{% else %}{{ s.title }}{% endif %}</span>
+            {% if s.note %}<span class="rn"><em>{{ s.note_label | default: 'Authoritative:' }}</em> {{ s.note }}</span>{% endif %}</li>
+          {% endfor %}
+        </ol>
+      </section>
+      {% endif %}
+
+      <div class="tkit-prov">
+        <span class="pt">Editorial</span>
+        <span class="item"><span class="dot"></span><b>Sourced from</b> standard-setters &amp; primary texts</span>
+        {% if page.reviewed %}<span class="item"><span class="dot"></span><b>Reviewed:</b> {{ page.reviewed | date: "%-d %b %Y" }}</span>{% endif %}
+      </div>
+
+      {% assign tagged = site.posts | where_exp: "p", "p.concepts contains page.tag" %}
+      {% if tagged.size > 0 %}
+      <section class="tkit-related">
+        <h3>Related coverage</h3>
+        <div class="rel-grid">
+          {% for post in tagged limit: 3 %}
+          <a class="rel" href="{{ post.url | relative_url }}"><span class="k">{{ post.kind | default: 'analysis' }}</span>
+            <div class="t">{{ post.title }}</div></a>
+          {% endfor %}
+        </div>
+      </section>
+      {% endif %}
+
+      <div class="tkit-toolcta">
+        <div><h4>{{ page.tool_cta_title | default: 'Put it into practice' }}</h4>
+          <p>{{ page.tool_cta_desc | default: 'Explore the interactive risk tools on the Tools page.' }}</p></div>
+        <a href="{{ page.tool_cta_url | default: '/tools/' | relative_url }}">Open the tools →</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<script>
+  (function(){
+    var links=[].slice.call(document.querySelectorAll('#tocList a'));
+    if(!links.length) return;
+    var map={}; links.forEach(function(a){ map[a.getAttribute('href').slice(1)]=a; });
+    var secs=links.map(function(a){ return document.getElementById(a.getAttribute('href').slice(1)); }).filter(Boolean);
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(ents){
+        ents.forEach(function(e){ if(e.isIntersecting){
+          links.forEach(function(l){ l.classList.remove('active'); });
+          if(map[e.target.id]) map[e.target.id].classList.add('active');
+        }});
+      },{rootMargin:'-15% 0px -70% 0px',threshold:0});
+      secs.forEach(function(s){ io.observe(s); });
+    }
+  })();
+</script>
