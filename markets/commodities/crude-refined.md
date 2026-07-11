@@ -1,13 +1,53 @@
 ---
+layout: commodity
 title: Crude & Refined
-group: Commodities
+group: Commodities · Energy
 tag: crude-refined
+emoji: "🛢️"
 blurb: "Brent and WTI benchmarks, crack spreads and the refining-margin risks that sit between crude and product prices."
+standfirst: "The deepest commodity market in the world — but the money at a refinery is made in the spread between crude bought and product sold, not in the flat price alone."
+reviewed: 2026-07-08
+benchmarks:
+  - { name: "Brent", region: "Global · ICE", price: "$78.40", unit: "/bbl", chg: "0.6% today", dir: up }
+  - { name: "WTI",   region: "US · NYMEX",   price: "$74.10", unit: "/bbl", chg: "0.4% today", dir: up }
+  - { name: "Dubai", region: "Asia · Platts",price: "$77.20", unit: "/bbl", chg: "0.3% today", dir: dn }
+benchmark_note: "Illustrative values · production feed delayed ≥15 min · settlement source shown per benchmark"
+key_benchmarks:
+  - { code: "Brent", full: "North Sea", desc: "The waterborne global benchmark; prices roughly two-thirds of internationally traded crude and settles on ICE." }
+  - { code: "WTI", full: "Cushing, Oklahoma", desc: "The US light-sweet benchmark, settled on NYMEX. Priced at an inland hub, so it carries logistics basis to the coast." }
+  - { code: "Dubai / Oman", full: "Medium-sour, Asia", desc: "The reference for Middle-East crude sold into Asia — the marker for sour grades Brent and WTI don’t represent." }
+drivers:
+  - { icon: "🛢️", title: "OPEC+ supply policy", desc: "Coordinated production quotas are the single largest swing factor in the global supply balance." }
+  - { icon: "🌍", title: "Demand & the cycle", desc: "Oil demand tracks global growth, transport and industrial activity — the demand side of the balance." }
+  - { icon: "📦", title: "Inventories", desc: "Commercial stock builds and draws (EIA, IEA) signal whether the market is tightening or loosening week to week." }
+  - { icon: "⚡", title: "Geopolitics", desc: "Sanctions, conflict and chokepoints (Hormuz, Suez) add a risk premium that can move price sharply and suddenly." }
+risks:
+  - { title: "Flat-price risk", sev: hi, sev_label: "High", desc: "Outright exposure to the level of crude — the largest and most volatile risk for producers, refiners and airlines alike." }
+  - { title: "Crack-spread risk", sev: hi, sev_label: "High", desc: "Refining margin is the crude-to-product spread; it can compress even when flat price is stable, squeezing refiners." }
+  - { title: "Grade / quality basis", sev: md, sev_label: "Medium", desc: "Sweet vs sour and light vs heavy differentials mean a Brent hedge imperfectly covers a differently-graded barrel." }
+  - { title: "Time-spread risk", sev: md, sev_label: "Medium", desc: "Backwardation and contango change storage economics and the roll cost of maintaining a futures hedge." }
+risk_note: "<b>Flat price is only half the picture.</b> A refiner can be fully hedged on crude and still lose money if the crack spread collapses. Model crude, products and the spread between them as distinct exposures."
+specs:
+  - { benchmark: "Brent", venue: "ICE", unit: "USD / barrel", size: "1,000 bbl", settle: "Cash (index)" }
+  - { benchmark: "WTI", venue: "NYMEX (CME)", unit: "USD / barrel", size: "1,000 bbl", settle: "Physical delivery" }
+  - { benchmark: "RBOB Gasoline", venue: "NYMEX (CME)", unit: "USD / gallon", size: "42,000 gal", settle: "Physical delivery" }
+specs_note: "Specifications summarised for orientation; confirm current terms with the exchange rulebook before trading."
+sources:
+  - { title: "Oil Market Report", publisher: "International Energy Agency (IEA)", year: 2025, url: "https://www.iea.org/reports/oil-market-report", note: "Intergovernmental energy body; monthly balances · iea.org" }
+  - { title: "Benchmarks play an important role in pricing crude oil", publisher: "U.S. EIA", url: "https://www.eia.gov/todayinenergy/detail.php?id=18571", note: "Official US explainer on crude benchmarks · eia.gov" }
+  - { title: "Short-Term Energy Outlook", publisher: "U.S. EIA", url: "https://www.eia.gov/outlooks/steo/", note: "Official US inventory and production outlook · eia.gov" }
+  - { title: "Monthly Oil Market Report (MOMR)", publisher: "OPEC", url: "https://www.opec.org/monthly-oil-market-report.html", note: "Primary source on OPEC+ supply policy · opec.org" }
+  - { title: "Light Sweet Crude Oil (WTI) — Contract Specs", publisher: "CME Group", url: "https://www.cmegroup.com/markets/energy/crude-oil/light-sweet-crude.contractSpecs.html", note_label: "Primary:", note: "The exchange rulebook itself · cmegroup.com" }
+tool_cta_title: "Model oil & margin risk"
+tool_cta_desc: "Run a VaR on a crude book, or decompose crack-spread exposure into crude and product legs."
 ---
 
-Crude oil is the deepest commodity market in the world, and the spread between
-crude and refined products — the crack spread — is where much refining risk
-lives. This hub collects our coverage of oil price and margin risk.
+Crude oil is the deepest commodity market in the world, and its flat price is
+the reference every other energy risk hangs off. But the risk that defines the
+sector is the **crack spread** — the gap between the crude a refiner buys and
+the products it sells. A barrel can be fully hedged on crude and still lose
+money if that margin compresses, which is why crude and refined products are
+modelled as **distinct, related exposures** rather than one price.
 
 ## How the market works
 
@@ -61,10 +101,3 @@ flows almost entirely to independent Chinese refiners.
 </svg>
 <figcaption class="flowviz-src">Schematic — indicative flows, not to scale. Data: <a href="https://www.iea.org/reports/oil-market-report">IEA Oil Market Report</a> &amp; <a href="https://www.eia.gov/todayinenergy/detail.php?id=18571">U.S. EIA</a>. Interactive map: <a href="https://www.eia.gov/international/data/world">EIA International Energy Data</a>.</figcaption>
 </figure>
-
-**Sources & further reading**
-
-- [Oil Market Report](https://www.iea.org/reports/oil-market-report) — International Energy Agency (IEA)
-- [Benchmarks play an important role in pricing crude oil](https://www.eia.gov/todayinenergy/detail.php?id=18571) — U.S. Energy Information Administration
-- [Short-Term Energy Outlook](https://www.eia.gov/outlooks/steo/) — U.S. Energy Information Administration
-- [Monthly Oil Market Report](https://www.opec.org/monthly-oil-market-report.html) — OPEC

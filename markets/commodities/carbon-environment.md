@@ -1,14 +1,54 @@
 ---
+layout: commodity
 title: Carbon & Environment
-group: Commodities
+group: Commodities · Environmental
 tag: carbon-environment
+emoji: "🌱"
 blurb: "EU ETS, RECs, offsets and policy risk."
+standfirst: "A commodity created by regulation. Supply is set by a policy cap, not a mine or a well — so the dominant risk here is the direction of climate policy itself."
+reviewed: 2026-07-08
+benchmarks:
+  - { name: "EUA", region: "EU ETS · ICE", price: "€71.0", unit: "/t", chg: "0.8% today", dir: up }
+  - { name: "UKA", region: "UK ETS · ICE", price: "£38.5", unit: "/t", chg: "1.4% today", dir: dn }
+  - { name: "CCA", region: "California · ICE", price: "$38.2", unit: "/t", chg: "0.5% today", dir: up }
+benchmark_note: "Illustrative values · allowance futures reference · settlement source shown per scheme"
+key_benchmarks:
+  - { code: "EUA", full: "EU Emission Allowance", desc: "The world’s largest compliance carbon market; one EUA permits one tonne of CO₂ under the EU ETS cap-and-trade scheme." }
+  - { code: "RECs", full: "Renewable Energy Certificates", desc: "Tradable proof that one MWh of renewable power was generated — used to meet clean-energy obligations." }
+  - { code: "VCM offsets", full: "Voluntary carbon market", desc: "Project-based credits (forestry, capture) traded voluntarily; quality and verification vary widely by standard." }
+drivers:
+  - { icon: "📜", title: "Policy & the cap", desc: "The regulator sets total supply. Tightening the cap or reforming the scheme is the single largest price driver." }
+  - { icon: "🏭", title: "Industrial activity", desc: "Emissions demand for allowances rises and falls with output from power and heavy industry." }
+  - { icon: "🔥", title: "Fuel switching", desc: "Gas-vs-coal economics change how many allowances the power sector needs — linking carbon to energy prices." }
+  - { icon: "🏦", title: "Market stability tools", desc: "Mechanisms like the EU’s Market Stability Reserve absorb or release supply, dampening or amplifying moves." }
+risks:
+  - { title: "Policy / regulatory risk", sev: hi, sev_label: "High", desc: "The defining risk: a rule change, cap revision or scheme reform can revalue the entire market overnight." }
+  - { title: "Liquidity & maturity risk", sev: hi, sev_label: "High", desc: "Newer and voluntary markets are thin and fragmented, so prices can gap and hedges can be hard to unwind." }
+  - { title: "Quality / integrity risk", sev: md, sev_label: "Medium", desc: "In voluntary offsets, credits differ in verification and permanence — two ‘tonnes’ are not always equivalent." }
+  - { title: "Basis between schemes", sev: md, sev_label: "Medium", desc: "EUA, UKA and CCA are separate, non-fungible markets; a hedge in one does not cover exposure in another." }
+risk_note: "<b>Supply is a political decision.</b> Unlike a mined or drilled commodity, the amount of carbon ‘produced’ is set by the regulator. Scenario-testing policy paths matters more here than modelling physical fundamentals."
+specs:
+  - { benchmark: "EU Allowance (EUA)", venue: "ICE / EEX", unit: "EUR / tonne CO₂", size: "1,000 t", settle: "Physical (allowance)" }
+  - { benchmark: "UK Allowance (UKA)", venue: "ICE", unit: "GBP / tonne CO₂", size: "1,000 t", settle: "Physical (allowance)" }
+  - { benchmark: "California (CCA)", venue: "ICE", unit: "USD / tonne CO₂", size: "1,000 t", settle: "Physical (allowance)" }
+specs_note: "Specifications summarised for orientation; confirm current terms with the exchange rulebook before trading."
+sources:
+  - { title: "About the EU ETS", publisher: "European Commission, Climate Action", url: "https://climate.ec.europa.eu/eu-action/carbon-markets/about-eu-ets_en", note: "The regulator of the world’s largest carbon market · europa.eu" }
+  - { title: "State and Trends of Carbon Pricing", publisher: "World Bank", year: 2025, url: "https://www.worldbank.org/en/publication/state-and-trends-of-carbon-pricing", note: "Annual global survey of compliance carbon markets · worldbank.org" }
+  - { title: "EU Emissions Trading System (EU ETS)", publisher: "International Carbon Action Partnership (ICAP)", url: "https://icapcarbonaction.com/en/ets/eu-emissions-trading-system-eu-ets", note: "Independent reference on ETS design worldwide · icapcarbonaction.com" }
+  - { title: "Carbon Futures — Contract Specs", publisher: "Intercontinental Exchange (ICE)", url: "https://www.ice.com/products/Environmental", note_label: "Primary:", note: "Exchange rulebook for EUA, UKA and CCA futures · ice.com" }
+tool_cta_title: "Model carbon price & policy risk"
+tool_cta_desc: "Stress-test a compliance position against alternative policy and cap-tightening scenarios."
 ---
 
-Carbon and environmental markets — EU ETS allowances, renewable energy
-certificates and voluntary offsets — are shaped as much by policy as by supply
-and demand. This hub tracks pricing, compliance schemes and the policy risk
-that drives these markets.
+Carbon is a commodity **created by regulation**. There is no mine or well —
+supply is a policy cap, and the amount of CO₂ that can be emitted is a political
+decision. That makes the **direction of climate policy** the dominant price
+driver and the dominant risk. Compliance markets like the **EU ETS** are the
+deepest and most liquid; **renewable energy certificates** and **voluntary
+offsets** sit alongside them but are thinner and more fragmented, with real
+differences in quality and verification. Managing risk here is less about
+physical fundamentals and more about **scenario-testing the rules themselves**.
 
 ## How the market works
 
@@ -60,9 +100,3 @@ the dominant driver of price.
 </svg>
 <figcaption class="flowviz-src">Schematic — illustrative mechanism (EU ETS shown). Data: <a href="https://climate.ec.europa.eu/eu-action/carbon-markets/about-eu-ets_en">European Commission</a>, <a href="https://www.worldbank.org/en/publication/state-and-trends-of-carbon-pricing">World Bank</a> &amp; <a href="https://icapcarbonaction.com/en/ets/eu-emissions-trading-system-eu-ets">ICAP</a>. Interactive: <a href="https://carbonpricingdashboard.worldbank.org/">World Bank Carbon Pricing Dashboard</a>.</figcaption>
 </figure>
-
-**Sources & further reading**
-
-- [About the EU ETS](https://climate.ec.europa.eu/eu-action/carbon-markets/about-eu-ets_en) — European Commission, Climate Action
-- [State and Trends of Carbon Pricing](https://www.worldbank.org/en/publication/state-and-trends-of-carbon-pricing) — World Bank
-- [EU Emissions Trading System (EU ETS)](https://icapcarbonaction.com/en/ets/eu-emissions-trading-system-eu-ets) — International Carbon Action Partnership (ICAP)

@@ -1,13 +1,54 @@
 ---
+layout: commodity
 title: Natural Gas & LNG
-group: Commodities
+group: Commodities · Energy
 tag: natural-gas-lng
+emoji: "🔥"
 blurb: "Henry Hub, TTF and JKM benchmarks, storage economics, basis and the seasonal risks that define gas markets."
+standfirst: "Gas has no single global price. Three regional benchmarks — and the spreads between them — set physical flows, cargo economics and every hedging decision on the desk."
+reviewed: 2026-07-08
+benchmarks:
+  - { name: "Henry Hub", region: "US · NYMEX",  price: "$2.84",  unit: "/MMBtu", chg: "1.7% today", dir: dn }
+  - { name: "TTF",       region: "EU · ICE",    price: "€31.20", unit: "/MWh",   chg: "0.9% today", dir: up }
+  - { name: "JKM",       region: "Asia · Platts",price: "$11.60", unit: "/MMBtu", chg: "2.3% today", dir: up }
+benchmark_note: "Illustrative values · production feed delayed ≥15 min · settlement source shown per benchmark"
+key_benchmarks:
+  - { code: "Henry Hub", full: "Erath, Louisiana", desc: "The US physical & futures benchmark, settled on NYMEX. Deep, liquid, and the reference for North-American gas hedging." }
+  - { code: "TTF", full: "Title Transfer Facility", desc: "The Dutch virtual hub that became Europe’s pricing anchor — the reference for pipeline gas and European LNG imports." }
+  - { code: "JKM", full: "Japan-Korea Marker", desc: "Platts’ spot assessment for LNG delivered into North-East Asia — the marginal price that clears flexible cargoes." }
+drivers:
+  - { icon: "🌡️", title: "Weather & demand", desc: "Heating load in winter and gas-fired cooling in summer make gas the most weather-sensitive of the major commodities." }
+  - { icon: "🛢️", title: "Storage & inventories", desc: "Weekly injection/withdrawal against the five-year range is the market’s primary balance signal." }
+  - { icon: "🚢", title: "LNG arbitrage", desc: "When TTF or JKM rises far above Henry Hub, US export cargoes chase the spread — tightening domestic supply." }
+  - { icon: "⚙️", title: "Supply & fuel-switching", desc: "Production, pipeline outages and coal-to-gas switching in power set the marginal supply stack." }
+risks:
+  - { title: "Seasonal risk", sev: hi, sev_label: "High", desc: "Winter demand can spike prices several-fold within weeks; the summer-to-winter spread is a position in itself." }
+  - { title: "Basis (location) risk", sev: hi, sev_label: "High", desc: "A hedge at Henry Hub does not cover a physical position priced at TTF or a regional US hub — the spread is unhedged." }
+  - { title: "Storage / time-spread risk", sev: md, sev_label: "Medium", desc: "The value of injecting now to sell later swings with the calendar spread and available capacity." }
+  - { title: "Volume / swing risk", sev: md, sev_label: "Medium", desc: "Demand volume is itself uncertain and weather-driven, so even a price-hedged book carries quantity risk." }
+risk_note: "<b>Why basis risk dominates gas.</b> Because the three benchmarks are physically separated, the single biggest modelling error is treating a Henry-Hub hedge as protection for a TTF- or JKM-priced exposure. Location spreads must be modelled explicitly."
+specs:
+  - { benchmark: "Henry Hub", venue: "NYMEX (CME)", unit: "USD / MMBtu", size: "10,000 MMBtu", settle: "Physical / financial" }
+  - { benchmark: "TTF", venue: "ICE / EEX", unit: "EUR / MWh", size: "1 MW × period", settle: "Cash (index)" }
+  - { benchmark: "JKM", venue: "ICE (swap)", unit: "USD / MMBtu", size: "10,000 MMBtu", settle: "Cash vs Platts" }
+specs_note: "Specifications summarised for orientation; confirm current terms with the exchange rulebook before trading."
+sources:
+  - { title: "Natural Gas Explained", publisher: "U.S. Energy Information Administration (EIA)", year: 2025, url: "https://www.eia.gov/energyexplained/natural-gas/", note: "Official US energy statistics agency · eia.gov" }
+  - { title: "Natural Gas Weekly Update", publisher: "U.S. EIA", url: "https://www.eia.gov/naturalgas/weekly/", note: "Weekly storage and price data — the market’s primary inventory benchmark · eia.gov" }
+  - { title: "Gas Market Report", publisher: "International Energy Agency (IEA)", year: 2025, url: "https://www.iea.org/topics/natural-gas", note: "Intergovernmental energy body · iea.org" }
+  - { title: "Annual Report on LNG", publisher: "GIIGNL (International Group of LNG Importers)", url: "https://www.giignl.org/annual-report", note: "Primary source on global LNG trade flows · giignl.org" }
+  - { title: "LNG Outlook", publisher: "Shell", url: "https://www.shell.com/what-we-do/oil-and-natural-gas/liquefied-natural-gas-lng.html", note_label: "Industry:", note: "Widely-cited long-range LNG demand outlook · shell.com" }
+  - { title: "Henry Hub Natural Gas Futures — Contract Specs", publisher: "CME Group", url: "https://www.cmegroup.com/markets/energy/natural-gas/natural-gas.contractSpecs.html", note_label: "Primary:", note: "The exchange rulebook itself · cmegroup.com" }
+tool_cta_title: "Model gas price risk"
+tool_cta_desc: "Run a parametric VaR on a Henry Hub / TTF book and see the basis contribution."
 ---
 
-Natural gas is priced regionally — Henry Hub in North America, TTF in Europe,
-JKM for Asian LNG — and the spreads between them drive both physical flows and
-hedging strategy. This hub collects our coverage of gas and LNG price risk.
+Unlike crude oil, natural gas is expensive to move, so it prices **regionally**
+rather than globally. North America trades off **Henry Hub**, Europe off the
+Dutch **TTF**, and Asian LNG off the **Japan-Korea Marker (JKM)**. LNG shipping
+links these pools, but only imperfectly — which means the **spreads between
+them**, not any single price, are what govern cargo economics and hedging
+strategy.
 
 ## How the market works
 
@@ -57,10 +98,3 @@ spreads continually redirect cargoes between the Atlantic and Pacific basins.
 </svg>
 <figcaption class="flowviz-src">Schematic — indicative flows, not to scale. Data: <a href="https://www.giignl.org/annual-report">GIIGNL Annual Report on LNG</a>, <a href="https://www.shell.com/what-we-do/oil-and-natural-gas/liquefied-natural-gas-lng.html">Shell LNG Outlook</a> &amp; <a href="https://www.oxfordenergy.org/gas-programme/">OIES</a>. Interactive: <a href="https://www.iea.org/data-and-statistics/data-tools/global-lng-capacity-tracker">IEA Global LNG Capacity Tracker</a>.</figcaption>
 </figure>
-
-**Sources & further reading**
-
-- [Annual Report on LNG](https://www.giignl.org/annual-report) — GIIGNL (International Group of LNG Importers)
-- [LNG Outlook](https://www.shell.com/what-we-do/oil-and-natural-gas/liquefied-natural-gas-lng.html) — Shell
-- [Gas Research Programme](https://www.oxfordenergy.org/gas-programme/) — Oxford Institute for Energy Studies
-- [Natural Gas Weekly Update](https://www.eia.gov/naturalgas/weekly/) — U.S. Energy Information Administration

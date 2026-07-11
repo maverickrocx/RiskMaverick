@@ -1,14 +1,53 @@
 ---
+layout: commodity
 title: Agriculture
-group: Commodities
+group: Commodities · Agriculture
 tag: agriculture
+emoji: "🌾"
 blurb: "Grains and softs, weather and seasonality risk."
+standfirst: "The one commodity complex where the crop is grown to a calendar — so weather and the planting-to-harvest cycle drive price in a way no other market shares."
+reviewed: 2026-07-08
+benchmarks:
+  - { name: "Corn", region: "US · CBOT", price: "$4.28", unit: "/bu", chg: "1.1% today", dir: dn }
+  - { name: "Soybeans", region: "US · CBOT", price: "$10.85", unit: "/bu", chg: "0.6% today", dir: up }
+  - { name: "Wheat", region: "US · CBOT", price: "$5.62", unit: "/bu", chg: "0.9% today", dir: up }
+benchmark_note: "Illustrative values · production feed delayed ≥15 min · CBOT (CME) reference"
+key_benchmarks:
+  - { code: "CBOT grains", full: "Chicago Board of Trade", desc: "The global reference for corn, soybeans and wheat futures — the deepest and most-watched ag benchmarks." }
+  - { code: "ICE softs", full: "Coffee, sugar, cocoa, cotton", desc: "The ‘softs’ complex trades on ICE, driven by tropical weather and concentrated growing regions." }
+  - { code: "Cash / basis", full: "Local elevator", desc: "Physical grain trades as a basis to the futures — the local cash-to-futures spread is where merchandisers live." }
+drivers:
+  - { icon: "🌦️", title: "Weather", desc: "Drought, heat and excess rain at key growth stages are the dominant price mover — a single forecast can move the market." }
+  - { icon: "🌱", title: "Planting & harvest cycle", desc: "Acreage decisions and the seasonal supply flush at harvest give ag its characteristic annual price pattern." }
+  - { icon: "🚢", title: "Trade flows & policy", desc: "Export demand, tariffs and shipping (e.g. Black Sea, Mississippi) shift where and at what price crops clear." }
+  - { icon: "📋", title: "USDA reports", desc: "WASDE and crop-progress reports reset supply/demand expectations and regularly trigger limit moves." }
+risks:
+  - { title: "Weather / yield risk", sev: hi, sev_label: "High", desc: "The defining risk: a growing-season weather shock can swing prices dramatically and is fundamentally unhedgeable at source." }
+  - { title: "Seasonality risk", sev: hi, sev_label: "High", desc: "Prices follow a repeatable planting-to-harvest pattern; the old-crop / new-crop spread is a core ag position." }
+  - { title: "Basis risk", sev: md, sev_label: "Medium", desc: "Local cash prices move against futures with logistics and local supply, leaving elevators and processors exposed." }
+  - { title: "Policy / trade risk", sev: md, sev_label: "Medium", desc: "Tariffs, export bans and biofuel mandates can reroute global flows overnight." }
+risk_note: "<b>Weather is the risk you can’t hedge at source.</b> Futures let you hedge price, but not the yield on your own acres. Ag risk management is as much about basis and quantity as it is about the flat price."
+specs:
+  - { benchmark: "Corn", venue: "CBOT (CME)", unit: "USc / bushel", size: "5,000 bu", settle: "Physical delivery" }
+  - { benchmark: "Soybeans", venue: "CBOT (CME)", unit: "USc / bushel", size: "5,000 bu", settle: "Physical delivery" }
+  - { benchmark: "Wheat (SRW)", venue: "CBOT (CME)", unit: "USc / bushel", size: "5,000 bu", settle: "Physical delivery" }
+specs_note: "Specifications summarised for orientation; confirm current terms with the exchange rulebook before trading."
+sources:
+  - { title: "World Agricultural Supply & Demand Estimates (WASDE)", publisher: "U.S. Department of Agriculture (USDA)", url: "https://www.usda.gov/about-usda/general-information/staff-offices/office-chief-economist/commodity-markets/wasde-report", note: "The primary global ag supply/demand report · usda.gov" }
+  - { title: "Grain: World Markets and Trade", publisher: "USDA Foreign Agricultural Service", url: "https://apps.fas.usda.gov/psdonline/circulars/grain.pdf", note: "Primary source on world grain trade and balances · usda.gov" }
+  - { title: "Food Outlook", publisher: "UN Food and Agriculture Organization (FAO)", url: "https://www.fao.org/giews/reports/food-outlook/en/", note: "Intergovernmental crop and price monitoring · fao.org" }
+  - { title: "Agricultural Futures — Contract Specs", publisher: "CME Group", url: "https://www.cmegroup.com/markets/agriculture.html", note_label: "Primary:", note: "Exchange rulebook for grains and oilseeds · cmegroup.com" }
+tool_cta_title: "Model agricultural price risk"
+tool_cta_desc: "See how basis and seasonal spreads sit alongside flat-price VaR for a grain book."
 ---
 
-Agricultural commodities — grains, oilseeds and softs — are driven by planting
-and harvest cycles, weather and global trade flows in a way few other markets
-are. This hub collects our coverage of seasonality, weather risk and the
-hedging tools used across the agricultural supply chain.
+Agriculture is the one major complex grown to a **calendar**. Corn, soybeans
+and wheat are planted, grown and harvested on an annual cycle, so **weather**
+and **seasonality** drive price in a way energy and metals never see: a single
+drought forecast can move the whole curve. Futures on the **CBOT** let a farmer
+or processor hedge the flat price — but not the yield on their own acres, nor
+the **local basis** between cash and futures. That gap between what you can and
+can’t hedge is what defines risk management across the agricultural supply chain.
 
 ## How the market works
 
@@ -57,9 +96,3 @@ Trade reports are the reference for these balances and flows.
 </svg>
 <figcaption class="flowviz-src">Schematic — indicative flows, not to scale. Data: <a href="https://www.usda.gov/about-usda/general-information/staff-offices/office-chief-economist/commodity-markets/wasde-report">USDA WASDE</a> &amp; <a href="https://apps.fas.usda.gov/psdonline/circulars/grain.pdf">Grain: World Markets and Trade</a>; <a href="https://www.fao.org/giews/reports/food-outlook/en/">FAO</a>. Interactive: <a href="https://apps.fas.usda.gov/psdonline/app/index.html">USDA PSD Online</a>.</figcaption>
 </figure>
-
-**Sources & further reading**
-
-- [World Agricultural Supply and Demand Estimates (WASDE)](https://www.usda.gov/about-usda/general-information/staff-offices/office-chief-economist/commodity-markets/wasde-report) — U.S. Department of Agriculture
-- [Grain: World Markets and Trade](https://apps.fas.usda.gov/psdonline/circulars/grain.pdf) — USDA Foreign Agricultural Service
-- [Food Outlook](https://www.fao.org/giews/reports/food-outlook/en/) — UN Food and Agriculture Organization (FAO)

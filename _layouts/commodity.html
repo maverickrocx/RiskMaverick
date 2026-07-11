@@ -1,0 +1,167 @@
+---
+layout: default
+---
+<article class="cmdty">
+
+  <p class="cmdty-crumb"><a href="{{ '/markets/' | relative_url }}">Markets</a> <span>›</span>
+    <a href="{{ '/markets/' | relative_url }}#commodities">Commodities</a> <span>›</span>
+    <b>{{ page.title }}</b></p>
+
+  <!-- ── Sector hero ── -->
+  <header class="cmdty-hero">
+    <div class="cmdty-hero-top">
+      {% if page.emoji %}<div class="cmdty-emoji">{{ page.emoji }}</div>{% endif %}
+      <div>
+        <p class="cmdty-grp">{{ page.group | default: 'Commodities' }}</p>
+        <h1>{{ page.title }}</h1>
+      </div>
+    </div>
+    {% if page.standfirst %}<p class="cmdty-stand">{{ page.standfirst }}</p>{% endif %}
+
+    {% if page.benchmarks %}
+    <div class="cmdty-bench" role="group" aria-label="Key benchmark prices">
+      {% for b in page.benchmarks %}
+      <div class="bcard">
+        <div class="bn"><span class="name">{{ b.name }}</span><span class="region">{{ b.region }}</span></div>
+        <div class="px tnum">{{ b.price }}<span class="unit"> {{ b.unit }}</span></div>
+        <div class="chg {{ b.dir }} tnum">{% if b.dir == 'up' %}▲{% elsif b.dir == 'dn' %}▼{% endif %} {{ b.chg }}</div>
+      </div>
+      {% endfor %}
+    </div>
+    {% if page.benchmark_note %}<p class="cmdty-bench-note"><span class="dot"></span>{{ page.benchmark_note }}</p>{% endif %}
+    {% endif %}
+  </header>
+
+  <div class="cmdty-doc">
+    <!-- ── Contents rail ── -->
+    <nav class="cmdty-toc" aria-label="On this page">
+      <p class="h">On this page</p>
+      <ol id="tocList">
+        <li><a href="#overview" class="active">Overview</a></li>
+        <li><a href="#how-the-market-works">Market structure</a></li>
+        <li><a href="#major-trade-flows">Trade flows</a></li>
+        {% if page.key_benchmarks %}<li><a href="#benchmarks">Key benchmarks</a></li>{% endif %}
+        {% if page.drivers %}<li><a href="#drivers">Price drivers</a></li>{% endif %}
+        {% if page.risks %}<li><a href="#risks">Defining risks</a></li>{% endif %}
+        {% if page.specs %}<li><a href="#specs">Contract specs</a></li>{% endif %}
+        {% if page.sources %}<li><a href="#sources">Sources &amp; credits</a></li>{% endif %}
+      </ol>
+    </nav>
+
+    <!-- ── Body ── -->
+    <div class="cmdty-sect">
+      <h2 id="overview"><span class="n">01</span>Overview</h2>
+      <div class="cmdty-lead">{{ content }}</div>
+
+      {% if page.key_benchmarks %}
+      <h2 id="benchmarks"><span class="n">02</span>Key benchmarks</h2>
+      <div class="bk-grid">
+        {% for k in page.key_benchmarks %}
+        <div class="bk"><div class="code">{{ k.code }}</div><div class="full">{{ k.full }}</div><p>{{ k.desc }}</p></div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      {% if page.drivers %}
+      <h2 id="drivers"><span class="n">03</span>What drives the price</h2>
+      <div class="drivers">
+        {% for d in page.drivers %}
+        <div class="drv"><span class="ic">{{ d.icon }}</span><div><div class="t">{{ d.title }}</div><p>{{ d.desc }}</p></div></div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      {% if page.risks %}
+      <h2 id="risks"><span class="n">04</span>The risks that define this market</h2>
+      <div class="risk-grid">
+        {% for r in page.risks %}
+        <div class="rk"><span class="sev {{ r.sev }}">{{ r.sev_label | default: r.sev }}</span>
+          <div class="t">{{ r.title }}</div><p>{{ r.desc }}</p></div>
+        {% endfor %}
+      </div>
+      {% if page.risk_note %}<div class="cmdty-note"><span class="ic">i</span><div>{{ page.risk_note }}</div></div>{% endif %}
+      {% endif %}
+
+      {% if page.specs %}
+      <h2 id="specs"><span class="n">05</span>Contract specifications</h2>
+      <div class="tbl-wrap">
+        <table class="specs">
+          <thead><tr><th>Benchmark</th><th>Venue</th><th>Unit</th><th>Contract size</th><th>Settlement</th></tr></thead>
+          <tbody>
+            {% for s in page.specs %}
+            <tr><td>{{ s.benchmark }}</td><td>{{ s.venue }}</td><td class="mono">{{ s.unit }}</td>
+              <td class="mono">{{ s.size }}</td><td>{{ s.settle }}</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% if page.specs_note %}<p class="cmdty-specs-note">{{ page.specs_note }}</p>{% endif %}
+      {% endif %}
+
+      {% if page.sources %}
+      <section class="cmdty-refs" id="sources">
+        <h2>Sources &amp; credits</h2>
+        <p class="rsub">Data and factual claims on this page trace to primary, non-commercial sources. Links open the original publication.</p>
+        <ol>
+          {% for s in page.sources %}
+          <li><span class="rt">{% if s.url %}<a href="{{ s.url }}" target="_blank" rel="noopener">{{ s.title }}</a>{% else %}{{ s.title }}{% endif %}</span>
+            <span class="rp"> {{ s.publisher }}{% if s.year %}, {{ s.year }}{% endif %}.</span>
+            {% if s.note %}<span class="rn"><em>{{ s.note_label | default: 'Authoritative:' }}</em> {{ s.note }}</span>{% endif %}</li>
+          {% endfor %}
+        </ol>
+      </section>
+      {% endif %}
+
+      <div class="cmdty-prov">
+        <span class="pt">Data provenance</span>
+        {% if page.provenance %}{% for p in page.provenance %}<span class="item"><span class="dot"></span>{{ p }}</span>{% endfor %}
+        {% else %}
+        <span class="item"><span class="dot"></span><b>Prices:</b> exchange settlement, delayed ≥15 min</span>
+        <span class="item"><span class="dot"></span><b>Fundamentals:</b> official agencies</span>
+        {% endif %}
+        {% if page.reviewed %}<span class="item"><span class="dot"></span><b>Reviewed:</b> {{ page.reviewed | date: "%-d %b %Y" }}</span>{% endif %}
+      </div>
+
+      {% assign tagged = site.posts | where_exp: "p", "p.markets contains page.tag" %}
+      {% if tagged.size > 0 or page.related %}
+      <section class="cmdty-related">
+        <h3>Related coverage</h3>
+        <div class="rel-grid">
+          {% for post in tagged limit: 3 %}
+          <a class="rel" href="{{ post.url | relative_url }}"><span class="k">{{ post.kind | default: 'analysis' }}</span>
+            <div class="t">{{ post.title }}</div></a>
+          {% endfor %}
+          {% for r in page.related %}
+          <a class="rel"{% if r.url %} href="{{ r.url | relative_url }}"{% endif %}><span class="k">{{ r.kind }}</span>
+            <div class="t">{{ r.title }}</div></a>
+          {% endfor %}
+        </div>
+      </section>
+      {% endif %}
+
+      <div class="cmdty-toolcta">
+        <div><h4>{{ page.tool_cta_title | default: 'Model this market’s risk' }}</h4>
+          <p>{{ page.tool_cta_desc | default: 'Run a parametric VaR and Expected Shortfall on a book in this sector.' }}</p></div>
+        <a href="{{ '/tools/' | relative_url }}">Open the tools →</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<script>
+  (function(){
+    var links=[].slice.call(document.querySelectorAll('#tocList a'));
+    if(!links.length) return;
+    var map={}; links.forEach(function(a){ map[a.getAttribute('href').slice(1)]=a; });
+    var secs=links.map(function(a){ return document.getElementById(a.getAttribute('href').slice(1)); }).filter(Boolean);
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(ents){
+        ents.forEach(function(e){ if(e.isIntersecting){
+          links.forEach(function(l){ l.classList.remove('active'); });
+          if(map[e.target.id]) map[e.target.id].classList.add('active');
+        }});
+      },{rootMargin:'-15% 0px -70% 0px',threshold:0});
+      secs.forEach(function(s){ io.observe(s); });
+    }
+  })();
+</script>

@@ -1,15 +1,53 @@
 ---
+layout: commodity
 title: Metals
-group: Commodities
+group: Commodities · Metals
 tag: metals
+emoji: "🪙"
 blurb: "Base and precious metals, LME pricing and warehousing."
+standfirst: "Two markets under one name: industrial base metals priced on physical supply and demand, and precious metals that trade as much on macro and safe-haven flows."
+reviewed: 2026-07-08
+benchmarks:
+  - { name: "Copper", region: "Base · LME", price: "$9,420", unit: "/t", chg: "0.7% today", dir: up }
+  - { name: "Aluminium", region: "Base · LME", price: "$2,510", unit: "/t", chg: "0.5% today", dir: dn }
+  - { name: "Gold", region: "Precious · COMEX", price: "$2,368", unit: "/oz", chg: "0.4% today", dir: up }
+benchmark_note: "Illustrative values · production feed delayed ≥15 min · settlement source shown per benchmark"
+key_benchmarks:
+  - { code: "LME", full: "London Metal Exchange", desc: "The global base-metals benchmark; its unique prompt-date structure and warehouse network define industrial-metal pricing." }
+  - { code: "COMEX", full: "CME Group", desc: "The main futures venue for gold, silver and US copper — deep, liquid and the reference for precious-metal hedging." }
+  - { code: "LBMA / SGE", full: "London & Shanghai", desc: "The London OTC bullion market and Shanghai Gold Exchange complete gold’s three dominant pricing venues." }
+drivers:
+  - { icon: "🏭", title: "Industrial demand", desc: "Base metals track construction, manufacturing and — increasingly — electrification and the energy transition (copper)." }
+  - { icon: "💵", title: "Macro & the dollar", desc: "Priced in USD, metals move inversely to the dollar; real yields drive gold in particular." }
+  - { icon: "🛡️", title: "Safe-haven & official demand", desc: "Gold and silver draw flows in stress and inflation regimes, with central-bank buying now a major driver." }
+  - { icon: "📦", title: "Inventories & warehousing", desc: "LME and exchange stocks, and the queues to withdraw from warehouses, signal physical tightness." }
+risks:
+  - { title: "Flat-price risk", sev: hi, sev_label: "High", desc: "Outright exposure to the metal price — large and cyclical for producers, fabricators and consumers." }
+  - { title: "Backwardation / contango", sev: hi, sev_label: "High", desc: "The LME forward curve drives roll cost and the economics of holding inventory; tight physical markets can invert it sharply." }
+  - { title: "Warehousing / delivery basis", sev: md, sev_label: "Medium", desc: "Location premiums and warehouse queues mean the exchange price and the delivered physical price can diverge." }
+  - { title: "Concentration & liquidity", sev: md, sev_label: "Medium", desc: "Some metals have concentrated supply and thinner liquidity, so large positions can move the market and gap on news." }
+risk_note: "<b>Base and precious behave differently.</b> Copper is an industrial-cycle bet; gold is a macro and safe-haven one. A single ‘metals’ VaR that ignores this can badly misstate diversification within the book."
+specs:
+  - { benchmark: "LME Copper", venue: "LME", unit: "USD / tonne", size: "25 tonnes", settle: "Physical (prompt date)" }
+  - { benchmark: "Gold", venue: "COMEX (CME)", unit: "USD / troy oz", size: "100 oz", settle: "Physical delivery" }
+  - { benchmark: "Silver", venue: "COMEX (CME)", unit: "USD / troy oz", size: "5,000 oz", settle: "Physical delivery" }
+specs_note: "Specifications summarised for orientation; confirm current terms with the exchange rulebook before trading."
+sources:
+  - { title: "Metals (non-ferrous)", publisher: "London Metal Exchange", url: "https://www.lme.com/metals", note: "The primary global base-metals exchange · lme.com" }
+  - { title: "Precious Metals — Contract Specs", publisher: "CME Group", url: "https://www.cmegroup.com/markets/metals.html", note_label: "Primary:", note: "Exchange rulebook for gold, silver and copper futures · cmegroup.com" }
+  - { title: "The Global Gold Market", publisher: "World Gold Council", url: "https://www.gold.org/gold-market-structure/global-gold-market", note: "Reference on gold market structure and demand · gold.org" }
+  - { title: "Mineral Commodity Summaries", publisher: "U.S. Geological Survey (USGS)", url: "https://www.usgs.gov/centers/national-minerals-information-center/mineral-commodity-summaries", note: "Official world production, reserves and import-reliance data · usgs.gov" }
+tool_cta_title: "Model metals price risk"
+tool_cta_desc: "Separate industrial (base) and macro (precious) exposures and see the diversification in a metals book."
 ---
 
-Metals span industrial base metals like copper and aluminium, priced largely
-through the LME, and precious metals such as gold and silver that trade as much
-on macro and safe-haven demand as on physical supply and demand. This hub
-covers pricing benchmarks, warehousing and the risks specific to metals
-markets.
+“Metals” is really two markets. **Base metals** — copper, aluminium, zinc,
+priced largely through the **LME** — are an industrial bet, moving with
+construction, manufacturing and the energy transition. **Precious metals** —
+gold and silver, traded on **COMEX** and the **LBMA** — trade as much on the
+dollar, real yields and safe-haven demand as on physical supply. Because the
+two behave so differently, the biggest modelling mistake is treating them as one
+exposure; a metals book’s real risk lives in how those two halves interact.
 
 ## How the market works
 
@@ -60,9 +98,3 @@ strong physical demand centres in China and India.
 </svg>
 <figcaption class="flowviz-src">Schematic — indicative flows, not to scale. Data: <a href="https://www.lme.com/metals">London Metal Exchange</a>, <a href="https://www.usgs.gov/centers/national-minerals-information-center/mineral-commodity-summaries">USGS Mineral Commodity Summaries</a> &amp; <a href="https://www.gold.org/gold-market-structure/global-gold-market">World Gold Council</a>. Interactive: <a href="https://www.lme.com/market-data/reports-and-data">LME reports &amp; data</a>.</figcaption>
 </figure>
-
-**Sources & further reading**
-
-- [Metals (non-ferrous)](https://www.lme.com/metals) — London Metal Exchange
-- [The Global Gold Market](https://www.gold.org/gold-market-structure/global-gold-market) — World Gold Council
-- [Mineral Commodity Summaries](https://www.usgs.gov/centers/national-minerals-information-center/mineral-commodity-summaries) — U.S. Geological Survey
