@@ -3,9 +3,9 @@ layout: default
 ---
 <article class="cmdty">
 
-  <p class="cmdty-crumb"><a href="{{ '/markets/' | relative_url }}">Markets</a> <span>›</span>
-    <a href="{{ '/markets/' | relative_url }}#commodities">Commodities</a> <span>›</span>
-    <b>{{ page.title }}</b></p>
+  <p class="cmdty-crumb"><a href="{{ '/markets/' | relative_url }}">Markets</a>
+    {% if page.group contains 'Commodities' %}<span>›</span> <a href="{{ '/markets/' | relative_url }}#commodities">Commodities</a>{% endif %}
+    <span>›</span> <b>{{ page.title }}</b></p>
 
   <!-- ── Sector hero ── -->
   <header class="cmdty-hero">
@@ -38,8 +38,8 @@ layout: default
       <p class="h">On this page</p>
       <ol id="tocList">
         <li><a href="#overview" class="active">Overview</a></li>
-        <li><a href="#how-the-market-works">Market structure</a></li>
-        <li><a href="#major-trade-flows">Trade flows</a></li>
+        {% if content contains 'id="how-the-market-works"' %}<li><a href="#how-the-market-works">Market structure</a></li>{% endif %}
+        {% if content contains 'id="major-trade-flows"' %}<li><a href="#major-trade-flows">Trade flows</a></li>{% endif %}
         {% if page.key_benchmarks %}<li><a href="#benchmarks">Key benchmarks</a></li>{% endif %}
         {% if page.drivers %}<li><a href="#drivers">Price drivers</a></li>{% endif %}
         {% if page.risks %}<li><a href="#risks">Defining risks</a></li>{% endif %}
