@@ -35,7 +35,7 @@ specs_note: "Specifications summarised for orientation; confirm current terms wi
 sources:
   - { title: "Natural Gas Explained", publisher: "U.S. Energy Information Administration (EIA)", year: 2025, url: "https://www.eia.gov/energyexplained/natural-gas/", note: "Official US energy statistics agency · eia.gov" }
   - { title: "Natural Gas Weekly Update", publisher: "U.S. EIA", url: "https://www.eia.gov/naturalgas/weekly/", note: "Weekly storage and price data — the market’s primary inventory benchmark · eia.gov" }
-  - { title: "Gas Market Report", publisher: "International Energy Agency (IEA)", year: 2025, url: "https://www.iea.org/reports/gas-market-report-q3-2026", note: "Intergovernmental energy body; quarterly gas balances · iea.org" }
+  - { title: "Gas Market Report", publisher: "International Energy Agency (IEA)", url: "https://www.iea.org/analysis?type=report&topic=natural-gas", note: "Intergovernmental energy body; quarterly gas balances — latest edition · iea.org" }
   - { title: "Annual Report on LNG", publisher: "GIIGNL (International Group of LNG Importers)", url: "https://www.giignl.org/annual-report", note: "Primary source on global LNG trade flows · giignl.org" }
   - { title: "LNG Outlook", publisher: "Shell", url: "https://www.shell.com/what-we-do/oil-and-natural-gas/liquefied-natural-gas-lng/lng-outlook-2026.html", note_label: "Industry:", note: "Widely-cited long-range LNG demand outlook · shell.com" }
   - { title: "Henry Hub Natural Gas Futures — Contract Specs", publisher: "CME Group", url: "https://www.cmegroup.com/markets/energy/natural-gas/natural-gas.contractSpecs.html", note_label: "Primary:", note: "The exchange rulebook itself · cmegroup.com" }

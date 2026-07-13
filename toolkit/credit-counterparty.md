@@ -10,11 +10,14 @@ reviewed: 2026-07-08
 concepts:
   - "Credit risk"
   - "Counterparty risk (CCR)"
+  - "Credit default swap (CDS)"
   - "CVA"
   - "Netting & collateral"
+  - "Wrong-way risk"
 methods:
   - { t: "Netting", d: "Offsetting positive and negative exposures to one counterparty into a single net amount — the biggest exposure reducer." }
   - { t: "Collateral (CSA)", d: "Posting initial and variation margin as exposures move, under an ISDA Credit Support Annex." }
+  - { t: "Credit default swap (CDS)", d: "The traded hedge for credit risk — pay a spread, receive a payout if the reference name defaults; the spread itself prices default probability." }
   - { t: "Credit Valuation Adjustment (CVA)", d: "The market price of counterparty default risk — an adjustment to a derivative’s value." }
   - { t: "Central clearing (CCP)", d: "Novating trades to a clearing house that mutualises and margins counterparty risk." }
 regulation:
@@ -24,6 +27,8 @@ sources:
   - { title: "The standardised approach for measuring counterparty credit risk exposures (SA-CCR)", publisher: "Basel Committee on Banking Supervision (BIS)", url: "https://www.bis.org/publ/bcbs279.pdf", note_label: "Standard-setter:", note: "The Basel measure for counterparty exposure · bis.org" }
   - { title: "Counterparty credit risk in Basel III (Executive Summary)", publisher: "Bank for International Settlements (BIS)", url: "https://www.bis.org/fsi/fsisummaries/ccr_in_b3.htm", note_label: "Primary:", note: "Official summary of the CCR framework · bis.org" }
   - { title: "Standardized Approach to Counterparty Credit Risk (SA-CCR)", publisher: "International Swaps and Derivatives Association (ISDA)", url: "https://www.isda.org/tag/standardized-approach-to-counterparty-credit-risk-sa-ccr/", note: "Industry implementation resources · isda.org" }
+  - { title: "Credit Default Swaps (CDS)", publisher: "International Swaps and Derivatives Association (ISDA)", url: "https://www.isda.org/tag/credit-default-swaps/", note: "Industry resources on the CDS market · isda.org" }
+  - { title: "Margins and liquidity in European energy markets in 2022 (BIS Bulletin No. 77)", publisher: "Bank for International Settlements (BIS)", url: "https://www.bis.org/publ/bisbull77.pdf", note_label: "Commodity case study:", note: "How margin calls strained energy-trading counterparties · bis.org" }
 tool_cta_title: "Explore counterparty risk"
 tool_cta_desc: "The Tools page’s counterparty-credit panel shows how exposure and CVA respond to collateral."
 ---
@@ -72,3 +77,47 @@ Risk (SA-CCR)** measures exposure, while **SA-CVA/BA-CVA** capitalise CVA risk
 itself. **Central clearing** further concentrates and mutualises counterparty
 risk through CCPs — reducing bilateral risk but raising the importance of margin
 and clearing-house resilience.
+
+## Credit default swaps (CDS)
+
+The traded instrument for credit risk is the **credit default swap (CDS)** —
+effectively insurance against default. The protection buyer pays a periodic
+premium, the **CDS spread** (in basis points on a notional), and receives a
+payout if the reference entity suffers an ISDA-defined **credit event**
+(bankruptcy, failure to pay, or restructuring). The spread is a direct market
+read on default probability: a name trading at 500 bp is priced as far riskier
+than one at 50 bp. CDS trade **single-name** (one issuer) and as **indices** —
+CDX in North America, iTraxx in Europe — which let a desk hedge or express a view
+on a whole basket of credit in a single trade.
+
+For a commodity or trading business, CDS matter two ways. They **price the credit
+of the counterparties and issuers you face** — a supplier, an offtaker, a lending
+bank — turning creditworthiness into an observable number. And they offer a way to
+**hedge** a concentrated exposure whose default would hurt, such as a utility
+holding a large, long-dated contract with one producer. CVA desks use the same
+CDS (or proxy) spreads to hedge the credit-spread component of counterparty risk.
+
+## Counterparty risk in commodity markets
+
+Commodity trading carries counterparty risk on both a **physical** and a
+**financial** leg, frequently at the same time: a cargo may be delivered before
+payment clears, while the hedge against it sits as an OTC swap or an exchange
+future. Exchange-traded positions are **margined daily** through a clearing house,
+so that risk is largely mutualised — but **bilateral OTC** trades and long-dated
+**offtake, tolling and power-purchase agreements (PPAs)** carry years of
+uncollateralised exposure to a single name. Three features make commodity
+counterparty risk distinctive:
+
+- **Wrong-way risk.** A producer's creditworthiness is often correlated with the
+  very price you are exposed to. A producer that has sold forward is most likely
+  to default when prices spike against it — precisely when your exposure to it is
+  largest.
+- **Margin and liquidity spirals.** Because so much hedging is exchange-cleared, a
+  sharp price move triggers large **variation-margin calls**. In the 2022 European
+  energy crisis the BIS documented intraday margin calls worth hundreds of
+  millions of dollars, straining even solvent, fully hedged firms and pushing some
+  to cut hedging — turning a liquidity problem into a market-wide one.
+- **Credit support beyond clearing.** Physical and OTC commodity trades are
+  underpinned by **parent guarantees, letters of credit, prepayment and ISDA/CSA
+  collateral** rather than a CCP — so the strength of that credit support, not the
+  trade alone, defines the real exposure.
