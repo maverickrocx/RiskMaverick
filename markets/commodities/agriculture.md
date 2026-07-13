@@ -34,7 +34,7 @@ specs:
 specs_note: "Specifications summarised for orientation; confirm current terms with the exchange rulebook before trading."
 sources:
   - { title: "World Agricultural Supply & Demand Estimates (WASDE)", publisher: "U.S. Department of Agriculture (USDA)", url: "https://www.usda.gov/about-usda/general-information/staff-offices/office-chief-economist/commodity-markets/wasde-report", note: "The primary global ag supply/demand report · usda.gov" }
-  - { title: "Grain: World Markets and Trade", publisher: "USDA Foreign Agricultural Service", url: "https://apps.fas.usda.gov/psdonline/circulars/grain.pdf", note: "Primary source on world grain trade and balances · usda.gov" }
+  - { title: "Grain: World Markets and Trade", publisher: "USDA Foreign Agricultural Service", url: "https://www.fas.usda.gov/data/grain-world-markets-and-trade", note: "Primary source on world grain trade and balances · usda.gov" }
   - { title: "Food Outlook", publisher: "UN Food and Agriculture Organization (FAO)", url: "https://www.fao.org/giews/reports/food-outlook/en/", note: "Intergovernmental crop and price monitoring · fao.org" }
   - { title: "Agricultural Futures — Contract Specs", publisher: "CME Group", url: "https://www.cmegroup.com/markets/agriculture.html", note_label: "Primary:", note: "Exchange rulebook for grains and oilseeds · cmegroup.com" }
 tool_cta_title: "Model agricultural price risk"
@@ -94,5 +94,5 @@ Trade reports are the reference for these balances and flows.
 <g><rect x="286" y="214" width="188" height="28" rx="14" fill="#0a0f1e" stroke="#1f2937"/><text x="380" y="232" fill="#cbd5e1" font-family="Inter,sans-serif" font-size="12" text-anchor="middle">Panama Canal</text></g>
 <text x="380" y="300" fill="#6b7280" font-family="monospace" font-size="10.5" text-anchor="middle">Priced on CBOT/CME (grains) · ICE (softs)</text>
 </svg>
-<figcaption class="flowviz-src">Schematic — indicative flows, not to scale. Data: <a href="https://www.usda.gov/about-usda/general-information/staff-offices/office-chief-economist/commodity-markets/wasde-report">USDA WASDE</a> &amp; <a href="https://apps.fas.usda.gov/psdonline/circulars/grain.pdf">Grain: World Markets and Trade</a>; <a href="https://www.fao.org/giews/reports/food-outlook/en/">FAO</a>. Interactive: <a href="https://apps.fas.usda.gov/psdonline/app/index.html">USDA PSD Online</a>.</figcaption>
+<figcaption class="flowviz-src">Schematic — indicative flows, not to scale. Data: <a href="https://www.usda.gov/about-usda/general-information/staff-offices/office-chief-economist/commodity-markets/wasde-report">USDA WASDE</a> &amp; <a href="https://www.fas.usda.gov/data/grain-world-markets-and-trade">Grain: World Markets and Trade</a>; <a href="https://www.fao.org/giews/reports/food-outlook/en/">FAO</a>. Interactive: <a href="https://apps.fas.usda.gov/psdonline/app/index.html">USDA PSD Online</a>.</figcaption>
 </figure>

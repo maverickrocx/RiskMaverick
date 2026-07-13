@@ -123,6 +123,179 @@ permalink: /tools/
     </div>
   </section>
 
+  <section class="lp-section" id="hedging">
+    <div class="lp-container">
+      <div class="lp-head"><span class="lp-tag">Worked Examples</span><h2 class="lp-title">Structured Hedge Examples</h2><p class="lp-sub">Illustrative, backtested hedging scenarios across oil, aviation, gas, LNG and power — showing how plain-vanilla futures &amp; forwards, options &amp; swaps, and dynamic strategies cut exposure. Indicative only — not trading advice.</p></div>
+
+      <div class="tabs-inner">
+        <button class="tab-btn active" onclick="showTradeTab('all',this)">All</button>
+        <button class="tab-btn" onclick="showTradeTab('vanilla',this)">Plain Vanilla</button>
+        <button class="tab-btn" onclick="showTradeTab('complex',this)">Options &amp; Swaps</button>
+        <button class="tab-btn" onclick="showTradeTab('dynamic',this)">Dynamic Strategy</button>
+      </div>
+
+      <!-- Airline Jet Fuel — Short Brent Futures -->
+      <div class="trade-card" data-cat="vanilla">
+        <div class="trade-header">
+          <div><div class="trade-title">Airline Jet Fuel — Short ICE Brent Futures Hedge</div><div class="trade-sub">Scenario: airline with 10,000 MT/month jet-fuel exposure · Backtest: Jan–Dec 2022 (Russia–Ukraine shock)</div></div>
+          <div class="trade-meta"><span class="badge badge-cyan">Plain Vanilla</span><span class="badge badge-amber">Futures</span></div>
+        </div>
+        <div class="trade-scenario">
+          <div class="scenario-box scenario-unhedged"><div class="scenario-label">Unhedged</div><div class="scenario-val">−$28.4M</div><div class="scenario-desc">Brent rose $78 → $123/bbl. Full fuel-cost exposure on 10,000 MT/month. VaR: $4.2M/day.</div></div>
+          <div class="scenario-box scenario-hedged"><div class="scenario-label">Hedged — Short Brent futures (80% ratio, 3M rolling)</div><div class="scenario-val">−$5.7M</div><div class="scenario-desc">80% of volume hedged via 3-month ICE Brent futures. Residual = basis risk only. VaR cut to $0.9M/day.</div></div>
+        </div>
+        <div class="metrics-grid">
+          <div class="metric-card"><div class="metric-val">78.4%</div><div class="metric-label">Hedge Effectiveness</div></div>
+          <div class="metric-card"><div class="metric-val">−0.82</div><div class="metric-label">Correlation (Hedge)</div></div>
+          <div class="metric-card"><div class="metric-val">$22.7M</div><div class="metric-label">P&amp;L Saved</div></div>
+          <div class="metric-card"><div class="metric-val">$1.4M</div><div class="metric-label">Hedge Cost (Margins)</div></div>
+        </div>
+      </div>
+
+      <!-- LNG Offtaker — TTF Gas Forward -->
+      <div class="trade-card" data-cat="vanilla">
+        <div class="trade-header">
+          <div><div class="trade-title">LNG Offtaker — TTF-Linked Gas Forward Hedge</div><div class="trade-sub">Scenario: industrial gas buyer, 50 TJ/month floating JKM exposure · Backtest: Q3–Q4 2021 supply crunch</div></div>
+          <div class="trade-meta"><span class="badge badge-cyan">Plain Vanilla</span><span class="badge badge-amber">Forward</span></div>
+        </div>
+        <div class="trade-scenario">
+          <div class="scenario-box scenario-unhedged"><div class="scenario-label">Unhedged — Floating JKM spot purchases</div><div class="scenario-val">+$18.4M cost overrun</div><div class="scenario-desc">JKM spiked $12 → $56/mmbtu (Oct 2021). 50 TJ/month at floating price created a large unbudgeted cost.</div></div>
+          <div class="scenario-box scenario-hedged"><div class="scenario-label">Hedged — 3M TTF forward at $15/mmbtu</div><div class="scenario-val">+$1.2M cost overrun</div><div class="scenario-desc">TTF–JKM basis locked with a 3-month forward at $15/mmbtu. Saved $17.2M vs unhedged floating purchases.</div></div>
+        </div>
+        <div class="metrics-grid">
+          <div class="metric-card"><div class="metric-val">93.5%</div><div class="metric-label">Hedge Effectiveness</div></div>
+          <div class="metric-card"><div class="metric-val">−0.91</div><div class="metric-label">Correlation (JKM/TTF)</div></div>
+          <div class="metric-card"><div class="metric-val">$17.2M</div><div class="metric-label">Cost Avoided</div></div>
+          <div class="metric-card"><div class="metric-val">$0.4M</div><div class="metric-label">Forward Spread Cost</div></div>
+        </div>
+      </div>
+
+      <!-- Crude Oil Producer — Zero-Cost Collar -->
+      <div class="trade-card" data-cat="complex">
+        <div class="trade-header">
+          <div><div class="trade-title">Crude Oil Producer — Zero-Cost Collar (Buy Put / Sell Call)</div><div class="trade-sub">Scenario: E&amp;P producer, 100,000 bbl/month, 6-month tenor · Backtest: H2 2023 oil-price correction</div></div>
+          <div class="trade-meta"><span class="badge badge-cyan">Options</span><span class="badge badge-red">Collar</span></div>
+        </div>
+        <div class="trade-scenario">
+          <div class="scenario-box scenario-unhedged"><div class="scenario-label">Unhedged</div><div class="scenario-val">−$13.2M revenue loss</div><div class="scenario-desc">WTI fell $92 → $70/bbl in H2 2023. 100,000 bbl/month × $22 drop × 6 months = $13.2M below budget.</div></div>
+          <div class="scenario-box scenario-hedged"><div class="scenario-label">Collar — Buy $72 put / Sell $90 call (zero net premium)</div><div class="scenario-val">−$1.2M residual</div><div class="scenario-desc">Floor at $72/bbl. Put pays $2/bbl on 600K bbl = $1.2M received. Upside capped at $90. Net premium ≈ zero.</div></div>
+        </div>
+        <div class="metrics-grid">
+          <div class="metric-card"><div class="metric-val">$12.0M</div><div class="metric-label">Revenue Protected</div></div>
+          <div class="metric-card"><div class="metric-val">$72/bbl</div><div class="metric-label">Floor (Put Strike)</div></div>
+          <div class="metric-card"><div class="metric-val">$90/bbl</div><div class="metric-label">Upside Cap (Call Strike)</div></div>
+          <div class="metric-card"><div class="metric-val">~$0</div><div class="metric-label">Net Premium (Zero-Cost)</div></div>
+        </div>
+      </div>
+
+      <!-- Industrial Gas Consumer — Fixed-Float TTF Swap -->
+      <div class="trade-card" data-cat="complex">
+        <div class="trade-header">
+          <div><div class="trade-title">Industrial Gas Consumer — Fixed-Float TTF Commodity Swap</div><div class="trade-sub">Scenario: European manufacturer, 5 MW continuous gas load · Backtest: 2022 EU energy crisis</div></div>
+          <div class="trade-meta"><span class="badge badge-cyan">Swap</span><span class="badge badge-amber">Commodity</span></div>
+        </div>
+        <div class="trade-scenario">
+          <div class="scenario-box scenario-unhedged"><div class="scenario-label">Unhedged — Floating TTF spot purchases</div><div class="scenario-val">+€22.8M cost overrun</div><div class="scenario-desc">TTF spiked €35 → €310/MWh (Aug 2022). Gas bill rose 8× vs budget — a cash-flow crisis for unhedged buyers.</div></div>
+          <div class="scenario-box scenario-hedged"><div class="scenario-label">Hedged — Pay-fixed €40/MWh, receive floating TTF (12M swap)</div><div class="scenario-val">+€0.6M cost overrun</div><div class="scenario-desc">Pay-fixed €40/MWh, receive floating TTF on a 12-month swap. Net cost capped — saved €22.2M vs spot.</div></div>
+        </div>
+        <div class="metrics-grid">
+          <div class="metric-card"><div class="metric-val">97.4%</div><div class="metric-label">Hedge Effectiveness</div></div>
+          <div class="metric-card"><div class="metric-val">€22.2M</div><div class="metric-label">Cost Avoided</div></div>
+          <div class="metric-card"><div class="metric-val">€40/MWh</div><div class="metric-label">Fixed Rate Locked</div></div>
+          <div class="metric-card"><div class="metric-val">€0.3M</div><div class="metric-label">Swap Bid-Offer Cost</div></div>
+        </div>
+      </div>
+
+      <!-- LNG Trading Book — Rolling Monthly Futures -->
+      <div class="trade-card" data-cat="dynamic">
+        <div class="trade-header">
+          <div><div class="trade-title">LNG Trading Book — Rolling Monthly Futures Hedge</div><div class="trade-sub">Scenario: LNG desk, 6-cargo portfolio, monthly delta rebalancing to 70% target · FY2022</div></div>
+          <div class="trade-meta"><span class="badge badge-cyan">Dynamic</span><span class="badge badge-amber">Rolling Hedge</span></div>
+        </div>
+        <div class="trade-scenario">
+          <div class="scenario-box scenario-unhedged"><div class="scenario-label">Static Hedge (Set-and-Forget at 80%)</div><div class="scenario-val">−$8.4M residual MTM</div><div class="scenario-desc">Static 80% hedge set Jan 2022. As the forward curve restructured, the effective hedge ratio drifted to ~55% — leaving unintended exposure.</div></div>
+          <div class="scenario-box scenario-hedged"><div class="scenario-label">Dynamic — Monthly rebalance to 70% delta target</div><div class="scenario-val">−$1.9M residual MTM</div><div class="scenario-desc">Futures re-struck monthly to hold a 70% delta, with the forward curve re-evaluated each cycle. Residual risk cut 77% vs static.</div></div>
+        </div>
+        <div class="metrics-grid">
+          <div class="metric-card"><div class="metric-val">77.4%</div><div class="metric-label">Risk Reduction vs Static</div></div>
+          <div class="metric-card"><div class="metric-val">70%</div><div class="metric-label">Target Delta (Monthly Reset)</div></div>
+          <div class="metric-card"><div class="metric-val">12×/yr</div><div class="metric-label">Rebalancing Frequency</div></div>
+          <div class="metric-card"><div class="metric-val">$6.5M</div><div class="metric-label">Saved vs Static Approach</div></div>
+        </div>
+      </div>
+
+      <!-- Gas Peaker Plant — Spark Spread Cross-Commodity -->
+      <div class="trade-card" data-cat="dynamic">
+        <div class="trade-header">
+          <div><div class="trade-title">Gas Peaker Plant — Spark-Spread Cross-Commodity Dynamic Hedge</div><div class="trade-sub">Scenario: 400 MW CCGT buying TTF gas, selling EEX power · Backtest: 2021–2022 European markets</div></div>
+          <div class="trade-meta"><span class="badge badge-cyan">Dynamic</span><span class="badge badge-red">Cross-Commodity</span></div>
+        </div>
+        <div class="trade-scenario">
+          <div class="scenario-box scenario-unhedged"><div class="scenario-label">Unhedged Spark Spread</div><div class="scenario-val">€8.4M P&amp;L volatility</div><div class="scenario-desc">Power–gas correlation broke down in 2022. The spark spread swung €8 → −€14/MWh in six weeks — unbudgeted dispatch losses with no protection.</div></div>
+          <div class="scenario-box scenario-hedged"><div class="scenario-label">Dynamic — Buy TTF swap + sell EEX power forward (weekly rebalance)</div><div class="scenario-val">€1.4M P&amp;L volatility</div><div class="scenario-desc">Matched TTF buy-swap + EEX power sell-forward, reweighted weekly as heat-rate assumptions shifted. Spark-spread P&amp;L volatility cut 83%.</div></div>
+        </div>
+        <div class="metrics-grid">
+          <div class="metric-card"><div class="metric-val">83.3%</div><div class="metric-label">P&amp;L Vol Reduction</div></div>
+          <div class="metric-card"><div class="metric-val">Weekly</div><div class="metric-label">Rebalancing Frequency</div></div>
+          <div class="metric-card"><div class="metric-val">TTF + EEX</div><div class="metric-label">Instruments Used</div></div>
+          <div class="metric-card"><div class="metric-val">€7.0M</div><div class="metric-label">P&amp;L Volatility Saved</div></div>
+        </div>
+      </div>
+
+      <div class="hedge-summary">
+        <h3>Hedge effectiveness across all six examples</h3>
+        <p>Unhedged exposure / loss vs hedged outcome for each scenario (local currency, $M or €M).</p>
+        <svg viewBox="0 0 760 300" role="img" aria-label="Grouped bar chart comparing unhedged exposure and hedged outcome across six hedging examples" xmlns="http://www.w3.org/2000/svg">
+          <line x1="48" y1="40" x2="744" y2="40" stroke="rgba(255,255,255,0.06)"/>
+          <line x1="48" y1="110" x2="744" y2="110" stroke="rgba(255,255,255,0.06)"/>
+          <line x1="48" y1="180" x2="744" y2="180" stroke="rgba(255,255,255,0.06)"/>
+          <line x1="48" y1="250" x2="744" y2="250" stroke="rgba(255,255,255,0.16)"/>
+          <text x="40" y="44" fill="#6b7280" font-family="JetBrains Mono,monospace" font-size="10" text-anchor="end">30</text>
+          <text x="40" y="114" fill="#6b7280" font-family="JetBrains Mono,monospace" font-size="10" text-anchor="end">20</text>
+          <text x="40" y="184" fill="#6b7280" font-family="JetBrains Mono,monospace" font-size="10" text-anchor="end">10</text>
+          <text x="40" y="254" fill="#6b7280" font-family="JetBrains Mono,monospace" font-size="10" text-anchor="end">0</text>
+          <rect x="452" y="13" width="12" height="12" rx="2" fill="#ef4444"/><text x="470" y="23" fill="#9ca3af" font-family="Inter,sans-serif" font-size="12">Unhedged exposure</text>
+          <rect x="600" y="13" width="12" height="12" rx="2" fill="#00d4ff"/><text x="618" y="23" fill="#9ca3af" font-family="Inter,sans-serif" font-size="12">Hedged outcome</text>
+          <!-- Jet Fuel -->
+          <rect x="71" y="51" width="30" height="199" rx="3" fill="#ef4444" opacity="0.75"/><rect x="111" y="210" width="30" height="40" rx="3" fill="#00d4ff" opacity="0.8"/>
+          <text x="86" y="45" fill="#ef4444" font-family="JetBrains Mono,monospace" font-size="10" text-anchor="middle">28.4</text><text x="126" y="204" fill="#00d4ff" font-family="JetBrains Mono,monospace" font-size="10" text-anchor="middle">5.7</text>
+          <text x="106" y="268" fill="#9ca3af" font-family="Inter,sans-serif" font-size="11" text-anchor="middle">Jet Fuel</text>
+          <!-- LNG Buyer -->
+          <rect x="187" y="121" width="30" height="129" rx="3" fill="#ef4444" opacity="0.75"/><rect x="227" y="242" width="30" height="8" rx="3" fill="#00d4ff" opacity="0.8"/>
+          <text x="202" y="115" fill="#ef4444" font-family="JetBrains Mono,monospace" font-size="10" text-anchor="middle">18.4</text><text x="242" y="236" fill="#00d4ff" font-family="JetBrains Mono,monospace" font-size="10" text-anchor="middle">1.2</text>
+          <text x="222" y="268" fill="#9ca3af" font-family="Inter,sans-serif" font-size="11" text-anchor="middle">LNG Buyer</text>
+          <!-- Oil Collar -->
+          <rect x="303" y="158" width="30" height="92" rx="3" fill="#ef4444" opacity="0.75"/><rect x="343" y="242" width="30" height="8" rx="3" fill="#00d4ff" opacity="0.8"/>
+          <text x="318" y="152" fill="#ef4444" font-family="JetBrains Mono,monospace" font-size="10" text-anchor="middle">13.2</text><text x="358" y="236" fill="#00d4ff" font-family="JetBrains Mono,monospace" font-size="10" text-anchor="middle">1.2</text>
+          <text x="338" y="268" fill="#9ca3af" font-family="Inter,sans-serif" font-size="11" text-anchor="middle">Oil Collar</text>
+          <!-- TTF Swap -->
+          <rect x="419" y="90" width="30" height="160" rx="3" fill="#ef4444" opacity="0.75"/><rect x="459" y="246" width="30" height="4" rx="2" fill="#00d4ff" opacity="0.8"/>
+          <text x="434" y="84" fill="#ef4444" font-family="JetBrains Mono,monospace" font-size="10" text-anchor="middle">22.8</text><text x="474" y="240" fill="#00d4ff" font-family="JetBrains Mono,monospace" font-size="10" text-anchor="middle">0.6</text>
+          <text x="454" y="268" fill="#9ca3af" font-family="Inter,sans-serif" font-size="11" text-anchor="middle">TTF Swap</text>
+          <!-- LNG Dynamic -->
+          <rect x="535" y="191" width="30" height="59" rx="3" fill="#ef4444" opacity="0.75"/><rect x="575" y="237" width="30" height="13" rx="3" fill="#00d4ff" opacity="0.8"/>
+          <text x="550" y="185" fill="#ef4444" font-family="JetBrains Mono,monospace" font-size="10" text-anchor="middle">8.4</text><text x="590" y="231" fill="#00d4ff" font-family="JetBrains Mono,monospace" font-size="10" text-anchor="middle">1.9</text>
+          <text x="570" y="268" fill="#9ca3af" font-family="Inter,sans-serif" font-size="11" text-anchor="middle">LNG Dynamic</text>
+          <!-- Spark Spread -->
+          <rect x="651" y="191" width="30" height="59" rx="3" fill="#ef4444" opacity="0.75"/><rect x="691" y="240" width="30" height="10" rx="3" fill="#00d4ff" opacity="0.8"/>
+          <text x="666" y="185" fill="#ef4444" font-family="JetBrains Mono,monospace" font-size="10" text-anchor="middle">8.4</text><text x="706" y="234" fill="#00d4ff" font-family="JetBrains Mono,monospace" font-size="10" text-anchor="middle">1.4</text>
+          <text x="686" y="268" fill="#9ca3af" font-family="Inter,sans-serif" font-size="11" text-anchor="middle">Spark Spread</text>
+        </svg>
+        <div class="hedge-note">Illustrative backtested scenarios · figures indicative and not for trading or execution.</div>
+      </div>
+
+    </div>
+  </section>
+
 </div>
 
 <script src="{{ '/assets/js/tools.js' | relative_url }}"></script>
+<script>
+function showTradeTab(cat, btn) {
+  document.querySelectorAll('#hedging .tab-btn').forEach(function (b) { b.classList.remove('active'); });
+  btn.classList.add('active');
+  document.querySelectorAll('#hedging .trade-card').forEach(function (c) {
+    c.style.display = (cat === 'all' || c.dataset.cat === cat) ? 'block' : 'none';
+  });
+}
+</script>

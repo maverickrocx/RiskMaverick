@@ -35,9 +35,9 @@ specs_note: "Specifications summarised for orientation; confirm current terms wi
 sources:
   - { title: "Natural Gas Explained", publisher: "U.S. Energy Information Administration (EIA)", year: 2025, url: "https://www.eia.gov/energyexplained/natural-gas/", note: "Official US energy statistics agency · eia.gov" }
   - { title: "Natural Gas Weekly Update", publisher: "U.S. EIA", url: "https://www.eia.gov/naturalgas/weekly/", note: "Weekly storage and price data — the market’s primary inventory benchmark · eia.gov" }
-  - { title: "Gas Market Report", publisher: "International Energy Agency (IEA)", year: 2025, url: "https://www.iea.org/topics/natural-gas", note: "Intergovernmental energy body · iea.org" }
+  - { title: "Gas Market Report", publisher: "International Energy Agency (IEA)", year: 2025, url: "https://www.iea.org/reports/gas-market-report-q3-2026", note: "Intergovernmental energy body; quarterly gas balances · iea.org" }
   - { title: "Annual Report on LNG", publisher: "GIIGNL (International Group of LNG Importers)", url: "https://www.giignl.org/annual-report", note: "Primary source on global LNG trade flows · giignl.org" }
-  - { title: "LNG Outlook", publisher: "Shell", url: "https://www.shell.com/what-we-do/oil-and-natural-gas/liquefied-natural-gas-lng.html", note_label: "Industry:", note: "Widely-cited long-range LNG demand outlook · shell.com" }
+  - { title: "LNG Outlook", publisher: "Shell", url: "https://www.shell.com/what-we-do/oil-and-natural-gas/liquefied-natural-gas-lng/lng-outlook-2026.html", note_label: "Industry:", note: "Widely-cited long-range LNG demand outlook · shell.com" }
   - { title: "Henry Hub Natural Gas Futures — Contract Specs", publisher: "CME Group", url: "https://www.cmegroup.com/markets/energy/natural-gas/natural-gas.contractSpecs.html", note_label: "Primary:", note: "The exchange rulebook itself · cmegroup.com" }
 tool_cta_title: "Model gas price risk"
 tool_cta_desc: "Run a parametric VaR on a Henry Hub / TTF book and see the basis contribution."
@@ -96,5 +96,5 @@ spreads continually redirect cargoes between the Atlantic and Pacific basins.
 <g><rect x="286" y="214" width="188" height="28" rx="14" fill="#0a0f1e" stroke="#1f2937"/><text x="380" y="232" fill="#cbd5e1" font-family="Inter,sans-serif" font-size="12" text-anchor="middle">Malacca Strait</text></g>
 <text x="380" y="300" fill="#6b7280" font-family="monospace" font-size="10.5" text-anchor="middle">Priced regionally: Henry Hub · TTF · JKM</text>
 </svg>
-<figcaption class="flowviz-src">Schematic — indicative flows, not to scale. Data: <a href="https://www.giignl.org/annual-report">GIIGNL Annual Report on LNG</a>, <a href="https://www.shell.com/what-we-do/oil-and-natural-gas/liquefied-natural-gas-lng.html">Shell LNG Outlook</a> &amp; <a href="https://www.oxfordenergy.org/gas-programme/">OIES</a>. Interactive: <a href="https://www.iea.org/data-and-statistics/data-tools/global-lng-capacity-tracker">IEA Global LNG Capacity Tracker</a>.</figcaption>
+<figcaption class="flowviz-src">Schematic — indicative flows, not to scale. Data: <a href="https://www.giignl.org/annual-report">GIIGNL Annual Report on LNG</a>, <a href="https://www.shell.com/what-we-do/oil-and-natural-gas/liquefied-natural-gas-lng/lng-outlook-2026.html">Shell LNG Outlook</a> &amp; <a href="https://www.oxfordenergy.org/gas-programme/">OIES</a>. Interactive: <a href="https://www.iea.org/data-and-statistics/data-tools/global-lng-capacity-tracker">IEA Global LNG Capacity Tracker</a>.</figcaption>
 </figure>

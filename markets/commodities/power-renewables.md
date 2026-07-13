@@ -97,5 +97,5 @@ build.
 <g><rect x="286" y="214" width="188" height="28" rx="14" fill="#0a0f1e" stroke="#1f2937"/><text x="380" y="232" fill="#cbd5e1" font-family="Inter,sans-serif" font-size="12" text-anchor="middle">Capacity market (3–4 yr)</text></g>
 <text x="380" y="300" fill="#6b7280" font-family="monospace" font-size="10.5" text-anchor="middle">Not storable — priced from years out down to real time</text>
 </svg>
-<figcaption class="flowviz-src">Schematic — illustrative market structure. Data: <a href="https://www.iea.org/reports/electricity-market-design">IEA Electricity Market Design</a> &amp; <a href="https://www.eia.gov/electricity/wholesalemarkets/">U.S. EIA Wholesale Electricity Markets</a>. Interactive: <a href="https://www.eia.gov/electricity/wholesalemarkets/">EIA wholesale markets map</a>.</figcaption>
+<figcaption class="flowviz-src">Schematic — illustrative market structure. Data: <a href="https://www.iea.org/reports/electricity-market-design">IEA Electricity Market Design</a> &amp; <a href="https://www.eia.gov/electricity/wholesalemarkets/">U.S. EIA Wholesale Electricity Markets</a>.</figcaption>
 </figure>

@@ -33,7 +33,7 @@ specs:
   - { benchmark: "RBOB Gasoline", venue: "NYMEX (CME)", unit: "USD / gallon", size: "42,000 gal", settle: "Physical delivery" }
 specs_note: "Specifications summarised for orientation; confirm current terms with the exchange rulebook before trading."
 sources:
-  - { title: "Oil Market Report", publisher: "International Energy Agency (IEA)", year: 2025, url: "https://www.iea.org/reports/oil-market-report", note: "Intergovernmental energy body; monthly balances · iea.org" }
+  - { title: "Oil Market Report", publisher: "International Energy Agency (IEA)", year: 2025, url: "https://www.iea.org/data-and-statistics/data-product/oil-market-report-omr", note: "Intergovernmental energy body; monthly balances · iea.org" }
   - { title: "Benchmarks play an important role in pricing crude oil", publisher: "U.S. EIA", url: "https://www.eia.gov/todayinenergy/detail.php?id=18571", note: "Official US explainer on crude benchmarks · eia.gov" }
   - { title: "Short-Term Energy Outlook", publisher: "U.S. EIA", url: "https://www.eia.gov/outlooks/steo/", note: "Official US inventory and production outlook · eia.gov" }
   - { title: "Monthly Oil Market Report (MOMR)", publisher: "OPEC", url: "https://www.opec.org/monthly-oil-market-report.html", note: "Primary source on OPEC+ supply policy · opec.org" }
@@ -99,5 +99,5 @@ flows almost entirely to independent Chinese refiners.
 <g><rect x="286" y="214" width="188" height="28" rx="14" fill="#0a0f1e" stroke="#1f2937"/><text x="380" y="232" fill="#cbd5e1" font-family="Inter,sans-serif" font-size="12" text-anchor="middle">Cape of Good Hope</text></g>
 <text x="380" y="300" fill="#6b7280" font-family="monospace" font-size="10.5" text-anchor="middle">Physically priced off Brent · WTI · Dubai/Oman</text>
 </svg>
-<figcaption class="flowviz-src">Schematic — indicative flows, not to scale. Data: <a href="https://www.iea.org/reports/oil-market-report">IEA Oil Market Report</a> &amp; <a href="https://www.eia.gov/todayinenergy/detail.php?id=18571">U.S. EIA</a>. Interactive map: <a href="https://www.eia.gov/international/data/world">EIA International Energy Data</a>.</figcaption>
+<figcaption class="flowviz-src">Schematic — indicative flows, not to scale. Data: <a href="https://www.iea.org/data-and-statistics/data-product/oil-market-report-omr">IEA Oil Market Report</a> &amp; <a href="https://www.eia.gov/todayinenergy/detail.php?id=18571">U.S. EIA</a>. Interactive map: <a href="https://www.eia.gov/international/data/world">EIA International Energy Data</a>.</figcaption>
 </figure>
