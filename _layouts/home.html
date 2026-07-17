@@ -1,6 +1,41 @@
 ---
 layout: default
 ---
+<div id="rmIntro" class="rm-intro" role="dialog" aria-label="Intro video">
+  <video id="rmIntroVideo" class="rm-intro-video" playsinline muted autoplay preload="auto">
+    <source src="{{ '/assets/video/riskmav-intro.mp4' | relative_url }}" type="video/mp4">
+  </video>
+  <button type="button" id="rmIntroSkip" class="rm-intro-skip">Skip&nbsp;▶</button>
+</div>
+<script>
+(function () {
+  var KEY = 'rm_intro_seen';
+  var el = document.getElementById('rmIntro');
+  if (!el) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var seen = null;
+  try { seen = sessionStorage.getItem(KEY); } catch (e) {}
+  // Already seen this visit, or reduced-motion: never show it (no flash).
+  if (seen || reduce) { if (el.parentNode) el.parentNode.removeChild(el); return; }
+  try { sessionStorage.setItem(KEY, '1'); } catch (e) {}
+  document.documentElement.classList.add('rm-intro-lock');
+  function dismiss() {
+    if (!el) return;
+    el.classList.add('rm-intro--hide');
+    document.documentElement.classList.remove('rm-intro-lock');
+    setTimeout(function () { if (el && el.parentNode) el.parentNode.removeChild(el); el = null; }, 600);
+  }
+  var v = document.getElementById('rmIntroVideo');
+  var skip = document.getElementById('rmIntroSkip');
+  if (skip) skip.addEventListener('click', dismiss);
+  if (v) {
+    v.addEventListener('ended', dismiss);
+    v.addEventListener('error', dismiss);
+    var p = v.play && v.play();
+    if (p && p.catch) { p.catch(function () { /* autoplay blocked — user can Skip */ }); }
+  }
+})();
+</script>
 <section class="home-hero">
   <p class="eyebrow">Commodity &amp; Cross-Asset Risk Intelligence</p>
   <h1 class="home-h1">Risk management, explained by practitioners.</h1>
