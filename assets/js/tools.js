@@ -58,6 +58,13 @@
     return { up, txt: (up ? '▲ ' : '▼ ') + Math.abs(pct).toFixed(2) + '%' };
   }
 
+  function fmtDate(d) {
+    return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  }
+  function fmtTime() {
+    return new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', timeZoneName: 'short' });
+  }
+
   // ── Live Markets board ──────────────────────────
   const _mktLoaded = {};
 
@@ -83,27 +90,46 @@
       Promise.all(insts.map(i => RM.getSparkline(i.s, 7))),
     ]);
 
+    let anyLive = false, anyPrev = false;
     grid.innerHTML = insts.map((inst, i) => {
       const q = quotes[i], spark = sparks[i];
+      const st = RM.quoteStatus(q);
       const c = chgParts(q);
       const price = (q && q.price != null) ? fmtNum(q.price, inst) : '—';
-      const flash = q ? (c.up ? 'flash-up' : 'flash-dn') : '';
       const svg = spark ? sparkSVG(spark, 96, 34) : '';
-      return `<div class="mkt-card ${flash}">
+      let asof, prevCls = '';
+      if (!q || st.state === 'missing') {
+        asof = 'Unavailable'; prevCls = ' mkt-prev';
+      } else if (st.live) {
+        anyLive = true; asof = 'Live';
+      } else {
+        anyPrev = true; prevCls = ' mkt-prev';
+        asof = st.asOf ? ('Prev close · ' + fmtDate(st.asOf)) : 'Prev close';
+      }
+      // Flash the border only for genuinely live ticks — never on a static
+      // previous-close price.
+      const flash = (q && st.live) ? (c.up ? ' flash-up' : ' flash-dn') : '';
+      return `<div class="mkt-card${flash}${prevCls}">
          <div class="mkt-top"><span class="mkt-dot"></span><div><div class="mkt-label">${inst.label}</div><div class="mkt-sub">${inst.sub}</div></div></div>
          <div class="mkt-price">${price}</div>
+         <div class="mkt-asof">${asof}</div>
          <div class="mkt-foot"><span class="mkt-chg ${c.up ? 'up' : 'dn'}">${q ? c.txt : '—'}</span><span class="mkt-spark">${svg}</span></div>
        </div>`;
     }).join('');
 
-    updateMktStatus();
+    updateMktStatus(anyLive, anyPrev);
   }
 
-  function updateMktStatus() {
+  function updateMktStatus(anyLive, anyPrev) {
     const el = document.getElementById('mktStatus');
     if (!el) return;
-    const ts = new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', timeZoneName: 'short' });
-    el.textContent = 'Live · ' + ts;
+    const bar = el.closest('.mkt-status');
+    let txt;
+    if (anyPrev && !anyLive) { txt = 'Markets closed · showing last close'; }
+    else if (anyPrev && anyLive) { txt = 'Live / last close · ' + fmtTime(); }
+    else { txt = 'Live · ' + fmtTime(); }
+    el.textContent = txt;
+    if (bar) bar.classList.toggle('is-prev', !!anyPrev && !anyLive);
   }
 
   function showMarketTab(cat, btn) {

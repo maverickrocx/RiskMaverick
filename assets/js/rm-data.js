@@ -24,7 +24,25 @@ const TICKER_INSTRUMENTS = [
    protects the 250-call/day FMP free-tier quota. */
 const QUOTE_TTL = 30 * 60 * 1000;
 const SPARK_TTL = 12 * 60 * 60 * 1000;
+// A quote counts as "live" if the exchange updated it within this window;
+// otherwise it is the previous session's settled/closing price.
+const LIVE_WINDOW_MIN = 30;
 const _qMem = {}, _sMem = {};
+
+// Classify a quote's freshness from the exchange's own last-update timestamp
+// (FMP returns `timestamp` in Unix seconds). Returns:
+//   { state: 'live' | 'prev' | 'unknown' | 'missing', live: bool, asOf: Date|null }
+// 'prev' means what's shown is the last close — yesterday's (or last session's)
+// market price rather than a live tick.
+function quoteStatus(q) {
+  if (!q || q.price == null) return { state: 'missing', live: false, asOf: null };
+  let ts = q.timestamp;
+  if (ts == null) return { state: 'unknown', live: false, asOf: null };
+  ts = ts > 1e12 ? ts : ts * 1000;              // normalise seconds → ms
+  const asOf = new Date(ts);
+  const live = (Date.now() - ts) / 60000 <= LIVE_WINDOW_MIN;
+  return { state: live ? 'live' : 'prev', live, asOf };
+}
 
 function _cacheGet(store, key) {
   if (store[key]) return store[key];
@@ -72,5 +90,5 @@ async function fetchTickerData() {
   return getQuotes(TICKER_INSTRUMENTS.map(i => i.symbol));
 }
 
-window.RM = { getQuote, getQuotes, getSparkline, fetchTickerData };
+window.RM = { getQuote, getQuotes, getSparkline, fetchTickerData, quoteStatus };
 })();
