@@ -1,0 +1,46 @@
+---
+layout: default
+title: Risk Wire
+permalink: /news/
+blurb: "A daily brief on commodity and cross-asset risk — what moved, and why it matters to a risk book."
+---
+<section class="hub-head">
+  <p class="eyebrow">Daily brief</p>
+  <h1>Risk Wire</h1>
+  <p class="hub-blurb">What moved across commodities, energy and cross-asset markets — and what it means for a risk book. Updated each weekday, with every item linked to its source.</p>
+</section>
+
+{% assign briefs = site.news | sort: "date" | reverse %}
+{% assign latest = briefs | first %}
+
+{% if latest %}
+<section class="nws-latest">
+  <p class="nws-latest-tag">Latest · {{ latest.date | date: "%A, %-d %B %Y" }}</p>
+  <h2 class="nws-latest-title"><a href="{{ latest.url | relative_url }}">{{ latest.title }}</a></h2>
+  {% if latest.standfirst %}<p class="nws-stand">{{ latest.standfirst }}</p>{% endif %}
+  <div class="nws-body">{{ latest.content }}</div>
+  <p class="nws-note">Headlines are summarised in our own words for comment and analysis, with attribution and a link to the original publisher. Indicative only — not investment advice.</p>
+</section>
+
+{% if briefs.size > 1 %}
+<section class="nws-archive">
+  <h2 class="group-h">Archive</h2>
+  <ul class="wire-list">
+    {% for b in briefs offset: 1 limit: 30 %}
+    <li><a href="{{ b.url | relative_url }}">{{ b.title }}</a></li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
+{% else %}
+<p class="empty">The first daily brief is on its way.</p>
+{% endif %}
+
+<section class="wires">
+  <h2 class="group-h">Standing sources</h2>
+  <ul class="wire-list">
+    {% for w in site.data.wires %}
+    <li><a href="{{ w.url }}">{{ w.title }}</a> <span>— {{ w.publisher }}</span></li>
+    {% endfor %}
+  </ul>
+</section>

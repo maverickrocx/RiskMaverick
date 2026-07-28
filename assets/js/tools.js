@@ -124,9 +124,11 @@
     const el = document.getElementById('mktStatus');
     if (!el) return;
     const bar = el.closest('.mkt-status');
+    // We can only observe how fresh the feed is — not whether an exchange is
+    // open — so the wording states the data's age, never an inferred market state.
     let txt;
-    if (anyPrev && !anyLive) { txt = 'Markets closed · showing last close'; }
-    else if (anyPrev && anyLive) { txt = 'Live / last close · ' + fmtTime(); }
+    if (anyPrev && !anyLive) { txt = 'Not live · showing last close'; }
+    else if (anyPrev && anyLive) { txt = 'Partly live · ' + fmtTime(); }
     else { txt = 'Live · ' + fmtTime(); }
     el.textContent = txt;
     if (bar) bar.classList.toggle('is-prev', !!anyPrev && !anyLive);
