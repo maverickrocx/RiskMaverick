@@ -1,0 +1,13 @@
+name: Australia
+slug: australia
+status: planned
+order: 3
+blurb: >-
+  A major LNG exporter with an unusually volatile domestic power market — the
+  NEM's five-minute settlement and extreme price caps make it a risk market of
+  its own. Mapping in progress.
+planned_scope:
+  - NEM regions — QLD, NSW, VIC, SA, TAS spot and cap contracts
+  - East-coast gas — Wallumbilla hub, domestic reservation
+  - LNG exports — Gladstone trains and netback pricing
+  - WA — separate WEM market and domestic gas policy

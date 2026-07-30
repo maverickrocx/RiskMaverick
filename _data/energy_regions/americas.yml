@@ -1,0 +1,13 @@
+name: Americas
+slug: americas
+status: planned
+order: 4
+blurb: >-
+  Henry Hub anchors the world's deepest gas market, feeding a Gulf Coast export
+  complex, while power trades across ISOs with nodal pricing. Mapping in
+  progress.
+planned_scope:
+  - US gas — Henry Hub, Waha, Algonquin and the basis map
+  - US power — PJM, ERCOT, CAISO, MISO nodal and capacity markets
+  - LNG exports — Sabine, Corpus Christi, Plaquemines netbacks
+  - Canada & Brazil — AECO gas, hydro-led power

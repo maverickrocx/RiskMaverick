@@ -1,0 +1,152 @@
+name: Europe
+slug: europe
+status: live
+order: 1
+blurb: >-
+  Europe prices gas off the Dutch TTF and the UK NBP, and power zone by zone.
+  The spreads between those points — not any single price — drive cargo
+  economics, plant dispatch and hedge design.
+marks_note: >-
+  Country marks below are indicative levels used for illustration (book date
+  14 Jul 2026), not live prices. Live benchmarks are on the Tools page.
+
+countries:
+  - country: Netherlands
+    code: NL
+    role: Europe's gas pricing anchor
+    gas_hub: TTF
+    gas_venue: ICE ENDEX / EEX
+    gas_mark: 32
+    gas_vol: 4.0
+    power_zone: Dutch baseload
+    power_venue: EPEX / ICE ENDEX
+    power_mark: 88
+    power_vol: 3.6
+    note: >-
+      The TTF is the continent's benchmark — a virtual hub deep enough that
+      European and Asian LNG cargoes are priced against it. Dutch power is
+      tightly coupled to German power through interconnection.
+
+  - country: United Kingdom
+    code: UK
+    role: Separate gas hub, coupled power
+    gas_hub: NBP
+    gas_venue: ICE
+    gas_mark: 30
+    gas_vol: 4.2
+    power_zone: UK baseload
+    power_venue: ICE / EPEX
+    power_mark: 88
+    power_vol: 3.7
+    note: >-
+      The NBP trades at a basis to TTF that widens with LNG arrivals and
+      interconnector flows. Post-Brexit the GB power market sits outside EU
+      day-ahead coupling, so IFA/BritNed flows set the UK–NL spread.
+
+  - country: Germany
+    code: DE
+    role: Largest power market
+    gas_hub: THE (traded off TTF)
+    gas_venue: EEX
+    gas_mark: 33
+    gas_vol: 4.0
+    power_zone: German baseload
+    power_venue: EEX / EPEX
+    power_mark: 85
+    power_vol: 3.5
+    note: >-
+      Europe's biggest and most liquid power curve, and the reference for
+      Central-European hedging. High wind and solar share makes it the market
+      where shape and negative-price risk bite hardest.
+
+  - country: France
+    code: FR
+    role: Nuclear-led, weather-exposed
+    gas_hub: PEG (traded off TTF)
+    gas_venue: EEX
+    gas_mark: 33
+    gas_vol: 4.1
+    power_zone: French baseload
+    power_venue: EPEX
+    power_mark: 70
+    power_vol: 3.8
+    note: >-
+      A large nuclear fleet usually keeps French power below German, so the
+      German–French spread is a core Continental position — but it inverts on
+      nuclear availability and cold snaps.
+
+cross_cutting:
+  - name: EUA carbon
+    detail: EU ETS allowance — €70/t indicative, 2.5% daily vol
+    note: Feeds every thermal plant's clean spark and dark spread.
+  - name: API2 coal
+    detail: ARA delivered coal — €110/t indicative, 2.0% daily vol
+    note: Sets the coal-vs-gas switching economics in the merit order.
+
+basis:
+  - pair: TTF – NBP
+    kind: Gas location
+    level: "€2/MWh"
+    vol: 3.0
+    note: Widens with LNG arrivals and interconnector direction.
+  - pair: German – French power
+    kind: Power location
+    level: "€15/MWh"
+    vol: 4.5
+    note: Driven by French nuclear availability; the largest basis exposure here.
+  - pair: German – Dutch power
+    kind: Power location
+    level: "−€3/MWh"
+    vol: 4.0
+    note: Tight coupling — small spread, but sizeable position.
+  - pair: UK – NL power
+    kind: Interconnector
+    level: "€5/MWh"
+    vol: 5.0
+    note: Set by IFA / BritNed flows and GB scarcity pricing.
+
+correlations:
+  note: >-
+    Indicative daily-return correlations. The pairs that look "safe" to
+    cross-hedge are exactly the ones to check — TTF/NBP at 0.85 still leaves
+    material basis risk on a large book.
+  pairs:
+    - { a: TTF, b: NBP, v: 0.85 }
+    - { a: German power, b: Dutch power, v: 0.85 }
+    - { a: German power, b: French power, v: 0.75 }
+    - { a: TTF, b: German power, v: 0.60 }
+    - { a: TTF, b: EUA, v: 0.25 }
+
+trend:
+  title: TTF gas — sourced period averages
+  unit: €/MWh
+  caption: >-
+    Each bar is a published period average, not a continuous series — the
+    normalisation path after the 2022 crisis. TTF hit an all-time record of
+    about €342/MWh in August 2022, roughly 15× the pre-crisis norm of ~€20.
+  points:
+    - { label: "2023 avg", value: 41, source: ACER }
+    - { label: "Q1 2024", value: 27, source: ACER }
+    - { label: "Q2 2024", value: 32, source: "EC" }
+    - { label: "Q3 2025", value: 33, source: "EC" }
+    - { label: "Q4 2025", value: 30, source: "EC" }
+
+context:
+  - stat: "+50 bcm/y"
+    label: LNG regasification capacity added since mid-2022, mostly in North-West Europe
+    source: ACER
+  - stat: "−8%"
+    label: EU gas consumption change in 2023 versus the prior year
+    source: ACER
+  - stat: "99.9%"
+    label: EU gas storage fill entering winter 2023
+    source: ACER
+  - stat: "30%"
+    label: Wind and solar share of EU electricity in 2025 — overtaking fossil fuels (29%) for the first time
+    source: Ember
+
+sources:
+  - { title: "Market Monitoring Report 2024 — key developments in gas", publisher: "ACER", url: "https://www.acer.europa.eu/sites/default/files/documents/Publications/ACER_2024_MMR_Key_developments_gas.pdf" }
+  - { title: "Quarterly reports on European gas and electricity markets", publisher: "European Commission", url: "https://energy.ec.europa.eu/data-and-analysis/market-analysis_en" }
+  - { title: "European Electricity Review", publisher: "Ember", url: "https://ember-energy.org/latest-insights/european-electricity-review-2026/" }
+  - { title: "Electricity 2026 — prices", publisher: "IEA", url: "https://www.iea.org/reports/electricity-2026/prices" }

@@ -1,0 +1,12 @@
+name: Asia
+slug: asia
+status: planned
+order: 2
+blurb: >-
+  JKM-linked LNG into Japan, Korea, China and India, alongside power markets
+  that range from fully liberalised to state-set tariffs. Mapping in progress.
+planned_scope:
+  - Japan & Korea — JKM cargo pricing, JEPX power
+  - China — LNG term vs spot, provincial power reform
+  - India — imported LNG parity, IEX day-ahead power
+  - Singapore — LNG trading hub, USEP power pool

@@ -1,0 +1,154 @@
+---
+layout: default
+title: Gas & Power Map
+permalink: /energy-map/
+blurb: "Country-by-country mapping of gas hubs, power benchmarks and the basis between them — starting with Europe."
+---
+{% assign region_list = "" | split: "" %}
+{% for r in site.data.energy_regions %}{% assign region_list = region_list | push: r[1] %}{% endfor %}
+{% assign regions = region_list | sort: "order" %}
+
+<section class="hub-head">
+  <p class="eyebrow">Interactive</p>
+  <h1>Gas &amp; Power Map</h1>
+  <p class="hub-blurb">How each country prices gas and power, the hubs and venues that set those prices, and the basis between them. Europe is mapped; Asia, Australia and the Americas are in progress.</p>
+</section>
+
+<div class="emap">
+  <div class="emap-tabs" role="tablist">
+    {% for reg in regions %}
+    <button class="emap-tab{% if forloop.first %} active{% endif %}" data-region="{{ reg.slug }}" role="tab">
+      {{ reg.name }}{% if reg.status == 'planned' %} <span class="emap-soon">soon</span>{% endif %}
+    </button>
+    {% endfor %}
+  </div>
+
+  {% for reg in regions %}
+  <section class="emap-panel{% if forloop.first %} active{% endif %}" data-region="{{ reg.slug }}">
+    <p class="emap-blurb">{{ reg.blurb }}</p>
+
+    {% if reg.status == 'planned' %}
+      <div class="emap-planned">
+        <p class="emap-planned-h">Mapping in progress</p>
+        <ul>{% for s in reg.planned_scope %}<li>{{ s }}</li>{% endfor %}</ul>
+      </div>
+
+    {% else %}
+      {% if reg.context %}
+      <div class="emap-stats">
+        {% for c in reg.context %}
+        <div class="emap-stat">
+          <div class="emap-stat-val">{{ c.stat }}</div>
+          <div class="emap-stat-lbl">{{ c.label }}</div>
+          <div class="emap-stat-src">{{ c.source }}</div>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      {% if reg.trend %}
+      {% assign vals = reg.trend.points | map: "value" | sort %}
+      {% assign maxv = vals | last %}
+      <div class="emap-card">
+        <h2 class="emap-h2">{{ reg.trend.title }} <span class="emap-unit">{{ reg.trend.unit }}</span></h2>
+        <div class="emap-chart">
+          {% for p in reg.trend.points %}
+          <div class="emap-bar-wrap">
+            <div class="emap-bar-val">{{ p.value }}</div>
+            <div class="emap-bar-plot"><div class="emap-bar" style="height:{{ p.value | times: 100 | divided_by: maxv }}%"></div></div>
+            <div class="emap-bar-lbl">{{ p.label }}</div>
+            <div class="emap-bar-src">{{ p.source }}</div>
+          </div>
+          {% endfor %}
+        </div>
+        <p class="emap-caption">{{ reg.trend.caption }}</p>
+      </div>
+      {% endif %}
+
+      <h2 class="emap-h2">Country mapping</h2>
+      {% if reg.marks_note %}<p class="emap-note">{{ reg.marks_note }}</p>{% endif %}
+      <div class="emap-countries">
+        {% for c in reg.countries %}
+        <button class="emap-country{% if forloop.first %} active{% endif %}" data-country="{{ reg.slug }}-{{ c.code }}">
+          <span class="emap-code">{{ c.code }}</span>
+          <span class="emap-cname">{{ c.country }}</span>
+          <span class="emap-crole">{{ c.role }}</span>
+        </button>
+        {% endfor %}
+      </div>
+
+      {% for c in reg.countries %}
+      <div class="emap-detail{% if forloop.first %} active{% endif %}" data-country="{{ reg.slug }}-{{ c.code }}">
+        <h3 class="emap-detail-h">{{ c.country }} <span>{{ c.role }}</span></h3>
+        <div class="emap-grid">
+          <div class="emap-box">
+            <div class="emap-box-tag">Gas</div>
+            <div class="emap-box-val">{{ c.gas_hub }}</div>
+            <div class="emap-box-sub">{{ c.gas_venue }}</div>
+            <div class="emap-box-mk">Mark <strong>€{{ c.gas_mark }}</strong>/MWh · daily vol {{ c.gas_vol }}%</div>
+          </div>
+          <div class="emap-box">
+            <div class="emap-box-tag">Power</div>
+            <div class="emap-box-val">{{ c.power_zone }}</div>
+            <div class="emap-box-sub">{{ c.power_venue }}</div>
+            <div class="emap-box-mk">Mark <strong>€{{ c.power_mark }}</strong>/MWh · daily vol {{ c.power_vol }}%</div>
+          </div>
+        </div>
+        <p class="emap-cnote">{{ c.note }}</p>
+      </div>
+      {% endfor %}
+
+      {% if reg.cross_cutting %}
+      <div class="emap-cross">
+        {% for x in reg.cross_cutting %}
+        <div class="emap-xitem"><strong>{{ x.name }}</strong> — {{ x.detail }}<span>{{ x.note }}</span></div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      {% if reg.basis %}
+      <h2 class="emap-h2">Basis &amp; location spreads</h2>
+      <div class="emap-tablewrap">
+        <table class="emap-table">
+          <thead><tr><th>Spread</th><th>Type</th><th>Level</th><th>Daily vol</th><th>Why it moves</th></tr></thead>
+          <tbody>
+            {% for b in reg.basis %}
+            <tr><td><strong>{{ b.pair }}</strong></td><td>{{ b.kind }}</td><td class="num">{{ b.level }}</td><td class="num">{{ b.vol }}%</td><td>{{ b.note }}</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% endif %}
+
+      {% if reg.correlations %}
+      <div class="emap-card">
+        <h2 class="emap-h2">Correlation — what not to assume</h2>
+        <div class="emap-corr">
+          {% for p in reg.correlations.pairs %}
+          <div class="emap-cbar">
+            <div class="emap-cbar-lbl">{{ p.a }} · {{ p.b }}</div>
+            <div class="emap-cbar-track"><div class="emap-cbar-fill" style="width:{{ p.v | times: 100 }}%"></div></div>
+            <div class="emap-cbar-v">{{ p.v }}</div>
+          </div>
+          {% endfor %}
+        </div>
+        <p class="emap-caption">{{ reg.correlations.note }}</p>
+      </div>
+      {% endif %}
+
+      {% if reg.sources %}
+      <section class="wires">
+        <h2 class="group-h">Sources</h2>
+        <ul class="wire-list">
+          {% for s in reg.sources %}
+          <li><a href="{{ s.url }}">{{ s.title }}</a> <span>— {{ s.publisher }}</span></li>
+          {% endfor %}
+        </ul>
+      </section>
+      {% endif %}
+    {% endif %}
+  </section>
+  {% endfor %}
+</div>
+
+<script src="{{ '/assets/js/energy-map.js' | relative_url }}"></script>
