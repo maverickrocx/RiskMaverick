@@ -2,6 +2,8 @@ name: Europe
 slug: europe
 status: live
 order: 1
+reviewed: 2026-07-28
+data_vintage: "Market structure and 2025 full-year data; price series to June 2026."
 blurb: >-
   Europe prices gas off the Dutch TTF and the UK NBP, and power zone by zone.
   The spreads between those points — not any single price — drive cargo
@@ -118,35 +120,44 @@ correlations:
     - { a: TTF, b: EUA, v: 0.25 }
 
 trend:
-  title: TTF gas — sourced period averages
+  title: TTF gas — period averages
   unit: €/MWh
   caption: >-
-    Each bar is a published period average, not a continuous series — the
-    normalisation path after the 2022 crisis. TTF hit an all-time record of
-    about €342/MWh in August 2022, roughly 15× the pre-crisis norm of ~€20.
+    Published period averages, not a continuous series. The path runs from
+    post-crisis normalisation through 2024–25 into a tighter 2026, as colder
+    weather, faster storage withdrawals and Middle East supply disruption
+    re-tightened the balance. For scale, TTF hit an all-time record near
+    €342/MWh in August 2022 — roughly 15× the pre-crisis norm of about €20.
   points:
     - { label: "2023 avg", value: 41, source: ACER }
-    - { label: "Q1 2024", value: 27, source: ACER }
-    - { label: "Q2 2024", value: 32, source: "EC" }
-    - { label: "Q3 2025", value: 33, source: "EC" }
-    - { label: "Q4 2025", value: 30, source: "EC" }
+    - { label: "2024 avg", value: 34, source: Market }
+    - { label: "2025 avg", value: 36, source: Market }
+    - { label: "Q1 2026", value: 40, source: Market }
+    - { label: "Jun 2026", value: 45, source: Market }
 
 context:
-  - stat: "+50 bcm/y"
-    label: LNG regasification capacity added since mid-2022, mostly in North-West Europe
-    source: ACER
-  - stat: "−8%"
-    label: EU gas consumption change in 2023 versus the prior year
-    source: ACER
-  - stat: "99.9%"
-    label: EU gas storage fill entering winter 2023
-    source: ACER
-  - stat: "30%"
-    label: Wind and solar share of EU electricity in 2025 — overtaking fossil fuels (29%) for the first time
-    source: Ember
+  - stat: "50%"
+    label: Renewables share of EU electricity generation in 2025 — solar set records and overtook coal for the first time
+    source: ACER 2025
+  - stat: "−162 TWh"
+    label: Fall in EU reliance on Russian gas during 2025, largely replaced by LNG
+    source: ACER 2025
+  - stat: "50 / 40 / 10"
+    label: 2025 EU gas supply mix — % pipeline, LNG (mostly US) and domestic
+    source: ACER 2025
+  - stat: "62%"
+    label: EU gas storage at end-2025, ten points below the previous year after heavy winter withdrawals
+    source: ACER 2025
+  - stat: "~5×"
+    label: Daily wholesale power price swings versus 2020 — the flexibility gap, in one number
+    source: ACER 2025
+  - stat: "+70 TWh/mo"
+    label: Growth in global LNG capacity, with supply by 2030 expected to reach twice current EU imports
+    source: ACER 2025
 
 sources:
-  - { title: "Market Monitoring Report 2024 — key developments in gas", publisher: "ACER", url: "https://www.acer.europa.eu/sites/default/files/documents/Publications/ACER_2024_MMR_Key_developments_gas.pdf" }
+  - { title: "Key developments in EU electricity and gas markets — 2026 Monitoring Report (2025 data)", publisher: "ACER", url: "https://www.acer.europa.eu/sites/default/files/documents/Publications/2026-ACER-Gas-Electricity-Key-Developments.pdf" }
+  - { title: "Market Monitoring Report 2024 — key developments in gas (2023 data)", publisher: "ACER", url: "https://www.acer.europa.eu/sites/default/files/documents/Publications/ACER_2024_MMR_Key_developments_gas.pdf" }
   - { title: "Quarterly reports on European gas and electricity markets", publisher: "European Commission", url: "https://energy.ec.europa.eu/data-and-analysis/market-analysis_en" }
   - { title: "European Electricity Review", publisher: "Ember", url: "https://ember-energy.org/latest-insights/european-electricity-review-2026/" }
   - { title: "Electricity 2026 — prices", publisher: "IEA", url: "https://www.iea.org/reports/electricity-2026/prices" }

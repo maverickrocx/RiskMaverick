@@ -548,6 +548,8 @@ table.specs tr:last-child td{border-bottom:0;}
 .emap-panel{display:none;}
 .emap-panel.active{display:block;}
 .emap-blurb{color:var(--gray1);font:400 17px/1.6 Inter,sans-serif;max-width:760px;margin:0 0 26px;text-align:justify;-webkit-hyphens:auto;hyphens:auto;}
+.emap-vintage{font:500 11.5px/1.5 var(--mono);color:var(--gray3);margin:-14px 0 24px;letter-spacing:.02em;}
+.emap-vintage span{color:var(--green);}
 .emap-h2{font:800 20px/1.25 Inter,sans-serif;color:var(--white);margin:34px 0 14px;}
 .emap-unit{font:500 12px/1 var(--mono);color:var(--gray3);margin-left:6px;}
 .emap-note,.emap-caption{font:400 12.5px/1.6 Inter,sans-serif;color:var(--gray3);margin:0 0 16px;}

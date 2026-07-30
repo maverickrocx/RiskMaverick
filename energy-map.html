@@ -26,6 +26,9 @@ blurb: "Country-by-country mapping of gas hubs, power benchmarks and the basis b
   {% for reg in regions %}
   <section class="emap-panel{% if forloop.first %} active{% endif %}" data-region="{{ reg.slug }}">
     <p class="emap-blurb">{{ reg.blurb }}</p>
+    {% if reg.reviewed %}
+    <p class="emap-vintage"><span>Data reviewed {{ reg.reviewed | date: "%-d %b %Y" }}</span>{% if reg.data_vintage %} · {{ reg.data_vintage }}{% endif %}</p>
+    {% endif %}
 
     {% if reg.status == 'planned' %}
       <div class="emap-planned">
