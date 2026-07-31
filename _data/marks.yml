@@ -10,7 +10,7 @@ de_da:
   points: 96
 estr:
   price: "2.185%"
-  asof: "29 Jul 2026"
+  asof: "30 Jul 2026"
   source: "ECB"
 henry_hub:
   price: "$2.63"
