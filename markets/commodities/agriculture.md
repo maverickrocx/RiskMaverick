@@ -6,12 +6,12 @@ tag: agriculture
 emoji: "🌾"
 blurb: "Grains and softs, weather and seasonality risk."
 standfirst: "The one commodity complex where the crop is grown to a calendar — so weather and the planting-to-harvest cycle drive price in a way no other market shares."
-reviewed: 2026-07-08
+reviewed: 2026-07-30
 benchmarks:
-  - { name: "Corn", region: "US · CBOT", price: "$4.28", unit: "/bu", chg: "1.1% today", dir: dn }
-  - { name: "Soybeans", region: "US · CBOT", price: "$10.85", unit: "/bu", chg: "0.6% today", dir: up }
-  - { name: "Wheat", region: "US · CBOT", price: "$5.62", unit: "/bu", chg: "0.9% today", dir: up }
-benchmark_note: "Illustrative values · production feed delayed ≥15 min · CBOT (CME) reference"
+  - { name: "Corn", region: "US · CBOT", price: "$4.49", unit: "/bu", asof: "29 Jul 2026", source: "USDA AMS" }
+  - { name: "Soybeans", region: "US · CBOT", price: "$11.78", unit: "/bu", asof: "29 Jul 2026", source: "USDA AMS" }
+  - { name: "Wheat", region: "US · CBOT", price: "$6.61", unit: "/bu", asof: "29 Jul 2026", source: "USDA AMS" }
+benchmark_note: "Settlement levels from USDA Agricultural Marketing Service daily grain reports. Indicative only — not for trading or execution."
 key_benchmarks:
   - { code: "CBOT grains", full: "Chicago Board of Trade", desc: "The global reference for corn, soybeans and wheat futures — the deepest and most-watched ag benchmarks." }
   - { code: "ICE softs", full: "Coffee, sugar, cocoa, cotton", desc: "The ‘softs’ complex trades on ICE, driven by tropical weather and concentrated growing regions." }

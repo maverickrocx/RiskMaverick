@@ -6,12 +6,12 @@ tag: natural-gas-lng
 emoji: "🔥"
 blurb: "Henry Hub, TTF and JKM benchmarks, storage economics, basis and the seasonal risks that define gas markets."
 standfirst: "Gas has no single global price. Three regional benchmarks — and the spreads between them — set physical flows, cargo economics and every hedging decision on the desk."
-reviewed: 2026-07-08
+reviewed: 2026-07-30
 benchmarks:
-  - { name: "Henry Hub", region: "US · NYMEX",  price: "$2.84",  unit: "/MMBtu", chg: "1.7% today", dir: dn }
-  - { name: "TTF",       region: "EU · ICE",    price: "€31.20", unit: "/MWh",   chg: "0.9% today", dir: up }
-  - { name: "JKM",       region: "Asia · Platts",price: "$11.60", unit: "/MMBtu", chg: "2.3% today", dir: up }
-benchmark_note: "Illustrative values · production feed delayed ≥15 min · settlement source shown per benchmark"
+  - { name: "Henry Hub", region: "US · NYMEX", price: "$2.88", unit: "/MMBtu", asof: "30 Jul 2026", source: "market" }
+  - { name: "TTF", region: "EU · ICE", price: "€58.06", unit: "/MWh", asof: "27 Jul 2026", source: "market" }
+  - { name: "JKM", region: "Asia · Platts", price: "$22.00", unit: "/MMBtu", asof: "29 Jul 2026", source: "market" }
+benchmark_note: "Gas benchmarks are not on our live feed, so each shows the latest published level with its date. Note the spread: Asian and European gas re-priced on Middle East supply disruption while Henry Hub stayed anchored — the basis risk this hub exists to explain."
 key_benchmarks:
   - { code: "Henry Hub", full: "Erath, Louisiana", desc: "The US physical & futures benchmark, settled on NYMEX. Deep, liquid, and the reference for North-American gas hedging." }
   - { code: "TTF", full: "Title Transfer Facility", desc: "The Dutch virtual hub that became Europe’s pricing anchor — the reference for pipeline gas and European LNG imports." }

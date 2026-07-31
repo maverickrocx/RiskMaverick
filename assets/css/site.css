@@ -274,6 +274,10 @@ footer{border-top:1px solid var(--border);margin-top:4rem;background:var(--bg2);
 .cmdty-bench .unit{font-size:.72rem;color:var(--gray2);font-weight:500;}
 .cmdty-bench .chg{font-family:var(--mono);font-size:12px;font-weight:600;margin-top:4px;}
 .cmdty-bench .chg.up{color:var(--green);} .cmdty-bench .chg.dn{color:var(--red);}
+/* Curated-and-dated (not on the live feed), awaiting hydration, or a stale close */
+.cmdty-bench .chg.is-static{color:var(--gray3);font-weight:500;letter-spacing:.01em;}
+.cmdty-bench .chg.is-pending{color:var(--gray3);opacity:.55;font-weight:500;}
+.cmdty-bench .chg.is-prev{opacity:.85;}
 .cmdty-bench-note{font:600 10.5px/1.4 var(--mono);color:var(--gray3);margin-top:10px;letter-spacing:.02em;}
 .cmdty-bench-note .dot,.cmdty-prov .dot{width:6px;height:6px;border-radius:50%;background:var(--green);display:inline-block;margin-right:6px;}
 

@@ -6,12 +6,10 @@ tag: interest-rates
 emoji: "📉"
 blurb: "The curve, central banks and interest-rate swaps."
 standfirst: "The discount rate under every other asset. The curve’s front end is set by central banks; its slope is the market’s verdict on growth and inflation."
-reviewed: 2026-07-08
+reviewed: 2026-07-30
 benchmarks:
-  - { name: "SOFR", region: "US · NY Fed", price: "4.85%", unit: "o/n", chg: "0bp today", dir: up }
-  - { name: "€STR", region: "EU · ECB", price: "3.65%", unit: "o/n", chg: "1bp today", dir: dn }
-  - { name: "US 10Y Swap", region: "USD · OTC", price: "3.98%", unit: "fixed", chg: "2bp today", dir: up }
-benchmark_note: "Illustrative rates · overnight benchmarks & swap reference · published source shown"
+  - { name: "Fed funds target", region: "US · FOMC", price: "3.50–3.75%", unit: "range", asof: "Jul 2026", source: "Federal Reserve" }
+benchmark_note: "Policy rate shown because overnight benchmarks (SOFR, €STR) are not on our live feed. Market pricing ahead of the 29 July FOMC favoured a hold, with the risk skewed to a hike rather than a cut."
 key_benchmarks:
   - { code: "Policy rates", full: "Fed · ECB · BoE", desc: "Central banks set the curve’s front end directly — the anchor for all short-dated rates." }
   - { code: "Overnight RFRs", full: "SOFR · €STR · SONIA", desc: "The post-LIBOR risk-free rates that floating legs and derivatives now reference." }

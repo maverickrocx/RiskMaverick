@@ -6,12 +6,12 @@ tag: metals
 emoji: "🪙"
 blurb: "Base and precious metals, LME pricing and warehousing."
 standfirst: "Two markets under one name: industrial base metals priced on physical supply and demand, and precious metals that trade as much on macro and safe-haven flows."
-reviewed: 2026-07-08
+reviewed: 2026-07-30
 benchmarks:
-  - { name: "Copper", region: "Base · LME", price: "$9,420", unit: "/t", chg: "0.7% today", dir: up }
-  - { name: "Aluminium", region: "Base · LME", price: "$2,510", unit: "/t", chg: "0.5% today", dir: dn }
-  - { name: "Gold", region: "Precious · COMEX", price: "$2,368", unit: "/oz", chg: "0.4% today", dir: up }
-benchmark_note: "Illustrative values · production feed delayed ≥15 min · settlement source shown per benchmark"
+  - { name: "Gold", region: "Precious · COMEX", price: "$4,172.70", unit: "/oz", symbol: "GCUSD", dec: 2, pfx: "$" }
+  - { name: "Silver", region: "Precious · COMEX", price: "$59.03", unit: "/oz", symbol: "SIUSD", dec: 2, pfx: "$" }
+  - { name: "Aluminium", region: "Base · LME", price: "$3,173", unit: "/t", asof: "27 Jul 2026", source: "LME" }
+benchmark_note: "Precious metals are live from the market feed; LME base metals show the latest published official level with its date."
 key_benchmarks:
   - { code: "LME", full: "London Metal Exchange", desc: "The global base-metals benchmark; its unique prompt-date structure and warehouse network define industrial-metal pricing." }
   - { code: "COMEX", full: "CME Group", desc: "The main futures venue for gold, silver and US copper — deep, liquid and the reference for precious-metal hedging." }

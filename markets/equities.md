@@ -6,12 +6,12 @@ tag: equities
 emoji: "📈"
 blurb: "Indices vs single names, systematic vs idiosyncratic risk, beta."
 standfirst: "Equity risk splits in two — the market-wide moves an index captures, and the company-specific surprises it doesn’t. That divide drives everything from beta hedging to diversification."
-reviewed: 2026-07-08
+reviewed: 2026-07-30
 benchmarks:
-  - { name: "S&P 500", region: "US · CME", price: "5,620", unit: "index", chg: "0.5% today", dir: up }
-  - { name: "Euro Stoxx 50", region: "EU · Eurex", price: "4,980", unit: "index", chg: "0.3% today", dir: dn }
-  - { name: "Nikkei 225", region: "JP · OSE", price: "39,200", unit: "index", chg: "1.1% today", dir: up }
-benchmark_note: "Illustrative index levels · delayed ≥15 min · settlement source shown per index"
+  - { name: "S&P 500", region: "US · CME", price: "7,403.91", unit: "index", symbol: "^GSPC", dec: 2 }
+  - { name: "Euro Stoxx 50", region: "EU · Eurex", price: "6,336.15", unit: "index", symbol: "^STOXX50E", dec: 2 }
+  - { name: "Nikkei 225", region: "JP · OSE", price: "61,867.43", unit: "index", symbol: "^N225", dec: 2 }
+benchmark_note: "Live from the market feed during trading hours; otherwise the last close with its date."
 key_benchmarks:
   - { code: "Index futures", full: "E-mini S&P 500 (CME)", desc: "The most liquid way to trade or hedge broad US equity beta in a single instrument." }
   - { code: "Single names", full: "Individual shares", desc: "Carry idiosyncratic, company-specific risk on top of the market beta an index captures." }

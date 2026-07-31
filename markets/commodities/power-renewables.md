@@ -6,12 +6,10 @@ tag: power-renewables
 emoji: "⚡"
 blurb: "Non-storable power, PPAs, shape and volume risk."
 standfirst: "Electricity is the only major commodity that can’t be stored, so it must be balanced every second — which makes its risks shape, timing and volume, not just flat price."
-reviewed: 2026-07-08
+reviewed: 2026-07-30
 benchmarks:
-  - { name: "German Base", region: "EU · EPEX/EEX", price: "€92.5", unit: "/MWh", chg: "3.1% today", dir: up }
-  - { name: "PJM West",    region: "US · PJM",      price: "$41.8", unit: "/MWh", chg: "1.2% today", dir: dn }
-  - { name: "EUA Carbon",  region: "EU · ICE",      price: "€71.0", unit: "/t",   chg: "0.8% today", dir: up }
-benchmark_note: "Illustrative values · day-ahead / prompt references · settlement source shown per market"
+  - { name: "EUA Carbon", region: "EU · ICE", price: "€83.40", unit: "/t", asof: "27 Jul 2026", source: "market" }
+benchmark_note: "There is no single \"power price\": electricity is priced by zone and by node. Carbon is shown here because it enters every thermal plant's spread. For zonal benchmarks and the basis between them, see the Gas & Power Map."
 key_benchmarks:
   - { code: "Day-ahead", full: "Hourly / block auction", desc: "Most physical power clears in day-ahead auctions (EPEX, Nord Pool, PJM); the hourly shape is the core price signal." }
   - { code: "Forward / PPA", full: "Baseload & peakload", desc: "Longer-dated hedging trades as baseload and peakload blocks, or bilateral Power Purchase Agreements with generators." }

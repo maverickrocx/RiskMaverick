@@ -6,12 +6,12 @@ tag: fx
 emoji: "💱"
 blurb: "Currency pairs, drivers, and transaction/translation exposure."
 standfirst: "The market beneath every cross-border trade. Rate differentials, flows and policy set the price; anyone with assets or liabilities in two currencies inherits the risk."
-reviewed: 2026-07-08
+reviewed: 2026-07-30
 benchmarks:
-  - { name: "EUR/USD", region: "Majors · OTC", price: "1.0850", unit: "spot", chg: "0.2% today", dir: up }
-  - { name: "USD/JPY", region: "Majors · OTC", price: "158.20", unit: "spot", chg: "0.4% today", dir: up }
-  - { name: "GBP/USD", region: "Majors · OTC", price: "1.2720", unit: "spot", chg: "0.1% today", dir: dn }
-benchmark_note: "Illustrative spot rates · delayed ≥15 min · interbank reference"
+  - { name: "EUR/USD", region: "Majors · OTC", price: "1.1526", unit: "spot", symbol: "EURUSD", dec: 4 }
+  - { name: "USD/JPY", region: "Majors · OTC", price: "159.59", unit: "spot", symbol: "USDJPY", dec: 2 }
+  - { name: "GBP/USD", region: "Majors · OTC", price: "1.3461", unit: "spot", symbol: "GBPUSD", dec: 4 }
+benchmark_note: "Live from the market feed during trading hours; otherwise the last close with its date."
 key_benchmarks:
   - { code: "Spot", full: "Immediate (T+2)", desc: "Delivery in two business days — the reference all other FX instruments price off." }
   - { code: "Outright forwards", full: "Fixed future date", desc: "Lock a rate today for a future settlement — the workhorse for hedging contracted cash flows." }

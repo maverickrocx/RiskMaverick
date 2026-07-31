@@ -6,12 +6,12 @@ tag: crude-refined
 emoji: "🛢️"
 blurb: "Brent and WTI benchmarks, crack spreads and the refining-margin risks that sit between crude and product prices."
 standfirst: "The deepest commodity market in the world — but the money at a refinery is made in the spread between crude bought and product sold, not in the flat price alone."
-reviewed: 2026-07-08
+reviewed: 2026-07-30
 benchmarks:
-  - { name: "Brent", region: "Global · ICE", price: "$78.40", unit: "/bbl", chg: "0.6% today", dir: up }
-  - { name: "WTI",   region: "US · NYMEX",   price: "$74.10", unit: "/bbl", chg: "0.4% today", dir: up }
-  - { name: "Dubai", region: "Asia · Platts",price: "$77.20", unit: "/bbl", chg: "0.3% today", dir: dn }
-benchmark_note: "Illustrative values · production feed delayed ≥15 min · settlement source shown per benchmark"
+  - { name: "Brent", region: "Global · ICE", price: "$87.02", unit: "/bbl", symbol: "BZUSD", dec: 2, pfx: "$" }
+  - { name: "WTI", region: "US · NYMEX", price: "$83.80", unit: "/bbl", asof: "30 Jul 2026", source: "Forbes" }
+  - { name: "Brent–WTI", region: "Transatlantic spread", price: "$3.22", unit: "/bbl", asof: "30 Jul 2026", source: "derived" }
+benchmark_note: "Brent is live from the market feed; WTI is the latest published level. Indicative only — not for trading or execution."
 key_benchmarks:
   - { code: "Brent", full: "North Sea", desc: "The waterborne global benchmark; prices roughly two-thirds of internationally traded crude and settles on ICE." }
   - { code: "WTI", full: "Cushing, Oklahoma", desc: "The US light-sweet benchmark, settled on NYMEX. Priced at an inland hub, so it carries logistics basis to the coast." }

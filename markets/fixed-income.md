@@ -6,12 +6,10 @@ tag: fixed-income
 emoji: "📊"
 blurb: "Government and corporate bonds, yields, duration and spreads."
 standfirst: "Two risks in one instrument: how far rates move (duration) and how far a borrower’s spread widens (credit). Government curves anchor the first; everything else prices above them."
-reviewed: 2026-07-08
+reviewed: 2026-07-30
 benchmarks:
-  - { name: "US 10Y", region: "US · Treasury", price: "4.28%", unit: "yield", chg: "3bp today", dir: up }
-  - { name: "German 10Y", region: "EU · Bund", price: "2.45%", unit: "yield", chg: "1bp today", dir: dn }
-  - { name: "US 2Y", region: "US · Treasury", price: "4.05%", unit: "yield", chg: "2bp today", dir: up }
-benchmark_note: "Illustrative yields · delayed ≥15 min · government benchmark curve"
+  - { name: "Fed funds target", region: "US · FOMC", price: "3.50–3.75%", unit: "range", asof: "Jul 2026", source: "Federal Reserve" }
+benchmark_note: "Government bond yields are not on our live feed, so only the policy anchor is shown here rather than a stale yield."
 key_benchmarks:
   - { code: "Government curve", full: "Treasuries · Bunds · Gilts · JGBs", desc: "The risk-free curve every other bond — and most other assets — prices off." }
   - { code: "Credit spreads", full: "Corporate · agency · EM", desc: "Non-government bonds price at a spread over govvies to compensate for default risk." }
