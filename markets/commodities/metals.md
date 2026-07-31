@@ -9,8 +9,8 @@ standfirst: "Two markets under one name: industrial base metals priced on physic
 reviewed: 2026-07-30
 benchmarks:
   - { name: "Gold", region: "Precious · COMEX", price: "$4,172.70", unit: "/oz", symbol: "GCUSD", dec: 2, pfx: "$" }
-  - { name: "Copper", region: "Base · LME cash", price: "$13,795", unit: "/t", asof: "30 Jul 2026", source: "LME" }
-  - { name: "Aluminium", region: "Base · LME cash", price: "$3,231", unit: "/t", asof: "30 Jul 2026", source: "LME" }
+  - { name: "Copper", key: "lme_cu", region: "Base · LME cash", price: "$13,795", unit: "/t", asof: "30 Jul 2026", source: "LME" }
+  - { name: "Aluminium", key: "lme_al", region: "Base · LME cash", price: "$3,231", unit: "/t", asof: "30 Jul 2026", source: "LME" }
 benchmark_note: "Gold is live from the market feed; LME base metals show the official cash settlement for the stated date."
 key_benchmarks:
   - { code: "LME", full: "London Metal Exchange", desc: "The global base-metals benchmark; its unique prompt-date structure and warehouse network define industrial-metal pricing." }

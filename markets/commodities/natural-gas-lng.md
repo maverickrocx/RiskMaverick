@@ -8,7 +8,7 @@ blurb: "Henry Hub, TTF and JKM benchmarks, storage economics, basis and the seas
 standfirst: "Gas has no single global price. Three regional benchmarks — and the spreads between them — set physical flows, cargo economics and every hedging decision on the desk."
 reviewed: 2026-07-30
 benchmarks:
-  - { name: "Henry Hub", region: "US · spot", price: "$2.63", unit: "/MMBtu", asof: "27 Jul 2026", source: "EIA" }
+  - { name: "Henry Hub", key: "henry_hub", region: "US · spot", price: "$2.63", unit: "/MMBtu", asof: "27 Jul 2026", source: "EIA" }
   - { name: "TTF", region: "EU · ICE", price: "€58.06", unit: "/MWh", asof: "27 Jul 2026", source: "market" }
   - { name: "JKM", region: "Asia · Platts", price: "$22.00", unit: "/MMBtu", asof: "29 Jul 2026", source: "market" }
 benchmark_note: "Henry Hub is the EIA daily spot series. Note the spread: Asian and European gas re-priced hard on Middle East supply disruption while Henry Hub stayed anchored near $2.6 — the basis risk this hub exists to explain."

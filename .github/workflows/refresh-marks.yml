@@ -1,0 +1,48 @@
+name: Refresh benchmark marks
+
+# Pulls benchmark prices from free primary sources (EIA, US Treasury, NY Fed,
+# ECB, SMARD, LME) into _data/marks.yml and commits any change, which triggers
+# a Pages rebuild. No API keys required.
+on:
+  schedule:
+    # 05:40 UTC on weekdays — after the US Treasury posts the prior session's
+    # curve and the European day-ahead auction has cleared.
+    - cron: "40 5 * * 1-5"
+  workflow_dispatch: {}   # allow a manual run from the Actions tab
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-marks
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch marks from primary sources
+        run: python scripts/refresh_marks.py
+
+      - name: Show diff
+        run: git --no-pager diff --stat -- _data/marks.yml || true
+
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- _data/marks.yml; then
+            echo "No change in marks — nothing to commit."
+            exit 0
+          fi
+          git config user.name  "riskmaverick-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add _data/marks.yml
+          git commit -m "chore(marks): daily benchmark refresh from primary sources"
+          # Rebase onto any commits pushed while this job ran, then push.
+          git pull --rebase --autostash origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"

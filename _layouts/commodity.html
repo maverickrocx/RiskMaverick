@@ -21,10 +21,13 @@ layout: default
     {% if page.benchmarks %}
     <div class="cmdty-bench" role="group" aria-label="Key benchmark prices">
       {% for b in page.benchmarks %}
+      {% comment %}Marks with a `key` come from _data/marks.yml, refreshed daily
+      by scripts/refresh_marks.py; the front-matter value is the fallback.{% endcomment %}
+      {% assign mk = nil %}{% if b.key %}{% assign mk = site.data.marks[b.key] %}{% endif %}
       <div class="bcard"{% if b.symbol %} data-symbol="{{ b.symbol }}" data-dec="{{ b.dec | default: 2 }}" data-pfx="{{ b.pfx }}" data-sfx="{{ b.sfx }}"{% endif %}>
         <div class="bn"><span class="name">{{ b.name }}</span><span class="region">{{ b.region }}</span></div>
-        <div class="px tnum">{{ b.price }}<span class="unit"> {{ b.unit }}</span></div>
-        <div class="chg tnum{% if b.symbol %} is-pending{% else %} is-static{% endif %}">{% if b.symbol %}loading…{% else %}as of {{ b.asof }}{% if b.source %} · {{ b.source }}{% endif %}{% endif %}</div>
+        <div class="px tnum">{% if mk %}{{ mk.price }}{% else %}{{ b.price }}{% endif %}<span class="unit"> {{ b.unit }}</span></div>
+        <div class="chg tnum{% if b.symbol %} is-pending{% else %} is-static{% endif %}">{% if b.symbol %}loading…{% elsif mk %}as of {{ mk.asof }} · {{ mk.source }}{% else %}as of {{ b.asof }}{% if b.source %} · {{ b.source }}{% endif %}{% endif %}</div>
       </div>
       {% endfor %}
     </div>
