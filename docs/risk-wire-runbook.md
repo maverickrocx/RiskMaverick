@@ -74,6 +74,30 @@ Aim for 6–10 items total. The *Risk lens* line is what makes this RiskMaverick
 not a generic news feed — include it wherever there is a genuine risk implication,
 and leave it out where there isn't rather than padding.
 
+## 5b. Refresh the hub benchmark marks
+
+The hub pages under `markets/` carry benchmark tiles. Those with a `symbol:`
+field hydrate live in the browser and need no attention. Those with `asof:` and
+`source:` are static and must be refreshed — update the `price:` and `asof:`
+together, never one without the other.
+
+All of these are free, need no API key, and come from the primary publisher:
+
+| Mark | Endpoint |
+|---|---|
+| Henry Hub spot | `https://fred.stlouisfed.org/graph/fredgraph.csv?id=DHHNGSP` (EIA series) |
+| US Treasury par yields | `https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2026/all?type=daily_treasury_yield_curve&_format=csv` |
+| SOFR | `https://markets.newyorkfed.org/api/rates/secured/sofr/last/1.json` |
+| €STR | `https://data-api.ecb.europa.eu/service/data/EST/B.EU000A2X2A25.WT?lastNObservations=1&format=csvdata` |
+| German day-ahead power | `https://api.energy-charts.info/price?bzn=DE-LU` (Bundesnetzagentur/SMARD, CC BY 4.0) |
+| LME copper / aluminium cash | `https://www.westmetall.com/en/markdaten.php?action=table&field=LME_Cu_cash` (and `LME_Al_cash`) |
+
+For the German power tile, publish the **average across all quarter-hours**
+returned, and keep the daily min/max in the `benchmark_note` — the spread is the
+point. TTF, JKM, EUA, Dubai, UKA and CCA have no free primary feed; refresh
+those from a named published report and cite it, or leave the previous value and
+its date rather than guessing.
+
 ## 6. Open a pull request
 
 Do **not** push to `main`. Create a branch, commit only the new

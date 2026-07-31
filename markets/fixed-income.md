@@ -8,8 +8,10 @@ blurb: "Government and corporate bonds, yields, duration and spreads."
 standfirst: "Two risks in one instrument: how far rates move (duration) and how far a borrower’s spread widens (credit). Government curves anchor the first; everything else prices above them."
 reviewed: 2026-07-30
 benchmarks:
-  - { name: "Fed funds target", region: "US · FOMC", price: "3.50–3.75%", unit: "range", asof: "Jul 2026", source: "Federal Reserve" }
-benchmark_note: "Government bond yields are not on our live feed, so only the policy anchor is shown here rather than a stale yield."
+  - { name: "US 2Y", region: "US · Treasury", price: "4.23%", unit: "par yield", asof: "30 Jul 2026", source: "US Treasury" }
+  - { name: "US 10Y", region: "US · Treasury", price: "4.68%", unit: "par yield", asof: "30 Jul 2026", source: "US Treasury" }
+  - { name: "US 30Y", region: "US · Treasury", price: "5.21%", unit: "par yield", asof: "30 Jul 2026", source: "US Treasury" }
+benchmark_note: "Par yields from the US Treasury daily yield-curve series. The 2s10s spread stands at roughly +45bp — positively sloped, having steepened out of the long inversion."
 key_benchmarks:
   - { code: "Government curve", full: "Treasuries · Bunds · Gilts · JGBs", desc: "The risk-free curve every other bond — and most other assets — prices off." }
   - { code: "Credit spreads", full: "Corporate · agency · EM", desc: "Non-government bonds price at a spread over govvies to compensate for default risk." }
