@@ -681,3 +681,32 @@ table.specs tr:last-child td{border-bottom:0;}
 .rm-intro-skip:hover{background:var(--cyan-dim);transform:translateY(-1px);}
 html.rm-intro-lock,html.rm-intro-lock body{overflow:hidden;}
 @media(max-width:600px){.rm-intro-skip{bottom:18px;right:18px;padding:10px 15px;font-size:12px;}}
+
+/* ── Cylindrical component drum (progressive enhancement over .card-grid) ── */
+.rmdrum{margin-top:28px;}
+.rmdrum-stage{position:relative;perspective:1150px;perspective-origin:50% 50%;overflow:hidden;outline:none;border-radius:12px;}
+.rmdrum-stage:focus-visible{box-shadow:0 0 0 2px var(--cyan);}
+.rmdrum-ring{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .58s cubic-bezier(.33,1.06,.42,1);}
+.rmdrum-card{position:absolute;top:50%;left:50%;width:var(--cw,150px);height:var(--ch,232px);
+  margin:calc(var(--ch,232px)/-2) 0 0 calc(var(--cw,150px)/-2);
+  gap:6px;padding:16px;overflow:hidden;
+  transition:transform .58s cubic-bezier(.33,1.06,.42,1),border-color .45s,filter .45s,box-shadow .45s;
+  filter:saturate(.45) brightness(.6);}
+.rmdrum-card:hover{transform:none;}
+.rmdrum-card.is-sel{filter:none;border-color:var(--cyan);box-shadow:0 0 0 1px var(--cyan-dim);}
+.rmdrum-card h3{font-size:16px;}
+.rmdrum-card p{font-size:12.5px;line-height:1.45;}
+.rmdrum-card .card-ico{font-size:20px;}
+.rmdrum-foot{display:flex;align-items:center;gap:8px;margin-top:14px;flex-wrap:wrap;}
+.rmdrum-nav{border:1px solid var(--border);background:var(--surface);color:var(--gray2);border-radius:8px;
+  width:32px;height:32px;font-size:17px;line-height:1;cursor:pointer;transition:border-color .2s,color .2s;}
+.rmdrum-nav:hover{border-color:var(--cyan);color:var(--cyan);}
+.rmdrum-cap{font:600 13px/1 Inter,sans-serif;color:var(--white);margin-left:6px;}
+.rmdrum-dots{display:flex;gap:5px;margin-left:auto;}
+.rmdrum-dots i{width:5px;height:5px;border-radius:50%;background:var(--border2,#1f2937);transition:background .25s;}
+.rmdrum-dots i.on{background:var(--cyan);}
+.rmdrum-exit{border:1px solid var(--border);background:transparent;color:var(--gray2);border-radius:8px;
+  padding:6px 12px;font:600 12px/1 Inter,sans-serif;cursor:pointer;transition:border-color .2s,color .2s;}
+.rmdrum-exit:hover{border-color:var(--cyan);color:var(--cyan);}
+@media(prefers-reduced-motion:reduce){.rmdrum{display:none!important;}}
+@media(max-width:999px){.rmdrum{display:none!important;}}
