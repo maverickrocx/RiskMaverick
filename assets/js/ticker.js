@@ -20,6 +20,11 @@
       return '<span class="tick"><b>' + t.label + '</b> <span class="tick-px">' + price +
              '</span> <span class="tick-chg ' + cls + '">' + sign + chg.toFixed(2) + '%</span></span>';
     }).join("");
-    el.innerHTML = html + html; // duplicate for seamless marquee
+    // Two identical groups inside a max-content track: translating the track by
+    // exactly -50% lands the second group where the first began, so the loop is
+    // seamless. The duplicate is hidden from assistive tech.
+    el.innerHTML = '<div class="ticker-group">' + html + '</div>'
+                 + '<div class="ticker-group" aria-hidden="true">' + html + '</div>';
+    el.classList.add("is-live");
   }).catch(function () { el.innerHTML = '<span class="ticker-loading">Markets unavailable</span>'; });
 })();
