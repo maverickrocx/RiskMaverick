@@ -1,13 +1,260 @@
 name: Americas
 slug: americas
-status: planned
-order: 4
+status: live
+order: 2
+reviewed: 2026-07-30
+data_vintage: "Market structure and H1 2026 outturn; auction and policy positions verified to 30 July 2026."
+gas_ccy: "$"
+gas_unit: "/MMBtu"
+power_ccy: "$"
+power_unit: "/MWh"
 blurb: >-
-  Henry Hub anchors the world's deepest gas market, feeding a Gulf Coast export
-  complex, while power trades across ISOs with nodal pricing. Mapping in
-  progress.
-planned_scope:
-  - US gas — Henry Hub, Waha, Algonquin and the basis map
-  - US power — PJM, ERCOT, CAISO, MISO nodal and capacity markets
-  - LNG exports — Sabine, Corpus Christi, Plaquemines netbacks
-  - Canada & Brazil — AECO gas, hydro-led power
+  North America prices gas off a single physical benchmark — Henry Hub — and
+  then everything interesting happens in the basis. Power trades nodally in six
+  of the seven US ISOs, so there is no single "US power price" either. In both
+  markets the tradable object is a differential, not a level.
+marks_note: >-
+  Gas marks are H1 2026 outturn levels, sourced and dated below, shown for
+  scale rather than as live prices. Power marks are deliberately absent: a US
+  power price is specific to a node, hub or zone, and publishing a single
+  number for an ISO would repeat exactly the error this mapping exists to
+  prevent. Hub-level marks arrive with the market packs, each carrying its own
+  verification code.
+
+context:
+  - stat: "$325"
+    label: PJM capacity cleared at the price cap for the third consecutive auction (2028/29 BRA, $/MW-day) — and still fell 6,831 MW short of the reliability requirement
+    source: PJM
+  - stat: "198 GW"
+    label: Large load applied to interconnect in ERCOT in Q1 2026 alone; more than 70% of the queue is data centres
+    source: ERCOT / Latitude Media
+  - stat: "2,600 GW"
+    label: Generation and storage sitting in US interconnection queues in early 2026, with waits of five years and more
+    source: Ascend Analytics
+  - stat: ">$10/MMBtu"
+    label: Peak spread between Waha and Henry Hub in H1 2026 — the same molecule, priced on whether it could physically move east
+    source: NGI / Reuters
+  - stat: "18.3 Bcf/d"
+    label: US peak LNG export capacity, on track past 19 Bcf/d during 2026 as Golden Pass and Corpus Christi Stage 3 ramp
+    source: EIA
+
+trend:
+  title: RGGI allowance auction clearing price
+  unit: $/short ton
+  caption: >-
+    The most striking price move in North American environmental markets in the
+    last year. Auction 71 in March 2026 exhausted the entire 2026 Cost
+    Containment Reserve — 7.85 million allowances released against a $18.22
+    trigger — and the market still cleared $35.00 three months later, a 57%
+    rise in nine months. The Third Program Review tightens the cap through 2037
+    from 2027 and fixes the CCR at roughly 11.7 million allowances per tier.
+    Note the unit: RGGI allowances are metric tonnes, while EPA reports emitted
+    mass in short tons.
+  points:
+    - { label: "Auction 69 · Sep 25", value: 22.25, source: RGGI }
+    - { label: "Auction 71 · Mar 26", value: 24.99, source: RGGI }
+    - { label: "Auction 72 · Jun 26", value: 35.00, source: RGGI }
+
+countries:
+  - country: US Gulf Coast
+    code: HH
+    role: The global gas benchmark
+    gas_hub: Henry Hub
+    gas_venue: NYMEX / ICE
+    gas_mark: 2.70
+    power_zone: MISO South / SERC
+    power_venue: Bilateral
+    note: >-
+      Henry Hub is a physical delivery point in Louisiana, not a virtual hub
+      like TTF, and that difference is the whole story: it sits inside the
+      pipeline network that now feeds the largest LNG export complex in the
+      world. Export pull increasingly sets the marginal call on US gas, which
+      is why a European or Asian cargo decision now transmits back to a
+      Louisiana wellhead within the same trading day.
+
+  - country: Permian Basin
+    code: WA
+    role: Where basis goes negative
+    gas_hub: Waha
+    gas_venue: Bilateral / ICE basis
+    gas_mark: -2.19
+    note: >-
+      Waha averaged minus $2.19/MMBtu across H1 2026 and hit a record minus
+      $7.95 at the end of April, staying negative for 25 consecutive days.
+      Permian gas is associated production — it comes up whether or not anyone
+      wants it — so when takeaway capacity binds, producers pay to have it
+      removed. The GCX expansion and the start of Hugh Brinson pushed Waha back
+      above zero in June 2026 for the first sustained stretch in months. This
+      is the cleanest teaching case in the programme for why basis, not
+      benchmark, is the traded object.
+
+  - country: PJM
+    code: PJM
+    role: The reference nodal market
+    gas_hub: Tetco M3 / TCO
+    gas_venue: ICE basis
+    power_zone: Western Hub
+    power_venue: ICE / Nodal Exchange
+    note: >-
+      Thirteen states, 67 million people, and the design every other US market
+      is described against. Capacity is procured forward through RPM, which has
+      now cleared at its cap three auctions running — the 2028/29 auction was
+      collared at $325/MW-day by agreement between FERC and the governors of
+      all thirteen states, against an uncapped estimate of $554.72 that would
+      have taken the bill from $16.4bn to nearly $30bn. Note the trap: Western
+      Hub is what trades, while PJM-RTO is a load-weighted average that is
+      quoted constantly and traded almost never.
+
+  - country: Texas
+    code: TX
+    role: Energy-only, at scale
+    gas_hub: Katy / Houston Ship Channel
+    gas_venue: ICE basis
+    power_zone: ERCOT North Hub
+    power_venue: ICE / Nodal Exchange
+    note: >-
+      ERCOT has no capacity market. Scarcity is priced instead through the
+      Operating Reserve Demand Curve, under a system-wide offer cap of
+      $5,000/MWh — lowered from $9,000 with effect from January 2022 — with a
+      low cap set daily at the greater of $2,000/MWh or fifty times the gas
+      index. The design freedom comes from a jurisdictional fact: ERCOT is
+      intrastate and therefore outside FERC's wholesale jurisdiction, answering
+      to the PUCT instead. It is also where the load-growth story is most
+      extreme.
+
+  - country: California
+    code: CA
+    role: Nodal plus a carbon price
+    gas_hub: SoCal Border / PG&E Citygate
+    gas_venue: ICE basis
+    power_zone: SP15 / NP15
+    power_venue: ICE / Nodal Exchange
+    note: >-
+      The only US ISO with an economy-wide carbon price layered on top of
+      energy. Resource adequacy is procured bilaterally under a CPUC mandate
+      rather than cleared in an auction, which makes it look unlike PJM or
+      ISO-NE despite sharing the nodal design. A caution for anyone reading
+      federal data: EIA's generation series are utility-scale only, so
+      California's behind-the-meter solar — reported separately under EIA-861 —
+      is simply absent unless you add it explicitly.
+
+  - country: Northeast US
+    code: NE
+    role: Winter is the whole risk
+    gas_hub: Algonquin Citygate / Transco Z6 NY
+    gas_venue: ICE basis
+    power_zone: Mass Hub / NYISO Zone J
+    power_venue: ICE / Nodal Exchange
+    note: >-
+      New England and New York sit at the end of the pipeline and compete with
+      heating load for the same molecules, so winter basis blows out in a way
+      that has no European equivalent. Both operate under RGGI. ISO-NE procures
+      capacity through a forward auction; NYISO runs ICAP spot and strip
+      auctions with a separate in-city requirement for Zone J that reflects
+      transmission constraints into New York City.
+
+  - country: Canada
+    code: CAN
+    role: Supply, egress and two very different power markets
+    gas_hub: AECO / NIT
+    gas_venue: NGX / ICE
+    power_zone: Alberta Pool Price · Ontario HOEP
+    power_venue: AESO · IESO
+    note: >-
+      Alberta is the cleanest teaching case for scarcity pricing anywhere in
+      the programme: one energy-only pool price for the entire province, with
+      no nodes and therefore nothing locational to trade. Ontario is the
+      opposite — nuclear-heavy, centrally dispatched, mid-transition to a
+      renewed market design. AECO gas carries both egress risk and an FX leg,
+      which is why the Canada packs treat currency as an explicit risk factor
+      rather than a silent conversion.
+
+  - country: Latin America
+    code: LA
+    role: Hydrology as the price driver
+    gas_hub: Mexico — Waha-linked imports
+    gas_venue: Bilateral
+    power_zone: Mexico PML · Brazil PLD by submarket
+    power_venue: CENACE · CCEE
+    note: >-
+      Brazil is not a bid-based market at all. ONS dispatches centrally on
+      declared costs and a hydrological optimisation, and CCEE settles at PLD
+      by submarket, so reservoir levels do the job that fuel prices do
+      everywhere else — the closest analogue in this mapping is the Nordics.
+      Mexico runs nodal PML pricing but with policy, not physics, as the
+      dominant variable.
+
+cross_cutting:
+  - name: The 45Y/48E cliff has just passed
+    detail: >-
+      Wind and solar projects that began construction on or before 4 July 2026
+      keep the full credit on the original phase-out; those starting after
+      5 July 2026 must be placed in service by 31 December 2027 to claim
+      anything at all.
+    note: >-
+      Storage and other qualifying technologies are untouched until 2034. Read
+      as a negative carbon price, this is the largest single policy variable in
+      the US build-out — and the date is three weeks behind us.
+  - name: A three-way carbon link, signed
+    detail: >-
+      Washington, California and Québec signed a linkage agreement on 25 June
+      2026, with a linked market expected to operate from 2027. California's
+      own programme is being reauthorised under AB 1207, with CARB rulemaking
+      opened in January 2026 and allowance budgets changing from 2027.
+    note: >-
+      The 2026 auction reserve price is $27.94. A linked WCI would become the
+      second-largest compliance carbon market in the world.
+  - name: RGGI tightens through 2037
+    detail: >-
+      The ten participating states have agreed to strengthen the regional cap
+      from 2027 through 2037, with fixed CCR tiers of roughly 11.7 million
+      allowances each.
+    note: >-
+      The 2026 CCR was fully exhausted at auction 71 and the market still
+      cleared $35.00 in June.
+  - name: The export complex keeps ramping
+    detail: >-
+      Golden Pass shipped its first cargo in April 2026 as the ninth US LNG
+      export terminal; Corpus Christi Stage 3 adds trains 5–7 and Plaquemines
+      won DOE approval in March 2026 for a further 0.5 Bcf/d.
+    note: >-
+      Capacity goes from roughly 17 Bcf/d at the end of 2025 to above 19 Bcf/d
+      during 2026 — the single largest structural pull on Henry Hub.
+
+basis:
+  - pair: Waha – Henry Hub
+    kind: Physical location, gas
+    level: "−$2.19 avg H1 2026"
+    note: >-
+      Takeaway-constrained associated gas. Record low −$7.95/MMBtu in late
+      April 2026, negative for 25 straight days, back above zero from June as
+      GCX expansion and Hugh Brinson came into service. The remaining basis
+      pairs — AECO, Algonquin Citygate, Transco Z6 NY, SoCal Border — are
+      published under licence and are not sourced here; they arrive with the
+      gas market packs as manual, dated entries.
+
+sources:
+  - title: "PJM Capacity Auction Procures 138,318 MW of Generation Resources"
+    publisher: PJM Interconnection
+    url: https://www.prnewswire.com/news-releases/pjm-capacity-auction-procures-138-318-mw-of-generation-resources-as-work-continues-to-address-growing-electricity-demand-302825613.html
+  - title: "Review of the ERCOT Scarcity Pricing Mechanism (Project 52631)"
+    publisher: Public Utility Commission of Texas
+    url: https://ftp.puc.texas.gov/public/puct-info/agency/rulesnlaws/subrules/electric/25.505/52631adt.pdf
+  - title: "CO2 Allowances Sold for $35.00 in 72nd RGGI Auction"
+    publisher: RGGI, Inc.
+    url: https://www.rggi.org/sites/default/files/Uploads/Auction-Materials/72/PR060526_Auction72.pdf
+  - title: "Washington, California and Québec sign agreement to link carbon markets"
+    publisher: International Carbon Action Partnership
+    url: https://icapcarbonaction.com/en/news/washington-california-and-quebec-sign-agreement-link-carbon-markets
+  - title: "The 9th U.S. LNG export terminal, Golden Pass, ships first cargo"
+    publisher: US Energy Information Administration
+    url: https://www.eia.gov/todayinenergy/detail.php?id=67564
+  - title: "Permian Pipeline Constraints Push Waha Gas Prices Negative for 25th Straight Day"
+    publisher: Pipeline & Gas Journal
+    url: https://pgjonline.com/news/2026/march/permian-pipeline-constraints-push-waha-gas-prices-negative-for-25th-straight-day
+  - title: "ERCOT's large load queue has nearly quadrupled in a single year"
+    publisher: Latitude Media
+    url: https://www.latitudemedia.com/news/ercots-large-load-queue-has-nearly-quadrupled-in-a-single-year/
+  - title: "The One Big Beautiful Bill: Impact on the IRA's Clean Energy Tax Credits"
+    publisher: Steptoe
+    url: https://www.steptoe.com/en/news-publications/the-one-big-beautiful-bill-impact-on-the-iras-clean-energy-tax-credits.html

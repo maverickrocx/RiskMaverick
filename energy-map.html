@@ -2,7 +2,7 @@
 layout: default
 title: Gas & Power Map
 permalink: /energy-map/
-blurb: "Country-by-country mapping of gas hubs, power benchmarks and the basis between them — starting with Europe."
+blurb: "Market-by-market mapping of gas hubs, power benchmarks and the basis between them — Europe and the Americas."
 ---
 {% assign region_list = "" | split: "" %}
 {% for r in site.data.energy_regions %}{% assign region_list = region_list | push: r[1] %}{% endfor %}
@@ -11,7 +11,7 @@ blurb: "Country-by-country mapping of gas hubs, power benchmarks and the basis b
 <section class="hub-head">
   <p class="eyebrow">Interactive</p>
   <h1>Gas &amp; Power Map</h1>
-  <p class="hub-blurb">How each country prices gas and power, the hubs and venues that set those prices, and the basis between them. Europe is mapped; Asia, Australia and the Americas are in progress.</p>
+  <p class="hub-blurb">How each market prices gas and power, the hubs and venues that set those prices, and the basis between them. Europe and the Americas are mapped; Asia and Australia are in progress.</p>
 </section>
 
 <div class="emap">
@@ -88,13 +88,13 @@ blurb: "Country-by-country mapping of gas hubs, power benchmarks and the basis b
             <div class="emap-box-tag">Gas</div>
             <div class="emap-box-val">{{ c.gas_hub }}</div>
             <div class="emap-box-sub">{{ c.gas_venue }}</div>
-            <div class="emap-box-mk">Mark <strong>€{{ c.gas_mark }}</strong>/MWh · daily vol {{ c.gas_vol }}%</div>
+            {% if c.gas_mark %}<div class="emap-box-mk">Mark <strong>{{ reg.gas_ccy | default: "€" }}{{ c.gas_mark }}</strong>{{ reg.gas_unit | default: "/MWh" }}{% if c.gas_vol %} · daily vol {{ c.gas_vol }}%{% endif %}</div>{% endif %}
           </div>
           <div class="emap-box">
             <div class="emap-box-tag">Power</div>
             <div class="emap-box-val">{{ c.power_zone }}</div>
             <div class="emap-box-sub">{{ c.power_venue }}</div>
-            <div class="emap-box-mk">Mark <strong>€{{ c.power_mark }}</strong>/MWh · daily vol {{ c.power_vol }}%</div>
+            {% if c.power_mark %}<div class="emap-box-mk">Mark <strong>{{ reg.power_ccy | default: "€" }}{{ c.power_mark }}</strong>{{ reg.power_unit | default: "/MWh" }}{% if c.power_vol %} · daily vol {{ c.power_vol }}%{% endif %}</div>{% endif %}
           </div>
         </div>
         <p class="emap-cnote">{{ c.note }}</p>
