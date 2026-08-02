@@ -21,6 +21,7 @@ exclude:
   - vendor/
   - .claude/
   - "M Falcon B.png"
+  - night-desk-reference/
 
 collections:
   news:
