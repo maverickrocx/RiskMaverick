@@ -303,7 +303,10 @@ footer{border-top:1px solid var(--border);margin-top:4rem;background:var(--bg-el
 .nav-links > a,.nav-item > a{color:var(--ink-muted);font:600 14px/1 Inter,sans-serif;text-decoration:none;}
 .nav-item{position:relative;} .nav-item .mega{position:absolute;top:130%;left:0;display:none;grid-template-columns:1fr 1fr;gap:2px;min-width:340px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:8px;}
 .nav-item:hover .mega{display:grid;} .mega a{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:var(--r-chip);color:var(--ink-muted);text-decoration:none;font:500 13px/1.2 Inter,sans-serif;} .mega a:hover{background:var(--surface-2);color:var(--ink);}
-.nav-toggle{display:none;background:none;border:0;color:var(--ink);font-size:22px;cursor:pointer;justify-self:end;}
+.nav-act{display:flex;align-items:center;gap:10px;justify-self:end;}
+.nav-toggle{display:none;background:none;border:0;color:var(--ink);font-size:22px;cursor:pointer;}
+.nav-act .icon-btn{width:36px;height:36px;}
+.nav-act .icon-btn svg{width:16px;height:16px;}
 @media(max-width:820px){
   .nav-inner{display:flex;justify-content:space-between;}
   .nav-toggle{display:block;}

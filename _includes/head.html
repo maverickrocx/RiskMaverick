@@ -1,5 +1,6 @@
 <head>
   <meta charset="utf-8">
+  <script>(function(){try{if(localStorage.getItem('rm-theme')==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   {% capture pg_title %}{% if page.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }} — {{ site.tagline }}{% endif %}{% endcapture %}
   {% capture pg_desc %}{{ page.blurb | default: page.excerpt | default: site.description | strip_html | strip_newlines | truncate: 160 }}{% endcapture %}
