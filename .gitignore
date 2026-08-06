@@ -4,3 +4,6 @@ _site/
 vendor/
 .superpowers/
 night-desk-reference/
+
+# Local Claude Code skills — tooling, not site content
+.claude/skills/
