@@ -51,7 +51,8 @@
     foot.innerHTML =
       '<button class="rmdrum-nav" data-d="1" aria-label="Previous component">&#8249;</button>' +
       '<button class="rmdrum-nav" data-d="-1" aria-label="Next component">&#8250;</button>' +
-      '<span class="rmdrum-cap"></span><span class="rmdrum-dots"></span>' +
+      '<span class="rmdrum-cap" aria-live="polite"></span>' +
+      '<span class="rmdrum-count" aria-hidden="true"></span><span class="rmdrum-dots"></span>' +
       '<button class="rmdrum-exit">Grid view</button>';
 
     grid.parentNode.insertBefore(wrap, grid);
@@ -59,7 +60,7 @@
     wrap.appendChild(foot);
     grid.hidden = true;
 
-    cards.forEach(function (c) { c.classList.add('rmdrum-card'); ring.appendChild(c); });
+    cards.forEach(function (c) { c.classList.add('rmdrum-card'); c.setAttribute('role', 'option'); ring.appendChild(c); });
 
     var dots = foot.querySelector('.rmdrum-dots');
     for (var i = 0; i < n; i++) dots.appendChild(document.createElement('i'));
@@ -81,6 +82,7 @@
       });
       [].forEach.call(dots.children, function (d, i) { d.className = i === idx ? 'on' : ''; });
       foot.querySelector('.rmdrum-cap').textContent = (cards[idx].querySelector('h3') || {}).textContent || '';
+      foot.querySelector('.rmdrum-count').textContent = (idx + 1) + ' / ' + n;
     }
 
     function step(d) {
@@ -120,7 +122,7 @@
     function teardown() {
       cards.forEach(function (c) {
         c.classList.remove('rmdrum-card', 'is-sel');
-        c.removeAttribute('style'); c.removeAttribute('aria-selected'); c.removeAttribute('tabindex');
+        c.removeAttribute('style'); c.removeAttribute('aria-selected'); c.removeAttribute('tabindex'); c.removeAttribute('role');
         grid.appendChild(c);
       });
       grid.hidden = false;
