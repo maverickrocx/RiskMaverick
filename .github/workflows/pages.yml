@@ -42,7 +42,7 @@ jobs:
           bundler-cache: true
 
       # Also fails loudly and early if Pages is still set to branch-deploy.
-      - uses: actions/configure-pages@v5
+      - uses: actions/configure-pages@v6
 
       # baseurl stays as _config.yml sets it (empty — we serve from the apex
       # domain riskmaverick.com, not a project subpath).
@@ -51,7 +51,10 @@ jobs:
         env:
           JEKYLL_ENV: production
 
-      - uses: actions/upload-pages-artifact@v4
+      # v5 is the first release whose internal upload-artifact call runs on
+      # node24 — v4 pinned a node20 SHA, which surfaced as a deprecation
+      # warning we could not silence from here.
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: ./_site
 
@@ -63,4 +66,4 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
