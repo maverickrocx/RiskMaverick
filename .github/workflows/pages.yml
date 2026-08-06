@@ -1,0 +1,66 @@
+name: Build and deploy site
+
+# Replaces the implicit "pages build and deployment" workflow that GitHub
+# generates when Pages is set to deploy from a branch. Owning the workflow
+# means we pin our own action and Jekyll versions instead of inheriting the
+# frozen github-pages gemset (which held the site at Jekyll 3.10).
+#
+# Requires: Settings > Pages > Build and deployment > Source = GitHub Actions.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  # The daily marks bot commits using GITHUB_TOKEN, and token-authored pushes
+  # deliberately do not fire `push` workflows (GitHub blocks that to prevent
+  # recursion). Without this trigger the refreshed prices would sit in the repo
+  # unpublished until the next human commit.
+  workflow_run:
+    workflows: ["Refresh benchmark marks"]
+    types: [completed]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Queue deploys rather than cancelling them. A deploy interrupted midway can
+# leave the site half-published, which is worse than a late one.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+
+      # Also fails loudly and early if Pages is still set to branch-deploy.
+      - uses: actions/configure-pages@v5
+
+      # baseurl stays as _config.yml sets it (empty — we serve from the apex
+      # domain riskmaverick.com, not a project subpath).
+      - name: Build with Jekyll
+        run: bundle exec jekyll build --trace
+        env:
+          JEKYLL_ENV: production
+
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: ./_site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
