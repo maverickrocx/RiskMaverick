@@ -25,7 +25,7 @@ layout: default
 
 <section class="home-browse">
   <h2 class="group-h">Browse by market</h2>
-  <div class="card-grid">
+  <div class="card-grid" data-drum>
     {% for m in site.data.markets %}
     <a class="card" href="{{ m.url | relative_url }}"><span class="card-ico"><svg class="ico" aria-hidden="true"><use href="#icon-{{ m.slug }}"></use></svg></span><h3>{{ m.label }}</h3><p>{{ m.blurb }}</p></a>
     {% endfor %}
@@ -34,7 +34,7 @@ layout: default
 
 <section class="home-toolkit">
   <h2 class="group-h">From the Risk Toolkit</h2>
-  <div class="card-grid">
+  <div class="card-grid" data-drum>
     {% for t in site.data.toolkit %}
     <a class="card" href="{{ t.url | relative_url }}"><span class="card-ico"><svg class="ico" aria-hidden="true"><use href="#icon-{{ t.slug }}"></use></svg></span><h3>{{ t.label }}</h3><p>{{ t.blurb }}</p></a>
     {% endfor %}
