@@ -8,11 +8,70 @@ blurb: "Market-by-market mapping of gas hubs, power benchmarks and the basis bet
 {% for r in site.data.energy_regions %}{% assign region_list = region_list | push: r[1] %}{% endfor %}
 {% assign regions = region_list | sort: "order" %}
 
-<section class="hub-head">
-  <p class="eyebrow">Interactive</p>
-  <h1>Gas &amp; Power Map</h1>
-  <p class="hub-blurb">How each market prices gas and power, the hubs and venues that set those prices, and the basis between them. Europe and the Americas are mapped; Asia and Australia are in progress.</p>
+<section class="hero">
+  <div class="hero__inner">
+    <p class="eyebrow">Interactive</p>
+    <h1>Gas &amp; Power Map</h1>
+    <p class="lede">How each market prices gas and power, the hubs and venues that set those prices, and the basis between them. Europe and the Americas are mapped; Asia and Australia are in progress.</p>
+  </div>
 </section>
+
+<hr class="rule">
+
+<section class="sec--tight">
+  <div class="sec__head">
+    <h2>How a molecule reaches a price</h2>
+    <p class="lede">Three chains, one structure: a supply basin feeds a route, the route feeds a benchmark. The dashed lines are the arbitrage — the same US cargo choosing Europe or Asia.</p>
+  </div>
+
+  <div class="flowtabs" role="tablist" aria-label="Select a regional chain">
+    <button class="flowtab is-on" role="tab" aria-selected="true" data-flow="all" type="button">All chains</button>
+    <button class="flowtab" role="tab" aria-selected="false" data-flow="na" type="button">North America</button>
+    <button class="flowtab" role="tab" aria-selected="false" data-flow="nwe" type="button">North-west Europe</button>
+    <button class="flowtab" role="tab" aria-selected="false" data-flow="nea" type="button">North-east Asia</button>
+  </div>
+
+  <div class="flowwrap">
+    <svg class="flow" id="flowDiagram" viewBox="0 0 920 380" role="img" aria-label="Diagram: supply basins feed routes and infrastructure, which price into three regional gas benchmarks — Henry Hub, TTF and JKM. Gulf Coast liquefaction can divert cargoes to either Europe or Asia.">
+      <g>
+        <path class="fe" data-flow="na"  d="M250 74 C330 74 330 74 400 74"/>
+        <path class="fe" data-flow="na"  d="M620 74 C660 74 660 74 700 74"/>
+        <path class="fe" data-flow="nwe" d="M250 186 C330 186 330 186 400 186"/>
+        <path class="fe" data-flow="nwe" d="M620 186 C660 186 660 186 700 186"/>
+        <path class="fe" data-flow="nea" d="M250 298 C330 298 330 298 400 298"/>
+        <path class="fe" data-flow="nea" d="M620 298 C660 298 660 298 700 298"/>
+        <path class="fe fe--arb" data-flow="na" d="M620 90 C670 130 660 160 700 178"/>
+        <path class="fe fe--arb" data-flow="na" d="M620 96 C680 200 660 260 700 290"/>
+      </g>
+
+      <g class="fn" data-flow="na"><rect x="70" y="46" width="180" height="56" rx="8"/>
+        <text x="86" y="72">Permian · Appalachia</text><text class="sub" x="86" y="90">associated + dry gas</text></g>
+      <g class="fn" data-flow="na"><rect x="400" y="46" width="220" height="56" rx="8"/>
+        <text x="416" y="72">Gulf Coast liquefaction</text><text class="sub" x="416" y="90">Sabine · Corpus · Plaquemines</text></g>
+      <g class="fn fn--bench" data-flow="na"><rect x="700" y="46" width="150" height="56" rx="8"/>
+        <text x="716" y="72">Henry Hub</text><text class="sub" x="716" y="90">USD / MMBtu</text></g>
+
+      <g class="fn" data-flow="nwe"><rect x="70" y="158" width="180" height="56" rx="8"/>
+        <text x="86" y="184">Norway · North Sea</text><text class="sub" x="86" y="202">pipeline supply</text></g>
+      <g class="fn" data-flow="nwe"><rect x="400" y="158" width="220" height="56" rx="8"/>
+        <text x="416" y="184">Regas + interconnectors</text><text class="sub" x="416" y="202">storage sets the spread</text></g>
+      <g class="fn fn--bench" data-flow="nwe"><rect x="700" y="158" width="150" height="56" rx="8"/>
+        <text x="716" y="184">TTF</text><text class="sub" x="716" y="202">EUR / MWh</text></g>
+
+      <g class="fn" data-flow="nea"><rect x="70" y="270" width="180" height="56" rx="8"/>
+        <text x="86" y="296">Qatar · Australia</text><text class="sub" x="86" y="314">long-term SPAs</text></g>
+      <g class="fn" data-flow="nea"><rect x="400" y="270" width="220" height="56" rx="8"/>
+        <text x="416" y="296">Long-haul shipping</text><text class="sub" x="416" y="314">Hormuz · Malacca</text></g>
+      <g class="fn fn--bench" data-flow="nea"><rect x="700" y="270" width="150" height="56" rx="8"/>
+        <text x="716" y="296">JKM</text><text class="sub" x="716" y="314">USD / MMBtu</text></g>
+
+      <text class="flow-note" x="70" y="360">Dashed = arbitrage: the same cargo choosing a basin. That choice is what links three regional prices.</text>
+    </svg>
+  </div>
+  <p class="flow-src">Schematic — structure, not scale. Benchmarks and venues per the regional mappings below; see each region&rsquo;s own sources.</p>
+</section>
+
+<hr class="rule">
 
 <div class="emap">
   <div class="emap-tabs" role="tablist">
@@ -155,3 +214,4 @@ blurb: "Market-by-market mapping of gas hubs, power benchmarks and the basis bet
 </div>
 
 <script src="{{ '/assets/js/energy-map.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/flow.js' | relative_url }}"></script>

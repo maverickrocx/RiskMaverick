@@ -1,24 +1,42 @@
 ---
 layout: default
 ---
-<section class="hub-head">
-  <p class="eyebrow">{{ page.group | default: page.spine }}</p>
-  <h1>{{ page.title }}</h1>
-  <p class="hub-blurb">{{ page.blurb }}</p>
+<section class="hero">
+  <div class="hero__inner">
+    <p class="eyebrow">{{ page.group | default: page.spine }}</p>
+    <h1>{{ page.title }}</h1>
+    {% if page.blurb %}<p class="lede">{{ page.blurb }}</p>{% endif %}
+  </div>
 </section>
-<div class="post-body">{{ content }}</div>
-<section class="hub-body">
-  {% assign tag = page.tag %}
-  {% if page.spine == "markets" %}
-    {% assign posts = site.posts | where_exp: "p", "p.markets contains tag" %}
-  {% else %}
-    {% assign posts = site.posts | where_exp: "p", "p.concepts contains tag" %}
-  {% endif %}
-  <div class="card-grid">
+
+<hr class="rule">
+
+<section class="sec--tight">
+  <div class="post-body">{{ content }}</div>
+</section>
+
+{% assign tag = page.tag %}
+{% if page.spine == "markets" %}
+  {% assign posts = site.posts | where_exp: "p", "p.markets contains tag" %}
+{% else %}
+  {% assign posts = site.posts | where_exp: "p", "p.concepts contains tag" %}
+{% endif %}
+
+<section class="sec--tight">
+  <div class="sec__head">
+    <h2>Coverage</h2>
+    <span class="row__meta">{{ posts | size }} article{% if posts.size != 1 %}s{% endif %}</span>
+  </div>
+  {%- comment -%}Article listing — flat rows, never the drum.{%- endcomment -%}
+  <div class="rows">
     {% for post in posts %}
-      {% include article-card.html post=post %}
+    <a class="row" href="{{ post.url | relative_url }}">
+      <span class="row__title">{{ post.title }}</span>
+      <span class="row__meta">{{ post.date | date: "%-d %b %Y" }}</span>
+      <p>{{ post.excerpt | strip_html | truncate: 150 }}</p>
+    </a>
     {% else %}
-      <p class="empty">In-depth articles on this topic are coming soon.</p>
+    <p class="empty">In-depth articles on this topic are coming soon.</p>
     {% endfor %}
   </div>
 </section>

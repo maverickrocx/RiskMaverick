@@ -37,6 +37,10 @@
   /* Display face — headings, row titles and pull quotes only. Instrument Serif
      ships a single 400 weight, so display type is set at 400, never bolded. */
   --font-display: "Instrument Serif", Georgia, "Times New Roman", serif;
+  /* Type scale (DESIGN-SYSTEM §3) */
+  --t-xs: 14px; --t-sm: 16px; --t-md: 20px; --t-lg: 31px; --t-xl: 49px;
+  --t-hero: clamp(40px, 7.2vw, 76px);
+  --maxw: 1200px;
 
   /* ── Role tints / glows (flash states, deltas, badges) ── */
   --pos-glow: rgba(74,222,128,0.45);
@@ -230,7 +234,8 @@ footer{border-top:1px solid var(--border);margin-top:4rem;background:var(--bg-el
    MAGAZINE COMPONENTS
 ══════════════════════════════════════════════════════════ */
 .site-main{max-width:1180px;margin:0 auto;padding:0 20px 80px;}
-.eyebrow{font:600 12px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-text);margin:0 0 10px;}
+.eyebrow{display:flex;align-items:center;gap:var(--s3);font:400 var(--t-xs)/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-muted);margin:0 0 var(--s4);}
+.eyebrow::before{content:"";width:24px;height:1px;background:var(--accent);flex:none;}
 .card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:28px;}
 .card{display:flex;flex-direction:column;gap:var(--s2);padding:var(--s5);background:var(--surface);border:1px solid var(--border);border-radius:var(--r);text-decoration:none;color:var(--ink);transition:border-color var(--m-micro) var(--e-out),transform var(--m-micro) var(--e-out);}
 .card:hover{border-color:var(--accent);transform:translateY(-4px);}
@@ -835,3 +840,82 @@ table.specs tr:last-child td{border-bottom:0;}
 .toc li a:hover{color:var(--ink);}
 .toc li a.active{color:var(--accent-text);border-left-color:var(--accent);}
 @media(max-width:900px){.post-cols{grid-template-columns:1fr;gap:0;} .toc.has-items{display:none;}}
+
+/* ══════════════════════════════════════════════════════════
+   SHARED LAYOUT COMPONENTS (DESIGN-SYSTEM §6)
+   One vocabulary across every page, replacing the per-page
+   classes each template used to invent. Ported from the
+   Night Desk reference; `.wrap` is omitted because
+   `.site-main` already provides the page container.
+══════════════════════════════════════════════════════════ */
+.sec{padding:var(--s9) 0;}
+.sec--tight{padding:var(--s8) 0;}
+.sec:first-of-type{padding-top:var(--s8);}
+.sec__head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:var(--s4);margin-bottom:var(--s7);}
+.sec__head h2{max-width:18ch;margin:0;}
+.sec__head .lede{margin:0;}
+.rule{height:1px;background:var(--border);border:0;margin:0;}
+.lede{font-size:var(--t-md);line-height:1.6;color:var(--ink-muted);max-width:62ch;}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s2);min-height:46px;padding:var(--s3) var(--s5);border-radius:var(--r);border:1px solid transparent;font:600 var(--t-sm)/1 Inter,sans-serif;text-decoration:none;cursor:pointer;transition:transform var(--m-micro) var(--e-out),background var(--m-micro) var(--e-out),border-color var(--m-micro) var(--e-out),color var(--m-micro) var(--e-out);}
+.btn--primary{background:var(--accent);color:var(--accent-fg);}
+.btn--primary:hover{transform:translateY(-2px);}
+.btn--ghost{border-color:var(--border);color:var(--ink);background:transparent;}
+.btn--ghost:hover{border-color:var(--accent);color:var(--accent-text);}
+.btn:active{transform:scale(.98);}
+
+/* Hero */
+.hero{position:relative;padding:var(--s9) 0 var(--s8);}
+.hero__inner{position:relative;max-width:900px;}
+.hero h1{font:400 var(--t-hero)/1.04 var(--font-display);letter-spacing:-0.02em;color:var(--ink);margin:0 0 var(--s5);}
+.hero h1 em{font-style:italic;color:var(--accent-text);}
+.hero .lede{margin-bottom:var(--s6);}
+.hero__cta{display:flex;flex-wrap:wrap;gap:var(--s3);}
+.hero__trust{margin-top:var(--s7);padding-top:var(--s5);border-top:1px solid var(--border-soft);display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s5);}
+@media(min-width:768px){.hero__trust{grid-template-columns:repeat(4,1fr);}}
+.stat b{display:block;font:500 var(--t-lg)/1.1 var(--mono);color:var(--ink);letter-spacing:-.02em;}
+.stat span{font-size:var(--t-xs);color:var(--ink-muted);}
+
+/* Row lists — the reference's primary listing pattern */
+.rows{border-top:1px solid var(--border);}
+.row{display:grid;grid-template-columns:1fr auto;gap:var(--s4);align-items:baseline;padding:var(--s5) 0;border-bottom:1px solid var(--border);text-decoration:none;color:var(--ink);transition:padding-left var(--m-micro) var(--e-out);}
+a.row:hover{padding-left:var(--s3);}
+.row__title{font:400 var(--t-md)/1.25 var(--font-display);letter-spacing:-.01em;color:var(--ink);}
+.row__meta{font:400 var(--t-xs)/1.4 var(--mono);color:var(--ink-muted);}
+.row p{color:var(--ink-muted);font-size:var(--t-xs);line-height:1.6;margin:var(--s2) 0 0;max-width:70ch;grid-column:1/-1;}
+
+/* Split feature block + full-width CTA band */
+.feature{display:grid;gap:var(--s6);align-items:center;border:1px solid var(--border);border-radius:var(--r);background:var(--surface);padding:var(--s6);}
+@media(min-width:900px){.feature{grid-template-columns:1.1fr .9fr;padding:var(--s7);}}
+.band{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg-elev);padding:var(--s9) 0;text-align:center;margin-top:var(--s9);}
+.band h2{max-width:20ch;margin:0 auto var(--s4);}
+.band .lede{margin:0 auto var(--s6);}
+.band .hero__cta{justify-content:center;}
+
+/* Skip link */
+.skip{position:absolute;left:var(--s4);top:-60px;z-index:200;background:var(--accent);color:var(--accent-fg);padding:var(--s3) var(--s4);border-radius:var(--r);font-weight:600;text-decoration:none;transition:top var(--m-micro) var(--e-out);}
+.skip:focus{top:var(--s4);}
+
+/* ══════════════════════════════════════════════════════════
+   FLOW DIAGRAM — supply → route → benchmark, by basin
+══════════════════════════════════════════════════════════ */
+.flowtabs{display:flex;flex-wrap:wrap;gap:var(--s2);margin-bottom:var(--s5);}
+.flowtab{background:transparent;border:1px solid var(--border);color:var(--ink-muted);font:600 12px/1 Inter,sans-serif;letter-spacing:.03em;padding:9px 14px;border-radius:var(--r-pill);cursor:pointer;transition:all var(--m-micro) var(--e-out);}
+.flowtab:hover{color:var(--ink);border-color:var(--accent);}
+.flowtab.is-on{color:var(--accent-fg);background:var(--accent);border-color:var(--accent);}
+.flowwrap{border:1px solid var(--border);border-radius:var(--r);background:var(--surface);padding:var(--s5);overflow-x:auto;}
+.flow{width:100%;min-width:720px;height:auto;display:block;}
+.flow .fn rect{fill:var(--bg-elev);stroke:var(--border);stroke-width:1;}
+.flow .fn--bench rect{stroke:var(--accent);}
+.flow .fn text{fill:var(--ink);font:400 13px/1 Inter,sans-serif;}
+.flow .fn text.sub{fill:var(--ink-muted);font:400 11px/1 var(--mono);}
+.flow .fe{fill:none;stroke:var(--border);stroke-width:1.5;}
+.flow .fe--arb{stroke:var(--accent);stroke-dasharray:4 5;opacity:.55;}
+.flow .flow-note{fill:var(--ink-muted);font:400 11px/1 var(--mono);}
+.flow .fn,.flow .fe{transition:opacity 300ms var(--e-out);}
+.flow[data-focus="na"] .fn:not([data-flow="na"]),.flow[data-focus="na"] .fe:not([data-flow="na"]),
+.flow[data-focus="nwe"] .fn:not([data-flow="nwe"]),.flow[data-focus="nwe"] .fe:not([data-flow="nwe"]),
+.flow[data-focus="nea"] .fn:not([data-flow="nea"]),.flow[data-focus="nea"] .fe:not([data-flow="nea"]){opacity:.16;}
+.flow-src{font:400 12px/1.55 Inter,sans-serif;color:var(--ink-muted);margin:var(--s4) 0 0;}
+.flow-src a{color:var(--accent-text);text-decoration:none;}
