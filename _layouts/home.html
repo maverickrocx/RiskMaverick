@@ -2,6 +2,7 @@
 layout: default
 ---
 <section class="hero">
+  <canvas class="hero__canvas" data-surface aria-hidden="true"></canvas>
   <div class="hero__inner">
     <p class="eyebrow">Commodity &amp; Cross-Asset Risk Intelligence</p>
     <h1>Risk management, <em>explained by practitioners</em>.</h1>
@@ -47,33 +48,7 @@ layout: default
 </section>
 {% endif %}
 
-<hr class="rule">
 
-<section class="sec--tight">
-  <div class="sec__head">
-    <h2>Browse by market</h2>
-    <p class="lede">Ten asset classes, and the risks that sit inside each.</p>
-  </div>
-  <div class="card-grid" data-drum>
-    {% for m in site.data.markets %}
-    <a class="card" href="{{ m.url | relative_url }}"><span class="card-ico"><svg class="ico" aria-hidden="true"><use href="#icon-{{ m.slug }}"></use></svg></span><h3>{{ m.label }}</h3><p>{{ m.blurb }}</p></a>
-    {% endfor %}
-  </div>
-</section>
-
-<hr class="rule">
-
-<section class="sec--tight">
-  <div class="sec__head">
-    <h2>From the Risk Toolkit</h2>
-    <p class="lede">Six disciplines, from market risk through to governance.</p>
-  </div>
-  <div class="card-grid" data-drum>
-    {% for t in site.data.toolkit %}
-    <a class="card" href="{{ t.url | relative_url }}"><span class="card-ico"><svg class="ico" aria-hidden="true"><use href="#icon-{{ t.slug }}"></use></svg></span><h3>{{ t.label }}</h3><p>{{ t.blurb }}</p></a>
-    {% endfor %}
-  </div>
-</section>
 
 <section class="band">
   <h2>Interactive risk tools</h2>
