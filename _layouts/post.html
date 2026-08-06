@@ -1,7 +1,8 @@
 ---
 layout: default
 ---
-<article class="post">
+<div class="readbar" aria-hidden="true"><i id="readbarFill"></i></div>
+<article class="post post--toc">
   <header class="post-head">
     <p class="eyebrow">{{ page.kind | default: 'analysis' }}</p>
     <h1>{{ page.title }}</h1>
@@ -11,7 +12,11 @@ layout: default
       {% for c in page.concepts %}<span class="tag concept">{{ c | replace: '-', ' ' }}</span>{% endfor %}
     </div>
   </header>
-  <div class="post-body">{{ content }}</div>
+  <div class="post-cols">
+    <nav class="toc" aria-label="On this page"><p class="toc-h">On this page</p><ol id="tocList"></ol></nav>
+    <div class="post-body" id="postBody">{{ content }}</div>
+  </div>
   {% include sources.html %}
   {% include related.html %}
 </article>
+<script src="{{ '/assets/js/post.js' | relative_url }}"></script>

@@ -4,37 +4,41 @@ title: Risk Wire
 permalink: /news/
 blurb: "A daily brief on commodity and cross-asset risk — what moved, and why it matters to a risk book."
 ---
-<section class="hub-head">
-  <p class="eyebrow">Daily brief</p>
-  <h1>Risk Wire</h1>
-  <p class="hub-blurb">What moved across commodities, energy and cross-asset markets — and what it means for a risk book. Updated each weekday, with every item linked to its source.</p>
-</section>
-
 {% assign briefs = site.news | sort: "date" | reverse %}
-{% assign latest = briefs | first %}
 
-{% if latest %}
-<section class="nws-latest">
-  <p class="nws-latest-tag">Latest · {{ latest.date | date: "%A, %-d %B %Y" }}</p>
-  <h2 class="nws-latest-title"><a href="{{ latest.url | relative_url }}">{{ latest.title }}</a></h2>
-  {% if latest.standfirst %}<p class="nws-stand">{{ latest.standfirst }}</p>{% endif %}
-  <div class="nws-body">{{ latest.content }}</div>
-  <p class="nws-note">Headlines are summarised in our own words for comment and analysis, with attribution and a link to the original publisher. Indicative only — not investment advice.</p>
+<section class="wire-head">
+  <p class="eyebrow">Daily digest</p>
+  <h1 class="wire-h1">Risk Wire</h1>
+  <p class="wire-lede">What moved, where the exposure sits, and why it matters — gathered from exchanges, regulators, system operators and the trade press. Every item is summarised in our own words and linked to its source.</p>
+  <p class="wire-meta"><span class="wire-live" aria-hidden="true"></span> {{ briefs.size }} brief{% if briefs.size != 1 %}s{% endif %} published · newest first</p>
 </section>
 
-{% if briefs.size > 1 %}
-<section class="nws-archive">
-  <h2 class="group-h">Archive</h2>
-  <ul class="wire-list">
-    {% for b in briefs offset: 1 limit: 30 %}
-    <li><a href="{{ b.url | relative_url }}">{{ b.title }}</a></li>
-    {% endfor %}
-  </ul>
-</section>
-{% endif %}
-{% else %}
-<p class="empty">The first daily brief is on its way.</p>
-{% endif %}
+<div class="filterbar" role="group" aria-label="Filter by sector">
+  <button class="filterbtn is-on" data-filter="all" type="button" aria-pressed="true">All</button>
+  {% assign sectors = "energy|power|rates|credit|fx|metals|policy" | split: "|" %}
+  {% for s in sectors %}
+  <button class="filterbtn" data-filter="{{ s }}" type="button" aria-pressed="false">{{ s | capitalize }}</button>
+  {% endfor %}
+</div>
+<p class="sr-only" aria-live="polite" id="wireStatus"></p>
+
+<div class="wirefeed" id="wireFeed">
+  {% for b in briefs %}
+  <section class="wireday-group" data-sector="{{ b.sector | default: 'policy' }}">
+    <h2 class="wireday">{{ b.date | date: "%A, %-d %B %Y" }}</h2>
+    <article class="wire">
+      <div class="wire-rowmeta">
+        <span class="chip">{{ b.sector | default: 'policy' }}</span>
+        <time class="tnum" datetime="{{ b.date | date_to_xmlschema }}">{{ b.date | date: "%H:%M" }} UTC</time>
+      </div>
+      <h3 class="wire-title"><a href="{{ b.url | relative_url }}">{{ b.title }}</a></h3>
+      {% if b.standfirst %}<p class="wire-sum">{{ b.standfirst }}</p>{% endif %}
+    </article>
+  </section>
+  {% else %}
+  <p class="empty">The first daily brief is on its way.</p>
+  {% endfor %}
+</div>
 
 <section class="wires">
   <h2 class="group-h">Standing sources</h2>
@@ -44,3 +48,5 @@ blurb: "A daily brief on commodity and cross-asset risk — what moved, and why 
     {% endfor %}
   </ul>
 </section>
+
+<script src="{{ '/assets/js/wire.js' | relative_url }}"></script>
