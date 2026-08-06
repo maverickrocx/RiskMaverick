@@ -1,7 +1,7 @@
 <header class="nav">
   <div class="nav-inner">
     <a class="logo" href="{{ '/' | relative_url }}">
-      <span class="logo-icon"><img src="{{ '/logo-falcon-blue.png' | relative_url }}" alt="RiskMaverick"></span>
+      <span class="logo-icon"><img src="{{ '/logo-mark-128.png' | relative_url }}" alt="RiskMaverick"></span>
       <span class="logo-word">Risk<strong>Maverick</strong></span>
     </a>
     <div class="nav-act">
@@ -16,7 +16,7 @@
         <a href="{{ '/markets/' | relative_url }}">Markets</a>
         <div class="mega mega-markets">
           {% for m in site.data.markets %}
-          <a href="{{ m.url | relative_url }}"><span class="mega-ico">{{ m.icon }}</span>{{ m.label }}</a>
+          <a href="{{ m.url | relative_url }}"><span class="mega-ico"><svg class="ico" aria-hidden="true"><use href="#icon-{{ m.slug }}"></use></svg></span>{{ m.label }}</a>
           {% endfor %}
         </div>
       </div>

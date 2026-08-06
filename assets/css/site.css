@@ -239,7 +239,9 @@ footer{border-top:1px solid var(--border);margin-top:4rem;background:var(--bg-el
 .card-date{color:var(--ink-muted);font:500 12px/1 "JetBrains Mono",monospace;margin-top:auto;}
 .card-kind{align-self:flex-start;font:600 10px/1 Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;padding:4px 8px;border-radius:var(--r-chip);background:var(--surface-2);color:var(--ink-muted);}
 .kind-basics{color:var(--pos);} .kind-analysis{color:var(--ink-muted);} .kind-wire{color:var(--amber);}
-.card-ico{align-self:flex-start;font-size:26px;line-height:1;}
+.ico{width:100%;height:100%;display:block;}
+.card-ico{align-self:flex-start;width:26px;height:26px;color:var(--accent);}
+.mega-ico{width:16px;height:16px;flex:none;color:var(--ink-muted);}
 .hub-head{padding:48px 0 8px;} .hub-head h1{font:400 40px/1.1 var(--font-display);margin:0 0 12px;}
 .hub-blurb{color:var(--ink-muted);font:400 18px/1.5 Inter,sans-serif;max-width:720px;}
 .empty{color:var(--ink-muted);font-style:italic;padding:24px 0;}
@@ -774,7 +776,7 @@ html.rm-intro-lock,html.rm-intro-lock body{overflow:hidden;}
 .rmdrum-card.is-sel{filter:none;border-color:var(--accent);box-shadow:0 0 0 1px var(--accent-dim);}
 .rmdrum-card h3{font-size:16px;}
 .rmdrum-card p{font-size:12.5px;line-height:1.45;}
-.rmdrum-card .card-ico{font-size:20px;}
+.rmdrum-card .card-ico{width:20px;height:20px;}
 .rmdrum-foot{display:flex;align-items:center;gap:8px;margin-top:14px;flex-wrap:wrap;}
 .rmdrum-nav{border:1px solid var(--border);background:var(--surface);color:var(--ink-muted);border-radius:var(--r);
   width:32px;height:32px;font-size:17px;line-height:1;cursor:pointer;transition:border-color .2s,color .2s;}

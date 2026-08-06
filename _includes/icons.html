@@ -1,0 +1,65 @@
+{%- comment -%}
+Monoline icon sprite — 16 symbols covering all ten markets and all six
+disciplines. Stroke 1.5, currentColor, 24×24 viewBox, no fills and no emoji.
+Referenced by slug: <svg class="ico"><use href="#icon-{{ item.slug }}"></use></svg>
+Included once per page from _layouts/default.html.
+{%- endcomment -%}
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true" focusable="false">
+  <defs>
+    <g id="icon-base" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></g>
+  </defs>
+
+  <!-- ── Markets ── -->
+  <symbol id="icon-crude-refined" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 3c3 4 5 6.5 5 9.5A5 5 0 0 1 7 12.5C7 9.5 9 7 12 3z"/>
+  </symbol>
+  <symbol id="icon-natural-gas-lng" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 3c1 3-1 4-1 6a3 3 0 0 0 5 2c1 3-1 6-4 6a5 5 0 0 1-4.6-7C9 7 11 6 12 3z"/>
+  </symbol>
+  <symbol id="icon-power-renewables" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M13 2 5 13h6l-1 9 8-11h-6l1-9z"/>
+  </symbol>
+  <symbol id="icon-metals" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 17h8l1.5-4h-8L3 17zM12.5 13h8L19 9h-8l1.5 4z"/><path d="M7 17h9l1.5-4"/>
+  </symbol>
+  <symbol id="icon-agriculture" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 21V9"/><path d="M12 9c0-2.5 1.5-4.5 3.5-5.5C16 6 14.5 8.5 12 9zM12 9C12 6.5 10.5 4.5 8.5 3.5 8 6 9.5 8.5 12 9z"/>
+    <path d="M12 14c0-2 1.4-3.5 3.2-4.2M12 14c0-2-1.4-3.5-3.2-4.2"/>
+  </symbol>
+  <symbol id="icon-carbon-environment" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20 4c0 8-4.5 13-9 13a5.5 5.5 0 0 1-5.2-7C7.5 5.5 13 4 20 4z"/><path d="M5 20c2.5-4.5 6-7.5 10-9.5"/>
+  </symbol>
+  <symbol id="icon-equities" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 17l5.5-5.5 3.5 3.5L21 6"/><path d="M15 6h6v6"/>
+  </symbol>
+  <symbol id="icon-fixed-income" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/>
+  </symbol>
+  <symbol id="icon-fx" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 8h14M13 4l4 4-4 4"/><path d="M21 16H7M11 12l-4 4 4 4"/>
+  </symbol>
+  <symbol id="icon-interest-rates" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 19c4 0 6-3 9-8s5-8 9-8"/><circle cx="7" cy="7" r="2.5"/><circle cx="17" cy="17" r="2.5"/>
+  </symbol>
+
+  <!-- ── Disciplines ── -->
+  <symbol id="icon-market-risk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3.5 17a9 9 0 1 1 17 0"/><path d="M12 17l4.5-5"/><circle cx="12" cy="17" r="1.2"/>
+  </symbol>
+  <symbol id="icon-hedging-derivatives" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 3l7.5 3v6c0 4.5-3 7.8-7.5 9.5C7.5 19.8 4.5 16.5 4.5 12V6L12 3z"/><path d="M9 12l2.2 2.2L15.5 10"/>
+  </symbol>
+  <symbol id="icon-credit-counterparty" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M10.5 8.5 8 6a3.5 3.5 0 0 0-5 5l3.5 3.5"/><path d="M13.5 15.5 16 18a3.5 3.5 0 0 0 5-5l-3.5-3.5"/><path d="M9.5 14.5l5-5"/>
+  </symbol>
+  <symbol id="icon-liquidity-funding" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 3.5c3 3.8 5 6.2 5 8.8a5 5 0 0 1-10 0c0-2.6 2-5 5-8.8z"/><path d="M8.5 13.5c1.8 1.4 5.2 1.4 7 0"/>
+  </symbol>
+  <symbol id="icon-operational" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="3"/>
+    <path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.2 5.2l2.1 2.1M16.7 16.7l2.1 2.1M18.8 5.2l-2.1 2.1M7.3 16.7l-2.1 2.1"/>
+  </symbol>
+  <symbol id="icon-frameworks-governance" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 9.5 12 4l9 5.5"/><path d="M5.5 10.5v8M10 10.5v8M14 10.5v8M18.5 10.5v8"/><path d="M3 20h18"/>
+  </symbol>
+</svg>
