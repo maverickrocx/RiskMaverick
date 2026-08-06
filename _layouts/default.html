@@ -2,15 +2,18 @@
 <html lang="{{ site.lang | default: 'en' }}">
 {% include head.html %}
 <body>
+  <a class="skip" href="#main">Skip to content</a>
+  {% include icons.html %}
   {% include ticker.html %}
   {% include nav.html %}
-  <main class="site-main">
+  <main class="site-main" id="main">
     {{ content }}
   </main>
   {% include footer.html %}
   <script src="{{ '/assets/js/rm-data.js' | relative_url }}"></script>
   <script src="{{ '/assets/js/ticker.js' | relative_url }}"></script>
   <script src="{{ '/assets/js/nav.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/theme.js' | relative_url }}"></script>
   <script src="{{ '/assets/js/bench.js' | relative_url }}"></script>
   <script src="{{ '/assets/js/drum.js' | relative_url }}"></script>
   <script src="{{ '/assets/js/external-links.js' | relative_url }}"></script>

@@ -1,0 +1,35 @@
+---
+permalink: /learning/
+sitemap: false
+layout: null
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Moved to Insights — RiskMaverick</title>
+{%- comment -%}
+  GitHub Pages cannot issue a real 301, so this stub carries all five redirect
+  signals: canonical, zero-delay meta refresh, noindex/follow, a JS replace,
+  and a visible fallback link for anyone the first four don't reach.
+{%- endcomment -%}
+<link rel="canonical" href="{{ '/insights/' | absolute_url }}">
+<meta http-equiv="refresh" content="0; url={{ '/insights/' | relative_url }}">
+<meta name="robots" content="noindex, follow">
+<link rel="icon" type="image/png" href="{{ '/logo-mark-64.png' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+<script>(function(){try{if(localStorage.getItem('rm-theme')==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+<script>window.location.replace({{ '/insights/' | relative_url | jsonify }});</script>
+</head>
+<body>
+<main class="site-main">
+  <section class="nf">
+    <p class="eyebrow">Moved</p>
+    <h1 class="nf-h1">The Learning hub is now Insights.</h1>
+    <p class="nf-lede">Redirecting you now. If nothing happens, follow the link below.</p>
+    <div class="nf-cta"><a class="btn btn--primary" href="{{ '/insights/' | relative_url }}">Go to Insights</a></div>
+  </section>
+</main>
+</body>
+</html>

@@ -14,7 +14,7 @@ layout: default
         <h1>{{ page.title }}</h1>
       </div>
     </div>
-    {% if page.standfirst %}<p class="tkit-stand">{{ page.standfirst }}</p>{% endif %}
+    {% if page.standfirst %}<p class="tkit-stand lede">{{ page.standfirst }}</p>{% endif %}
     {% if page.concepts %}
     <div class="tkit-concepts">
       {% for c in page.concepts %}<span class="cchip"><span class="k">{{ forloop.index0 | plus: 1 | prepend: '0' | slice: -2, 2 }}</span>{{ c }}</span>{% endfor %}
@@ -78,20 +78,19 @@ layout: default
       {% if tagged.size > 0 %}
       <section class="tkit-related">
         <h3>Related coverage</h3>
-        <div class="rel-grid">
+        <div class="rows">
           {% for post in tagged limit: 3 %}
-          <a class="rel" href="{{ post.url | relative_url }}"><span class="k">{{ post.kind | default: 'analysis' }}</span>
-            <div class="t">{{ post.title }}</div></a>
+          <a class="row" href="{{ post.url | relative_url }}"><span class="row__title">{{ post.title }}</span><span class="row__meta">{{ post.kind | default: 'analysis' }}</span></a>
           {% endfor %}
         </div>
       </section>
       {% endif %}
 
-      <div class="tkit-toolcta">
-        <div><h4>{{ page.tool_cta_title | default: 'Put it into practice' }}</h4>
-          <p>{{ page.tool_cta_desc | default: 'Explore the interactive risk tools on the Tools page.' }}</p></div>
-        <a href="{{ page.tool_cta_url | default: '/tools/' | relative_url }}">Open the tools →</a>
-      </div>
+      <section class="band">
+        <h2>{{ page.tool_cta_title | default: 'Put it into practice' }}</h2>
+        <p class="lede">{{ page.tool_cta_desc | default: 'Explore the interactive risk tools on the Tools page.' }}</p>
+        <div class="hero__cta"><a class="btn btn--primary" href="{{ page.tool_cta_url | default: '/tools/' | relative_url }}">Open the tools</a></div>
+      </section>
     </div>
   </div>
 </article>

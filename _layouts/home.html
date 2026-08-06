@@ -1,82 +1,82 @@
 ---
 layout: default
 ---
-<div id="rmIntro" class="rm-intro" role="dialog" aria-label="Intro video">
-  <video id="rmIntroVideo" class="rm-intro-video" playsinline muted autoplay preload="auto">
-    <source src="{{ '/assets/video/riskmav-intro.mp4' | relative_url }}" type="video/mp4">
-  </video>
-  <button type="button" id="rmIntroSkip" class="rm-intro-skip">Skip&nbsp;▶</button>
-</div>
-<script>
-(function () {
-  var KEY = 'rm_intro_seen';
-  var el = document.getElementById('rmIntro');
-  if (!el) return;
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var seen = null;
-  try { seen = sessionStorage.getItem(KEY); } catch (e) {}
-  // Already seen this visit, or reduced-motion: never show it (no flash).
-  if (seen || reduce) { if (el.parentNode) el.parentNode.removeChild(el); return; }
-  try { sessionStorage.setItem(KEY, '1'); } catch (e) {}
-  document.documentElement.classList.add('rm-intro-lock');
-  function dismiss() {
-    if (!el) return;
-    el.classList.add('rm-intro--hide');
-    document.documentElement.classList.remove('rm-intro-lock');
-    setTimeout(function () { if (el && el.parentNode) el.parentNode.removeChild(el); el = null; }, 600);
-  }
-  var v = document.getElementById('rmIntroVideo');
-  var skip = document.getElementById('rmIntroSkip');
-  if (skip) skip.addEventListener('click', dismiss);
-  if (v) {
-    v.addEventListener('ended', dismiss);
-    v.addEventListener('error', dismiss);
-    var p = v.play && v.play();
-    if (p && p.catch) { p.catch(function () { /* autoplay blocked — user can Skip */ }); }
-  }
-})();
-</script>
-<section class="home-hero">
-  <p class="eyebrow">Commodity &amp; Cross-Asset Risk Intelligence</p>
-  <h1 class="home-h1">Risk management, explained by practitioners.</h1>
-  <p class="home-sub">Deep coverage of commodity and cross-asset markets, and the tools and frameworks used to manage their risk.</p>
+<section class="hero">
+  <div class="hero__inner">
+    <p class="eyebrow">Commodity &amp; Cross-Asset Risk Intelligence</p>
+    <h1>Risk management, <em>explained by practitioners</em>.</h1>
+    <p class="lede">Deep coverage of commodity and cross-asset markets, and the tools and frameworks used to manage their risk.</p>
+    <div class="hero__cta">
+      <a class="btn btn--primary" href="{{ '/markets/' | relative_url }}">Browse the markets</a>
+      <a class="btn btn--ghost" href="{{ '/tools/' | relative_url }}">Open the tools</a>
+    </div>
+    <div class="hero__trust">
+      <div class="stat"><b>{{ site.data.markets | size }}</b><span>Markets covered</span></div>
+      <div class="stat"><b>{{ site.data.toolkit | size }}</b><span>Risk disciplines</span></div>
+      <div class="stat"><b>{{ site.posts | size }}</b><span>Articles published</span></div>
+      <div class="stat"><b>{{ site.news | size }}</b><span>Risk Wire briefs</span></div>
+    </div>
+  </div>
 </section>
+
+<hr class="rule">
 
 {% assign featured = site.posts | first %}
 {% if featured %}
-<section class="home-featured">
-  {% include article-card.html post=featured %}
+<section class="sec--tight">
+  <div class="sec__head">
+    <h2>Latest analysis</h2>
+    <a class="row__meta" href="{{ '/insights/' | relative_url }}">All insights →</a>
+  </div>
+  <section class="home-featured">
+    {% include article-card.html post=featured %}
+  </section>
+
+  {%- comment -%}Article listings stay flat rows — never wrapped in the drum.{%- endcomment -%}
+  <div class="rows">
+    {% for post in site.posts limit: 6 %}
+      {% unless post.url == featured.url %}
+      <a class="row" href="{{ post.url | relative_url }}">
+        <span class="row__title">{{ post.title }}</span>
+        <span class="row__meta">{{ post.date | date: "%-d %b %Y" }}</span>
+        <p>{{ post.excerpt | strip_html | truncate: 150 }}</p>
+      </a>
+      {% endunless %}
+    {% endfor %}
+  </div>
 </section>
 {% endif %}
 
-<section class="home-latest">
-  <h2 class="group-h">Latest</h2>
-  <div class="card-grid">
-    {% for post in site.posts limit: 6 %}
-      {% unless post.url == featured.url %}{% include article-card.html post=post %}{% endunless %}
-    {% endfor %}
-  </div>
-</section>
+<hr class="rule">
 
-<section class="home-browse">
-  <h2 class="group-h">Browse by market</h2>
-  <div class="card-grid">
+<section class="sec--tight">
+  <div class="sec__head">
+    <h2>Browse by market</h2>
+    <p class="lede">Ten asset classes, and the risks that sit inside each.</p>
+  </div>
+  <div class="card-grid" data-drum>
     {% for m in site.data.markets %}
-    <a class="card" href="{{ m.url | relative_url }}"><span class="card-ico">{{ m.icon }}</span><h3>{{ m.label }}</h3><p>{{ m.blurb }}</p></a>
+    <a class="card" href="{{ m.url | relative_url }}"><span class="card-ico"><svg class="ico" aria-hidden="true"><use href="#icon-{{ m.slug }}"></use></svg></span><h3>{{ m.label }}</h3><p>{{ m.blurb }}</p></a>
     {% endfor %}
   </div>
 </section>
 
-<section class="home-toolkit">
-  <h2 class="group-h">From the Risk Toolkit</h2>
-  <div class="card-grid">
+<hr class="rule">
+
+<section class="sec--tight">
+  <div class="sec__head">
+    <h2>From the Risk Toolkit</h2>
+    <p class="lede">Six disciplines, from market risk through to governance.</p>
+  </div>
+  <div class="card-grid" data-drum>
     {% for t in site.data.toolkit %}
-    <a class="card" href="{{ t.url | relative_url }}"><h3>{{ t.label }}</h3><p>{{ t.blurb }}</p></a>
+    <a class="card" href="{{ t.url | relative_url }}"><span class="card-ico"><svg class="ico" aria-hidden="true"><use href="#icon-{{ t.slug }}"></use></svg></span><h3>{{ t.label }}</h3><p>{{ t.blurb }}</p></a>
     {% endfor %}
   </div>
 </section>
 
-<section class="home-tools-cta">
-  <div><h2>Interactive risk tools</h2><p>VaR &amp; Expected Shortfall calculator, volatility surface, correlation matrix and a live markets board.</p></div>
-  <a class="btn-primary" href="{{ '/tools/' | relative_url }}">Open Tools</a>
+<section class="band">
+  <h2>Interactive risk tools</h2>
+  <p class="lede">VaR &amp; Expected Shortfall calculator, a volatility surface, a correlation matrix and a live markets board.</p>
+  <div class="hero__cta"><a class="btn btn--primary" href="{{ '/tools/' | relative_url }}">Open Tools</a></div>
 </section>

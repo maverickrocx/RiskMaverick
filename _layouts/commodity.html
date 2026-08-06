@@ -16,7 +16,7 @@ layout: default
         <h1>{{ page.title }}</h1>
       </div>
     </div>
-    {% if page.standfirst %}<p class="cmdty-stand">{{ page.standfirst }}</p>{% endif %}
+    {% if page.standfirst %}<p class="cmdty-stand lede">{{ page.standfirst }}</p>{% endif %}
 
     {% if page.benchmarks %}
     <div class="cmdty-bench" role="group" aria-label="Key benchmark prices">
@@ -129,24 +129,22 @@ layout: default
       {% if tagged.size > 0 or page.related %}
       <section class="cmdty-related">
         <h3>Related coverage</h3>
-        <div class="rel-grid">
+        <div class="rows">
           {% for post in tagged limit: 3 %}
-          <a class="rel" href="{{ post.url | relative_url }}"><span class="k">{{ post.kind | default: 'analysis' }}</span>
-            <div class="t">{{ post.title }}</div></a>
+          <a class="row" href="{{ post.url | relative_url }}"><span class="row__title">{{ post.title }}</span><span class="row__meta">{{ post.kind | default: 'analysis' }}</span></a>
           {% endfor %}
           {% for r in page.related %}
-          <a class="rel"{% if r.url %} href="{{ r.url | relative_url }}"{% endif %}><span class="k">{{ r.kind }}</span>
-            <div class="t">{{ r.title }}</div></a>
+          <a class="row"{% if r.url %} href="{{ r.url | relative_url }}"{% endif %}><span class="row__title">{{ r.title }}</span><span class="row__meta">{{ r.kind }}</span></a>
           {% endfor %}
         </div>
       </section>
       {% endif %}
 
-      <div class="cmdty-toolcta">
-        <div><h4>{{ page.tool_cta_title | default: 'Model this market’s risk' }}</h4>
-          <p>{{ page.tool_cta_desc | default: 'Run a parametric VaR and Expected Shortfall on a book in this sector.' }}</p></div>
-        <a href="{{ '/tools/' | relative_url }}">Open the tools →</a>
-      </div>
+      <section class="band">
+        <h2>{{ page.tool_cta_title | default: 'Model this market’s risk' }}</h2>
+        <p class="lede">{{ page.tool_cta_desc | default: 'Run a parametric VaR and Expected Shortfall on a book in this sector.' }}</p>
+        <div class="hero__cta"><a class="btn btn--primary" href="{{ '/tools/' | relative_url }}">Open the tools</a></div>
+      </section>
     </div>
   </div>
 </article>
