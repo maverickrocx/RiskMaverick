@@ -1,0 +1,26 @@
+---
+layout: default
+---
+<article class="nws">
+  <p class="nws-crumb"><a href="{{ '/general-wire/' | relative_url }}">General Wire</a> <span>›</span> {{ page.date | date: "%-d %b %Y" }}</p>
+  <header class="nws-head">
+    <p class="eyebrow">Daily brief</p>
+    <h1>{{ page.title }}</h1>
+    {% if page.standfirst %}<p class="nws-stand">{{ page.standfirst }}</p>{% endif %}
+    <p class="nws-meta">Compiled {{ page.date | date: "%A, %-d %B %Y" }} · summaries are original; every item links to its source.</p>
+  </header>
+  <div class="nws-body">{{ content }}</div>
+  <p class="nws-note">Headlines are summarised in our own words for comment and analysis, with attribution and a link to the original publisher. Indicative only — not investment or trading advice. For commodity and cross-asset risk coverage, see <a href="{{ '/news/' | relative_url }}">Risk Wire</a>.</p>
+
+  {% assign briefs = site.general | sort: "date" | reverse %}
+  {% if briefs.size > 1 %}
+  <section class="nws-archive">
+    <h2 class="group-h">Earlier briefs</h2>
+    <ul class="wire-list">
+      {% for b in briefs limit: 10 %}{% unless b.url == page.url %}
+      <li><a href="{{ b.url | relative_url }}">{{ b.title }}</a></li>
+      {% endunless %}{% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+</article>

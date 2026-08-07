@@ -1,0 +1,43 @@
+---
+layout: default
+title: General Wire
+permalink: /general-wire/
+blurb: "Everything else from the same newsletter run — India politics, equities, global politics and tech — that doesn't belong in a commodity and cross-asset risk brief."
+---
+{% assign briefs = site.general | sort: "date" | reverse %}
+
+<section class="wire-head">
+  <p class="eyebrow">Daily digest</p>
+  <h1 class="wire-h1">General Wire</h1>
+  <p class="wire-lede">The rest of the morning's newsletter run — India politics and markets, global politics, and technology — kept separate from <a href="{{ '/news/' | relative_url }}">Risk Wire</a> so that stays focused on commodity and cross-asset risk. Every item is summarised in our own words and linked to its source.</p>
+  <p class="wire-meta"><span class="wire-live" aria-hidden="true"></span> {{ briefs.size }} brief{% if briefs.size != 1 %}s{% endif %} published · newest first</p>
+</section>
+
+<div class="filterbar" role="group" aria-label="Filter by sector">
+  <button class="filterbtn is-on" data-filter="all" type="button" aria-pressed="true">All</button>
+  {% assign sectors = "india-politics|india-markets|global-politics|global-markets|tech" | split: "|" %}
+  {% for s in sectors %}
+  <button class="filterbtn" data-filter="{{ s }}" type="button" aria-pressed="false">{{ s | replace: '-', ' ' | capitalize }}</button>
+  {% endfor %}
+</div>
+<p class="sr-only" aria-live="polite" id="wireStatus"></p>
+
+<div class="wirefeed" id="wireFeed">
+  {% for b in briefs %}
+  <section class="wireday-group" data-sector="{{ b.sector | default: 'global-politics' }}">
+    <h2 class="wireday">{{ b.date | date: "%A, %-d %B %Y" }}</h2>
+    <article class="wire">
+      <div class="wire-rowmeta">
+        <span class="chip">{{ b.sector | default: 'global-politics' | replace: '-', ' ' }}</span>
+        <time class="tnum" datetime="{{ b.date | date_to_xmlschema }}">{{ b.date | date: "%H:%M" }} UTC</time>
+      </div>
+      <h3 class="wire-title"><a href="{{ b.url | relative_url }}">{{ b.title }}</a></h3>
+      {% if b.standfirst %}<p class="wire-sum">{{ b.standfirst }}</p>{% endif %}
+    </article>
+  </section>
+  {% else %}
+  <p class="empty">The first daily brief is on its way.</p>
+  {% endfor %}
+</div>
+
+<script src="{{ '/assets/js/wire.js' | relative_url }}"></script>
