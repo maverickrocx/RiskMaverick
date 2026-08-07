@@ -5,9 +5,12 @@ name: Refresh benchmark marks
 # a Pages rebuild. No API keys required.
 on:
   schedule:
-    # 05:40 UTC on weekdays — after the US Treasury posts the prior session's
-    # curve and the European day-ahead auction has cleared.
-    - cron: "40 5 * * 1-5"
+    # 05:40 UTC every day — after the US Treasury posts the prior session's
+    # curve and the European day-ahead auction has cleared. Runs weekends too:
+    # scripts/refresh_marks.py just re-writes the last traded values when a
+    # market was closed, so a Saturday/Sunday run is a harmless no-op commit
+    # skip rather than a stale ticker.
+    - cron: "40 5 * * *"
   workflow_dispatch: {}   # allow a manual run from the Actions tab
 
 permissions:
