@@ -2,11 +2,11 @@
 # Each mark carries the date and publisher it came from.
 
 de_da:
-  price: "€99.09"
-  asof: "8 Aug 2026"
+  price: "€94.47"
+  asof: "9 Aug 2026"
   source: "SMARD"
-  low: -18.49
-  high: 191.72
+  low: -5.3
+  high: 187.66
   points: 96
 estr:
   price: "2.185%"
