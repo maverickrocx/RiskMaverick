@@ -4,8 +4,7 @@ description: >
   Build and publish the daily Risk Wire and General Wire briefs for riskmaverick.com.
   Reads the morning newsletters (Economist, Bloomberg, Moneycontrol) from Gmail for
   curation, resolves every link to the publisher's own article on the web, and
-  writes one markdown file per sector into _news/
-  and _general/, and opens a pull request. Use when the user asks to run, build, write
+  writes one markdown file per day into _news/ and _general/, and opens a pull request. Use when the user asks to run, build, write
   or publish the Risk Wire, the General Wire, the wires, or the daily brief.
 ---
 
@@ -16,8 +15,9 @@ Publishes two daily briefs for riskmaverick.com from the same morning research p
 - **Risk Wire** (`_news/`, `/news/`) — commodity and cross-asset risk.
 - **General Wire** (`_general/`, `/general-wire/`) — everything else worth reading.
 
-`docs/risk-wire-runbook.md` in the repo is the authoritative format spec. Read it
-first. This skill is the operational procedure; the runbook governs the output.
+**This skill is the authoritative spec for both procedure and output format.**
+`docs/risk-wire-runbook.md` holds only the benchmark-marks table and defers here
+for everything else.
 
 ---
 
@@ -148,23 +148,49 @@ Practical notes:
 
 ---
 
-## Step 4 — Write one file per sector
+## Step 4 — Write one file per day, with a section per sector
 
-One file per sector, never a combined post — the filter chips match on `sector:`,
-so a combined post cannot be filtered.
+**One file per day, never one per sector.** Each brief carries a `sectors:`
+list in front matter naming every sector it covers, and one `## <Chip label>`
+section per sector in the body. The filter chips match against that list, so a
+day tagged `[oil-products, gas-power, lng]` appears under all three.
 
-**Risk Wire** → `_news/<YYYY-MM-DD>-<sector>.md`
+```yaml
+---
+title: "Risk Wire — 14 August 2026"
+date: 2026-08-14
+sectors: [oil-products, gas-power, lng]
+standfirst: "One or two sentences on the day's dominant themes across the sectors covered."
+---
 
-| `sector:` | Chip label |
+## Oil / Products
+
+*Sourced from Bloomberg's Energy Daily.*
+
+**Bold one-line lede.** ...
+
+## Gas & Power
+...
+```
+
+Order sections `oil-products, gas-power, lng, carbon` for Risk Wire and
+`business, economics, finance, politics, tech-ai` for General Wire. Omit a
+section entirely when there is no news for it — and leave the slug out of
+`sectors:` too, so the chip does not promise something the brief does not
+deliver.
+
+**Risk Wire** → `_news/<YYYY-MM-DD>.md`
+
+| Slug for `sectors:` | Chip label / section heading |
 |---|---|
 | `oil-products` | Oil / Products |
 | `gas-power` | Gas & Power |
 | `lng` | LNG |
 | `carbon` | Carbon |
 
-**General Wire** → `_general/<YYYY-MM-DD>-<sector>.md`
+**General Wire** → `_general/<YYYY-MM-DD>.md`
 
-| `sector:` | Chip label |
+| Slug for `sectors:` | Chip label / section heading |
 |---|---|
 | `business` | Business |
 | `economics` | Economics |
@@ -172,22 +198,16 @@ so a combined post cannot be filtered.
 | `politics` | Politics |
 | `tech-ai` | Tech / AI |
 
-**Only write a file for a sector with real news.** Nine files is the ceiling, not
-the target — four to six is a normal day. A quiet day in carbon means no carbon
-post, not a padded one.
+**Only write a section for a sector with real news**, and only list that sector
+in `sectors:`. Two files a day is the norm — one Risk Wire, one General Wire —
+each carrying however many sections the day earned. A quiet day in carbon means
+no carbon section and no `carbon` in the list, not a padded one. If a whole
+wire has nothing, skip that file entirely.
 
-Front matter:
-
-```yaml
----
-title: "Risk Wire — <Chip label>, <D Month YYYY>"
-date: <YYYY-MM-DD>
-sector: <slug>
-standfirst: "One sentence on this sector's dominant theme today."
----
-```
-
-General Wire uses `title: "General Wire — <Chip label>, <D Month YYYY>"`.
+The `sectors:` list is the contract with the filter chips. Every slug in it
+must appear in the matching page's chip list — `news.html` for `_news/`,
+`general-wire.html` for `_general/`. Grep both and confirm before committing; a
+slug outside the list renders but can never be filtered.
 
 ---
 
@@ -223,7 +243,7 @@ Never push to `main`.
 
 ```bash
 git checkout -b wire-<YYYY-MM-DD>
-git add _news/<YYYY-MM-DD>-*.md _general/<YYYY-MM-DD>-*.md
+git add _news/<YYYY-MM-DD>.md _general/<YYYY-MM-DD>.md
 git commit -m "content(wire): Risk Wire + General Wire for <D Month YYYY>"
 git push -u origin wire-<YYYY-MM-DD>
 ```

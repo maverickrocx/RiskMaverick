@@ -25,12 +25,12 @@ blurb: "A daily brief on commodity and cross-asset risk — what moved, and why 
 
 <div class="wirefeed" id="wireFeed">
   {% for b in briefs %}
-  {% assign sec = b.sector | default: 'oil-products' %}
-  <section class="wireday-group" data-sector="{{ sec }}">
+  {% assign secs = b.sectors | default: sectors %}
+  <section class="wireday-group" data-sectors="{{ secs | join: ' ' }}">
     <h2 class="wireday">{{ b.date | date: "%A, %-d %B %Y" }}</h2>
     <article class="wire">
       <div class="wire-rowmeta">
-        <span class="chip">{% case sec %}{% when 'oil-products' %}Oil / Products{% when 'gas-power' %}Gas &amp; Power{% when 'lng' %}LNG{% when 'carbon' %}Carbon{% else %}{{ sec }}{% endcase %}</span>
+        {% for sec in secs %}<span class="chip">{% case sec %}{% when 'oil-products' %}Oil / Products{% when 'gas-power' %}Gas &amp; Power{% when 'lng' %}LNG{% when 'carbon' %}Carbon{% else %}{{ sec }}{% endcase %}</span>{% endfor %}
         <time class="tnum" datetime="{{ b.date | date_to_xmlschema }}">{{ b.date | date: "%H:%M" }} UTC</time>
       </div>
       <h3 class="wire-title"><a href="{{ b.url | relative_url }}">{{ b.title }}</a></h3>

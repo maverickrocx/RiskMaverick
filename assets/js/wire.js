@@ -21,9 +21,12 @@
       b.setAttribute('aria-pressed', on ? 'true' : 'false');
     });
 
+    // A brief covers several sectors, so data-sectors is a space-separated
+    // list. Pad both sides to avoid 'lng' matching inside another slug.
     var shown = 0;
     groups.forEach(function (g) {
-      var match = want === 'all' || g.getAttribute('data-sector') === want;
+      var have = ' ' + (g.getAttribute('data-sectors') || '') + ' ';
+      var match = want === 'all' || have.indexOf(' ' + want + ' ') !== -1;
       g.hidden = !match;
       if (match) shown++;
     });

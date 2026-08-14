@@ -6,8 +6,10 @@ vendor/
 night-desk-reference/
 
 # Local Claude Code skills — tooling, not site content
-.claude/skills/
+# Excluding the contents rather than the directory itself — git cannot
+# re-include a path inside an excluded directory, so a trailing-slash rule here
+# would make the negation below silently do nothing.
+.claude/skills/*
 # ...except risk-wire: the scheduled cloud routine runs from a fresh clone and
 # must be able to read it. docs/risk-wire-runbook.md points here.
 !.claude/skills/risk-wire/
-!.claude/skills/risk-wire/**
