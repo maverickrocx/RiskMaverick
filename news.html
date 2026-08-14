@@ -15,20 +15,22 @@ blurb: "A daily brief on commodity and cross-asset risk — what moved, and why 
 
 <div class="filterbar" role="group" aria-label="Filter by sector">
   <button class="filterbtn is-on" data-filter="all" type="button" aria-pressed="true">All</button>
-  {% assign sectors = "energy|power|rates|credit|fx|metals|policy" | split: "|" %}
+  {% assign sectors = "oil-products|gas-power|lng|carbon" | split: "|" %}
+  {% assign sectorlabels = "Oil / Products|Gas & Power|LNG|Carbon" | split: "|" %}
   {% for s in sectors %}
-  <button class="filterbtn" data-filter="{{ s }}" type="button" aria-pressed="false">{{ s | capitalize }}</button>
+  <button class="filterbtn" data-filter="{{ s }}" type="button" aria-pressed="false">{{ sectorlabels[forloop.index0] }}</button>
   {% endfor %}
 </div>
 <p class="sr-only" aria-live="polite" id="wireStatus"></p>
 
 <div class="wirefeed" id="wireFeed">
   {% for b in briefs %}
-  <section class="wireday-group" data-sector="{{ b.sector | default: 'policy' }}">
+  {% assign sec = b.sector | default: 'oil-products' %}
+  <section class="wireday-group" data-sector="{{ sec }}">
     <h2 class="wireday">{{ b.date | date: "%A, %-d %B %Y" }}</h2>
     <article class="wire">
       <div class="wire-rowmeta">
-        <span class="chip">{{ b.sector | default: 'policy' }}</span>
+        <span class="chip">{% case sec %}{% when 'oil-products' %}Oil / Products{% when 'gas-power' %}Gas &amp; Power{% when 'lng' %}LNG{% when 'carbon' %}Carbon{% else %}{{ sec }}{% endcase %}</span>
         <time class="tnum" datetime="{{ b.date | date_to_xmlschema }}">{{ b.date | date: "%H:%M" }} UTC</time>
       </div>
       <h3 class="wire-title"><a href="{{ b.url | relative_url }}">{{ b.title }}</a></h3>
