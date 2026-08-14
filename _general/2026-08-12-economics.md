@@ -1,0 +1,30 @@
+---
+title: "General Wire — Economics, 12 August 2026"
+date: 2026-08-12
+sector: economics
+standfirst: "Chinese commodity producers are refusing to do what the textbook says they should — shut down — and the result is a steady export of deflation."
+---
+
+*Sourced from Bloomberg's Energy Daily.*
+
+**China's oversupplied commodity markets are defying the economic rulebook, and
+prolonging the country's weak inflation.** Prices for everything from solar
+materials to construction steel have fallen toward, and sometimes below, the
+cost of production. The textbook response would be plant closures, shrinking
+supply and a price rebound. It is not happening, for three reasons. Producers
+have become sophisticated hedgers, selling output forward into rallies and then
+continuing to produce against those hedges even when spot falls below cash
+cost. Provincial governments, weighing jobs, taxes, bank loans and social
+cohesion, would rather keep an unprofitable plant open than shutter it. And
+input costs keep falling as struggling manufacturers squeeze suppliers, who cut
+raw-material prices to defend share — so the survival threshold moves down with
+them.
+— [Bloomberg](https://www.bloomberg.com/news/newsletters/2026-08-12/china-s-stubborn-commodity-markets-defy-economic-rulebook) · [Bloomberg](https://www.bloomberg.com/news/articles/2026-08-07/key-china-steel-price-hits-near-decade-low-on-construction-slump)
+
+**Producers are also finding new income to keep the lights on.** Copper
+smelters have leaned on byproducts, with higher chemical prices — largely a
+consequence of the Iran war — turning sulfuric acid into a meaningful revenue
+line. In aluminium, low alumina prices hurt feedstock producers but widen
+margins for processors: one industry's glut becomes the next one's cost
+advantage. Everyone is waiting for somebody else to capitulate first.
+— [Bloomberg](https://www.bloomberg.com/news/articles/2026-08-09/china-s-inflation-cools-as-oil-shock-of-iran-war-starts-to-ease)
