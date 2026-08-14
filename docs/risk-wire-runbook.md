@@ -25,13 +25,34 @@ Four publishers, in this order of preference:
 | Economic Times | |
 | Moneycontrol | |
 
-**On Gmail.** When this runbook is executed by a *scheduled* task it runs in a
-headless cloud container, where claude.ai connectors (Gmail included) are not
-available — see §7. Scheduled runs therefore source these four publishers from
-the open web via `WebSearch`. A human running this interactively from a local
-session may read the same publishers' newsletters from Gmail instead; the
-format below is identical either way. Note which channel was used in the PR
-body so the provenance is on the record.
+### Both channels, every run
+
+Gmail and the web are **not alternatives** — they do different jobs, and a full
+run uses both:
+
+| Channel | Job |
+|---|---|
+| **Gmail** | Discovery and curation. The morning newsletters decide *what is worth covering* — that editorial selection is the thing the open web cannot reproduce. |
+| **Web** | Resolution and verification. Turn each selected story into a canonical, citable publisher URL, and confirm every figure against the article or the primary body. |
+
+Run order:
+
+1. **Gmail first.** Search the inbox for the day's newsletters from the four
+   publishers. Extract the headlines and the stories each one leads with.
+   Economist links arrive as `click.e.economist.com` redirects — resolve them
+   to real `economist.com` URLs before citing.
+2. **Web second.** For every story taken from a newsletter, find the publisher's
+   article and verify the numbers. Newsletter copy is often abridged and
+   sometimes a day stale; the article governs. Also sweep the web for anything
+   market-moving the newsletters missed, and fold it in.
+3. **State the provenance.** In the PR body, note which stories came from
+   Gmail and which from the web sweep.
+
+**If Gmail tools are not available in the session, say so in the PR body and run
+web-only.** Do not silently degrade — a web-only edition is a legitimate brief,
+but the reader and the reviewer should know the curation layer was missing. To
+check: look for Gmail tools in the tool list; if absent, that run is web-only.
+See §7 for why a session may lack them.
 
 Note that `WebFetch` is blocked by the egress proxy for most publisher domains.
 `WebSearch` works. Do not report a source as unavailable without trying both.
@@ -130,17 +151,31 @@ caveat is rendered once at the foot of every Risk Wire page by
 
 ## 7. Environment constraints (read before diagnosing a failure)
 
-Scheduled runs execute in a remote Claude Code container. Known and expected:
+Whether Gmail is reachable depends on how the session was launched. Check the
+tool list rather than assuming, and do not spend a run re-diagnosing this.
 
-- `mcpServers` is empty in `~/.claude.json`; MCP servers are injected by the
-  host. Only `github` is present. **claude.ai connectors — Gmail, Drive,
-  Calendar — do not bridge into this container**, and no config change from
-  inside it will make them appear. This is environmental, not a broken setting.
+**When Gmail tools are absent**, the cause is the launch configuration, not a
+broken connector and not a setting the agent can change from inside:
+
+- The MCP servers available to the session come from the file named by the
+  process's `--mcp-config` flag, which the host generates at launch. Inspect it
+  with `cat /tmp/mcp-config-*.json`. If it lists only `github`, no claude.ai
+  connector is reachable in that session.
+- The process's `--allowed-tools` flag independently gates MCP tools by prefix.
+  If it permits only `mcp__github__*`, then Gmail tools would be rejected even
+  if they were configured.
+- Both are set at launch and are not editable from inside the container. A
+  connector toggled on in the claude.ai UI does not feed either one.
+
+**To get Gmail into a run**, launch `claude` from a local session where
+`mcpServers` in `~/.claude.json` is yours to configure and no host allowlist is
+imposed. Verify before relying on it: if Gmail tools appear in the tool list,
+the run is Gmail-enabled; if not, it is web-only and §2 applies.
+
+Also environmental, in every session type:
+
 - `WebFetch` is egress-blocked for most publisher domains. `WebSearch` is not.
 - `gh` CLI is unavailable. Use the `mcp__github__*` tools.
-
-If Gmail-sourced content is required, that run has to happen interactively from
-a local session, not from the schedule.
 
 ## 8. Refresh the hub benchmark marks
 
