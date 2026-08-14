@@ -7,3 +7,7 @@ night-desk-reference/
 
 # Local Claude Code skills — tooling, not site content
 .claude/skills/
+# ...except risk-wire: the scheduled cloud routine runs from a fresh clone and
+# must be able to read it. docs/risk-wire-runbook.md points here.
+!.claude/skills/risk-wire/
+!.claude/skills/risk-wire/**
