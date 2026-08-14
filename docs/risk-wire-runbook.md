@@ -1,80 +1,148 @@
-# Risk Wire — daily brief runbook
+# Risk Wire & General Wire — daily brief runbook
 
-Instructions for the scheduled agent that writes the daily **Risk Wire** brief for
+Instructions for the scheduled agent that writes the two daily briefs for
 riskmaverick.com. Follow these steps exactly.
 
-## 1. Learn the format
+There are two collections, built from the same morning research pass:
 
-Read [`_news/2026-07-28.md`](../_news/2026-07-28.md) — it is the reference template.
-Match its structure, tone and markdown conventions exactly. `news.html` and
-`_layouts/news.html` show how it renders.
+- **Risk Wire** (`_news/`, `/news/`) — commodity and cross-asset risk.
+- **General Wire** (`_general/`, `/general-wire/`) — everything else worth
+  reading that isn't a commodity or cross-asset risk story.
 
-## 2. Get today's real date
+## 1. Get today's real date
 
-Run `date -u +%Y-%m-%d`. **Never assume or infer the date.** If a brief for today
-already exists, update it rather than creating a duplicate.
+Run `date -u +%Y-%m-%d`. **Never assume or infer the date.** If briefs for today
+already exist, update them rather than creating duplicates.
 
-## 3. Research
+## 2. Sources
 
-Use several `WebSearch` calls to find the most significant market-moving developments
-of the **last ~24 hours** across:
+Four publishers, in this order of preference:
 
-- Crude oil & refined products
-- Natural gas & LNG
-- Power & carbon
-- Metals (base and precious)
-- Macro / cross-asset — central banks, rates, FX, equities
+| Publisher | Notes |
+|---|---|
+| Economist | `click.e.economist.com` redirects resolve to citable `economist.com` URLs |
+| Bloomberg | |
+| Economic Times | |
+| Moneycontrol | |
 
-Prioritise what matters to a **risk manager**: price moves *and their drivers*,
-volatility, supply disruption, chokepoints, policy and regulatory change, margin and
-liquidity events. Skip generic market-recap filler.
+**On Gmail.** When this runbook is executed by a *scheduled* task it runs in a
+headless cloud container, where claude.ai connectors (Gmail included) are not
+available — see §7. Scheduled runs therefore source these four publishers from
+the open web via `WebSearch`. A human running this interactively from a local
+session may read the same publishers' newsletters from Gmail instead; the
+format below is identical either way. Note which channel was used in the PR
+body so the provenance is on the record.
 
-## 4. Sourcing standard (strict, non-negotiable)
+Note that `WebFetch` is blocked by the egress proxy for most publisher domains.
+`WebSearch` works. Do not report a source as unavailable without trying both.
 
-- **Use only authoritative sources**: major wires and business press (Reuters,
-  Bloomberg, FT, CNBC, Fortune); official bodies (IEA, EIA, OPEC, World Bank, BIS,
-  central banks, CME/ICE/LME); reputable research (S&P Global, J.P. Morgan Research,
-  McKinsey, Ember, Oxford Institute for Energy Studies).
-- **Never cite** unknown blogs, SEO content farms, AI-generated aggregator sites or
-  forums.
-- **Every item must carry a real, working link** to its source. If you cannot find
-  one, drop the item.
-- **Write every summary in your own words.** Never copy sentences from the article.
-  Short factual figures (prices, dates, percentages) are fine; prose is not.
-- **Never invent** a number, quote, or link. If you are unsure of a figure, omit it.
-  A shorter, fully-sourced brief is better than a longer, shakier one.
+## 3. Sourcing standard (strict, non-negotiable)
 
-## 5. Write the brief
+- **Every item must carry a real, working link** to its source. If you cannot
+  find one, drop the item.
+- **Write every summary in your own words.** Never copy sentences from the
+  article. Short factual figures (prices, dates, percentages) are fine; prose
+  is not.
+- **Never invent** a number, quote, or link. If you are unsure of a figure, omit
+  it. A shorter, fully-sourced brief is better than a longer, shakier one.
+- **Never cite** unknown blogs, SEO content farms, AI-generated aggregator sites
+  or forums.
+- Where one of the four publishers is paywalled or unreachable, a major wire or
+  official body (Reuters, FT, CNBC, IEA, EIA, OPEC, BIS, central banks,
+  CME/ICE/LME, BLS) is an acceptable substitute. Prefer the primary body for
+  anything statistical.
 
-Create `_news/<YYYY-MM-DD>.md` with front matter:
+## 4. Sectors — one post per sector
+
+Write **one file per sector**, not one combined post. The filter chips on
+`news.html` and `general-wire.html` match on the `sector:` field, so a combined
+post cannot be filtered.
+
+**Risk Wire** — `_news/<YYYY-MM-DD>-<sector>.md`
+
+| `sector:` | Chip label |
+|---|---|
+| `oil-products` | Oil / Products |
+| `gas-power` | Gas & Power |
+| `lng` | LNG |
+| `carbon` | Carbon |
+
+**General Wire** — `_general/<YYYY-MM-DD>-<sector>.md`
+
+| `sector:` | Chip label |
+|---|---|
+| `business` | Business |
+| `economics` | Economics |
+| `finance` | Finance |
+| `politics` | Politics |
+| `tech-ai` | Tech / AI |
+
+**Only create a file for a sector that has real news.** A quiet day in carbon
+means no carbon post — not a padded one. Do not invent coverage to fill the
+grid. Nine files is the ceiling, not the target; four to six is a normal day.
+
+## 5. Front matter
 
 ```yaml
 ---
-title: "Risk Wire — <D Month YYYY>"
+title: "Risk Wire — <Chip label>, <D Month YYYY>"
 date: <YYYY-MM-DD>
-standfirst: "One sentence on the day's dominant risk theme."
+sector: <slug from the table above>
+standfirst: "One sentence on this sector's dominant theme today."
 ---
 ```
 
-Then 3–5 sections, using only those with real news (omit empty ones):
+General Wire uses `title: "General Wire — <Chip label>, <D Month YYYY>"` and the
+same shape otherwise.
 
-`## ⚡ Energy — oil`, `## 🔥 Gas & LNG`, `## 🔌 Power & carbon`, `## 🪙 Metals`,
-`## 📊 Macro & cross-asset`
+## 6. Item format
 
-Each item follows this shape:
+Two or three items per sector file. Each item:
 
 ```markdown
-**Bold one-line lede.** Two or three sentences of fact, with the actual numbers.
-*Risk lens:* one line on what it means for a risk book — basis, volatility,
-liquidity, hedge effectiveness, chokepoint exposure.
+**Bold one-line lede.** Two or three sentences of fact, with the actual
+numbers.
 — [Publisher](https://url) · [Publisher](https://url)
+
+*Risk lens:* **Bullish** — one or two lines on what this does to a risk book:
+basis, volatility, liquidity, hedge effectiveness, chokepoint exposure.
 ```
 
-Aim for 6–10 items total. The *Risk lens* line is what makes this RiskMaverick and
-not a generic news feed — include it wherever there is a genuine risk implication,
-and leave it out where there isn't rather than padding.
+The **Risk lens sits below the source link**, and opens with a one-word call:
+**Bullish**, **Bearish** or **Neutral**. This ordering is deliberate and must not
+be reversed — the facts and their attribution come first, then the opinion,
+clearly marked as a separate thing.
 
-## 5b. Refresh the hub benchmark marks
+Rules for the lens:
+
+- **Risk Wire only.** General Wire items are plain summaries with no lens and no
+  directional call.
+- Name what the call is *about* when it isn't obvious — "Bearish (front-month
+  TTF)" beats a bare "Bearish" on a story that touches four instruments.
+- Leave the lens off an item that has no genuine risk implication rather than
+  padding one on. A missing lens is better than a manufactured one.
+- The call is a judgement. Never phrase it so it reads as something the cited
+  publisher said.
+
+**Do not add a disclaimer to individual brief files.** The personal-opinion
+caveat is rendered once at the foot of every Risk Wire page by
+`_layouts/news.html` (`.nws-caveat`). Adding it per-file duplicates it.
+
+## 7. Environment constraints (read before diagnosing a failure)
+
+Scheduled runs execute in a remote Claude Code container. Known and expected:
+
+- `mcpServers` is empty in `~/.claude.json`; MCP servers are injected by the
+  host. Only `github` is present. **claude.ai connectors — Gmail, Drive,
+  Calendar — do not bridge into this container**, and no config change from
+  inside it will make them appear. This is environmental, not a broken setting.
+- `WebFetch` is egress-blocked for most publisher domains. `WebSearch` is not.
+- `gh` CLI is unavailable. Use the `mcp__github__*` tools.
+
+If Gmail-sourced content is required, that run has to happen interactively from
+a local session, not from the schedule.
+
+## 8. Refresh the hub benchmark marks
 
 The hub pages under `markets/` carry benchmark tiles. Those with a `symbol:`
 field hydrate live in the browser and need no attention. Those with `asof:` and
@@ -98,20 +166,23 @@ point. TTF, JKM, EUA, Dubai, UKA and CCA have no free primary feed; refresh
 those from a named published report and cite it, or leave the previous value and
 its date rather than guessing.
 
-## 6. Open a pull request
+## 9. Open a pull request
 
-Do **not** push to `main`. Create a branch, commit only the new
-`_news/<date>.md` file, and open a PR:
+Do **not** push to `main`. Create one branch carrying both wires:
 
 ```bash
-git checkout -b risk-wire-<YYYY-MM-DD>
-git add _news/<YYYY-MM-DD>.md
-git commit -m "content(news): Risk Wire brief for <D Month YYYY>"
-git push -u origin risk-wire-<YYYY-MM-DD>
-gh pr create --title "Risk Wire — <D Month YYYY>" --body "Automated daily brief. Review sources and merge to publish."
+git checkout -b wire-<YYYY-MM-DD>
+git add _news/<YYYY-MM-DD>-*.md _general/<YYYY-MM-DD>-*.md
+git commit -m "content(wire): Risk Wire + General Wire for <D Month YYYY>"
+git push -u origin wire-<YYYY-MM-DD>
 ```
 
-Do not modify any other file in the repository.
+Then open the PR with `mcp__github__create_pull_request`. In the body, list the
+sectors covered, the sourcing channel used (web or Gmail), and any sector
+deliberately omitted for want of real news.
 
-If research turns up genuinely little (a holiday or quiet session), still publish a
-short brief and say so in the standfirst rather than padding it out.
+Commit only the brief files and, if refreshed, `_data/marks.yml` and the
+`markets/` tiles. Do not modify anything else.
+
+If research turns up genuinely little (a holiday or quiet session), publish the
+sectors that do have news and say so in the PR body rather than padding.
