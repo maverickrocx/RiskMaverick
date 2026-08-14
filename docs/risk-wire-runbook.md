@@ -48,11 +48,16 @@ Run order:
 3. **State the provenance.** In the PR body, note which stories came from
    Gmail and which from the web sweep.
 
-**If Gmail tools are not available in the session, say so in the PR body and run
-web-only.** Do not silently degrade — a web-only edition is a legitimate brief,
-but the reader and the reviewer should know the curation layer was missing. To
-check: look for Gmail tools in the tool list; if absent, that run is web-only.
-See §7 for why a session may lack them.
+**If Gmail is not available in the session, stop. Do not publish.**
+
+Check before writing anything: look for a Gmail search tool in the tool list. If
+there isn't one, this run cannot produce a brief to standard, because the
+newsletter curation is not an optional enhancement — it is what decides what gets
+covered. A web-only edition is a different, lesser product wearing the same name.
+
+On abort: write nothing, open no pull request, and notify the user that the run
+stopped and why. A missed edition is recoverable; a published edition that
+quietly lost its curation layer is not. See §7 for how to diagnose the cause.
 
 Note that `WebFetch` is blocked by the egress proxy for most publisher domains.
 `WebSearch` works. Do not report a source as unavailable without trying both.

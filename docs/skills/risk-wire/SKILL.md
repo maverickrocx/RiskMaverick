@@ -30,11 +30,15 @@ Then establish whether Gmail is reachable in this session — look for a Gmail
 search/read tool in your tool list.
 
 - **Gmail present** → full pass. Both channels. This is the intended run.
-- **Gmail absent** → *stop and tell the user* before writing anything. A web-only
-  edition loses the newsletter curation that distinguishes these briefs. Ask
-  whether they want it published web-only and labelled as such, or would rather
-  run from a session that has Gmail. Do not decide this for them, and never
-  attribute anything to a newsletter you did not read.
+- **Gmail absent** → **abort. Write nothing, open no pull request.** Notify the
+  user that the run stopped and why.
+
+  Do not offer a web-only edition as a fallback and do not produce one if asked
+  mid-run — that decision was already made, deliberately: the newsletter
+  curation decides what gets covered, so without it this is a different product
+  wearing the same name. A missed edition is recoverable. A published edition
+  that quietly lost its curation layer is not. Never attribute anything to a
+  newsletter you did not read.
 
 If Gmail is missing and you want to know why, check `cat /tmp/mcp-config-*.json`
 for the servers actually provisioned, and the process's `--allowed-tools` flag for
