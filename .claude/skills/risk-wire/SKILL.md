@@ -2,10 +2,11 @@
 name: risk-wire
 description: >
   Build and publish the daily Risk Wire and General Wire briefs for riskmaverick.com.
-  Reads the morning newsletters (Economist, Bloomberg, Moneycontrol) from Gmail for
-  curation, resolves every link to the publisher's own article on the web, and
-  writes one markdown file per day into _news/ and _general/, and opens a pull request. Use when the user asks to run, build, write
-  or publish the Risk Wire, the General Wire, the wires, or the daily brief.
+  Reads the morning newsletters (Economist, Bloomberg, Moneycontrol, Economic Times)
+  from Gmail for curation, resolves every tracking link to the publisher's own
+  article, writes one markdown file per day into _news/ and _general/, and opens a
+  pull request. Use when the user asks to run, build, write or publish the Risk
+  Wire, the General Wire, the wires, or the daily brief.
 ---
 
 # Risk Wire & General Wire
@@ -31,10 +32,11 @@ search/read tool in your tool list.
 
 - **Gmail present** → full pass. Both channels. This is the intended run.
 - **Gmail absent** → *stop and tell the user* before writing anything. A web-only
-  edition loses the newsletter curation that distinguishes these briefs. Ask
-  whether they want it published web-only and labelled as such, or would rather
-  run from a session that has Gmail. Do not decide this for them, and never
-  attribute anything to a newsletter you did not read.
+  edition loses the newsletter curation that distinguishes these briefs, and it
+  would be built entirely from the seven publishers in Step 2 — five of which are
+  paywalled. Ask whether they want it published web-only and labelled as such, or
+  would rather run from a session that has Gmail. Do not decide this for them, and
+  never attribute anything to a newsletter you did not read.
 
 If Gmail is missing and you want to know why, check `cat /tmp/mcp-config-*.json`
 for the servers actually provisioned, and the process's `--allowed-tools` flag for
@@ -120,20 +122,40 @@ Terminal-only, cite the newsletter's own "Read in browser" URL instead.
 
 ---
 
-## Step 2 — Web: resolution and verification
+## Step 2 — Web: gap-fill only
 
-For every story taken from a newsletter, find the publisher's own article and
-verify the numbers against it. **Newsletter copy is abridged and sometimes a day
-stale; the article governs.**
+**Gmail is the source of record. Do not re-verify what the newsletters report.**
+They are the publishers themselves and the link carries the reader to the full
+article. Take their figures as given; resolving the link (Step 1) is the whole
+of the web work for a story that came from the mailbox.
 
-Then sweep the web for anything market-moving the newsletters missed and fold it in.
+The web arm exists for one case only: **a sector the newsletters did not cover.**
+Where the morning's run carries nothing on, say, carbon, search these seven
+publishers and nowhere else:
+
+| | |
+|---|---|
+| Bloomberg | Reuters |
+| The Economist | Wall Street Journal |
+| Financial Times | Harvard Business Review |
+| The Economic Times | |
+
+**Nothing outside these seven may be cited on a gap-fill.** No aggregators, no
+wire republishers, no primary-body substitutes. If the story is not at one of
+the seven, the sector does not run.
+
+**If the gap-fill finds nothing, omit the sector and publish the Gmail version as
+it stands.** A shorter wire is the correct outcome. Never pad a sector to fill
+the grid, and never widen the source list to make one appear.
 
 Practical notes:
-- `WebFetch` is egress-blocked for most publisher domains. `WebSearch` works. Try
-  both before reporting a source unreachable.
-- Where a publisher is paywalled, a major wire or official body (Reuters, FT, CNBC,
-  IEA, EIA, OPEC, BIS, central banks, CME/ICE/LME, BLS) is an acceptable substitute.
-  Prefer the primary body for anything statistical.
+- `WebFetch` is egress-blocked for most publisher domains; `WebSearch` works.
+  Try both before concluding a source is unreachable.
+- Five of the seven are hard paywalls. **Write only from what you could actually
+  read.** A headline plus a resolved URL is not a story — if the body would not
+  load, drop the item rather than inferring its contents from the headline.
+- Reuters and The Economic Times are the two that reliably return readable text.
+  Reach for them first when gap-filling.
 
 ---
 
@@ -225,13 +247,20 @@ Two or three items per file:
 **Bold one-line lede.** Two or three sentences of fact, with the actual numbers.
 — [Publisher](https://url) · [Publisher](https://url)
 
-*Risk lens:* **Bullish** — one or two lines on what this does to a risk book:
-basis, volatility, liquidity, hedge effectiveness, chokepoint exposure.
+*Risk lens:* **Bullish (front-month TTF)** — one sentence on what this does to a
+risk book.
 ```
 
 **The lens sits below the link and opens with Bullish, Bearish or Neutral.** This
 ordering is deliberate — facts and attribution first, then opinion, visibly
 separate. Do not reverse it.
+
+**Keep it to a couple of lines. Hard cap: 35 words, two sentences.** Pick the
+single dimension that actually matters — basis, volatility, liquidity, hedge
+effectiveness or chokepoint exposure — and say only that. Do not walk through
+several, do not restate the facts from the item above, and do not explain the
+mechanism at length. If the call needs a paragraph to justify, it is not a lens;
+cut it to the conclusion or drop it.
 
 - **Risk Wire only.** General Wire items are plain summaries, no lens, no call.
 - Name what the call is about when ambiguous: "Bearish (front-month TTF)".
