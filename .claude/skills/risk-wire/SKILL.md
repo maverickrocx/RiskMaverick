@@ -163,15 +163,21 @@ sectors: [oil-products, gas-power, lng]
 standfirst: "One or two sentences on the day's dominant themes across the sectors covered."
 ---
 
-## Oil / Products
+## Oil / Products {#oil-products}
 
 *Sourced from Bloomberg's Energy Daily.*
 
 **Bold one-line lede.** ...
 
-## Gas & Power
+## Gas & Power {#gas-power}
 ...
 ```
+
+**Every section heading carries an explicit ID matching its slug** —
+`## Gas & Power {#gas-power}`. The sector chips on the index deep-link to
+`<brief-url>#<slug>`, so a missing or auto-generated ID breaks the jump.
+Kramdown's auto-slug does not match: it turns "Oil / Products" into
+`oil--products`, not `oil-products`. Always write the `{#slug}` yourself.
 
 Order sections `oil-products, gas-power, lng, carbon` for Risk Wire and
 `business, economics, finance, politics, tech-ai` for General Wire. Omit a

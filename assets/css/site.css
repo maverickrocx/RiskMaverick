@@ -816,7 +816,12 @@ table.specs tr:last-child td{border-bottom:0;}
 .wire{padding:22px 0;border-bottom:1px solid var(--border);}
 .wire-rowmeta{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
 .chip{font:600 10.5px/1 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;padding:5px 9px;border-radius:var(--r-chip);background:var(--surface-2);color:var(--ink-muted);}
+/* Sector chips on a wire row deep-link into that section of the brief. */
+.chip--link{display:inline-block;text-decoration:none;transition:background 140ms ease,color 140ms ease;}
+.chip--link:hover,.chip--link:focus-visible{background:var(--accent);color:var(--accent-fg);}
 .wire-rowmeta time{font:500 11.5px/1 var(--mono);color:var(--ink-muted);}
+/* Anchored section lands clear of the sticky header. */
+.nws-body h2[id]{scroll-margin-top:var(--s7);}
 .wire-title{font:400 22px/1.25 var(--font-display);letter-spacing:-0.01em;margin:0 0 8px;}
 .wire-title a{color:var(--ink);text-decoration:none;}
 .wire-title a:hover{color:var(--accent-text);}

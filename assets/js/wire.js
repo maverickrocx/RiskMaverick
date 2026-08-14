@@ -1,4 +1,23 @@
-// assets/js/wire.js — Risk Wire sector filter.
+// assets/js/wire.js — Risk Wire sector filter + deep-link anchor fix.
+
+// A sector chip links to #<slug> inside a brief. The browser's initial jump
+// fires before the display webfont has swapped in, and the resulting height
+// change leaves the heading a few hundred pixels off. Re-apply the target once
+// layout has settled. Runs on brief pages, which have no filter bar.
+(function () {
+  if (!location.hash) return;
+  var landed = false;
+  function land() {
+    if (landed) return;
+    var el = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (!el) return;
+    el.scrollIntoView();
+    landed = true;
+  }
+  window.addEventListener('load', land);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(land);
+})();
+
 // Server-rendered feed; JS only hides/shows groups, so with JS off every brief
 // is still listed.
 (function () {

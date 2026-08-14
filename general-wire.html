@@ -30,7 +30,7 @@ blurb: "Everything else from the same newsletter run — business, economics, fi
     <h2 class="wireday">{{ b.date | date: "%A, %-d %B %Y" }}</h2>
     <article class="wire">
       <div class="wire-rowmeta">
-        {% for sec in secs %}<span class="chip">{% case sec %}{% when 'business' %}Business{% when 'economics' %}Economics{% when 'finance' %}Finance{% when 'politics' %}Politics{% when 'tech-ai' %}Tech / AI{% else %}{{ sec }}{% endcase %}</span>{% endfor %}
+        {% for sec in secs %}<a class="chip chip--link" href="{{ b.url | relative_url }}#{{ sec }}">{% case sec %}{% when 'business' %}Business{% when 'economics' %}Economics{% when 'finance' %}Finance{% when 'politics' %}Politics{% when 'tech-ai' %}Tech / AI{% else %}{{ sec }}{% endcase %}</a>{% endfor %}
         <time class="tnum" datetime="{{ b.date | date_to_xmlschema }}">{{ b.date | date: "%H:%M" }} UTC</time>
       </div>
       <h3 class="wire-title"><a href="{{ b.url | relative_url }}">{{ b.title }}</a></h3>
