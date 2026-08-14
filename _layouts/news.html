@@ -11,6 +11,7 @@ layout: default
   </header>
   <div class="nws-body">{{ content }}</div>
   <p class="nws-note">Headlines are summarised in our own words for comment and analysis, with attribution and a link to the original publisher. Indicative only — not investment advice.</p>
+  <p class="nws-caveat"><strong>On the Risk lens.</strong> The bullish, bearish and neutral calls under each item are a personal reading of what the news implies for a risk book. They are opinion, not reporting — the publisher cited is the source of the facts above the link, never of the view below it. Reasonable people will disagree, and nothing here is investment, trading or hedging advice.</p>
 
   {% assign briefs = site.news | sort: "date" | reverse %}
   {% if briefs.size > 1 %}
