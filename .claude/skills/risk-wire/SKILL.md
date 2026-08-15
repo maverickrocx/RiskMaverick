@@ -107,7 +107,38 @@ Strip everything after `?` from the resolved URL before citing it.
 | Bloomberg | real `bloomberg.com/news/...` URL with `?cmpid=…&utm_…` | same URL, query string stripped — no curl needed |
 | Economist | `click.e.economist.com/?qs=…` | curl-resolved `economist.com` URL, params stripped |
 | Moneycontrol | `…sendgrid.net/ls/click?upn=…` | curl-resolved `moneycontrol.com` URL |
-| Economic Times | `nltrack.indiatimes.com/tracking/track/cl…` | curl-resolved `economictimes.indiatimes.com` URL |
+| Economic Times | `nltrack.indiatimes.com/tracking/track/cl…` | **not resolvable — use the section-page method below** |
+
+**Economic Times needs its own procedure. Its tracking links are dead ends.**
+`nltrack.indiatimes.com` returns `302 → economictimes.indiatimes.com/subscription.cms`
+for every link, never an article, and the `param`/`oj` query separators are
+corrupted in transit so the URL cannot be repaired by hand. The newsletter HTML
+contains no direct article URLs either — only tracker links and image assets.
+`WebSearch` and `WebFetch` cannot help: `economictimes.indiatimes.com` is
+blocked for Anthropic's fetch user agent.
+
+**`curl` reaches ET normally.** Resolve ET stories by fetching the relevant
+section index and matching the newsletter's headline to its real article URL:
+
+```bash
+curl -s -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64)" -L --max-time 30 \
+  "https://economictimes.indiatimes.com/tech/artificial-intelligence" \
+| grep -o 'href="/[a-z0-9/-]*articleshow/[0-9]*\.cms"[^>]*>[^<]*' \
+| sed 's/href="//;s/"[^>]*>/  ::  /'
+```
+
+Section indexes worth knowing: `/tech/artificial-intelligence`,
+`/news/economy`, `/news/politics-and-nation`, `/markets`, `/industry`. Swap the
+path to match the newsletter the story came from. ET article URLs return **200**,
+so unlike the paywalled publishers a 403 here means something is wrong.
+
+To quote figures accurately, pull the article body rather than the page text —
+ET's markup is mostly inline CSS and the article is in a JSON-LD block:
+
+```bash
+curl -s -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64)" -L --max-time 30 "<article-url>" \
+  | grep -o '"articleBody":"[^"]*"' | head -1
+```
 
 **A 403 is fine — it means paywalled or bot-blocked, and `url_effective` is
 still the real article.** A 404 is not: drop that story. Re-check every URL
