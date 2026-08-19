@@ -1,0 +1,455 @@
+---
+layout: default
+title: Singapore
+permalink: /energy-map/sgp/
+blurb: "Singapore — Pool clearing. Market structure, infrastructure, demand and supply, price formation and regulation."
+---
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet"><style>
+.emapx{
+  --bg:#FAFAF8; --surface:#FFFFFF; --sunken:#F4F7F7;
+  --ink:#14262B; --ink-muted:#4A5B60; --ink-dim:#7C8D92;
+  --border:#E2E8E8;
+  --s5:#C0392B; --s4:#DD7B2F; --s3:#E8AE28; --s2:#3B8B60; --s1:#1F7A52;
+  --accent:#3B8B60;
+  --r:8px; --micro:180ms; --ease:cubic-bezier(.2,.6,.2,1);
+  --serif:"Source Serif 4",Georgia,serif;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+.emapx *{box-sizing:border-box;margin:0;padding:0}
+.emapx{scroll-behavior:smooth}
+.emapx{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.5;
+  -webkit-font-smoothing:antialiased;font-feature-settings:"tnum" 1}
+.emapx h1,.emapx h2,.emapx h3{font-family:var(--serif);line-height:1.16;letter-spacing:-.02em;font-weight:600}
+.emapx .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+@media(max-width:767px){.emapx .wrap{padding:0 16px}}
+.emapx .proto{background:#14262B;color:#F3F6F6;font-size:12px;padding:8px 16px;text-align:center}
+.emapx nav{position:sticky;top:0;z-index:60;height:64px;display:flex;align-items:center;
+  background:rgba(250,250,248,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.emapx nav .wrap{display:flex;align-items:center;gap:26px;width:100%}
+.emapx .logo{font-family:var(--serif);font-size:20px;font-weight:700;display:flex;align-items:center;gap:10px}
+.emapx .logo .mark{width:22px;height:22px;border:2px solid var(--accent);border-radius:3px;position:relative;flex:none}
+.emapx .logo .mark::after{content:"";position:absolute;inset:4px 4px auto 4px;height:2px;background:var(--s3)}
+.emapx .crumb{font-size:13px;color:var(--ink-dim)}
+.emapx .crumb a{color:var(--ink-muted);text-decoration:none}
+.emapx .crumb a:hover{color:var(--ink)}
+.emapx .navlinks{display:flex;gap:22px;margin-left:auto;font-size:14px}
+.emapx .navlinks a{color:var(--ink-muted);text-decoration:none}
+.emapx .navlinks a:hover{color:var(--ink)}
+
+.emapx /* header */
+.mh{padding:46px 0 30px}
+.emapx .mh .top{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.emapx .bchip{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:5px 12px;border-radius:999px;background:var(--accent);color:#fff}
+.emapx .reviewed{font-size:12px;color:var(--ink-dim);margin-left:auto}
+.emapx .mh h1{font-size:56px;margin-bottom:12px}
+@media(max-width:767px){.emapx .mh h1{font-size:34px}}
+.emapx .mh .one{font-size:20px;color:var(--ink-muted);max-width:62ch;line-height:1.45}
+.emapx .facts{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);
+  border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin-top:28px}
+@media(max-width:900px){.emapx .facts{grid-template-columns:repeat(2,1fr)}}
+.emapx .fi{background:var(--surface);padding:15px 16px}
+.emapx .fi .k{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:5px}
+.emapx .fi .v{font-size:15px;font-weight:600;line-height:1.3}
+
+.emapx /* layout */
+.body{display:grid;grid-template-columns:190px 1fr;gap:44px;padding-bottom:20px}
+@media(max-width:1023px){.emapx .body{grid-template-columns:1fr;gap:0}.emapx .toc{display:none}}
+.emapx .toc{position:sticky;top:88px;align-self:start;padding-top:40px}
+.emapx .toc .t{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:10px}
+.emapx .toc a{display:block;font-size:13px;color:var(--ink-muted);text-decoration:none;padding:7px 0 7px 13px;
+  border-left:2px solid var(--border);transition:all var(--micro) var(--ease)}
+.emapx .toc a:hover{color:var(--ink);border-left-color:var(--ink-dim)}
+.emapx .toc a.on{color:var(--ink);font-weight:600;border-left-color:var(--accent)}
+
+.emapx /* sections */
+.sec{padding:40px 0;border-top:1px solid var(--border)}
+.emapx .sec:first-child{border-top:0;padding-top:12px}
+.emapx .sn{font-family:var(--serif);font-size:13px;font-weight:700;color:var(--accent);display:block;margin-bottom:5px}
+.emapx .sec h2{font-size:31px;margin-bottom:8px}
+.emapx .sec .lead{font-size:17px;color:var(--ink-muted);line-height:1.6;max-width:70ch;margin-bottom:20px}
+.emapx .sec p{font-size:15.5px;line-height:1.68;color:var(--ink-muted);max-width:70ch;margin-bottom:16px}
+.emapx .sec p strong{color:var(--ink);font-weight:600}
+.emapx .sec h3{font-size:19px;margin:26px 0 10px}
+
+.emapx table{width:100%;border-collapse:collapse;font-size:14px;background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin:6px 0 20px}
+.emapx th{text-align:left;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-dim);
+  padding:10px 14px;border-bottom:1px solid var(--border);background:var(--sunken);font-weight:700}
+.emapx td{padding:11px 14px;border-bottom:1px solid var(--border);color:var(--ink-muted);vertical-align:top;line-height:1.5}
+.emapx tbody tr:last-child td{border-bottom:0}
+.emapx td:first-child{color:var(--ink);font-weight:500}
+.emapx tbody tr:hover td{background:var(--sunken)}
+
+.emapx .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:6px 0 20px}
+@media(max-width:900px){.emapx .cards{grid-template-columns:1fr}}
+.emapx .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:18px}
+.emapx .card h4{font-family:var(--sans);font-size:14px;font-weight:600;margin-bottom:7px;color:var(--accent)}
+.emapx .card p{font-size:13.5px;line-height:1.55;margin:0;color:var(--ink-muted)}
+
+.emapx .pull{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--accent);
+  border-radius:var(--r);padding:20px 22px;margin:6px 0 22px}
+.emapx .pull p{margin:0;font-size:15.5px;line-height:1.6}
+.emapx .pull .t{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:7px}
+
+.emapx /* map slot — a SOURCED map is placed here,.emapx never a rendered one */
+.mapslot{background:var(--sunken);border:1px dashed var(--border);border-radius:var(--r);
+  padding:34px 24px;text-align:center;margin:6px 0 20px}
+.emapx .mapslot .t{font-size:13px;font-weight:600;color:var(--ink-muted);margin-bottom:5px}
+.emapx .mapslot .s{font-size:12px;color:var(--ink-dim);line-height:1.5;max-width:56ch;margin:0 auto}
+
+.emapx /* key links */
+.links{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:6px}
+@media(max-width:767px){.emapx .links{grid-template-columns:1fr}}
+.emapx .lk{display:block;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+  padding:15px 17px;text-decoration:none;transition:all var(--micro) var(--ease)}
+.emapx .lk:hover{border-color:var(--accent);transform:translateY(-2px)}
+.emapx .lk .n{font-size:14.5px;font-weight:600;color:var(--ink);margin-bottom:3px}
+.emapx .lk .d{font-size:12.5px;color:var(--ink-dim);line-height:1.45}
+.emapx .lk .u{font-size:11.5px;color:var(--accent);margin-top:6px;word-break:break-all}
+
+
+.emapx /* ── figures,.emapx charts,.emapx schematic ── */
+.fig{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+  padding:22px 24px 16px;margin:8px 0 22px}
+.emapx .fig svg{display:block;width:100%;height:auto;overflow:visible}
+.emapx .fig-t{font-family:var(--serif);font-size:17px;font-weight:600;margin-bottom:14px}
+.emapx .figcap{font-size:12px;color:var(--ink-dim);line-height:1.5;margin:14px 0 0;max-width:none}
+.emapx .figcap a{color:var(--accent)}
+.emapx .figcap b{color:var(--ink-muted)}
+.emapx /* schematic */
+.area rect{fill:var(--surface);stroke:#CBD6D6;stroke-width:1.5}
+.emapx .area text{font-family:var(--sans);font-size:13px;font-weight:600;fill:var(--ink);
+  text-anchor:middle;dominant-baseline:middle}
+.emapx .area.e rect{stroke:#2a78d6} .emapx .area.w rect{stroke:#eb6834}
+.emapx .area.iso rect{stroke-dasharray:4 3}
+.emapx .ln{stroke:#9AA8AC;stroke-width:2;fill:none}
+.emapx .lnfc{stroke:#7C8D92;stroke-width:2;fill:none;stroke-dasharray:5 4}
+.emapx .fc{fill:#FDF3E7;stroke:#DD7B2F;stroke-width:1.6}
+.emapx .fct{font-family:var(--sans);font-size:12px;font-weight:700;fill:#C0651F;text-anchor:middle}
+.emapx .fh{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em}
+.emapx .cap2{font-family:var(--sans);font-size:10.5px;fill:#7C8D92;text-anchor:middle;paint-order:stroke;stroke:var(--surface);stroke-width:5;stroke-linejoin:round}
+.emapx .cap2.iso2{font-style:italic}
+.emapx /* composition bar */
+.seg text{font-family:var(--sans);font-size:12.5px;font-weight:600;fill:#fff;dominant-baseline:middle}
+.emapx .axl{font-family:var(--sans);font-size:11.5px;fill:#7C8D92}
+.emapx /* bar chart */
+.grid{stroke:#EDF1F1;stroke-width:1}
+.emapx .axis{stroke:#CBD6D6;stroke-width:1}
+.emapx .gl{font-family:var(--sans);font-size:10.5px;fill:#9AA8AC;text-anchor:end}
+.emapx .xl{font-family:var(--sans);font-size:12px;fill:var(--ink-muted);text-anchor:middle}
+.emapx .bar1 rect{fill:#1baf7a}
+.emapx .bar1 text{font-family:var(--sans);font-size:15px;font-weight:700;fill:var(--ink);text-anchor:middle}
+.emapx /* stat pair */
+.stats{display:flex;align-items:center;gap:18px;flex-wrap:wrap;background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--r);padding:20px 24px;margin:0 0 22px}
+.emapx .st .k{font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:4px}
+.emapx .st .v{font-family:var(--serif);font-size:30px;font-weight:700;line-height:1}
+.emapx .st .v small{font-family:var(--sans);font-size:13px;font-weight:500;color:var(--ink-muted)}
+.emapx .st.arrow{font-size:24px;color:var(--ink-dim)}
+.emapx .st.note{flex:1 1 240px;font-size:11.5px;color:var(--ink-dim);line-height:1.5}
+.emapx .st.note a{color:var(--accent)}
+.emapx /* pending slot */
+.pending{background:var(--sunken);border:1px dashed #CBD6D6;border-radius:var(--r);
+  padding:20px 22px;margin:6px 0 22px}
+.emapx .pending .t{font-size:13px;font-weight:600;color:var(--ink-muted);margin-bottom:6px}
+.emapx .pending p{font-size:13px;color:var(--ink-dim);line-height:1.55;margin:0}
+.emapx .pending a{color:var(--accent)}
+
+.emapx footer{border-top:1px solid var(--border);padding:30px 0;font-size:12px;color:var(--ink-dim);line-height:1.6}
+@media(prefers-reduced-motion:reduce){.emapx *{transition-duration:.01ms!important}}
+</style>
+<div class="emapx">
+<div class="wrap">
+  <header class="mh">
+    <div class="top">
+      <span class="bchip">Pool clearing</span>
+      <span class="reviewed">Last reviewed 16 August 2026</span>
+    </div>
+    <h1>Singapore</h1>
+    <p class="one">Asia's first liberalised power pool, running on a system that is 93% imported gas. Nowhere else does a molecule price translate so directly into a megawatt price.</p>
+    <div class="facts"><div class="fi"><div class="k">Power exchange</div><div class="v">NEMS (operated by EMC)</div></div><div class="fi"><div class="k">Price unit</div><div class="v">SGD / MWh</div></div><div class="fi"><div class="k">Settlement interval</div><div class="v">30 minutes</div></div><div class="fi"><div class="k">System operator</div><div class="v">EMA</div></div><div class="fi"><div class="k">Gas position</div><div class="v">Net importer — piped and LNG</div></div></div>
+  </header>
+
+  <div class="body">
+    <aside class="toc" id="toc">
+      <div class="t">On this page</div>
+      <a href="#s1">01 Overview</a>
+      <a href="#s2">02 Market structure</a>
+      <a href="#s3">03 Infrastructure</a>
+      <a href="#s4">04 Demand and supply</a>
+      <a href="#s5">05 Price setting</a>
+      <a href="#s6">06 Regulatory regime</a>
+      <a href="#s7">Key links</a>
+    </aside>
+    <main><section class="sec" id="s1"><span class="sn">01</span><h2>Overview</h2>
+<p class="lead">Asia's first liberalised wholesale electricity market sits on a system that burns almost
+nothing but imported gas. No hydro to lean on, no coal fleet worth the name, no nuclear. Nowhere else in
+the region does a molecule price read through to a megawatt price this cleanly.</p>
+
+<p>The <strong>National Electricity Market of Singapore (NEMS)</strong> has been trading since 1 January
+2003. <a href="https://www.home.emcsg.com/" target="_blank" rel="noopener">Energy Market Company (EMC)</a>
+calls itself a stock exchange for electricity, and that is fair enough. Practically all of the country's
+power is bought and sold through it. Generators offer into a half-hourly auction, the clearing engine
+stacks those offers against demand, and the <strong>Uniform Singapore Energy Price (USEP)</strong> that
+falls out settles every injection and withdrawal at the Singapore hub.</p>
+
+<p>The fuel side is just as concentrated. Around <a href="https://www.ema.gov.sg/our-energy-story/energy-supply/natural-gas" target="_blank" rel="noopener">95%</a> of Singapore's electricity comes from
+imported natural gas, part piped from Indonesia and Malaysia, part landed as LNG at Jurong Island. Gas
+procurement, terminal throughput and power prices are one chain. Treat them as three markets and you will
+miss how the risk actually travels.</p>
+
+<p>Two things are now changing the position. Singapore is building towards <strong>6 GW of low-carbon
+electricity imports by 2035</strong>, roughly a third of projected demand, which turns an isolated island
+system into a node on an ASEAN grid. And gas buying is being centralised under a single aggregator instead
+of each genco sourcing its own.</p>
+
+<div class="pull"><div class="t">Why a trader should care</div>
+<p>In most markets the marginal fuel is a question you have to answer every hour. Here it is a constant.
+USEP is about as pure an expression of delivered gas cost, plant efficiency and reserve margin as you will
+find, which puts the money in the distribution rather than the direction.</p></div>
+</section><section class="sec" id="s2"><span class="sn">02</span><h2>Market structure</h2>
+<p class="lead">Small market, full institutional stack. A policy regulator that also runs the power system,
+an independent market operator, a handful of large gencos, and a contract layer built to stop any one of
+them setting the price.</p>
+
+<h3>Who does what</h3>
+<table><thead><tr><th>Function</th><th>Body</th><th>Role</th></tr></thead><tbody>
+<tr><td>Regulator and system operator</td><td>EMA</td><td>Energy Market Authority — licensing, market rules and real-time power system operation</td></tr>
+<tr><td>Market operator</td><td>EMC</td><td>Runs the NEMS auction, clears and settles the wholesale market</td></tr>
+<tr><td>Transmission and metering</td><td>SP Group</td><td>Regulated network owner; SP Services buys for regulated-tariff consumers</td></tr>
+<tr><td>Gas transport</td><td>PowerGas</td><td>Sole licensed transporter of natural gas and town gas</td></tr>
+<tr><td>Interconnection</td><td>SGEI</td><td>Singapore Energy Interconnections, established April 2025 to develop cross-border links</td></tr>
+</tbody></table>
+
+<h3>Generation and retail</h3>
+<p>A small group of independently owned gencos runs combined-cycle plant on Jurong Island and the
+mainland, plus newer fast-start open-cycle units. Retail is fully contestable. Every consumer down to a
+household can buy from a licensed retailer under the Open Electricity Market, or stay on the regulated
+tariff from SP Services.</p>
+
+<h3>The contract layer</h3>
+<p>A handful of gencos supply most of the load. Left alone, an energy-only auction in that situation is
+an open invitation to withhold. Singapore's answer is the <strong>vesting contract</strong>, a two-way
+contract for difference, usually between SP Services and the generators, priced off <a href="https://www.ema.gov.sg/regulations-licences/regulations/policies-frameworks/vesting-contracts" target="_blank" rel="noopener">the long-run marginal cost of the most efficient technology supplying at least 25% of demand</a>.
+A generator that withholds capacity to lift USEP hands the difference straight back under its vesting
+position, so the incentive largely cancels. The current regime runs from July 2023 to June 2028.</p>
+
+<div class="pull"><div class="t">The practical consequence</div>
+<p>Headline USEP is not the whole revenue story for a generator, nor the whole cost story for a retailer.
+Before you read anything into a price spike, find out how much of the load was already hedged.</p></div>
+</section><section class="sec" id="s3"><span class="sn">03</span><h2>Infrastructure — power and gas</h2>
+<p class="lead">One island, one grid, one LNG terminal, and until recently no meaningful electrical
+connection to anywhere else. The question here is concentration, not congestion.</p>
+
+<h3>Power</h3>
+<div class="cards">
+<div class="card"><h4>A single control area</h4><p>None of the zonal splits that fragment larger Asian
+systems. Nodal prices are calculated across the network, then collapse to one hub price at settlement.</p></div>
+<div class="card"><h4>Installed capacity</h4><p><a href="https://www.ema.gov.sg/resources/singapore-energy-statistics/chapter2" target="_blank" rel="noopener">13,261 MW</a> as at June 2025, of which <a href="https://www.ema.gov.sg/resources/singapore-energy-statistics/chapter2" target="_blank" rel="noopener">10,115 MW</a> is combined-cycle,
+co-generation and tri-generation plant.</p></div>
+<div class="card"><h4>Cross-border links</h4><p>The existing interconnection with Peninsular Malaysia carries
+the LTMS-PIP multilateral trade. Dedicated new links are being built for the import programme.</p></div>
+</div>
+
+<h3>Gas and LNG</h3>
+<p>Gas gets here two ways. Pipeline from Indonesia and Malaysia, on long-dated contracts. LNG into the <a href="https://www.slng.com.sg/slng-terminal-overview" target="_blank" rel="noopener">Singapore LNG terminal</a> on Jurong Island: two jetties, four storage tanks,
+annualised send-out around 9 mtpa and a peak near 11 mtpa. It covers roughly half the gas burnt for power
+today, and could cover the lot if it had to.</p>
+
+<p>Term LNG import rights sit with a short licensed list, ExxonMobil, Pavilion Energy, Sembcorp Fuels and
+Shell, under EMA's <a href="https://www.ema.gov.sg/our-energy-story/energy-market-landscape/gas" target="_blank" rel="noopener">term importer licences</a>. That structure is being consolidated. EMA intends to appoint one entity to
+aggregate gas demand for the whole power sector, which moves the price risk on imported fuel onto a
+different balance sheet.</p>
+
+<div class="fig">
+  <svg viewBox="0 0 900 300" role="img" aria-label="Schematic of Singapore's gas-to-power chain and interconnections">
+    <text x="150" y="26" class="fh" fill="#2a78d6">FUEL SUPPLY</text>
+    <text x="470" y="26" class="fh" fill="#eb6834">CONVERSION AND MARKET</text>
+    <text x="790" y="26" class="fh" fill="#1baf7a">OFF-TAKE</text>
+    <rect x="30" y="44" width="270" height="228" rx="10" fill="#2a78d6" opacity=".05"/>
+    <rect x="330" y="44" width="300" height="228" rx="10" fill="#eb6834" opacity=".05"/>
+    <rect x="660" y="44" width="210" height="228" rx="10" fill="#1baf7a" opacity=".05"/>
+
+    <g class="area e"><rect x="55" y="70" width="200" height="42" rx="7"/><text x="155" y="91">Piped gas — Indonesia</text></g>
+    <g class="area e"><rect x="55" y="130" width="200" height="42" rx="7"/><text x="155" y="151">Piped gas — Malaysia</text></g>
+    <g class="area e"><rect x="55" y="190" width="200" height="42" rx="7"/><text x="155" y="211">SLNG, Jurong Island</text></g>
+
+    <g class="area w"><rect x="360" y="100" width="118" height="42" rx="7"/><text x="419" y="121">PowerGas</text></g>
+    <g class="area w"><rect x="360" y="170" width="118" height="42" rx="7"/><text x="419" y="191">Gencos</text></g>
+    <g class="area w"><rect x="500" y="135" width="112" height="42" rx="7"/><text x="556" y="156">NEMS</text></g>
+
+    <g class="area iso"><rect x="686" y="100" width="160" height="42" rx="7"/><text x="766" y="121">Retailers, OEM</text></g>
+    <g class="area iso"><rect x="686" y="170" width="160" height="42" rx="7"/><text x="766" y="191">Regulated tariff</text></g>
+
+    <path class="ln" d="M255,91 H330 V115 H360"/>
+    <path class="ln" d="M255,151 H330 V121 H360"/>
+    <path class="ln" d="M255,211 H310 V127 H360"/>
+    <path class="ln" d="M419,142 V170"/>
+    <path class="ln" d="M478,191 H500 V177"/>
+    <path class="ln" d="M612,150 H650 V121 H686"/>
+    <path class="ln" d="M612,162 H650 V191 H686"/>
+
+    <rect x="360" y="234" width="252" height="34" rx="6" class="fc"/>
+    <text x="486" y="255" class="fct">IMPORTS — up to 6 GW targeted by 2035</text>
+    <path class="lnfc" d="M486,234 V212 H478"/>
+    <text x="486" y="286" class="cap2">a second supply route into the same clearing engine</text>
+    <text x="155" y="252" class="cap2">roughly half the gas for power comes by sea</text>
+  </svg>
+  <p class="figcap"><b>Schematic — system topology, not a geographic map.</b> Fuel enters by pipeline or as LNG,
+  moves through a single transporter to the generation fleet, and is sold through one clearing engine.
+  Electricity imports enter the same auction rather than bypassing it.</p>
+</div>
+
+<div class="mapslot"><div class="t">Geographic infrastructure map</div>
+<div class="s">A sourced map of the Jurong Island gas complex, the transmission network and the planned
+cross-border interconnections belongs here — reproduced from an official publication rather than redrawn.</div></div>
+</section><section class="sec" id="s4"><span class="sn">04</span><h2>Demand and supply</h2>
+<p class="lead">Demand grinds upward on data centres and electrification. The supply stack is one fuel
+deep. Everything interesting is happening at the edges of that stack.</p>
+
+<h3>Demand</h3>
+<p>A dense, wealthy, air-conditioned city state has no real seasonal swing. Load is high, flat and, by
+regional standards, easy to forecast. What growth there is comes from digital infrastructure and transport
+electrification rather than from more people. Gross electricity output reached <a href="https://www.ema.gov.sg/resources/singapore-energy-statistics/chapter2" target="_blank" rel="noopener">30 TWh</a> in the first half of 2025.</p>
+
+<h3>Supply</h3>
+<p>Natural gas supplied <strong>93.1%</strong> of generation in the first half of 2025. Solar managed 2.5%,
+and municipal waste, biomass and imported electricity split the rest. Solar is growing fast off a small
+base, and what limits it is land, not economics. Utility scale here means reservoirs and rooftops.</p>
+
+<div class="fig">
+  <div class="fig-t">Where Singapore's electricity came from, first half of 2025</div>
+  <svg viewBox="0 0 900 130" role="img" aria-label="Singapore generation mix, first half of 2025, by source">
+    <g class="seg"><rect x="0" y="18" width="842" height="40" rx="4" fill="#2a78d6"/><text x="12" y="43">Natural gas 93.1%</text></g>
+    <g class="seg"><rect x="846" y="18" width="23" height="40" rx="4" fill="#eb6834"/></g>
+    <g class="seg"><rect x="873" y="18" width="27" height="40" rx="4" fill="#9AA8AC"/></g>
+    <text x="820" y="80" class="axl" text-anchor="end">Solar PV 2.5% &#8594;</text>
+    <text x="900" y="98" class="axl" text-anchor="end">Other 3.0% (waste, biomass, imports) &#8594;</text>
+    <text x="0" y="122" class="axl">Shares scaled to the three reported categories; no coal, hydro or nuclear in the stack.</text>
+  </svg>
+  <p class="figcap">First half of 2025. Source: <a href="https://www.ema.gov.sg/resources/singapore-energy-statistics/chapter2" target="_blank" rel="noopener">EMA, Singapore Energy Statistics</a>, corroborated by <a href="https://lowcarbonpower.org/region/Singapore" target="_blank" rel="noopener">Low Carbon Power</a>.</p>
+</div>
+
+<div class="fig">
+  <div class="fig-t">Installed generation capacity by type, June 2025 (MW)</div>
+  <svg viewBox="0 0 900 250" role="img" aria-label="Singapore installed generation capacity by type, June 2025">
+    <line class="grid" x1="90" y1="40" x2="880" y2="40"/><text class="gl" x="80" y="44">10,000</text>
+    <line class="grid" x1="90" y1="80" x2="880" y2="80"/><text class="gl" x="80" y="84">7,500</text>
+    <line class="grid" x1="90" y1="120" x2="880" y2="120"/><text class="gl" x="80" y="124">5,000</text>
+    <line class="grid" x1="90" y1="160" x2="880" y2="160"/><text class="gl" x="80" y="164">2,500</text>
+    <line class="axis" x1="90" y1="200" x2="880" y2="200"/>
+    <g class="bar1"><rect x="100" y="38" width="90" height="162" rx="4"/><text x="145" y="28">10,115</text></g>
+    <g class="bar1"><rect x="240" y="178" width="90" height="22" rx="4"/><text x="285" y="168">1,367</text></g>
+    <g class="bar1"><rect x="380" y="183" width="90" height="17" rx="4"/><text x="425" y="173">1,042</text></g>
+    <g class="bar1"><rect x="520" y="194" width="90" height="6" rx="4"/><text x="565" y="184">345</text></g>
+    <g class="bar1"><rect x="660" y="197" width="90" height="3" rx="4"/><text x="705" y="187">200</text></g>
+    <g class="bar1"><rect x="800" y="197" width="90" height="3" rx="4"/><text x="845" y="187">192</text></g>
+    <text class="xl" x="145" y="222">CCGT / cogen</text>
+    <text class="xl" x="285" y="222">Solar PV</text>
+    <text class="xl" x="425" y="222">OCGT</text>
+    <text class="xl" x="565" y="222">Waste</text>
+    <text class="xl" x="705" y="222">Storage</text>
+    <text class="xl" x="845" y="222">Other</text>
+    <text class="axl" x="90" y="243">Total 13,261 MW. Solar is measured in MWac and is not firm capacity.</text>
+  </svg>
+  <p class="figcap">As at June 2025. Source: <a href="https://www.ema.gov.sg/resources/singapore-energy-statistics/chapter2" target="_blank" rel="noopener">EMA, Singapore Energy Statistics</a>.</p>
+</div>
+
+<div class="stats">
+  <div class="st"><div class="k">Gas share of generation</div><div class="v">93.1<small>%</small></div></div>
+  <div class="st arrow">&#8594;</div>
+  <div class="st"><div class="k">Low-carbon import target, 2035</div><div class="v">6 <small>GW</small></div></div>
+  <div class="st note">Around a third of projected demand. Thirteen projects hold conditional approval and six
+  have progressed to conditional licences. Source: <a href="https://www.ema.gov.sg/our-energy-story/energy-supply/regional-power-grids" target="_blank" rel="noopener">EMA</a>.</div>
+</div>
+
+<div class="pull"><div class="t">What the import programme actually changes</div>
+<p>Today a supply shock has nowhere to go but into price: an unplanned outage on a piped line, a cargo that
+slips. Firm imports give the stack a second source that does not move with the first. Correlations that
+have held for two decades are not safe assumptions for the 2030s.</p></div>
+</section><section class="sec" id="s5"><span class="sn">05</span><h2>Price setting mechanism</h2>
+<p class="lead">A half-hourly marginal-cost auction with nodal pricing under the bonnet and one uniform
+price on top. Two ceilings sit above it: an explicit value of lost load, and since 2023 a second, moving
+cap.</p>
+
+<h3>How the auction works</h3>
+<p>Generators offer for each half-hour period. The clearing engine dispatches upward from the cheapest
+offer until supply meets demand, co-ordinating energy against the reserve and regulation the system operator
+needs. The last offer taken sets the marginal price. Prices are computed at every network node and then
+collapse into one number for settlement: <a href="https://www.nems.emcsg.com/Guide-To-Prices" target="_blank" rel="noopener">USEP</a>, the load-weighted average of nodal prices
+across all off-take nodes in the period.</p>
+
+<p>Gas plant is on the margin in virtually every period, so USEP is a gas price wearing megawatt-hour
+clothing. <a href="https://www.ema.gov.sg/consumer-information/energy-prices-in-singapore-what-you-need-to-know/what-is-affecting-energy-prices-in-singapore" target="_blank" rel="noopener">EMA</a> notes that offers are dominated by fuel cost and that gas costs are still largely
+oil-indexed. The route from a crude move to a Singapore power price is therefore short, and what lag exists
+comes from contract indexation rather than from anyone switching fuel.</p>
+
+<h3>The two caps</h3>
+<p>There is a hard <strong>energy price cap of S$4,500/MWh</strong>, set against the value of lost load.
+That is the highest number the clearing engine can produce. Underneath it, since 1 July 2023, sits the
+<strong>Temporary Price Cap</strong>: a circuit breaker that trips when the moving average of USEP over the
+last 48 half-hour periods crosses a threshold. Once it trips it holds for at least a full day, capping USEP
+at a multiple of CCGT long-run marginal cost, <a href="https://www.ema.gov.sg/content/dam/corporate/partnerships/consultations/consultation-on-temporary-price-cap/decision/EMA-Consultation-Final-Determination-Temporary-Price-Cap.pdf.coredownload.pdf" target="_blank" rel="noopener">between 1.5 and 3 times</a>, reset fortnightly against the spread between spot and
+term gas.</p>
+
+<div class="pull"><div class="t">The asymmetry that matters</div>
+<p>The cap tightens precisely when spot gas is dear relative to term gas, which cuts the right tail off the
+price distribution on exactly the days it would have paid. Price optionality on USEP and you are pricing an
+option the regulator can shorten at will.</p></div>
+
+<h3>Where prices have sat</h3>
+<p>Through 2025 USEP mostly settled in the <a href="https://www.ema.gov.sg/resources/singapore-energy-statistics/chapter5" target="_blank" rel="noopener">S$100 to S$200/MWh range</a>, a long way below the crisis of 2022 and early 2023, when
+averages ran near S$320/MWh and spikes cleared above S$450/MWh. Averages are the least useful statistic
+here. The shape is long flat stretches broken by scarcity events around plant outages.</p>
+</section><section class="sec" id="s6"><span class="sn">06</span><h2>Regulatory regime</h2>
+<p class="lead">Policy, licensing, market rules and real-time system operation all sit with one regulator.
+That concentration makes the regime fast-moving, and quick to intervene when it decides the market is not
+delivering.</p>
+
+<table><thead><tr><th>Body</th><th>Remit</th></tr></thead><tbody>
+<tr><td>Energy Market Authority (EMA)</td><td>Electricity and gas regulation, licensing, market design and power system operation</td></tr>
+<tr><td>Energy Market Company (EMC)</td><td>Operation, clearing and settlement of the NEMS wholesale market</td></tr>
+<tr><td>Ministry of Trade and Industry</td><td>Parent ministry; energy policy and energy security</td></tr>
+<tr><td>Singapore Energy Interconnections (SGEI)</td><td>Development and operation of cross-border electricity interconnections</td></tr>
+</tbody></table>
+
+<h3>The reform arc</h3>
+<p>NEMS opened in 2003. Retail contestability reached every consumer when the Open Electricity Market
+rollout finished in 2019. Since then the interventions have been about resilience rather than more
+liberalisation: vesting contracts to hold market power down, the Temporary Price Cap in 2023 to hold
+volatility down, and a centralised process from 2023 under which EMA calls for new generation capacity
+instead of waiting for merchant investment to turn up.</p>
+
+<h3>Two changes worth watching</h3>
+<div class="cards">
+<div class="card"><h4>Centralised gas procurement</h4><p>EMA plans to appoint <a href="https://www.ema.gov.sg/our-energy-story/energy-market-landscape/gas" target="_blank" rel="noopener">a single aggregator of gas demand</a> for the whole power sector.
+Buying as one block should improve terms and security of supply. It also lifts gas price risk off individual
+gencos and drops it on one balance sheet, which changes what a generator's cost curve is actually telling
+you.</p></div>
+<div class="card"><h4>Electricity imports</h4><p>Thirteen projects hold conditional approval and six have
+conditional licences, drawing on Australia, Cambodia, Indonesia, Malaysia and Vietnam. The <a href="https://www.ema.gov.sg/our-energy-story/energy-supply/regional-power-grids" target="_blank" rel="noopener">LTMS-PIP</a> already trades up to
+200 MW multilaterally across four ASEAN states. That is the template being scaled.</p></div>
+</div>
+
+<h3>How to read the regime</h3>
+<p>Nobody in Singapore treats the wholesale price as sacred. When a market outcome runs against security of
+supply or consumer protection, the regulator adds an instrument: a contract layer, a cap, a procurement
+process. It has done so every time. Regulatory risk here is not that someone breaks a rule. It is that a new
+rule arrives on Tuesday and applies on Wednesday.</p>
+</section><section class="sec" id="s7"><span class="sn">SOURCES</span><h2>Key links</h2><p class="lead">Primary sources for this market. Figures on this page are drawn from these and from published market data.</p><div class="links"><a class="lk" href="https://www.home.emcsg.com/" target="_blank" rel="noopener"><div class="n">Energy Market Company</div><div class="d">Operator of the NEMS wholesale market — rules, data and settlement</div><div class="u">https://www.home.emcsg.com/</div></a><a class="lk" href="https://www.nems.emcsg.com/Guide-To-Prices" target="_blank" rel="noopener"><div class="n">NEMS — Guide to Prices</div><div class="d">How USEP and nodal prices are calculated and applied</div><div class="u">https://www.nems.emcsg.com/Guide-To-Prices</div></a><a class="lk" href="https://www.ema.gov.sg/resources/singapore-energy-statistics" target="_blank" rel="noopener"><div class="n">EMA — Singapore Energy Statistics</div><div class="d">Official generation, capacity, consumption and price data</div><div class="u">https://www.ema.gov.sg/resources/singapore-energy-statistics</div></a><a class="lk" href="https://www.ema.gov.sg/our-energy-story/energy-market-landscape/gas" target="_blank" rel="noopener"><div class="n">EMA — Gas market</div><div class="d">Pipeline and LNG supply structure, importer licences and gas aggregation</div><div class="u">https://www.ema.gov.sg/our-energy-story/energy-market-landscape/gas</div></a><a class="lk" href="https://www.ema.gov.sg/our-energy-story/energy-supply/regional-power-grids" target="_blank" rel="noopener"><div class="n">EMA — Regional power grids</div><div class="d">Electricity import programme, conditional licences and LTMS-PIP</div><div class="u">https://www.ema.gov.sg/our-energy-story/energy-supply/regional-power-grids</div></a><a class="lk" href="https://www.slng.com.sg/slng-terminal-overview" target="_blank" rel="noopener"><div class="n">SLNG</div><div class="d">Jurong Island terminal capacity, storage and throughput services</div><div class="u">https://www.slng.com.sg/slng-terminal-overview</div></a></div></section></main>
+  </div>
+</div>
+
+
+
+<script>
+var links=[].slice.call(document.querySelectorAll('.toc a[href^="#s"]'));
+var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))}).filter(Boolean);
+function onScroll(){var y=window.scrollY+150,c=0;
+  secs.forEach(function(s,i){if(s.offsetTop<=y)c=i});
+  links.forEach(function(a,i){a.classList.toggle('on',i===c)})}
+window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+</script>
+</div>

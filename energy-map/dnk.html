@@ -1,0 +1,406 @@
+---
+layout: default
+title: Denmark
+permalink: /energy-map/dnk/
+blurb: "Denmark — Pool clearing. Market structure, infrastructure, demand and supply, price formation and regulation."
+---
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet"><style>
+.emapx{
+  --bg:#FAFAF8; --surface:#FFFFFF; --sunken:#F4F7F7;
+  --ink:#14262B; --ink-muted:#4A5B60; --ink-dim:#7C8D92;
+  --border:#E2E8E8;
+  --s5:#C0392B; --s4:#DD7B2F; --s3:#E8AE28; --s2:#3B8B60; --s1:#1F7A52;
+  --accent:#3B8B60;
+  --r:8px; --micro:180ms; --ease:cubic-bezier(.2,.6,.2,1);
+  --serif:"Source Serif 4",Georgia,serif;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+.emapx *{box-sizing:border-box;margin:0;padding:0}
+.emapx{scroll-behavior:smooth}
+.emapx{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.5;
+  -webkit-font-smoothing:antialiased;font-feature-settings:"tnum" 1}
+.emapx h1,.emapx h2,.emapx h3{font-family:var(--serif);line-height:1.16;letter-spacing:-.02em;font-weight:600}
+.emapx .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+@media(max-width:767px){.emapx .wrap{padding:0 16px}}
+.emapx .proto{background:#14262B;color:#F3F6F6;font-size:12px;padding:8px 16px;text-align:center}
+.emapx nav{position:sticky;top:0;z-index:60;height:64px;display:flex;align-items:center;
+  background:rgba(250,250,248,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.emapx nav .wrap{display:flex;align-items:center;gap:26px;width:100%}
+.emapx .logo{font-family:var(--serif);font-size:20px;font-weight:700;display:flex;align-items:center;gap:10px}
+.emapx .logo .mark{width:22px;height:22px;border:2px solid var(--accent);border-radius:3px;position:relative;flex:none}
+.emapx .logo .mark::after{content:"";position:absolute;inset:4px 4px auto 4px;height:2px;background:var(--s3)}
+.emapx .crumb{font-size:13px;color:var(--ink-dim)}
+.emapx .crumb a{color:var(--ink-muted);text-decoration:none}
+.emapx .crumb a:hover{color:var(--ink)}
+.emapx .navlinks{display:flex;gap:22px;margin-left:auto;font-size:14px}
+.emapx .navlinks a{color:var(--ink-muted);text-decoration:none}
+.emapx .navlinks a:hover{color:var(--ink)}
+
+.emapx /* header */
+.mh{padding:46px 0 30px}
+.emapx .mh .top{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.emapx .bchip{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:5px 12px;border-radius:999px;background:var(--accent);color:#fff}
+.emapx .reviewed{font-size:12px;color:var(--ink-dim);margin-left:auto}
+.emapx .mh h1{font-size:56px;margin-bottom:12px}
+@media(max-width:767px){.emapx .mh h1{font-size:34px}}
+.emapx .mh .one{font-size:20px;color:var(--ink-muted);max-width:62ch;line-height:1.45}
+.emapx .facts{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);
+  border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin-top:28px}
+@media(max-width:900px){.emapx .facts{grid-template-columns:repeat(2,1fr)}}
+.emapx .fi{background:var(--surface);padding:15px 16px}
+.emapx .fi .k{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:5px}
+.emapx .fi .v{font-size:15px;font-weight:600;line-height:1.3}
+
+.emapx /* layout */
+.body{display:grid;grid-template-columns:190px 1fr;gap:44px;padding-bottom:20px}
+@media(max-width:1023px){.emapx .body{grid-template-columns:1fr;gap:0}.emapx .toc{display:none}}
+.emapx .toc{position:sticky;top:88px;align-self:start;padding-top:40px}
+.emapx .toc .t{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:10px}
+.emapx .toc a{display:block;font-size:13px;color:var(--ink-muted);text-decoration:none;padding:7px 0 7px 13px;
+  border-left:2px solid var(--border);transition:all var(--micro) var(--ease)}
+.emapx .toc a:hover{color:var(--ink);border-left-color:var(--ink-dim)}
+.emapx .toc a.on{color:var(--ink);font-weight:600;border-left-color:var(--accent)}
+
+.emapx /* sections */
+.sec{padding:40px 0;border-top:1px solid var(--border)}
+.emapx .sec:first-child{border-top:0;padding-top:12px}
+.emapx .sn{font-family:var(--serif);font-size:13px;font-weight:700;color:var(--accent);display:block;margin-bottom:5px}
+.emapx .sec h2{font-size:31px;margin-bottom:8px}
+.emapx .sec .lead{font-size:17px;color:var(--ink-muted);line-height:1.6;max-width:70ch;margin-bottom:20px}
+.emapx .sec p{font-size:15.5px;line-height:1.68;color:var(--ink-muted);max-width:70ch;margin-bottom:16px}
+.emapx .sec p strong{color:var(--ink);font-weight:600}
+.emapx .sec h3{font-size:19px;margin:26px 0 10px}
+
+.emapx table{width:100%;border-collapse:collapse;font-size:14px;background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin:6px 0 20px}
+.emapx th{text-align:left;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-dim);
+  padding:10px 14px;border-bottom:1px solid var(--border);background:var(--sunken);font-weight:700}
+.emapx td{padding:11px 14px;border-bottom:1px solid var(--border);color:var(--ink-muted);vertical-align:top;line-height:1.5}
+.emapx tbody tr:last-child td{border-bottom:0}
+.emapx td:first-child{color:var(--ink);font-weight:500}
+.emapx tbody tr:hover td{background:var(--sunken)}
+
+.emapx .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:6px 0 20px}
+@media(max-width:900px){.emapx .cards{grid-template-columns:1fr}}
+.emapx .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:18px}
+.emapx .card h4{font-family:var(--sans);font-size:14px;font-weight:600;margin-bottom:7px;color:var(--accent)}
+.emapx .card p{font-size:13.5px;line-height:1.55;margin:0;color:var(--ink-muted)}
+
+.emapx .pull{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--accent);
+  border-radius:var(--r);padding:20px 22px;margin:6px 0 22px}
+.emapx .pull p{margin:0;font-size:15.5px;line-height:1.6}
+.emapx .pull .t{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:7px}
+
+.emapx /* map slot — a SOURCED map is placed here,.emapx never a rendered one */
+.mapslot{background:var(--sunken);border:1px dashed var(--border);border-radius:var(--r);
+  padding:34px 24px;text-align:center;margin:6px 0 20px}
+.emapx .mapslot .t{font-size:13px;font-weight:600;color:var(--ink-muted);margin-bottom:5px}
+.emapx .mapslot .s{font-size:12px;color:var(--ink-dim);line-height:1.5;max-width:56ch;margin:0 auto}
+
+.emapx /* key links */
+.links{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:6px}
+@media(max-width:767px){.emapx .links{grid-template-columns:1fr}}
+.emapx .lk{display:block;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+  padding:15px 17px;text-decoration:none;transition:all var(--micro) var(--ease)}
+.emapx .lk:hover{border-color:var(--accent);transform:translateY(-2px)}
+.emapx .lk .n{font-size:14.5px;font-weight:600;color:var(--ink);margin-bottom:3px}
+.emapx .lk .d{font-size:12.5px;color:var(--ink-dim);line-height:1.45}
+.emapx .lk .u{font-size:11.5px;color:var(--accent);margin-top:6px;word-break:break-all}
+
+
+.emapx /* ── figures,.emapx charts,.emapx schematic ── */
+.fig{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+  padding:22px 24px 16px;margin:8px 0 22px}
+.emapx .fig svg{display:block;width:100%;height:auto;overflow:visible}
+.emapx .fig-t{font-family:var(--serif);font-size:17px;font-weight:600;margin-bottom:14px}
+.emapx .figcap{font-size:12px;color:var(--ink-dim);line-height:1.5;margin:14px 0 0;max-width:none}
+.emapx .figcap a{color:var(--accent)}
+.emapx .figcap b{color:var(--ink-muted)}
+.emapx /* schematic */
+.area rect{fill:var(--surface);stroke:#CBD6D6;stroke-width:1.5}
+.emapx .area text{font-family:var(--sans);font-size:13px;font-weight:600;fill:var(--ink);
+  text-anchor:middle;dominant-baseline:middle}
+.emapx .area.e rect{stroke:#2a78d6} .emapx .area.w rect{stroke:#eb6834}
+.emapx .area.iso rect{stroke-dasharray:4 3}
+.emapx .ln{stroke:#9AA8AC;stroke-width:2;fill:none}
+.emapx .lnfc{stroke:#7C8D92;stroke-width:2;fill:none;stroke-dasharray:5 4}
+.emapx .fc{fill:#FDF3E7;stroke:#DD7B2F;stroke-width:1.6}
+.emapx .fct{font-family:var(--sans);font-size:12px;font-weight:700;fill:#C0651F;text-anchor:middle}
+.emapx .fh{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em}
+.emapx .cap2{font-family:var(--sans);font-size:10.5px;fill:#7C8D92;text-anchor:middle;paint-order:stroke;stroke:var(--surface);stroke-width:5;stroke-linejoin:round}
+.emapx .cap2.iso2{font-style:italic}
+.emapx /* composition bar */
+.seg text{font-family:var(--sans);font-size:12.5px;font-weight:600;fill:#fff;dominant-baseline:middle}
+.emapx .axl{font-family:var(--sans);font-size:11.5px;fill:#7C8D92}
+.emapx /* bar chart */
+.grid{stroke:#EDF1F1;stroke-width:1}
+.emapx .axis{stroke:#CBD6D6;stroke-width:1}
+.emapx .gl{font-family:var(--sans);font-size:10.5px;fill:#9AA8AC;text-anchor:end}
+.emapx .xl{font-family:var(--sans);font-size:12px;fill:var(--ink-muted);text-anchor:middle}
+.emapx .bar1 rect{fill:#1baf7a}
+.emapx .bar1 text{font-family:var(--sans);font-size:15px;font-weight:700;fill:var(--ink);text-anchor:middle}
+.emapx /* stat pair */
+.stats{display:flex;align-items:center;gap:18px;flex-wrap:wrap;background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--r);padding:20px 24px;margin:0 0 22px}
+.emapx .st .k{font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:4px}
+.emapx .st .v{font-family:var(--serif);font-size:30px;font-weight:700;line-height:1}
+.emapx .st .v small{font-family:var(--sans);font-size:13px;font-weight:500;color:var(--ink-muted)}
+.emapx .st.arrow{font-size:24px;color:var(--ink-dim)}
+.emapx .st.note{flex:1 1 240px;font-size:11.5px;color:var(--ink-dim);line-height:1.5}
+.emapx .st.note a{color:var(--accent)}
+.emapx /* pending slot */
+.pending{background:var(--sunken);border:1px dashed #CBD6D6;border-radius:var(--r);
+  padding:20px 22px;margin:6px 0 22px}
+.emapx .pending .t{font-size:13px;font-weight:600;color:var(--ink-muted);margin-bottom:6px}
+.emapx .pending p{font-size:13px;color:var(--ink-dim);line-height:1.55;margin:0}
+.emapx .pending a{color:var(--accent)}
+
+.emapx footer{border-top:1px solid var(--border);padding:30px 0;font-size:12px;color:var(--ink-dim);line-height:1.6}
+@media(prefers-reduced-motion:reduce){.emapx *{transition-duration:.01ms!important}}
+</style>
+<div class="emapx">
+<div class="wrap">
+  <header class="mh">
+    <div class="top">
+      <span class="bchip">Pool clearing</span>
+      <span class="reviewed">Last reviewed 16 August 2026</span>
+    </div>
+    <h1>Denmark</h1>
+    <p class="one">The world's highest wind share, run across two synchronous systems that meet only through a 600 MW cable. Denmark is two power markets wearing one flag.</p>
+    <div class="facts"><div class="fi"><div class="k">Power exchange</div><div class="v">Nord Pool</div></div><div class="fi"><div class="k">Bidding zones</div><div class="v">DK1 and DK2</div></div><div class="fi"><div class="k">Price unit</div><div class="v">EUR / MWh</div></div><div class="fi"><div class="k">System operator</div><div class="v">Energinet (power and gas)</div></div><div class="fi"><div class="k">Gas position</div><div class="v">Net exporter since 2024</div></div></div>
+  </header>
+
+  <div class="body">
+    <aside class="toc" id="toc">
+      <div class="t">On this page</div>
+      <a href="#s1">01 Overview</a>
+      <a href="#s2">02 Market structure</a>
+      <a href="#s3">03 Infrastructure</a>
+      <a href="#s4">04 Demand and supply</a>
+      <a href="#s5">05 Price setting</a>
+      <a href="#s6">06 Regulatory regime</a>
+      <a href="#s7">Key links</a>
+    </aside>
+    <main><section class="sec" id="s1"><span class="sn">01</span><h2>Overview</h2>
+<p class="lead">Denmark runs the windiest power system in the world and it runs it twice. West of the
+Great Belt the grid is synchronous with continental Europe; east of it, with the Nordics. One country,
+two synchronous areas, two prices.</p>
+
+<p>Wind supplied roughly <strong>60%</strong> of Danish electricity in the year to mid-2026, with
+bioenergy near 19% and solar 14%, on <a href="https://lowcarbonpower.org/region/Denmark" target="_blank" rel="noopener">Low Carbon Power</a> figures. Fossil plant covers what is left — under 7% — and
+most of it now exists to be there on the days the wind is not. Consumption was <strong>38.1 TWh</strong>
+in 2024 against 34.5 TWh of domestic generation, the gap closed by 3.7 TWh of net imports through one
+of the densest interconnection networks in Europe (<a href="https://forsyningstilsynet.dk/Media/638924853153921019/2025%20National%20Report%20.pdf" target="_blank" rel="noopener">Forsyningstilsynet, national report 2024</a>).</p>
+
+<p>Gas is a smaller business but a strategically loud one. The Tyra hub in the North Sea was shut in
+September 2019 for a full rebuild and did not restart until <strong>22 March 2024</strong>, at a plateau
+of 5.7 million cubic metres a day (<a href="https://totalenergies.com/news/press-releases/denmark-totalenergies-restarts-gas-production-tyra-offshore-hub-after-major" target="_blank" rel="noopener">TotalEnergies</a>). For those four and a half years Denmark, historically an
+exporter, bought its gas from Germany and Norway. In 2024 it swung back, ending the year a net exporter
+of 456 million cubic metres.</p>
+
+<p>Sitting across both commodities is <strong>Energinet</strong>, the state-owned transmission system
+operator for electricity and gas alike — an arrangement that is rarer than it sounds and that shortens
+the distance between a gas balancing decision and a power system one. Power trades on Nord Pool in the
+DK1 and DK2 bidding zones. Gas trades at the ETF virtual point, which averaged 36.09 EUR/MWh in 2024.</p>
+
+<div class="pull"><div class="t">Why traders watch Denmark</div>
+<p>It is the stress test everyone else is heading towards. Very high wind penetration, a small thermal
+fleet, and enough cable capacity that domestic scarcity usually becomes somebody else's price problem
+within the hour.</p></div>
+</section><section class="sec" id="s2"><span class="sn">02</span><h2>Market structure</h2>
+<p class="lead">Two bidding zones, one TSO, one exchange — and a regulator that reports on both fuels in
+the same document.</p>
+
+<h3>Who does what</h3>
+<table><thead><tr><th>Function</th><th>Body</th><th>Role</th></tr></thead><tbody>
+<tr><td>Power exchange</td><td>Nord Pool</td><td>Day-ahead auction and intraday for DK1 and DK2</td></tr>
+<tr><td>Transmission — power and gas</td><td>Energinet</td><td>State-owned TSO for both systems</td></tr>
+<tr><td>Regulation</td><td>Forsyningstilsynet</td><td>Tariffs, network access, market monitoring</td></tr>
+<tr><td>Policy</td><td>Danish Energy Agency (ENS)</td><td>Tenders, licensing, energy statistics</td></tr>
+<tr><td>Gas trading point</td><td>ETF</td><td>Virtual hub; primary exchange trading via Gaspoint Nordic</td></tr>
+</tbody></table>
+
+<h3>DK1 and DK2</h3>
+<p>The split is electrical, not administrative. <strong>DK1</strong> — Jutland and Funen — is part of the
+Continental European synchronous area and shares a border with Germany. <strong>DK2</strong> — Zealand,
+including Copenhagen — is synchronous with the Nordic system and connects to Sweden. The two cannot be
+joined with an ordinary AC line, so they are joined by the <strong>Great Belt link</strong>, a 600 MW HVDC
+connection commissioned in 2010 (<a href="https://en.wikipedia.org/wiki/Great_Belt_power_link" target="_blank" rel="noopener">Great Belt power link</a>).</p>
+
+<p>Six hundred megawatts is not much. When wind blows hard in Jutland and Norwegian hydro is full, the
+Great Belt saturates and the two Danish zones price independently — sometimes by a wide margin, and
+occasionally in opposite directions, DK1 negative while DK2 sits at continental levels. Averaged over
+2024 the two look almost identical: 70.6 EUR/MWh in DK1 against 70.9 EUR/MWh in DK2 (<a href="https://forsyningstilsynet.dk/Media/638924853153921019/2025%20National%20Report%20.pdf" target="_blank" rel="noopener">Forsyningstilsynet, national report 2024</a>). Hourly, they
+are frequently nothing alike.</p>
+
+<h3>Retail and supply</h3>
+<p>Retail has been fully open since 2003, with a datahub run by Energinet handling metering and supplier
+switching. Distribution remains monopoly and revenue-capped. The commercially interesting layer is
+upstream: with 7,506 MW of wind capacity — 4,860 MW onshore, 2,646 MW offshore (<a href="https://forsyningstilsynet.dk/Media/638924853153921019/2025%20National%20Report%20.pdf" target="_blank" rel="noopener">Forsyningstilsynet, national report 2024</a>) — against a peak
+demand of a few gigawatts, the merchant question in Denmark is rarely about volume and almost always
+about when and where.</p>
+</section><section class="sec" id="s3"><span class="sn">03</span><h2>Infrastructure — power and gas</h2>
+<p class="lead">Cables in every direction, a gas transmission grid that mostly serves someone else's
+market, and one very large offshore project still being built.</p>
+
+<h3>Power interconnection</h3>
+<table><thead><tr><th>Link</th><th>To</th><th>Capacity</th><th>Zone</th></tr></thead><tbody>
+<tr><td>Skagerrak 1–4</td><td>Norway</td><td>1,700 MW</td><td>DK1</td></tr>
+<tr><td>Viking Link</td><td>Great Britain</td><td>1,400 MW</td><td>DK1</td></tr>
+<tr><td>COBRAcable</td><td>Netherlands</td><td>700 MW</td><td>DK1</td></tr>
+<tr><td>Kontek</td><td>Germany</td><td>600 MW</td><td>DK2</td></tr>
+<tr><td>Great Belt</td><td>DK1 ↔ DK2</td><td>600 MW</td><td>internal</td></tr>
+</tbody></table>
+<p>Capacities per <a href="https://en.wikipedia.org/wiki/Skagerrak_(power_transmission_system)" target="_blank" rel="noopener">Skagerrak</a>, <a href="https://en.energinet.dk/infrastructure-projects/finished-projects/viking-link/" target="_blank" rel="noopener">Energinet on Viking Link</a>, <a href="https://en.wikipedia.org/wiki/COBRAcable" target="_blank" rel="noopener">COBRAcable</a> and <a href="https://en.wikipedia.org/wiki/Kontek" target="_blank" rel="noopener">Kontek</a>. On top of these sit AC connections to Germany from Jutland and to
+Sweden from Zealand, plus Konti-Skan to Sweden's west coast.</p>
+
+<p>Viking Link is the newest and the one that changed the shape of DK1. At 765 km it was the longest
+land and subsea interconnector in the world when it entered commercial operation at the end of December
+2023, running from Revsing in southern Jutland to Bicker Fen in Lincolnshire. It gave Danish wind a
+second high-price sink at times when Germany was also long.</p>
+
+<h3>Under construction</h3>
+<p>The <strong>Bornholm Energy Island</strong> is the large one: 3 GW of offshore wind in the Baltic,
+landing on Bornholm and cabled onward to both the Danish and German grids. Denmark and Germany concluded
+the bilateral cost-sharing agreement on 26 January 2026, backed by more than EUR 645 million of
+Connecting Europe Facility support (<a href="https://energy.ec.europa.eu/news/energy-highways-germany-and-denmark-agree-joint-development-bornholm-energy-island-offshore-wind-2026-01-26_en" target="_blank" rel="noopener">European Commission</a>).</p>
+
+<h3>Gas</h3>
+<p>Danish gas transmission connects the North Sea fields at Nybro to Germany, and — since 2022 — carries
+Norwegian gas across Denmark to Poland through <strong>Baltic Pipe</strong>, 10 bcm a year westbound to
+Poland with 3 bcm of reverse capacity into Denmark (<a href="https://en.wikipedia.org/wiki/Baltic_Pipe" target="_blank" rel="noopener">Baltic Pipe</a>). A single storage facility at Lille Torup and the
+Stenlille site provide seasonal flexibility. Domestic production is modest by European standards, and an
+unusually large slice of it is not fossil at all: biomethane made up 672 million cubic metres, 28.2% of
+Danish gas production, in 2024 (<a href="https://forsyningstilsynet.dk/Media/638924853153921019/2025%20National%20Report%20.pdf" target="_blank" rel="noopener">Forsyningstilsynet, national report 2024</a>).</p>
+
+<div class="mapslot"><div class="t">Geographic infrastructure map</div>
+<div class="s">A sourced map of the Danish transmission grid, interconnectors and gas pipelines belongs
+here — reproduced from an Energinet publication rather than redrawn.</div></div>
+</section><section class="sec" id="s4"><span class="sn">04</span><h2>Demand and supply</h2>
+<p class="lead">Demand is growing again after a decade of flatness, supply is overwhelmingly weather-driven,
+and the balance is struck on cables rather than on plant.</p>
+
+<h3>Demand</h3>
+<p>Danish electricity consumption reached <strong>38.1 TWh</strong> in 2024, up 5.5% on 2023, while domestic
+generation rose 5.8% to 34.5 TWh (<a href="https://forsyningstilsynet.dk/Media/638924853153921019/2025%20National%20Report%20.pdf" target="_blank" rel="noopener">Forsyningstilsynet, national report 2024</a>). Data centres, heat pumps and electrified transport are doing the work;
+so, increasingly, is electrolysis. Gas consumption went the other way, easing 1.5% to 1.80 billion cubic
+metres as district heating continued to swap gas for biomass, waste and heat pumps.</p>
+
+<h3>Supply</h3>
+<div class="fig">
+  <div class="fig-t">Where Danish electricity came from, twelve months to mid-2026</div>
+  <svg viewBox="0 0 900 118" role="img" aria-label="Denmark generation mix by source">
+    <g class="seg"><rect x="0"   y="18" width="533" height="40" rx="4" fill="#2a78d6"/><text x="10"  y="43">Wind 60%</text></g>
+    <g class="seg"><rect x="537" y="18" width="169" height="40" rx="4" fill="#eb6834"/><text x="547" y="43">Bioenergy 19%</text></g>
+    <g class="seg"><rect x="710" y="18" width="124" height="40" rx="4" fill="#1baf7a"/><text x="720" y="43">Solar 14%</text></g>
+    <g class="seg"><rect x="838" y="18" width="62"  height="40" rx="4" fill="#9AA8AC"/><text x="896" y="43" text-anchor="end">Other 7%</text></g>
+    <text x="0"   y="82" class="axl">Low-carbon sources supply about 93% of generation.</text>
+    <text x="900" y="82" class="axl" text-anchor="end">Coal and gas sit inside “Other”.</text>
+  </svg>
+  <p class="figcap">Shares for the twelve months to mid-2026. Source: <a href="https://lowcarbonpower.org/region/Denmark" target="_blank" rel="noopener">Low Carbon Power</a>. Percentages are of generation,
+  not of consumption — Denmark was a net importer of 3.7 TWh in 2024 (<a href="https://forsyningstilsynet.dk/Media/638924853153921019/2025%20National%20Report%20.pdf" target="_blank" rel="noopener">Forsyningstilsynet, national report 2024</a>).</p>
+</div>
+
+<p>The composition matters less than its variance. A 60% wind share is an annual average built out of hours
+at 130% of demand and hours near zero. Bioenergy — straw, wood chip and waste in combined heat and power
+plants — is the flexible middle, though it is dispatched partly on heat demand rather than power price, which
+blunts it. Solar has grown fast enough to add a second, summer-shaped shoulder to the problem.</p>
+
+<div class="stats">
+  <div class="st"><div class="k">Onshore wind</div><div class="v">4,860 <small>MW</small></div></div>
+  <div class="st"><div class="k">Offshore wind</div><div class="v">2,646 <small>MW</small></div></div>
+  <div class="st"><div class="k">Negative price hours, 2024</div><div class="v">650</div></div>
+  <div class="st note">Capacity and negative-hour counts for 2024. Source: <a href="https://forsyningstilsynet.dk/Media/638924853153921019/2025%20National%20Report%20.pdf" target="_blank" rel="noopener">Forsyningstilsynet, national report 2024</a>.</div>
+</div>
+
+<h3>Gas balance</h3>
+<p>Total Danish gas production, including biomethane, was 2.38 billion cubic metres in 2024 against 1.80
+billion of consumption, putting the country back in net export at 456 million cubic metres. That reversal is
+Tyra's doing, and it is worth keeping the sequence straight: exporter until 2019, importer through the rebuild,
+exporter again from 2024.</p>
+
+<div class="pull"><div class="t">The number that moves</div>
+<p>Denmark's transit role is larger than its own consumption. Baltic Pipe alone can carry 10 bcm a year across
+the country — more than five times what Danish customers burn.</p></div>
+</section><section class="sec" id="s5"><span class="sn">05</span><h2>Price setting mechanism</h2>
+<p class="lead">A marginal-cost auction cleared across most of Europe at once, in which the marginal unit in
+Denmark is very often not Danish.</p>
+
+<h3>The auction</h3>
+<p>Generators and suppliers bid into Nord Pool's day-ahead auction, which clears through the Single Day-Ahead
+Coupling algorithm alongside the rest of the coupled European market. Since <strong>1 October 2025</strong> the
+market time unit has been 15 minutes rather than an hour, implemented across all bidding zones and borders at
+once (<a href="https://www.nordpoolgroup.com/en/message-center-container/newsroom/exchange-message-list/2025/q4/15-minute-mtu-in-sdac-was-implemented/" target="_blank" rel="noopener">Nord Pool</a>). Each zone gets its own price; where the cable between two zones is not full, the prices converge.</p>
+
+<p>That last point is the whole story of Danish price formation. Denmark has very little price-setting plant of
+its own. In most hours the marginal unit is German lignite or gas, Norwegian hydro water value, or — through
+Viking Link — a British CCGT. DK1 tends to follow Germany, DK2 tends to follow the Nordics, and the Great Belt
+decides how much they are allowed to disagree.</p>
+
+<h3>What wind does to the duration curve</h3>
+<p>At 60% wind share the price duration curve is not a smooth arc. It is a long flat middle punctuated at both
+ends: a tail of hours near or below zero when it blows and demand is soft, and a short, steep tail of scarcity
+hours in still, cold weather when everything must come from imports or from thermal plant that ran a handful of
+days that year.</p>
+
+<p>Denmark recorded <strong>650 hours of negative prices in 2024</strong> — 375 in DK1 and 275 in DK2, a 27%
+increase on the year before (<a href="https://forsyningstilsynet.dk/Media/638924853153921019/2025%20National%20Report%20.pdf" target="_blank" rel="noopener">Forsyningstilsynet, national report 2024</a>). Negative prices are not an anomaly here; they are a structural feature of a
+system with must-run heat-driven CHP, subsidised wind and finite export capacity. The annual averages, 70.6
+EUR/MWh in DK1 and 70.9 in DK2, tell you almost nothing about that distribution.</p>
+
+<h3>Gas</h3>
+<p>Gas prices at the ETF virtual point track TTF closely, as they must for a system connected to Germany and
+supplied largely from the North Sea and Norway. ETF averaged 36.09 EUR/MWh in 2024, down 15.9% year on year.
+Where Danish gas does its own thing is on the transit spreads — the Baltic Pipe entry-exit stack — rather than
+on the commodity.</p>
+</section><section class="sec" id="s6"><span class="sn">06</span><h2>Regulatory regime</h2>
+<p class="lead">Forsyningstilsynet regulates the networks and monitors the markets; policy sits with the
+Ministry of Climate, Energy and Utilities and its agency; and above both sits EU electricity and gas law,
+which Denmark applies without the opt-outs it has elsewhere.</p>
+
+<table><thead><tr><th>Body</th><th>Remit</th></tr></thead><tbody>
+<tr><td>Forsyningstilsynet (Danish Utility Regulator)</td><td>Independent NRA for electricity, gas, district heating and waste</td></tr>
+<tr><td>Danish Energy Agency (Energistyrelsen)</td><td>Offshore tenders, subsidy schemes, licensing, official statistics</td></tr>
+<tr><td>Energinet</td><td>System operation, balancing, the datahub, network development plans</td></tr>
+<tr><td>ACER and the EU framework</td><td>Cross-border rules, network codes, REMIT surveillance</td></tr>
+</tbody></table>
+
+<h3>What the regulator actually does</h3>
+<p>Forsyningstilsynet sets the revenue caps that distribution companies operate under, approves Energinet's
+tariff methodology, handles third-party access disputes and publishes the annual national report from which
+most of the figures on this page are drawn (<a href="https://forsyningstilsynet.dk/Media/638924853153921019/2025%20National%20Report%20.pdf" target="_blank" rel="noopener">Forsyningstilsynet, national report 2024</a>). Its 2026–2028 work plan adds hydrogen and supply preparedness
+as explicit areas — a signal about where the network regulation is heading.</p>
+
+<h3>The carbon tax</h3>
+<p>Denmark's green tax reform layers a national CO2 tax on top of the EU emissions trading system. Fully phased
+in by 2030, the rate is <strong>DKK 750 per tonne</strong> for emitters outside the ETS and
+<strong>DKK 375 per tonne</strong> for those inside it (<a href="https://investindk.com/insights/denmark-expands-renewable-energy-and-co2-tax" target="_blank" rel="noopener">Invest in Denmark</a>). The design is deliberate: the ETS price does part of
+the work, and the national tax tops it up to a level the government considers consistent with Denmark's 2030 emissions
+reduction target.</p>
+
+<p>For industrial operators the practical effect is that a Danish site pays a carbon cost its German or Dutch
+competitor does not, which pushes fuel switching, electrification and process heat decisions forward by years.
+For the power market the effect is indirect — Danish thermal generation is small — but it sharpens the
+economics of the biomass CHP fleet and of the electrolysers being built to absorb cheap wind hours.</p>
+
+<h3>Offshore tendering</h3>
+<p>The subsidy model has moved from contracts for difference towards zero-subsidy and negative-bid auctions,
+which stalled on <strong>5 December 2024</strong>, when a 3 GW North Sea tender covering the A1, A2 and A3 sites closed without a single bid (<a href="https://www.offshore-mag.com/renewable-energy/news/55248221/danish-energy-agency-no-bids-for-latest-danish-north-sea-wind-tender" target="_blank" rel="noopener">Offshore</a>). Government has since revisited the terms. Anyone
+modelling Danish offshore build-out should treat auction design, not resource, as the binding constraint.</p>
+</section><section class="sec" id="s7"><span class="sn">SOURCES</span><h2>Key links</h2><p class="lead">Primary sources for this market. Figures on this page are drawn from these and from published market data.</p><div class="links"><a class="lk" href="https://en.energinet.dk/" target="_blank" rel="noopener"><div class="n">Energinet</div><div class="d">Danish transmission system operator for both electricity and gas</div><div class="u">https://en.energinet.dk/</div></a><a class="lk" href="https://www.nordpoolgroup.com/en/" target="_blank" rel="noopener"><div class="n">Nord Pool</div><div class="d">Day-ahead and intraday prices for the DK1 and DK2 bidding zones</div><div class="u">https://www.nordpoolgroup.com/en/</div></a><a class="lk" href="https://forsyningstilsynet.dk/" target="_blank" rel="noopener"><div class="n">Forsyningstilsynet</div><div class="d">Danish Utility Regulator — tariffs, network access and market monitoring</div><div class="u">https://forsyningstilsynet.dk/</div></a><a class="lk" href="https://ens.dk/en" target="_blank" rel="noopener"><div class="n">Danish Energy Agency</div><div class="d">Offshore tenders, licensing and official energy statistics</div><div class="u">https://ens.dk/en</div></a><a class="lk" href="https://www.energidataservice.dk/" target="_blank" rel="noopener"><div class="n">Energi Data Service</div><div class="d">Energinet's open data portal — prices, flows, generation and gas</div><div class="u">https://www.energidataservice.dk/</div></a><a class="lk" href="https://forsyningstilsynet.dk/Media/638924853153921019/2025%20National%20Report%20.pdf" target="_blank" rel="noopener"><div class="n">Danish national report 2024</div><div class="d">Forsyningstilsynet's annual review of the electricity and gas markets</div><div class="u">https://forsyningstilsynet.dk/Media/638924853153921019/2025%20National%20Report%20.pdf</div></a></div></section></main>
+  </div>
+</div>
+
+
+
+<script>
+var links=[].slice.call(document.querySelectorAll('.toc a[href^="#s"]'));
+var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))}).filter(Boolean);
+function onScroll(){var y=window.scrollY+150,c=0;
+  secs.forEach(function(s,i){if(s.offsetTop<=y)c=i});
+  links.forEach(function(a,i){a.classList.toggle('on',i===c)})}
+window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+</script>
+</div>

@@ -1,0 +1,466 @@
+---
+layout: default
+title: China
+permalink: /energy-map/chn/
+blurb: "China — Provincial transition. Market structure, infrastructure, demand and supply, price formation and regulation."
+---
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet"><style>
+.emapx{
+  --bg:#FAFAF8; --surface:#FFFFFF; --sunken:#F4F7F7;
+  --ink:#14262B; --ink-muted:#4A5B60; --ink-dim:#7C8D92;
+  --border:#E2E8E8;
+  --s5:#C0392B; --s4:#DD7B2F; --s3:#E8AE28; --s2:#3B8B60; --s1:#1F7A52;
+  --accent:#DD7B2F;
+  --r:8px; --micro:180ms; --ease:cubic-bezier(.2,.6,.2,1);
+  --serif:"Source Serif 4",Georgia,serif;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+.emapx *{box-sizing:border-box;margin:0;padding:0}
+.emapx{scroll-behavior:smooth}
+.emapx{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.5;
+  -webkit-font-smoothing:antialiased;font-feature-settings:"tnum" 1}
+.emapx h1,.emapx h2,.emapx h3{font-family:var(--serif);line-height:1.16;letter-spacing:-.02em;font-weight:600}
+.emapx .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+@media(max-width:767px){.emapx .wrap{padding:0 16px}}
+.emapx .proto{background:#14262B;color:#F3F6F6;font-size:12px;padding:8px 16px;text-align:center}
+.emapx nav{position:sticky;top:0;z-index:60;height:64px;display:flex;align-items:center;
+  background:rgba(250,250,248,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.emapx nav .wrap{display:flex;align-items:center;gap:26px;width:100%}
+.emapx .logo{font-family:var(--serif);font-size:20px;font-weight:700;display:flex;align-items:center;gap:10px}
+.emapx .logo .mark{width:22px;height:22px;border:2px solid var(--accent);border-radius:3px;position:relative;flex:none}
+.emapx .logo .mark::after{content:"";position:absolute;inset:4px 4px auto 4px;height:2px;background:var(--s3)}
+.emapx .crumb{font-size:13px;color:var(--ink-dim)}
+.emapx .crumb a{color:var(--ink-muted);text-decoration:none}
+.emapx .crumb a:hover{color:var(--ink)}
+.emapx .navlinks{display:flex;gap:22px;margin-left:auto;font-size:14px}
+.emapx .navlinks a{color:var(--ink-muted);text-decoration:none}
+.emapx .navlinks a:hover{color:var(--ink)}
+
+.emapx /* header */
+.mh{padding:46px 0 30px}
+.emapx .mh .top{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.emapx .bchip{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:5px 12px;border-radius:999px;background:var(--accent);color:#fff}
+.emapx .reviewed{font-size:12px;color:var(--ink-dim);margin-left:auto}
+.emapx .mh h1{font-size:56px;margin-bottom:12px}
+@media(max-width:767px){.emapx .mh h1{font-size:34px}}
+.emapx .mh .one{font-size:20px;color:var(--ink-muted);max-width:62ch;line-height:1.45}
+.emapx .facts{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);
+  border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin-top:28px}
+@media(max-width:900px){.emapx .facts{grid-template-columns:repeat(2,1fr)}}
+.emapx .fi{background:var(--surface);padding:15px 16px}
+.emapx .fi .k{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:5px}
+.emapx .fi .v{font-size:15px;font-weight:600;line-height:1.3}
+
+.emapx /* layout */
+.body{display:grid;grid-template-columns:190px 1fr;gap:44px;padding-bottom:20px}
+@media(max-width:1023px){.emapx .body{grid-template-columns:1fr;gap:0}.emapx .toc{display:none}}
+.emapx .toc{position:sticky;top:88px;align-self:start;padding-top:40px}
+.emapx .toc .t{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:10px}
+.emapx .toc a{display:block;font-size:13px;color:var(--ink-muted);text-decoration:none;padding:7px 0 7px 13px;
+  border-left:2px solid var(--border);transition:all var(--micro) var(--ease)}
+.emapx .toc a:hover{color:var(--ink);border-left-color:var(--ink-dim)}
+.emapx .toc a.on{color:var(--ink);font-weight:600;border-left-color:var(--accent)}
+
+.emapx /* sections */
+.sec{padding:40px 0;border-top:1px solid var(--border)}
+.emapx .sec:first-child{border-top:0;padding-top:12px}
+.emapx .sn{font-family:var(--serif);font-size:13px;font-weight:700;color:var(--accent);display:block;margin-bottom:5px}
+.emapx .sec h2{font-size:31px;margin-bottom:8px}
+.emapx .sec .lead{font-size:17px;color:var(--ink-muted);line-height:1.6;max-width:70ch;margin-bottom:20px}
+.emapx .sec p{font-size:15.5px;line-height:1.68;color:var(--ink-muted);max-width:70ch;margin-bottom:16px}
+.emapx .sec p strong{color:var(--ink);font-weight:600}
+.emapx .sec h3{font-size:19px;margin:26px 0 10px}
+
+.emapx table{width:100%;border-collapse:collapse;font-size:14px;background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin:6px 0 20px}
+.emapx th{text-align:left;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-dim);
+  padding:10px 14px;border-bottom:1px solid var(--border);background:var(--sunken);font-weight:700}
+.emapx td{padding:11px 14px;border-bottom:1px solid var(--border);color:var(--ink-muted);vertical-align:top;line-height:1.5}
+.emapx tbody tr:last-child td{border-bottom:0}
+.emapx td:first-child{color:var(--ink);font-weight:500}
+.emapx tbody tr:hover td{background:var(--sunken)}
+
+.emapx .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:6px 0 20px}
+@media(max-width:900px){.emapx .cards{grid-template-columns:1fr}}
+.emapx .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:18px}
+.emapx .card h4{font-family:var(--sans);font-size:14px;font-weight:600;margin-bottom:7px;color:var(--accent)}
+.emapx .card p{font-size:13.5px;line-height:1.55;margin:0;color:var(--ink-muted)}
+
+.emapx .pull{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--accent);
+  border-radius:var(--r);padding:20px 22px;margin:6px 0 22px}
+.emapx .pull p{margin:0;font-size:15.5px;line-height:1.6}
+.emapx .pull .t{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:7px}
+
+.emapx /* map slot — a SOURCED map is placed here,.emapx never a rendered one */
+.mapslot{background:var(--sunken);border:1px dashed var(--border);border-radius:var(--r);
+  padding:34px 24px;text-align:center;margin:6px 0 20px}
+.emapx .mapslot .t{font-size:13px;font-weight:600;color:var(--ink-muted);margin-bottom:5px}
+.emapx .mapslot .s{font-size:12px;color:var(--ink-dim);line-height:1.5;max-width:56ch;margin:0 auto}
+
+.emapx /* key links */
+.links{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:6px}
+@media(max-width:767px){.emapx .links{grid-template-columns:1fr}}
+.emapx .lk{display:block;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+  padding:15px 17px;text-decoration:none;transition:all var(--micro) var(--ease)}
+.emapx .lk:hover{border-color:var(--accent);transform:translateY(-2px)}
+.emapx .lk .n{font-size:14.5px;font-weight:600;color:var(--ink);margin-bottom:3px}
+.emapx .lk .d{font-size:12.5px;color:var(--ink-dim);line-height:1.45}
+.emapx .lk .u{font-size:11.5px;color:var(--accent);margin-top:6px;word-break:break-all}
+
+
+.emapx /* ── figures,.emapx charts,.emapx schematic ── */
+.fig{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+  padding:22px 24px 16px;margin:8px 0 22px}
+.emapx .fig svg{display:block;width:100%;height:auto;overflow:visible}
+.emapx .fig-t{font-family:var(--serif);font-size:17px;font-weight:600;margin-bottom:14px}
+.emapx .figcap{font-size:12px;color:var(--ink-dim);line-height:1.5;margin:14px 0 0;max-width:none}
+.emapx .figcap a{color:var(--accent)}
+.emapx .figcap b{color:var(--ink-muted)}
+.emapx /* schematic */
+.area rect{fill:var(--surface);stroke:#CBD6D6;stroke-width:1.5}
+.emapx .area text{font-family:var(--sans);font-size:13px;font-weight:600;fill:var(--ink);
+  text-anchor:middle;dominant-baseline:middle}
+.emapx .area.e rect{stroke:#2a78d6} .emapx .area.w rect{stroke:#eb6834}
+.emapx .area.iso rect{stroke-dasharray:4 3}
+.emapx .ln{stroke:#9AA8AC;stroke-width:2;fill:none}
+.emapx .lnfc{stroke:#7C8D92;stroke-width:2;fill:none;stroke-dasharray:5 4}
+.emapx .fc{fill:#FDF3E7;stroke:#DD7B2F;stroke-width:1.6}
+.emapx .fct{font-family:var(--sans);font-size:12px;font-weight:700;fill:#C0651F;text-anchor:middle}
+.emapx .fh{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em}
+.emapx .cap2{font-family:var(--sans);font-size:10.5px;fill:#7C8D92;text-anchor:middle;paint-order:stroke;stroke:var(--surface);stroke-width:5;stroke-linejoin:round}
+.emapx .cap2.iso2{font-style:italic}
+.emapx /* composition bar */
+.seg text{font-family:var(--sans);font-size:12.5px;font-weight:600;fill:#fff;dominant-baseline:middle}
+.emapx .axl{font-family:var(--sans);font-size:11.5px;fill:#7C8D92}
+.emapx /* bar chart */
+.grid{stroke:#EDF1F1;stroke-width:1}
+.emapx .axis{stroke:#CBD6D6;stroke-width:1}
+.emapx .gl{font-family:var(--sans);font-size:10.5px;fill:#9AA8AC;text-anchor:end}
+.emapx .xl{font-family:var(--sans);font-size:12px;fill:var(--ink-muted);text-anchor:middle}
+.emapx .bar1 rect{fill:#1baf7a}
+.emapx .bar1 text{font-family:var(--sans);font-size:15px;font-weight:700;fill:var(--ink);text-anchor:middle}
+.emapx /* stat pair */
+.stats{display:flex;align-items:center;gap:18px;flex-wrap:wrap;background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--r);padding:20px 24px;margin:0 0 22px}
+.emapx .st .k{font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:4px}
+.emapx .st .v{font-family:var(--serif);font-size:30px;font-weight:700;line-height:1}
+.emapx .st .v small{font-family:var(--sans);font-size:13px;font-weight:500;color:var(--ink-muted)}
+.emapx .st.arrow{font-size:24px;color:var(--ink-dim)}
+.emapx .st.note{flex:1 1 240px;font-size:11.5px;color:var(--ink-dim);line-height:1.5}
+.emapx .st.note a{color:var(--accent)}
+.emapx /* pending slot */
+.pending{background:var(--sunken);border:1px dashed #CBD6D6;border-radius:var(--r);
+  padding:20px 22px;margin:6px 0 22px}
+.emapx .pending .t{font-size:13px;font-weight:600;color:var(--ink-muted);margin-bottom:6px}
+.emapx .pending p{font-size:13px;color:var(--ink-dim);line-height:1.55;margin:0}
+.emapx .pending a{color:var(--accent)}
+
+.emapx footer{border-top:1px solid var(--border);padding:30px 0;font-size:12px;color:var(--ink-dim);line-height:1.6}
+@media(prefers-reduced-motion:reduce){.emapx *{transition-duration:.01ms!important}}
+</style>
+<div class="emapx">
+<div class="wrap">
+  <header class="mh">
+    <div class="top">
+      <span class="bchip">Provincial transition</span>
+      <span class="reviewed">Last reviewed 16 August 2026</span>
+    </div>
+    <h1>China</h1>
+    <p class="one">The world's largest power system, priced province by province: administered coal benchmarks and long-term contracts alongside real spot pilots, with a national unified market as the stated destination.</p>
+    <div class="facts"><div class="fi"><div class="k">Trading venues</div><div class="v">Provincial exchanges</div></div><div class="fi"><div class="k">Price unit</div><div class="v">CNY / MWh</div></div><div class="fi"><div class="k">Spot settlement</div><div class="v">15 minutes</div></div><div class="fi"><div class="k">Grid operators</div><div class="v">State Grid / CSG</div></div><div class="fi"><div class="k">Gas position</div><div class="v">Largest LNG importer</div></div></div>
+  </header>
+
+  <div class="body">
+    <aside class="toc" id="toc">
+      <div class="t">On this page</div>
+      <a href="#s1">01 Overview</a>
+      <a href="#s2">02 Market structure</a>
+      <a href="#s3">03 Infrastructure</a>
+      <a href="#s4">04 Demand and supply</a>
+      <a href="#s5">05 Price setting</a>
+      <a href="#s6">06 Regulatory regime</a>
+      <a href="#s7">Key links</a>
+    </aside>
+    <main><section class="sec" id="s1"><span class="sn">01</span><h2>Overview</h2>
+<p class="lead">The largest power system on earth is also the hardest one to price. China generates more
+electricity than the United States, the European Union and India combined, and yet for most of that
+volume there is no single number a trader can point to and call the market.</p>
+
+<p>What exists instead is a patchwork. Provinces run their own spot pilots — Guangdong, Shandong,
+Shanxi, Gansu and a growing list of others — while the bulk of energy still moves under annual and
+multi-year contracts negotiated at provincial level, anchored to an administered coal benchmark. Above
+that sits an inter-provincial layer, thin by comparison, and above that a stated destination: a
+national unified electricity market. Beijing has been saying so since 2015. It is still not built.</p>
+
+<p>That is why China sits mid-spectrum. It is not an administered single-buyer system, and it is not a
+pool. It is a country where the price you get depends on which province you sit in, whether your plant
+is coal or wind, and what the local exchange decided this quarter.</p>
+
+<p>Gas is a separate world with the same character. Three state producers — <strong>CNPC/PetroChina, Sinopec and CNOOC</strong> — dominate upstream
+and marketing, <a href="https://www.energypolicy.columbia.edu/publications/reform-pipelines-pipechina-and-restructuring-china-s-natural-gas-market/" target="_blank" rel="noopener">PipeChina</a> was carved out in December 2019 to run the pipelines as a neutral operator, and
+city-gate prices for regulated users remain set by government formula. Around the edges of that,
+Chinese buyers do something with global consequences: they buy or refuse to buy LNG cargoes at the
+margin. China imported <a href="https://www.icis.com/explore/resources/news/2025/12/30/11168190/analysis-china-s-lng-imports-fell-12-in-2025-despite-remaining-world-s-top-buyer/" target="_blank" rel="noopener">67.36 million tonnes</a> of LNG in 2025, 12% lower than 2024, and the shortfall was felt in
+every other Asian import market as JKM sagged.</p>
+
+<div class="pull"><div class="t">Why a European or Asian trader watches this market</div>
+<p>China does not export power and barely exports gas. Its influence travels through the cargoes it
+does not take. A weak Chinese winter, a strong hydro year in Sichuan, another 300 GW of solar — each
+one loosens the global LNG balance without a single Chinese price ever printing on a screen you can
+see.</p></div>
+</section><section class="sec" id="s2"><span class="sn">02</span><h2>Market structure</h2>
+<p class="lead">Reform in China has run province by province rather than nationally, and the result is
+roughly thirty electricity markets with a common rulebook and very different clearing behaviour.</p>
+
+<h3>Who does what</h3>
+<table><thead><tr><th>Function</th><th>Body</th><th>Role</th></tr></thead><tbody>
+<tr><td>Policy and pricing</td><td>NDRC</td><td>Sets benchmark tariffs, price bands and reform documents</td></tr>
+<tr><td>Sector administration</td><td>NEA</td><td>Planning, licensing, dispatch rules, renewable targets</td></tr>
+<tr><td>Transmission and dispatch</td><td>State Grid</td><td>Around 88% of the country by service territory</td></tr>
+<tr><td>Transmission and dispatch</td><td>China Southern Power Grid</td><td>Guangdong, Guangxi, Yunnan, Guizhou, Hainan</td></tr>
+<tr><td>Trading venues</td><td>Provincial exchanges</td><td>Plus Beijing and Guangzhou for inter-provincial trade</td></tr>
+</tbody></table>
+
+<h3>The three layers of a Chinese power price</h3>
+<p>Most volume clears in <strong>medium- and long-term contracts</strong>, signed annually or monthly
+through the provincial exchange. These are physical, they carry delivery curves, and they are where
+generators and large industrial users actually settle. On top of that sits the <strong>spot pilot</strong>,
+which in the leading provinces now runs continuously with day-ahead and real-time clearing at nodal or
+zonal granularity. The spot is not a separate pot of energy — it is a deviation market that settles the
+difference between contracted position and actual delivery.</p>
+
+<p>The third layer is inter-provincial. Power moving from Gansu to Zhejiang, or from Yunnan to
+Guangdong, trades through Beijing or Guangzhou under arrangements that owe more to planning quotas than
+to price signals. Provinces protect their own generators. An exporting province with cheap surplus
+wind and an importing province with expensive coal will not necessarily converge, because the
+transmission rights and the contract volumes were fixed administratively long before either price
+formed.</p>
+
+<p>Retail competition exists, but not in the household segment. Industrial and commercial users have
+been pushed into the market wholesale — since 2021 essentially all of them buy at market-formed prices
+rather than the old catalogue tariff, either directly or through a retailer. Residential and
+agricultural users remain on regulated tariffs, cross-subsidised by everyone else.</p>
+
+<div class="pull"><div class="t">One market or thirty?</div>
+<p>Rules are national. Clearing is provincial. Full spot results are published unevenly, and for several
+pilot provinces the detailed clearing prices are not readily available outside China — which is a real
+constraint on anyone trying to build a comparable price history.</p></div>
+</section><section class="sec" id="s3"><span class="sn">03</span><h2>Infrastructure — power and gas</h2>
+<p class="lead">Two grid companies, a fleet of ultra-high-voltage lines built to move power a thousand
+miles east, and a gas network that was unbundled from its owners only in 2020.</p>
+
+<h3>Power</h3>
+<div class="cards">
+<div class="card"><h4>Two operators</h4><p>State Grid covers most of the country; China Southern Power
+Grid covers the five southern provinces. Both are vertically integrated in everything except generation.</p></div>
+<div class="card"><h4>UHV backbone</h4><p><a href="https://en.people.cn/n3/2025/1030/c90000-20383967.html" target="_blank" rel="noopener">Forty-five</a> UHV projects are in operation, and west-to-east transfer
+capability was set to pass 340 GW by the end of 2025.</p></div>
+<div class="card"><h4>Renewable concentration</h4><p>The wind and solar build is heaviest in the north
+and west — Inner Mongolia, Xinjiang, Gansu, Qinghai — a long way from the coastal load.</p></div>
+</div>
+
+<p>The UHV DC lines are the physical answer to a geographic problem: the resource is inland, the demand
+is on the coast. Each line is point-to-point, dedicated, and scheduled rather than economically
+dispatched. That matters commercially. A UHV link is not an interconnector in the European sense — it
+does not arbitrage a price difference, it delivers a contracted profile agreed between two provincial
+governments. Curtailment in the sending province and high prices in the receiving province can coexist
+quite happily.</p>
+
+<h3>Gas and LNG</h3>
+<p>Domestic production covers a large share of demand, supplemented by pipeline imports from Central
+Asia and Russia and by LNG into more than twenty coastal terminals. <a href="https://www.icis.com/explore/resources/news/2025/12/30/11168190/analysis-china-s-lng-imports-fell-12-in-2025-despite-remaining-world-s-top-buyer/" target="_blank" rel="noopener">Power of Siberia 1</a> reached its full 38 bcm a year
+of design capacity in December 2024. Terminals are owned by the majors, by PipeChina and increasingly by
+provincial and private players, which has broadened the buyer base considerably.</p>
+
+<p><a href="https://www.energypolicy.columbia.edu/publications/reform-pipelines-pipechina-and-restructuring-china-s-natural-gas-market/" target="_blank" rel="noopener">PipeChina</a>, established in December 2019 and operational from late 2020, took over roughly $56 billion of
+pipeline, storage and terminal assets from PetroChina, Sinopec and CNOOC. The point was third-party
+access — separate the pipe from the molecule, and a second-tier importer can reach an end user without
+asking a competitor for permission. In practice the majors remain the largest shareholders, and access
+terms are still where much of the commercial argument sits.</p>
+
+<div class="fig">
+  <svg viewBox="0 0 900 300" role="img" aria-label="Schematic of China's west-to-east power and gas flows">
+    <text x="150" y="24" class="fh" fill="#eb6834">WEST AND NORTH — RESOURCE</text>
+    <text x="700" y="24" class="fh" fill="#2a78d6">EAST AND SOUTH — LOAD</text>
+    <rect x="30" y="42" width="300" height="230" rx="10" fill="#eb6834" opacity=".05"/>
+    <rect x="570" y="42" width="300" height="230" rx="10" fill="#2a78d6" opacity=".05"/>
+
+    <g class="area w"><rect x="60" y="64" width="140" height="40" rx="7"/><text x="130" y="89">Inner Mongolia</text></g>
+    <g class="area w"><rect x="60" y="120" width="140" height="40" rx="7"/><text x="130" y="145">Xinjiang</text></g>
+    <g class="area w"><rect x="60" y="176" width="140" height="40" rx="7"/><text x="130" y="201">Gansu / Qinghai</text></g>
+    <g class="area w"><rect x="60" y="232" width="140" height="40" rx="7"/><text x="130" y="257">Yunnan / Sichuan</text></g>
+
+    <g class="area e"><rect x="700" y="64" width="140" height="40" rx="7"/><text x="770" y="89">Beijing–Tianjin</text></g>
+    <g class="area e"><rect x="700" y="120" width="140" height="40" rx="7"/><text x="770" y="145">Shandong</text></g>
+    <g class="area e"><rect x="700" y="176" width="140" height="40" rx="7"/><text x="770" y="201">Jiangsu / Zhejiang</text></g>
+    <g class="area e"><rect x="700" y="232" width="140" height="40" rx="7"/><text x="770" y="257">Guangdong</text></g>
+
+    <rect x="400" y="100" width="100" height="46" rx="6" class="fc"/>
+    <text x="450" y="122" class="fct">UHV DC</text><text x="450" y="138" class="fct">point to point</text>
+    <rect x="400" y="186" width="100" height="46" rx="6" class="fc"/>
+    <text x="450" y="208" class="fct">Trunk gas</text><text x="450" y="224" class="fct">PipeChina</text>
+
+    <path class="lnfc" d="M200,84 H360 V123 H400"/>
+    <path class="lnfc" d="M200,140 H360 V123"/>
+    <path class="lnfc" d="M200,196 H360 V209 H400"/>
+    <path class="lnfc" d="M200,252 H360 V209"/>
+    <path class="lnfc" d="M500,123 H560 V84 H700"/>
+    <path class="lnfc" d="M500,123 H560 V140 H700"/>
+    <path class="lnfc" d="M500,209 H560 V196 H700"/>
+    <path class="lnfc" d="M500,209 H560 V252 H700"/>
+    <text x="450" y="168" class="cap2">scheduled, not economically dispatched</text>
+    <text x="450" y="284" class="cap2">LNG terminals sit on the eastern coast, inside the load zone</text>
+  </svg>
+  <p class="figcap"><b>Schematic — system topology, not a geographic map.</b> Resource sits inland, demand
+  sits on the coast, and the link between them is contracted rather than priced.</p>
+</div>
+
+<div class="mapslot"><div class="t">Geographic infrastructure map</div>
+<div class="s">A sourced map of UHV corridors, LNG terminals and the trunk gas network belongs here —
+reproduced from an official publication rather than redrawn.</div></div>
+</section><section class="sec" id="s4"><span class="sn">04</span><h2>Demand and supply</h2>
+<p class="lead">Demand keeps growing, coal keeps generating, and the renewable build is now large enough
+that in 2025 it stopped coal in its tracks for the first time in a decade.</p>
+
+<h3>Demand</h3>
+<p>Chinese electricity demand grows every year, driven by industry, air conditioning, electric vehicles
+and — the newest line item — data centres. There is no flat-demand story here of the kind Japan or
+Germany tell. The interesting question is what supplies the growth, and the answer changed in 2025:
+coal-fired generation fell by <a href="https://ember-energy.org/countries-and-regions/china/" target="_blank" rel="noopener">71 TWh</a>, the first decline since 2015, while wind and solar together
+reached <a href="https://ember-energy.org/countries-and-regions/china/" target="_blank" rel="noopener">22%</a> of output.</p>
+
+<h3>Supply</h3>
+<p>The build numbers are difficult to hold in your head. China added more than <a href="https://english.www.gov.cn/archive/statistics/202602/12/content_WS698d93cbc6d00ca5f9a091bb.html" target="_blank" rel="noopener">430 GW</a> of wind and solar
+capacity in 2025, taking the combined total to 1.84 billion kilowatts — <a href="https://english.www.gov.cn/archive/statistics/202602/12/content_WS698d93cbc6d00ca5f9a091bb.html" target="_blank" rel="noopener">47.3%</a> of installed capacity,
+overtaking thermal for the first time. Capacity is not energy, and coal still does the heavy lifting on
+a winter evening in Hebei. But the direction is no longer ambiguous.</p>
+
+<table><thead><tr><th>Indicator</th><th>Direction</th><th>Comment</th></tr></thead><tbody>
+<tr><td>Electricity demand</td><td>Rising</td><td>Industry, cooling, EVs and data centres</td></tr>
+<tr><td>Coal generation</td><td>First fall since 2015</td><td>Down 71 TWh in 2025</td></tr>
+<tr><td>Wind and solar</td><td>Rising fast</td><td>22% of generation; curtailment risk rising with it</td></tr>
+<tr><td>LNG imports</td><td>Falling</td><td>67.36 Mt in 2025, down 12% year on year</td></tr>
+<tr><td>Pipeline gas imports</td><td>Rising</td><td>Up 7.6% over January to November 2025</td></tr>
+</tbody></table>
+
+<div class="fig">
+  <div class="fig-t">Where China's electricity came from</div>
+  <svg viewBox="0 0 900 118" role="img" aria-label="China generation mix by source">
+    <g class="seg"><rect x="0"   y="18" width="482" height="40" rx="4" fill="#2a78d6"/><text x="10"  y="43">Coal 55%</text></g>
+    <g class="seg"><rect x="486" y="18" width="123" height="40" rx="4" fill="#eb6834"/><text x="496" y="43">Hydro 14%</text></g>
+    <g class="seg"><rect x="613" y="18" width="96"  height="40" rx="4" fill="#1baf7a"/><text x="623" y="43">Solar 11%</text></g>
+    <g class="seg"><rect x="713" y="18" width="88"  height="40" rx="4" fill="#eda100"/><text x="723" y="43">Wind 10%</text></g>
+    <g class="seg"><rect x="805" y="18" width="44"  height="40" rx="4" fill="#e87ba4"/><text x="827" y="74" text-anchor="middle">Nuclear 4.5%</text></g>
+    <g class="seg"><rect x="853" y="18" width="17"  height="40" rx="4" fill="#4a3aa7"/><text x="861" y="90" text-anchor="middle">Gas 2%</text></g>
+    <g class="seg"><rect x="874" y="18" width="26"  height="40" rx="4" fill="#9AA8AC"/><text x="887" y="106" text-anchor="middle">Other 3%</text></g>
+    <text x="0" y="74" class="axl">Coal still sets the tone; hydro is the swing on a wet year.</text>
+  </svg>
+  <p class="figcap">Rolling twelve months to March 2026. Source: <a href="https://lowcarbonpower.org/region/People's_Republic_of_China" target="_blank" rel="noopener">Low Carbon Power</a>, corroborated by <a href="https://ember-energy.org/countries-and-regions/china/" target="_blank" rel="noopener">Ember</a>.
+  Shares rounded; wind and solar together are reported at 22% of 2025 output by <a href="https://english.www.gov.cn/archive/statistics/202602/12/content_WS698d93cbc6d00ca5f9a091bb.html" target="_blank" rel="noopener">the State Council</a>.</p>
+</div>
+
+<div class="stats">
+  <div class="st"><div class="k">LNG imports, 2024</div><div class="v">76.5 <small>Mt</small></div></div>
+  <div class="st arrow">&#8594;</div>
+  <div class="st"><div class="k">LNG imports, 2025</div><div class="v">67.4 <small>Mt</small></div></div>
+  <div class="st note">2025 volume and the 12% decline from <a href="https://www.icis.com/explore/resources/news/2025/12/30/11168190/analysis-china-s-lng-imports-fell-12-in-2025-despite-remaining-world-s-top-buyer/" target="_blank" rel="noopener">ICIS</a>; the 2024 figure is implied by that
+  change and shown for scale.</div>
+</div>
+
+<div class="pull"><div class="t">The hydro variable</div>
+<p>Sichuan and Yunnan hydro output swings by tens of terawatt-hours between a wet year and a dry one.
+A dry summer pulls coal burn up, pulls southern provinces onto imported power, and historically has been
+one of the better leading indicators for Chinese spot LNG buying.</p></div>
+</section><section class="sec" id="s5"><span class="sn">05</span><h2>Price setting mechanism</h2>
+<p class="lead">There is no single clearing price for Chinese electricity. There is a benchmark, a band
+around it, a contract stack that fills most of the volume, and — in the pilot provinces — a genuine
+marginal-cost auction sitting underneath.</p>
+
+<h3>The coal benchmark and its band</h3>
+<p>Coal-fired on-grid prices are built from a provincial benchmark tariff, and contracts may clear
+within a permitted range around it. That range used to be tight: 10% up, 15% down. Then came 2021.
+Coal prices spiralled, generators could not pass the cost through, plants stopped running and provinces
+started rationing industrial load. In October 2021 the NDRC widened the band to <a href="https://en.ndrc.gov.cn/news/mediarusources/202110/t20211014_1299735.html" target="_blank" rel="noopener">20%</a> in both
+directions and required <a href="https://en.ndrc.gov.cn/news/mediarusources/202110/t20211014_1299735.html" target="_blank" rel="noopener">all coal-fired power</a> to enter market trading, with energy-intensive users explicitly denied
+the protection of the 20% cap.</p>
+
+<p>That single document is the closest thing China has to a founding moment for market pricing. It did
+not create a spot market. It created a corridor wide enough for fuel costs to move through.</p>
+
+<h3>Spot pilots</h3>
+<p>In Guangdong, Shandong, Shanxi, Gansu and the other pilots, day-ahead and real-time markets clear on
+marginal cost with 15-minute settlement periods. Prices there behave the way a trader expects: negative
+or near-zero in the middle of a sunny Shandong day, spiking hard on a still winter evening. Provincial
+authorities set caps and floors, and they do intervene. Full clearing histories are not consistently
+published in English, which is the main practical obstacle to treating these as tradeable benchmarks.</p>
+
+<h3>Capacity and renewables</h3>
+<p>Coal plants have been paid a <a href="https://www.carbonbrief.org/guest-post-chinas-capacity-payments-boosted-coal-plant-revenue-by-up-to-8/" target="_blank" rel="noopener">capacity payment</a> since January 2024 — 30% or 50% of a benchmark plant's fixed
+costs, on an NDRC assessment of 330 yuan per kW — which added something like 5 to 8% to coal revenue in
+the first year. On the other side, <a href="https://www.carbonbrief.org/analysis-only-half-of-chinese-provinces-finalise-key-document-136-renewable-rules/" target="_blank" rel="noopener">Document 136</a> moved projects completed from 1 June 2025 onto market-based
+pricing with a CfD-style mechanism contract awarded by auction. Shandong's first auction cleared wind at
+0.319 yuan/kWh and solar at 0.225 yuan/kWh.</p>
+
+<div class="pull"><div class="t">What the mechanism price actually does</div>
+<p>It is a two-way difference contract against the market reference price for a fixed volume. Above the
+strike, the generator pays back. Below it, the generator is topped up. Familiar machinery — but the
+strike is set province by province, and by October 2025 only eighteen provinces had finalised their
+rules.</p></div>
+
+<h3>Gas</h3>
+<p>City-gate prices for regulated demand remain administered, with residential supply cross-subsidised
+and industrial contracts increasingly linked to import cost. Imported LNG is bought against JKM, against
+Brent slopes on term contracts, and against a domestic price that does not always clear the arbitrage —
+which is precisely why Chinese buyers resell cargoes rather than take them.</p>
+</section><section class="sec" id="s6"><span class="sn">06</span><h2>Regulatory regime</h2>
+<p class="lead">China has no independent energy regulator in the sense a British or American trader would
+recognise. It has ministries, and it has grid companies, and the line between policy and pricing runs
+straight through the same institution.</p>
+
+<table><thead><tr><th>Body</th><th>Remit</th></tr></thead><tbody>
+<tr><td>NDRC</td><td>Macroeconomic planning, benchmark tariffs, price bands, reform documents</td></tr>
+<tr><td>NEA</td><td>Sector administration, planning, dispatch and renewable policy; sits under NDRC</td></tr>
+<tr><td>Provincial DRCs and energy bureaus</td><td>Local market rules, spot pilot design, caps and floors</td></tr>
+<tr><td>State Grid / China Southern Power Grid</td><td>Transmission, distribution and dispatch; also run the trading platforms</td></tr>
+<tr><td>SASAC</td><td>State ownership of the grid companies, the generation groups and the oil majors</td></tr>
+</tbody></table>
+
+<h3>Why the difference matters</h3>
+<p>An independent regulator can be lobbied, litigated against and appealed. The NDRC cannot, in any way
+that a foreign counterparty can use. Price decisions arrive as documents — numbered, published, effective
+immediately — and the market adjusts. Document 136 is the recent example: a policy note that rewrote the
+revenue model for every renewable project in the country, issued in February 2025 and binding from June.</p>
+
+<h3>The reform arc</h3>
+<p>Document 9 in 2015 opened the sector to trading and set up provincial exchanges. Spot pilots followed
+from 2017, eight of them initially, expanding since. The 2021 coal crisis forced the pricing band open.
+Capacity payments arrived in 2024, renewable market pricing in 2025. Each step has been incremental and
+each has been reversible in principle, because the same body that granted the freedom retains the power
+to withdraw it.</p>
+
+<h3>The national unified market</h3>
+<p>Beijing's stated destination is a single national market with inter-provincial trading on the same
+footing as intra-provincial. Rules for that framework have been issued. The obstacle is not technical —
+it is that provincial governments own the fiscal consequences of their local generators, and a genuinely
+national merit order would strand some of them. Watch for the moment a province accepts imported power
+displacing its own coal fleet without a compensating quota. That is when the reform becomes real.</p>
+
+<p>For anyone holding Chinese exposure, the practical rule is that <a href="https://en.ndrc.gov.cn/" target="_blank" rel="noopener">NDRC</a> publication schedules matter
+more than fundamentals over any horizon shorter than a quarter.</p>
+</section><section class="sec" id="s7"><span class="sn">SOURCES</span><h2>Key links</h2><p class="lead">Primary sources for this market. Figures on this page are drawn from these and from published market data.</p><div class="links"><a class="lk" href="https://en.ndrc.gov.cn/" target="_blank" rel="noopener"><div class="n">NDRC</div><div class="d">National Development and Reform Commission — pricing policy and reform documents</div><div class="u">https://en.ndrc.gov.cn/</div></a><a class="lk" href="https://en.ndrc.gov.cn/news/mediarusources/202110/t20211014_1299735.html" target="_blank" rel="noopener"><div class="n">NDRC — coal power pricing reform</div><div class="d">The October 2021 release widening the coal benchmark band to 20%</div><div class="u">https://en.ndrc.gov.cn/news/mediarusources/202110/t20211014_1299735.html</div></a><a class="lk" href="https://www.carbonbrief.org/analysis-only-half-of-chinese-provinces-finalise-key-document-136-renewable-rules/" target="_blank" rel="noopener"><div class="n">Carbon Brief — Document 136</div><div class="d">Province-by-province tracking of the 2025 renewable pricing reform</div><div class="u">https://www.carbonbrief.org/analysis-only-half-of-chinese-provinces-finalise-key-document-136-renewable-rules/</div></a><a class="lk" href="https://ember-energy.org/countries-and-regions/china/" target="_blank" rel="noopener"><div class="n">Ember — China</div><div class="d">Independent generation and demand data for the Chinese power system</div><div class="u">https://ember-energy.org/countries-and-regions/china/</div></a><a class="lk" href="https://www.iea.org/countries/china" target="_blank" rel="noopener"><div class="n">IEA — China</div><div class="d">Country energy profile, policy tracking and data browser</div><div class="u">https://www.iea.org/countries/china</div></a><a class="lk" href="https://www.icis.com/explore/resources/news/2025/12/30/11168190/analysis-china-s-lng-imports-fell-12-in-2025-despite-remaining-world-s-top-buyer/" target="_blank" rel="noopener"><div class="n">ICIS — China LNG</div><div class="d">Analysis of 2025 LNG import volumes and China's position as the marginal buyer</div><div class="u">https://www.icis.com/explore/resources/news/2025/12/30/11168190/analysis-china-s-lng-imports-fell-12-in-2025-despite-remaining-world-s-top-buyer/</div></a></div></section></main>
+  </div>
+</div>
+
+
+
+<script>
+var links=[].slice.call(document.querySelectorAll('.toc a[href^="#s"]'));
+var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))}).filter(Boolean);
+function onScroll(){var y=window.scrollY+150,c=0;
+  secs.forEach(function(s,i){if(s.offsetTop<=y)c=i});
+  links.forEach(function(a,i){a.classList.toggle('on',i===c)})}
+window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+</script>
+</div>

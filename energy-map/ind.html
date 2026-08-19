@@ -1,0 +1,455 @@
+---
+layout: default
+title: India
+permalink: /energy-map/ind/
+blurb: "India — Exchange alongside PPA. Market structure, infrastructure, demand and supply, price formation and regulation."
+---
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet"><style>
+.emapx{
+  --bg:#FAFAF8; --surface:#FFFFFF; --sunken:#F4F7F7;
+  --ink:#14262B; --ink-muted:#4A5B60; --ink-dim:#7C8D92;
+  --border:#E2E8E8;
+  --s5:#C0392B; --s4:#DD7B2F; --s3:#E8AE28; --s2:#3B8B60; --s1:#1F7A52;
+  --accent:#E8AE28;
+  --r:8px; --micro:180ms; --ease:cubic-bezier(.2,.6,.2,1);
+  --serif:"Source Serif 4",Georgia,serif;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+.emapx *{box-sizing:border-box;margin:0;padding:0}
+.emapx{scroll-behavior:smooth}
+.emapx{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.5;
+  -webkit-font-smoothing:antialiased;font-feature-settings:"tnum" 1}
+.emapx h1,.emapx h2,.emapx h3{font-family:var(--serif);line-height:1.16;letter-spacing:-.02em;font-weight:600}
+.emapx .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+@media(max-width:767px){.emapx .wrap{padding:0 16px}}
+.emapx .proto{background:#14262B;color:#F3F6F6;font-size:12px;padding:8px 16px;text-align:center}
+.emapx nav{position:sticky;top:0;z-index:60;height:64px;display:flex;align-items:center;
+  background:rgba(250,250,248,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.emapx nav .wrap{display:flex;align-items:center;gap:26px;width:100%}
+.emapx .logo{font-family:var(--serif);font-size:20px;font-weight:700;display:flex;align-items:center;gap:10px}
+.emapx .logo .mark{width:22px;height:22px;border:2px solid var(--accent);border-radius:3px;position:relative;flex:none}
+.emapx .logo .mark::after{content:"";position:absolute;inset:4px 4px auto 4px;height:2px;background:var(--s3)}
+.emapx .crumb{font-size:13px;color:var(--ink-dim)}
+.emapx .crumb a{color:var(--ink-muted);text-decoration:none}
+.emapx .crumb a:hover{color:var(--ink)}
+.emapx .navlinks{display:flex;gap:22px;margin-left:auto;font-size:14px}
+.emapx .navlinks a{color:var(--ink-muted);text-decoration:none}
+.emapx .navlinks a:hover{color:var(--ink)}
+
+.emapx /* header */
+.mh{padding:46px 0 30px}
+.emapx .mh .top{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.emapx .bchip{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:5px 12px;border-radius:999px;background:var(--accent);color:#fff}
+.emapx .reviewed{font-size:12px;color:var(--ink-dim);margin-left:auto}
+.emapx .mh h1{font-size:56px;margin-bottom:12px}
+@media(max-width:767px){.emapx .mh h1{font-size:34px}}
+.emapx .mh .one{font-size:20px;color:var(--ink-muted);max-width:62ch;line-height:1.45}
+.emapx .facts{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);
+  border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin-top:28px}
+@media(max-width:900px){.emapx .facts{grid-template-columns:repeat(2,1fr)}}
+.emapx .fi{background:var(--surface);padding:15px 16px}
+.emapx .fi .k{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:5px}
+.emapx .fi .v{font-size:15px;font-weight:600;line-height:1.3}
+
+.emapx /* layout */
+.body{display:grid;grid-template-columns:190px 1fr;gap:44px;padding-bottom:20px}
+@media(max-width:1023px){.emapx .body{grid-template-columns:1fr;gap:0}.emapx .toc{display:none}}
+.emapx .toc{position:sticky;top:88px;align-self:start;padding-top:40px}
+.emapx .toc .t{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:10px}
+.emapx .toc a{display:block;font-size:13px;color:var(--ink-muted);text-decoration:none;padding:7px 0 7px 13px;
+  border-left:2px solid var(--border);transition:all var(--micro) var(--ease)}
+.emapx .toc a:hover{color:var(--ink);border-left-color:var(--ink-dim)}
+.emapx .toc a.on{color:var(--ink);font-weight:600;border-left-color:var(--accent)}
+
+.emapx /* sections */
+.sec{padding:40px 0;border-top:1px solid var(--border)}
+.emapx .sec:first-child{border-top:0;padding-top:12px}
+.emapx .sn{font-family:var(--serif);font-size:13px;font-weight:700;color:var(--accent);display:block;margin-bottom:5px}
+.emapx .sec h2{font-size:31px;margin-bottom:8px}
+.emapx .sec .lead{font-size:17px;color:var(--ink-muted);line-height:1.6;max-width:70ch;margin-bottom:20px}
+.emapx .sec p{font-size:15.5px;line-height:1.68;color:var(--ink-muted);max-width:70ch;margin-bottom:16px}
+.emapx .sec p strong{color:var(--ink);font-weight:600}
+.emapx .sec h3{font-size:19px;margin:26px 0 10px}
+
+.emapx table{width:100%;border-collapse:collapse;font-size:14px;background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin:6px 0 20px}
+.emapx th{text-align:left;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-dim);
+  padding:10px 14px;border-bottom:1px solid var(--border);background:var(--sunken);font-weight:700}
+.emapx td{padding:11px 14px;border-bottom:1px solid var(--border);color:var(--ink-muted);vertical-align:top;line-height:1.5}
+.emapx tbody tr:last-child td{border-bottom:0}
+.emapx td:first-child{color:var(--ink);font-weight:500}
+.emapx tbody tr:hover td{background:var(--sunken)}
+
+.emapx .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:6px 0 20px}
+@media(max-width:900px){.emapx .cards{grid-template-columns:1fr}}
+.emapx .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:18px}
+.emapx .card h4{font-family:var(--sans);font-size:14px;font-weight:600;margin-bottom:7px;color:var(--accent)}
+.emapx .card p{font-size:13.5px;line-height:1.55;margin:0;color:var(--ink-muted)}
+
+.emapx .pull{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--accent);
+  border-radius:var(--r);padding:20px 22px;margin:6px 0 22px}
+.emapx .pull p{margin:0;font-size:15.5px;line-height:1.6}
+.emapx .pull .t{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:7px}
+
+.emapx /* map slot — a SOURCED map is placed here,.emapx never a rendered one */
+.mapslot{background:var(--sunken);border:1px dashed var(--border);border-radius:var(--r);
+  padding:34px 24px;text-align:center;margin:6px 0 20px}
+.emapx .mapslot .t{font-size:13px;font-weight:600;color:var(--ink-muted);margin-bottom:5px}
+.emapx .mapslot .s{font-size:12px;color:var(--ink-dim);line-height:1.5;max-width:56ch;margin:0 auto}
+
+.emapx /* key links */
+.links{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:6px}
+@media(max-width:767px){.emapx .links{grid-template-columns:1fr}}
+.emapx .lk{display:block;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+  padding:15px 17px;text-decoration:none;transition:all var(--micro) var(--ease)}
+.emapx .lk:hover{border-color:var(--accent);transform:translateY(-2px)}
+.emapx .lk .n{font-size:14.5px;font-weight:600;color:var(--ink);margin-bottom:3px}
+.emapx .lk .d{font-size:12.5px;color:var(--ink-dim);line-height:1.45}
+.emapx .lk .u{font-size:11.5px;color:var(--accent);margin-top:6px;word-break:break-all}
+
+
+.emapx /* ── figures,.emapx charts,.emapx schematic ── */
+.fig{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+  padding:22px 24px 16px;margin:8px 0 22px}
+.emapx .fig svg{display:block;width:100%;height:auto;overflow:visible}
+.emapx .fig-t{font-family:var(--serif);font-size:17px;font-weight:600;margin-bottom:14px}
+.emapx .figcap{font-size:12px;color:var(--ink-dim);line-height:1.5;margin:14px 0 0;max-width:none}
+.emapx .figcap a{color:var(--accent)}
+.emapx .figcap b{color:var(--ink-muted)}
+.emapx /* schematic */
+.area rect{fill:var(--surface);stroke:#CBD6D6;stroke-width:1.5}
+.emapx .area text{font-family:var(--sans);font-size:13px;font-weight:600;fill:var(--ink);
+  text-anchor:middle;dominant-baseline:middle}
+.emapx .area.e rect{stroke:#2a78d6} .emapx .area.w rect{stroke:#eb6834}
+.emapx .area.iso rect{stroke-dasharray:4 3}
+.emapx .ln{stroke:#9AA8AC;stroke-width:2;fill:none}
+.emapx .lnfc{stroke:#7C8D92;stroke-width:2;fill:none;stroke-dasharray:5 4}
+.emapx .fc{fill:#FDF3E7;stroke:#DD7B2F;stroke-width:1.6}
+.emapx .fct{font-family:var(--sans);font-size:12px;font-weight:700;fill:#C0651F;text-anchor:middle}
+.emapx .fh{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em}
+.emapx .cap2{font-family:var(--sans);font-size:10.5px;fill:#7C8D92;text-anchor:middle;paint-order:stroke;stroke:var(--surface);stroke-width:5;stroke-linejoin:round}
+.emapx .cap2.iso2{font-style:italic}
+.emapx /* composition bar */
+.seg text{font-family:var(--sans);font-size:12.5px;font-weight:600;fill:#fff;dominant-baseline:middle}
+.emapx .axl{font-family:var(--sans);font-size:11.5px;fill:#7C8D92}
+.emapx /* bar chart */
+.grid{stroke:#EDF1F1;stroke-width:1}
+.emapx .axis{stroke:#CBD6D6;stroke-width:1}
+.emapx .gl{font-family:var(--sans);font-size:10.5px;fill:#9AA8AC;text-anchor:end}
+.emapx .xl{font-family:var(--sans);font-size:12px;fill:var(--ink-muted);text-anchor:middle}
+.emapx .bar1 rect{fill:#1baf7a}
+.emapx .bar1 text{font-family:var(--sans);font-size:15px;font-weight:700;fill:var(--ink);text-anchor:middle}
+.emapx /* stat pair */
+.stats{display:flex;align-items:center;gap:18px;flex-wrap:wrap;background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--r);padding:20px 24px;margin:0 0 22px}
+.emapx .st .k{font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:4px}
+.emapx .st .v{font-family:var(--serif);font-size:30px;font-weight:700;line-height:1}
+.emapx .st .v small{font-family:var(--sans);font-size:13px;font-weight:500;color:var(--ink-muted)}
+.emapx .st.arrow{font-size:24px;color:var(--ink-dim)}
+.emapx .st.note{flex:1 1 240px;font-size:11.5px;color:var(--ink-dim);line-height:1.5}
+.emapx .st.note a{color:var(--accent)}
+.emapx /* pending slot */
+.pending{background:var(--sunken);border:1px dashed #CBD6D6;border-radius:var(--r);
+  padding:20px 22px;margin:6px 0 22px}
+.emapx .pending .t{font-size:13px;font-weight:600;color:var(--ink-muted);margin-bottom:6px}
+.emapx .pending p{font-size:13px;color:var(--ink-dim);line-height:1.55;margin:0}
+.emapx .pending a{color:var(--accent)}
+
+.emapx footer{border-top:1px solid var(--border);padding:30px 0;font-size:12px;color:var(--ink-dim);line-height:1.6}
+@media(prefers-reduced-motion:reduce){.emapx *{transition-duration:.01ms!important}}
+</style>
+<div class="emapx">
+<div class="wrap">
+  <header class="mh">
+    <div class="top">
+      <span class="bchip">Exchange alongside PPA</span>
+      <span class="reviewed">Last reviewed 16 August 2026</span>
+    </div>
+    <h1>India</h1>
+    <p class="one">The world's third-largest electricity market, cleared on a single national grid at one frequency — but with only a thin, volatile exchange slice sitting on top of a vast base of long-term PPAs.</p>
+    <div class="facts"><div class="fi"><div class="k">Power exchanges</div><div class="v">IEX, PXIL, HPX</div></div><div class="fi"><div class="k">Price unit</div><div class="v">INR / MWh</div></div><div class="fi"><div class="k">Settlement interval</div><div class="v">15 minutes</div></div><div class="fi"><div class="k">System operator</div><div class="v">Grid-India</div></div><div class="fi"><div class="k">Gas position</div><div class="v">Net LNG importer</div></div></div>
+  </header>
+
+  <div class="body">
+    <aside class="toc" id="toc">
+      <div class="t">On this page</div>
+      <a href="#s1">01 Overview</a>
+      <a href="#s2">02 Market structure</a>
+      <a href="#s3">03 Infrastructure</a>
+      <a href="#s4">04 Demand and supply</a>
+      <a href="#s5">05 Price setting</a>
+      <a href="#s6">06 Regulatory regime</a>
+      <a href="#s7">Key links</a>
+    </aside>
+    <main><section class="sec" id="s1"><span class="sn">01</span><h2>Overview</h2>
+<p class="lead">India is the world's third-largest electricity market and almost none of it is priced
+on an exchange. What trades is a thin, volatile slice sitting on a vast base of long-term power
+purchase agreements. Get that structure clear before you take a position, because everything else
+follows from it.</p>
+
+<p>Installed generating capacity passed <strong>500 GW</strong> in September 2025, more than half of it
+non-fossil by nameplate rating (<a href="https://www.deccanherald.com/amp/story/india%2Findias-installed-power-generation-capacity-crosses-500-gw-3779493" target="_blank" rel="noopener">Ministry of Power, via Deccan Herald</a>). Nameplate is not output. Coal still produces around two
+thirds of the electricity actually generated, because solar and wind run at capacity factors a thermal
+unit would be shut down for.</p>
+
+<p>Wholesale power trades on three exchanges: the dominant <strong>Indian Energy Exchange (IEX)</strong>,
+with <strong>PXIL</strong> and <strong>HPX</strong> behind it, across day-ahead, real-time, term-ahead
+and green segments. Gas trades separately on the <strong>Indian Gas Exchange (IGX)</strong>. Short-term
+transactions of every kind came to about 238 billion units in 2024-25, of which the exchanges carried
+108.62 BU (<a href="https://powerline.net.in/2025/10/29/hitting-record-volumes-power-trading-trends-and-developments/" target="_blank" rel="noopener">Power Line</a>). The rest moves under contracts signed years in advance.</p>
+
+<p>State-owned distribution companies are the buyers on those contracts, and their finances are the
+weak point in the whole sector. Aggregate technical and commercial losses ran at <strong>16.12%</strong>
+in 2023-24, with cost recovery at 97.91% (<a href="https://powerline.net.in/2025/07/08/widening-losses-key-highlights-of-pfcs-report-on-discom-performance/" target="_blank" rel="noopener">PFC discom report, via Power Line</a>). A discom that cannot pay reliably under-contracts, buys short,
+and then pays whatever is asked when demand spikes. That behaviour is most of the volatility in the
+exchange slice.</p>
+
+<div class="pull"><div class="t">The shape of the risk</div>
+<p>In most liberalised markets the exchange price is the market. In India it is the residual, whatever
+is left once the long-term PPAs have dispatched. Residual markets are thin, and thin markets move.</p></div>
+</section><section class="sec" id="s2"><span class="sn">02</span><h2>Market structure</h2>
+<p class="lead">One national grid at one frequency. Three competing exchanges. And underneath them a
+contracting base of bilateral PPAs that never touch a market screen.</p>
+
+<h3>Who does what</h3>
+<table><thead><tr><th>Function</th><th>Body</th><th>Role</th></tr></thead><tbody>
+<tr><td>Power exchanges</td><td>IEX, PXIL, HPX</td><td>Day-ahead, real-time, term-ahead and green contracts</td></tr>
+<tr><td>Gas exchange</td><td>IGX</td><td>Physical delivery-based gas contracts, intraday to semi-annual</td></tr>
+<tr><td>System operation</td><td>Grid-India</td><td>National and regional load despatch; scheduling and despatch</td></tr>
+<tr><td>Economic regulation</td><td>CERC</td><td>Inter-state tariffs, market design, exchange oversight</td></tr>
+<tr><td>State-level regulation</td><td>State ERCs</td><td>Retail tariffs and discom performance</td></tr>
+<tr><td>Technical planning</td><td>CEA</td><td>Capacity, resource adequacy and generation statistics</td></tr>
+<tr><td>Gas regulation</td><td>PNGRB</td><td>Pipelines, city gas networks and the gas exchange regime</td></tr>
+</tbody></table>
+
+<h3>The exchange is a slice, not the market</h3>
+<p>Most Indian generation sells under 25-year PPAs between a generator and a state discom, on a
+two-part tariff: a fixed capacity charge that pays for the asset whether it runs or not, and a variable
+energy charge for fuel. Those megawatt-hours dispatch against a contract, not against a price. The
+exchange picks up the leftovers, whether that is a discom short of its contracted position, a generator
+with unrequisitioned capacity or an industrial buyer on open access.</p>
+
+<p>So exchange prices do not tell you what the system costs. They tell you where it is under strain.
+Tighten the residual and the day-ahead price can hit the regulatory ceiling inside a single 15-minute
+block. Flood the middle of the day with solar and it falls towards the floor. On 15 August 2026 the
+unconstrained day-ahead clearing price ran from ₹300 to ₹9,913 per MWh across the day (<a href="https://www.iexindia.com/market-data/day-ahead-market/market-snapshot" target="_blank" rel="noopener">IEX market snapshot</a>).</p>
+
+<h3>Three exchanges, converging on one price</h3>
+<p>IEX carries close to 90% of exchange volume, with PXIL and HPX sharing the rest (<a href="https://www.businesstoday.in/latest/policy/story/power-trading-overhaul-cerc-eyes-fee-rationalisation-as-market-coupling-nears-2026-rollout-508383-2025-12-28" target="_blank" rel="noopener">Business Today</a>). Each exchange used to
+discover its own price. From January 2026 CERC has been phasing in <strong>market coupling</strong> for
+the day-ahead market: bids from all three platforms are pooled into one clearing price, with the
+exchanges taking turns as coupling operator and Grid-India sitting behind them as backup and auditor.
+Cross-exchange basis goes away. The day-ahead price becomes a genuinely national number.</p>
+</section><section class="sec" id="s3"><span class="sn">03</span><h2>Infrastructure — power and gas</h2>
+<p class="lead">One synchronous grid covers the whole mainland at 50 Hz, which is unusual for a system
+this size. The gas network has not caught up: it is still regional rather than national.</p>
+
+<h3>Power</h3>
+<div class="cards">
+<div class="card"><h4>One frequency</h4><p>The five regional grids are synchronously interconnected into a
+single national system at 50 Hz. Energy can in principle run from Gujarat to Assam without touching a
+converter station.</p></div>
+<div class="card"><h4>Transmission corridors</h4><p>Interregional capacity is large, but not unlimited. When
+the coupled solution has to be re-run against network limits, congestion surfaces as area-specific
+clearing prices.</p></div>
+<div class="card"><h4>Coal at the core</h4><p>Thermal plant sits near the eastern coalfields. Solar and wind
+sit in the west and south. The grid's job is increasingly to carry renewable energy away from where it
+was made.</p></div>
+</div>
+
+<p>A national clearing price only means anything because of that single-frequency design. Japan, split
+at 50 and 60 Hz, watches its two halves price apart routinely. When Indian regions diverge it is a
+transmission constraint rather than a physical incompatibility, and constraints can be built away given
+money and time.</p>
+
+<h3>Gas and LNG</h3>
+<p>India produces a fair amount of its own gas. Not enough, so the balance comes in as LNG. Output from
+legacy domestic fields sells at an administered price and everything else at a market price. IGX now
+settles at <strong>19 delivery points</strong> across LNG terminals, domestic field landfalls and
+pipeline interconnections (<a href="https://www.tribuneindia.com/news/business/igx-records-180-yoy-surge-in-gas-volume-to-11-64-million-mmbtu-in-july-2026/" target="_blank" rel="noopener">IGX, July 2026</a>). That count is a decent proxy for how far
+physical liquidity now reaches.</p>
+
+<div class="fig">
+  <svg viewBox="0 0 900 300" role="img" aria-label="Schematic of the Indian power market: PPA base, exchange layer and system operation">
+    <text x="30" y="26" class="axl">CONTRACTING LAYERS — thickness reflects share of energy, not geography</text>
+    <rect x="30" y="44" width="840" height="76" rx="10" fill="#2a78d6" opacity=".08"/>
+    <rect x="40" y="56" width="820" height="52" rx="7" fill="#2a78d6"/>
+    <g class="seg"><text x="60" y="82">Long-term PPAs — generator to discom, 25 years, two-part tariff</text></g>
+
+    <rect x="30" y="136" width="840" height="60" rx="10" fill="#eb6834" opacity=".08"/>
+    <rect x="40" y="146" width="330" height="40" rx="7" fill="#eb6834"/>
+    <g class="seg"><text x="60" y="166">Bilateral short-term and traders</text></g>
+    <rect x="382" y="146" width="300" height="40" rx="7" fill="#1baf7a"/>
+    <g class="seg"><text x="402" y="166">Exchanges — DAM, RTM, TAM, GDAM</text></g>
+    <rect x="694" y="146" width="166" height="40" rx="7" fill="#9AA8AC"/>
+    <g class="seg"><text x="714" y="166">Deviation settlement</text></g>
+
+    <rect x="30" y="212" width="840" height="60" rx="10" fill="#4a3aa7" opacity=".08"/>
+    <rect x="40" y="222" width="820" height="40" rx="7" fill="#4a3aa7"/>
+    <g class="seg"><text x="60" y="242">Grid-India — one synchronous national grid at 50 Hz, 15-minute despatch</text></g>
+  </svg>
+  <p class="figcap"><b>Schematic — system topology, not a geographic map.</b> The long-term PPA base carries
+  the bulk of the energy; the short-term layer, of which the exchanges are one part, sits on top of it;
+  system operation sits under everything. Widths are illustrative of layering, not scaled to volume.</p>
+</div>
+
+<div class="mapslot"><div class="t">Geographic infrastructure map</div>
+<div class="s">A sourced map of the interregional transmission corridors, LNG terminals and the national
+gas grid belongs here — reproduced from a CEA or PNGRB publication rather than redrawn.</div></div>
+</section><section class="sec" id="s4"><span class="sn">04</span><h2>Demand and supply</h2>
+<p class="lead">Demand is growing fast and solar faster. When the sun goes down, coal still answers
+the phone.</p>
+
+<h3>Demand</h3>
+<p>Few large markets have demand growth this structural. Air conditioning, industrial load and
+electrification all pull the same way. Consumption hit 170.70 billion units in July 2026 alone, up
+around 11% year on year (<a href="https://www.business-standard.com/india-news/iex-electricity-prices-rise-19-to-5-per-unit-trade-volumes-up-7-7-126080401642_1.html" target="_blank" rel="noopener">Business Standard</a>).
+That is the mirror image of Japan, and it changes what a position here is actually exposed to. Nobody
+is worried about stagnation. The question is whether supply keeps up.</p>
+
+<h3>Supply</h3>
+<p>Coal is the backbone. Solar has grown far enough to soften midday prices as a matter of routine,
+but the evening peak still lands on thermal plant, and there is very little storage and no real
+demand-response market to take the edge off. Average prices are not falling. The intraday spread is
+widening instead.</p>
+
+<div class="fig">
+  <div class="fig-t">Where India's electricity came from, 2025</div>
+  <svg viewBox="0 0 900 200" role="img" aria-label="India generation mix 2025 by source">
+    <g class="seg"><rect x="0"   y="18" width="595" height="40" rx="4" fill="#2a78d6"/><text x="12" y="43">Coal 68%</text></g>
+    <g class="seg"><rect x="599" y="18" width="79"  height="40" rx="4" fill="#eb6834"/><text x="609" y="43">Solar 9%</text></g>
+    <g class="seg"><rect x="682" y="18" width="79"  height="40" rx="4" fill="#1baf7a"/><text x="692" y="43">Hydro 9%</text></g>
+    <g class="seg"><rect x="765" y="18" width="53"  height="40" rx="4" fill="#eda100"/></g>
+    <g class="seg"><rect x="822" y="18" width="26"  height="40" rx="4" fill="#e87ba4"/></g>
+    <g class="seg"><rect x="852" y="18" width="18"  height="40" rx="4" fill="#4a3aa7"/></g>
+    <g class="seg"><rect x="874" y="18" width="26"  height="40" rx="4" fill="#9AA8AC"/></g>
+    <line class="axis" x1="791" y1="58" x2="791" y2="74"/><text class="axl" x="791" y="88" text-anchor="middle">Wind 6%</text>
+    <line class="axis" x1="861" y1="58" x2="861" y2="74"/><text class="axl" x="861" y="88" text-anchor="middle">Gas 2%</text>
+    <line class="axis" x1="835" y1="58" x2="835" y2="96"/><text class="axl" x="835" y="110" text-anchor="middle">Nuclear 3%</text>
+    <line class="axis" x1="887" y1="58" x2="887" y2="118"/><text class="axl" x="900" y="132" text-anchor="end">Other 3%</text>
+    <text class="axl" x="0" y="170">Fossil fuels supply roughly seven tenths of generation.</text>
+    <text class="axl" x="900" y="170" text-anchor="end">Gas is a marginal fuel here, not a base fuel.</text>
+  </svg>
+  <p class="figcap">Shares for 2025, rounded. Source: <a href="https://lowcarbonpower.org/region/India" target="_blank" rel="noopener">Low Carbon Power</a>, corroborated by <a href="https://ember-energy.org/countries-and-regions/india/" target="_blank" rel="noopener">Ember</a>.</p>
+</div>
+
+<div class="fig">
+  <div class="fig-t">Short-term electricity transactions, 2024-25 — billion units</div>
+  <svg viewBox="0 0 900 250" role="img" aria-label="India short-term electricity volumes 2024-25 by route">
+    <line class="grid" x1="70" y1="44"  x2="880" y2="44"/><text class="gl" x="60" y="48">120</text>
+    <line class="grid" x1="70" y1="83"  x2="880" y2="83"/><text class="gl" x="60" y="87">90</text>
+    <line class="grid" x1="70" y1="122" x2="880" y2="122"/><text class="gl" x="60" y="126">60</text>
+    <line class="grid" x1="70" y1="161" x2="880" y2="161"/><text class="gl" x="60" y="165">30</text>
+    <line class="axis" x1="70" y1="200" x2="880" y2="200"/>
+    <g class="bar1"><rect x="150" y="59"  width="150" height="141" rx="4"/><text x="225" y="49">108.6</text></g>
+    <g class="bar1"><rect x="400" y="73"  width="150" height="127" rx="4"/><text x="475" y="63">97.6</text></g>
+    <g class="bar1"><rect x="650" y="158" width="150" height="42"  rx="4"/><text x="725" y="148">32.1</text></g>
+    <text class="xl" x="225" y="222">Power exchanges</text>
+    <text class="xl" x="475" y="222">Bilateral and traders</text>
+    <text class="xl" x="725" y="222">Deviation settlement</text>
+  </svg>
+  <p class="figcap">2024-25 short-term transactions totalled about 238 BU, roughly 15% of generation.
+  Source: <a href="https://powerline.net.in/2025/10/29/hitting-record-volumes-power-trading-trends-and-developments/" target="_blank" rel="noopener">Power Line</a>.</p>
+</div>
+
+<div class="stats">
+  <div class="st"><div class="k">IEX day-ahead, July 2026</div><div class="v">₹4.99 <small>/ unit</small></div></div>
+  <div class="st arrow">→</div>
+  <div class="st"><div class="k">IEX real-time, July 2026</div><div class="v">₹4.41 <small>/ unit</small></div></div>
+  <div class="st note">Day-ahead price up 19.3% year on year on volumes of 5,087 MU; total IEX volume
+  13,527 MU. Source: <a href="https://www.business-standard.com/india-news/iex-electricity-prices-rise-19-to-5-per-unit-trade-volumes-up-7-7-126080401642_1.html" target="_blank" rel="noopener">Business Standard</a>.</div>
+</div>
+
+<div class="pull"><div class="t">Why the gas number is small but not unimportant</div>
+<p>Gas makes a couple of per cent of Indian electricity, and sets the price in the western and southern
+states more often than that share suggests. Small fuels with large influence on the price are the ones
+that get mis-sized on a risk report.</p></div>
+</section><section class="sec" id="s5"><span class="sn">05</span><h2>Price setting mechanism</h2>
+<p class="lead">A uniform-price auction over 96 fifteen-minute blocks a day, clearing a residual volume
+under a capped price. The fuel costs that drive it are set outside the market altogether.</p>
+
+<h3>The power auction</h3>
+<p>Buyers and sellers bid for each <strong>15-minute block</strong>, 96 of them a day. The exchange
+builds a supply stack and a demand stack and clears them against each other, and the intersection is one
+price paid by every buyer and received by every seller in that block. Under market coupling the stack is
+built from all three exchanges at once, giving a single national clearing price before network
+constraints go on. Where transmission binds, the clearing is re-run and area prices separate.</p>
+
+<p>What separates this from a pool market is <strong>what is in the stack</strong>. Contracted PPA
+generation is already committed and never bids. What bids is surplus: an unrequisitioned thermal unit,
+merchant capacity, a discom long a block. The marginal unit is therefore often an expensive coal plant
+on part load, or an imported-coal unit. Day-ahead prices can sit well above the average cost of
+generation while the system as a whole is comfortably long.</p>
+
+<h3>The cap, and why it matters</h3>
+<p>A regulatory ceiling sits over exchange prices. Unconstrained clearing reached ₹9,913 per MWh on
+15 August 2026 (<a href="https://www.iexindia.com/market-data/day-ahead-market/market-snapshot" target="_blank" rel="noopener">IEX market snapshot</a>), pressed hard against the ceiling in individual blocks
+while the daily average came in at ₹3,281 per MWh. Write a hedge here and your upside is truncated by
+regulation rather than by fundamentals. The tail risk on a short position is bounded, and so is the
+value of an out-of-the-money call.</p>
+
+<h3>Gas pricing is administered, not discovered</h3>
+<p>Domestic gas from legacy fields sells at the <strong>APM price</strong>, set at 10% of the monthly
+Indian crude basket, floored at $4 and capped at <strong>$7/MMBtu</strong> since 1 April 2026 (<a href="https://www.etvbharat.com/en/bharat/government-raises-regulated-gas-price-for-ongc-and-oil-india-to-usd-7-per-mmbtu-enn26033106130" target="_blank" rel="noopener">Ministry of Petroleum and Natural Gas, via ETV Bharat</a>). Deepwater and difficult fields get a
+separate, higher ceiling. Imported LNG and free-market domestic gas price off the international market
+like everyone else. IGX's GIXI index settled at $19.17/MMBtu in July 2026 (<a href="https://www.tribuneindia.com/news/business/igx-records-180-yoy-surge-in-gas-volume-to-11-64-million-mmbtu-in-july-2026/" target="_blank" rel="noopener">IGX, July 2026</a>).</p>
+
+<div class="pull"><div class="t">Two gas prices, one pipeline</div>
+<p>Which bucket a buyer's molecules come from decides their economics. APM gas at $7 and free-market gas
+near $19 are not competing supplies. They are different entitlements. Model Indian gas demand without
+splitting the two and the answer is out by more than a factor of two.</p></div>
+
+<h3>Hedging</h3>
+<p>Cash-settled electricity derivatives launched in July 2025, the first route generators and discoms
+have had to lock forward prices (<a href="https://powerline.net.in/2025/10/29/hitting-record-volumes-power-trading-trends-and-developments/" target="_blank" rel="noopener">Power Line</a>). Liquidity is thin so far. The exchange price is
+nonetheless becoming a settlement reference as well as a physical one.</p>
+</section><section class="sec" id="s6"><span class="sn">06</span><h2>Regulatory regime</h2>
+<p class="lead">Two tiers: federal for inter-state trade, state-level for retail, with the gas
+regulator off to one side entirely. Where a transaction sits decides who governs it.</p>
+
+<table><thead><tr><th>Body</th><th>Remit</th></tr></thead><tbody>
+<tr><td>Ministry of Power</td><td>Policy, schemes and the legislative framework</td></tr>
+<tr><td>CERC</td><td>Inter-state tariffs and transmission, market design, exchange and coupling regulation</td></tr>
+<tr><td>State Electricity Regulatory Commissions</td><td>Retail tariffs, open access charges, discom performance</td></tr>
+<tr><td>Grid-India</td><td>National and regional load despatch, scheduling, deviation settlement</td></tr>
+<tr><td>CEA</td><td>Technical standards, resource adequacy planning, generation statistics</td></tr>
+<tr><td>PNGRB</td><td>Gas pipelines, city gas distribution and the gas exchange regime</td></tr>
+</tbody></table>
+
+<h3>Why the federal split matters commercially</h3>
+<p>A generator selling across a state border deals with CERC. A consumer buying through open access
+deals with their State Commission, and with state-level charges that can be revised in ways that gut
+the economics of a contract already signed. Open access has been legally available for two decades.
+Whether it is usable depends on the state, and that variation, not the national rules, decides whether
+a corporate power purchase works.</p>
+
+<h3>Market coupling</h3>
+<p>Nothing recent matters more than the phased introduction of market coupling from January 2026,
+starting with day-ahead and extending to term-ahead through a shadow pilot. CERC has also been
+reviewing exchange transaction fees, currently charged close to the 2 paise per unit ceiling, with
+reductions on the table (<a href="https://www.businesstoday.in/latest/policy/story/power-trading-overhaul-cerc-eyes-fee-rationalisation-as-market-coupling-nears-2026-rollout-508383-2025-12-28" target="_blank" rel="noopener">Business Today</a>). Coupling kills price differences between
+platforms. It also moves the exchanges' competitive ground from price discovery to services and fees.</p>
+
+<h3>Distribution reform is the binding constraint</h3>
+<p>Every serious analysis of the Indian power sector ends up in the same place. A market cannot be
+better than its buyers. AT&amp;C losses of 16.12% and cost recovery below 100% in 2023-24 (<a href="https://powerline.net.in/2025/07/08/widening-losses-key-highlights-of-pfcs-report-on-discom-performance/" target="_blank" rel="noopener">PFC discom report, via Power Line</a>) mean the
+counterparty on most long-term contracts loses money. Federal scheme after federal scheme has gone at
+this, and metering and collection have genuinely improved in the better states. Take multi-year Indian
+power exposure and you have taken a state-level credit view whether you priced one or not.</p>
+</section><section class="sec" id="s7"><span class="sn">SOURCES</span><h2>Key links</h2><p class="lead">Primary sources for this market. Figures on this page are drawn from these and from published market data.</p><div class="links"><a class="lk" href="https://cercind.gov.in/" target="_blank" rel="noopener"><div class="n">CERC</div><div class="d">Central Electricity Regulatory Commission — market design, orders and short-term market monitoring reports</div><div class="u">https://cercind.gov.in/</div></a><a class="lk" href="https://grid-india.in/" target="_blank" rel="noopener"><div class="n">Grid-India</div><div class="d">Grid Controller of India — system operation, scheduling and despatch procedures</div><div class="u">https://grid-india.in/</div></a><a class="lk" href="https://cea.nic.in/" target="_blank" rel="noopener"><div class="n">Central Electricity Authority</div><div class="d">Installed capacity, generation statistics and resource adequacy planning</div><div class="u">https://cea.nic.in/</div></a><a class="lk" href="https://www.iexindia.com/" target="_blank" rel="noopener"><div class="n">Indian Energy Exchange</div><div class="d">Day-ahead, real-time, term-ahead and green market data</div><div class="u">https://www.iexindia.com/</div></a><a class="lk" href="https://www.igxindia.com/" target="_blank" rel="noopener"><div class="n">Indian Gas Exchange</div><div class="d">Physical gas contracts, delivery points and the GIXI index</div><div class="u">https://www.igxindia.com/</div></a><a class="lk" href="https://ppac.gov.in/natural-gas/gas-price" target="_blank" rel="noopener"><div class="n">PPAC — gas price</div><div class="d">Petroleum Planning and Analysis Cell: notified domestic gas prices and ceilings</div><div class="u">https://ppac.gov.in/natural-gas/gas-price</div></a></div></section></main>
+  </div>
+</div>
+
+
+
+<script>
+var links=[].slice.call(document.querySelectorAll('.toc a[href^="#s"]'));
+var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))}).filter(Boolean);
+function onScroll(){var y=window.scrollY+150,c=0;
+  secs.forEach(function(s,i){if(s.offsetTop<=y)c=i});
+  links.forEach(function(a,i){a.classList.toggle('on',i===c)})}
+window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+</script>
+</div>

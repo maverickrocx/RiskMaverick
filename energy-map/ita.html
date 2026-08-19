@@ -1,0 +1,379 @@
+---
+layout: default
+title: Italy
+permalink: /energy-map/ita/
+blurb: "Italy — Pool clearing. Market structure, infrastructure, demand and supply, price formation and regulation."
+---
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet"><style>
+.emapx{
+  --bg:#FAFAF8; --surface:#FFFFFF; --sunken:#F4F7F7;
+  --ink:#14262B; --ink-muted:#4A5B60; --ink-dim:#7C8D92;
+  --border:#E2E8E8;
+  --s5:#C0392B; --s4:#DD7B2F; --s3:#E8AE28; --s2:#3B8B60; --s1:#1F7A52;
+  --accent:#3B8B60;
+  --r:8px; --micro:180ms; --ease:cubic-bezier(.2,.6,.2,1);
+  --serif:"Source Serif 4",Georgia,serif;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+.emapx *{box-sizing:border-box;margin:0;padding:0}
+.emapx{scroll-behavior:smooth}
+.emapx{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.5;
+  -webkit-font-smoothing:antialiased;font-feature-settings:"tnum" 1}
+.emapx h1,.emapx h2,.emapx h3{font-family:var(--serif);line-height:1.16;letter-spacing:-.02em;font-weight:600}
+.emapx .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+@media(max-width:767px){.emapx .wrap{padding:0 16px}}
+.emapx .proto{background:#14262B;color:#F3F6F6;font-size:12px;padding:8px 16px;text-align:center}
+.emapx nav{position:sticky;top:0;z-index:60;height:64px;display:flex;align-items:center;
+  background:rgba(250,250,248,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.emapx nav .wrap{display:flex;align-items:center;gap:26px;width:100%}
+.emapx .logo{font-family:var(--serif);font-size:20px;font-weight:700;display:flex;align-items:center;gap:10px}
+.emapx .logo .mark{width:22px;height:22px;border:2px solid var(--accent);border-radius:3px;position:relative;flex:none}
+.emapx .logo .mark::after{content:"";position:absolute;inset:4px 4px auto 4px;height:2px;background:var(--s3)}
+.emapx .crumb{font-size:13px;color:var(--ink-dim)}
+.emapx .crumb a{color:var(--ink-muted);text-decoration:none}
+.emapx .crumb a:hover{color:var(--ink)}
+.emapx .navlinks{display:flex;gap:22px;margin-left:auto;font-size:14px}
+.emapx .navlinks a{color:var(--ink-muted);text-decoration:none}
+.emapx .navlinks a:hover{color:var(--ink)}
+
+.emapx /* header */
+.mh{padding:46px 0 30px}
+.emapx .mh .top{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.emapx .bchip{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:5px 12px;border-radius:999px;background:var(--accent);color:#fff}
+.emapx .reviewed{font-size:12px;color:var(--ink-dim);margin-left:auto}
+.emapx .mh h1{font-size:56px;margin-bottom:12px}
+@media(max-width:767px){.emapx .mh h1{font-size:34px}}
+.emapx .mh .one{font-size:20px;color:var(--ink-muted);max-width:62ch;line-height:1.45}
+.emapx .facts{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);
+  border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin-top:28px}
+@media(max-width:900px){.emapx .facts{grid-template-columns:repeat(2,1fr)}}
+.emapx .fi{background:var(--surface);padding:15px 16px}
+.emapx .fi .k{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:5px}
+.emapx .fi .v{font-size:15px;font-weight:600;line-height:1.3}
+
+.emapx /* layout */
+.body{display:grid;grid-template-columns:190px 1fr;gap:44px;padding-bottom:20px}
+@media(max-width:1023px){.emapx .body{grid-template-columns:1fr;gap:0}.emapx .toc{display:none}}
+.emapx .toc{position:sticky;top:88px;align-self:start;padding-top:40px}
+.emapx .toc .t{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:10px}
+.emapx .toc a{display:block;font-size:13px;color:var(--ink-muted);text-decoration:none;padding:7px 0 7px 13px;
+  border-left:2px solid var(--border);transition:all var(--micro) var(--ease)}
+.emapx .toc a:hover{color:var(--ink);border-left-color:var(--ink-dim)}
+.emapx .toc a.on{color:var(--ink);font-weight:600;border-left-color:var(--accent)}
+
+.emapx /* sections */
+.sec{padding:40px 0;border-top:1px solid var(--border)}
+.emapx .sec:first-child{border-top:0;padding-top:12px}
+.emapx .sn{font-family:var(--serif);font-size:13px;font-weight:700;color:var(--accent);display:block;margin-bottom:5px}
+.emapx .sec h2{font-size:31px;margin-bottom:8px}
+.emapx .sec .lead{font-size:17px;color:var(--ink-muted);line-height:1.6;max-width:70ch;margin-bottom:20px}
+.emapx .sec p{font-size:15.5px;line-height:1.68;color:var(--ink-muted);max-width:70ch;margin-bottom:16px}
+.emapx .sec p strong{color:var(--ink);font-weight:600}
+.emapx .sec h3{font-size:19px;margin:26px 0 10px}
+
+.emapx table{width:100%;border-collapse:collapse;font-size:14px;background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin:6px 0 20px}
+.emapx th{text-align:left;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-dim);
+  padding:10px 14px;border-bottom:1px solid var(--border);background:var(--sunken);font-weight:700}
+.emapx td{padding:11px 14px;border-bottom:1px solid var(--border);color:var(--ink-muted);vertical-align:top;line-height:1.5}
+.emapx tbody tr:last-child td{border-bottom:0}
+.emapx td:first-child{color:var(--ink);font-weight:500}
+.emapx tbody tr:hover td{background:var(--sunken)}
+
+.emapx .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:6px 0 20px}
+@media(max-width:900px){.emapx .cards{grid-template-columns:1fr}}
+.emapx .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:18px}
+.emapx .card h4{font-family:var(--sans);font-size:14px;font-weight:600;margin-bottom:7px;color:var(--accent)}
+.emapx .card p{font-size:13.5px;line-height:1.55;margin:0;color:var(--ink-muted)}
+
+.emapx .pull{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--accent);
+  border-radius:var(--r);padding:20px 22px;margin:6px 0 22px}
+.emapx .pull p{margin:0;font-size:15.5px;line-height:1.6}
+.emapx .pull .t{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:7px}
+
+.emapx /* map slot — a SOURCED map is placed here,.emapx never a rendered one */
+.mapslot{background:var(--sunken);border:1px dashed var(--border);border-radius:var(--r);
+  padding:34px 24px;text-align:center;margin:6px 0 20px}
+.emapx .mapslot .t{font-size:13px;font-weight:600;color:var(--ink-muted);margin-bottom:5px}
+.emapx .mapslot .s{font-size:12px;color:var(--ink-dim);line-height:1.5;max-width:56ch;margin:0 auto}
+
+.emapx /* key links */
+.links{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:6px}
+@media(max-width:767px){.emapx .links{grid-template-columns:1fr}}
+.emapx .lk{display:block;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+  padding:15px 17px;text-decoration:none;transition:all var(--micro) var(--ease)}
+.emapx .lk:hover{border-color:var(--accent);transform:translateY(-2px)}
+.emapx .lk .n{font-size:14.5px;font-weight:600;color:var(--ink);margin-bottom:3px}
+.emapx .lk .d{font-size:12.5px;color:var(--ink-dim);line-height:1.45}
+.emapx .lk .u{font-size:11.5px;color:var(--accent);margin-top:6px;word-break:break-all}
+
+
+.emapx /* ── figures,.emapx charts,.emapx schematic ── */
+.fig{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+  padding:22px 24px 16px;margin:8px 0 22px}
+.emapx .fig svg{display:block;width:100%;height:auto;overflow:visible}
+.emapx .fig-t{font-family:var(--serif);font-size:17px;font-weight:600;margin-bottom:14px}
+.emapx .figcap{font-size:12px;color:var(--ink-dim);line-height:1.5;margin:14px 0 0;max-width:none}
+.emapx .figcap a{color:var(--accent)}
+.emapx .figcap b{color:var(--ink-muted)}
+.emapx /* schematic */
+.area rect{fill:var(--surface);stroke:#CBD6D6;stroke-width:1.5}
+.emapx .area text{font-family:var(--sans);font-size:13px;font-weight:600;fill:var(--ink);
+  text-anchor:middle;dominant-baseline:middle}
+.emapx .area.e rect{stroke:#2a78d6} .emapx .area.w rect{stroke:#eb6834}
+.emapx .area.iso rect{stroke-dasharray:4 3}
+.emapx .ln{stroke:#9AA8AC;stroke-width:2;fill:none}
+.emapx .lnfc{stroke:#7C8D92;stroke-width:2;fill:none;stroke-dasharray:5 4}
+.emapx .fc{fill:#FDF3E7;stroke:#DD7B2F;stroke-width:1.6}
+.emapx .fct{font-family:var(--sans);font-size:12px;font-weight:700;fill:#C0651F;text-anchor:middle}
+.emapx .fh{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em}
+.emapx .cap2{font-family:var(--sans);font-size:10.5px;fill:#7C8D92;text-anchor:middle;paint-order:stroke;stroke:var(--surface);stroke-width:5;stroke-linejoin:round}
+.emapx .cap2.iso2{font-style:italic}
+.emapx /* composition bar */
+.seg text{font-family:var(--sans);font-size:12.5px;font-weight:600;fill:#fff;dominant-baseline:middle}
+.emapx .axl{font-family:var(--sans);font-size:11.5px;fill:#7C8D92}
+.emapx /* bar chart */
+.grid{stroke:#EDF1F1;stroke-width:1}
+.emapx .axis{stroke:#CBD6D6;stroke-width:1}
+.emapx .gl{font-family:var(--sans);font-size:10.5px;fill:#9AA8AC;text-anchor:end}
+.emapx .xl{font-family:var(--sans);font-size:12px;fill:var(--ink-muted);text-anchor:middle}
+.emapx .bar1 rect{fill:#1baf7a}
+.emapx .bar1 text{font-family:var(--sans);font-size:15px;font-weight:700;fill:var(--ink);text-anchor:middle}
+.emapx /* stat pair */
+.stats{display:flex;align-items:center;gap:18px;flex-wrap:wrap;background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--r);padding:20px 24px;margin:0 0 22px}
+.emapx .st .k{font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:4px}
+.emapx .st .v{font-family:var(--serif);font-size:30px;font-weight:700;line-height:1}
+.emapx .st .v small{font-family:var(--sans);font-size:13px;font-weight:500;color:var(--ink-muted)}
+.emapx .st.arrow{font-size:24px;color:var(--ink-dim)}
+.emapx .st.note{flex:1 1 240px;font-size:11.5px;color:var(--ink-dim);line-height:1.5}
+.emapx .st.note a{color:var(--accent)}
+.emapx /* pending slot */
+.pending{background:var(--sunken);border:1px dashed #CBD6D6;border-radius:var(--r);
+  padding:20px 22px;margin:6px 0 22px}
+.emapx .pending .t{font-size:13px;font-weight:600;color:var(--ink-muted);margin-bottom:6px}
+.emapx .pending p{font-size:13px;color:var(--ink-dim);line-height:1.55;margin:0}
+.emapx .pending a{color:var(--accent)}
+
+.emapx footer{border-top:1px solid var(--border);padding:30px 0;font-size:12px;color:var(--ink-dim);line-height:1.6}
+@media(prefers-reduced-motion:reduce){.emapx *{transition-duration:.01ms!important}}
+</style>
+<div class="emapx">
+<div class="wrap">
+  <header class="mh">
+    <div class="top">
+      <span class="bchip">Pool clearing</span>
+      <span class="reviewed">Last reviewed 16 August 2026</span>
+    </div>
+    <h1>Italy</h1>
+    <p class="one">Europe's most gas-dependent large power market, cleared zonally on IPEX but presented to consumers as one national price. The unwinding of that dual structure is the defining Italian trade.</p>
+    <div class="facts"><div class="fi"><div class="k">Power exchange</div><div class="v">IPEX / GME</div></div><div class="fi"><div class="k">Price unit</div><div class="v">EUR / MWh</div></div><div class="fi"><div class="k">Bidding zones</div><div class="v">Six</div></div><div class="fi"><div class="k">System operator</div><div class="v">Terna</div></div><div class="fi"><div class="k">Gas position</div><div class="v">Import-dependent; PSV hub</div></div></div>
+  </header>
+
+  <div class="body">
+    <aside class="toc" id="toc">
+      <div class="t">On this page</div>
+      <a href="#s1">01 Overview</a>
+      <a href="#s2">02 Market structure</a>
+      <a href="#s3">03 Infrastructure</a>
+      <a href="#s4">04 Demand and supply</a>
+      <a href="#s5">05 Price setting</a>
+      <a href="#s6">06 Regulatory regime</a>
+      <a href="#s7">Key links</a>
+    </aside>
+    <main><section class="sec" id="s1"><span class="sn">01</span><h2>Overview</h2>
+<p class="lead">Italy is Europe's gas-fired power market. Almost no domestic hydrocarbons, a heavy CCGT fleet, six pricing zones and wholesale prices near the top of the continental range. In most hours Italian electricity is a derivative of imported gas.</p>
+
+<p>Wholesale power trades on <strong>IPEX</strong>, the Italian Power Exchange run by
+<a href="https://www.mercatoelettrico.org/en/" target="_blank" rel="noopener">GME</a> (Gestore dei Mercati Energetici). The day-ahead auction clears zonally. Retail, though, has always been shown one headline number: historically the <strong>PUN</strong>, the demand-weighted national single price. Learn that two-layer design before anything else. Generators are paid the zonal price where they sit; consumers pay a national average.</p>
+
+<p>Gas is the other half of the story. Italian consumption ran at <a href="https://www.enerdata.net/publications/daily-energy-news/italys-gas-consumption-declined-25-617-bcm-2024-15-year-low.html" target="_blank" rel="noopener">61.7 bcm in 2024</a>, a fifteen-year low. Domestic production is negligible; imports cover effectively all of it. Since 2022 Rome has rebuilt the supply book away from Russia and towards Algeria, Azerbaijan and LNG. It has also started arguing that the pipes running north from Sicily and the Adriatic make Italy the natural corridor for Mediterranean and North African gas into central Europe.</p>
+
+<p>Two risk axes come out of that. One is locational: north–south power spreads set by the distance between where the solar and wind sit and where the industrial load sits. The other is import-side, a gas supply chain assembled at speed on new floating regasification capacity and a short list of pipeline counterparties.</p>
+
+<div class="pull"><div class="t">Why traders watch Italy</div>
+<p>Italy is where the Mediterranean gas balance meets the European power stack. A cargo diverted to
+Piombino and a hot week in Milan show up in the same price.</p></div>
+</section><section class="sec" id="s2"><span class="sn">02</span><h2>Market structure</h2>
+<p class="lead">A liberalised exchange market with a zonal day-ahead auction, a national reference
+price on top of it, and a transmission operator that also runs the capacity mechanism.</p>
+
+<h3>Who does what</h3>
+<table><thead><tr><th>Function</th><th>Body</th><th>Role</th></tr></thead><tbody>
+<tr><td>Power and gas exchange</td><td>GME</td><td>Operates IPEX: day-ahead (MGP), intraday (MI), the balancing services market platform and the gas markets</td></tr>
+<tr><td>Transmission</td><td>Terna</td><td>National TSO; dispatch, ancillary services procurement, capacity market and storage auctions</td></tr>
+<tr><td>Gas transport and storage</td><td>Snam</td><td>National gas grid, storage fields and regasification assets</td></tr>
+<tr><td>Regulator</td><td>ARERA</td><td>Network tariffs, market rules, consumer protection</td></tr>
+<tr><td>Policy</td><td>MASE</td><td>Ministry of Environment and Energy Security</td></tr>
+</tbody></table>
+
+<h3>The zones</h3>
+<p>The day-ahead market splits Italy into six bidding zones: <strong>North, Centre-North, Centre-South, South, Sicily and Sardinia</strong>. Each clears at its own price whenever the transmission capacity between zones binds. In a long thin country with generation concentrated in the south and demand concentrated in the north, it binds a lot.</p>
+
+<p>The economic geography runs opposite to the electrical geography. Industry, and therefore load, sits in Lombardy, Veneto and Piedmont. Solar and wind, and therefore cheap marginal energy, sit in Puglia, Sicily and Sardinia. Southern renewables run hard, southern zonal prices fall away from the North, the spread widens. The sun sets, the country goes back on gas, the spread collapses. Hedge Italian power and you are taking a view on that spread whether you meant to or not.</p>
+
+<h3>Beyond energy</h3>
+<p>Two Terna-run mechanisms sit alongside the energy market. The <strong>capacity market</strong> pays for availability. Its auction for the 2027 delivery year, held in February 2025, allocated
+<a href="https://www.ess-news.com/2025/02/28/terna-energy-storage-capacity-auction-2027-delivery-results/" target="_blank" rel="noopener">43 GW at €47,000/MW/year</a>. And <strong>MACSE</strong>, a new centralised storage
+procurement, awarded <a href="https://download.terna.it/terna/Terna_completed_first_MACSE_auction_8de00ea13c11e89.pdf" target="_blank" rel="noopener">10 GWh of battery capacity at a weighted average €12,959/MWh-year</a>
+in its first auction in September 2025, all of it in the south and the islands. A pure spark-spread model misses both.</p>
+</section><section class="sec" id="s3"><span class="sn">03</span><h2>Infrastructure — power and gas</h2>
+<p class="lead">A meshed national grid with weak links to the islands, and a gas system rebuilt in
+three years around new entry points from the south and the sea.</p>
+
+<h3>Power</h3>
+<div class="cards">
+<div class="card"><h4>Six bidding zones</h4><p>North, Centre-North, Centre-South, South, Sicily and
+Sardinia. The binding constraints run north–south and out to the islands.</p></div>
+<div class="card"><h4>Island links</h4><p>Sicily and Sardinia hang off submarine cable rather than a meshed AC network. They price apart more often than anywhere else, which is why storage was aimed there first.</p></div>
+<div class="card"><h4>Import capacity</h4><p>Italy is a structural power importer from France,
+Switzerland, Austria and Slovenia — net imports covered <a href="https://www.marketscreener.com/news/terna-italy-s-2025-electricity-consumption-stable-at-311-3-twh-solar-power-hits-record-high-ce7e58ddd18bf522" target="_blank" rel="noopener">15.1% of demand in 2025</a>.</p></div>
+</div>
+
+<h3>Gas</h3>
+<p>Snam runs the national transmission grid, the storage fields and, since 2022, the country's newest import capacity. Pipeline gas arrives from Algeria via TransMed into Sicily, from Azerbaijan via TAP into Puglia, from Libya via Greenstream, and from northern Europe. LNG comes into the Adriatic terminal off Rovigo, the Panigaglia plant, and two floating units bought after the Russian supply break: <a href="https://www.gem.wiki/Piombino_FSRU" target="_blank" rel="noopener">Piombino</a> (5 bcm/y, first cargo 2023) and
+<a href="https://www.enerdata.net/publications/daily-energy-news/snams-5-bcmyear-fsru-ravenna-lng-will-start-operations-2025-italy.html" target="_blank" rel="noopener">Ravenna</a> (5 bcm/y, from 2025), which together take national regasification
+capacity to roughly 28 bcm a year.</p>
+
+<p>Storage matters more in Italy than in most European markets. Winter demand is heavily residential, and injected volume is the buffer that stops a cold snap becoming a price event. Italian summer injection demand shows up in the European curve for the same reason.</p>
+
+<div class="fig">
+  <svg viewBox="0 0 900 300" role="img" aria-label="Schematic of Italy's six bidding zones and principal gas entry points">
+    <text x="60" y="26" class="fh" fill="#2a78d6">POWER — SIX BIDDING ZONES</text>
+    <text x="560" y="26" class="fh" fill="#eb6834">GAS — PRINCIPAL ENTRY POINTS</text>
+    <rect x="30" y="44" width="400" height="228" rx="10" fill="#2a78d6" opacity=".05"/>
+    <rect x="470" y="44" width="400" height="228" rx="10" fill="#eb6834" opacity=".05"/>
+
+    <g class="area e"><rect x="120" y="60" width="150" height="38" rx="7"/><text x="195" y="84">North</text></g>
+    <g class="area e"><rect x="120" y="108" width="150" height="38" rx="7"/><text x="195" y="132">Centre-North</text></g>
+    <g class="area e"><rect x="120" y="156" width="150" height="38" rx="7"/><text x="195" y="180">Centre-South</text></g>
+    <g class="area e"><rect x="120" y="204" width="150" height="38" rx="7"/><text x="195" y="228">South</text></g>
+    <g class="area e iso"><rect x="300" y="156" width="110" height="38" rx="7"/><text x="355" y="180">Sardinia</text></g>
+    <g class="area e iso"><rect x="300" y="204" width="110" height="38" rx="7"/><text x="355" y="228">Sicily</text></g>
+    <path class="ln" d="M195,98 V108"/><path class="ln" d="M195,146 V156"/><path class="ln" d="M195,194 V204"/>
+    <path class="lnfc" d="M270,175 H300"/><path class="lnfc" d="M270,223 H300"/>
+    <text x="60" y="262" class="cap2">load concentrated north, cheap renewables south</text>
+
+    <g class="area w"><rect x="500" y="60" width="160" height="38" rx="7"/><text x="580" y="84">TransMed — Algeria</text></g>
+    <g class="area w"><rect x="500" y="108" width="160" height="38" rx="7"/><text x="580" y="132">TAP — Azerbaijan</text></g>
+    <g class="area w"><rect x="500" y="156" width="160" height="38" rx="7"/><text x="580" y="180">North Europe entry</text></g>
+    <g class="area w"><rect x="500" y="204" width="160" height="38" rx="7"/><text x="580" y="228">LNG — 4 terminals</text></g>
+    <rect x="710" y="108" width="120" height="86" rx="8" class="fc"/>
+    <text x="770" y="145" class="fct">PSV</text><text x="770" y="166" class="fct">hub</text>
+    <path class="ln" d="M660,79 H690 V128 H710"/>
+    <path class="ln" d="M660,127 H710"/>
+    <path class="ln" d="M660,175 H710"/>
+    <path class="ln" d="M660,223 H690 V175 H710"/>
+    <text x="770" y="222" class="cap2">exports north to Austria and Switzerland</text>
+  </svg>
+  <p class="figcap"><b>Schematic — system topology, not a geographic map.</b> Left: the six power
+  bidding zones and the constrained links to the islands. Right: gas entry points converging on the
+  PSV virtual trading point, with spare capacity available for onward export
+  (<a href="https://met.com/en/media/media-coverage-en/italy-builds-up-role-as-gas-exporter/" target="_blank" rel="noopener">MET Group</a>).</p>
+</div>
+
+<div class="mapslot"><div class="t">Geographic infrastructure map</div>
+<div class="s">A sourced map of the transmission network, LNG terminals and gas entry points belongs
+here — reproduced from a Terna or Snam publication rather than redrawn.</div></div>
+</section><section class="sec" id="s4"><span class="sn">04</span><h2>Demand and supply</h2>
+<p class="lead">Flat electricity demand. A record solar year that still left gas on the margin, and a gas balance shrinking in volume while getting more complicated strategically.</p>
+
+<h3>Demand</h3>
+<p>Italian electricity consumption was <a href="https://www.terna.it/en/media/press-releases/detail/electricity-consumption-2025" target="_blank" rel="noopener">311.3 TWh in 2025</a>, flat against 2024. Gas demand is on a longer downtrend, at <a href="https://www.enerdata.net/publications/daily-energy-news/italys-gas-consumption-declined-25-617-bcm-2024-15-year-low.html" target="_blank" rel="noopener">61.7 bcm in 2024</a> , a third consecutive annual fall and the lowest in more than fifteen years. Mild weather, high prices and industrial demand destruction did it between them. Neither market is a growth story. Both are volatility stories.</p>
+
+<h3>Supply</h3>
+<p>Solar set a record in 2025 at <a href="https://www.marketscreener.com/news/terna-italy-s-2025-electricity-consumption-stable-at-311-3-twh-solar-power-hits-record-high-ce7e58ddd18bf522" target="_blank" rel="noopener">44.3 TWh, up 25.1%</a>, yet renewables covered 41% of demand, down from 42% the year before as hydro normalised. Gas-fired generation is still the swing supplier and still the price setter. Net imports stay a large, stable slice of the balance.</p>
+
+<div class="fig">
+  <div class="fig-t">Where Italy's electricity came from, latest twelve months</div>
+  <svg viewBox="0 0 900 118" role="img" aria-label="Italy electricity supply mix by source">
+    <g class="seg"><rect x="0"   y="18" width="343" height="40" rx="4" fill="#2a78d6"/><text x="10"  y="43">Gas 39%</text></g>
+    <g class="seg"><rect x="347" y="18" width="141" height="40" rx="4" fill="#eb6834"/><text x="357" y="43">Net imports 16%</text></g>
+    <g class="seg"><rect x="492" y="18" width="132" height="40" rx="4" fill="#1baf7a"/><text x="502" y="43">Solar 15%</text></g>
+    <g class="seg"><rect x="628" y="18" width="106" height="40" rx="4" fill="#eda100"/><text x="638" y="43">Hydro 12%</text></g>
+    <g class="seg"><rect x="738" y="18" width="62"  height="40" rx="4" fill="#e87ba4"/><text x="748" y="43">Wind 7%</text></g>
+    <g class="seg"><rect x="804" y="18" width="96"  height="40" rx="4" fill="#9AA8AC"/><text x="814" y="43">Other 11%</text></g>
+    <text x="0"   y="82" class="axl">Gas alone supplies close to two fifths of Italian electricity.</text>
+    <text x="900" y="82" class="axl" text-anchor="end">Coal, oil, bioenergy and geothermal sit inside “Other”.</text>
+  </svg>
+  <p class="figcap">Shares of total supply including net imports, twelve months to May 2026, rounded.
+  Source: <a href="https://lowcarbonpower.org/region/Italy" target="_blank" rel="noopener">Low Carbon Power</a>. Domestic-generation-only shares differ; see
+  <a href="https://ember-energy.org/countries-and-regions/italy/" target="_blank" rel="noopener">Ember</a>, which puts renewables at 49% of generation in 2025.</p>
+</div>
+
+<div class="stats">
+  <div class="st"><div class="k">Electricity demand, 2025</div><div class="v">311.3 <small>TWh</small></div></div>
+  <div class="st arrow">→</div>
+  <div class="st"><div class="k">Met by domestic output</div><div class="v">84.9<small>%</small></div></div>
+  <div class="st note">The balance is imported. Source: <a href="https://www.marketscreener.com/news/terna-italy-s-2025-electricity-consumption-stable-at-311-3-twh-solar-power-hits-record-high-ce7e58ddd18bf522" target="_blank" rel="noopener">Terna, via MarketScreener</a>.</div>
+</div>
+
+<table><thead><tr><th>Indicator</th><th>Direction</th><th>Comment</th></tr></thead><tbody>
+<tr><td>Electricity demand</td><td>Flat</td><td>311.3 TWh in 2025, unchanged year on year</td></tr>
+<tr><td>Solar output</td><td>Rising sharply</td><td>Record 44.3 TWh, up 25.1% on 2024</td></tr>
+<tr><td>Gas demand</td><td>Declining</td><td>Third consecutive annual fall to 2024</td></tr>
+<tr><td>Net power imports</td><td>Stable and large</td><td>15.1% of 2025 consumption</td></tr>
+<tr><td>LNG share of gas imports</td><td>Rising capacity</td><td>Regasification capacity around 28 bcm/y after Ravenna</td></tr>
+</tbody></table>
+
+<div class="pull"><div class="t">The composition trap</div>
+<p>Record solar and falling gas demand can coexist with unchanged gas price sensitivity. Solar
+displaces gas volume in the middle of the day; it does not displace gas from the margin in the
+evening — which is when the price is set.</p></div>
+</section><section class="sec" id="s5"><span class="sn">05</span><h2>Price setting mechanism</h2>
+<p class="lead">A zonal marginal-cost auction with a national average bolted on top for consumers. Two prices, one market. The gap between them is where a lot of Italian risk lives.</p>
+
+<h3>The auction</h3>
+<p>Generators offer into GME's day-ahead market hour by hour. Offers stack cheapest first and the market clears at the offer that meets demand. The network is constrained, so the clearing runs zone by zone. Each of the six zones gets its own <strong>zonal price</strong>, and that is what a generator sitting there is paid.</p>
+
+<h3>PUN versus zonal</h3>
+<p>Consumers, however, have historically paid the <strong>PUN</strong>, the <strong>prezzo unico nazionale</strong>: one national price calculated as the demand-weighted average of the zonal prices. A plant in Sicily earning a high zonal price and a plant in the North earning a low one sit behind the same number on the retail bill. The difference is settled through a transmission-charge component. That is the classic Italian basis exposure, and a PPA struck against the national reference does not hedge a plant paid at the zonal price.</p>
+
+<p>That architecture is being unwound. Under EU Regulation 2019/943 Italy has moved retail settlement
+towards zonal pricing, with the old PUN replaced in contracts by the
+<a href="https://www.mercatoelettrico.org/en-us/Home/Publications/Indexes-GME/PUNIndexGme" target="_blank" rel="noopener">PUN Index GME</a> — an index GME now calculates under Legislative Decree 210/21 and the
+MASE decree of 18 April 2024 — and a transitional equalisation component
+<a href="https://www.trioadvisory.com/resources/italy-phase-out-pun-2025" target="_blank" rel="noopener">phased in from 2025</a>. The mechanics matter commercially. Every legacy contract referencing &ldquo;the PUN&rdquo; had to be re-pointed at the index, and the basis risk the old system socialised is being handed back, piece by piece, to the parties that create it.</p>
+
+<h3>What sets the price</h3>
+<p>In most hours, a gas-fired CCGT. Italian wholesale power therefore tracks the <strong>PSV</strong> gas price divided by plant efficiency, plus carbon. Midday in summer, the southern zones can clear on solar and price close to zero. Evening peak, the whole country is back on gas. The resulting daily shape is one of the steepest in Europe, which is why storage revenue stacks look as attractive as they do.</p>
+
+<h3>Ancillary services</h3>
+<p>Terna procures balancing and reserve through the <strong>MSD</strong> and its real-time balancing segment <strong>MB</strong>, pay-as-bid rather than pay-as-cleared. Prices there can sit well above the energy market. In constrained zones the MSD is often where a flexible unit actually earns its money.</p>
+</section><section class="sec" id="s6"><span class="sn">06</span><h2>Regulatory regime</h2>
+<p class="lead">An independent economic regulator, a policy ministry, and a TSO that has been handed
+an unusually wide market-design mandate.</p>
+
+<table><thead><tr><th>Body</th><th>Remit</th></tr></thead><tbody>
+<tr><td><a href="https://www.arera.it/en/" target="_blank" rel="noopener">ARERA</a></td><td>Independent authority for energy, networks and environment; tariffs, market rules, consumer protection</td></tr>
+<tr><td>MASE</td><td>Ministry of Environment and Energy Security; policy, decrees, security of supply</td></tr>
+<tr><td><a href="https://www.terna.it/en" target="_blank" rel="noopener">Terna</a></td><td>TSO; dispatch, ancillary services, capacity market and storage auctions</td></tr>
+<tr><td><a href="https://www.mercatoelettrico.org/en/" target="_blank" rel="noopener">GME</a></td><td>Exchange operator for power and gas; publishes the PUN Index GME</td></tr>
+<tr><td>ACER / European Commission</td><td>EU-level market rules, including the zonal-pricing requirement</td></tr>
+</tbody></table>
+
+<h3>How rules actually get made</h3>
+<p>Italy is a layered jurisdiction. EU regulation sets the frame, MASE issues decrees, ARERA turns them into resolutions, Terna writes the operational codes. MACSE shows the chain plainly: it rests on Legislative Decree 210/2021, was authorised by <a href="https://download.terna.it/terna/Terna_completed_first_MACSE_auction_8de00ea13c11e89.pdf" target="_blank" rel="noopener">ARERA Resolution 247/23</a>, and was then designed and run by Terna. If you are assessing a new asset, that chain is your timeline. It is also where the slippage happens.</p>
+
+<h3>Security of supply and the corridor ambition</h3>
+<p>The 2022 supply break reset Italian energy policy around diversification. Two FSRUs were bought and commissioned inside three years, Algerian volumes expanded, TAP flows from Azerbaijan locked in. The stated ambition now goes further. With regasification capacity heading towards 28 bcm a year and existing export capacity of roughly <a href="https://met.com/en/media/media-coverage-en/italy-builds-up-role-as-gas-exporter/" target="_blank" rel="noopener">9 bcm/y to Austria and 14.5 bcm/y via Switzerland</a>, Italy wants to be the entry corridor for Mediterranean and North African gas into central Europe rather than the southern terminus of someone else's system. The €2.5bn Adriatic Line, adding 10 bcm/y of internal south-to-north transport capacity by end-2027, is that policy in steel.</p>
+
+<h3>What to watch</h3>
+<p>Watch the pace at which the equalisation component between zonal and national pricing is withdrawn. Watch capacity market and MACSE auction clearing prices, which together set the floor under flexible capacity. And watch utilisation of the new regasification and export capacity, because that decides whether the corridor ambition tightens the PSV or loosens it.</p>
+</section><section class="sec" id="s7"><span class="sn">SOURCES</span><h2>Key links</h2><p class="lead">Primary sources for this market. Figures on this page are drawn from these and from published market data.</p><div class="links"><a class="lk" href="https://www.mercatoelettrico.org/en/" target="_blank" rel="noopener"><div class="n">GME</div><div class="d">Gestore dei Mercati Energetici — operator of IPEX and the gas markets, and publisher of the PUN Index GME</div><div class="u">https://www.mercatoelettrico.org/en/</div></a><a class="lk" href="https://www.terna.it/en" target="_blank" rel="noopener"><div class="n">Terna</div><div class="d">National transmission system operator — dispatch, statistics, capacity market and MACSE results</div><div class="u">https://www.terna.it/en</div></a><a class="lk" href="https://www.arera.it/en/" target="_blank" rel="noopener"><div class="n">ARERA</div><div class="d">Italian Regulatory Authority for Energy, Networks and Environment</div><div class="u">https://www.arera.it/en/</div></a><a class="lk" href="https://www.snam.it/en/" target="_blank" rel="noopener"><div class="n">Snam</div><div class="d">National gas transport, storage and regasification infrastructure</div><div class="u">https://www.snam.it/en/</div></a><a class="lk" href="https://www.mercatoelettrico.org/en-us/Home/Publications/Indexes-GME/PUNIndexGme" target="_blank" rel="noopener"><div class="n">PUN Index GME</div><div class="d">GME's reference index for day-ahead electricity, with methodology and legal basis</div><div class="u">https://www.mercatoelettrico.org/en-us/Home/Publications/Indexes-GME/PUNIndexGme</div></a><a class="lk" href="https://ember-energy.org/countries-and-regions/italy/" target="_blank" rel="noopener"><div class="n">Ember — Italy</div><div class="d">Independent data on Italian generation, emissions and the renewables trajectory</div><div class="u">https://ember-energy.org/countries-and-regions/italy/</div></a></div></section></main>
+  </div>
+</div>
+
+
+
+<script>
+var links=[].slice.call(document.querySelectorAll('.toc a[href^="#s"]'));
+var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))}).filter(Boolean);
+function onScroll(){var y=window.scrollY+150,c=0;
+  secs.forEach(function(s,i){if(s.offsetTop<=y)c=i});
+  links.forEach(function(a,i){a.classList.toggle('on',i===c)})}
+window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+</script>
+</div>

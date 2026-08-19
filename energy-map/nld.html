@@ -1,0 +1,401 @@
+---
+layout: default
+title: Netherlands
+permalink: /energy-map/nld/
+blurb: "Netherlands — Pool clearing. Market structure, infrastructure, demand and supply, price formation and regulation."
+---
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet"><style>
+.emapx{
+  --bg:#FAFAF8; --surface:#FFFFFF; --sunken:#F4F7F7;
+  --ink:#14262B; --ink-muted:#4A5B60; --ink-dim:#7C8D92;
+  --border:#E2E8E8;
+  --s5:#C0392B; --s4:#DD7B2F; --s3:#E8AE28; --s2:#3B8B60; --s1:#1F7A52;
+  --accent:#3B8B60;
+  --r:8px; --micro:180ms; --ease:cubic-bezier(.2,.6,.2,1);
+  --serif:"Source Serif 4",Georgia,serif;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+.emapx *{box-sizing:border-box;margin:0;padding:0}
+.emapx{scroll-behavior:smooth}
+.emapx{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.5;
+  -webkit-font-smoothing:antialiased;font-feature-settings:"tnum" 1}
+.emapx h1,.emapx h2,.emapx h3{font-family:var(--serif);line-height:1.16;letter-spacing:-.02em;font-weight:600}
+.emapx .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+@media(max-width:767px){.emapx .wrap{padding:0 16px}}
+.emapx .proto{background:#14262B;color:#F3F6F6;font-size:12px;padding:8px 16px;text-align:center}
+.emapx nav{position:sticky;top:0;z-index:60;height:64px;display:flex;align-items:center;
+  background:rgba(250,250,248,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.emapx nav .wrap{display:flex;align-items:center;gap:26px;width:100%}
+.emapx .logo{font-family:var(--serif);font-size:20px;font-weight:700;display:flex;align-items:center;gap:10px}
+.emapx .logo .mark{width:22px;height:22px;border:2px solid var(--accent);border-radius:3px;position:relative;flex:none}
+.emapx .logo .mark::after{content:"";position:absolute;inset:4px 4px auto 4px;height:2px;background:var(--s3)}
+.emapx .crumb{font-size:13px;color:var(--ink-dim)}
+.emapx .crumb a{color:var(--ink-muted);text-decoration:none}
+.emapx .crumb a:hover{color:var(--ink)}
+.emapx .navlinks{display:flex;gap:22px;margin-left:auto;font-size:14px}
+.emapx .navlinks a{color:var(--ink-muted);text-decoration:none}
+.emapx .navlinks a:hover{color:var(--ink)}
+
+.emapx /* header */
+.mh{padding:46px 0 30px}
+.emapx .mh .top{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.emapx .bchip{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:5px 12px;border-radius:999px;background:var(--accent);color:#fff}
+.emapx .reviewed{font-size:12px;color:var(--ink-dim);margin-left:auto}
+.emapx .mh h1{font-size:56px;margin-bottom:12px}
+@media(max-width:767px){.emapx .mh h1{font-size:34px}}
+.emapx .mh .one{font-size:20px;color:var(--ink-muted);max-width:62ch;line-height:1.45}
+.emapx .facts{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);
+  border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin-top:28px}
+@media(max-width:900px){.emapx .facts{grid-template-columns:repeat(2,1fr)}}
+.emapx .fi{background:var(--surface);padding:15px 16px}
+.emapx .fi .k{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:5px}
+.emapx .fi .v{font-size:15px;font-weight:600;line-height:1.3}
+
+.emapx /* layout */
+.body{display:grid;grid-template-columns:190px 1fr;gap:44px;padding-bottom:20px}
+@media(max-width:1023px){.emapx .body{grid-template-columns:1fr;gap:0}.emapx .toc{display:none}}
+.emapx .toc{position:sticky;top:88px;align-self:start;padding-top:40px}
+.emapx .toc .t{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:10px}
+.emapx .toc a{display:block;font-size:13px;color:var(--ink-muted);text-decoration:none;padding:7px 0 7px 13px;
+  border-left:2px solid var(--border);transition:all var(--micro) var(--ease)}
+.emapx .toc a:hover{color:var(--ink);border-left-color:var(--ink-dim)}
+.emapx .toc a.on{color:var(--ink);font-weight:600;border-left-color:var(--accent)}
+
+.emapx /* sections */
+.sec{padding:40px 0;border-top:1px solid var(--border)}
+.emapx .sec:first-child{border-top:0;padding-top:12px}
+.emapx .sn{font-family:var(--serif);font-size:13px;font-weight:700;color:var(--accent);display:block;margin-bottom:5px}
+.emapx .sec h2{font-size:31px;margin-bottom:8px}
+.emapx .sec .lead{font-size:17px;color:var(--ink-muted);line-height:1.6;max-width:70ch;margin-bottom:20px}
+.emapx .sec p{font-size:15.5px;line-height:1.68;color:var(--ink-muted);max-width:70ch;margin-bottom:16px}
+.emapx .sec p strong{color:var(--ink);font-weight:600}
+.emapx .sec h3{font-size:19px;margin:26px 0 10px}
+
+.emapx table{width:100%;border-collapse:collapse;font-size:14px;background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin:6px 0 20px}
+.emapx th{text-align:left;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-dim);
+  padding:10px 14px;border-bottom:1px solid var(--border);background:var(--sunken);font-weight:700}
+.emapx td{padding:11px 14px;border-bottom:1px solid var(--border);color:var(--ink-muted);vertical-align:top;line-height:1.5}
+.emapx tbody tr:last-child td{border-bottom:0}
+.emapx td:first-child{color:var(--ink);font-weight:500}
+.emapx tbody tr:hover td{background:var(--sunken)}
+
+.emapx .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:6px 0 20px}
+@media(max-width:900px){.emapx .cards{grid-template-columns:1fr}}
+.emapx .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:18px}
+.emapx .card h4{font-family:var(--sans);font-size:14px;font-weight:600;margin-bottom:7px;color:var(--accent)}
+.emapx .card p{font-size:13.5px;line-height:1.55;margin:0;color:var(--ink-muted)}
+
+.emapx .pull{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--accent);
+  border-radius:var(--r);padding:20px 22px;margin:6px 0 22px}
+.emapx .pull p{margin:0;font-size:15.5px;line-height:1.6}
+.emapx .pull .t{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:7px}
+
+.emapx /* map slot — a SOURCED map is placed here,.emapx never a rendered one */
+.mapslot{background:var(--sunken);border:1px dashed var(--border);border-radius:var(--r);
+  padding:34px 24px;text-align:center;margin:6px 0 20px}
+.emapx .mapslot .t{font-size:13px;font-weight:600;color:var(--ink-muted);margin-bottom:5px}
+.emapx .mapslot .s{font-size:12px;color:var(--ink-dim);line-height:1.5;max-width:56ch;margin:0 auto}
+
+.emapx /* key links */
+.links{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:6px}
+@media(max-width:767px){.emapx .links{grid-template-columns:1fr}}
+.emapx .lk{display:block;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+  padding:15px 17px;text-decoration:none;transition:all var(--micro) var(--ease)}
+.emapx .lk:hover{border-color:var(--accent);transform:translateY(-2px)}
+.emapx .lk .n{font-size:14.5px;font-weight:600;color:var(--ink);margin-bottom:3px}
+.emapx .lk .d{font-size:12.5px;color:var(--ink-dim);line-height:1.45}
+.emapx .lk .u{font-size:11.5px;color:var(--accent);margin-top:6px;word-break:break-all}
+
+
+.emapx /* ── figures,.emapx charts,.emapx schematic ── */
+.fig{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+  padding:22px 24px 16px;margin:8px 0 22px}
+.emapx .fig svg{display:block;width:100%;height:auto;overflow:visible}
+.emapx .fig-t{font-family:var(--serif);font-size:17px;font-weight:600;margin-bottom:14px}
+.emapx .figcap{font-size:12px;color:var(--ink-dim);line-height:1.5;margin:14px 0 0;max-width:none}
+.emapx .figcap a{color:var(--accent)}
+.emapx .figcap b{color:var(--ink-muted)}
+.emapx /* schematic */
+.area rect{fill:var(--surface);stroke:#CBD6D6;stroke-width:1.5}
+.emapx .area text{font-family:var(--sans);font-size:13px;font-weight:600;fill:var(--ink);
+  text-anchor:middle;dominant-baseline:middle}
+.emapx .area.e rect{stroke:#2a78d6} .emapx .area.w rect{stroke:#eb6834}
+.emapx .area.iso rect{stroke-dasharray:4 3}
+.emapx .ln{stroke:#9AA8AC;stroke-width:2;fill:none}
+.emapx .lnfc{stroke:#7C8D92;stroke-width:2;fill:none;stroke-dasharray:5 4}
+.emapx .fc{fill:#FDF3E7;stroke:#DD7B2F;stroke-width:1.6}
+.emapx .fct{font-family:var(--sans);font-size:12px;font-weight:700;fill:#C0651F;text-anchor:middle}
+.emapx .fh{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em}
+.emapx .cap2{font-family:var(--sans);font-size:10.5px;fill:#7C8D92;text-anchor:middle;paint-order:stroke;stroke:var(--surface);stroke-width:5;stroke-linejoin:round}
+.emapx .cap2.iso2{font-style:italic}
+.emapx /* composition bar */
+.seg text{font-family:var(--sans);font-size:12.5px;font-weight:600;fill:#fff;dominant-baseline:middle}
+.emapx .axl{font-family:var(--sans);font-size:11.5px;fill:#7C8D92}
+.emapx /* bar chart */
+.grid{stroke:#EDF1F1;stroke-width:1}
+.emapx .axis{stroke:#CBD6D6;stroke-width:1}
+.emapx .gl{font-family:var(--sans);font-size:10.5px;fill:#9AA8AC;text-anchor:end}
+.emapx .xl{font-family:var(--sans);font-size:12px;fill:var(--ink-muted);text-anchor:middle}
+.emapx .bar1 rect{fill:#1baf7a}
+.emapx .bar1 text{font-family:var(--sans);font-size:15px;font-weight:700;fill:var(--ink);text-anchor:middle}
+.emapx /* stat pair */
+.stats{display:flex;align-items:center;gap:18px;flex-wrap:wrap;background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--r);padding:20px 24px;margin:0 0 22px}
+.emapx .st .k{font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:4px}
+.emapx .st .v{font-family:var(--serif);font-size:30px;font-weight:700;line-height:1}
+.emapx .st .v small{font-family:var(--sans);font-size:13px;font-weight:500;color:var(--ink-muted)}
+.emapx .st.arrow{font-size:24px;color:var(--ink-dim)}
+.emapx .st.note{flex:1 1 240px;font-size:11.5px;color:var(--ink-dim);line-height:1.5}
+.emapx .st.note a{color:var(--accent)}
+.emapx /* pending slot */
+.pending{background:var(--sunken);border:1px dashed #CBD6D6;border-radius:var(--r);
+  padding:20px 22px;margin:6px 0 22px}
+.emapx .pending .t{font-size:13px;font-weight:600;color:var(--ink-muted);margin-bottom:6px}
+.emapx .pending p{font-size:13px;color:var(--ink-dim);line-height:1.55;margin:0}
+.emapx .pending a{color:var(--accent)}
+
+.emapx footer{border-top:1px solid var(--border);padding:30px 0;font-size:12px;color:var(--ink-dim);line-height:1.6}
+@media(prefers-reduced-motion:reduce){.emapx *{transition-duration:.01ms!important}}
+</style>
+<div class="emapx">
+<div class="wrap">
+  <header class="mh">
+    <div class="top">
+      <span class="bchip">Pool clearing</span>
+      <span class="reviewed">Last reviewed 16 August 2026</span>
+    </div>
+    <h1>Netherlands</h1>
+    <p class="one">Home of TTF, the benchmark that prices European gas and much of the world's LNG — and, since Groningen closed, a country that imports nearly every molecule it burns.</p>
+    <div class="facts"><div class="fi"><div class="k">Gas hub</div><div class="v">TTF (virtual)</div></div><div class="fi"><div class="k">Power exchanges</div><div class="v">EPEX SPOT / ICE ENDEX</div></div><div class="fi"><div class="k">Price unit</div><div class="v">EUR / MWh</div></div><div class="fi"><div class="k">Transmission</div><div class="v">TenneT (power), GTS (gas)</div></div><div class="fi"><div class="k">Gas position</div><div class="v">Net importer since Groningen</div></div></div>
+  </header>
+
+  <div class="body">
+    <aside class="toc" id="toc">
+      <div class="t">On this page</div>
+      <a href="#s1">01 Overview</a>
+      <a href="#s2">02 Market structure</a>
+      <a href="#s3">03 Infrastructure</a>
+      <a href="#s4">04 Demand and supply</a>
+      <a href="#s5">05 Price setting</a>
+      <a href="#s6">06 Regulatory regime</a>
+      <a href="#s7">Key links</a>
+    </aside>
+    <main><section class="sec" id="s1"><span class="sn">01</span><h2>Overview</h2>
+<p class="lead">The Netherlands sets the price of gas for a continent it can no longer supply. TTF is
+Europe's benchmark hub and one of the world's largest traded commodity markets; the country behind it
+stopped producing at scale when Groningen closed.</p>
+
+<p>Two things make this market matter well beyond its size. The first is the <strong>Title Transfer Facility</strong>, a virtual trading point in the Dutch high-calorific network. It has become the reference price for European gas, and increasingly for LNG cargoes delivered anywhere in the Atlantic basin. In 2025 TTF traded <a href="https://www.oxfordenergy.org/wpcms/wp-content/uploads/2026/07/NG-206-European-Traded-Gas-Hubs.pdf" target="_blank" rel="noopener">82,365 TWh</a>, roughly <a href="https://www.oxfordenergy.org/wpcms/wp-content/uploads/2026/07/NG-206-European-Traded-Gas-Hubs.pdf" target="_blank" rel="noopener">81 per cent of all European hub volume</a>. Quote European gas in Singapore or Houston and you are quoting TTF.</p>
+
+<p>The second is what happened underneath it. The <strong>Groningen field</strong> once produced around 40 bcm a year, something like a tenth of European demand. It <a href="https://gasoutlook.com/analysis/dutch-groningen-gas-field-shuts-down-permanently/" target="_blank" rel="noopener">produced its last gas</a>
+on 1 October 2023 and was shut permanently by law in April 2024, after two decades of extraction-induced earthquakes. Dutch gas production fell <a href="https://www.cbs.nl/en-gb/news/2025/07/no-change-in-natural-gas-consumption-in-2024" target="_blank" rel="noopener">17 per cent</a> in 2024 alone. The benchmark stayed. The molecules went.</p>
+
+<p>Power runs a parallel story. The Dutch system is small, dense and wired hard into its neighbours, with <a href="https://www.tennet.eu/nl-en/news/rising-electricity-prices-increased-electricity-exports-and-stable-congestion-management-costs" target="_blank" rel="noopener">a record 14 TWh of net exports in 2025</a> and no capacity market. Gas plant still sets the price in most hours. But a fast-growing solar and offshore wind fleet now pushes more and more hours to zero or below: <a href="https://www.tennet.eu/nl-en/news/rising-electricity-prices-increased-electricity-exports-and-stable-congestion-management-costs" target="_blank" rel="noopener">584 negative-price hours</a> in 2025, against 458 the year before.</p>
+
+<div class="pull"><div class="t">Why this market matters beyond the Netherlands</div>
+<p>A position in European gas is, in practice, a position in TTF. North-West European power prices off a Dutch-adjacent flow-based coupling that shuffles cheap wind and expensive gas across thirteen countries at once. Neither exposure can be hedged without knowing what happens in Rotterdam, Zuidbroek and Arnhem.</p></div>
+</section><section class="sec" id="s2"><span class="sn">02</span><h2>Market structure</h2>
+<p class="lead">Two separate markets sharing one small country: a gas hub of global significance, and a
+power market that behaves as a corner of a much larger European pool.</p>
+
+<h3>Who does what</h3>
+<table><thead><tr><th>Function</th><th>Body</th><th>Role</th></tr></thead><tbody>
+<tr><td>Gas transmission</td><td>Gasunie Transport Services (GTS)</td><td>Operates the national grid and the TTF virtual trading point</td></tr>
+<tr><td>Power transmission</td><td>TenneT</td><td>TSO for the Netherlands and a large part of Germany</td></tr>
+<tr><td>Power exchanges</td><td>EPEX SPOT, ICE ENDEX, Nord Pool</td><td>Day-ahead and intraday auctions in the Dutch bidding zone</td></tr>
+<tr><td>Gas derivatives</td><td>ICE ENDEX</td><td>The TTF futures curve, quoted in EUR/MWh</td></tr>
+<tr><td>Regulation</td><td>ACM</td><td>Tariffs, network access, market conduct</td></tr>
+</tbody></table>
+
+<h3>Why liquidity concentrated at TTF</h3>
+<p>TTF is an <strong>entry–exit hub</strong>. A shipper books capacity into the Dutch system and out of it, and everything in between trades at one national price point rather than at physical locations. That takes locational risk out of the traded product, which is exactly what a financial market wants. Add early liberalisation, a physical position between Norway, the UK, Germany and Belgium, and a deep clearing pool behind ICE ENDEX, and liquidity did what liquidity always does. It went where it already was.</p>
+
+<p>Churn runs at roughly <a href="https://www.oxfordenergy.org/wpcms/wp-content/uploads/2026/07/NG-206-European-Traded-Gas-Hubs.pdf" target="_blank" rel="noopener">149 times Dutch gas consumption</a>. Paper volume vastly exceeds anything the Netherlands physically burns. For a trader that is the point: TTF absorbs size without moving. That is why it displaced the UK's NBP as the continental benchmark, and why LNG contracts from Qatar to the US Gulf now index to it.</p>
+
+<h3>The power market is a price zone, not an island</h3>
+<p>The Netherlands is a single bidding zone inside the <strong>Core capacity calculation region</strong>.
+Since <a href="https://www.epexspot.com/en/news/launch-flow-based-market-coupling-core-region-enhances-energy-transition" target="_blank" rel="noopener">June 2022</a>, cross-border capacity across thirteen countries has been calculated flow-based rather than bilaterally, and the day-ahead algorithm allocates it at the same time as energy. Dutch prices converge with Belgium and Germany for long stretches, then separate sharply the moment the network binds. There is <strong>no capacity market</strong>. Generators earn from energy and balancing, and nothing else.</p>
+</section><section class="sec" id="s3"><span class="sn">03</span><h2>Infrastructure — power and gas</h2>
+<p class="lead">A compact, heavily meshed grid tied into Germany, Belgium, the UK, Norway and Denmark, and
+a gas system built for a domestic field that no longer produces.</p>
+
+<h3>Power</h3>
+<div class="cards">
+<div class="card"><h4>TenneT</h4><p>Sole national TSO, and operator of a large German control area as well. That cross-border footprint makes Dutch and German grid planning one conversation.</p></div>
+<div class="card"><h4>Interconnection</h4><p>AC links to Germany and Belgium plus HVDC cables to Norway
+(NorNed), the UK (BritNed) and Denmark (COBRAcable). Net exports reached a record 14 TWh in 2025.</p></div>
+<div class="card"><h4>Offshore wind</h4><p>Around 4.7 GW built, with the government targeting 21 GW by end-2032
+and a 2040 ambition <a href="https://www.offshorewind.biz/2025/07/17/dutch-govt-lowers-2040-offshore-wind-target-50-gw-unrealistic-and-unnecessary/" target="_blank" rel="noopener">cut from 50 GW to 30–40 GW</a>.</p></div>
+</div>
+
+<h3>Gas — and the quality split that shapes it</h3>
+<p>Dutch gas infrastructure is really two networks. Groningen produced <strong>low-calorific (L-gas)</strong>, and Dutch households, much of Belgium, north-west Germany and northern France were all built to burn it. Everything imported is <strong>high-calorific (H-gas)</strong>: Norwegian pipeline gas, LNG, North Sea associated gas. H-gas is what trades at TTF.</p>
+
+<p>Bridging the two is a physical process, not an accounting one. GTS runs <strong>nitrogen blending</strong> installations, Zuidbroek above all, that dilute H-gas down to L-gas specification. Nitrogen capacity is the hard constraint on how much of the L-gas market can be served from imports. It is also the reason Groningen could be closed at all. Alongside it, <a href="https://www.gasunietransportservices.nl/en/news/security-of-supply-overview-for-the-20262027-gas-year" target="_blank" rel="noopener">the Grijpskerk, Norg and Bergermeer storage sites</a>
+convert to L-gas duty and remain central to seasonal balancing.</p>
+
+<h3>LNG import capacity</h3>
+<p>Gate terminal at Rotterdam has a nameplate <a href="https://lngprime.com/lng-terminals/dutch-gate-breaks-new-record-working-on-further-expansion/101304/" target="_blank" rel="noopener">12 bcm a year</a>, with a fourth tank
+adding a further 4 bcm. At Eemshaven, <a href="https://www.gasunie.nl/en/projects/eemsenergyterminal" target="_blank" rel="noopener">two floating storage and regasification units</a> chartered by Gasunie provide around 8 bcm a year. They went in within six months of the 2022 supply shock and have long since outlived their original temporary mandate.</p>
+
+<div class="fig">
+  <svg viewBox="0 0 900 300" role="img" aria-label="Schematic of the Dutch gas system showing H-gas sources, TTF, nitrogen blending and the L-gas network">
+    <text x="120" y="26" class="fh" fill="#2a78d6">H-GAS SYSTEM — imports and TTF</text>
+    <text x="600" y="26" class="fh" fill="#eb6834">L-GAS SYSTEM — legacy demand</text>
+    <rect x="30" y="44" width="360" height="228" rx="10" fill="#2a78d6" opacity=".05"/>
+    <rect x="470" y="44" width="400" height="228" rx="10" fill="#eb6834" opacity=".05"/>
+
+    <g class="area e"><rect x="55" y="62" width="130" height="40" rx="7"/><text x="120" y="82">Norway</text></g>
+    <g class="area e"><rect x="55" y="114" width="130" height="40" rx="7"/><text x="120" y="134">Gate LNG</text></g>
+    <g class="area e"><rect x="55" y="166" width="130" height="40" rx="7"/><text x="120" y="186">Eemshaven</text></g>
+    <g class="area e"><rect x="55" y="218" width="130" height="40" rx="7"/><text x="120" y="238">North Sea</text></g>
+    <g class="area e"><rect x="240" y="140" width="120" height="52" rx="7"/><text x="300" y="166">TTF</text></g>
+
+    <path class="ln" d="M185,82 H212 V166 H240"/>
+    <path class="ln" d="M185,134 H212 V166 H240"/>
+    <path class="ln" d="M185,186 H212 V166 H240"/>
+    <path class="ln" d="M185,238 H212 V166 H240"/>
+
+    <rect x="400" y="140" width="56" height="52" rx="6" class="fc"/>
+    <text x="428" y="160" class="fct">N2</text><text x="428" y="178" class="fct">blend</text>
+    <path class="lnfc" d="M360,166 H400"/>
+    <path class="lnfc" d="M456,166 H484 V110 H500"/>
+    <path class="lnfc" d="M484,166 H500"/>
+    <path class="lnfc" d="M456,166 H484 V230 H500"/>
+
+    <g class="area w"><rect x="500" y="90" width="170" height="40" rx="7"/><text x="585" y="110">Dutch homes</text></g>
+    <g class="area w"><rect x="500" y="146" width="170" height="40" rx="7"/><text x="585" y="166">Belgium</text></g>
+    <g class="area w"><rect x="500" y="210" width="170" height="40" rx="7"/><text x="585" y="230">Germany / France</text></g>
+
+    <text x="428" y="212" class="cap2">nitrogen blending — the only bridge</text>
+    <text x="770" y="266" class="cap2 iso2">demand shrinking as appliances convert</text>
+  </svg>
+  <p class="figcap"><b>Schematic — system topology, not a geographic map.</b> All imported gas arrives as
+  high-calorific gas and trades at TTF. Serving the legacy low-calorific market requires nitrogen dilution,
+  so blending capacity — not import capacity — is the binding constraint on that half of the system.</p>
+</div>
+
+<div class="mapslot"><div class="t">Geographic infrastructure map</div>
+<div class="s">A sourced map of the GTS transmission network, LNG terminals, storage sites and offshore
+wind zones belongs here — reproduced from an official publication rather than redrawn.</div></div>
+</section><section class="sec" id="s4"><span class="sn">04</span><h2>Demand and supply</h2>
+<p class="lead">Record generation, record exports, and a gas system that now imports almost everything it
+burns.</p>
+
+<h3>Power</h3>
+<p>Dutch electricity production reached <a href="https://www.cbs.nl/en-gb/news/2026/11/production-and-export-of-electricity-at-record-levels" target="_blank" rel="noopener">132 TWh</a> in 2025, up 10 per cent on the year, with renewables supplying 49 per cent for the second consecutive year. Exports hit a record 30 TWh and imports fell 19 per cent. A country that was structurally short of power a decade ago now sells into the Core region for much of the year.</p>
+
+<div class="fig">
+  <div class="fig-t">Where Dutch electricity came from, 2025</div>
+  <svg viewBox="0 0 900 150" role="img" aria-label="Netherlands generation mix 2025 by source">
+    <g class="seg"><rect x="0"   y="18" width="315" height="40" rx="4" fill="#2a78d6"/><text x="10"  y="43">Gas 36%</text></g>
+    <g class="seg"><rect x="319" y="18" width="210" height="40" rx="4" fill="#1baf7a"/><text x="329" y="43">Wind 24%</text></g>
+    <g class="seg"><rect x="533" y="18" width="167" height="40" rx="4" fill="#eda100"/><text x="543" y="43">Solar 19%</text></g>
+    <g class="seg"><rect x="704" y="18" width="79"  height="40" rx="4" fill="#eb6834"/><text x="712" y="43">Coal 9%</text></g>
+    <g class="seg"><rect x="787" y="18" width="44"  height="40" rx="4" fill="#e87ba4"/></g>
+    <g class="seg"><rect x="835" y="18" width="26"  height="40" rx="4" fill="#4a3aa7"/></g>
+    <g class="seg"><rect x="865" y="18" width="35"  height="40" rx="4" fill="#9AA8AC"/></g>
+    <line class="axis" x1="809" y1="58" x2="809" y2="74"/>
+    <text class="xl" x="809" y="86">Biomass 5%</text>
+    <line class="axis" x1="848" y1="58" x2="848" y2="98"/>
+    <text class="xl" x="848" y="110">Nuclear 3%</text>
+    <line class="axis" x1="882" y1="58" x2="882" y2="122"/>
+    <text class="xl" x="882" y="134">Other 4%</text>
+    <text x="0" y="90" class="axl">Wind and solar together supplied 43% — nearly as much as gas and coal combined.</text>
+  </svg>
+  <p class="figcap">Shares of 2025 production, computed from <a href="https://www.cbs.nl/en-gb/news/2026/11/production-and-export-of-electricity-at-record-levels" target="_blank" rel="noopener">CBS</a>.
+  Wind combines onshore (12%) and offshore (12%); “Other” covers waste heat, minor fuels and rounding.</p>
+</div>
+
+<h3>Gas</h3>
+<p>Consumption has settled at roughly <a href="https://www.cbs.nl/en-gb/news/2025/07/no-change-in-natural-gas-consumption-in-2024" target="_blank" rel="noopener">30 bcm</a> a year. High prices, industrial demand destruction and heat-pump uptake did that, not policy. Supply is the part that moved: production fell 17 per cent in 2024 with the definitive Groningen closure, and Norwegian pipeline gas and LNG now make up the balance. The United States is by far the largest single source of the LNG.</p>
+
+<div class="stats">
+  <div class="st"><div class="k">Groningen output, peak</div><div class="v">~40 <small>bcm/yr</small></div></div>
+  <div class="st arrow">→</div>
+  <div class="st"><div class="k">Groningen output, 2022–23 gas year</div><div class="v">2.4 <small>bcm</small></div></div>
+  <div class="st note">Two dated observations, not a continuous series. Source: <a href="https://gasoutlook.com/analysis/dutch-groningen-gas-field-shuts-down-permanently/" target="_blank" rel="noopener">Gas Outlook</a>.</div>
+</div>
+
+<table><thead><tr><th>Indicator</th><th>Direction</th><th>Comment</th></tr></thead><tbody>
+<tr><td>Electricity production</td><td>Rising</td><td>Record 132 TWh in 2025</td></tr>
+<tr><td>Net power exports</td><td>Rising</td><td>Record 14 TWh; imports down 19 per cent</td></tr>
+<tr><td>Solar and wind share</td><td>Rising</td><td>43 per cent of production combined</td></tr>
+<tr><td>Domestic gas production</td><td>Falling</td><td>Down 17 per cent in 2024 on Groningen closure</td></tr>
+<tr><td>Gas consumption</td><td>Flat</td><td>Around 30 bcm, unchanged year on year</td></tr>
+</tbody></table>
+
+<div class="pull"><div class="t">The position that follows</div>
+<p>The Netherlands is now long power in summer and short gas all year round. Dutch summer spreads collapse while the TTF curve keeps a stubborn winter premium. The two commodities no longer move together as reliably as they once did.</p></div>
+</section><section class="sec" id="s5"><span class="sn">05</span><h2>Price setting mechanism</h2>
+<p class="lead">Two mechanisms, one currency. Power clears in a marginal-cost auction coupled across
+thirteen countries; gas clears continuously at a virtual point where paper dwarfs physical.</p>
+
+<h3>Power: marginal cost, allocated flow-based</h3>
+<p>Generators bid into the day-ahead auction on EPEX SPOT or Nord Pool. Offers stack cheapest first, and the last unit needed to meet demand sets the price for everything that clears. In the Netherlands that marginal unit is usually a gas-fired CCGT. Which is why the Dutch power curve is largely a TTF curve divided by plant efficiency, with carbon added on top.</p>
+
+<p>The allocation layer is what makes it distinctive. Core flow-based coupling does not treat borders as fixed pipes. The algorithm solves for the flows the physical network can actually carry, and clears energy and capacity together. Unconstrained, Dutch, Belgian and German prices are identical. Constrained, they separate abruptly, and the resulting spread is a network outcome rather than a fuel one.</p>
+
+<h3>The zero-price problem</h3>
+<p>With 19 per cent solar and 24 per cent wind, subsidised zero-marginal-cost output now exceeds demand in a great many hours. Prices go negative until enough generation switches off. The Netherlands recorded <a href="https://www.tennet.eu/nl-en/news/rising-electricity-prices-increased-electricity-exports-and-stable-congestion-management-costs" target="_blank" rel="noopener">584 negative-price hours</a> in 2025 against 458 in 2024, even as the annual average rose 12 per cent to €87/MWh. Hold a merchant renewable position and the annual average tells you almost nothing. Capture rate decides the outcome.</p>
+
+<div class="fig">
+  <div class="fig-t">Hours of negative day-ahead prices, Netherlands</div>
+  <svg viewBox="0 0 900 250" role="img" aria-label="Negative price hours in the Dutch day-ahead market, 2024 and 2025">
+    <line class="grid" x1="70" y1="50"  x2="880" y2="50"/><text class="gl" x="60" y="54">600</text>
+    <line class="grid" x1="70" y1="88"  x2="880" y2="88"/><text class="gl" x="60" y="92">450</text>
+    <line class="grid" x1="70" y1="125" x2="880" y2="125"/><text class="gl" x="60" y="129">300</text>
+    <line class="grid" x1="70" y1="163" x2="880" y2="163"/><text class="gl" x="60" y="167">150</text>
+    <line class="axis" x1="70" y1="200" x2="880" y2="200"/>
+    <g class="bar1"><rect x="200" y="86" width="200" height="114" rx="4"/><text x="300" y="76">458</text></g>
+    <g class="bar1"><rect x="550" y="54" width="200" height="146" rx="4"/><text x="650" y="44">584</text></g>
+    <text class="xl" x="300" y="222">2024</text>
+    <text class="xl" x="650" y="222">2025</text>
+  </svg>
+  <p class="figcap">Source: <a href="https://www.tennet.eu/nl-en/news/rising-electricity-prices-increased-electricity-exports-and-stable-congestion-management-costs" target="_blank" rel="noopener">TenneT</a>, reporting the Dutch day-ahead market for 2025.</p>
+</div>
+
+<h3>Gas: the hub price is a financial price</h3>
+<p>TTF has no physical location. Title transfers inside the GTS high-calorific system, and the price comes out of continuous OTC and exchange trading rather than a daily auction. Settlement is in
+<a href="https://www.ice.com/products/27996665/Dutch-TTF-Gas-Futures" target="_blank" rel="noopener">euros per megawatt-hour</a>, and the curve runs several years out with enough liquidity to hedge industrial offtake and LNG cargoes alike. With paper volume at some 149 times Dutch consumption, TTF reacts to an Asian cold snap or a US outage long before a single Dutch physical flow changes.</p>
+
+<div class="pull"><div class="t">No capacity payment to fall back on</div>
+<p>Unlike Great Britain, France or Germany's strategic reserve, the Netherlands pays generators nothing for availability. A Dutch CCGT earns from spark spreads and balancing, full stop. Clean to model. Badly exposed whenever renewable output runs high.</p></div>
+</section><section class="sec" id="s6"><span class="sn">06</span><h2>Regulatory regime</h2>
+<p class="lead">A national regulator with a competition-authority parentage, sitting inside an EU framework
+that increasingly writes the rules that matter.</p>
+
+<table><thead><tr><th>Body</th><th>Remit</th></tr></thead><tbody>
+<tr><td>ACM (Autoriteit Consument &amp; Markt)</td><td>Network tariffs, third-party access, supplier licensing and market conduct for gas and power</td></tr>
+<tr><td>Ministry of Climate Policy and Green Growth</td><td>Energy policy, offshore wind tendering, security of supply</td></tr>
+<tr><td>State Supervision of Mines (SodM)</td><td>Safety oversight of extraction and underground storage</td></tr>
+<tr><td>ACER and the European Commission</td><td>Cross-border network codes, REMIT surveillance, storage regulation</td></tr>
+</tbody></table>
+
+<h3>What ACM actually controls</h3>
+<p>ACM is a combined competition, consumer and sector regulator, and it approves the revenue TenneT and GTS may recover through tariffs. That matters commercially. Grid congestion is now the binding constraint on Dutch industrial electrification, so the pace at which TenneT is allowed to spend, and recover, sets how fast connection queues clear. ACM also polices conduct under REMIT, and it has been willing to go after retail pricing practices rather than stay inside the network fence.</p>
+
+<h3>Storage obligations</h3>
+<p>Filling targets are set at EU level and bind the Netherlands directly. The regime agreed in 2025 lowered
+the headline target to <a href="https://www.europarl.europa.eu/news/en/press-room/20250502IPR28220/gas-storage-refill-flexibility-to-bring-down-prices" target="_blank" rel="noopener">83 per cent</a> and widened the deadline to any date between 1 October and 1 December. Up to four percentage points of deviation are available in poor market conditions, with a further four at the Commission's discretion, though never below 75 per cent. The rules run to the end of 2027. The point of the change was to stop mandated summer buying from inflating the summer–winter spread. It worked. The seasonal spread reads as a market signal again.</p>
+
+<h3>The direction of travel</h3>
+<p>Two threads dominate. On gas, GTS's own <a href="https://www.gasunietransportservices.nl/en/news/security-of-supply-overview-for-the-20262027-gas-year" target="_blank" rel="noopener">security-of-supply assessment for the 2026/27 gas year</a> stresses growing dependence on Norwegian pipeline gas and LNG, and keeps Grijpskerk, Norg and Bergermeer necessary through 2031. On power, offshore wind ambition has been trimmed rather than abandoned: the 2040 target was cut to 30–40 GW in July 2025 after weak tender interest and hydrogen demand that arrived more slowly than anyone hoped. The Netherlands is optimising a system it already has. Policy risk here is about pace.</p>
+</section><section class="sec" id="s7"><span class="sn">SOURCES</span><h2>Key links</h2><p class="lead">Primary sources for this market. Figures on this page are drawn from these and from published market data.</p><div class="links"><a class="lk" href="https://www.tennet.eu/" target="_blank" rel="noopener"><div class="n">TenneT</div><div class="d">National electricity TSO — grid data, market reviews and congestion information</div><div class="u">https://www.tennet.eu/</div></a><a class="lk" href="https://www.gasunietransportservices.nl/en" target="_blank" rel="noopener"><div class="n">Gasunie Transport Services</div><div class="d">Operator of the Dutch gas transmission system and the TTF virtual trading point</div><div class="u">https://www.gasunietransportservices.nl/en</div></a><a class="lk" href="https://www.acm.nl/en" target="_blank" rel="noopener"><div class="n">ACM</div><div class="d">The regulator: network tariffs, third-party access, supplier licensing and market conduct</div><div class="u">https://www.acm.nl/en</div></a><a class="lk" href="https://www.epexspot.com/en" target="_blank" rel="noopener"><div class="n">EPEX SPOT</div><div class="d">Day-ahead and intraday power auctions for the Dutch bidding zone</div><div class="u">https://www.epexspot.com/en</div></a><a class="lk" href="https://www.ice.com/products/27996665/Dutch-TTF-Gas-Futures" target="_blank" rel="noopener"><div class="n">ICE — Dutch TTF Gas Futures</div><div class="d">Contract specifications and the benchmark European gas curve</div><div class="u">https://www.ice.com/products/27996665/Dutch-TTF-Gas-Futures</div></a><a class="lk" href="https://www.cbs.nl/en-gb/news/2026/11/production-and-export-of-electricity-at-record-levels" target="_blank" rel="noopener"><div class="n">CBS — electricity production and exports</div><div class="d">National statistics office: annual generation, fuel mix and trade figures</div><div class="u">https://www.cbs.nl/en-gb/news/2026/11/production-and-export-of-electricity-at-record-levels</div></a></div></section></main>
+  </div>
+</div>
+
+
+
+<script>
+var links=[].slice.call(document.querySelectorAll('.toc a[href^="#s"]'));
+var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))}).filter(Boolean);
+function onScroll(){var y=window.scrollY+150,c=0;
+  secs.forEach(function(s,i){if(s.offsetTop<=y)c=i});
+  links.forEach(function(a,i){a.classList.toggle('on',i===c)})}
+window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+</script>
+</div>

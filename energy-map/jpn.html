@@ -1,0 +1,435 @@
+---
+layout: default
+title: Japan
+permalink: /energy-map/jpn/
+blurb: "Japan — Pool clearing. Market structure, infrastructure, demand and supply, price formation and regulation."
+---
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet"><style>
+.emapx{
+  --bg:#FAFAF8; --surface:#FFFFFF; --sunken:#F4F7F7;
+  --ink:#14262B; --ink-muted:#4A5B60; --ink-dim:#7C8D92;
+  --border:#E2E8E8;
+  --s5:#C0392B; --s4:#DD7B2F; --s3:#E8AE28; --s2:#3B8B60; --s1:#1F7A52;
+  --accent:#3B8B60;
+  --r:8px; --micro:180ms; --ease:cubic-bezier(.2,.6,.2,1);
+  --serif:"Source Serif 4",Georgia,serif;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+.emapx *{box-sizing:border-box;margin:0;padding:0}
+.emapx{scroll-behavior:smooth}
+.emapx{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.5;
+  -webkit-font-smoothing:antialiased;font-feature-settings:"tnum" 1}
+.emapx h1,.emapx h2,.emapx h3{font-family:var(--serif);line-height:1.16;letter-spacing:-.02em;font-weight:600}
+.emapx .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+@media(max-width:767px){.emapx .wrap{padding:0 16px}}
+.emapx .proto{background:#14262B;color:#F3F6F6;font-size:12px;padding:8px 16px;text-align:center}
+.emapx nav{position:sticky;top:0;z-index:60;height:64px;display:flex;align-items:center;
+  background:rgba(250,250,248,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.emapx nav .wrap{display:flex;align-items:center;gap:26px;width:100%}
+.emapx .logo{font-family:var(--serif);font-size:20px;font-weight:700;display:flex;align-items:center;gap:10px}
+.emapx .logo .mark{width:22px;height:22px;border:2px solid var(--accent);border-radius:3px;position:relative;flex:none}
+.emapx .logo .mark::after{content:"";position:absolute;inset:4px 4px auto 4px;height:2px;background:var(--s3)}
+.emapx .crumb{font-size:13px;color:var(--ink-dim)}
+.emapx .crumb a{color:var(--ink-muted);text-decoration:none}
+.emapx .crumb a:hover{color:var(--ink)}
+.emapx .navlinks{display:flex;gap:22px;margin-left:auto;font-size:14px}
+.emapx .navlinks a{color:var(--ink-muted);text-decoration:none}
+.emapx .navlinks a:hover{color:var(--ink)}
+
+.emapx /* header */
+.mh{padding:46px 0 30px}
+.emapx .mh .top{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.emapx .bchip{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:5px 12px;border-radius:999px;background:var(--accent);color:#fff}
+.emapx .reviewed{font-size:12px;color:var(--ink-dim);margin-left:auto}
+.emapx .mh h1{font-size:56px;margin-bottom:12px}
+@media(max-width:767px){.emapx .mh h1{font-size:34px}}
+.emapx .mh .one{font-size:20px;color:var(--ink-muted);max-width:62ch;line-height:1.45}
+.emapx .facts{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);
+  border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin-top:28px}
+@media(max-width:900px){.emapx .facts{grid-template-columns:repeat(2,1fr)}}
+.emapx .fi{background:var(--surface);padding:15px 16px}
+.emapx .fi .k{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:5px}
+.emapx .fi .v{font-size:15px;font-weight:600;line-height:1.3}
+
+.emapx /* layout */
+.body{display:grid;grid-template-columns:190px 1fr;gap:44px;padding-bottom:20px}
+@media(max-width:1023px){.emapx .body{grid-template-columns:1fr;gap:0}.emapx .toc{display:none}}
+.emapx .toc{position:sticky;top:88px;align-self:start;padding-top:40px}
+.emapx .toc .t{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:10px}
+.emapx .toc a{display:block;font-size:13px;color:var(--ink-muted);text-decoration:none;padding:7px 0 7px 13px;
+  border-left:2px solid var(--border);transition:all var(--micro) var(--ease)}
+.emapx .toc a:hover{color:var(--ink);border-left-color:var(--ink-dim)}
+.emapx .toc a.on{color:var(--ink);font-weight:600;border-left-color:var(--accent)}
+
+.emapx /* sections */
+.sec{padding:40px 0;border-top:1px solid var(--border)}
+.emapx .sec:first-child{border-top:0;padding-top:12px}
+.emapx .sn{font-family:var(--serif);font-size:13px;font-weight:700;color:var(--accent);display:block;margin-bottom:5px}
+.emapx .sec h2{font-size:31px;margin-bottom:8px}
+.emapx .sec .lead{font-size:17px;color:var(--ink-muted);line-height:1.6;max-width:70ch;margin-bottom:20px}
+.emapx .sec p{font-size:15.5px;line-height:1.68;color:var(--ink-muted);max-width:70ch;margin-bottom:16px}
+.emapx .sec p strong{color:var(--ink);font-weight:600}
+.emapx .sec h3{font-size:19px;margin:26px 0 10px}
+
+.emapx table{width:100%;border-collapse:collapse;font-size:14px;background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin:6px 0 20px}
+.emapx th{text-align:left;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-dim);
+  padding:10px 14px;border-bottom:1px solid var(--border);background:var(--sunken);font-weight:700}
+.emapx td{padding:11px 14px;border-bottom:1px solid var(--border);color:var(--ink-muted);vertical-align:top;line-height:1.5}
+.emapx tbody tr:last-child td{border-bottom:0}
+.emapx td:first-child{color:var(--ink);font-weight:500}
+.emapx tbody tr:hover td{background:var(--sunken)}
+
+.emapx .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:6px 0 20px}
+@media(max-width:900px){.emapx .cards{grid-template-columns:1fr}}
+.emapx .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:18px}
+.emapx .card h4{font-family:var(--sans);font-size:14px;font-weight:600;margin-bottom:7px;color:var(--accent)}
+.emapx .card p{font-size:13.5px;line-height:1.55;margin:0;color:var(--ink-muted)}
+
+.emapx .pull{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--accent);
+  border-radius:var(--r);padding:20px 22px;margin:6px 0 22px}
+.emapx .pull p{margin:0;font-size:15.5px;line-height:1.6}
+.emapx .pull .t{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:7px}
+
+.emapx /* map slot — a SOURCED map is placed here,.emapx never a rendered one */
+.mapslot{background:var(--sunken);border:1px dashed var(--border);border-radius:var(--r);
+  padding:34px 24px;text-align:center;margin:6px 0 20px}
+.emapx .mapslot .t{font-size:13px;font-weight:600;color:var(--ink-muted);margin-bottom:5px}
+.emapx .mapslot .s{font-size:12px;color:var(--ink-dim);line-height:1.5;max-width:56ch;margin:0 auto}
+
+.emapx /* key links */
+.links{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:6px}
+@media(max-width:767px){.emapx .links{grid-template-columns:1fr}}
+.emapx .lk{display:block;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+  padding:15px 17px;text-decoration:none;transition:all var(--micro) var(--ease)}
+.emapx .lk:hover{border-color:var(--accent);transform:translateY(-2px)}
+.emapx .lk .n{font-size:14.5px;font-weight:600;color:var(--ink);margin-bottom:3px}
+.emapx .lk .d{font-size:12.5px;color:var(--ink-dim);line-height:1.45}
+.emapx .lk .u{font-size:11.5px;color:var(--accent);margin-top:6px;word-break:break-all}
+
+
+.emapx /* ── figures,.emapx charts,.emapx schematic ── */
+.fig{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+  padding:22px 24px 16px;margin:8px 0 22px}
+.emapx .fig svg{display:block;width:100%;height:auto;overflow:visible}
+.emapx .fig-t{font-family:var(--serif);font-size:17px;font-weight:600;margin-bottom:14px}
+.emapx .figcap{font-size:12px;color:var(--ink-dim);line-height:1.5;margin:14px 0 0;max-width:none}
+.emapx .figcap a{color:var(--accent)}
+.emapx .figcap b{color:var(--ink-muted)}
+.emapx /* schematic */
+.area rect{fill:var(--surface);stroke:#CBD6D6;stroke-width:1.5}
+.emapx .area text{font-family:var(--sans);font-size:13px;font-weight:600;fill:var(--ink);
+  text-anchor:middle;dominant-baseline:middle}
+.emapx .area.e rect{stroke:#2a78d6} .emapx .area.w rect{stroke:#eb6834}
+.emapx .area.iso rect{stroke-dasharray:4 3}
+.emapx .ln{stroke:#9AA8AC;stroke-width:2;fill:none}
+.emapx .lnfc{stroke:#7C8D92;stroke-width:2;fill:none;stroke-dasharray:5 4}
+.emapx .fc{fill:#FDF3E7;stroke:#DD7B2F;stroke-width:1.6}
+.emapx .fct{font-family:var(--sans);font-size:12px;font-weight:700;fill:#C0651F;text-anchor:middle}
+.emapx .fh{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em}
+.emapx .cap2{font-family:var(--sans);font-size:10.5px;fill:#7C8D92;text-anchor:middle;paint-order:stroke;stroke:var(--surface);stroke-width:5;stroke-linejoin:round}
+.emapx .cap2.iso2{font-style:italic}
+.emapx /* composition bar */
+.seg text{font-family:var(--sans);font-size:12.5px;font-weight:600;fill:#fff;dominant-baseline:middle}
+.emapx .axl{font-family:var(--sans);font-size:11.5px;fill:#7C8D92}
+.emapx /* bar chart */
+.grid{stroke:#EDF1F1;stroke-width:1}
+.emapx .axis{stroke:#CBD6D6;stroke-width:1}
+.emapx .gl{font-family:var(--sans);font-size:10.5px;fill:#9AA8AC;text-anchor:end}
+.emapx .xl{font-family:var(--sans);font-size:12px;fill:var(--ink-muted);text-anchor:middle}
+.emapx .bar1 rect{fill:#1baf7a}
+.emapx .bar1 text{font-family:var(--sans);font-size:15px;font-weight:700;fill:var(--ink);text-anchor:middle}
+.emapx /* stat pair */
+.stats{display:flex;align-items:center;gap:18px;flex-wrap:wrap;background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--r);padding:20px 24px;margin:0 0 22px}
+.emapx .st .k{font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:4px}
+.emapx .st .v{font-family:var(--serif);font-size:30px;font-weight:700;line-height:1}
+.emapx .st .v small{font-family:var(--sans);font-size:13px;font-weight:500;color:var(--ink-muted)}
+.emapx .st.arrow{font-size:24px;color:var(--ink-dim)}
+.emapx .st.note{flex:1 1 240px;font-size:11.5px;color:var(--ink-dim);line-height:1.5}
+.emapx .st.note a{color:var(--accent)}
+.emapx /* pending slot */
+.pending{background:var(--sunken);border:1px dashed #CBD6D6;border-radius:var(--r);
+  padding:20px 22px;margin:6px 0 22px}
+.emapx .pending .t{font-size:13px;font-weight:600;color:var(--ink-muted);margin-bottom:6px}
+.emapx .pending p{font-size:13px;color:var(--ink-dim);line-height:1.55;margin:0}
+.emapx .pending a{color:var(--accent)}
+
+.emapx footer{border-top:1px solid var(--border);padding:30px 0;font-size:12px;color:var(--ink-dim);line-height:1.6}
+@media(prefers-reduced-motion:reduce){.emapx *{transition-duration:.01ms!important}}
+</style>
+<div class="emapx">
+<div class="wrap">
+  <header class="mh">
+    <div class="top">
+      <span class="bchip">Pool clearing</span>
+      <span class="reviewed">Last reviewed 14 August 2026</span>
+    </div>
+    <h1>Japan</h1>
+    <p class="one">A liberalised day-ahead exchange, a capacity market since 2020, and the country that gives the JKM benchmark half its name.</p>
+    <div class="facts"><div class="fi"><div class="k">Power exchange</div><div class="v">JEPX</div></div><div class="fi"><div class="k">Price unit</div><div class="v">JPY / kWh</div></div><div class="fi"><div class="k">Settlement</div><div class="v">30 minutes</div></div><div class="fi"><div class="k">System operator</div><div class="v">OCCTO</div></div><div class="fi"><div class="k">Gas position</div><div class="v">Net LNG importer</div></div></div>
+  </header>
+
+  <div class="body">
+    <aside class="toc" id="toc">
+      <div class="t">On this page</div>
+      <a href="#s1">01 Overview</a>
+      <a href="#s2">02 Market structure</a>
+      <a href="#s3">03 Infrastructure</a>
+      <a href="#s4">04 Demand and supply</a>
+      <a href="#s5">05 Price setting</a>
+      <a href="#s6">06 Regulatory regime</a>
+      <a href="#s7">Key links</a>
+    </aside>
+    <main><section class="sec" id="s1"><span class="sn">01</span><h2>Overview</h2>
+<p class="lead">Japan has almost no hydrocarbons of its own. It is also one of the most open power
+markets in Asia and one of the biggest LNG buyers on earth. Put those together and the price of
+electricity here is mostly a question about the cost of somebody else's fuel.</p>
+
+<p>Liberalisation came in stages. Full retail competition from 2016, legal unbundling of transmission
+from 2020. Wholesale power trades on the <strong>Japan Electric Power Exchange (JEPX)</strong>, and a
+<strong>capacity market</strong> introduced in 2020 pays separately for being available. Gas arrives
+almost entirely as LNG, priced off a mix of the JKM spot marker and older crude-linked term
+contracts.</p>
+
+<p>Nuclear has been coming back, slowly, for a decade now. Every reactor that restarts pushes
+imported LNG out of the stack, so a licensing decision taken in Tokyo lands on the fuel bill of every
+other importer in the region.</p>
+
+<div class="pull"><div class="t">Why this market matters beyond Japan</div>
+<p>Japan is big enough that what it chooses to burn moves the regional gas price. A safety regulator's
+decision in Tokyo changes the cost of power in Manila and Mumbai.</p></div>
+</section><section class="sec" id="s2"><span class="sn">02</span><h2>Market structure</h2>
+<p class="lead">The wholesale market is real enough. The power system underneath it is physically two
+systems, tied together by a handful of converter stations.</p>
+
+<h3>Who does what</h3>
+<table><thead><tr><th>Function</th><th>Body</th><th>Role</th></tr></thead><tbody>
+<tr><td>Power exchange</td><td>JEPX</td><td>Day-ahead spot and intraday trading</td></tr>
+<tr><td>Cross-regional coordination</td><td>OCCTO</td><td>System planning and the capacity market</td></tr>
+<tr><td>Transmission</td><td>Regional TSOs</td><td>Legally unbundled from generation since 2020</td></tr>
+<tr><td>Policy and market design</td><td>METI</td><td>Ministry of Economy, Trade and Industry</td></tr>
+<tr><td>Nuclear licensing</td><td>NRA</td><td>Independent safety regulator; approves restarts</td></tr>
+</tbody></table>
+
+<h3>The 50 / 60 Hz split</h3>
+<p>Hokkaido, Tohoku and Tokyo run at <strong>50 Hz</strong>. Chubu, Hokuriku, Kansai, Chugoku,
+Shikoku and Kyushu run at <strong>60 Hz</strong>. Blame the 1890s: Tokyo bought German generating
+equipment, Osaka bought American, and nobody ever got round to fixing it.</p>
+
+<p>You cannot simply wire two AC systems together at different frequencies. Power crosses through
+<strong>frequency converter stations</strong>, back-to-back HVDC links, and their combined capacity is
+small next to either system's peak demand. Electrically this is two countries with a thin cable
+between them.</p>
+
+<div class="pull"><div class="t">The practical consequence</div>
+<p>When the converters are full, east and west price independently. JEPX publishes area prices
+alongside the national system price. If you hold a position, the area price is the one that pays you.</p></div>
+</section><section class="sec" id="s3"><span class="sn">03</span><h2>Infrastructure — power and gas</h2>
+<p class="lead">Ten service areas, a dense and elderly grid, and one of the largest LNG receiving
+networks anywhere.</p>
+
+<h3>Power</h3>
+<div class="cards">
+<div class="card"><h4>Ten service areas</h4><p>Each grew up around a regional utility. Transmission is now
+unbundled. Interconnection between areas is thin and binds often.</p></div>
+<div class="card"><h4>Frequency converters</h4><p>The only road between the 50 Hz and 60 Hz systems. Their
+capacity is the hard limit on east–west transfer.</p></div>
+<div class="card"><h4>Nuclear fleet</h4><p>Around 15 reactors operating, roughly 33 GW, out of 32 operable
+units. Restarts continue under NRA review.</p></div>
+</div>
+
+<h3>Gas and LNG</h3>
+<p>Domestic gas production is negligible. Supply lands as LNG at a long list of receiving terminals,
+most of them built and owned by the regional power and city-gas utilities they feed. They were built
+to serve their owners, not a market, so third-party access has always been grudging. A domestic gas
+trading hub has been slow to appear for exactly that reason.</p>
+
+
+<div class="fig">
+  <svg viewBox="0 0 900 300" role="img" aria-label="Schematic of Japan's ten service areas and the 50/60 Hz split">
+    <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 z" fill="#7C8D92"/></marker></defs>
+    <text x="120" y="26" class="fh" fill="#2a78d6">EASTERN JAPAN — 50 Hz</text>
+    <text x="560" y="26" class="fh" fill="#eb6834">WESTERN JAPAN — 60 Hz</text>
+    <rect x="30" y="44" width="360" height="228" rx="10" fill="#2a78d6" opacity=".05"/>
+    <rect x="450" y="44" width="420" height="228" rx="10" fill="#eb6834" opacity=".05"/>
+
+    <g class="area e"><rect x="60" y="66" width="118" height="42" rx="7"/><text x="119" y="92">Hokkaido</text></g>
+    <g class="area e"><rect x="60" y="132" width="118" height="42" rx="7"/><text x="119" y="158">Tohoku</text></g>
+    <g class="area e"><rect x="60" y="198" width="118" height="42" rx="7"/><text x="119" y="224">Tokyo</text></g>
+
+    <g class="area w"><rect x="600" y="66" width="118" height="42" rx="7"/><text x="659" y="92">Hokuriku</text></g>
+    <g class="area w"><rect x="470" y="132" width="118" height="42" rx="7"/><text x="529" y="158">Chubu</text></g>
+    <g class="area w"><rect x="600" y="132" width="118" height="42" rx="7"/><text x="659" y="158">Kansai</text></g>
+    <g class="area w"><rect x="730" y="132" width="118" height="42" rx="7"/><text x="789" y="158">Chugoku</text></g>
+    <g class="area w"><rect x="600" y="198" width="118" height="42" rx="7"/><text x="659" y="224">Shikoku</text></g>
+    <g class="area w"><rect x="730" y="198" width="118" height="42" rx="7"/><text x="789" y="224">Kyushu</text></g>
+    <g class="area w iso"><rect x="470" y="198" width="118" height="42" rx="7"/><text x="529" y="224">Okinawa</text></g>
+
+    <path class="ln" d="M119,108 V132" marker-end="url(#ar)"/>
+    <path class="ln" d="M119,174 V198" marker-end="url(#ar)"/>
+    <path class="ln" d="M718,87 H760 V132"/>
+    <path class="ln" d="M588,153 H600"/><path class="ln" d="M718,153 H730"/>
+    <path class="ln" d="M659,174 V198"/><path class="ln" d="M789,174 V198"/>
+
+    <rect x="405" y="196" width="42" height="46" rx="6" class="fc"/>
+    <text x="426" y="216" class="fct">FC</text><text x="426" y="232" class="fct"></text>
+    <path class="lnfc" d="M178,219 H405"/><path class="lnfc" d="M447,219 H470" opacity="0"/>
+    <path class="lnfc" d="M426,196 V174 H470"/>
+    <text x="292" y="209" class="cap2">frequency converters — the only path between the two systems</text>
+    <text x="529" y="262" class="cap2 iso2">isolated — no interconnection</text>
+  </svg>
+  <p class="figcap"><b>Schematic — system topology, not a geographic map.</b> Ten service areas, grouped by
+  frequency. Converter capacity between east and west is small relative to either system's peak demand,
+  which is why the two halves can price independently.</p>
+</div>
+
+<div class="mapslot"><div class="t">Geographic infrastructure map</div>
+<div class="s">A sourced map of LNG terminals and the transmission network belongs here — reproduced
+from an official publication rather than redrawn.</div></div>
+</section><section class="sec" id="s4"><span class="sn">04</span><h2>Demand and supply</h2>
+<p class="lead">Demand goes nowhere, the generation mix keeps moving, and the LNG import requirement
+falls a little further with every reactor that comes back.</p>
+
+<h3>Demand</h3>
+<p>Japanese electricity demand is flat. The trajectory looks like Europe's, not India's or the
+Philippines'. A shrinking population and better efficiency cancel out whatever electrification adds,
+so the question worth asking is <strong>which fuel produces the power</strong>, not how much of it
+the country needs.</p>
+
+<h3>Supply</h3>
+<p>Gas-fired CCGT has carried the load since 2011, with coal underneath and a growing renewable fleet
+alongside. Nuclear is coming back. Gas-fired generation has fallen every year since 2017 as reactors
+returned and solar built out.</p>
+
+<table><thead><tr><th>Indicator</th><th>Direction</th><th>Comment</th></tr></thead><tbody>
+<tr><td>Electricity demand</td><td>Flat to declining</td><td>Efficiency and demographics offset electrification</td></tr>
+<tr><td>Nuclear output</td><td>Rising</td><td>Restarts continuing; policy targets a materially larger share by 2040</td></tr>
+<tr><td>Gas-fired generation</td><td>Declining</td><td>Down every year since 2017</td></tr>
+<tr><td>LNG imports</td><td>Declining</td><td>Roughly 11 Bcf/d in 2018 to around 9 Bcf/d in 2025</td></tr>
+<tr><td>Renewables</td><td>Rising</td><td>Solar led; grid and curtailment constraints increasingly binding</td></tr>
+</tbody></table>
+
+<div class="fig">
+  <div class="fig-t">Where Japan's electricity came from, 2025</div>
+  <svg viewBox="0 0 900 118" role="img" aria-label="Japan generation mix 2025 by source">
+    <g class="seg"><rect x="0"   y="18" width="277" height="40" rx="4" fill="#2a78d6"/><text x="10"  y="43">Gas 31%</text></g>
+    <g class="seg"><rect x="281" y="18" width="250" height="40" rx="4" fill="#eb6834"/><text x="291" y="43">Coal 28%</text></g>
+    <g class="seg"><rect x="535" y="18" width="95"  height="40" rx="4" fill="#eda100"/><text x="545" y="43">Solar 11%</text></g>
+    <g class="seg"><rect x="634" y="18" width="86"  height="40" rx="4" fill="#1baf7a"/><text x="644" y="43">Nuclear 10%</text></g>
+    <g class="seg"><rect x="724" y="18" width="68"  height="40" rx="4" fill="#4a3aa7"/><text x="734" y="43">Hydro 8%</text></g>
+    <g class="seg"><rect x="796" y="18" width="104" height="40" rx="4" fill="#9AA8AC"/><text x="806" y="43">Other 12%</text></g>
+    <text x="0"   y="82" class="axl">Fossil fuels still supply roughly two thirds of generation.</text>
+    <text x="900" y="82" class="axl" text-anchor="end">Wind is just over 1% and sits inside “Other”.</text>
+  </svg>
+  <p class="figcap">Shares for 2025. Source: <a href="https://lowcarbonpower.org/region/Japan" target="_blank" rel="noopener">Low Carbon Power</a>,
+  corroborated by <a href="https://ember-energy.org/countries-and-regions/japan/" target="_blank" rel="noopener">Ember</a>.</p>
+</div>
+
+<div class="fig">
+  <div class="fig-t">Nuclear share of generation is rising</div>
+  <svg viewBox="0 0 900 250" role="img" aria-label="Nuclear share of Japanese generation, FY2022 to 2025">
+    <line class="grid" x1="70" y1="40"  x2="880" y2="40"/><text class="gl" x="60" y="44">10%</text>
+    <line class="grid" x1="70" y1="80"  x2="880" y2="80"/><text class="gl" x="60" y="84">7.5%</text>
+    <line class="grid" x1="70" y1="120" x2="880" y2="120"/><text class="gl" x="60" y="124">5%</text>
+    <line class="grid" x1="70" y1="160" x2="880" y2="160"/><text class="gl" x="60" y="164">2.5%</text>
+    <line class="axis" x1="70" y1="200" x2="880" y2="200"/>
+    <g class="bar1"><rect x="150" y="110" width="150" height="90"  rx="4"/><text x="225" y="100">5.6%</text></g>
+    <g class="bar1"><rect x="400" y="72"  width="150" height="128" rx="4"/><text x="475" y="62">8%</text></g>
+    <g class="bar1"><rect x="650" y="56"  width="150" height="144" rx="4"/><text x="725" y="46">9%</text></g>
+    <text class="xl" x="225" y="222">FY2022</text>
+    <text class="xl" x="475" y="222">2024</text>
+    <text class="xl" x="725" y="222">2025</text>
+  </svg>
+  <p class="figcap">FY2022 from <a href="https://www.enecho.meti.go.jp/en/category/brochures/pdf/japan_energy_2024.pdf" target="_blank" rel="noopener">METI/ANRE, Japan Energy 2024</a>;
+  2024 and 2025 from <a href="https://ember-energy.org/countries-and-regions/japan/" target="_blank" rel="noopener">Ember</a>. Different reporting bases — read as direction, not a continuous series.</p>
+</div>
+
+<div class="stats">
+  <div class="st"><div class="k">LNG imports, 2018</div><div class="v">~11 <small>Bcf/d</small></div></div>
+  <div class="st arrow">→</div>
+  <div class="st"><div class="k">LNG imports, 2025</div><div class="v">~9 <small>Bcf/d</small></div></div>
+  <div class="st note">Two dated observations, not a continuous series. Source: <a href="https://www.eia.gov/international/analysis/country/JPN" target="_blank" rel="noopener">US EIA</a>.</div>
+</div>
+
+<div class="pull"><div class="t">The link to the regional gas market</div>
+<p>Kashiwazaki-Kariwa Unit 6 came back into commercial operation in March 2026, after more than
+fourteen years offline. One reactor that size takes out something like 1.3 million tonnes of LNG a
+year. Run that across a restart programme and Asian LNG demand has changed shape, not just level.</p></div>
+</section><section class="sec" id="s5"><span class="sn">05</span><h2>Price setting mechanism</h2>
+<p class="lead">Cheapest first, and the last unit you need sets the price for everyone who cleared.
+Standard marginal-cost auction.</p>
+
+<h3>How the auction works</h3>
+<p>Generators offer into JEPX for each half-hour period. The exchange stacks the offers from cheapest
+to dearest and walks up the stack until supply meets demand. Whichever offer closes the gap is the
+<strong>marginal unit</strong>, and its price is paid to everyone who cleared, cheap plant included.</p>
+
+<p>In Japan that marginal unit is usually a <strong>gas-fired CCGT</strong>. Delivered gas cost
+divided by plant efficiency is the electricity price for most hours of the year, which is why the
+power desk and the LNG desk are having one conversation rather than two.</p>
+
+<h3>What a generator actually earns</h3>
+<p>Energy revenue is only part of the income. Since 2020 the <strong>capacity market</strong> run
+through OCCTO has paid separately for availability. A plant can look marginal on energy economics and
+still be perfectly viable once that payment lands. Running hours come in consistently above what a
+spark-spread calculation on its own would predict.</p>
+
+<h3>The unit trap</h3>
+<div class="pull"><div class="t">JPY per kWh — not per MWh</div>
+<p>JEPX quotes yen per kilowatt-hour. Most of the region quotes per megawatt-hour. Compare the two
+unconverted and you are out by a factor of 1,000, and it looks plausible in either direction.</p></div>
+
+
+<div class="pending">
+  <div class="t">Price trend chart — pending a sourced series</div>
+  <p>JEPX publishes spot price history as downloadable CSV, not as citable figures on a page. Drawing
+  an unsourced line would be worse than leaving this empty, so it stays empty until the series is pulled from
+  <a href="https://www.jepx.info/en/spot_yearly" target="_blank" rel="noopener">jepx.info</a> or
+  <a href="https://japanesepower.org/" target="_blank" rel="noopener">japanesepower.org</a>.</p>
+</div>
+
+<h3>Balancing, from April 2026</h3>
+<p>Balancing procurement moved from weekly, in three-hour blocks, to <strong>day-ahead in 30-minute
+units</strong>. That is 48 slots a day. A generator that misses the spot market can now rebid straight
+into balancing, which ties the two together much more tightly than before. Price caps on the main
+balancing products were cut hard at the same time.</p>
+</section><section class="sec" id="s6"><span class="sn">06</span><h2>Regulatory regime</h2>
+<p class="lead">Policy sits with METI. Nuclear safety sits with an independent regulator, system
+coordination with OCCTO, and there is no supra-national body sitting above any of them.</p>
+
+<table><thead><tr><th>Body</th><th>Remit</th></tr></thead><tbody>
+<tr><td>METI</td><td>Energy policy, market design, the strategic energy plan</td></tr>
+<tr><td>Nuclear Regulation Authority (NRA)</td><td>Independent nuclear safety regulation and restart approvals</td></tr>
+<tr><td>OCCTO</td><td>Cross-regional system coordination and administration of the capacity market</td></tr>
+<tr><td>Electricity and Gas Market Surveillance Commission</td><td>Market conduct and network access oversight</td></tr>
+</tbody></table>
+
+<h3>The reform arc</h3>
+<p>Retail competition opened fully in 2016. Transmission was legally unbundled in 2020, the same year
+the capacity market started. Then <strong>April 2026</strong>: balancing procurement was restructured
+and JEPX's spot platform went API-only. That second change reads as technical and isn't. Manual
+bidding is finished, and desks without the plumbing are out of the auction.</p>
+
+<h3>Nuclear restarts are not a formality</h3>
+<p>The NRA decides, and its decisions are genuinely uncertain rather than procedural. Tsuruga Unit 2
+was found not to meet regulatory standards in November 2024. Treat restarts as probabilities. A
+schedule they are not.</p>
+</section><section class="sec" id="s7"><span class="sn">SOURCES</span><h2>Key links</h2><p class="lead">Primary sources for this market. Figures on this page are drawn from these and from published market data.</p><div class="links"><a class="lk" href="https://www.jepx.jp/en/" target="_blank" rel="noopener"><div class="n">JEPX</div><div class="d">Japan Electric Power Exchange — spot and intraday market data</div><div class="u">https://www.jepx.jp/en/</div></a><a class="lk" href="https://www.occto.or.jp/en/" target="_blank" rel="noopener"><div class="n">OCCTO</div><div class="d">Cross-regional coordination, system planning and capacity market results</div><div class="u">https://www.occto.or.jp/en/</div></a><a class="lk" href="https://www.meti.go.jp/english/policy/energy_environment/" target="_blank" rel="noopener"><div class="n">METI — Energy</div><div class="d">Energy policy, the strategic energy plan and market statistics</div><div class="u">https://www.meti.go.jp/english/policy/energy_environment/</div></a><a class="lk" href="https://www.nra.go.jp/english/" target="_blank" rel="noopener"><div class="n">Nuclear Regulation Authority</div><div class="d">Reactor licensing status and restart decisions</div><div class="u">https://www.nra.go.jp/english/</div></a><a class="lk" href="https://www.jaif.or.jp/en/" target="_blank" rel="noopener"><div class="n">JAIF</div><div class="d">Japan Atomic Industrial Forum — operating status of the reactor fleet</div><div class="u">https://www.jaif.or.jp/en/</div></a><a class="lk" href="https://www.eia.gov/international/analysis/country/JPN" target="_blank" rel="noopener"><div class="n">US EIA — Japan</div><div class="d">Independent country analysis of Japanese energy supply and demand</div><div class="u">https://www.eia.gov/international/analysis/country/JPN</div></a></div></section></main>
+  </div>
+</div>
+
+
+
+<script>
+var links=[].slice.call(document.querySelectorAll('.toc a[href^="#s"]'));
+var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))}).filter(Boolean);
+function onScroll(){var y=window.scrollY+150,c=0;
+  secs.forEach(function(s,i){if(s.offsetTop<=y)c=i});
+  links.forEach(function(a,i){a.classList.toggle('on',i===c)})}
+window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+</script>
+</div>

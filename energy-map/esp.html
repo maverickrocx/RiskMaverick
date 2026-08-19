@@ -1,0 +1,402 @@
+---
+layout: default
+title: Spain
+permalink: /energy-map/esp/
+blurb: "Spain — Pool clearing. Market structure, infrastructure, demand and supply, price formation and regulation."
+---
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet"><style>
+.emapx{
+  --bg:#FAFAF8; --surface:#FFFFFF; --sunken:#F4F7F7;
+  --ink:#14262B; --ink-muted:#4A5B60; --ink-dim:#7C8D92;
+  --border:#E2E8E8;
+  --s5:#C0392B; --s4:#DD7B2F; --s3:#E8AE28; --s2:#3B8B60; --s1:#1F7A52;
+  --accent:#3B8B60;
+  --r:8px; --micro:180ms; --ease:cubic-bezier(.2,.6,.2,1);
+  --serif:"Source Serif 4",Georgia,serif;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+.emapx *{box-sizing:border-box;margin:0;padding:0}
+.emapx{scroll-behavior:smooth}
+.emapx{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.5;
+  -webkit-font-smoothing:antialiased;font-feature-settings:"tnum" 1}
+.emapx h1,.emapx h2,.emapx h3{font-family:var(--serif);line-height:1.16;letter-spacing:-.02em;font-weight:600}
+.emapx .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+@media(max-width:767px){.emapx .wrap{padding:0 16px}}
+.emapx .proto{background:#14262B;color:#F3F6F6;font-size:12px;padding:8px 16px;text-align:center}
+.emapx nav{position:sticky;top:0;z-index:60;height:64px;display:flex;align-items:center;
+  background:rgba(250,250,248,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.emapx nav .wrap{display:flex;align-items:center;gap:26px;width:100%}
+.emapx .logo{font-family:var(--serif);font-size:20px;font-weight:700;display:flex;align-items:center;gap:10px}
+.emapx .logo .mark{width:22px;height:22px;border:2px solid var(--accent);border-radius:3px;position:relative;flex:none}
+.emapx .logo .mark::after{content:"";position:absolute;inset:4px 4px auto 4px;height:2px;background:var(--s3)}
+.emapx .crumb{font-size:13px;color:var(--ink-dim)}
+.emapx .crumb a{color:var(--ink-muted);text-decoration:none}
+.emapx .crumb a:hover{color:var(--ink)}
+.emapx .navlinks{display:flex;gap:22px;margin-left:auto;font-size:14px}
+.emapx .navlinks a{color:var(--ink-muted);text-decoration:none}
+.emapx .navlinks a:hover{color:var(--ink)}
+
+.emapx /* header */
+.mh{padding:46px 0 30px}
+.emapx .mh .top{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.emapx .bchip{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:5px 12px;border-radius:999px;background:var(--accent);color:#fff}
+.emapx .reviewed{font-size:12px;color:var(--ink-dim);margin-left:auto}
+.emapx .mh h1{font-size:56px;margin-bottom:12px}
+@media(max-width:767px){.emapx .mh h1{font-size:34px}}
+.emapx .mh .one{font-size:20px;color:var(--ink-muted);max-width:62ch;line-height:1.45}
+.emapx .facts{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);
+  border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin-top:28px}
+@media(max-width:900px){.emapx .facts{grid-template-columns:repeat(2,1fr)}}
+.emapx .fi{background:var(--surface);padding:15px 16px}
+.emapx .fi .k{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:5px}
+.emapx .fi .v{font-size:15px;font-weight:600;line-height:1.3}
+
+.emapx /* layout */
+.body{display:grid;grid-template-columns:190px 1fr;gap:44px;padding-bottom:20px}
+@media(max-width:1023px){.emapx .body{grid-template-columns:1fr;gap:0}.emapx .toc{display:none}}
+.emapx .toc{position:sticky;top:88px;align-self:start;padding-top:40px}
+.emapx .toc .t{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:10px}
+.emapx .toc a{display:block;font-size:13px;color:var(--ink-muted);text-decoration:none;padding:7px 0 7px 13px;
+  border-left:2px solid var(--border);transition:all var(--micro) var(--ease)}
+.emapx .toc a:hover{color:var(--ink);border-left-color:var(--ink-dim)}
+.emapx .toc a.on{color:var(--ink);font-weight:600;border-left-color:var(--accent)}
+
+.emapx /* sections */
+.sec{padding:40px 0;border-top:1px solid var(--border)}
+.emapx .sec:first-child{border-top:0;padding-top:12px}
+.emapx .sn{font-family:var(--serif);font-size:13px;font-weight:700;color:var(--accent);display:block;margin-bottom:5px}
+.emapx .sec h2{font-size:31px;margin-bottom:8px}
+.emapx .sec .lead{font-size:17px;color:var(--ink-muted);line-height:1.6;max-width:70ch;margin-bottom:20px}
+.emapx .sec p{font-size:15.5px;line-height:1.68;color:var(--ink-muted);max-width:70ch;margin-bottom:16px}
+.emapx .sec p strong{color:var(--ink);font-weight:600}
+.emapx .sec h3{font-size:19px;margin:26px 0 10px}
+
+.emapx table{width:100%;border-collapse:collapse;font-size:14px;background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin:6px 0 20px}
+.emapx th{text-align:left;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-dim);
+  padding:10px 14px;border-bottom:1px solid var(--border);background:var(--sunken);font-weight:700}
+.emapx td{padding:11px 14px;border-bottom:1px solid var(--border);color:var(--ink-muted);vertical-align:top;line-height:1.5}
+.emapx tbody tr:last-child td{border-bottom:0}
+.emapx td:first-child{color:var(--ink);font-weight:500}
+.emapx tbody tr:hover td{background:var(--sunken)}
+
+.emapx .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:6px 0 20px}
+@media(max-width:900px){.emapx .cards{grid-template-columns:1fr}}
+.emapx .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:18px}
+.emapx .card h4{font-family:var(--sans);font-size:14px;font-weight:600;margin-bottom:7px;color:var(--accent)}
+.emapx .card p{font-size:13.5px;line-height:1.55;margin:0;color:var(--ink-muted)}
+
+.emapx .pull{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--accent);
+  border-radius:var(--r);padding:20px 22px;margin:6px 0 22px}
+.emapx .pull p{margin:0;font-size:15.5px;line-height:1.6}
+.emapx .pull .t{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:7px}
+
+.emapx /* map slot — a SOURCED map is placed here,.emapx never a rendered one */
+.mapslot{background:var(--sunken);border:1px dashed var(--border);border-radius:var(--r);
+  padding:34px 24px;text-align:center;margin:6px 0 20px}
+.emapx .mapslot .t{font-size:13px;font-weight:600;color:var(--ink-muted);margin-bottom:5px}
+.emapx .mapslot .s{font-size:12px;color:var(--ink-dim);line-height:1.5;max-width:56ch;margin:0 auto}
+
+.emapx /* key links */
+.links{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:6px}
+@media(max-width:767px){.emapx .links{grid-template-columns:1fr}}
+.emapx .lk{display:block;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+  padding:15px 17px;text-decoration:none;transition:all var(--micro) var(--ease)}
+.emapx .lk:hover{border-color:var(--accent);transform:translateY(-2px)}
+.emapx .lk .n{font-size:14.5px;font-weight:600;color:var(--ink);margin-bottom:3px}
+.emapx .lk .d{font-size:12.5px;color:var(--ink-dim);line-height:1.45}
+.emapx .lk .u{font-size:11.5px;color:var(--accent);margin-top:6px;word-break:break-all}
+
+
+.emapx /* ── figures,.emapx charts,.emapx schematic ── */
+.fig{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+  padding:22px 24px 16px;margin:8px 0 22px}
+.emapx .fig svg{display:block;width:100%;height:auto;overflow:visible}
+.emapx .fig-t{font-family:var(--serif);font-size:17px;font-weight:600;margin-bottom:14px}
+.emapx .figcap{font-size:12px;color:var(--ink-dim);line-height:1.5;margin:14px 0 0;max-width:none}
+.emapx .figcap a{color:var(--accent)}
+.emapx .figcap b{color:var(--ink-muted)}
+.emapx /* schematic */
+.area rect{fill:var(--surface);stroke:#CBD6D6;stroke-width:1.5}
+.emapx .area text{font-family:var(--sans);font-size:13px;font-weight:600;fill:var(--ink);
+  text-anchor:middle;dominant-baseline:middle}
+.emapx .area.e rect{stroke:#2a78d6} .emapx .area.w rect{stroke:#eb6834}
+.emapx .area.iso rect{stroke-dasharray:4 3}
+.emapx .ln{stroke:#9AA8AC;stroke-width:2;fill:none}
+.emapx .lnfc{stroke:#7C8D92;stroke-width:2;fill:none;stroke-dasharray:5 4}
+.emapx .fc{fill:#FDF3E7;stroke:#DD7B2F;stroke-width:1.6}
+.emapx .fct{font-family:var(--sans);font-size:12px;font-weight:700;fill:#C0651F;text-anchor:middle}
+.emapx .fh{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em}
+.emapx .cap2{font-family:var(--sans);font-size:10.5px;fill:#7C8D92;text-anchor:middle;paint-order:stroke;stroke:var(--surface);stroke-width:5;stroke-linejoin:round}
+.emapx .cap2.iso2{font-style:italic}
+.emapx /* composition bar */
+.seg text{font-family:var(--sans);font-size:12.5px;font-weight:600;fill:#fff;dominant-baseline:middle}
+.emapx .axl{font-family:var(--sans);font-size:11.5px;fill:#7C8D92}
+.emapx /* bar chart */
+.grid{stroke:#EDF1F1;stroke-width:1}
+.emapx .axis{stroke:#CBD6D6;stroke-width:1}
+.emapx .gl{font-family:var(--sans);font-size:10.5px;fill:#9AA8AC;text-anchor:end}
+.emapx .xl{font-family:var(--sans);font-size:12px;fill:var(--ink-muted);text-anchor:middle}
+.emapx .bar1 rect{fill:#1baf7a}
+.emapx .bar1 text{font-family:var(--sans);font-size:15px;font-weight:700;fill:var(--ink);text-anchor:middle}
+.emapx /* stat pair */
+.stats{display:flex;align-items:center;gap:18px;flex-wrap:wrap;background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--r);padding:20px 24px;margin:0 0 22px}
+.emapx .st .k{font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:4px}
+.emapx .st .v{font-family:var(--serif);font-size:30px;font-weight:700;line-height:1}
+.emapx .st .v small{font-family:var(--sans);font-size:13px;font-weight:500;color:var(--ink-muted)}
+.emapx .st.arrow{font-size:24px;color:var(--ink-dim)}
+.emapx .st.note{flex:1 1 240px;font-size:11.5px;color:var(--ink-dim);line-height:1.5}
+.emapx .st.note a{color:var(--accent)}
+.emapx /* pending slot */
+.pending{background:var(--sunken);border:1px dashed #CBD6D6;border-radius:var(--r);
+  padding:20px 22px;margin:6px 0 22px}
+.emapx .pending .t{font-size:13px;font-weight:600;color:var(--ink-muted);margin-bottom:6px}
+.emapx .pending p{font-size:13px;color:var(--ink-dim);line-height:1.55;margin:0}
+.emapx .pending a{color:var(--accent)}
+
+.emapx footer{border-top:1px solid var(--border);padding:30px 0;font-size:12px;color:var(--ink-dim);line-height:1.6}
+@media(prefers-reduced-motion:reduce){.emapx *{transition-duration:.01ms!important}}
+</style>
+<div class="emapx">
+<div class="wrap">
+  <header class="mh">
+    <div class="top">
+      <span class="bchip">Pool clearing</span>
+      <span class="reviewed">Last reviewed 16 August 2026</span>
+    </div>
+    <h1>Spain</h1>
+    <p class="one">A shared Iberian day-ahead auction with Portugal, one of Europe's highest renewable shares, and the continent's largest cluster of LNG import terminals. Weakly wired to France, and consequently a market that must absorb its own surpluses by price.</p>
+    <div class="facts"><div class="fi"><div class="k">Power exchange</div><div class="v">OMIE (MIBEL)</div></div><div class="fi"><div class="k">Price unit</div><div class="v">EUR / MWh</div></div><div class="fi"><div class="k">System operator</div><div class="v">Red Eléctrica</div></div><div class="fi"><div class="k">Gas hub</div><div class="v">MIBGAS (PVB)</div></div><div class="fi"><div class="k">Gas position</div><div class="v">Major EU LNG entry point</div></div></div>
+  </header>
+
+  <div class="body">
+    <aside class="toc" id="toc">
+      <div class="t">On this page</div>
+      <a href="#s1">01 Overview</a>
+      <a href="#s2">02 Market structure</a>
+      <a href="#s3">03 Infrastructure</a>
+      <a href="#s4">04 Demand and supply</a>
+      <a href="#s5">05 Price setting</a>
+      <a href="#s6">06 Regulatory regime</a>
+      <a href="#s7">Key links</a>
+    </aside>
+    <main><section class="sec" id="s1"><span class="sn">01</span><h2>Overview</h2>
+<p class="lead">Spain runs one of Europe's largest and most renewable-heavy power systems, clearing on a shared Iberian day-ahead auction with Portugal. It also holds the continent's biggest fleet of LNG import terminals. A renewables market and a gas market at the same time.</p>
+
+<p>Wholesale electricity trades on <strong>OMIE</strong>, the nominated electricity market operator for
+the <strong>Iberian Electricity Market (MIBEL)</strong> — a single day-ahead auction covering Spain and
+Portugal, coupled into the wider European market since 2014
+(<a href="https://www.omie.es/en/mercado-de-electricidad" target="_blank" rel="noopener">OMIE</a>).
+<strong>Red Eléctrica</strong> operates and plans the Spanish transmission system. Gas moves through
+<strong>Enagás</strong>'s network and prices at the <strong>MIBGAS</strong> hub.</p>
+
+<p>Three things make Spain unusual. The renewable share is very high — 55.5% of 2025 generation came from renewables, with wind at 21.6% and solar PV at 18.4%
+(<a href="https://www.ree.es/en/press-office/news/press-release/2026/03/the-spanish-electricity-system-in-2025-electricity-demand-generation-and-installed-power-capacity-increase" target="_blank" rel="noopener">Red Eléctrica</a>). The peninsula is barely joined to the rest of Europe: 2,800 MW of interconnection with France, saturated 76% of hours over the past three years
+(<a href="https://www.inelfe.eu/en/projects/bay-biscay" target="_blank" rel="noopener">INELFE</a>). And Spain is a major LNG entry point for Europe, with six active receiving terminals
+(<a href="https://www.iea.org/articles/spain-natural-gas-security-policy" target="_blank" rel="noopener">IEA</a>).</p>
+
+<p>Two events define the recent record. The <strong>Iberian exception</strong> of 2022&ndash;24 capped the gas price generators could put into their offers, a direct intervention in marginal pricing that the rest of Europe watched closely. Then on <strong>28 April 2025</strong> the peninsula went dark. The first cascading generation-disconnection blackout in continental Europe
+(<a href="https://www.entsoe.eu/publications/blackout/28-april-2025-iberian-blackout/" target="_blank" rel="noopener">ENTSO-E</a>).</p>
+
+<div class="pull"><div class="t">Why this market matters beyond Iberia</div>
+<p>Spain is the live experiment in what a very high renewable share does to a weakly interconnected system: midday prices, system stability, the value of firm capacity. Whatever gets concluded here is being applied to markets that will look like Spain in five years.</p></div>
+</section><section class="sec" id="s2"><span class="sn">02</span><h2>Market structure</h2>
+<p class="lead">A single Iberian auction, a single transmission operator, and a regulator that sits
+underneath European market rules rather than above them.</p>
+
+<h3>Who does what</h3>
+<table><thead><tr><th>Function</th><th>Body</th><th>Role</th></tr></thead><tbody>
+<tr><td>Power exchange</td><td>OMIE</td><td>Sole NEMO for Spain and Portugal; day-ahead and intraday auctions</td></tr>
+<tr><td>Transmission and system operation</td><td>Red El&eacute;ctrica</td><td>Sole TSO; grid planning, balancing and restoration</td></tr>
+<tr><td>Gas transmission</td><td>Enag&aacute;s</td><td>Technical system manager for gas; owns the trunk network and most terminals</td></tr>
+<tr><td>Gas trading hub</td><td>MIBGAS</td><td>Spot and derivative trading at the Virtual Balancing Point</td></tr>
+<tr><td>Regulator</td><td>CNMC</td><td>Network tariffs, market surveillance, access rules</td></tr>
+<tr><td>Policy</td><td>MITECO</td><td>Energy and climate policy, auctions, capacity mechanisms</td></tr>
+</tbody></table>
+
+<h3>MIBEL: one market, two countries</h3>
+<p>Spain and Portugal clear as a single price zone whenever the interconnection between them is uncongested, which is most of the time. When it binds, MIBEL splits and the two countries price separately. Check that first. An Iberian price is usually one number and occasionally two, and the split turns up in exactly the windy, sunny hours when the position matters most.</p>
+
+<h3>Coupled to Europe, but through a bottleneck</h3>
+<p>The MIBEL day-ahead auction runs at 12:00 CET and is coupled with the rest of Europe through SDAC,
+with price limits of +4,000 to &minus;600 EUR/MWh. Intraday runs as three auction sessions plus the
+continuous cross-border market, tradable up to an hour before delivery
+(<a href="https://www.omie.es/en/mercado-de-electricidad" target="_blank" rel="noopener">OMIE</a>).</p>
+
+<p>Coupling only equalises prices to the extent that wires exist. Set 2,800 MW of France&ndash;Spain capacity against a system with well over 40 GW of peak demand and Iberia is coupled on paper, semi-islanded in practice. Iberian surpluses cannot be exported away. They get absorbed at home, by price.</p>
+
+<div class="pull"><div class="t">The structural asymmetry</div>
+<p>An oversupplied German hour exports into a continent. An oversupplied Spanish hour has almost nowhere
+to go. That single fact explains most of what follows about negative prices, curtailment and capture
+rates.</p></div>
+</section><section class="sec" id="s3"><span class="sn">03</span><h2>Infrastructure — power and gas</h2>
+<p class="lead">A single national transmission system with a thin border to France, and a gas network
+built around the largest set of LNG receiving terminals in the European Union.</p>
+
+<h3>Power</h3>
+<div class="cards">
+<div class="card"><h4>One TSO</h4><p>Red El&eacute;ctrica owns and operates the transmission grid and
+performs system operation, planning and restoration &mdash; no regional split, no separate ISO.</p></div>
+<div class="card"><h4>142.5 GW installed</h4><p>Total generating fleet at end-2025, of which solar PV is
+the largest single technology at 33.1% of installed capacity, with 3,427 MW of storage.</p></div>
+<div class="card"><h4>2,800 MW to France</h4><p>The only meaningful link to the rest of the synchronous
+European system, saturated in 76% of hours over the last three years.</p></div>
+</div>
+
+<p>Capacity figures are from
+<a href="https://www.ree.es/en/press-office/news/press-release/2026/03/the-spanish-electricity-system-in-2025-electricity-demand-generation-and-installed-power-capacity-increase" target="_blank" rel="noopener">Red El&eacute;ctrica</a>;
+interconnection figures from <a href="https://www.inelfe.eu/en/projects/bay-biscay" target="_blank" rel="noopener">INELFE</a>.</p>
+
+<h3>The interconnection build-out</h3>
+<p>One project changes that. The <strong>Bay of Biscay</strong> submarine HVDC link is two 1,000 MW links across roughly 400 km of cable, around 300 km of it undersea, lifting France&ndash;Spain exchange capacity from 2,800 MW to 5,000 MW. Budget &euro;3.1bn, with &euro;578m of Connecting Europe Facility support. Testing begins mid-2027, definitive commissioning in 2028
+(<a href="https://www.inelfe.eu/en/projects/bay-biscay" target="_blank" rel="noopener">INELFE</a>).
+Until it energises, Iberian price formation stays largely a domestic affair.</p>
+
+<h3>Gas and LNG</h3>
+<p>Spain has six active LNG terminals, 25 storage tanks and eight berths that take vessels of up to 270,000 m&sup3;. Barcelona alone can regasify 48.1 mcm/day. Four underground storage sites at Gaviota, Serrablo, Yela and Marismas hold roughly 3 bcm, and Spain's N-1 infrastructure resilience metric stands at 123%
+(<a href="https://www.iea.org/articles/spain-natural-gas-security-policy" target="_blank" rel="noopener">IEA</a>).
+Enag&aacute;s owns Barcelona, Cartagena and Huelva outright and holds majority or half stakes in Musel,
+Bilbao and Sagunto
+(<a href="https://www.enagas.es/en/energy-transition/gas-network/gas-infrastructure/regasification-plants/" target="_blank" rel="noopener">Enag&aacute;s</a>).</p>
+
+<div class="fig">
+  <svg viewBox="0 0 900 250" role="img" aria-label="Schematic of Iberian market topology: MIBEL, interconnections and gas entry points">
+    <text x="150" y="26" class="fh" fill="#2a78d6">SPAIN</text>
+    <text x="640" y="26" class="fh" fill="#eb6834">PORTUGAL</text>
+    <rect x="30" y="44" width="470" height="180" rx="10" fill="#2a78d6" opacity=".05"/>
+    <rect x="540" y="44" width="330" height="180" rx="10" fill="#eb6834" opacity=".05"/>
+    <g class="area e"><rect x="60" y="70" width="150" height="42" rx="7"/><text x="135" y="96">LNG terminals</text></g>
+    <g class="area e"><rect x="250" y="70" width="150" height="42" rx="7"/><text x="325" y="96">MIBGAS / PVB</text></g>
+    <g class="area e"><rect x="60" y="152" width="150" height="42" rx="7"/><text x="135" y="178">Wind + solar</text></g>
+    <g class="area e"><rect x="250" y="152" width="150" height="42" rx="7"/><text x="325" y="178">CCGT + nuclear</text></g>
+    <g class="area w"><rect x="600" y="110" width="210" height="42" rx="7"/><text x="705" y="136">MIBEL day-ahead (OMIE)</text></g>
+    <path class="ln" d="M210,91 H250"/><path class="ln" d="M325,112 V152"/>
+    <path class="ln" d="M210,173 H250"/><path class="ln" d="M400,173 H470 V131 H600"/>
+    <path class="lnfc" d="M135,70 V56 H470 V131 H600"/>
+    <rect x="405" y="40" width="52" height="30" rx="6" class="fc"/>
+    <text x="431" y="60" class="fct">FR</text>
+    <path class="lnfc" d="M431,70 V110 H470"/>
+    <text x="431" y="86" class="cap2">2.8 GW</text>
+    <text x="705" y="176" class="cap2">one price when the border is free; two when it binds</text>
+  </svg>
+  <p class="figcap"><b>Schematic &mdash; system topology, not a geographic map.</b> Iberian gas and power
+  flows converge on a single day-ahead auction, with a narrow 2,800 MW window to France.</p>
+</div>
+
+<div class="mapslot"><div class="t">Geographic infrastructure map</div>
+<div class="s">A sourced map of Spanish LNG terminals, gas trunk lines and the 400 kV transmission network
+belongs here &mdash; reproduced from an official Red El&eacute;ctrica or Enag&aacute;s publication rather
+than redrawn.</div></div>
+</section><section class="sec" id="s4"><span class="sn">04</span><h2>Demand and supply</h2>
+<p class="lead">Demand is growing again. Wind, nuclear and solar dominate the mix, and gas has been pushed out to the margin, where, awkwardly for gas-fired economics, it still sets the price.</p>
+
+<h3>Demand</h3>
+<p>Spanish electricity demand reached 256,086 GWh in 2025, up 2.8% on 2024; including self-consumption
+the figure is 269,753 GWh, up 3.7%
+(<a href="https://www.ree.es/en/press-office/news/press-release/2026/03/the-spanish-electricity-system-in-2025-electricity-demand-generation-and-installed-power-capacity-increase" target="_blank" rel="noopener">Red El&eacute;ctrica</a>).
+After a decade of stagnation, electrification, data centres and industrial reshoring have restarted growth. Set it against the pace of renewable additions and it is small.</p>
+
+<h3>Supply</h3>
+<p>75.5% of 2025 generation was free of CO&#8322;-equivalent emissions, and Ember puts Spain's low-carbon
+share at 75% against an EU average of 71%
+(<a href="https://ember-energy.org/countries-and-regions/spain/" target="_blank" rel="noopener">Ember</a>).
+Combined cycle gas plant supplied 16.8%, a residual role concentrated in evening and low-wind hours.</p>
+
+<div class="fig">
+  <div class="fig-t">Where Spain's electricity came from, 2025</div>
+  <svg viewBox="0 0 900 118" role="img" aria-label="Spain generation mix 2025 by source">
+    <g class="seg"><rect x="0"   y="18" width="190" height="40" rx="4" fill="#2a78d6"/><text x="10"  y="43">Wind 21.6%</text></g>
+    <g class="seg"><rect x="194" y="18" width="167" height="40" rx="4" fill="#eb6834"/><text x="204" y="43">Nuclear 19%</text></g>
+    <g class="seg"><rect x="365" y="18" width="162" height="40" rx="4" fill="#1baf7a"/><text x="375" y="43">Solar PV 18.4%</text></g>
+    <g class="seg"><rect x="531" y="18" width="148" height="40" rx="4" fill="#eda100"/><text x="541" y="43">Gas CCGT 16.8%</text></g>
+    <g class="seg"><rect x="683" y="18" width="109" height="40" rx="4" fill="#e87ba4"/><text x="693" y="43">Hydro 12.4%</text></g>
+    <g class="seg"><rect x="796" y="18" width="104" height="40" rx="4" fill="#9AA8AC"/><text x="806" y="43">Other 11.8%</text></g>
+    <text x="0"   y="82" class="axl">Renewables supplied 55.5% of generation without self-consumption.</text>
+    <text x="900" y="82" class="axl" text-anchor="end">Cogeneration, solar thermal and coal sit inside &ldquo;Other&rdquo;.</text>
+  </svg>
+  <p class="figcap">Shares for 2025, excluding self-consumption. Source:
+  <a href="https://www.ree.es/en/press-office/news/press-release/2026/03/the-spanish-electricity-system-in-2025-electricity-demand-generation-and-installed-power-capacity-increase" target="_blank" rel="noopener">Red El&eacute;ctrica</a>,
+  corroborated by <a href="https://ember-energy.org/countries-and-regions/spain/" target="_blank" rel="noopener">Ember</a>.</p>
+</div>
+
+<table><thead><tr><th>Indicator</th><th>Direction</th><th>Comment</th></tr></thead><tbody>
+<tr><td>Electricity demand</td><td>Rising</td><td>Up 2.8% in 2025; electrification and data centres</td></tr>
+<tr><td>Solar PV</td><td>Rising fast</td><td>33.1% of installed capacity at end-2025</td></tr>
+<tr><td>Nuclear</td><td>Stable, then declining</td><td>19% of 2025 generation; a phase-out schedule sits over the fleet</td></tr>
+<tr><td>Gas-fired generation</td><td>Squeezed</td><td>Fewer running hours, but still frequently marginal</td></tr>
+<tr><td>Storage</td><td>Rising from a low base</td><td>3,427 MW installed at end-2025</td></tr>
+</tbody></table>
+
+<h3>The capture-rate problem</h3>
+<div class="stats">
+  <div class="st"><div class="k">Solar capture price, 2025</div><div class="v">~&euro;34 <small>/MWh</small></div></div>
+  <div class="st arrow">&rarr;</div>
+  <div class="st"><div class="k">Wind capture price, 2025</div><div class="v">~&euro;62 <small>/MWh</small></div></div>
+  <div class="st note">Solar earns roughly half what wind earns per MWh, because it all arrives at once. Source:
+  <a href="https://storpeak.com/insights/curtailment-negative-prices-spain/" target="_blank" rel="noopener">Storpeak</a>.</div>
+</div>
+
+<div class="pull"><div class="t">What this means for a position</div>
+<p>Spanish renewable volume risk is shape risk wearing another name. The megawatt-hours arrive; they arrive in the hours when everyone else's do too. Value has migrated to whatever shifts energy in time: batteries, pumped hydro, flexible demand.</p></div>
+</section><section class="sec" id="s5"><span class="sn">05</span><h2>Price setting mechanism</h2>
+<p class="lead">A marginal-cost auction like any other European market, with one difference. Spain has already run the experiment of interfering with the marginal price, and published the results.</p>
+
+<h3>How the auction clears</h3>
+<p>Generators submit offers to OMIE for each hour of the following day. Offers stack cheapest first, and the last unit required to meet demand sets one clearing price paid to everyone who cleared. Wind, solar, nuclear and run-of-river all offer at or near zero. So the marginal unit in Spain is usually a <strong>CCGT</strong> in the evening peak and, more and more often, nothing at all at midday.</p>
+
+<h3>The midday collapse</h3>
+<p>With solar at 33.1% of installed capacity, the middle of the day now clears at zero or below as a matter of routine. Spain recorded 247 negative-price hours and roughly 470 zero-price hours in 2024, over 8% of all traded hours. The negative count roughly doubled in 2025, and average negative prices deepened from about &minus;&euro;1.5/MWh to around &minus;&euro;6/MWh
+(<a href="https://storpeak.com/insights/curtailment-negative-prices-spain/" target="_blank" rel="noopener">Storpeak</a>).
+The MIBEL floor is &minus;600 EUR/MWh
+(<a href="https://www.omie.es/en/mercado-de-electricidad" target="_blank" rel="noopener">OMIE</a>), so there is a long way further down before the mechanism runs out of range.</p>
+
+<h3>The Iberian exception, 2022&ndash;24</h3>
+<p>In June 2022 Spain and Portugal were allowed to cap the gas price generators could pass into their offers, with the difference recovered through a levy on the consumers benefiting from the lower clearing price
+(<a href="https://www.iea.org/policies/15621-price-control-in-the-iberian-electricity-market-mibel" target="_blank" rel="noopener">IEA</a>).
+A direct intervention in marginal pricing, and a public demonstration of the arithmetic: lower the marginal offer and the whole curve moves, inframarginal rent on plant that burns no gas included. It demonstrated the cost as well. The subsidy leaked across the border through exports to France, and somebody still had to pay the compensation.</p>
+
+<h3>The retail linkage</h3>
+<div class="pull"><div class="t">PVPC: spot exposure, deliberately diluted</div>
+<p>Spain's regulated retail tariff passes the OMIE hourly price straight through to households. Since January 2024 it has been progressively blended with forward-market references: 25% forward in 2024, 40% in 2025, and 55% from 2026 as the permanent setting
+(<a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2023-14048" target="_blank" rel="noopener">RD 446/2023</a>).
+The intent was to damp volatility. The market effect is that a growing share of Spanish household demand now sits hedged into the forward curve instead of exposed to spot.</p></div>
+</section><section class="sec" id="s6"><span class="sn">06</span><h2>Regulatory regime</h2>
+<p class="lead">A European market design implemented nationally: CNMC regulates, MITECO sets policy, and
+the binding constraints increasingly come from Brussels and from the lessons of one afternoon in April
+2025.</p>
+
+<table><thead><tr><th>Body</th><th>Remit</th></tr></thead><tbody>
+<tr><td>CNMC</td><td>Energy regulator: network tariffs, access, market surveillance and competition</td></tr>
+<tr><td>MITECO</td><td>Energy and climate policy, renewable auctions, the national energy and climate plan</td></tr>
+<tr><td>Red El&eacute;ctrica</td><td>System operation, grid planning and restoration under regulated remuneration</td></tr>
+<tr><td>Enag&aacute;s</td><td>Technical manager of the gas system; third-party access to network and terminals</td></tr>
+<tr><td>ACER / ENTSO-E</td><td>European coordination of market rules, coupling and system-operation standards</td></tr>
+</tbody></table>
+
+<h3>28 April 2025 and what changed</h3>
+<p>At 12:33 CEST on 28 April 2025, continental Spain and Portugal lost supply entirely. The most severe European incident in more than twenty years, and the first cascading generation-disconnection blackout in continental Europe. ENTSO-E's expert panel reported in full on 20 March 2026 and identified gaps in voltage and reactive-power control, differing voltage regulation practices, uncontrolled oscillations, and rapid output reductions and generator disconnections in Spain
+(<a href="https://www.entsoe.eu/publications/blackout/28-april-2025-iberian-blackout/" target="_blank" rel="noopener">ENTSO-E</a>).</p>
+
+<p>The regulatory consequences run one way. Services previously assumed rather than procured are becoming products. Voltage and reactive-power control, synthetic and synchronous inertia, grid-forming inverter capability and stricter ride-through obligations for renewable plant are all moving out of technical annexes and into commercial terms. Hold Spanish assets and that is a change in the revenue stack: new ancillary income for equipment that can provide these services, new compliance cost for equipment that cannot.</p>
+
+<h3>Where the regime is heading</h3>
+<p>Three threads to watch. Grid investment: reinforcing the network and accelerating the Bay of Biscay link is now a security argument as much as an economic one. Nuclear: the scheduled phase-out of a fleet supplying 19% of generation sits awkwardly beside a system that has just found out how much it values synchronous machines. Storage remuneration: 3,427 MW installed against a 33.1% solar capacity share, and the gap between what the system needs to shift energy in time and what it currently has is the clearest regulatory opening in the market
+(<a href="https://www.ree.es/en/press-office/news/press-release/2026/03/the-spanish-electricity-system-in-2025-electricity-demand-generation-and-installed-power-capacity-increase" target="_blank" rel="noopener">Red El&eacute;ctrica</a>).</p>
+</section><section class="sec" id="s7"><span class="sn">SOURCES</span><h2>Key links</h2><p class="lead">Primary sources for this market. Figures on this page are drawn from these and from published market data.</p><div class="links"><a class="lk" href="https://www.omie.es/en/mercado-de-electricidad" target="_blank" rel="noopener"><div class="n">OMIE</div><div class="d">Iberian electricity market operator — day-ahead and intraday auction rules and results</div><div class="u">https://www.omie.es/en/mercado-de-electricidad</div></a><a class="lk" href="https://www.ree.es/en/press-office/news/press-release/2026/03/the-spanish-electricity-system-in-2025-electricity-demand-generation-and-installed-power-capacity-increase" target="_blank" rel="noopener"><div class="n">Red Eléctrica — the Spanish electricity system in 2025</div><div class="d">System operator's annual review: demand, generation mix and installed capacity</div><div class="u">https://www.ree.es/en/press-office/news/press-release/2026/03/the-spanish-electricity-system-in-2025-electricity-demand-generation-and-installed-power-capacity-increase</div></a><a class="lk" href="https://www.cnmc.es/en" target="_blank" rel="noopener"><div class="n">CNMC</div><div class="d">Comisión Nacional de los Mercados y la Competencia — the Spanish energy regulator</div><div class="u">https://www.cnmc.es/en</div></a><a class="lk" href="https://www.mibgas.es/en" target="_blank" rel="noopener"><div class="n">MIBGAS</div><div class="d">Iberian gas hub — spot, LNG and derivative products at the Virtual Balancing Point</div><div class="u">https://www.mibgas.es/en</div></a><a class="lk" href="https://www.enagas.es/en/energy-transition/gas-network/gas-infrastructure/regasification-plants/" target="_blank" rel="noopener"><div class="n">Enagás — regasification plants</div><div class="d">Ownership and operation of Spain's LNG receiving terminals</div><div class="u">https://www.enagas.es/en/energy-transition/gas-network/gas-infrastructure/regasification-plants/</div></a><a class="lk" href="https://www.entsoe.eu/publications/blackout/28-april-2025-iberian-blackout/" target="_blank" rel="noopener"><div class="n">ENTSO-E — 28 April 2025 Iberian blackout</div><div class="d">Expert panel factual and final reports into the peninsula-wide outage</div><div class="u">https://www.entsoe.eu/publications/blackout/28-april-2025-iberian-blackout/</div></a></div></section></main>
+  </div>
+</div>
+
+
+
+<script>
+var links=[].slice.call(document.querySelectorAll('.toc a[href^="#s"]'));
+var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))}).filter(Boolean);
+function onScroll(){var y=window.scrollY+150,c=0;
+  secs.forEach(function(s,i){if(s.offsetTop<=y)c=i});
+  links.forEach(function(a,i){a.classList.toggle('on',i===c)})}
+window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+</script>
+</div>

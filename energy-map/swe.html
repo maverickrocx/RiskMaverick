@@ -1,0 +1,397 @@
+---
+layout: default
+title: Sweden
+permalink: /energy-map/swe/
+blurb: "Sweden — Pool clearing. Market structure, infrastructure, demand and supply, price formation and regulation."
+---
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet"><style>
+.emapx{
+  --bg:#FAFAF8; --surface:#FFFFFF; --sunken:#F4F7F7;
+  --ink:#14262B; --ink-muted:#4A5B60; --ink-dim:#7C8D92;
+  --border:#E2E8E8;
+  --s5:#C0392B; --s4:#DD7B2F; --s3:#E8AE28; --s2:#3B8B60; --s1:#1F7A52;
+  --accent:#3B8B60;
+  --r:8px; --micro:180ms; --ease:cubic-bezier(.2,.6,.2,1);
+  --serif:"Source Serif 4",Georgia,serif;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+.emapx *{box-sizing:border-box;margin:0;padding:0}
+.emapx{scroll-behavior:smooth}
+.emapx{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.5;
+  -webkit-font-smoothing:antialiased;font-feature-settings:"tnum" 1}
+.emapx h1,.emapx h2,.emapx h3{font-family:var(--serif);line-height:1.16;letter-spacing:-.02em;font-weight:600}
+.emapx .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+@media(max-width:767px){.emapx .wrap{padding:0 16px}}
+.emapx .proto{background:#14262B;color:#F3F6F6;font-size:12px;padding:8px 16px;text-align:center}
+.emapx nav{position:sticky;top:0;z-index:60;height:64px;display:flex;align-items:center;
+  background:rgba(250,250,248,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.emapx nav .wrap{display:flex;align-items:center;gap:26px;width:100%}
+.emapx .logo{font-family:var(--serif);font-size:20px;font-weight:700;display:flex;align-items:center;gap:10px}
+.emapx .logo .mark{width:22px;height:22px;border:2px solid var(--accent);border-radius:3px;position:relative;flex:none}
+.emapx .logo .mark::after{content:"";position:absolute;inset:4px 4px auto 4px;height:2px;background:var(--s3)}
+.emapx .crumb{font-size:13px;color:var(--ink-dim)}
+.emapx .crumb a{color:var(--ink-muted);text-decoration:none}
+.emapx .crumb a:hover{color:var(--ink)}
+.emapx .navlinks{display:flex;gap:22px;margin-left:auto;font-size:14px}
+.emapx .navlinks a{color:var(--ink-muted);text-decoration:none}
+.emapx .navlinks a:hover{color:var(--ink)}
+
+.emapx /* header */
+.mh{padding:46px 0 30px}
+.emapx .mh .top{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.emapx .bchip{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:5px 12px;border-radius:999px;background:var(--accent);color:#fff}
+.emapx .reviewed{font-size:12px;color:var(--ink-dim);margin-left:auto}
+.emapx .mh h1{font-size:56px;margin-bottom:12px}
+@media(max-width:767px){.emapx .mh h1{font-size:34px}}
+.emapx .mh .one{font-size:20px;color:var(--ink-muted);max-width:62ch;line-height:1.45}
+.emapx .facts{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);
+  border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin-top:28px}
+@media(max-width:900px){.emapx .facts{grid-template-columns:repeat(2,1fr)}}
+.emapx .fi{background:var(--surface);padding:15px 16px}
+.emapx .fi .k{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:5px}
+.emapx .fi .v{font-size:15px;font-weight:600;line-height:1.3}
+
+.emapx /* layout */
+.body{display:grid;grid-template-columns:190px 1fr;gap:44px;padding-bottom:20px}
+@media(max-width:1023px){.emapx .body{grid-template-columns:1fr;gap:0}.emapx .toc{display:none}}
+.emapx .toc{position:sticky;top:88px;align-self:start;padding-top:40px}
+.emapx .toc .t{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:10px}
+.emapx .toc a{display:block;font-size:13px;color:var(--ink-muted);text-decoration:none;padding:7px 0 7px 13px;
+  border-left:2px solid var(--border);transition:all var(--micro) var(--ease)}
+.emapx .toc a:hover{color:var(--ink);border-left-color:var(--ink-dim)}
+.emapx .toc a.on{color:var(--ink);font-weight:600;border-left-color:var(--accent)}
+
+.emapx /* sections */
+.sec{padding:40px 0;border-top:1px solid var(--border)}
+.emapx .sec:first-child{border-top:0;padding-top:12px}
+.emapx .sn{font-family:var(--serif);font-size:13px;font-weight:700;color:var(--accent);display:block;margin-bottom:5px}
+.emapx .sec h2{font-size:31px;margin-bottom:8px}
+.emapx .sec .lead{font-size:17px;color:var(--ink-muted);line-height:1.6;max-width:70ch;margin-bottom:20px}
+.emapx .sec p{font-size:15.5px;line-height:1.68;color:var(--ink-muted);max-width:70ch;margin-bottom:16px}
+.emapx .sec p strong{color:var(--ink);font-weight:600}
+.emapx .sec h3{font-size:19px;margin:26px 0 10px}
+
+.emapx table{width:100%;border-collapse:collapse;font-size:14px;background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin:6px 0 20px}
+.emapx th{text-align:left;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-dim);
+  padding:10px 14px;border-bottom:1px solid var(--border);background:var(--sunken);font-weight:700}
+.emapx td{padding:11px 14px;border-bottom:1px solid var(--border);color:var(--ink-muted);vertical-align:top;line-height:1.5}
+.emapx tbody tr:last-child td{border-bottom:0}
+.emapx td:first-child{color:var(--ink);font-weight:500}
+.emapx tbody tr:hover td{background:var(--sunken)}
+
+.emapx .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:6px 0 20px}
+@media(max-width:900px){.emapx .cards{grid-template-columns:1fr}}
+.emapx .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:18px}
+.emapx .card h4{font-family:var(--sans);font-size:14px;font-weight:600;margin-bottom:7px;color:var(--accent)}
+.emapx .card p{font-size:13.5px;line-height:1.55;margin:0;color:var(--ink-muted)}
+
+.emapx .pull{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--accent);
+  border-radius:var(--r);padding:20px 22px;margin:6px 0 22px}
+.emapx .pull p{margin:0;font-size:15.5px;line-height:1.6}
+.emapx .pull .t{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:7px}
+
+.emapx /* map slot — a SOURCED map is placed here,.emapx never a rendered one */
+.mapslot{background:var(--sunken);border:1px dashed var(--border);border-radius:var(--r);
+  padding:34px 24px;text-align:center;margin:6px 0 20px}
+.emapx .mapslot .t{font-size:13px;font-weight:600;color:var(--ink-muted);margin-bottom:5px}
+.emapx .mapslot .s{font-size:12px;color:var(--ink-dim);line-height:1.5;max-width:56ch;margin:0 auto}
+
+.emapx /* key links */
+.links{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:6px}
+@media(max-width:767px){.emapx .links{grid-template-columns:1fr}}
+.emapx .lk{display:block;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+  padding:15px 17px;text-decoration:none;transition:all var(--micro) var(--ease)}
+.emapx .lk:hover{border-color:var(--accent);transform:translateY(-2px)}
+.emapx .lk .n{font-size:14.5px;font-weight:600;color:var(--ink);margin-bottom:3px}
+.emapx .lk .d{font-size:12.5px;color:var(--ink-dim);line-height:1.45}
+.emapx .lk .u{font-size:11.5px;color:var(--accent);margin-top:6px;word-break:break-all}
+
+
+.emapx /* ── figures,.emapx charts,.emapx schematic ── */
+.fig{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+  padding:22px 24px 16px;margin:8px 0 22px}
+.emapx .fig svg{display:block;width:100%;height:auto;overflow:visible}
+.emapx .fig-t{font-family:var(--serif);font-size:17px;font-weight:600;margin-bottom:14px}
+.emapx .figcap{font-size:12px;color:var(--ink-dim);line-height:1.5;margin:14px 0 0;max-width:none}
+.emapx .figcap a{color:var(--accent)}
+.emapx .figcap b{color:var(--ink-muted)}
+.emapx /* schematic */
+.area rect{fill:var(--surface);stroke:#CBD6D6;stroke-width:1.5}
+.emapx .area text{font-family:var(--sans);font-size:13px;font-weight:600;fill:var(--ink);
+  text-anchor:middle;dominant-baseline:middle}
+.emapx .area.e rect{stroke:#2a78d6} .emapx .area.w rect{stroke:#eb6834}
+.emapx .area.iso rect{stroke-dasharray:4 3}
+.emapx .ln{stroke:#9AA8AC;stroke-width:2;fill:none}
+.emapx .lnfc{stroke:#7C8D92;stroke-width:2;fill:none;stroke-dasharray:5 4}
+.emapx .fc{fill:#FDF3E7;stroke:#DD7B2F;stroke-width:1.6}
+.emapx .fct{font-family:var(--sans);font-size:12px;font-weight:700;fill:#C0651F;text-anchor:middle}
+.emapx .fh{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em}
+.emapx .cap2{font-family:var(--sans);font-size:10.5px;fill:#7C8D92;text-anchor:middle;paint-order:stroke;stroke:var(--surface);stroke-width:5;stroke-linejoin:round}
+.emapx .cap2.iso2{font-style:italic}
+.emapx /* composition bar */
+.seg text{font-family:var(--sans);font-size:12.5px;font-weight:600;fill:#fff;dominant-baseline:middle}
+.emapx .axl{font-family:var(--sans);font-size:11.5px;fill:#7C8D92}
+.emapx /* bar chart */
+.grid{stroke:#EDF1F1;stroke-width:1}
+.emapx .axis{stroke:#CBD6D6;stroke-width:1}
+.emapx .gl{font-family:var(--sans);font-size:10.5px;fill:#9AA8AC;text-anchor:end}
+.emapx .xl{font-family:var(--sans);font-size:12px;fill:var(--ink-muted);text-anchor:middle}
+.emapx .bar1 rect{fill:#1baf7a}
+.emapx .bar1 text{font-family:var(--sans);font-size:15px;font-weight:700;fill:var(--ink);text-anchor:middle}
+.emapx /* stat pair */
+.stats{display:flex;align-items:center;gap:18px;flex-wrap:wrap;background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--r);padding:20px 24px;margin:0 0 22px}
+.emapx .st .k{font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:4px}
+.emapx .st .v{font-family:var(--serif);font-size:30px;font-weight:700;line-height:1}
+.emapx .st .v small{font-family:var(--sans);font-size:13px;font-weight:500;color:var(--ink-muted)}
+.emapx .st.arrow{font-size:24px;color:var(--ink-dim)}
+.emapx .st.note{flex:1 1 240px;font-size:11.5px;color:var(--ink-dim);line-height:1.5}
+.emapx .st.note a{color:var(--accent)}
+.emapx /* pending slot */
+.pending{background:var(--sunken);border:1px dashed #CBD6D6;border-radius:var(--r);
+  padding:20px 22px;margin:6px 0 22px}
+.emapx .pending .t{font-size:13px;font-weight:600;color:var(--ink-muted);margin-bottom:6px}
+.emapx .pending p{font-size:13px;color:var(--ink-dim);line-height:1.55;margin:0}
+.emapx .pending a{color:var(--accent)}
+
+.emapx footer{border-top:1px solid var(--border);padding:30px 0;font-size:12px;color:var(--ink-dim);line-height:1.6}
+@media(prefers-reduced-motion:reduce){.emapx *{transition-duration:.01ms!important}}
+</style>
+<div class="emapx">
+<div class="wrap">
+  <header class="mh">
+    <div class="top">
+      <span class="bchip">Pool clearing</span>
+      <span class="reviewed">Last reviewed 16 August 2026</span>
+    </div>
+    <h1>Sweden</h1>
+    <p class="one">A near-zero-carbon system of hydro, nuclear and wind, split into four bidding zones by a north-to-south transmission constraint. Fuel cost barely matters here; zonal basis is everything.</p>
+    <div class="facts"><div class="fi"><div class="k">Power exchange</div><div class="v">Nord Pool</div></div><div class="fi"><div class="k">Price unit</div><div class="v">EUR / MWh</div></div><div class="fi"><div class="k">Bidding zones</div><div class="v">SE1–SE4</div></div><div class="fi"><div class="k">System operator</div><div class="v">Svenska kraftnät</div></div><div class="fi"><div class="k">Gas position</div><div class="v">Marginal — west coast only</div></div></div>
+  </header>
+
+  <div class="body">
+    <aside class="toc" id="toc">
+      <div class="t">On this page</div>
+      <a href="#s1">01 Overview</a>
+      <a href="#s2">02 Market structure</a>
+      <a href="#s3">03 Infrastructure</a>
+      <a href="#s4">04 Demand and supply</a>
+      <a href="#s5">05 Price setting</a>
+      <a href="#s6">06 Regulatory regime</a>
+      <a href="#s7">Key links</a>
+    </aside>
+    <main><section class="sec" id="s1"><span class="sn">01</span><h2>Overview</h2>
+<p class="lead">Sweden runs one of the cleanest large power systems in Europe: hydro, nuclear and a fast-growing wind fleet, with fossil fuel a rounding error. The commercial question is almost never what fuel costs. It is where in the country the megawatt-hour is delivered.</p>
+
+<p><a href="https://ember-energy.org/countries-and-regions/sweden/" target="_blank" rel="noopener">Ember</a> puts 99% of Swedish electricity generation in 2025 on low-carbon sources, the highest
+share of any EU member state, with fossil fuels at roughly 1.2%. Over the twelve months to May 2026
+<a href="https://lowcarbonpower.org/region/Sweden" target="_blank" rel="noopener">Low Carbon Power</a> shows hydro at about 42% of output, nuclear at about 26% and wind at about 23%.
+That is a system with almost no fuel-cost merit order in the conventional sense.</p>
+
+<p><strong>Geography and scarcity</strong> do the work that fuel cost does elsewhere. Sweden is long and thin. The hydro reservoirs and the best wind sites sit in the sparsely populated north; the industrial
+load, the cities and the interconnectors to continental Europe sit in the south. The grid between them is finite, so the country is split into four bidding zones, SE1 to SE4, and those zones price separately whenever the north–south corridors fill up. In 2023 the day-ahead average in SE4 was
+EUR&nbsp;64.88/MWh against roughly EUR&nbsp;40/MWh in SE1 and SE2, per the Swedish national report to
+<a href="https://www.ceer.eu/wp-content/uploads/2025/03/C24_Sweden-EN.pdf" target="_blank" rel="noopener">CEER</a>. Same country, same hour, materially different price.</p>
+
+<p>The split widened structurally rather than cyclically. Barsebäck, on the southern coast, closed in 1999 and
+2005; Ringhals 2 shut at the end of 2019 and Ringhals 1 at the end of 2020, per the
+<a href="https://world-nuclear.org/information-library/country-profiles/countries-o-s/sweden" target="_blank" rel="noopener">World Nuclear Association</a>. Roughly 2,500 MW of firm southern capacity came out of the system. The southern zones have been structurally short ever since.</p>
+
+<div class="pull"><div class="t">The one thing to take away</div>
+<p>In Sweden, the fuel risk is small and the <strong>basis risk is large</strong>. Anyone hedging Swedish
+power hedges the Nordic system price first and then, separately and more painfully, the zone.</p></div>
+</section><section class="sec" id="s2"><span class="sn">02</span><h2>Market structure</h2>
+<p class="lead">A Nordic wholesale market layered on a national grid, with a state transmission operator
+in the middle and a financial market that has just changed venue.</p>
+
+<h3>Who does what</h3>
+<table><thead><tr><th>Function</th><th>Body</th><th>Role</th></tr></thead><tbody>
+<tr><td>Transmission and system operation</td><td>Svenska kraftnät</td><td>State-owned TSO; sets bidding zones, runs balancing and reserve markets</td></tr>
+<tr><td>Day-ahead and intraday</td><td><a href="https://www.nordpoolgroup.com/en/" target="_blank" rel="noopener">Nord Pool</a></td><td>Nordic and Baltic auction and continuous trading</td></tr>
+<tr><td>Regulator</td><td>Energimarknadsinspektionen (Ei)</td><td>Network revenue frameworks, market supervision, consumer rules</td></tr>
+<tr><td>Financial hedging</td><td>Euronext / Nord Pool futures</td><td>System-price futures and EPADs, post-2026 migration</td></tr>
+<tr><td>Policy</td><td>Government and the Swedish Energy Agency</td><td>Energy policy, nuclear support scheme, security of supply</td></tr>
+</tbody></table>
+
+<h3>Four zones, one country</h3>
+<p>The split into SE1 (Luleå), SE2 (Sundsvall), SE3 (Stockholm) and SE4 (Malmö) came in 2011, after a European complaint that Sweden was managing internal congestion by curtailing exports rather than pricing it at home. The boundaries follow the transmission cuts. The <a href="https://www.riksbank.se/globalassets/media/rapporter/pov/artiklar/engelska/2023/230512/2023_1-the-swedish-electricity-market--today-and-in-the-future.pdf" target="_blank" rel="noopener">Riksbank</a> gives the corridor
+capacities as roughly 3,300&nbsp;MW from SE1 to SE2, 7,300&nbsp;MW from SE2 to SE3 and 5,600&nbsp;MW from SE3
+to SE4 — the last of which is the binding constraint most of the time.</p>
+
+<h3>The venue change</h3>
+<p>The financial layer moved. Nasdaq confirmed that as of 30&nbsp;April&nbsp;2026 its Oslo exchange and clearing
+house had <a href="https://www.nasdaq.com/solutions/nordic-european-power" target="_blank" rel="noopener">ceased Nordic commodities trading and clearing</a>, with open interest migrating to the
+Euronext-operated Nord Pool futures market. The economics of the instruments are unchanged: Nordic system-price futures plus zonal basis contracts. Counterparty, margining and membership arrangements are not. Any hedge book carried across that date now sits with a different clearing house than it did before.</p>
+
+<div class="pull"><div class="t">Why the zone matters more than the exchange</div>
+<p>A Swedish generator selling at the system price is not hedged. It is short the difference between the system price and its own zone, and in recent years that spread has been worth more than the outright.</p></div>
+</section><section class="sec" id="s3"><span class="sn">03</span><h2>Infrastructure — power and gas</h2>
+<p class="lead">A north-to-south transmission problem, with a very small gas system bolted on to one corner of the country.</p>
+
+<h3>Power</h3>
+<div class="cards">
+<div class="card"><h4>Hydro in the north</h4><p>The Lule, Ume, Ångerman and Indals river systems carry the bulk
+of Swedish reservoir capacity. They are the country's storage as well as its cheapest energy.</p></div>
+<div class="card"><h4>Nuclear in the south</h4><p>Six reactors at Forsmark, Oskarshamn and Ringhals,
+some 7,011&nbsp;MWe, supplying about 30% of electricity — 50.4&nbsp;TWh in 2024 per the <a href="https://world-nuclear.org/information-library/country-profiles/countries-o-s/sweden" target="_blank" rel="noopener">World Nuclear Association</a>.
+All sit in SE3.</p></div>
+<div class="card"><h4>The SE3–SE4 cut</h4><p>Around 5,600&nbsp;MW of transfer capacity into the southernmost
+zone (<a href="https://www.riksbank.se/globalassets/media/rapporter/pov/artiklar/engelska/2023/230512/2023_1-the-swedish-electricity-market--today-and-in-the-future.pdf" target="_blank" rel="noopener">Riksbank</a>). When it fills, SE4 prices off imports and its own scarce plant.</p></div>
+</div>
+
+<p>Outward interconnection is dense: HVDC and AC links run to Norway, Finland, Denmark, Germany, Poland and Lithuania. Net exports ran at 29&nbsp;TWh in 2023 against 135&nbsp;TWh of domestic consumption
+(<a href="https://www.ceer.eu/wp-content/uploads/2025/03/C24_Sweden-EN.pdf" target="_blank" rel="noopener">CEER national report</a>). Continental price events therefore reach southern Sweden far faster than northern surplus does.</p>
+
+<div class="fig">
+  <svg viewBox="0 0 900 300" role="img" aria-label="Schematic of Sweden's four bidding zones and the north-south transfer corridors">
+    <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 z" fill="#7C8D92"/></marker></defs>
+    <text x="150" y="26" class="fh" fill="#2a78d6">NORTH — SURPLUS</text>
+    <text x="620" y="26" class="fh" fill="#eb6834">SOUTH — DEFICIT</text>
+    <rect x="30" y="44" width="380" height="228" rx="10" fill="#2a78d6" opacity=".05"/>
+    <rect x="490" y="44" width="380" height="228" rx="10" fill="#eb6834" opacity=".05"/>
+
+    <g class="area e"><rect x="70" y="76" width="140" height="42" rx="7"/><text x="140" y="102">SE1 Luleå</text></g>
+    <g class="area e"><rect x="70" y="176" width="140" height="42" rx="7"/><text x="140" y="202">SE2 Sundsvall</text></g>
+    <g class="area w"><rect x="620" y="76" width="140" height="42" rx="7"/><text x="690" y="102">SE3 Stockholm</text></g>
+    <g class="area w"><rect x="620" y="176" width="140" height="42" rx="7"/><text x="690" y="202">SE4 Malmö</text></g>
+
+    <path class="ln" d="M140,118 V176" marker-end="url(#ar)"/>
+    <text x="152" y="152" class="cap2">3,300 MW</text>
+    <path class="lnfc" d="M210,197 H420 V97 H620" marker-end="url(#ar)"/>
+    <text x="415" y="88" class="cap2">7,300 MW into SE3</text>
+    <path class="ln" d="M690,118 V176" marker-end="url(#ar)"/>
+    <text x="702" y="152" class="cap2">5,600 MW — the binding cut</text>
+    <text x="140" y="252" class="cap2">hydro and wind</text>
+    <text x="690" y="252" class="cap2">nuclear, industry, cities, export links</text>
+  </svg>
+  <p class="figcap"><b>Schematic — system topology, not a geographic map.</b> Four bidding zones and the
+  indicative north-to-south transfer capacities. Corridor figures from <a href="https://www.riksbank.se/globalassets/media/rapporter/pov/artiklar/engelska/2023/230512/2023_1-the-swedish-electricity-market--today-and-in-the-future.pdf" target="_blank" rel="noopener">Riksbank</a>.</p>
+</div>
+
+<h3>Gas</h3>
+<p>The gas system is small and regional. A 601&nbsp;km transmission pipeline and about 3,546&nbsp;km of
+distribution serving roughly 37,000 customers, entered from Dragør in Denmark, and amounting to about 2% of
+Swedish energy use (<a href="https://ei.se/ei-in-english/natural-gas/the-swedish-natural-gas-system-structure" target="_blank" rel="noopener">Ei</a>). <a href="https://nordionenergi.se/engelska/nordion-energi/our-operations/gas-grid" target="_blank" rel="noopener">Nordion Energi</a> operates it along the west coast from
+Dragør to Stenungsund, supplying 33 municipalities, with 37.5% of gas traded on the network in 2022 already
+biogas. Consumption on the western network was 6.5&nbsp;TWh in 2023 (<a href="https://www.ceer.eu/wp-content/uploads/2025/03/C24_Sweden-EN.pdf" target="_blank" rel="noopener">CEER</a>). There is no Swedish
+gas hub of consequence and no gas-set power price.</p>
+
+<div class="mapslot"><div class="t">Geographic infrastructure map</div>
+<div class="s">A sourced map of the transmission corridors, bidding zone boundaries and the west-coast gas
+grid belongs here — reproduced from an official publication rather than redrawn.</div></div>
+</section><section class="sec" id="s4"><span class="sn">04</span><h2>Demand and supply</h2>
+<p class="lead">Flat consumption, a near-zero-carbon mix, and a supply stack whose output depends on rainfall
+and wind rather than on fuel prices.</p>
+
+<h3>Demand</h3>
+<p>Swedish electricity consumption barely moves. The <a href="https://www.riksbank.se/globalassets/media/rapporter/pov/artiklar/engelska/2023/230512/2023_1-the-swedish-electricity-market--today-and-in-the-future.pdf" target="_blank" rel="noopener">Riksbank</a> puts the range at 136–150&nbsp;TWh over thirty-five years. Consumption was 135&nbsp;TWh in 2023 against 163&nbsp;TWh of
+production, leaving net exports of 29&nbsp;TWh (<a href="https://www.ceer.eu/wp-content/uploads/2025/03/C24_Sweden-EN.pdf" target="_blank" rel="noopener">CEER</a>). The forward question is whether new
+industrial load — electrified steel, batteries, data centres — lands in the north, where the surplus is, or
+in the south, where the constraint is.</p>
+
+<h3>Supply</h3>
+<table><thead><tr><th>Indicator</th><th>Direction</th><th>Comment</th></tr></thead><tbody>
+<tr><td>Consumption</td><td>Flat</td><td>135 TWh in 2023; electrification offset by efficiency</td></tr>
+<tr><td>Hydro</td><td>Stable, weather-driven</td><td>~42% of output; the system's storage as well as its energy</td></tr>
+<tr><td>Nuclear</td><td>Stable, policy-supported</td><td>Six reactors, 7,011 MWe, 50.4 TWh in 2024</td></tr>
+<tr><td>Wind</td><td>Rising</td><td>34 TWh in 2023; increasingly the marginal price-setter in windy hours</td></tr>
+<tr><td>Fossil</td><td>Negligible</td><td>~1.2% of generation in 2025</td></tr>
+</tbody></table>
+
+<div class="fig">
+  <div class="fig-t">Where Sweden's electricity came from, twelve months to May 2026</div>
+  <svg viewBox="0 0 900 118" role="img" aria-label="Sweden generation mix by source">
+    <g class="seg"><rect x="0"   y="18" width="373" height="40" rx="4" fill="#2a78d6"/><text x="10"  y="43">Hydro 42%</text></g>
+    <g class="seg"><rect x="377" y="18" width="231" height="40" rx="4" fill="#eb6834"/><text x="387" y="43">Nuclear 26%</text></g>
+    <g class="seg"><rect x="612" y="18" width="204" height="40" rx="4" fill="#1baf7a"/><text x="622" y="43">Wind 23%</text></g>
+    <g class="seg"><rect x="820" y="18" width="80"  height="40" rx="4" fill="#9AA8AC"/><text x="828" y="43">Other 9%</text></g>
+    <text x="0"   y="82" class="axl">Fossil generation is around 1% of the total.</text>
+    <text x="900" y="82" class="axl" text-anchor="end">“Other” is solar, biofuels and a small fossil residual.</text>
+  </svg>
+  <p class="figcap">Shares for the twelve months to May 2026. Source: <a href="https://lowcarbonpower.org/region/Sweden" target="_blank" rel="noopener">Low Carbon Power</a>,
+  corroborated by <a href="https://ember-energy.org/countries-and-regions/sweden/" target="_blank" rel="noopener">Ember</a>, which puts low-carbon generation at 99% of the 2025 total.</p>
+</div>
+
+<div class="stats">
+  <div class="st"><div class="k">Consumption, 2023</div><div class="v">135 <small>TWh</small></div></div>
+  <div class="st arrow">→</div>
+  <div class="st"><div class="k">Production, 2023</div><div class="v">163 <small>TWh</small></div></div>
+  <div class="st note">Net exports of 29 TWh. Source: <a href="https://www.ceer.eu/wp-content/uploads/2025/03/C24_Sweden-EN.pdf" target="_blank" rel="noopener">CEER national report</a>.</div>
+</div>
+
+<div class="pull"><div class="t">What actually moves the market</div>
+<p>With no fuel cost to speak of, the swing variables are hydrological balance, wind output and reactor availability. An unplanned outage at Ringhals or Forsmark takes firm capacity out of the short zone, and southern prices then react in a way no fuel-cost model would predict.</p></div>
+</section><section class="sec" id="s5"><span class="sn">05</span><h2>Price setting mechanism</h2>
+<p class="lead">A marginal-cost auction with almost no marginal fuel cost — so the price is set by scarcity,
+by the interconnector, and above all by which side of a congested corridor you sit on.</p>
+
+<h3>The day-ahead auction</h3>
+<p>Generators and suppliers bid into the <a href="https://www.nordpoolgroup.com/en/" target="_blank" rel="noopener">Nord Pool</a> day-ahead auction for hourly delivery across the
+Nordic and Baltic zones. The algorithm clears bids against available transmission capacity and produces an
+unconstrained <strong>system price</strong> plus a set of <strong>area prices</strong>. When corridors are
+uncongested, the zones converge; when they bind, the surplus zone clears low and the deficit zone clears high.</p>
+
+<p>Hydro and nuclear have near-zero short-run marginal cost, so the Swedish price in a given hour is usually set by one of three things. The opportunity cost of water, meaning a reservoir owner's view on whether the megawatt-hour is worth more next month than today. The price at the far end of an export cable. Or, in the tightest hours in SE4, a genuinely expensive marginal unit.</p>
+
+<h3>Basis is the real exposure</h3>
+<p>The financial market prices the system price. Physical delivery happens in a zone. Bridging the two is the job of the <strong>EPAD</strong> — Electricity Price Area Differential — a contract on the spread
+between an area price and the system price. For a Swedish position, the EPAD is not an optional refinement;
+it is the hedge. A producer in SE1 selling system-price futures remains exposed to a negative basis, and a
+retailer supplying SE4 remains exposed to a positive one.</p>
+
+<p>EPAD liquidity has historically been thin, which is why Svenska kraftnät ran
+<a href="https://www.svk.se/en/about-us/news/news/svenska-kraftnat-publishes-full-year-follow-up-of-epad-auctions/" target="_blank" rel="noopener">EPAD auctions as a pilot</a> to inject volume into the forward curve — an unusual case of a TSO
+acting to improve hedging conditions in a market it does not itself trade.</p>
+
+<h3>Balancing</h3>
+<p>Below the day-ahead sit the balancing markets. Svenska kraftnät procures frequency containment reserves
+(FCR) and both automatic and manual frequency restoration reserves (<strong>aFRR</strong> and
+<strong>mFRR</strong>), buying capacity ahead of delivery and then activating energy in real time. Flexible assets therefore earn twice: a capacity payment for standing ready, an energy payment for being called. For hydro, batteries and demand response in a system with 23% wind, those ancillary revenues increasingly decide whether an asset is economic. The day-ahead spread alone no longer tells the story.</p>
+</section><section class="sec" id="s6"><span class="sn">06</span><h2>Regulatory regime</h2>
+<p class="lead">A national regulator working inside an EU framework, a state-owned TSO, and a nuclear policy reversal now backed by public money.</p>
+
+<table><thead><tr><th>Body</th><th>Remit</th></tr></thead><tbody>
+<tr><td>Energimarknadsinspektionen (Ei)</td><td>Regulates electricity, gas and district heating; sets revenue frameworks for network monopolies; supervises market conduct</td></tr>
+<tr><td>Svenska kraftnät</td><td>State-owned TSO: transmission, system operation, bidding zone configuration, reserve procurement</td></tr>
+<tr><td>Swedish Energy Agency</td><td>Energy policy implementation, statistics, security of supply</td></tr>
+<tr><td>Government and Riksdag</td><td>Market design legislation and the nuclear support framework</td></tr>
+</tbody></table>
+
+<p>Ei's functions, as reported to <a href="https://www.ceer.eu/wp-content/uploads/2025/03/C24_Sweden-EN.pdf" target="_blank" rel="noopener">CEER</a>, include supervising compliance, establishing revenue
+frameworks for grid monopolies, certifying system operators and proposing regulatory change. Regionally it works through NordREG alongside the Finnish, Norwegian, Danish and Icelandic regulators, and
+<a href="https://ei.se/ei-in-english" target="_blank" rel="noopener">consultatively at EU level</a> — a reminder that Swedish market design is substantially set in
+Brussels, through the network codes and the electricity market regulation, rather than in Stockholm alone.</p>
+
+<h3>The nuclear turn</h3>
+<p>Sweden spent four decades planning to phase nuclear out. Since 2022 it has been planning the opposite. The
+<a href="https://world-nuclear.org/information-library/country-profiles/countries-o-s/sweden" target="_blank" rel="noopener">World Nuclear Association</a> records a support framework of state-backed loans to cut the cost of capital, two-way contracts for difference between the state and operators, and risk-sharing that guarantees investors a minimum return. Parliament approved the state aid in May 2025, capped at roughly 5,000&nbsp;MWe.
+The stated ambition is two large reactors operating by 2035 and the equivalent of ten reactors, including
+small modular units, by 2045. By mid-2026, four companies had applied for support.</p>
+
+<p>For anyone taking a view on the Swedish forward curve, the mechanism matters more than the megawatts. A two-way CfD lifts merchant price exposure off new nuclear and puts it on the state, changing who carries long-dated price risk. And because the political logic of the programme is to restore firm
+capacity in the south, the eventual siting decisions are also decisions about the SE3–SE4 spread — the single
+most consequential number in Swedish power.</p>
+
+<div class="pull"><div class="t">The regulatory question in the background</div>
+<p>The government has repeatedly signalled a preference for fewer bidding zones. Any move in that direction
+would redistribute value between northern producers and southern consumers at a stroke, and would reprice
+every EPAD position outstanding.</p></div>
+</section><section class="sec" id="s7"><span class="sn">SOURCES</span><h2>Key links</h2><p class="lead">Primary sources for this market. Figures on this page are drawn from these and from published market data.</p><div class="links"><a class="lk" href="https://www.svk.se/en/about-us/news/news/svenska-kraftnat-publishes-full-year-follow-up-of-epad-auctions/" target="_blank" rel="noopener"><div class="n">Svenska kraftnät</div><div class="d">Swedish TSO — bidding zones, balancing markets and the EPAD auction programme</div><div class="u">https://www.svk.se/en/about-us/news/news/svenska-kraftnat-publishes-full-year-follow-up-of-epad-auctions/</div></a><a class="lk" href="https://www.nordpoolgroup.com/en/" target="_blank" rel="noopener"><div class="n">Nord Pool</div><div class="d">Nordic day-ahead and intraday exchange; SE1–SE4 area prices</div><div class="u">https://www.nordpoolgroup.com/en/</div></a><a class="lk" href="https://ei.se/ei-in-english" target="_blank" rel="noopener"><div class="n">Energimarknadsinspektionen</div><div class="d">Swedish Energy Markets Inspectorate — the electricity and gas regulator</div><div class="u">https://ei.se/ei-in-english</div></a><a class="lk" href="https://ember-energy.org/countries-and-regions/sweden/" target="_blank" rel="noopener"><div class="n">Ember — Sweden</div><div class="d">Independent generation and emissions data for the Swedish power system</div><div class="u">https://ember-energy.org/countries-and-regions/sweden/</div></a><a class="lk" href="https://world-nuclear.org/information-library/country-profiles/countries-o-s/sweden" target="_blank" rel="noopener"><div class="n">World Nuclear Association — Sweden</div><div class="d">Reactor fleet status and the new-build support framework</div><div class="u">https://world-nuclear.org/information-library/country-profiles/countries-o-s/sweden</div></a><a class="lk" href="https://www.ceer.eu/wp-content/uploads/2025/03/C24_Sweden-EN.pdf" target="_blank" rel="noopener"><div class="n">CEER national report — Sweden</div><div class="d">Regulator's own annual report on the electricity and gas markets</div><div class="u">https://www.ceer.eu/wp-content/uploads/2025/03/C24_Sweden-EN.pdf</div></a></div></section></main>
+  </div>
+</div>
+
+
+
+<script>
+var links=[].slice.call(document.querySelectorAll('.toc a[href^="#s"]'));
+var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))}).filter(Boolean);
+function onScroll(){var y=window.scrollY+150,c=0;
+  secs.forEach(function(s,i){if(s.offsetTop<=y)c=i});
+  links.forEach(function(a,i){a.classList.toggle('on',i===c)})}
+window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+</script>
+</div>

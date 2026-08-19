@@ -1,0 +1,369 @@
+---
+layout: default
+title: Germany
+permalink: /energy-map/deu/
+blurb: "Germany — Pool clearing. Market structure, infrastructure, demand and supply, price formation and regulation."
+---
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet"><style>
+.emapx{
+  --bg:#FAFAF8; --surface:#FFFFFF; --sunken:#F4F7F7;
+  --ink:#14262B; --ink-muted:#4A5B60; --ink-dim:#7C8D92;
+  --border:#E2E8E8;
+  --s5:#C0392B; --s4:#DD7B2F; --s3:#E8AE28; --s2:#3B8B60; --s1:#1F7A52;
+  --accent:#3B8B60;
+  --r:8px; --micro:180ms; --ease:cubic-bezier(.2,.6,.2,1);
+  --serif:"Source Serif 4",Georgia,serif;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+.emapx *{box-sizing:border-box;margin:0;padding:0}
+.emapx{scroll-behavior:smooth}
+.emapx{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.5;
+  -webkit-font-smoothing:antialiased;font-feature-settings:"tnum" 1}
+.emapx h1,.emapx h2,.emapx h3{font-family:var(--serif);line-height:1.16;letter-spacing:-.02em;font-weight:600}
+.emapx .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+@media(max-width:767px){.emapx .wrap{padding:0 16px}}
+.emapx .proto{background:#14262B;color:#F3F6F6;font-size:12px;padding:8px 16px;text-align:center}
+.emapx nav{position:sticky;top:0;z-index:60;height:64px;display:flex;align-items:center;
+  background:rgba(250,250,248,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.emapx nav .wrap{display:flex;align-items:center;gap:26px;width:100%}
+.emapx .logo{font-family:var(--serif);font-size:20px;font-weight:700;display:flex;align-items:center;gap:10px}
+.emapx .logo .mark{width:22px;height:22px;border:2px solid var(--accent);border-radius:3px;position:relative;flex:none}
+.emapx .logo .mark::after{content:"";position:absolute;inset:4px 4px auto 4px;height:2px;background:var(--s3)}
+.emapx .crumb{font-size:13px;color:var(--ink-dim)}
+.emapx .crumb a{color:var(--ink-muted);text-decoration:none}
+.emapx .crumb a:hover{color:var(--ink)}
+.emapx .navlinks{display:flex;gap:22px;margin-left:auto;font-size:14px}
+.emapx .navlinks a{color:var(--ink-muted);text-decoration:none}
+.emapx .navlinks a:hover{color:var(--ink)}
+
+.emapx /* header */
+.mh{padding:46px 0 30px}
+.emapx .mh .top{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.emapx .bchip{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:5px 12px;border-radius:999px;background:var(--accent);color:#fff}
+.emapx .reviewed{font-size:12px;color:var(--ink-dim);margin-left:auto}
+.emapx .mh h1{font-size:56px;margin-bottom:12px}
+@media(max-width:767px){.emapx .mh h1{font-size:34px}}
+.emapx .mh .one{font-size:20px;color:var(--ink-muted);max-width:62ch;line-height:1.45}
+.emapx .facts{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);
+  border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin-top:28px}
+@media(max-width:900px){.emapx .facts{grid-template-columns:repeat(2,1fr)}}
+.emapx .fi{background:var(--surface);padding:15px 16px}
+.emapx .fi .k{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:5px}
+.emapx .fi .v{font-size:15px;font-weight:600;line-height:1.3}
+
+.emapx /* layout */
+.body{display:grid;grid-template-columns:190px 1fr;gap:44px;padding-bottom:20px}
+@media(max-width:1023px){.emapx .body{grid-template-columns:1fr;gap:0}.emapx .toc{display:none}}
+.emapx .toc{position:sticky;top:88px;align-self:start;padding-top:40px}
+.emapx .toc .t{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:10px}
+.emapx .toc a{display:block;font-size:13px;color:var(--ink-muted);text-decoration:none;padding:7px 0 7px 13px;
+  border-left:2px solid var(--border);transition:all var(--micro) var(--ease)}
+.emapx .toc a:hover{color:var(--ink);border-left-color:var(--ink-dim)}
+.emapx .toc a.on{color:var(--ink);font-weight:600;border-left-color:var(--accent)}
+
+.emapx /* sections */
+.sec{padding:40px 0;border-top:1px solid var(--border)}
+.emapx .sec:first-child{border-top:0;padding-top:12px}
+.emapx .sn{font-family:var(--serif);font-size:13px;font-weight:700;color:var(--accent);display:block;margin-bottom:5px}
+.emapx .sec h2{font-size:31px;margin-bottom:8px}
+.emapx .sec .lead{font-size:17px;color:var(--ink-muted);line-height:1.6;max-width:70ch;margin-bottom:20px}
+.emapx .sec p{font-size:15.5px;line-height:1.68;color:var(--ink-muted);max-width:70ch;margin-bottom:16px}
+.emapx .sec p strong{color:var(--ink);font-weight:600}
+.emapx .sec h3{font-size:19px;margin:26px 0 10px}
+
+.emapx table{width:100%;border-collapse:collapse;font-size:14px;background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin:6px 0 20px}
+.emapx th{text-align:left;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-dim);
+  padding:10px 14px;border-bottom:1px solid var(--border);background:var(--sunken);font-weight:700}
+.emapx td{padding:11px 14px;border-bottom:1px solid var(--border);color:var(--ink-muted);vertical-align:top;line-height:1.5}
+.emapx tbody tr:last-child td{border-bottom:0}
+.emapx td:first-child{color:var(--ink);font-weight:500}
+.emapx tbody tr:hover td{background:var(--sunken)}
+
+.emapx .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:6px 0 20px}
+@media(max-width:900px){.emapx .cards{grid-template-columns:1fr}}
+.emapx .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:18px}
+.emapx .card h4{font-family:var(--sans);font-size:14px;font-weight:600;margin-bottom:7px;color:var(--accent)}
+.emapx .card p{font-size:13.5px;line-height:1.55;margin:0;color:var(--ink-muted)}
+
+.emapx .pull{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--accent);
+  border-radius:var(--r);padding:20px 22px;margin:6px 0 22px}
+.emapx .pull p{margin:0;font-size:15.5px;line-height:1.6}
+.emapx .pull .t{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:7px}
+
+.emapx /* map slot — a SOURCED map is placed here,.emapx never a rendered one */
+.mapslot{background:var(--sunken);border:1px dashed var(--border);border-radius:var(--r);
+  padding:34px 24px;text-align:center;margin:6px 0 20px}
+.emapx .mapslot .t{font-size:13px;font-weight:600;color:var(--ink-muted);margin-bottom:5px}
+.emapx .mapslot .s{font-size:12px;color:var(--ink-dim);line-height:1.5;max-width:56ch;margin:0 auto}
+
+.emapx /* key links */
+.links{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:6px}
+@media(max-width:767px){.emapx .links{grid-template-columns:1fr}}
+.emapx .lk{display:block;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+  padding:15px 17px;text-decoration:none;transition:all var(--micro) var(--ease)}
+.emapx .lk:hover{border-color:var(--accent);transform:translateY(-2px)}
+.emapx .lk .n{font-size:14.5px;font-weight:600;color:var(--ink);margin-bottom:3px}
+.emapx .lk .d{font-size:12.5px;color:var(--ink-dim);line-height:1.45}
+.emapx .lk .u{font-size:11.5px;color:var(--accent);margin-top:6px;word-break:break-all}
+
+
+.emapx /* ── figures,.emapx charts,.emapx schematic ── */
+.fig{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+  padding:22px 24px 16px;margin:8px 0 22px}
+.emapx .fig svg{display:block;width:100%;height:auto;overflow:visible}
+.emapx .fig-t{font-family:var(--serif);font-size:17px;font-weight:600;margin-bottom:14px}
+.emapx .figcap{font-size:12px;color:var(--ink-dim);line-height:1.5;margin:14px 0 0;max-width:none}
+.emapx .figcap a{color:var(--accent)}
+.emapx .figcap b{color:var(--ink-muted)}
+.emapx /* schematic */
+.area rect{fill:var(--surface);stroke:#CBD6D6;stroke-width:1.5}
+.emapx .area text{font-family:var(--sans);font-size:13px;font-weight:600;fill:var(--ink);
+  text-anchor:middle;dominant-baseline:middle}
+.emapx .area.e rect{stroke:#2a78d6} .emapx .area.w rect{stroke:#eb6834}
+.emapx .area.iso rect{stroke-dasharray:4 3}
+.emapx .ln{stroke:#9AA8AC;stroke-width:2;fill:none}
+.emapx .lnfc{stroke:#7C8D92;stroke-width:2;fill:none;stroke-dasharray:5 4}
+.emapx .fc{fill:#FDF3E7;stroke:#DD7B2F;stroke-width:1.6}
+.emapx .fct{font-family:var(--sans);font-size:12px;font-weight:700;fill:#C0651F;text-anchor:middle}
+.emapx .fh{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em}
+.emapx .cap2{font-family:var(--sans);font-size:10.5px;fill:#7C8D92;text-anchor:middle;paint-order:stroke;stroke:var(--surface);stroke-width:5;stroke-linejoin:round}
+.emapx .cap2.iso2{font-style:italic}
+.emapx /* composition bar */
+.seg text{font-family:var(--sans);font-size:12.5px;font-weight:600;fill:#fff;dominant-baseline:middle}
+.emapx .axl{font-family:var(--sans);font-size:11.5px;fill:#7C8D92}
+.emapx /* bar chart */
+.grid{stroke:#EDF1F1;stroke-width:1}
+.emapx .axis{stroke:#CBD6D6;stroke-width:1}
+.emapx .gl{font-family:var(--sans);font-size:10.5px;fill:#9AA8AC;text-anchor:end}
+.emapx .xl{font-family:var(--sans);font-size:12px;fill:var(--ink-muted);text-anchor:middle}
+.emapx .bar1 rect{fill:#1baf7a}
+.emapx .bar1 text{font-family:var(--sans);font-size:15px;font-weight:700;fill:var(--ink);text-anchor:middle}
+.emapx /* stat pair */
+.stats{display:flex;align-items:center;gap:18px;flex-wrap:wrap;background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--r);padding:20px 24px;margin:0 0 22px}
+.emapx .st .k{font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:4px}
+.emapx .st .v{font-family:var(--serif);font-size:30px;font-weight:700;line-height:1}
+.emapx .st .v small{font-family:var(--sans);font-size:13px;font-weight:500;color:var(--ink-muted)}
+.emapx .st.arrow{font-size:24px;color:var(--ink-dim)}
+.emapx .st.note{flex:1 1 240px;font-size:11.5px;color:var(--ink-dim);line-height:1.5}
+.emapx .st.note a{color:var(--accent)}
+.emapx /* pending slot */
+.pending{background:var(--sunken);border:1px dashed #CBD6D6;border-radius:var(--r);
+  padding:20px 22px;margin:6px 0 22px}
+.emapx .pending .t{font-size:13px;font-weight:600;color:var(--ink-muted);margin-bottom:6px}
+.emapx .pending p{font-size:13px;color:var(--ink-dim);line-height:1.55;margin:0}
+.emapx .pending a{color:var(--accent)}
+
+.emapx footer{border-top:1px solid var(--border);padding:30px 0;font-size:12px;color:var(--ink-dim);line-height:1.6}
+@media(prefers-reduced-motion:reduce){.emapx *{transition-duration:.01ms!important}}
+</style>
+<div class="emapx">
+<div class="wrap">
+  <header class="mh">
+    <div class="top">
+      <span class="bchip">Pool clearing</span>
+      <span class="reviewed">Last reviewed 16 August 2026</span>
+    </div>
+    <h1>Germany</h1>
+    <p class="one">Europe's largest power market, cleared as a single price zone from the Baltic to the Alps. Wind and solar now set the price for much of the year; the grid charge settles the rest.</p>
+    <div class="facts"><div class="fi"><div class="k">Power exchange</div><div class="v">EPEX SPOT / EEX</div></div><div class="fi"><div class="k">Price unit</div><div class="v">EUR / MWh</div></div><div class="fi"><div class="k">Bidding zone</div><div class="v">Germany–Luxembourg</div></div><div class="fi"><div class="k">Transmission</div><div class="v">Four TSOs</div></div><div class="fi"><div class="k">Gas hub</div><div class="v">Trading Hub Europe</div></div></div>
+  </header>
+
+  <div class="body">
+    <aside class="toc" id="toc">
+      <div class="t">On this page</div>
+      <a href="#s1">01 Overview</a>
+      <a href="#s2">02 Market structure</a>
+      <a href="#s3">03 Infrastructure</a>
+      <a href="#s4">04 Demand and supply</a>
+      <a href="#s5">05 Price setting</a>
+      <a href="#s6">06 Regulatory regime</a>
+      <a href="#s7">Key links</a>
+    </aside>
+    <main><section class="sec" id="s1"><span class="sn">01</span><h2>Overview</h2>
+<p class="lead">Germany is the largest power market in Europe. Since Russian pipeline supply ended it is also one of the largest buyers of imported gas anywhere on the continent. And it is where the economics of a very high renewables share get tested first, at full scale, with everyone watching.</p>
+
+<p>Day-ahead and intraday power clears on <strong>EPEX SPOT</strong>. Futures, options and emissions allowances trade on <strong>EEX</strong>. Gas has a single virtual point, <strong>Trading Hub Europe (THE)</strong>. All of it sits inside the European market coupling framework, which means a German price is never purely German. It falls out of an auction that clears across most of the continent at the same moment.</p>
+
+<p>Two changes define the market as it stands. The first is generation. The last three nuclear reactors closed in April 2023, coal has a legislated exit date, and wind and solar together supplied more than half of net public electricity generation in 2025, per <a href="https://www.ise.fraunhofer.de/en/press-media/press-releases/2026/german-public-electricity-generation-in-2025-wind-and-solar-power-take-the-lead.html" target="_blank" rel="noopener">Fraunhofer ISE</a>.
+The second is gas. Russian pipeline flows stopped in 2022. Norwegian gas, re-routed volumes through the Netherlands and Belgium, and a new fleet of floating LNG import terminals on the German coast took their place.</p>
+
+<p>So the average cost of energy keeps falling while the cost of moving it keeps rising. Renewables are concentrated in the north. Industrial demand sits in the south and west. Germany prices the whole country as one zone anyway. Anyone taking a German position needs to know what that costs and who ends up paying it.</p>
+
+<div class="pull"><div class="t">Why this market matters beyond Germany</div>
+<p>Germany is the physical and commercial centre of the continental grid, trading with nine neighbours in both directions. Its bidding-zone design, its renewable build-out and its gas import requirement set the reference conditions for power prices from Denmark to Switzerland.</p></div>
+</section><section class="sec" id="s2"><span class="sn">02</span><h2>Market structure</h2>
+<p class="lead">One bidding zone, four transmission system operators, two exchanges, one gas hub. Unusually simple on paper. Unusually strained in practice.</p>
+
+<h3>Who does what</h3>
+<table><thead><tr><th>Function</th><th>Body</th><th>Role</th></tr></thead><tbody>
+<tr><td>Day-ahead and intraday power</td><td>EPEX SPOT</td><td>Hourly and quarter-hourly auctions and continuous trading</td></tr>
+<tr><td>Power derivatives, gas, emissions</td><td>EEX</td><td>Futures and options; EU ETS allowance auctions</td></tr>
+<tr><td>Transmission</td><td>50Hertz, Amprion, TenneT, TransnetBW</td><td>Four control areas covering the country</td></tr>
+<tr><td>Gas market area</td><td>Trading Hub Europe</td><td>Single virtual trading point and balancing</td></tr>
+<tr><td>Regulation</td><td>Bundesnetzagentur (BNetzA)</td><td>Network access, tariffs, market surveillance</td></tr>
+</tbody></table>
+
+<h3>One price for a country that is physically two</h3>
+<p>Germany and Luxembourg form a <strong>single bidding zone</strong>. Every megawatt-hour clears at the same price, whether it comes out of an offshore wind farm in the Baltic or goes into a chemical plant in Bavaria. The auction proceeds as though the transmission network inside the zone had infinite capacity.</p>
+
+<p>It does not. Wind capacity sits in the north and on the coast, the heaviest industrial load in the south and west, and the north–south corridors are not yet big enough to carry the difference. What the market produces is a schedule the grid cannot physically deliver. The four TSOs then have to intervene, after the auction has cleared, to make it work.</p>
+
+<h3>Redispatch — the cost of the single zone</h3>
+<p>That intervention is <strong>redispatch</strong>. Constrained generators in the north are paid to turn down; generators in the south are paid to turn up. The difference goes on network charges. Congestion management cost the German system <a href="https://www.cleanenergywire.org/news/renewable-curtailment-compensation-costs-germany-decrease-22-2025" target="_blank" rel="noopener">around €2.9bn in 2024</a>,
+and roughly €2.2bn had accumulated by the end of the third quarter of 2025. Compensation for curtailed renewables alone fell from €554m in 2024 to €435m in 2025.</p>
+
+<div class="pull"><div class="t">What this means for a position</div>
+<p>The exchange price is a national average that ignores location on purpose. What it actually costs to supply a site is that price plus a grid charge that varies sharply by region. Two identical contracts can therefore have very different economics, depending only on where the meter sits.</p></div>
+</section><section class="sec" id="s3"><span class="sn">03</span><h2>Infrastructure — power and gas</h2>
+<p class="lead">Four control areas inside one price zone. A north–south transmission build-out that is still years from finished, and a gas system rebuilt around new entry points on the coast.</p>
+
+<h3>Power</h3>
+<div class="cards">
+<div class="card"><h4>Four TSOs</h4><p>50Hertz in the north and east, TenneT down the centre, Amprion in the west, TransnetBW in the south-west. Separate control areas, one shared bidding zone, and joint working on balancing and redispatch.</p></div>
+<div class="card"><h4>North–south corridors</h4><p>High-capacity HVDC links are being built to carry northern wind to southern industrial load. Until they are energised, redispatch stands in for the missing wires.</p></div>
+<div class="card"><h4>Nine interconnected neighbours</h4><p>Germany trades physically with Denmark,
+Poland, Czechia, Austria, Switzerland, France, Luxembourg, Belgium and the Netherlands. Net imports
+were <a href="https://www.ise.fraunhofer.de/content/dam/ise/en/documents/press-releases/2026/0126_ISE_e_PR_Net%20electricity%20generation%202025.pdf" target="_blank" rel="noopener">about 21.9 TWh in 2025</a>.</p></div>
+</div>
+
+<h3>Gas and LNG</h3>
+<p>Domestic production is now a rounding error: <a href="https://www.bundesnetzagentur.de/SharedDocs/Pressemitteilungen/EN/2026/20260112_GAS.html" target="_blank" rel="noopener">34 TWh in 2025</a> against consumption of 864 TWh. What defines the system is its entry points, and those have been rebuilt since 2022. Norwegian pipeline gas now supplies 44% of imports, the Netherlands 24% and Belgium 21%, while a new set of floating storage and regasification units brings LNG in directly at
+<a href="https://energynow.com/2025/11/how-germany-is-building-up-lng-import-terminals-3/" target="_blank" rel="noopener">Wilhelmshaven, Brunsbüttel and Mukran</a>. Germany also holds the largest gas storage capacity in the European Union. That is why its fill level gets read as a continental indicator rather than a national one.</p>
+
+<div class="fig">
+  <svg viewBox="0 0 900 300" role="img" aria-label="Schematic of the German single bidding zone, four TSO control areas and the north-south flow">
+    <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 z" fill="#7C8D92"/></marker></defs>
+    <text x="60" y="26" class="fh" fill="#2a78d6">SURPLUS — WIND, NORTH AND COAST</text>
+    <text x="560" y="26" class="fh" fill="#eb6834">DEFICIT — INDUSTRIAL LOAD, SOUTH</text>
+    <rect x="30" y="44" width="840" height="228" rx="10" fill="#3B8B60" opacity=".05"/>
+
+    <g class="area e"><rect x="60" y="66" width="150" height="42" rx="7"/><text x="135" y="92">50Hertz</text></g>
+    <g class="area e"><rect x="60" y="132" width="150" height="42" rx="7"/><text x="135" y="158">TenneT DE</text></g>
+    <g class="area w"><rect x="690" y="132" width="150" height="42" rx="7"/><text x="765" y="158">Amprion</text></g>
+    <g class="area w"><rect x="690" y="198" width="150" height="42" rx="7"/><text x="765" y="224">TransnetBW</text></g>
+
+    <path class="ln" d="M135,108 V132" marker-end="url(#ar)"/>
+    <path class="ln" d="M765,174 V198" marker-end="url(#ar)"/>
+
+    <rect x="380" y="120" width="140" height="66" rx="6" class="fc"/>
+    <text x="450" y="146" class="fct">ONE BIDDING ZONE</text>
+    <text x="450" y="166" class="fct">DE – LU</text>
+
+    <path class="lnfc" d="M210,153 H380" marker-end="url(#ar)"/>
+    <path class="lnfc" d="M520,153 H690" marker-end="url(#ar)"/>
+    <text x="295" y="136" class="cap2">one uniform clearing price</text>
+    <text x="605" y="136" class="cap2">for every location</text>
+    <text x="450" y="228" class="cap2">north–south transfer capacity binds — the gap is closed after the auction, by redispatch</text>
+    <text x="450" y="258" class="cap2 iso2">redispatch cost is recovered through network charges, not through the exchange price</text>
+  </svg>
+  <p class="figcap"><b>Schematic — system topology, not a geographic map.</b> Four control areas clear
+  inside one price zone; the physical constraint between them is resolved afterwards and billed
+  separately.</p>
+</div>
+
+<div class="mapslot"><div class="t">Geographic infrastructure map</div>
+<div class="s">A sourced map of the transmission network, LNG entry points and storage sites belongs
+here — reproduced from an official publication rather than redrawn.</div></div>
+</section><section class="sec" id="s4"><span class="sn">04</span><h2>Demand and supply</h2>
+<p class="lead">Flat to falling load. A generation mix now led by wind and solar, and a gas requirement that has settled well below its pre-2022 level.</p>
+
+<h3>Demand</h3>
+<p>German electricity demand is not growing. Public grid load came in at <a href="https://www.ise.fraunhofer.de/content/dam/ise/en/documents/press-releases/2026/0126_ISE_e_PR_Net%20electricity%20generation%202025.pdf" target="_blank" rel="noopener">466 TWh in 2025</a>,
+roughly 3.5 TWh below 2024. Add self-consumed solar and industrial gas-fired self-generation and the total reaches 495 TWh. Gas consumption of <a href="https://www.bundesnetzagentur.de/SharedDocs/Pressemitteilungen/EN/2026/20260112_GAS.html" target="_blank" rel="noopener">864 TWh</a> came in 2.2% above 2024 and still around 13.5% below the 2018–2021 average. That demand has not come back. In parts of industry it probably will not.</p>
+
+<h3>Supply</h3>
+<p>The mix has inverted inside a decade. Wind is the single largest source. Solar passed lignite for the first time in 2025 and nuclear is zero. Coal keeps declining, with gas-fired output rising into the space it leaves.</p>
+
+<div class="fig">
+  <div class="fig-t">Net public electricity generation by source, 2025 (TWh)</div>
+  <svg viewBox="0 0 900 118" role="img" aria-label="German net public electricity generation 2025 by source">
+    <g class="seg"><rect x="0"   y="18" width="290" height="40" rx="4" fill="#2a78d6"/><text x="10"  y="43">Wind 132 TWh</text></g>
+    <g class="seg"><rect x="294" y="18" width="206" height="40" rx="4" fill="#eb6834"/><text x="304" y="43">Coal 94</text></g>
+    <g class="seg"><rect x="504" y="18" width="156" height="40" rx="4" fill="#eda100"/><text x="514" y="43">Solar 71</text></g>
+    <g class="seg"><rect x="664" y="18" width="115" height="40" rx="4" fill="#4a3aa7"/><text x="674" y="43">Gas 52</text></g>
+    <g class="seg"><rect x="783" y="18" width="117" height="40" rx="4" fill="#9AA8AC"/><text x="793" y="43">Other 54</text></g>
+    <text x="0"   y="82" class="axl">Coal is lignite 67 TWh plus hard coal 27 TWh.</text>
+    <text x="900" y="82" class="axl" text-anchor="end">“Other” is biomass 36 TWh and hydro 18 TWh.</text>
+  </svg>
+  <p class="figcap">Segment widths are proportional to the 403 TWh covered by these categories; small
+  residual sources are not shown. Source: <a href="https://www.ise.fraunhofer.de/content/dam/ise/en/documents/press-releases/2026/0126_ISE_e_PR_Net%20electricity%20generation%202025.pdf" target="_blank" rel="noopener">Fraunhofer ISE, net public electricity generation 2025</a>,
+  corroborated by <a href="https://ember-energy.org/countries-and-regions/germany/" target="_blank" rel="noopener">Ember</a>.</p>
+</div>
+
+<table><thead><tr><th>Indicator</th><th>Direction</th><th>Comment</th></tr></thead><tbody>
+<tr><td>Electricity demand</td><td>Flat to declining</td><td>Public grid load down about 3.5 TWh on 2024</td></tr>
+<tr><td>Wind and solar</td><td>Rising</td><td>Solar output up 21% in 2025; solar passed lignite for the first time</td></tr>
+<tr><td>Coal</td><td>Declining</td><td>Legislated exit path; lignite the larger of the two</td></tr>
+<tr><td>Nuclear</td><td>Zero</td><td>Final three reactors closed in April 2023</td></tr>
+<tr><td>Gas-fired generation</td><td>Rising</td><td>Offsetting the coal decline; total fossil output broadly flat</td></tr>
+<tr><td>Gas consumption</td><td>Below pre-2022</td><td>Around 13.5% under the 2018–2021 average</td></tr>
+</tbody></table>
+
+<div class="stats">
+  <div class="st"><div class="k">Gas consumption, 2025</div><div class="v">864 <small>TWh</small></div></div>
+  <div class="st arrow">→</div>
+  <div class="st"><div class="k">Gas imports, 2025</div><div class="v">1,031 <small>TWh</small></div></div>
+  <div class="st note">The gap is re-export: 221 TWh left Germany in 2025, mainly to Austria, Czechia and
+  Switzerland. Source: <a href="https://www.bundesnetzagentur.de/SharedDocs/Pressemitteilungen/EN/2026/20260112_GAS.html" target="_blank" rel="noopener">Bundesnetzagentur</a>.</div>
+</div>
+
+<div class="pull"><div class="t">The transit role is now the story</div>
+<p>Germany exported 221 TWh of gas in 2025, against 89 TWh a year earlier. It is not merely a consumer of imported gas any more. It is increasingly the route by which central Europe gets supplied, which turns German entry capacity and levy policy into a regional pricing question.</p></div>
+</section><section class="sec" id="s5"><span class="sn">05</span><h2>Price setting mechanism</h2>
+<p class="lead">A marginal-cost auction, coupled across Europe. The price is allowed to go negative, and it does so often.</p>
+
+<h3>How the auction works</h3>
+<p>Generators and suppliers bid into EPEX SPOT for each hour and quarter-hour of the following day. Offers stack cheapest first, and the last unit needed to meet demand, the <strong>marginal unit</strong>, sets the price paid to everyone who cleared. Wind and solar bid close to zero because their fuel is free. Whenever the weather cooperates they push the expensive end of the stack out of the money.</p>
+
+<p>The auction is not run for Germany alone. Under the European <strong>single day-ahead coupling</strong> framework, national order books clear together with whatever cross-border capacity is available, so prices converge until an interconnector saturates. Any German position is therefore partly a bet on France, the Nordics and the Netherlands.</p>
+
+<h3>Negative prices are a feature, not a fault</h3>
+<p>High renewable output against low demand takes the market below zero. Generators pay to keep running rather than shut down and eat the subsidy loss or the restart cost. The German day-ahead market saw <a href="https://www.ffe.de/en/publications/german-electricity-prices-on-the-epex-spot-exchange-in-2025/" target="_blank" rel="noopener">close to 575 negative-price hours in 2025</a>, against a previous record of 459 hours in 2024. The annual average base-load price was still <a href="https://www.ise.fraunhofer.de/content/dam/ise/en/documents/press-releases/2026/0126_ISE_e_PR_Net%20electricity%20generation%202025.pdf" target="_blank" rel="noopener">€86.55/MWh</a>, around 10.9% above 2024.</p>
+
+<div class="pull"><div class="t">Volatility is where the return is</div>
+<p>The average price tells you almost nothing. The average daily spread in 2025 was <a href="https://www.ffe.de/en/publications/german-electricity-prices-on-the-epex-spot-exchange-in-2025/" target="_blank" rel="noopener">about €130/MWh</a>. The market pays for flexibility between hours far more than it pays for energy across the year. Battery, pumped-storage and demand-response economics all run off that arithmetic.</p></div>
+
+<h3>What the consumer actually pays</h3>
+<p>The exchange price is one line on a delivered price. The <strong>EEG levy</strong> that funded renewable support went to zero in July 2022 and moved onto the federal budget, taking a large and visible surcharge off bills. <strong>Network charges</strong> have filled the gap. They rose roughly 47% for households between 2020 and 2025 and are now the politically sensitive line, so Berlin is subsidising transmission charges with <a href="https://www.cleanenergywire.org/news/german-public-support-grid-fees-lower-electricity-prices-2026" target="_blank" rel="noopener">€6.5bn in 2026</a>, which should cut household grid fees by about 16% on average. For an industrial offtaker the grid charge, how it varies by region and whether an exemption is available can matter more to landed cost than the commodity does.</p>
+</section><section class="sec" id="s6"><span class="sn">06</span><h2>Regulatory regime</h2>
+<p class="lead">A national regulator with unusually broad powers, working inside a European rulebook it does not write.</p>
+
+<table><thead><tr><th>Body</th><th>Remit</th></tr></thead><tbody>
+<tr><td>Bundesnetzagentur (BNetzA)</td><td>Network access and tariffs, market surveillance, security of supply, LNG and hydrogen infrastructure</td></tr>
+<tr><td>Federal ministry for economic affairs and energy</td><td>Energy policy, the coal exit path, subsidy design</td></tr>
+<tr><td>Trading Hub Europe</td><td>Gas market area management, balancing and the storage regime</td></tr>
+<tr><td>European Commission / ACER</td><td>Market coupling rules, bidding-zone review, state aid approval</td></tr>
+</tbody></table>
+
+<h3>What BNetzA controls</h3>
+<p>BNetzA sets the revenue network operators may earn, which sets the grid charges that flow into every delivered power and gas price. It also runs the reserve procurement standing behind security of supply and publishes the market data platform <a href="https://www.smard.de/en" target="_blank" rel="noopener">SMARD</a>. Generation, price and cross-border flow data are all there, and by international standards that is a lot of transparency. Its current work on grid tariff reform is the file with the most direct bearing on where new industrial and data-centre load chooses to sit.</p>
+
+<h3>The gas rebuild in regulation</h3>
+<p>In 2021 the <strong>NCG and GASPOOL</strong> market areas merged into Trading Hub Europe. One virtual trading point instead of two, one balancing regime, and a materially more liquid gas curve. Storage obligations brought in after 2022 were funded by a <strong>gas storage levy</strong> charged on withdrawals, which neighbouring markets supplied through Germany complained about for years. THE confirmed the levy would <a href="https://www.tradinghub.eu/en-gb/About-us/Newsroom/News/Details-en-GB/ArtMID/1412/ArticleID/260/Press-Release" target="_blank" rel="noopener">cease to be charged from 1 January 2026</a>,
+subject to the enabling legislation. That takes a cost off every cross-border molecule.</p>
+
+<h3>The constraint that will not go away</h3>
+<p>The European bidding-zone review keeps coming back to one question. Is a single German zone compatible with the physical network? Splitting it would shift congestion cost out of network charges and into the market price, producing a cheap north and an expensive south. Successive German governments have resisted, and there is real political weight behind uniform pricing. Model Germany beyond the next few years and zone configuration belongs in the risk column, not the assumptions column.</p>
+
+<h3>The exit paths</h3>
+<p>Nuclear ended in April 2023 and current law does not bring it back. Coal must be gone by 2038 at the latest, earlier for parts of the lignite fleet, and the exit comes with tenders for new gas-fired capacity to cover the still hours. Watch those tenders. Each one is a direct signal about future German gas demand.</p>
+</section><section class="sec" id="s7"><span class="sn">SOURCES</span><h2>Key links</h2><p class="lead">Primary sources for this market. Figures on this page are drawn from these and from published market data.</p><div class="links"><a class="lk" href="https://www.epexspot.com/en" target="_blank" rel="noopener"><div class="n">EPEX SPOT</div><div class="d">Day-ahead and intraday power auctions for Germany and eleven other markets</div><div class="u">https://www.epexspot.com/en</div></a><a class="lk" href="https://www.eex.com/en/" target="_blank" rel="noopener"><div class="n">EEX</div><div class="d">Power derivatives, gas contracts and EU ETS allowance auctions</div><div class="u">https://www.eex.com/en/</div></a><a class="lk" href="https://www.bundesnetzagentur.de/EN/Home/home_node.html" target="_blank" rel="noopener"><div class="n">Bundesnetzagentur</div><div class="d">The regulator: network access, tariffs, security of supply and market surveillance</div><div class="u">https://www.bundesnetzagentur.de/EN/Home/home_node.html</div></a><a class="lk" href="https://www.smard.de/en" target="_blank" rel="noopener"><div class="n">SMARD</div><div class="d">BNetzA's market data platform — generation, prices, balancing and cross-border flows</div><div class="u">https://www.smard.de/en</div></a><a class="lk" href="https://www.tradinghub.eu/en-gb/" target="_blank" rel="noopener"><div class="n">Trading Hub Europe</div><div class="d">The single German gas market area — balancing, capacity and the storage regime</div><div class="u">https://www.tradinghub.eu/en-gb/</div></a><a class="lk" href="https://www.energy-charts.info/?l=en&c=DE" target="_blank" rel="noopener"><div class="n">Energy-Charts (Fraunhofer ISE)</div><div class="d">Independent interactive data on German generation, load and spot prices</div><div class="u">https://www.energy-charts.info/?l=en&c=DE</div></a></div></section></main>
+  </div>
+</div>
+
+
+
+<script>
+var links=[].slice.call(document.querySelectorAll('.toc a[href^="#s"]'));
+var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))}).filter(Boolean);
+function onScroll(){var y=window.scrollY+150,c=0;
+  secs.forEach(function(s,i){if(s.offsetTop<=y)c=i});
+  links.forEach(function(a,i){a.classList.toggle('on',i===c)})}
+window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+</script>
+</div>

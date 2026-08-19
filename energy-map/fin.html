@@ -1,0 +1,450 @@
+---
+layout: default
+title: Finland
+permalink: /energy-map/fin/
+blurb: "Finland — Pool clearing. Market structure, infrastructure, demand and supply, price formation and regulation."
+---
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet"><style>
+.emapx{
+  --bg:#FAFAF8; --surface:#FFFFFF; --sunken:#F4F7F7;
+  --ink:#14262B; --ink-muted:#4A5B60; --ink-dim:#7C8D92;
+  --border:#E2E8E8;
+  --s5:#C0392B; --s4:#DD7B2F; --s3:#E8AE28; --s2:#3B8B60; --s1:#1F7A52;
+  --accent:#3B8B60;
+  --r:8px; --micro:180ms; --ease:cubic-bezier(.2,.6,.2,1);
+  --serif:"Source Serif 4",Georgia,serif;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+.emapx *{box-sizing:border-box;margin:0;padding:0}
+.emapx{scroll-behavior:smooth}
+.emapx{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.5;
+  -webkit-font-smoothing:antialiased;font-feature-settings:"tnum" 1}
+.emapx h1,.emapx h2,.emapx h3{font-family:var(--serif);line-height:1.16;letter-spacing:-.02em;font-weight:600}
+.emapx .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+@media(max-width:767px){.emapx .wrap{padding:0 16px}}
+.emapx .proto{background:#14262B;color:#F3F6F6;font-size:12px;padding:8px 16px;text-align:center}
+.emapx nav{position:sticky;top:0;z-index:60;height:64px;display:flex;align-items:center;
+  background:rgba(250,250,248,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.emapx nav .wrap{display:flex;align-items:center;gap:26px;width:100%}
+.emapx .logo{font-family:var(--serif);font-size:20px;font-weight:700;display:flex;align-items:center;gap:10px}
+.emapx .logo .mark{width:22px;height:22px;border:2px solid var(--accent);border-radius:3px;position:relative;flex:none}
+.emapx .logo .mark::after{content:"";position:absolute;inset:4px 4px auto 4px;height:2px;background:var(--s3)}
+.emapx .crumb{font-size:13px;color:var(--ink-dim)}
+.emapx .crumb a{color:var(--ink-muted);text-decoration:none}
+.emapx .crumb a:hover{color:var(--ink)}
+.emapx .navlinks{display:flex;gap:22px;margin-left:auto;font-size:14px}
+.emapx .navlinks a{color:var(--ink-muted);text-decoration:none}
+.emapx .navlinks a:hover{color:var(--ink)}
+
+.emapx /* header */
+.mh{padding:46px 0 30px}
+.emapx .mh .top{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.emapx .bchip{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:5px 12px;border-radius:999px;background:var(--accent);color:#fff}
+.emapx .reviewed{font-size:12px;color:var(--ink-dim);margin-left:auto}
+.emapx .mh h1{font-size:56px;margin-bottom:12px}
+@media(max-width:767px){.emapx .mh h1{font-size:34px}}
+.emapx .mh .one{font-size:20px;color:var(--ink-muted);max-width:62ch;line-height:1.45}
+.emapx .facts{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);
+  border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin-top:28px}
+@media(max-width:900px){.emapx .facts{grid-template-columns:repeat(2,1fr)}}
+.emapx .fi{background:var(--surface);padding:15px 16px}
+.emapx .fi .k{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:5px}
+.emapx .fi .v{font-size:15px;font-weight:600;line-height:1.3}
+
+.emapx /* layout */
+.body{display:grid;grid-template-columns:190px 1fr;gap:44px;padding-bottom:20px}
+@media(max-width:1023px){.emapx .body{grid-template-columns:1fr;gap:0}.emapx .toc{display:none}}
+.emapx .toc{position:sticky;top:88px;align-self:start;padding-top:40px}
+.emapx .toc .t{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:10px}
+.emapx .toc a{display:block;font-size:13px;color:var(--ink-muted);text-decoration:none;padding:7px 0 7px 13px;
+  border-left:2px solid var(--border);transition:all var(--micro) var(--ease)}
+.emapx .toc a:hover{color:var(--ink);border-left-color:var(--ink-dim)}
+.emapx .toc a.on{color:var(--ink);font-weight:600;border-left-color:var(--accent)}
+
+.emapx /* sections */
+.sec{padding:40px 0;border-top:1px solid var(--border)}
+.emapx .sec:first-child{border-top:0;padding-top:12px}
+.emapx .sn{font-family:var(--serif);font-size:13px;font-weight:700;color:var(--accent);display:block;margin-bottom:5px}
+.emapx .sec h2{font-size:31px;margin-bottom:8px}
+.emapx .sec .lead{font-size:17px;color:var(--ink-muted);line-height:1.6;max-width:70ch;margin-bottom:20px}
+.emapx .sec p{font-size:15.5px;line-height:1.68;color:var(--ink-muted);max-width:70ch;margin-bottom:16px}
+.emapx .sec p strong{color:var(--ink);font-weight:600}
+.emapx .sec h3{font-size:19px;margin:26px 0 10px}
+
+.emapx table{width:100%;border-collapse:collapse;font-size:14px;background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin:6px 0 20px}
+.emapx th{text-align:left;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-dim);
+  padding:10px 14px;border-bottom:1px solid var(--border);background:var(--sunken);font-weight:700}
+.emapx td{padding:11px 14px;border-bottom:1px solid var(--border);color:var(--ink-muted);vertical-align:top;line-height:1.5}
+.emapx tbody tr:last-child td{border-bottom:0}
+.emapx td:first-child{color:var(--ink);font-weight:500}
+.emapx tbody tr:hover td{background:var(--sunken)}
+
+.emapx .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:6px 0 20px}
+@media(max-width:900px){.emapx .cards{grid-template-columns:1fr}}
+.emapx .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:18px}
+.emapx .card h4{font-family:var(--sans);font-size:14px;font-weight:600;margin-bottom:7px;color:var(--accent)}
+.emapx .card p{font-size:13.5px;line-height:1.55;margin:0;color:var(--ink-muted)}
+
+.emapx .pull{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--accent);
+  border-radius:var(--r);padding:20px 22px;margin:6px 0 22px}
+.emapx .pull p{margin:0;font-size:15.5px;line-height:1.6}
+.emapx .pull .t{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:7px}
+
+.emapx /* map slot — a SOURCED map is placed here,.emapx never a rendered one */
+.mapslot{background:var(--sunken);border:1px dashed var(--border);border-radius:var(--r);
+  padding:34px 24px;text-align:center;margin:6px 0 20px}
+.emapx .mapslot .t{font-size:13px;font-weight:600;color:var(--ink-muted);margin-bottom:5px}
+.emapx .mapslot .s{font-size:12px;color:var(--ink-dim);line-height:1.5;max-width:56ch;margin:0 auto}
+
+.emapx /* key links */
+.links{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:6px}
+@media(max-width:767px){.emapx .links{grid-template-columns:1fr}}
+.emapx .lk{display:block;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+  padding:15px 17px;text-decoration:none;transition:all var(--micro) var(--ease)}
+.emapx .lk:hover{border-color:var(--accent);transform:translateY(-2px)}
+.emapx .lk .n{font-size:14.5px;font-weight:600;color:var(--ink);margin-bottom:3px}
+.emapx .lk .d{font-size:12.5px;color:var(--ink-dim);line-height:1.45}
+.emapx .lk .u{font-size:11.5px;color:var(--accent);margin-top:6px;word-break:break-all}
+
+
+.emapx /* ── figures,.emapx charts,.emapx schematic ── */
+.fig{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+  padding:22px 24px 16px;margin:8px 0 22px}
+.emapx .fig svg{display:block;width:100%;height:auto;overflow:visible}
+.emapx .fig-t{font-family:var(--serif);font-size:17px;font-weight:600;margin-bottom:14px}
+.emapx .figcap{font-size:12px;color:var(--ink-dim);line-height:1.5;margin:14px 0 0;max-width:none}
+.emapx .figcap a{color:var(--accent)}
+.emapx .figcap b{color:var(--ink-muted)}
+.emapx /* schematic */
+.area rect{fill:var(--surface);stroke:#CBD6D6;stroke-width:1.5}
+.emapx .area text{font-family:var(--sans);font-size:13px;font-weight:600;fill:var(--ink);
+  text-anchor:middle;dominant-baseline:middle}
+.emapx .area.e rect{stroke:#2a78d6} .emapx .area.w rect{stroke:#eb6834}
+.emapx .area.iso rect{stroke-dasharray:4 3}
+.emapx .ln{stroke:#9AA8AC;stroke-width:2;fill:none}
+.emapx .lnfc{stroke:#7C8D92;stroke-width:2;fill:none;stroke-dasharray:5 4}
+.emapx .fc{fill:#FDF3E7;stroke:#DD7B2F;stroke-width:1.6}
+.emapx .fct{font-family:var(--sans);font-size:12px;font-weight:700;fill:#C0651F;text-anchor:middle}
+.emapx .fh{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em}
+.emapx .cap2{font-family:var(--sans);font-size:10.5px;fill:#7C8D92;text-anchor:middle;paint-order:stroke;stroke:var(--surface);stroke-width:5;stroke-linejoin:round}
+.emapx .cap2.iso2{font-style:italic}
+.emapx /* composition bar */
+.seg text{font-family:var(--sans);font-size:12.5px;font-weight:600;fill:#fff;dominant-baseline:middle}
+.emapx .axl{font-family:var(--sans);font-size:11.5px;fill:#7C8D92}
+.emapx /* bar chart */
+.grid{stroke:#EDF1F1;stroke-width:1}
+.emapx .axis{stroke:#CBD6D6;stroke-width:1}
+.emapx .gl{font-family:var(--sans);font-size:10.5px;fill:#9AA8AC;text-anchor:end}
+.emapx .xl{font-family:var(--sans);font-size:12px;fill:var(--ink-muted);text-anchor:middle}
+.emapx .bar1 rect{fill:#1baf7a}
+.emapx .bar1 text{font-family:var(--sans);font-size:15px;font-weight:700;fill:var(--ink);text-anchor:middle}
+.emapx /* stat pair */
+.stats{display:flex;align-items:center;gap:18px;flex-wrap:wrap;background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--r);padding:20px 24px;margin:0 0 22px}
+.emapx .st .k{font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:4px}
+.emapx .st .v{font-family:var(--serif);font-size:30px;font-weight:700;line-height:1}
+.emapx .st .v small{font-family:var(--sans);font-size:13px;font-weight:500;color:var(--ink-muted)}
+.emapx .st.arrow{font-size:24px;color:var(--ink-dim)}
+.emapx .st.note{flex:1 1 240px;font-size:11.5px;color:var(--ink-dim);line-height:1.5}
+.emapx .st.note a{color:var(--accent)}
+.emapx /* pending slot */
+.pending{background:var(--sunken);border:1px dashed #CBD6D6;border-radius:var(--r);
+  padding:20px 22px;margin:6px 0 22px}
+.emapx .pending .t{font-size:13px;font-weight:600;color:var(--ink-muted);margin-bottom:6px}
+.emapx .pending p{font-size:13px;color:var(--ink-dim);line-height:1.55;margin:0}
+.emapx .pending a{color:var(--accent)}
+
+.emapx footer{border-top:1px solid var(--border);padding:30px 0;font-size:12px;color:var(--ink-dim);line-height:1.6}
+@media(prefers-reduced-motion:reduce){.emapx *{transition-duration:.01ms!important}}
+</style>
+<div class="emapx">
+<div class="wrap">
+  <header class="mh">
+    <div class="top">
+      <span class="bchip">Pool clearing</span>
+      <span class="reviewed">Last reviewed 16 August 2026</span>
+    </div>
+    <h1>Finland</h1>
+    <p class="one">One bidding zone, one TSO, and the most violent hourly price distribution in Europe. Olkiluoto 3 made Finnish power cheap and Finnish hours extreme at the same time.</p>
+    <div class="facts"><div class="fi"><div class="k">Power exchange</div><div class="v">Nord Pool</div></div><div class="fi"><div class="k">Price unit</div><div class="v">EUR / MWh</div></div><div class="fi"><div class="k">Bidding zones</div><div class="v">One — FI</div></div><div class="fi"><div class="k">System operator</div><div class="v">Fingrid</div></div><div class="fi"><div class="k">Gas position</div><div class="v">LNG via Inkoo; Baltic pool</div></div></div>
+  </header>
+
+  <div class="body">
+    <aside class="toc" id="toc">
+      <div class="t">On this page</div>
+      <a href="#s1">01 Overview</a>
+      <a href="#s2">02 Market structure</a>
+      <a href="#s3">03 Infrastructure</a>
+      <a href="#s4">04 Demand and supply</a>
+      <a href="#s5">05 Price setting</a>
+      <a href="#s6">06 Regulatory regime</a>
+      <a href="#s7">Key links</a>
+    </aside>
+    <main><section class="sec" id="s1"><span class="sn">01</span><h2>Overview</h2>
+<p class="lead">Finland has one bidding zone, one transmission operator and a wholesale price that
+fell from the top of the Nordic table to the bottom of it in the space of a single spring. The
+reactor that did it is called Olkiluoto 3.</p>
+
+<p>The unit entered regular commercial production in <a href="https://world-nuclear.org/information-library/country-profiles/countries-a-f/finland" target="_blank" rel="noopener">mid-April 2023</a> — 1,600 MW of EPR,
+roughly a decade later than the original schedule and after a construction saga that became a
+European cautionary tale. Late or not, it works. One machine now covers something close to a
+seventh of Finnish consumption, and it runs flat out.</p>
+
+<p>The timing mattered as much as the megawatts. Russian electricity imports across the eastern
+border stopped in May 2022 and Russian pipeline gas stopped with them. Finland went into the
+2022–23 winter structurally short, paying some of the highest prices in the Nordic region, with a
+chartered floating LNG terminal on order and a reactor still in test operation. Eighteen months
+later the same system was producing <a href="https://energia.fi/wp-content/uploads/2026/01/Electricity-Year-2025-1.pdf" target="_blank" rel="noopener">37%</a> of its electricity from nuclear and <a href="https://energia.fi/wp-content/uploads/2026/01/Electricity-Year-2025-1.pdf" target="_blank" rel="noopener">26%</a> from
+wind, and the annual average day-ahead price had fallen to about <a href="https://energia.fi/wp-content/uploads/2026/01/Electricity-Year-2025-1.pdf" target="_blank" rel="noopener">EUR 40/MWh</a> — the
+cheapest in Europe that year.</p>
+
+<p>Consumption in 2025 was <a href="https://energia.fi/wp-content/uploads/2026/01/Electricity-Year-2025-1.pdf" target="_blank" rel="noopener">85 TWh</a> against domestic production of <a href="https://energia.fi/wp-content/uploads/2026/01/Electricity-Year-2025-1.pdf" target="_blank" rel="noopener">79 TWh</a>, with the balance
+imported, mostly from Sweden. Peak load was <a href="https://energia.fi/wp-content/uploads/2026/01/Electricity-Year-2025-1.pdf" target="_blank" rel="noopener">13,681 MW</a>, set on 4 February. Those
+are small numbers by continental standards. What makes the market interesting is not its size but
+its shape: a large block of inflexible must-run nuclear, a wind fleet that has grown faster than
+almost anyone forecast, heavy district heating and pulp-and-paper load that swings hard with
+temperature, and very little in between to absorb the difference.</p>
+
+<div class="pull"><div class="t">What the reset actually did</div>
+<p>Adding baseload to a system with a big weather-driven demand curve does not flatten the price
+curve. It lowers the middle of it and stretches both ends. Finland got cheaper power and, at the
+same time, the most violent hourly price distribution in Europe.</p></div>
+</section><section class="sec" id="s2"><span class="sn">02</span><h2>Market structure</h2>
+<p class="lead">One price area, one TSO, one exchange. After the zonal arithmetic of Sweden and
+Norway, Finland is a relief to model and a nightmare to hedge.</p>
+
+<h3>Who does what</h3>
+<table><thead><tr><th>Function</th><th>Body</th><th>Role</th></tr></thead><tbody>
+<tr><td>Power exchange</td><td>Nord Pool</td><td>Day-ahead and intraday for the FI bidding area</td></tr>
+<tr><td>Transmission</td><td>Fingrid</td><td>Finnish TSO; system responsibility and balancing</td></tr>
+<tr><td>Gas transmission</td><td>Gasgrid Finland</td><td>State-owned gas TSO; entry-exit system and the virtual trading point</td></tr>
+<tr><td>Regulator</td><td>Energiavirasto</td><td>Energy Authority — tariffs, licensing, market surveillance</td></tr>
+<tr><td>Policy</td><td>Ministry of Economic Affairs and Employment</td><td>Energy and climate policy</td></tr>
+</tbody></table>
+
+<h3>The single zone</h3>
+<p>Sweden has four bidding zones, Norway five, Denmark two. Finland has one. Every megawatt-hour
+consumed between Helsinki and Utsjoki clears at the same hourly price, and internal congestion —
+of which there is plenty, since most wind sits in Ostrobothnia and most load sits in the south —
+is handled by Fingrid through counter-trade rather than by splitting the area.</p>
+
+<p>For a trader that removes an entire category of basis risk and replaces it with a different
+problem. There is no EPAD-style zonal hedge to buy in Finland because there is no zone to hedge
+against. What remains is the spread between the FI area price and the Nordic system price, and
+that spread is where the money and the pain sit. Retail supply is fully competitive: <a href="https://energiavirasto.fi/documents/11120570/13026619/National%20Report%20on%20electricity%20and%20gas%20markets%20in%202024%20in%20Finland.pdf" target="_blank" rel="noopener">49</a>
+active retailers at the end of 2024, and by then about a third of household contracts were on
+dynamic hourly pricing — an unusually high share, and one reason Finnish consumers pay close
+attention to spot prices that would be invisible elsewhere.</p>
+
+<h3>Gas is a separate, much smaller conversation</h3>
+<p>The gas market opened to competition in 2020 with an entry-exit model and a virtual trading
+point run by Gasgrid. It is genuinely liberalised and genuinely tiny. Deliveries were <a href="https://energiavirasto.fi/documents/11120570/13026619/National%20Report%20on%20electricity%20and%20gas%20markets%20in%202024%20in%20Finland.pdf" target="_blank" rel="noopener">14.0 TWh</a>
+in 2024, against a pre-2022 level roughly double that. Finland, Estonia, Latvia and Lithuania form
+one small pool of demand hanging off three LNG terminals, and prices there track TTF with a basis
+that reflects terminal and pipeline availability rather than any local supply-demand balance.</p>
+</section><section class="sec" id="s3"><span class="sn">03</span><h2>Infrastructure — power and gas</h2>
+<p class="lead">A long, thin grid running north to south, four interconnectors to the west and
+south, and a gas system that now reaches the world through one chartered ship at Inkoo.</p>
+
+<h3>Power</h3>
+<p>Fingrid operates roughly <a href="https://www.fingrid.fi/en/" target="_blank" rel="noopener">14,000 km</a> of transmission line and moves around 85 TWh a year at
+a delivery reliability of 99.99%. The physical problem is geography: wind capacity has been built
+overwhelmingly in the west and north, while Helsinki, the metals industry and the largest data
+centre projects sit in the south. Internal transfer capacity is the binding constraint, and
+Fingrid's grid development plan is largely a programme of north–south reinforcement.</p>
+
+<div class="cards">
+<div class="card"><h4>Sweden — AC and HVDC</h4><p>Two AC connections in the north plus the Fenno-Skan
+HVDC links to central Sweden. The single largest determinant of Finnish imports.</p></div>
+<div class="card"><h4>Estonia — Estlink 1 and 2</h4><p>HVDC to the Baltic system. Outages on these
+cables move the Finnish price more than their nameplate capacity suggests.</p></div>
+<div class="card"><h4>Russia — closed</h4><p>The eastern interconnection carried substantial imports
+until May 2022. It has been idle since.</p></div>
+</div>
+
+<h3>Gas</h3>
+<p>Before 2022 Finnish gas arrived through one pipeline from Russia and that was the entire supply
+picture. It now arrives two ways. The <a href="https://www.gem.wiki/Inkoo_FSRU" target="_blank" rel="noopener">Inkoo FSRU Exemplar</a>, a chartered
+Excelerate vessel moored at Inkoo since December 2022, regasifies up to about 5.2 bcm a year and
+supplied 93% of Finnish LNG imports in 2024. The <a href="https://www.nsenergybusiness.com/projects/balticconnector-pipeline/" target="_blank" rel="noopener">Balticconnector</a>, a
+152 km line from Inkoo to Paldiski with capacity around 7.2 mcm/day, links the Finnish and Estonian
+systems in both directions.</p>
+
+<p>In October 2023 a ship's anchor dragged across the Balticconnector and took it out for six
+months. Finland and Estonia coped, which tells you something about how much slack there now is in
+Baltic gas demand, but the incident permanently changed how the region prices security of supply.
+The pipeline returned to commercial service in April 2024.</p>
+
+<div class="fig">
+  <svg viewBox="0 0 900 260" role="img" aria-label="Schematic of Finnish power and gas connections">
+    <text x="200" y="26" class="fh" fill="#2a78d6">POWER — FI single bidding zone</text>
+    <text x="640" y="26" class="fh" fill="#eb6834">GAS — Baltic pool</text>
+    <rect x="30" y="44" width="400" height="196" rx="10" fill="#2a78d6" opacity=".05"/>
+    <rect x="470" y="44" width="400" height="196" rx="10" fill="#eb6834" opacity=".05"/>
+
+    <g class="area e"><rect x="180" y="120" width="118" height="46" rx="7"/><text x="239" y="147">FINLAND (FI)</text></g>
+    <g class="area e"><rect x="50" y="66" width="100" height="40" rx="7"/><text x="100" y="89">SE1 / SE3</text></g>
+    <g class="area e"><rect x="50" y="182" width="100" height="40" rx="7"/><text x="100" y="205">Estonia</text></g>
+    <g class="area e iso"><rect x="330" y="66" width="90" height="40" rx="7"/><text x="375" y="89">Russia</text></g>
+    <path class="ln" d="M150,86 H239 V120"/>
+    <path class="ln" d="M150,202 H239 V166"/>
+    <path class="ln" d="M330,86 H298 V120" opacity=".35"/>
+    <text x="375" y="122" class="cap2 iso2">closed since May 2022</text>
+    <text x="100" y="120" class="cap2">Fenno-Skan + AC north</text>
+    <text x="100" y="236" class="cap2">Estlink 1 and 2</text>
+
+    <g class="area w"><rect x="620" y="120" width="118" height="46" rx="7"/><text x="679" y="147">Gasgrid VTP</text></g>
+    <g class="area w"><rect x="500" y="66" width="100" height="40" rx="7"/><text x="550" y="89">Inkoo FSRU</text></g>
+    <g class="area w"><rect x="760" y="120" width="100" height="46" rx="7"/><text x="810" y="147">Estonia</text></g>
+    <g class="area w"><rect x="500" y="182" width="100" height="40" rx="7"/><text x="550" y="205">Hamina LNG</text></g>
+    <path class="ln" d="M600,86 H679 V120"/>
+    <path class="ln" d="M600,202 H679 V166"/>
+    <path class="lnfc" d="M738,143 H760"/>
+    <rect x="742" y="98" width="14" height="14" rx="3" class="fc"/>
+    <text x="810" y="184" class="cap2">Balticconnector — 152 km</text>
+  </svg>
+  <p class="figcap"><b>Schematic — system topology, not a geographic map.</b> One Finnish price area with
+  interconnection west and south; a gas system reaching the world through Inkoo and Estonia. Balticconnector
+  length and capacity from <a href="https://www.nsenergybusiness.com/projects/balticconnector-pipeline/" target="_blank" rel="noopener">NS Energy</a>.</p>
+</div>
+
+<div class="mapslot"><div class="t">Geographic infrastructure map</div>
+<div class="s">A sourced map of the Finnish main grid, the gas transmission network and the LNG
+terminals belongs here — reproduced from Fingrid and Gasgrid publications rather than redrawn.</div></div>
+</section><section class="sec" id="s4"><span class="sn">04</span><h2>Demand and supply</h2>
+<p class="lead">Nuclear and wind now supply nearly two thirds of Finnish generation between them,
+and coal has effectively left the system.</p>
+
+<h3>Supply</h3>
+<p>Five reactors at two sites give <a href="https://world-nuclear.org/information-library/country-profiles/countries-a-f/finland" target="_blank" rel="noopener">4,369 MWe</a> of nuclear capacity — the two Olkiluoto BWRs
+uprated to 880 MW each, the two Loviisa VVERs at 507 MW each, and Olkiluoto 3. Loviisa is licensed
+to 2050. Wind has grown from a rounding error to the second-largest source in about eight years,
+and generation rose another 9% in 2025. Coal-fired output was <a href="https://energia.fi/wp-content/uploads/2026/01/Electricity-Year-2025-1.pdf" target="_blank" rel="noopener">0.3 TWh</a> in 2025. That is not a
+phase-out in progress; that is a fuel that has already gone.</p>
+
+<div class="fig">
+  <div class="fig-t">Where Finland's electricity came from, 2025</div>
+  <svg viewBox="0 0 900 118" role="img" aria-label="Finland generation mix 2025 by source">
+    <g class="seg"><rect x="0"   y="18" width="328" height="40" rx="4" fill="#2a78d6"/><text x="10"  y="43">Nuclear 37%</text></g>
+    <g class="seg"><rect x="332" y="18" width="231" height="40" rx="4" fill="#eb6834"/><text x="342" y="43">Wind 26%</text></g>
+    <g class="seg"><rect x="567" y="18" width="129" height="40" rx="4" fill="#1baf7a"/><text x="577" y="43">Hydro 15%</text></g>
+    <g class="seg"><rect x="700" y="18" width="114" height="40" rx="4" fill="#eda100"/><text x="710" y="43">Bio &amp; CHP 13%</text></g>
+    <g class="seg"><rect x="818" y="18" width="82"  height="40" rx="4" fill="#9AA8AC"/><text x="828" y="43">Other 9%</text></g>
+    <text x="0"   y="82" class="axl">Coal-fired output was 0.3 TWh across the whole year.</text>
+    <text x="900" y="82" class="axl" text-anchor="end">Solar is 1.2% and sits inside “Other”.</text>
+  </svg>
+  <p class="figcap">Shares of domestic production, 2025. Source: <a href="https://energia.fi/wp-content/uploads/2026/01/Electricity-Year-2025-1.pdf" target="_blank" rel="noopener">Finnish Energy, Electricity Year 2025</a>.</p>
+</div>
+
+<h3>Demand</h3>
+<p>Finnish load is unusually temperature-sensitive, and the reason is heat. District heating serves
+most of the urban building stock, and where it is electrically boosted or replaced by heat pumps,
+every degree of frost shows up directly in the load curve. Add the pulp, paper and metals industry
+— which runs continuously and consumes a large share of national electricity — and you get a
+demand profile that is high, flat and then suddenly very high.</p>
+
+<table><thead><tr><th>Indicator</th><th>2025</th><th>Comment</th></tr></thead><tbody>
+<tr><td>Consumption</td><td>85 TWh</td><td>Up 2% on 2024</td></tr>
+<tr><td>Domestic production</td><td>79 TWh</td><td>Net imports 5.6 TWh, mostly from Sweden</td></tr>
+<tr><td>Peak load</td><td>13,681 MW</td><td>Set on 4 February</td></tr>
+<tr><td>Fossil-free share</td><td>96%</td><td>Of domestic generation</td></tr>
+<tr><td>Gas demand</td><td>Falling</td><td>Finnish and Baltic demand down 9% in 2025</td></tr>
+</tbody></table>
+
+<div class="stats">
+  <div class="st"><div class="k">Gas deliveries, 2024</div><div class="v">14.0 <small>TWh</small></div></div>
+  <div class="st arrow">→</div>
+  <div class="st"><div class="k">Finland + Baltics, 2025</div><div class="v">39.7 <small>TWh</small></div></div>
+  <div class="st note">Finnish figure from <a href="https://energiavirasto.fi/documents/11120570/13026619/National%20Report%20on%20electricity%20and%20gas%20markets%20in%202024%20in%20Finland.pdf" target="_blank" rel="noopener">Energiavirasto</a>; regional total, down 9% year on year, from <a href="https://www.argusmedia.com/en/news-and-insights/latest-market-news/2775120-finnish-and-baltic-gas-demand-declines-in-2025" target="_blank" rel="noopener">Argus</a>.</div>
+</div>
+
+<div class="pull"><div class="t">The cold, still hour</div>
+<p>The whole Finnish risk profile compresses into one scenario: minus twenty-five degrees, a
+stationary high pressure system, no wind across the Nordic region, and Estlink on outage. Everything
+else in this market is a footnote to how you are positioned for that afternoon.</p></div>
+</section><section class="sec" id="s5"><span class="sn">05</span><h2>Price setting mechanism</h2>
+<p class="lead">Marginal-cost clearing on Nord Pool, same as the rest of the Nordics — but with a
+supply stack that has almost nothing in the middle of it.</p>
+
+<h3>The auction</h3>
+<p>Participants submit hourly bids and offers to <a href="https://www.nordpoolgroup.com/en/" target="_blank" rel="noopener">Nord Pool</a> for the FI area by noon
+for the following day. The market couples with the rest of the Nordics and, through Estlink, with
+the Baltics; the algorithm clears all areas simultaneously subject to interconnector limits. The
+last accepted offer sets the price for everyone in the area.</p>
+
+<h3>Why the distribution is so wide</h3>
+<p>Look at what is available to be marginal. Nuclear will not move — 4.4 GW of it bids in at or
+below zero because the cost of not running is higher than the cost of running. Wind bids at zero
+too. Hydro has some flexibility but Finnish reservoir capacity is modest compared with Norway's.
+Above that there is condensing thermal and CHP, and above that essentially nothing until you reach
+imports and the price cap.</p>
+
+<p>So the price is bimodal. In a windy hour with mild weather, supply from must-run sources exceeds
+demand and the clearing price goes to zero or below. Finland recorded <a href="https://montel.energy/commentary/finland-europes-most-volatile-short-term-electricity-market" target="_blank" rel="noopener">467 hours</a> of negative
+day-ahead prices in 2023, more than any other European country, and it kept happening: by 26 May
+2024 it had already logged 174 more. In a cold still hour, the stack runs out and the price does
+whatever it has to. On 2 May 2024 the morning peak cleared at <a href="https://montel.energy/commentary/finland-europes-most-volatile-short-term-electricity-market" target="_blank" rel="noopener">EUR 397/MWh</a>.</p>
+
+<h3>What that means for hedging</h3>
+<p>Average price tells you very little here. The annual mean fell from <a href="https://energiavirasto.fi/documents/11120570/13026619/National%20Report%20on%20electricity%20and%20gas%20markets%20in%202024%20in%20Finland.pdf" target="_blank" rel="noopener">EUR 56.47/MWh</a> in 2023 to
+EUR 45.57 in 2024 and about <a href="https://energia.fi/wp-content/uploads/2026/01/Electricity-Year-2025-1.pdf" target="_blank" rel="noopener">EUR 40/MWh</a> in 2025, which sounds like a market gently
+normalising. The hourly reality is a distribution with fat tails at both ends and a thin middle,
+which is why Finnish volume risk — how much you consume in the expensive hours, not how much you
+consume — dominates price risk for most industrial buyers.</p>
+
+<div class="pull"><div class="t">The system price is not your price</div>
+<p>Nordic financial products settle against the system price. Finnish physical exposure settles
+against the FI area price. In a normal year the gap is small and boring. In a February cold snap
+with Estlink down it is the entire result.</p></div>
+</section><section class="sec" id="s6"><span class="sn">06</span><h2>Regulatory regime</h2>
+<p class="lead">Energiavirasto regulates both electricity and gas; the EU sets the frame; and unlike
+most of Europe, Finland has never needed a capacity mechanism to keep the lights on.</p>
+
+<table><thead><tr><th>Body</th><th>Remit</th></tr></thead><tbody>
+<tr><td>Energiavirasto (Energy Authority)</td><td>Network tariff methodology, licensing, wholesale and retail surveillance, supply adequacy monitoring</td></tr>
+<tr><td>Ministry of Economic Affairs and Employment</td><td>Energy and climate policy, legislation, nuclear licensing decisions</td></tr>
+<tr><td>STUK</td><td>Radiation and Nuclear Safety Authority — reactor safety oversight</td></tr>
+<tr><td>Fingrid</td><td>System responsibility, balancing markets and the strategic reserve</td></tr>
+<tr><td>ACER / European Commission</td><td>Network codes, REMIT, cross-border market rules</td></tr>
+</tbody></table>
+
+<h3>How network charges are set</h3>
+<p>Distribution and transmission tariffs are regulated on a four-year period basis, with the
+Authority confirming methodology in advance and settling any over- or under-recovery at the end of
+the period. The framework became politically visible after the 2013 storms, when reliability
+obligations pushed distribution investment up sharply and consumer network charges followed. The
+resulting cap on annual tariff increases is still in force and still argued about.</p>
+
+<h3>Adequacy</h3>
+<p>Finland does not run a capacity market. It runs a strategic reserve: a modest volume of
+generation and demand response contracted by Fingrid, held outside the energy market and activated
+only when the day-ahead auction fails to clear. Given that the country still imports around 5.6 TWh
+a year and that adequacy in a cold snap depends on Swedish and Estonian availability as much as its
+own, the Authority reviews the reserve volume each period.</p>
+
+<h3>Gas regulation after Russia</h3>
+<p>The gas market was opened on the assumption of a single pipeline supplier and then had that
+supplier removed within two years. What survives is the machinery — entry-exit, postage-stamp
+tariffs, a VTP, third-party access to Inkoo — applied to a market supplied almost entirely by LNG.
+<a href="https://gasgrid.fi/en/" target="_blank" rel="noopener">Gasgrid Finland</a> owns the network and the state charters the terminal, which
+makes the supply-security question a fiscal one as much as a regulatory one. The state also
+underwrites the Inkoo charter, a ten-year commitment signed in a hurry in 2022 and now the backbone
+of Baltic gas supply.</p>
+</section><section class="sec" id="s7"><span class="sn">SOURCES</span><h2>Key links</h2><p class="lead">Primary sources for this market. Figures on this page are drawn from these and from published market data.</p><div class="links"><a class="lk" href="https://www.fingrid.fi/en/" target="_blank" rel="noopener"><div class="n">Fingrid</div><div class="d">Finnish TSO — grid, balancing markets and system data</div><div class="u">https://www.fingrid.fi/en/</div></a><a class="lk" href="https://www.nordpoolgroup.com/en/" target="_blank" rel="noopener"><div class="n">Nord Pool</div><div class="d">Nordic day-ahead and intraday exchange; the FI area price</div><div class="u">https://www.nordpoolgroup.com/en/</div></a><a class="lk" href="https://energiavirasto.fi/documents/11120570/13026619/National%20Report%20on%20electricity%20and%20gas%20markets%20in%202024%20in%20Finland.pdf" target="_blank" rel="noopener"><div class="n">Energiavirasto</div><div class="d">Energy Authority national report on the electricity and gas markets</div><div class="u">https://energiavirasto.fi/documents/11120570/13026619/National%20Report%20on%20electricity%20and%20gas%20markets%20in%202024%20in%20Finland.pdf</div></a><a class="lk" href="https://gasgrid.fi/en/" target="_blank" rel="noopener"><div class="n">Gasgrid Finland</div><div class="d">State-owned gas TSO — entry-exit system, VTP and the hydrogen network</div><div class="u">https://gasgrid.fi/en/</div></a><a class="lk" href="https://energia.fi/wp-content/uploads/2026/01/Electricity-Year-2025-1.pdf" target="_blank" rel="noopener"><div class="n">Finnish Energy — Electricity Year 2025</div><div class="d">Annual generation, consumption and price statistics</div><div class="u">https://energia.fi/wp-content/uploads/2026/01/Electricity-Year-2025-1.pdf</div></a><a class="lk" href="https://world-nuclear.org/information-library/country-profiles/countries-a-f/finland" target="_blank" rel="noopener"><div class="n">World Nuclear Association — Finland</div><div class="d">Reactor fleet, Olkiluoto 3 and Loviisa licensing</div><div class="u">https://world-nuclear.org/information-library/country-profiles/countries-a-f/finland</div></a></div></section></main>
+  </div>
+</div>
+
+
+
+<script>
+var links=[].slice.call(document.querySelectorAll('.toc a[href^="#s"]'));
+var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))}).filter(Boolean);
+function onScroll(){var y=window.scrollY+150,c=0;
+  secs.forEach(function(s,i){if(s.offsetTop<=y)c=i});
+  links.forEach(function(a,i){a.classList.toggle('on',i===c)})}
+window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+</script>
+</div>

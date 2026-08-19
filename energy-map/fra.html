@@ -1,0 +1,402 @@
+---
+layout: default
+title: France
+permalink: /energy-map/fra/
+blurb: "France — Pool clearing. Market structure, infrastructure, demand and supply, price formation and regulation."
+---
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet"><style>
+.emapx{
+  --bg:#FAFAF8; --surface:#FFFFFF; --sunken:#F4F7F7;
+  --ink:#14262B; --ink-muted:#4A5B60; --ink-dim:#7C8D92;
+  --border:#E2E8E8;
+  --s5:#C0392B; --s4:#DD7B2F; --s3:#E8AE28; --s2:#3B8B60; --s1:#1F7A52;
+  --accent:#3B8B60;
+  --r:8px; --micro:180ms; --ease:cubic-bezier(.2,.6,.2,1);
+  --serif:"Source Serif 4",Georgia,serif;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+.emapx *{box-sizing:border-box;margin:0;padding:0}
+.emapx{scroll-behavior:smooth}
+.emapx{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.5;
+  -webkit-font-smoothing:antialiased;font-feature-settings:"tnum" 1}
+.emapx h1,.emapx h2,.emapx h3{font-family:var(--serif);line-height:1.16;letter-spacing:-.02em;font-weight:600}
+.emapx .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+@media(max-width:767px){.emapx .wrap{padding:0 16px}}
+.emapx .proto{background:#14262B;color:#F3F6F6;font-size:12px;padding:8px 16px;text-align:center}
+.emapx nav{position:sticky;top:0;z-index:60;height:64px;display:flex;align-items:center;
+  background:rgba(250,250,248,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.emapx nav .wrap{display:flex;align-items:center;gap:26px;width:100%}
+.emapx .logo{font-family:var(--serif);font-size:20px;font-weight:700;display:flex;align-items:center;gap:10px}
+.emapx .logo .mark{width:22px;height:22px;border:2px solid var(--accent);border-radius:3px;position:relative;flex:none}
+.emapx .logo .mark::after{content:"";position:absolute;inset:4px 4px auto 4px;height:2px;background:var(--s3)}
+.emapx .crumb{font-size:13px;color:var(--ink-dim)}
+.emapx .crumb a{color:var(--ink-muted);text-decoration:none}
+.emapx .crumb a:hover{color:var(--ink)}
+.emapx .navlinks{display:flex;gap:22px;margin-left:auto;font-size:14px}
+.emapx .navlinks a{color:var(--ink-muted);text-decoration:none}
+.emapx .navlinks a:hover{color:var(--ink)}
+
+.emapx /* header */
+.mh{padding:46px 0 30px}
+.emapx .mh .top{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.emapx .bchip{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:5px 12px;border-radius:999px;background:var(--accent);color:#fff}
+.emapx .reviewed{font-size:12px;color:var(--ink-dim);margin-left:auto}
+.emapx .mh h1{font-size:56px;margin-bottom:12px}
+@media(max-width:767px){.emapx .mh h1{font-size:34px}}
+.emapx .mh .one{font-size:20px;color:var(--ink-muted);max-width:62ch;line-height:1.45}
+.emapx .facts{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);
+  border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin-top:28px}
+@media(max-width:900px){.emapx .facts{grid-template-columns:repeat(2,1fr)}}
+.emapx .fi{background:var(--surface);padding:15px 16px}
+.emapx .fi .k{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:5px}
+.emapx .fi .v{font-size:15px;font-weight:600;line-height:1.3}
+
+.emapx /* layout */
+.body{display:grid;grid-template-columns:190px 1fr;gap:44px;padding-bottom:20px}
+@media(max-width:1023px){.emapx .body{grid-template-columns:1fr;gap:0}.emapx .toc{display:none}}
+.emapx .toc{position:sticky;top:88px;align-self:start;padding-top:40px}
+.emapx .toc .t{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:10px}
+.emapx .toc a{display:block;font-size:13px;color:var(--ink-muted);text-decoration:none;padding:7px 0 7px 13px;
+  border-left:2px solid var(--border);transition:all var(--micro) var(--ease)}
+.emapx .toc a:hover{color:var(--ink);border-left-color:var(--ink-dim)}
+.emapx .toc a.on{color:var(--ink);font-weight:600;border-left-color:var(--accent)}
+
+.emapx /* sections */
+.sec{padding:40px 0;border-top:1px solid var(--border)}
+.emapx .sec:first-child{border-top:0;padding-top:12px}
+.emapx .sn{font-family:var(--serif);font-size:13px;font-weight:700;color:var(--accent);display:block;margin-bottom:5px}
+.emapx .sec h2{font-size:31px;margin-bottom:8px}
+.emapx .sec .lead{font-size:17px;color:var(--ink-muted);line-height:1.6;max-width:70ch;margin-bottom:20px}
+.emapx .sec p{font-size:15.5px;line-height:1.68;color:var(--ink-muted);max-width:70ch;margin-bottom:16px}
+.emapx .sec p strong{color:var(--ink);font-weight:600}
+.emapx .sec h3{font-size:19px;margin:26px 0 10px}
+
+.emapx table{width:100%;border-collapse:collapse;font-size:14px;background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin:6px 0 20px}
+.emapx th{text-align:left;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-dim);
+  padding:10px 14px;border-bottom:1px solid var(--border);background:var(--sunken);font-weight:700}
+.emapx td{padding:11px 14px;border-bottom:1px solid var(--border);color:var(--ink-muted);vertical-align:top;line-height:1.5}
+.emapx tbody tr:last-child td{border-bottom:0}
+.emapx td:first-child{color:var(--ink);font-weight:500}
+.emapx tbody tr:hover td{background:var(--sunken)}
+
+.emapx .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:6px 0 20px}
+@media(max-width:900px){.emapx .cards{grid-template-columns:1fr}}
+.emapx .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:18px}
+.emapx .card h4{font-family:var(--sans);font-size:14px;font-weight:600;margin-bottom:7px;color:var(--accent)}
+.emapx .card p{font-size:13.5px;line-height:1.55;margin:0;color:var(--ink-muted)}
+
+.emapx .pull{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--accent);
+  border-radius:var(--r);padding:20px 22px;margin:6px 0 22px}
+.emapx .pull p{margin:0;font-size:15.5px;line-height:1.6}
+.emapx .pull .t{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:7px}
+
+.emapx /* map slot — a SOURCED map is placed here,.emapx never a rendered one */
+.mapslot{background:var(--sunken);border:1px dashed var(--border);border-radius:var(--r);
+  padding:34px 24px;text-align:center;margin:6px 0 20px}
+.emapx .mapslot .t{font-size:13px;font-weight:600;color:var(--ink-muted);margin-bottom:5px}
+.emapx .mapslot .s{font-size:12px;color:var(--ink-dim);line-height:1.5;max-width:56ch;margin:0 auto}
+
+.emapx /* key links */
+.links{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:6px}
+@media(max-width:767px){.emapx .links{grid-template-columns:1fr}}
+.emapx .lk{display:block;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+  padding:15px 17px;text-decoration:none;transition:all var(--micro) var(--ease)}
+.emapx .lk:hover{border-color:var(--accent);transform:translateY(-2px)}
+.emapx .lk .n{font-size:14.5px;font-weight:600;color:var(--ink);margin-bottom:3px}
+.emapx .lk .d{font-size:12.5px;color:var(--ink-dim);line-height:1.45}
+.emapx .lk .u{font-size:11.5px;color:var(--accent);margin-top:6px;word-break:break-all}
+
+
+.emapx /* ── figures,.emapx charts,.emapx schematic ── */
+.fig{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+  padding:22px 24px 16px;margin:8px 0 22px}
+.emapx .fig svg{display:block;width:100%;height:auto;overflow:visible}
+.emapx .fig-t{font-family:var(--serif);font-size:17px;font-weight:600;margin-bottom:14px}
+.emapx .figcap{font-size:12px;color:var(--ink-dim);line-height:1.5;margin:14px 0 0;max-width:none}
+.emapx .figcap a{color:var(--accent)}
+.emapx .figcap b{color:var(--ink-muted)}
+.emapx /* schematic */
+.area rect{fill:var(--surface);stroke:#CBD6D6;stroke-width:1.5}
+.emapx .area text{font-family:var(--sans);font-size:13px;font-weight:600;fill:var(--ink);
+  text-anchor:middle;dominant-baseline:middle}
+.emapx .area.e rect{stroke:#2a78d6} .emapx .area.w rect{stroke:#eb6834}
+.emapx .area.iso rect{stroke-dasharray:4 3}
+.emapx .ln{stroke:#9AA8AC;stroke-width:2;fill:none}
+.emapx .lnfc{stroke:#7C8D92;stroke-width:2;fill:none;stroke-dasharray:5 4}
+.emapx .fc{fill:#FDF3E7;stroke:#DD7B2F;stroke-width:1.6}
+.emapx .fct{font-family:var(--sans);font-size:12px;font-weight:700;fill:#C0651F;text-anchor:middle}
+.emapx .fh{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em}
+.emapx .cap2{font-family:var(--sans);font-size:10.5px;fill:#7C8D92;text-anchor:middle;paint-order:stroke;stroke:var(--surface);stroke-width:5;stroke-linejoin:round}
+.emapx .cap2.iso2{font-style:italic}
+.emapx /* composition bar */
+.seg text{font-family:var(--sans);font-size:12.5px;font-weight:600;fill:#fff;dominant-baseline:middle}
+.emapx .axl{font-family:var(--sans);font-size:11.5px;fill:#7C8D92}
+.emapx /* bar chart */
+.grid{stroke:#EDF1F1;stroke-width:1}
+.emapx .axis{stroke:#CBD6D6;stroke-width:1}
+.emapx .gl{font-family:var(--sans);font-size:10.5px;fill:#9AA8AC;text-anchor:end}
+.emapx .xl{font-family:var(--sans);font-size:12px;fill:var(--ink-muted);text-anchor:middle}
+.emapx .bar1 rect{fill:#1baf7a}
+.emapx .bar1 text{font-family:var(--sans);font-size:15px;font-weight:700;fill:var(--ink);text-anchor:middle}
+.emapx /* stat pair */
+.stats{display:flex;align-items:center;gap:18px;flex-wrap:wrap;background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--r);padding:20px 24px;margin:0 0 22px}
+.emapx .st .k{font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:4px}
+.emapx .st .v{font-family:var(--serif);font-size:30px;font-weight:700;line-height:1}
+.emapx .st .v small{font-family:var(--sans);font-size:13px;font-weight:500;color:var(--ink-muted)}
+.emapx .st.arrow{font-size:24px;color:var(--ink-dim)}
+.emapx .st.note{flex:1 1 240px;font-size:11.5px;color:var(--ink-dim);line-height:1.5}
+.emapx .st.note a{color:var(--accent)}
+.emapx /* pending slot */
+.pending{background:var(--sunken);border:1px dashed #CBD6D6;border-radius:var(--r);
+  padding:20px 22px;margin:6px 0 22px}
+.emapx .pending .t{font-size:13px;font-weight:600;color:var(--ink-muted);margin-bottom:6px}
+.emapx .pending p{font-size:13px;color:var(--ink-dim);line-height:1.55;margin:0}
+.emapx .pending a{color:var(--accent)}
+
+.emapx footer{border-top:1px solid var(--border);padding:30px 0;font-size:12px;color:var(--ink-dim);line-height:1.6}
+@media(prefers-reduced-motion:reduce){.emapx *{transition-duration:.01ms!important}}
+</style>
+<div class="emapx">
+<div class="wrap">
+  <header class="mh">
+    <div class="top">
+      <span class="bchip">Pool clearing</span>
+      <span class="reviewed">Last reviewed 16 August 2026</span>
+    </div>
+    <h1>France</h1>
+    <p class="one">Europe's largest low-carbon generator and its biggest net exporter of power, where the price of electricity is set less by fuel than by how many of EDF's 57 reactors are running.</p>
+    <div class="facts"><div class="fi"><div class="k">Power exchange</div><div class="v">EPEX SPOT</div></div><div class="fi"><div class="k">Price unit</div><div class="v">EUR / MWh</div></div><div class="fi"><div class="k">System operator</div><div class="v">RTE</div></div><div class="fi"><div class="k">Gas hub</div><div class="v">PEG (Trading Region France)</div></div><div class="fi"><div class="k">Power position</div><div class="v">Structural net exporter</div></div></div>
+  </header>
+
+  <div class="body">
+    <aside class="toc" id="toc">
+      <div class="t">On this page</div>
+      <a href="#s1">01 Overview</a>
+      <a href="#s2">02 Market structure</a>
+      <a href="#s3">03 Infrastructure</a>
+      <a href="#s4">04 Demand and supply</a>
+      <a href="#s5">05 Price setting</a>
+      <a href="#s6">06 Regulatory regime</a>
+      <a href="#s7">Key links</a>
+    </aside>
+    <main><section class="sec" id="s1"><span class="sn">01</span><h2>Overview</h2>
+<p class="lead">France is the largest low-carbon power producer in Europe and its biggest net exporter of electricity. Both facts come off one asset base. The nuclear fleet is big enough that for most hours of the year it does not set the price at all. It simply removes the need for anything expensive to.</p>
+
+<p>Nuclear supplied <a href="https://analysesetdonnees.rte-france.com/en/annual-review-2025/generation" target="_blank" rel="noopener">68.1%</a> of French generation in 2025. Low-carbon sources together supplied <a href="https://analysesetdonnees.rte-france.com/en/annual-review-2025/keyfindings" target="_blank" rel="noopener">95.2%</a> of it. Fossil-fired output fell to its lowest since the early 1950s. The trading version is short. An enormous block of near-zero marginal cost capacity prices French power, and the interesting hours are the ones when that block is unavailable and gas has to cover.</p>
+
+<p>The market is fully liberalised and coupled to the rest of north-west Europe. Wholesale power trades on <strong>EPEX SPOT</strong>. <strong>RTE</strong> runs the transmission system and the regulator is the <strong>Commission de régulation de l'énergie (CRE)</strong>. Gas moves through the networks of <strong>GRTgaz</strong> and <strong>Teréga</strong>, trading at one national virtual point, the PEG, inside the Trading Region France zone created on <a href="https://www.terega.fr/en/lab/what-is-trf-trading-region-france/" target="_blank" rel="noopener">1 November 2018</a>.</p>
+
+<p>The commercial architecture around the fleet has just changed. <strong>EDF</strong> went back into full state ownership on <a href="https://world-nuclear.org/information-library/country-profiles/countries-a-f/france" target="_blank" rel="noopener">8 June 2023</a>, and the regulated wholesale access scheme known as ARENH, which forced EDF to sell around 100 TWh a year to rivals at <a href="https://www.enerdata.net/publications/daily-energy-news/france-and-edf-reach-agreement-nuclear-power-prices-eu70mwh-2026.html" target="_blank" rel="noopener">&euro;42/MWh</a>, expired on 31 December 2025. What replaced it is not a volume obligation. It is a revenue-sharing arrangement, and that changes who carries French price risk.</p>
+
+<div class="pull"><div class="t">Why this market matters beyond France</div>
+<p>France exported <a href="https://analysesetdonnees.rte-france.com/en/annual-review-2025/trade" target="_blank" rel="noopener">92.3 TWh</a> in 2025, equal to 17% of its output, into Italy, Great Britain, Switzerland and the Core region. When the fleet is available, France caps prices for its neighbours. When it is not, as in 2022, the same interconnectors export French scarcity instead. Half a continent takes its price cue from that.</p></div>
+</section><section class="sec" id="s2"><span class="sn">02</span><h2>Market structure</h2>
+<p class="lead">One national bidding zone and one dominant generator. The market design exists mainly to share the output of a state-owned nuclear fleet with everyone else who wants to sell electricity.</p>
+
+<h3>Who does what</h3>
+<table><thead><tr><th>Function</th><th>Body</th><th>Role</th></tr></thead><tbody>
+<tr><td>Power exchange</td><td>EPEX SPOT</td><td>Day-ahead auction and intraday continuous trading</td></tr>
+<tr><td>Transmission</td><td>RTE</td><td>System operation, balancing, interconnector capacity, capacity mechanism</td></tr>
+<tr><td>Regulator</td><td>CRE</td><td>Network tariffs, market surveillance, third-party access</td></tr>
+<tr><td>Gas transmission</td><td>GRTgaz / Ter&eacute;ga</td><td>National grid and the south-west respectively</td></tr>
+<tr><td>Dominant generator</td><td>EDF</td><td>Nuclear and hydro fleet; wholly state-owned since 2023</td></tr>
+</tbody></table>
+
+<h3>One zone, one incumbent</h3>
+<p>Italy and the Nordics split into zones. Mainland France does not: it is a <strong>single bidding zone</strong> with one day-ahead price for the whole country. Internal congestion is handled by RTE through redispatch, never shown as a locational price. For a position-taker that removes basis risk inside France and concentrates all of it at the borders.</p>
+
+<p>Concentration is the defining feature. EDF owns the reactors, all <a href="https://world-nuclear.org/information-library/country-profiles/countries-a-f/france" target="_blank" rel="noopener">57</a>
+operable units, roughly <a href="https://world-nuclear.org/information-library/country-profiles/countries-a-f/france" target="_blank" rel="noopener">63 GW</a> of net capacity, plus much of the large hydro. Competing suppliers own nothing comparable, so the state has always had to engineer them a route to nuclear output at something other than the market price. ARENH was that route from 2011 to 2025.</p>
+
+<h3>Renationalisation and what it changed</h3>
+<p>The state completed its buy-out of EDF's minority shareholders on <a href="https://world-nuclear.org/information-library/country-profiles/countries-a-f/france" target="_blank" rel="noopener">8 June 2023</a>,
+taking its stake from 84% to 100%. The balance sheet drove it. Between the corrosion crisis and ARENH obligations, EDF was carrying a repair programme and a new-build programme it could not fund from market equity. What that means commercially is that outage scheduling, lifetime extension and the new EPR2 units are now decided inside a single state perimeter, with no public shareholders to negotiate with.</p>
+
+<div class="pull"><div class="t">The practical consequence</div>
+<p>French wholesale prices are as much a policy output as a market one. The fleet is state-owned, its revenue above a threshold is clawed back, and its availability comes down to regulatory and industrial judgement. Position accordingly.</p></div>
+</section><section class="sec" id="s3"><span class="sn">03</span><h2>Infrastructure — power and gas</h2>
+<p class="lead">A meshed transmission grid with the strongest interconnection position in Europe. The gas system has turned into a west-facing LNG gateway rather than the end of a pipeline.</p>
+
+<h3>Power</h3>
+<div class="cards">
+<div class="card"><h4>The fleet</h4><p><a href="https://world-nuclear.org/information-library/country-profiles/countries-a-f/france" target="_blank" rel="noopener">57</a> operable reactors, around <a href="https://world-nuclear.org/information-library/country-profiles/countries-a-f/france" target="_blank" rel="noopener">63 GW</a> net,
+across 18 sites, plus roughly <a href="https://analysesetdonnees.rte-france.com/en/annual-review-2025/generation" target="_blank" rel="noopener">62.4 TWh</a> of hydropower generation in 2025.</p></div>
+<div class="card"><h4>Interconnection</h4><p>Links to Great Britain, Belgium, Germany, Switzerland, Italy and
+Spain. France exported <a href="https://analysesetdonnees.rte-france.com/en/annual-review-2025/trade" target="_blank" rel="noopener">92.3 TWh</a> in 2025, and imported across the same borders whenever the fleet was short.</p></div>
+<div class="card"><h4>Single zone</h4><p>RTE redispatches internal constraints rather than pricing them. Congestion value shows up at the borders, in interconnector flows and cross-border spreads.</p></div>
+</div>
+
+<h3>Gas and LNG</h3>
+<p>Domestic production is negligible. Gas arrives by pipeline from Norway, the Netherlands, Belgium and Germany, and as LNG into four terminals: <strong>Dunkirk</strong> in the north, majority-owned by Fluxys; <strong>Montoir-de-Bretagne</strong> on the Atlantic; and <strong>Fos Tonkin</strong> and <strong>Fos Cavaou</strong> on the Mediterranean, the last three inside the Elengy group
+(<a href="https://www.iea.org/articles/france-natural-gas-security-policy" target="_blank" rel="noopener">IEA</a>). Underground storage totals around <a href="https://www.iea.org/articles/france-natural-gas-security-policy" target="_blank" rel="noopener">12.2 bcm</a>, roughly 29% of annual consumption, run by Storengy and Ter&eacute;ga.</p>
+
+<p>Transmission is split between <a href="https://www.iea.org/articles/france-natural-gas-security-policy" target="_blank" rel="noopener">GRTgaz</a>, which runs the great majority of the network, including the low-calorific-value system in the north, and <strong>Ter&eacute;ga</strong> in the south-west. Since the Trading Region France zone was created on <a href="https://www.terega.fr/en/lab/what-is-trf-trading-region-france/" target="_blank" rel="noopener">1 November 2018</a>, both networks balance into a single virtual point. One French gas price, rather than a northern one and a southern one.</p>
+
+<div class="fig">
+  <svg viewBox="0 0 900 300" role="img" aria-label="Schematic of the French power and gas system">
+    <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 z" fill="#7C8D92"/></marker></defs>
+    <text x="120" y="26" class="fh" fill="#2a78d6">POWER &mdash; single bidding zone</text>
+    <text x="600" y="26" class="fh" fill="#eb6834">GAS &mdash; single trading zone (TRF)</text>
+    <rect x="30" y="44" width="400" height="228" rx="10" fill="#2a78d6" opacity=".05"/>
+    <rect x="470" y="44" width="400" height="228" rx="10" fill="#eb6834" opacity=".05"/>
+
+    <g class="area e"><rect x="60" y="66" width="140" height="42" rx="7"/><text x="130" y="92">Nuclear 68%</text></g>
+    <g class="area e"><rect x="60" y="132" width="140" height="42" rx="7"/><text x="130" y="158">Hydro / wind / solar</text></g>
+    <g class="area e"><rect x="60" y="198" width="140" height="42" rx="7"/><text x="130" y="224">Gas &amp; oil peakers</text></g>
+    <g class="area e"><rect x="250" y="132" width="140" height="42" rx="7"/><text x="320" y="158">RTE grid</text></g>
+
+    <path class="ln" d="M200,87 H225 V153 H250" marker-end="url(#ar)"/>
+    <path class="ln" d="M200,153 H250" marker-end="url(#ar)"/>
+    <path class="ln" d="M200,219 H225 V174" marker-end="url(#ar)"/>
+
+    <g class="area w"><rect x="500" y="66" width="140" height="42" rx="7"/><text x="570" y="92">LNG terminals</text></g>
+    <g class="area w"><rect x="500" y="132" width="140" height="42" rx="7"/><text x="570" y="158">Pipeline imports</text></g>
+    <g class="area w"><rect x="500" y="198" width="140" height="42" rx="7"/><text x="570" y="224">Storage</text></g>
+    <g class="area w"><rect x="690" y="132" width="150" height="42" rx="7"/><text x="765" y="158">PEG &mdash; TRF</text></g>
+
+    <path class="ln" d="M640,87 H665 V153 H690" marker-end="url(#ar)"/>
+    <path class="ln" d="M640,153 H690" marker-end="url(#ar)"/>
+    <path class="ln" d="M640,219 H665 V174" marker-end="url(#ar)"/>
+
+    <rect x="405" y="196" width="60" height="46" rx="6" class="fc"/>
+    <text x="435" y="216" class="fct">CCGT</text><text x="435" y="232" class="fct">link</text>
+    <path class="lnfc" d="M465,219 H500"/>
+    <path class="lnfc" d="M390,153 H405 V196"/>
+    <text x="435" y="262" class="cap2">gas sets the power price only in the hours nuclear cannot cover</text>
+    <text x="320" y="118" class="cap2">exports to 6 borders</text>
+  </svg>
+  <p class="figcap"><b>Schematic &mdash; system topology, not a geographic map.</b> One power price and one gas
+  price for the whole country; the two connect through the gas-fired fleet at the margin.</p>
+</div>
+
+<div class="mapslot"><div class="t">Geographic infrastructure map</div>
+<div class="s">A sourced map of the nuclear sites, LNG terminals and interconnectors belongs here &mdash;
+reproduced from an RTE or CRE publication rather than redrawn.</div></div>
+</section><section class="sec" id="s4"><span class="sn">04</span><h2>Demand and supply</h2>
+<p class="lead">Flat demand and a generation mix that is 95% low-carbon. On the supply side there is really only one variable: how many reactors are running.</p>
+
+<h3>Demand</h3>
+<p>French consumption was <a href="https://analysesetdonnees.rte-france.com/en/annual-review-2025/keyfindings" target="_blank" rel="noopener">451 TWh</a> in 2025, up 0.4% on the year. Flat, in other words, as it has been for a decade. The shape is another matter. Peak demand reached <a href="https://analysesetdonnees.rte-france.com/en/annual-review-2025/keyfindings" target="_blank" rel="noopener">88 GW</a>, the highest since 2021, because France heats with electricity to an unusual degree. One degree colder in winter adds roughly 2 GW of load. Thermosensitivity is the demand variable that matters here, not economic growth.</p>
+
+<h3>Supply</h3>
+<p>Generation totalled <a href="https://analysesetdonnees.rte-france.com/en/annual-review-2025/generation" target="_blank" rel="noopener">547.5 TWh</a> in 2025, of which nuclear supplied 373.0 TWh. That is 11.3 TWh up on 2024 and back to pre-crisis levels. Solar added 8.1 TWh as 5.9 GW of new panels came online. Hydro fell 12.9 TWh on normal rainfall after an exceptional 2024, and fossil generation dropped to 18.7 TWh, the lowest since the early 1950s.</p>
+
+<table><thead><tr><th>Indicator</th><th>Direction</th><th>Comment</th></tr></thead><tbody>
+<tr><td>Electricity demand</td><td>Flat</td><td>451 TWh in 2025; heavily temperature-sensitive</td></tr>
+<tr><td>Nuclear output</td><td>Recovered</td><td>279.0 TWh in 2022 to 373.0 TWh in 2025</td></tr>
+<tr><td>Solar</td><td>Rising fast</td><td>5.9 GW added in 2025; driving midday price collapse</td></tr>
+<tr><td>Fossil generation</td><td>Falling</td><td>3.4% of the mix, lowest since the early 1950s</td></tr>
+<tr><td>Net exports</td><td>Record</td><td>92.3 TWh in 2025, second consecutive record</td></tr>
+</tbody></table>
+
+<div class="fig">
+  <div class="fig-t">Where France's electricity came from, 2025</div>
+  <svg viewBox="0 0 900 128" role="img" aria-label="France generation mix 2025 by source">
+    <g class="seg"><rect x="0"   y="18" width="599" height="40" rx="4" fill="#2a78d6"/><text x="10"  y="43">Nuclear 68.1%</text></g>
+    <g class="seg"><rect x="603" y="18" width="100" height="40" rx="4" fill="#eb6834"/><text x="613" y="43">Hydro 11.4%</text></g>
+    <g class="seg"><rect x="707" y="18" width="80"  height="40" rx="4" fill="#1baf7a"/><text x="717" y="43">Wind 9.1%</text></g>
+    <g class="seg"><rect x="791" y="18" width="53"  height="40" rx="4" fill="#eda100"/></g>
+    <g class="seg"><rect x="848" y="18" width="30"  height="40" rx="4" fill="#e87ba4"/></g>
+    <g class="seg"><rect x="882" y="18" width="18"  height="40" rx="4" fill="#9AA8AC"/></g>
+    <line class="grid" x1="817" y1="58" x2="817" y2="70"/>
+    <text x="817" y="82" class="axl" text-anchor="middle">Solar 6.0%</text>
+    <line class="grid" x1="863" y1="58" x2="863" y2="88"/>
+    <text x="900" y="100" class="axl" text-anchor="end">Fossil fuels 3.4%</text>
+    <line class="grid" x1="891" y1="58" x2="891" y2="106"/>
+    <text x="900" y="118" class="axl" text-anchor="end">Other 2.0%</text>
+    <text x="0" y="82" class="axl">Low-carbon sources supplied 95.2% of generation.</text>
+  </svg>
+  <p class="figcap">Shares of 547.5 TWh of mainland generation in 2025. Source: <a href="https://analysesetdonnees.rte-france.com/en/annual-review-2025/generation" target="_blank" rel="noopener">RTE, 2025 annual review</a>;
+  corroborated by <a href="https://ember-energy.org/countries-and-regions/france/" target="_blank" rel="noopener">Ember</a>.</p>
+</div>
+
+<div class="stats">
+  <div class="st"><div class="k">Net exports, 2022</div><div class="v">&minus;16.5 <small>TWh</small></div></div>
+  <div class="st arrow">&rarr;</div>
+  <div class="st"><div class="k">Net exports, 2025</div><div class="v">92.3 <small>TWh</small></div></div>
+  <div class="st note">Net importer for the first time since 1980 in 2022; record exporter three years later.
+  Sources: <a href="https://analysesetdonnees.rte-france.com/en/annual-review-2023/keyfindings" target="_blank" rel="noopener">RTE 2023 review</a> and <a href="https://analysesetdonnees.rte-france.com/en/annual-review-2025/trade" target="_blank" rel="noopener">RTE 2025 review</a>.</div>
+</div>
+
+<div class="pull"><div class="t">The single variable that matters</div>
+<p>Nuclear availability. Stress corrosion cracking on safety injection pipework took a large part of the fleet offline in 2022 and output fell to <a href="https://analysesetdonnees.rte-france.com/en/annual-review-2023/keyfindings" target="_blank" rel="noopener">279.0 TWh</a>, the lowest since 1988. France went from exporter to importer and the whole of north-west Europe repriced. Model French supply as a distribution of outage outcomes. An installed capacity number will not do it.</p></div>
+</section><section class="sec" id="s5"><span class="sn">05</span><h2>Price setting mechanism</h2>
+<p class="lead">A marginal-cost day-ahead auction in which the marginal unit is frequently not French at all. From 2026 there is also a nuclear revenue arrangement that redistributes the upside rather than the volume.</p>
+
+<h3>The day-ahead auction</h3>
+<p>Generators and suppliers bid into <strong>EPEX SPOT</strong> for delivery the following day. Offers stack cheapest first and the last unit needed sets one clearing price for the whole zone. Coupling with the rest of north-west Europe means the marginal unit can sit in Belgium or Germany, and when interconnectors are unconstrained prices converge across the coupled region.</p>
+
+<p>Nuclear, hydro and renewables cover most of the load stack at near-zero marginal cost, so the French price spends much of the year detached from fuel. Average spot was <a href="https://analysesetdonnees.rte-france.com/en/annual-review-2025/keyfindings" target="_blank" rel="noopener">&euro;61/MWh</a> in 2025.
+The tail is what pays. There were <a href="https://analysesetdonnees.rte-france.com/en/annual-review-2025/keyfindings" target="_blank" rel="noopener">513 hours</a> of negative prices in 2025, up from 352 in 2024, as solar swamps midday demand. At the other end of the day the evening peak still clears on gas.</p>
+
+<div class="fig">
+  <div class="fig-t">Average French day-ahead spot price, &euro;/MWh</div>
+  <svg viewBox="0 0 900 250" role="img" aria-label="Average French day-ahead spot price 2022 to 2025">
+    <line class="grid" x1="70" y1="40"  x2="880" y2="40"/><text class="gl" x="60" y="44">300</text>
+    <line class="grid" x1="70" y1="93"  x2="880" y2="93"/><text class="gl" x="60" y="97">200</text>
+    <line class="grid" x1="70" y1="147" x2="880" y2="147"/><text class="gl" x="60" y="151">100</text>
+    <line class="axis" x1="70" y1="200" x2="880" y2="200"/>
+    <g class="bar1"><rect x="128" y="53"  width="130" height="147" rx="4"/><text x="193" y="43">&euro;276</text></g>
+    <g class="bar1"><rect x="316" y="148" width="130" height="52"  rx="4"/><text x="381" y="138">&euro;97</text></g>
+    <g class="bar1"><rect x="504" y="169" width="130" height="31"  rx="4"/><text x="569" y="159">&euro;58</text></g>
+    <g class="bar1"><rect x="692" y="167" width="130" height="33"  rx="4"/><text x="757" y="157">&euro;61</text></g>
+    <text class="xl" x="193" y="222">2022</text>
+    <text class="xl" x="381" y="222">2023</text>
+    <text class="xl" x="569" y="222">2024</text>
+    <text class="xl" x="757" y="222">2025</text>
+  </svg>
+  <p class="figcap">Annual average day-ahead spot prices. Sources: <a href="https://analysesetdonnees.rte-france.com/en/annual-review-2023/keyfindings" target="_blank" rel="noopener">RTE 2023 review</a> and <a href="https://analysesetdonnees.rte-france.com/en/annual-review-2024/keyfindings" target="_blank" rel="noopener">RTE 2024 and 2025 reviews</a>.</p>
+</div>
+
+<h3>The post-ARENH arrangement</h3>
+<p>ARENH obliged EDF to sell about 100 TWh a year to competing suppliers at <a href="https://www.enerdata.net/publications/daily-energy-news/france-and-edf-reach-agreement-nuclear-power-prices-eu70mwh-2026.html" target="_blank" rel="noopener">&euro;42/MWh</a>. It expired on 31 December 2025. The successor, agreed between the state and EDF, is not a volume right at all. It is a revenue-sharing contract over the whole nuclear output, built around a reference level of <a href="https://www.clearygottlieb.com/news-and-insights/publication-listing/france-strikes-an-agreement-with-edf-over-nuclear-energy-prices" target="_blank" rel="noopener">&euro;70/MWh</a> over fifteen years.
+Above roughly <a href="https://www.clearygottlieb.com/news-and-insights/publication-listing/france-strikes-an-agreement-with-edf-over-nuclear-energy-prices" target="_blank" rel="noopener">&euro;78&ndash;80/MWh</a> of realised wholesale price, 50% of EDF's excess revenue is clawed back and passed to consumers. Above <a href="https://www.clearygottlieb.com/news-and-insights/publication-listing/france-strikes-an-agreement-with-edf-over-nuclear-energy-prices" target="_blank" rel="noopener">&euro;110/MWh</a>, it is 90%. The thresholds get reviewed every three years.</p>
+
+<div class="pull"><div class="t">What changed for a position-taker</div>
+<p>Under ARENH a supplier held a cheap call option on 100 TWh and hedged the remainder. From 2026 it buys everything at the market and gets a rebate only if prices run hot. Upside above &euro;110/MWh is largely socialised. That flattens the payoff on deep out-of-the-money French power calls and pushes hedging demand into the forward curve.</p></div>
+
+<h3>Capacity payments</h3>
+<p>Energy revenue is not the whole of it. France has run a capacity mechanism since 2017, and the European Commission <a href="https://ec.europa.eu/commission/presscorner/detail/en/ip_25_3132" target="_blank" rel="noopener">approved</a> a reformed version, budgeted at
+<a href="https://globaltradealert.org/state-act/95786-france-eur-20-billion-capacity-mechanism-scheme-for-security-of-electricity-supply-and-development-of-flexibility-services" target="_blank" rel="noopener">&euro;20bn</a> over ten years from November 2026. Capacity revenue is what keeps peaking plant and demand response available for the handful of cold, still evenings that set the annual peak.</p>
+</section><section class="sec" id="s6"><span class="sn">06</span><h2>Regulatory regime</h2>
+<p class="lead">CRE regulates the networks and polices the market. The state owns the generator. Brussels sets the outer limits on both, and French energy policy happens inside that triangle.</p>
+
+<table><thead><tr><th>Body</th><th>Remit</th></tr></thead><tbody>
+<tr><td>CRE</td><td>Network tariffs, third-party access, market surveillance, renewable support schemes</td></tr>
+<tr><td>RTE</td><td>System operation, adequacy assessment, capacity mechanism administration</td></tr>
+<tr><td>ASNR</td><td>Nuclear safety and radiation protection; outage and lifetime-extension decisions</td></tr>
+<tr><td>Ministry for Energy Transition</td><td>Energy programming, the post-ARENH framework, new-build policy</td></tr>
+<tr><td>European Commission</td><td>State aid clearance for the nuclear arrangement and the capacity mechanism</td></tr>
+</tbody></table>
+
+<h3>CRE</h3>
+<p>Created on <a href="https://www.cre.fr/en/cre/who-are-we.html" target="_blank" rel="noopener">24 March 2000</a>, CRE regulates both electricity and gas, with the conventional European set of powers. It sets transmission and distribution tariffs, approves storage capacity auctions, arbitrates network access disputes through its CoRDiS committee and publishes the surveillance reports on how the wholesale market has behaved. It does not set the wholesale price. Its tariff decisions still determine a material slice of what an end user pays, and its access rulings decide who can reach the PEG and the LNG terminals.</p>
+
+<h3>State aid is the binding constraint</h3>
+<p>EDF is wholly state-owned and the nuclear arrangement redistributes its revenue, so every significant French market reform now runs through Brussels. The post-ARENH framework was explicitly designed, in the economy minister's words, to comply with European rules. The capacity mechanism reform needed a formal state aid decision before it could start. French reform timelines are therefore Commission timelines, and slippage is a live risk to any assumption about when a mechanism goes live.</p>
+
+<h3>Nuclear oversight after 2022</h3>
+<p>The stress corrosion episode reshaped how the regulator and EDF deal with each other. Corrosion near welds on safety injection pipework turned up at Civaux 1 in December 2021. The twelve most vulnerable reactors were inspected and repairs finished by January 2024 (<a href="https://world-nuclear.org/information-library/country-profiles/countries-a-f/france" target="_blank" rel="noopener">World Nuclear Association</a>). Safety regulation and technical support merged into one authority, ASNR, in 2025. The institutional shape hardly matters for the trading lesson. EDF's published outage schedules are forecasts open to regulatory revision rather than commitments, and French forward spreads carry that uncertainty.</p>
+
+<div class="pull"><div class="t">Where to look first</div>
+<p>EDF's transparency publications on reactor availability move French forwards more reliably than any macroeconomic release. Read them next to RTE's adequacy outlook for the coming winter.</p></div>
+</section><section class="sec" id="s7"><span class="sn">SOURCES</span><h2>Key links</h2><p class="lead">Primary sources for this market. Figures on this page are drawn from these and from published market data.</p><div class="links"><a class="lk" href="https://analysesetdonnees.rte-france.com/en/annual-review-2025/keyfindings" target="_blank" rel="noopener"><div class="n">RTE — Analyses et Données</div><div class="d">System operator's annual electricity review: generation, consumption, prices and trade</div><div class="u">https://analysesetdonnees.rte-france.com/en/annual-review-2025/keyfindings</div></a><a class="lk" href="https://www.epexspot.com/en" target="_blank" rel="noopener"><div class="n">EPEX SPOT</div><div class="d">European Power Exchange — French day-ahead auction and intraday market</div><div class="u">https://www.epexspot.com/en</div></a><a class="lk" href="https://www.cre.fr/en/cre/who-are-we.html" target="_blank" rel="noopener"><div class="n">CRE</div><div class="d">Commission de régulation de l'énergie — the French electricity and gas regulator</div><div class="u">https://www.cre.fr/en/cre/who-are-we.html</div></a><a class="lk" href="https://www.cre.fr/en/natural-gas/wholesale-natural-gas-market/wholesale-natural-gas-market.html" target="_blank" rel="noopener"><div class="n">CRE — wholesale gas market</div><div class="d">Trading points, PEG and TRF, and the structure of French gas trading</div><div class="u">https://www.cre.fr/en/natural-gas/wholesale-natural-gas-market/wholesale-natural-gas-market.html</div></a><a class="lk" href="https://www.iea.org/articles/france-natural-gas-security-policy" target="_blank" rel="noopener"><div class="n">IEA — France gas security</div><div class="d">Independent analysis of French gas infrastructure, LNG terminals and storage</div><div class="u">https://www.iea.org/articles/france-natural-gas-security-policy</div></a><a class="lk" href="https://ember-energy.org/countries-and-regions/france/" target="_blank" rel="noopener"><div class="n">Ember — France</div><div class="d">Independent electricity data and generation mix comparisons</div><div class="u">https://ember-energy.org/countries-and-regions/france/</div></a></div></section></main>
+  </div>
+</div>
+
+
+
+<script>
+var links=[].slice.call(document.querySelectorAll('.toc a[href^="#s"]'));
+var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))}).filter(Boolean);
+function onScroll(){var y=window.scrollY+150,c=0;
+  secs.forEach(function(s,i){if(s.offsetTop<=y)c=i});
+  links.forEach(function(a,i){a.classList.toggle('on',i===c)})}
+window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+</script>
+</div>

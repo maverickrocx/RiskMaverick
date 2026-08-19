@@ -1,0 +1,451 @@
+---
+layout: default
+title: Malaysia
+permalink: /energy-map/mys/
+blurb: "Malaysia — Administered procurement. Market structure, infrastructure, demand and supply, price formation and regulation."
+---
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet"><style>
+.emapx{
+  --bg:#FAFAF8; --surface:#FFFFFF; --sunken:#F4F7F7;
+  --ink:#14262B; --ink-muted:#4A5B60; --ink-dim:#7C8D92;
+  --border:#E2E8E8;
+  --s5:#C0392B; --s4:#DD7B2F; --s3:#E8AE28; --s2:#3B8B60; --s1:#1F7A52;
+  --accent:#C0392B;
+  --r:8px; --micro:180ms; --ease:cubic-bezier(.2,.6,.2,1);
+  --serif:"Source Serif 4",Georgia,serif;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+.emapx *{box-sizing:border-box;margin:0;padding:0}
+.emapx{scroll-behavior:smooth}
+.emapx{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.5;
+  -webkit-font-smoothing:antialiased;font-feature-settings:"tnum" 1}
+.emapx h1,.emapx h2,.emapx h3{font-family:var(--serif);line-height:1.16;letter-spacing:-.02em;font-weight:600}
+.emapx .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+@media(max-width:767px){.emapx .wrap{padding:0 16px}}
+.emapx .proto{background:#14262B;color:#F3F6F6;font-size:12px;padding:8px 16px;text-align:center}
+.emapx nav{position:sticky;top:0;z-index:60;height:64px;display:flex;align-items:center;
+  background:rgba(250,250,248,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.emapx nav .wrap{display:flex;align-items:center;gap:26px;width:100%}
+.emapx .logo{font-family:var(--serif);font-size:20px;font-weight:700;display:flex;align-items:center;gap:10px}
+.emapx .logo .mark{width:22px;height:22px;border:2px solid var(--accent);border-radius:3px;position:relative;flex:none}
+.emapx .logo .mark::after{content:"";position:absolute;inset:4px 4px auto 4px;height:2px;background:var(--s3)}
+.emapx .crumb{font-size:13px;color:var(--ink-dim)}
+.emapx .crumb a{color:var(--ink-muted);text-decoration:none}
+.emapx .crumb a:hover{color:var(--ink)}
+.emapx .navlinks{display:flex;gap:22px;margin-left:auto;font-size:14px}
+.emapx .navlinks a{color:var(--ink-muted);text-decoration:none}
+.emapx .navlinks a:hover{color:var(--ink)}
+
+.emapx /* header */
+.mh{padding:46px 0 30px}
+.emapx .mh .top{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.emapx .bchip{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:5px 12px;border-radius:999px;background:var(--accent);color:#fff}
+.emapx .reviewed{font-size:12px;color:var(--ink-dim);margin-left:auto}
+.emapx .mh h1{font-size:56px;margin-bottom:12px}
+@media(max-width:767px){.emapx .mh h1{font-size:34px}}
+.emapx .mh .one{font-size:20px;color:var(--ink-muted);max-width:62ch;line-height:1.45}
+.emapx .facts{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);
+  border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin-top:28px}
+@media(max-width:900px){.emapx .facts{grid-template-columns:repeat(2,1fr)}}
+.emapx .fi{background:var(--surface);padding:15px 16px}
+.emapx .fi .k{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:5px}
+.emapx .fi .v{font-size:15px;font-weight:600;line-height:1.3}
+
+.emapx /* layout */
+.body{display:grid;grid-template-columns:190px 1fr;gap:44px;padding-bottom:20px}
+@media(max-width:1023px){.emapx .body{grid-template-columns:1fr;gap:0}.emapx .toc{display:none}}
+.emapx .toc{position:sticky;top:88px;align-self:start;padding-top:40px}
+.emapx .toc .t{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:10px}
+.emapx .toc a{display:block;font-size:13px;color:var(--ink-muted);text-decoration:none;padding:7px 0 7px 13px;
+  border-left:2px solid var(--border);transition:all var(--micro) var(--ease)}
+.emapx .toc a:hover{color:var(--ink);border-left-color:var(--ink-dim)}
+.emapx .toc a.on{color:var(--ink);font-weight:600;border-left-color:var(--accent)}
+
+.emapx /* sections */
+.sec{padding:40px 0;border-top:1px solid var(--border)}
+.emapx .sec:first-child{border-top:0;padding-top:12px}
+.emapx .sn{font-family:var(--serif);font-size:13px;font-weight:700;color:var(--accent);display:block;margin-bottom:5px}
+.emapx .sec h2{font-size:31px;margin-bottom:8px}
+.emapx .sec .lead{font-size:17px;color:var(--ink-muted);line-height:1.6;max-width:70ch;margin-bottom:20px}
+.emapx .sec p{font-size:15.5px;line-height:1.68;color:var(--ink-muted);max-width:70ch;margin-bottom:16px}
+.emapx .sec p strong{color:var(--ink);font-weight:600}
+.emapx .sec h3{font-size:19px;margin:26px 0 10px}
+
+.emapx table{width:100%;border-collapse:collapse;font-size:14px;background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin:6px 0 20px}
+.emapx th{text-align:left;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-dim);
+  padding:10px 14px;border-bottom:1px solid var(--border);background:var(--sunken);font-weight:700}
+.emapx td{padding:11px 14px;border-bottom:1px solid var(--border);color:var(--ink-muted);vertical-align:top;line-height:1.5}
+.emapx tbody tr:last-child td{border-bottom:0}
+.emapx td:first-child{color:var(--ink);font-weight:500}
+.emapx tbody tr:hover td{background:var(--sunken)}
+
+.emapx .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:6px 0 20px}
+@media(max-width:900px){.emapx .cards{grid-template-columns:1fr}}
+.emapx .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:18px}
+.emapx .card h4{font-family:var(--sans);font-size:14px;font-weight:600;margin-bottom:7px;color:var(--accent)}
+.emapx .card p{font-size:13.5px;line-height:1.55;margin:0;color:var(--ink-muted)}
+
+.emapx .pull{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--accent);
+  border-radius:var(--r);padding:20px 22px;margin:6px 0 22px}
+.emapx .pull p{margin:0;font-size:15.5px;line-height:1.6}
+.emapx .pull .t{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:7px}
+
+.emapx /* map slot — a SOURCED map is placed here,.emapx never a rendered one */
+.mapslot{background:var(--sunken);border:1px dashed var(--border);border-radius:var(--r);
+  padding:34px 24px;text-align:center;margin:6px 0 20px}
+.emapx .mapslot .t{font-size:13px;font-weight:600;color:var(--ink-muted);margin-bottom:5px}
+.emapx .mapslot .s{font-size:12px;color:var(--ink-dim);line-height:1.5;max-width:56ch;margin:0 auto}
+
+.emapx /* key links */
+.links{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:6px}
+@media(max-width:767px){.emapx .links{grid-template-columns:1fr}}
+.emapx .lk{display:block;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+  padding:15px 17px;text-decoration:none;transition:all var(--micro) var(--ease)}
+.emapx .lk:hover{border-color:var(--accent);transform:translateY(-2px)}
+.emapx .lk .n{font-size:14.5px;font-weight:600;color:var(--ink);margin-bottom:3px}
+.emapx .lk .d{font-size:12.5px;color:var(--ink-dim);line-height:1.45}
+.emapx .lk .u{font-size:11.5px;color:var(--accent);margin-top:6px;word-break:break-all}
+
+
+.emapx /* ── figures,.emapx charts,.emapx schematic ── */
+.fig{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+  padding:22px 24px 16px;margin:8px 0 22px}
+.emapx .fig svg{display:block;width:100%;height:auto;overflow:visible}
+.emapx .fig-t{font-family:var(--serif);font-size:17px;font-weight:600;margin-bottom:14px}
+.emapx .figcap{font-size:12px;color:var(--ink-dim);line-height:1.5;margin:14px 0 0;max-width:none}
+.emapx .figcap a{color:var(--accent)}
+.emapx .figcap b{color:var(--ink-muted)}
+.emapx /* schematic */
+.area rect{fill:var(--surface);stroke:#CBD6D6;stroke-width:1.5}
+.emapx .area text{font-family:var(--sans);font-size:13px;font-weight:600;fill:var(--ink);
+  text-anchor:middle;dominant-baseline:middle}
+.emapx .area.e rect{stroke:#2a78d6} .emapx .area.w rect{stroke:#eb6834}
+.emapx .area.iso rect{stroke-dasharray:4 3}
+.emapx .ln{stroke:#9AA8AC;stroke-width:2;fill:none}
+.emapx .lnfc{stroke:#7C8D92;stroke-width:2;fill:none;stroke-dasharray:5 4}
+.emapx .fc{fill:#FDF3E7;stroke:#DD7B2F;stroke-width:1.6}
+.emapx .fct{font-family:var(--sans);font-size:12px;font-weight:700;fill:#C0651F;text-anchor:middle}
+.emapx .fh{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em}
+.emapx .cap2{font-family:var(--sans);font-size:10.5px;fill:#7C8D92;text-anchor:middle;paint-order:stroke;stroke:var(--surface);stroke-width:5;stroke-linejoin:round}
+.emapx .cap2.iso2{font-style:italic}
+.emapx /* composition bar */
+.seg text{font-family:var(--sans);font-size:12.5px;font-weight:600;fill:#fff;dominant-baseline:middle}
+.emapx .axl{font-family:var(--sans);font-size:11.5px;fill:#7C8D92}
+.emapx /* bar chart */
+.grid{stroke:#EDF1F1;stroke-width:1}
+.emapx .axis{stroke:#CBD6D6;stroke-width:1}
+.emapx .gl{font-family:var(--sans);font-size:10.5px;fill:#9AA8AC;text-anchor:end}
+.emapx .xl{font-family:var(--sans);font-size:12px;fill:var(--ink-muted);text-anchor:middle}
+.emapx .bar1 rect{fill:#1baf7a}
+.emapx .bar1 text{font-family:var(--sans);font-size:15px;font-weight:700;fill:var(--ink);text-anchor:middle}
+.emapx /* stat pair */
+.stats{display:flex;align-items:center;gap:18px;flex-wrap:wrap;background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--r);padding:20px 24px;margin:0 0 22px}
+.emapx .st .k{font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:4px}
+.emapx .st .v{font-family:var(--serif);font-size:30px;font-weight:700;line-height:1}
+.emapx .st .v small{font-family:var(--sans);font-size:13px;font-weight:500;color:var(--ink-muted)}
+.emapx .st.arrow{font-size:24px;color:var(--ink-dim)}
+.emapx .st.note{flex:1 1 240px;font-size:11.5px;color:var(--ink-dim);line-height:1.5}
+.emapx .st.note a{color:var(--accent)}
+.emapx /* pending slot */
+.pending{background:var(--sunken);border:1px dashed #CBD6D6;border-radius:var(--r);
+  padding:20px 22px;margin:6px 0 22px}
+.emapx .pending .t{font-size:13px;font-weight:600;color:var(--ink-muted);margin-bottom:6px}
+.emapx .pending p{font-size:13px;color:var(--ink-dim);line-height:1.55;margin:0}
+.emapx .pending a{color:var(--accent)}
+
+.emapx footer{border-top:1px solid var(--border);padding:30px 0;font-size:12px;color:var(--ink-dim);line-height:1.6}
+@media(prefers-reduced-motion:reduce){.emapx *{transition-duration:.01ms!important}}
+</style>
+<div class="emapx">
+<div class="wrap">
+  <header class="mh">
+    <div class="top">
+      <span class="bchip">Administered procurement</span>
+      <span class="reviewed">Last reviewed 16 August 2026</span>
+    </div>
+    <h1>Malaysia</h1>
+    <p class="one">Gas goes out as LNG. The domestic power price comes from a regulator, not a curve: one buyer, one grid, and a fuel-cost formula where a spot market would be.</p>
+    <div class="facts"><div class="fi"><div class="k">Power exchange</div><div class="v">None — single-buyer model</div></div><div class="fi"><div class="k">Price unit</div><div class="v">sen / kWh</div></div><div class="fi"><div class="k">Tariff setting</div><div class="v">Incentive-Based Regulation, RP4 2025–2027</div></div><div class="fi"><div class="k">System operator</div><div class="v">Single Buyer (within TNB)</div></div><div class="fi"><div class="k">Gas position</div><div class="v">Net exporter — LNG</div></div></div>
+  </header>
+
+  <div class="body">
+    <aside class="toc" id="toc">
+      <div class="t">On this page</div>
+      <a href="#s1">01 Overview</a>
+      <a href="#s2">02 Market structure</a>
+      <a href="#s3">03 Infrastructure</a>
+      <a href="#s4">04 Demand and supply</a>
+      <a href="#s5">05 Price setting</a>
+      <a href="#s6">06 Regulatory regime</a>
+      <a href="#s7">Key links</a>
+    </aside>
+    <main><section class="sec" id="s1"><span class="sn">01</span><h2>Overview</h2>
+<p class="lead">Malaysia has a wholesale electricity sector with no wholesale electricity market. Every
+megawatt-hour in Peninsular Malaysia is contracted to, dispatched by and settled through the same
+counterparty, the Single Buyer. What the consumer pays is decided by a regulator on a three-year cycle.</p>
+
+<p>No market on this site is more administered, and that is the design, not an accident. Malaysia
+produces a lot of gas and has exported LNG for decades. Day to day, none of that shows up in the
+domestic power price. Fuel reaches the power sector at regulated prices, and the gap between those
+prices and the market cost gets carried by a formula. Nobody trades it.</p>
+
+<p>Three bodies matter. <strong>Tenaga Nasional Berhad (TNB)</strong> owns the
+Peninsular grid and most of the distribution and retail business. The <a href="https://www.singlebuyer.com.my/" target="_blank" rel="noopener">Single Buyer</a>, ring-fenced inside TNB,
+plans capacity, runs procurement and dispatches the system. The <a href="https://www.st.gov.my/en/" target="_blank" rel="noopener">Energy Commission</a> — Suruhanjaya Tenaga — sets the
+revenue TNB is allowed to earn and the tariff consumers pay, under an Incentive-Based Regulation
+framework now in its fourth regulatory period.</p>
+
+<p>Sabah and Sarawak are separate. Sarawak runs its own utility, its own regulator and, since 2025,
+its own gas aggregator. A different market inside the same country.</p>
+
+<div class="pull"><div class="t">Where the tradable risk actually sits</div>
+<p>There is no spot power price to trade here. The exposure is regulatory: allowed revenue for the
+period, the fuel-cost pass-through formula, and what comes out of the capacity tenders. You are
+taking a view on a policy decision. Merit-order economics will not help you.</p></div>
+</section><section class="sec" id="s2"><span class="sn">02</span><h2>Market structure</h2>
+<p class="lead">One buyer, one grid owner, one regulator. Then two systems in East Malaysia that share
+none of that machinery and answer to different people.</p>
+
+<h3>Who does what</h3>
+<table><thead><tr><th>Function</th><th>Body</th><th>Role</th></tr></thead><tbody>
+<tr><td>Regulator</td><td>Energy Commission (Suruhanjaya Tenaga)</td><td>Licensing, allowed revenue, tariff setting for Peninsular Malaysia and Sabah</td></tr>
+<tr><td>Single Buyer</td><td>Ring-fenced unit within TNB</td><td>Capacity planning, procurement, scheduling and dispatch</td></tr>
+<tr><td>Grid and retail</td><td>Tenaga Nasional Berhad</td><td>Transmission, distribution and the great majority of retail supply</td></tr>
+<tr><td>Generation</td><td>TNB Power Generation and IPPs</td><td>Sell under long-term power purchase agreements, not into a market</td></tr>
+<tr><td>Sarawak</td><td>Sarawak Energy Berhad</td><td>Vertically integrated state utility under state jurisdiction</td></tr>
+<tr><td>Sabah</td><td>Sabah Electricity</td><td>Separate grid, separate tariff schedule</td></tr>
+</tbody></table>
+
+<h3>The single-buyer model in practice</h3>
+<p>Independent power producers never compete for load. They compete <strong>once</strong>, at tender,
+for a power purchase agreement running twenty years or more. Payment usually splits into a capacity
+charge for being available and an energy charge that passes fuel through at cost. After signature, how
+the system actually runs barely touches the plant's revenue.</p>
+
+<p>New capacity goes out to competitive bidding, run by the Single Buyer under Energy Commission
+oversight. That is where price discovery lives. A tender result for a combined-cycle plant or a
+large-scale solar tranche is as close to a forward curve as this market gets.</p>
+
+<h3>Cracks in the monopoly</h3>
+<p>Two mechanisms move power outside the single-buyer channel. <strong>NEDA</strong>, the New
+Enhanced Dispatch Arrangement, lets merchant and contracted plants bid energy for economic dispatch:
+a merit order running inside a contracted system. The
+<a href="https://www.st.gov.my/sites/default/files/2026-04/Guidelines-for-CRESS_2.pdf" target="_blank" rel="noopener">Corporate Renewable Energy Supply Scheme (CRESS)</a>, opened in 2024, goes further: it grants
+third-party access to the grid so a renewable developer can sell directly to a high- or medium-voltage
+consumer, paying a regulated System Access Charge to the Single Buyer for use of the network. Projects
+must be at least 30 MW with a direct grid connection, and the access charge is fixed for three years
+with revisions capped at 15% between periods.</p>
+
+<div class="pull"><div class="t">Read CRESS as the template, not the exception</div>
+<p>CRESS is small. It is also the first regulated third-party access to the Malaysian grid. Watch the
+System Access Charge. That toll decides whether bilateral supply pays, and a regulator sets it, not
+scarcity.</p></div>
+</section><section class="sec" id="s3"><span class="sn">03</span><h2>Infrastructure — power and gas</h2>
+<p class="lead">Three power systems, none of them wired to each other. On the gas side the Peninsula
+has been formally opened to third parties, while East Malaysia goes its own way.</p>
+
+<h3>Power</h3>
+<div class="cards">
+<div class="card"><h4>Peninsular Malaysia</h4><p>The main system: TNB-owned transmission, dispatched by
+the Single Buyer, supplied by TNB plant and a fleet of contracted IPPs. Interconnected to Thailand and
+to Singapore.</p></div>
+<div class="card"><h4>Sarawak</h4><p>Hydro-dominated and separately governed. <a href="https://www.sarawakenergy.com/" target="_blank" rel="noopener">Bakun</a>
+alone is 2,400 MW installed, with Baleh adding a further 1,285 MW under construction.</p></div>
+<div class="card"><h4>Sabah</h4><p>The smallest and weakest of the three, mostly gas and diesel
+fired, with no interconnection to the Peninsula.</p></div>
+</div>
+
+<h3>Gas</h3>
+<p>The Peninsular gas system sits on the <strong>Peninsular Gas Utilisation</strong> pipeline, a
+1,690 km trunk line with laterals and liquids pipelines hanging off it, plus two regasification terminals,
+<a href="https://www.petronas.com/pgb/our-business/third-party-access" target="_blank" rel="noopener">PETRONAS Gas Berhad's terminals</a> at Sungai Udang in Melaka and Pengerang in Johor. All three are regulated
+assets under third-party access, with published tariffs. For the regulatory period running January 2026
+to December 2028 the approved base tariffs are RM1.196/GJ/day for PGU transportation and RM3.542 and
+RM3.142/GJ/day for regasification at Sungai Udang and Pengerang respectively.</p>
+
+<p>A published, non-discriminatory tariff is what makes gas structurally more open here than power.
+A third-party shipper can land a cargo, regasify it and move it to a Peninsular customer at a cost he
+can work out in advance. Power has no equivalent toll available for general use.</p>
+
+<div class="fig">
+  <svg viewBox="0 0 900 300" role="img" aria-label="Schematic of Malaysia's three separate power systems and the single-buyer contracting chain">
+    <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 z" fill="#7C8D92"/></marker></defs>
+    <text x="30" y="26" class="fh" fill="#2a78d6">PENINSULAR MALAYSIA</text>
+    <text x="640" y="26" class="fh" fill="#eb6834">EAST MALAYSIA</text>
+    <rect x="20" y="44" width="580" height="228" rx="10" fill="#2a78d6" opacity=".05"/>
+    <rect x="630" y="44" width="250" height="228" rx="10" fill="#eb6834" opacity=".05"/>
+
+    <g class="area e"><rect x="50" y="66" width="130" height="42" rx="7"/><text x="115" y="92">TNB plant</text></g>
+    <g class="area e"><rect x="50" y="132" width="130" height="42" rx="7"/><text x="115" y="158">IPPs</text></g>
+    <g class="area e"><rect x="50" y="198" width="130" height="42" rx="7"/><text x="115" y="224">CRESS solar</text></g>
+
+    <rect x="250" y="120" width="130" height="66" rx="8" class="fc"/>
+    <text x="315" y="146" class="fct">SINGLE</text><text x="315" y="164" class="fct">BUYER</text>
+
+    <g class="area e"><rect x="440" y="120" width="130" height="66" rx="7"/><text x="505" y="146">TNB grid</text><text x="505" y="166">and retail</text></g>
+
+    <path class="ln" d="M180,87 H215 V132" marker-end="url(#ar)"/>
+    <path class="ln" d="M180,153 H250" marker-end="url(#ar)"/>
+    <path class="ln" d="M180,219 H215 V186" marker-end="url(#ar)"/>
+    <path class="lnfc" d="M380,153 H440" marker-end="url(#ar)"/>
+
+    <g class="area w"><rect x="660" y="86" width="190" height="52" rx="7"/><text x="755" y="117">Sarawak — SEB</text></g>
+    <g class="area w iso"><rect x="660" y="176" width="190" height="52" rx="7"/><text x="755" y="207">Sabah — SESB</text></g>
+
+    <text x="315" y="212" class="cap2">one counterparty for every megawatt-hour</text>
+    <text x="755" y="256" class="cap2 iso2">no interconnection to the Peninsula</text>
+  </svg>
+  <p class="figcap"><b>Schematic — system topology, not a geographic map.</b> Generation on the Peninsula
+  contracts to the Single Buyer, which dispatches and passes energy to the TNB network. CRESS supply
+  bypasses the contracting chain but still pays the regulated access charge. Sarawak and Sabah sit
+  outside the arrangement entirely.</p>
+</div>
+
+<div class="mapslot"><div class="t">Geographic infrastructure map</div>
+<div class="s">A sourced map of the PGU pipeline, the regasification terminals and the Peninsular
+transmission backbone belongs here — reproduced from an official publication rather than redrawn.</div></div>
+</section><section class="sec" id="s4"><span class="sn">04</span><h2>Demand and supply</h2>
+<p class="lead">Coal carries the base and gas does the flexing. The hydro is almost all in Sarawak,
+where the Peninsula cannot reach it. Solar is still a rounding error after a decade of tenders.</p>
+
+<h3>Demand</h3>
+<p>Demand is growing, not flat. Industrialisation, cooling load and a fast data centre build-out in
+Johor and Selangor all pull the same way. Under a single-buyer model that growth has to be met by
+contracting capacity years ahead. No price is allowed to rise and pull supply in.</p>
+
+<h3>Supply</h3>
+<p>For a gas-producing country the mix reads oddly. Coal supplies more electricity than gas. A molecule
+is worth more shipped as LNG than burned at home, and the coal fleet exists to keep the domestic tariff
+away from that opportunity cost.</p>
+
+<div class="fig">
+  <div class="fig-t">Where Malaysia's electricity came from, 2025</div>
+  <svg viewBox="0 0 900 130" role="img" aria-label="Malaysia generation mix 2025 by source">
+    <g class="seg"><rect x="0"   y="18" width="401" height="40" rx="4" fill="#2a78d6"/><text x="10"  y="43">Coal 45%</text></g>
+    <g class="seg"><rect x="405" y="18" width="284" height="40" rx="4" fill="#eb6834"/><text x="415" y="43">Gas 32%</text></g>
+    <g class="seg"><rect x="693" y="18" width="158" height="40" rx="4" fill="#1baf7a"/><text x="703" y="43">Hydro 18%</text></g>
+    <g class="seg"><rect x="855" y="18" width="23"  height="40" rx="4" fill="#eda100"/></g>
+    <g class="seg"><rect x="882" y="18" width="18"  height="40" rx="4" fill="#e87ba4"/></g>
+    <line class="grid" x1="866" y1="58" x2="866" y2="78"/>
+    <line class="grid" x1="891" y1="58" x2="891" y2="96"/>
+    <text x="900" y="82" class="axl" text-anchor="end">Bioenergy 3%</text>
+    <text x="900" y="100" class="axl" text-anchor="end">Solar 2%</text>
+    <text x="0"   y="82" class="axl">Fossil fuels supply close to four fifths of generation.</text>
+    <text x="0"   y="100" class="axl">Almost all of the hydro sits in Sarawak, not on the Peninsula.</text>
+  </svg>
+  <p class="figcap">Shares for 2025. Source: <a href="https://lowcarbonpower.org/region/Malaysia" target="_blank" rel="noopener">Low Carbon Power</a>,
+  corroborated by <a href="https://ember-energy.org/countries-and-regions/malaysia/" target="_blank" rel="noopener">Ember</a>, which puts low-carbon generation at 21% and
+  solar and wind combined at 2%.</p>
+</div>
+
+<table><thead><tr><th>Indicator</th><th>Direction</th><th>Comment</th></tr></thead><tbody>
+<tr><td>Electricity demand</td><td>Rising</td><td>Industry, cooling load and data centre connections</td></tr>
+<tr><td>Coal generation</td><td>Structurally dominant</td><td>Largest single source at 45% of 2025 output</td></tr>
+<tr><td>Gas generation</td><td>Second, and policy-driven</td><td>Competes with the export value of LNG</td></tr>
+<tr><td>Hydro</td><td>Rising, but East Malaysian</td><td>Baleh adds 1,285 MW to a system the Peninsula cannot reach</td></tr>
+<tr><td>Solar</td><td>Rising from a very low base</td><td>Still around 2% of generation despite repeated tender rounds</td></tr>
+</tbody></table>
+
+<div class="stats">
+  <div class="st"><div class="k">Low-carbon share, 2025</div><div class="v">21 <small>%</small></div></div>
+  <div class="st arrow">&#8594;</div>
+  <div class="st"><div class="k">Global average</div><div class="v">43 <small>%</small></div></div>
+  <div class="st note">Source: <a href="https://ember-energy.org/countries-and-regions/malaysia/" target="_blank" rel="noopener">Ember</a>.</div>
+</div>
+
+<div class="pull"><div class="t">The asymmetry to keep in view</div>
+<p>Malaysia exports LNG and takes the price consequences only at one remove. Gas reaches generators at
+administered prices, so a rally in Asian LNG lifts the export value without moving the domestic tariff
+that month. The bill turns up later, through the fuel pass-through formula and, in the end, through the
+government's subsidy account.</p></div>
+</section><section class="sec" id="s5"><span class="sn">05</span><h2>Price setting mechanism</h2>
+<p class="lead">Nothing clears. The tariff is calculated, approved, then adjusted by formula. What you
+model here is a regulatory decision, not a supply curve.</p>
+
+<h3>Incentive-Based Regulation</h3>
+<p>Since 2014 the Energy Commission has set TNB's allowed revenue over multi-year periods under an
+<strong>Incentive-Based Regulation</strong> framework. It approves a forecast of efficient operating and
+capital costs, a permitted return, and the demand base those costs are spread across. The base tariff
+then holds for the period. Beat the allowance and TNB keeps the difference; miss it and TNB wears it.</p>
+
+<p><strong>RP4</strong> runs from 2025 to 2027. The revised RP4 schedule took effect on
+<a href="https://www.st.gov.my/jadual-elektrik-baharu-lebih-236-juta-pengguna-domestik-semenanjung-nikmati-kadar-lebih-adil" target="_blank" rel="noopener">1 July 2025</a> and raised the average base
+tariff to <strong>45.40 sen/kWh</strong> from 39.95 sen/kWh, an increase of
+<a href="https://paultan.org/2025/06/20/big-changes-to-domestic-tnb-bill-structure-no-more-tiered-rates-base-tariff-up-by-13-64-from-july-2025/" target="_blank" rel="noopener">13.64%</a>. Just as importantly, the bill was restructured: consumers now
+see separate <strong>energy, capacity, network and retail</strong> charges rather than a single blended
+rate, and time-of-use pricing was extended to domestic customers.</p>
+
+<h3>From ICPT to AFA</h3>
+<p>The base tariff is only a starting point. Fuel costs move faster than a three-year settlement, so a
+pass-through sits on top. The old <strong>Imbalance Cost Pass-Through (ICPT)</strong> reconciled actual
+against benchmark fuel costs every six months and spat out a rebate or a surcharge. From 1 July 2025 the
+<strong>Automatic Fuel Adjustment (AFA)</strong> took over,
+which does the same job <a href="https://www.tnb.com.my/assets/files/Reference_No._GA1-20062025-00054.pdf" target="_blank" rel="noopener">monthly rather than half-yearly</a> against
+prevailing fuel prices and the exchange rate, with movements beyond 3 sen/kWh requiring government approval.</p>
+
+<div class="pull"><div class="t">Why the frequency change matters</div>
+<p>Six-monthly reconciliation let balances build up, and every ICPT announcement became a political
+event. Monthly adjustment keeps the balance small and shortens the lag between a coal or LNG move and
+the consumer bill. It also makes the pass-through mechanical rather than discretionary, which is the
+part that matters if you are pricing Malaysian utility credit or industrial power cost.</p></div>
+
+<h3>Where competition does set price</h3>
+<p>Two Malaysian prices are genuinely discovered by competition. One is the winning bid in a capacity
+tender, gas-fired or solar, which fixes an offtake price for decades. The other is the regulated
+third-party toll: gas transport and regasification tariffs, and the CRESS System Access Charge. Neither
+is a spot price. Both are published, both are contestable, and both decide whether a project works.</p>
+</section><section class="sec" id="s6"><span class="sn">06</span><h2>Regulatory regime</h2>
+<p class="lead">Federal law governs the Peninsula and Sabah. Sarawak governs itself. Which regime applies
+is the first question in any Malaysian energy transaction, and it is not always obvious.</p>
+
+<table><thead><tr><th>Body</th><th>Remit</th></tr></thead><tbody>
+<tr><td>Energy Commission (Suruhanjaya Tenaga)</td><td>Economic and technical regulation of electricity and piped gas in Peninsular Malaysia and Sabah</td></tr>
+<tr><td>Ministry of Energy Transition and Water Transformation (PETRA)</td><td>Energy policy, transition targets and subsidy direction</td></tr>
+<tr><td>Single Buyer</td><td>Procurement, planning and dispatch under Energy Commission oversight</td></tr>
+<tr><td>PETRONAS</td><td>Custodian of national petroleum resources; upstream licensing and LNG export</td></tr>
+<tr><td>Sarawak state authorities and PETROS</td><td>Electricity regulation and gas aggregation within Sarawak</td></tr>
+</tbody></table>
+
+<h3>Gas market opening</h3>
+<p>The gas reform is real, and bounded. Amendments to the Gas Supply Act set up a licensed third-party
+access regime over the Peninsular transmission and regasification assets, so a shipper who is not
+PETRONAS can contract capacity at <a href="https://www.petronas.com/pgb/our-business/third-party-access" target="_blank" rel="noopener">published tariffs</a>. What
+was not deregulated is the price of gas delivered to power generation. That is still administered. So
+for a trader, access is a solved problem and the molecule price is not.</p>
+
+<h3>Subsidy reform is the live risk</h3>
+<p>Malaysian energy subsidies are large. They cover fuel, gas to the power sector and, in effect, the
+electricity tariff itself, and they are being unwound slowly. The RP4 tariff increase and the move to
+monthly AFA both push more of the real cost onto consumers. Every further step is a fiscal decision taken
+against a political constraint, and it lands as an announcement rather than as a price move. Take a view
+on Malaysian power costs and you have taken a view on the pace of that unwind.</p>
+
+<h3>The Sarawak divergence</h3>
+<p>Sarawak has asserted jurisdiction over its own gas distribution, with PETROS confirmed as sole gas
+aggregator in the state from 2025. Nothing structural in Malaysian energy has moved further in a decade.
+There are now two gas counterparties in one country, and contracts, licences and regulatory recourse in
+Sarawak are different instruments from the Peninsular versions.</p>
+
+<div class="pull"><div class="t">The practical test</div>
+<p>Before you price anything Malaysian, work out which system it sits in: Peninsular, Sabah or Sarawak.
+Tariff, regulator, counterparty and gas supplier all differ. And there is no wire between them.</p></div>
+</section><section class="sec" id="s7"><span class="sn">SOURCES</span><h2>Key links</h2><p class="lead">Primary sources for this market. Figures on this page are drawn from these and from published market data.</p><div class="links"><a class="lk" href="https://www.st.gov.my/en/" target="_blank" rel="noopener"><div class="n">Energy Commission (Suruhanjaya Tenaga)</div><div class="d">Licensing, Incentive-Based Regulation and the approved tariff schedules</div><div class="u">https://www.st.gov.my/en/</div></a><a class="lk" href="https://www.singlebuyer.com.my/" target="_blank" rel="noopener"><div class="n">Single Buyer</div><div class="d">Capacity planning, procurement, dispatch, AFA and CRESS administration</div><div class="u">https://www.singlebuyer.com.my/</div></a><a class="lk" href="https://www.tnb.com.my/" target="_blank" rel="noopener"><div class="n">Tenaga Nasional Berhad</div><div class="d">Grid owner and dominant supplier; regulatory and investor disclosures</div><div class="u">https://www.tnb.com.my/</div></a><a class="lk" href="https://www.petronas.com/pgb/our-business/third-party-access" target="_blank" rel="noopener"><div class="n">PETRONAS Gas Berhad — Third Party Access</div><div class="d">Regulated gas transport and regasification tariffs on the Peninsula</div><div class="u">https://www.petronas.com/pgb/our-business/third-party-access</div></a><a class="lk" href="https://www.sarawakenergy.com/" target="_blank" rel="noopener"><div class="n">Sarawak Energy</div><div class="d">The separate East Malaysian system: hydro fleet and state utility structure</div><div class="u">https://www.sarawakenergy.com/</div></a><a class="lk" href="https://ember-energy.org/countries-and-regions/malaysia/" target="_blank" rel="noopener"><div class="n">Ember — Malaysia</div><div class="d">Independent generation mix and low-carbon share data</div><div class="u">https://ember-energy.org/countries-and-regions/malaysia/</div></a></div></section></main>
+  </div>
+</div>
+
+
+
+<script>
+var links=[].slice.call(document.querySelectorAll('.toc a[href^="#s"]'));
+var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))}).filter(Boolean);
+function onScroll(){var y=window.scrollY+150,c=0;
+  secs.forEach(function(s,i){if(s.offsetTop<=y)c=i});
+  links.forEach(function(a,i){a.classList.toggle('on',i===c)})}
+window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+</script>
+</div>

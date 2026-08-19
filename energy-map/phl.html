@@ -1,0 +1,459 @@
+---
+layout: default
+title: Philippines
+permalink: /energy-map/phl/
+blurb: "Philippines — Pool clearing. Market structure, infrastructure, demand and supply, price formation and regulation."
+---
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet"><style>
+.emapx{
+  --bg:#FAFAF8; --surface:#FFFFFF; --sunken:#F4F7F7;
+  --ink:#14262B; --ink-muted:#4A5B60; --ink-dim:#7C8D92;
+  --border:#E2E8E8;
+  --s5:#C0392B; --s4:#DD7B2F; --s3:#E8AE28; --s2:#3B8B60; --s1:#1F7A52;
+  --accent:#3B8B60;
+  --r:8px; --micro:180ms; --ease:cubic-bezier(.2,.6,.2,1);
+  --serif:"Source Serif 4",Georgia,serif;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+.emapx *{box-sizing:border-box;margin:0;padding:0}
+.emapx{scroll-behavior:smooth}
+.emapx{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.5;
+  -webkit-font-smoothing:antialiased;font-feature-settings:"tnum" 1}
+.emapx h1,.emapx h2,.emapx h3{font-family:var(--serif);line-height:1.16;letter-spacing:-.02em;font-weight:600}
+.emapx .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+@media(max-width:767px){.emapx .wrap{padding:0 16px}}
+.emapx .proto{background:#14262B;color:#F3F6F6;font-size:12px;padding:8px 16px;text-align:center}
+.emapx nav{position:sticky;top:0;z-index:60;height:64px;display:flex;align-items:center;
+  background:rgba(250,250,248,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.emapx nav .wrap{display:flex;align-items:center;gap:26px;width:100%}
+.emapx .logo{font-family:var(--serif);font-size:20px;font-weight:700;display:flex;align-items:center;gap:10px}
+.emapx .logo .mark{width:22px;height:22px;border:2px solid var(--accent);border-radius:3px;position:relative;flex:none}
+.emapx .logo .mark::after{content:"";position:absolute;inset:4px 4px auto 4px;height:2px;background:var(--s3)}
+.emapx .crumb{font-size:13px;color:var(--ink-dim)}
+.emapx .crumb a{color:var(--ink-muted);text-decoration:none}
+.emapx .crumb a:hover{color:var(--ink)}
+.emapx .navlinks{display:flex;gap:22px;margin-left:auto;font-size:14px}
+.emapx .navlinks a{color:var(--ink-muted);text-decoration:none}
+.emapx .navlinks a:hover{color:var(--ink)}
+
+.emapx /* header */
+.mh{padding:46px 0 30px}
+.emapx .mh .top{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.emapx .bchip{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:5px 12px;border-radius:999px;background:var(--accent);color:#fff}
+.emapx .reviewed{font-size:12px;color:var(--ink-dim);margin-left:auto}
+.emapx .mh h1{font-size:56px;margin-bottom:12px}
+@media(max-width:767px){.emapx .mh h1{font-size:34px}}
+.emapx .mh .one{font-size:20px;color:var(--ink-muted);max-width:62ch;line-height:1.45}
+.emapx .facts{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);
+  border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin-top:28px}
+@media(max-width:900px){.emapx .facts{grid-template-columns:repeat(2,1fr)}}
+.emapx .fi{background:var(--surface);padding:15px 16px}
+.emapx .fi .k{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:5px}
+.emapx .fi .v{font-size:15px;font-weight:600;line-height:1.3}
+
+.emapx /* layout */
+.body{display:grid;grid-template-columns:190px 1fr;gap:44px;padding-bottom:20px}
+@media(max-width:1023px){.emapx .body{grid-template-columns:1fr;gap:0}.emapx .toc{display:none}}
+.emapx .toc{position:sticky;top:88px;align-self:start;padding-top:40px}
+.emapx .toc .t{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:10px}
+.emapx .toc a{display:block;font-size:13px;color:var(--ink-muted);text-decoration:none;padding:7px 0 7px 13px;
+  border-left:2px solid var(--border);transition:all var(--micro) var(--ease)}
+.emapx .toc a:hover{color:var(--ink);border-left-color:var(--ink-dim)}
+.emapx .toc a.on{color:var(--ink);font-weight:600;border-left-color:var(--accent)}
+
+.emapx /* sections */
+.sec{padding:40px 0;border-top:1px solid var(--border)}
+.emapx .sec:first-child{border-top:0;padding-top:12px}
+.emapx .sn{font-family:var(--serif);font-size:13px;font-weight:700;color:var(--accent);display:block;margin-bottom:5px}
+.emapx .sec h2{font-size:31px;margin-bottom:8px}
+.emapx .sec .lead{font-size:17px;color:var(--ink-muted);line-height:1.6;max-width:70ch;margin-bottom:20px}
+.emapx .sec p{font-size:15.5px;line-height:1.68;color:var(--ink-muted);max-width:70ch;margin-bottom:16px}
+.emapx .sec p strong{color:var(--ink);font-weight:600}
+.emapx .sec h3{font-size:19px;margin:26px 0 10px}
+
+.emapx table{width:100%;border-collapse:collapse;font-size:14px;background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin:6px 0 20px}
+.emapx th{text-align:left;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-dim);
+  padding:10px 14px;border-bottom:1px solid var(--border);background:var(--sunken);font-weight:700}
+.emapx td{padding:11px 14px;border-bottom:1px solid var(--border);color:var(--ink-muted);vertical-align:top;line-height:1.5}
+.emapx tbody tr:last-child td{border-bottom:0}
+.emapx td:first-child{color:var(--ink);font-weight:500}
+.emapx tbody tr:hover td{background:var(--sunken)}
+
+.emapx .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:6px 0 20px}
+@media(max-width:900px){.emapx .cards{grid-template-columns:1fr}}
+.emapx .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:18px}
+.emapx .card h4{font-family:var(--sans);font-size:14px;font-weight:600;margin-bottom:7px;color:var(--accent)}
+.emapx .card p{font-size:13.5px;line-height:1.55;margin:0;color:var(--ink-muted)}
+
+.emapx .pull{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--accent);
+  border-radius:var(--r);padding:20px 22px;margin:6px 0 22px}
+.emapx .pull p{margin:0;font-size:15.5px;line-height:1.6}
+.emapx .pull .t{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:7px}
+
+.emapx /* map slot — a SOURCED map is placed here,.emapx never a rendered one */
+.mapslot{background:var(--sunken);border:1px dashed var(--border);border-radius:var(--r);
+  padding:34px 24px;text-align:center;margin:6px 0 20px}
+.emapx .mapslot .t{font-size:13px;font-weight:600;color:var(--ink-muted);margin-bottom:5px}
+.emapx .mapslot .s{font-size:12px;color:var(--ink-dim);line-height:1.5;max-width:56ch;margin:0 auto}
+
+.emapx /* key links */
+.links{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:6px}
+@media(max-width:767px){.emapx .links{grid-template-columns:1fr}}
+.emapx .lk{display:block;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+  padding:15px 17px;text-decoration:none;transition:all var(--micro) var(--ease)}
+.emapx .lk:hover{border-color:var(--accent);transform:translateY(-2px)}
+.emapx .lk .n{font-size:14.5px;font-weight:600;color:var(--ink);margin-bottom:3px}
+.emapx .lk .d{font-size:12.5px;color:var(--ink-dim);line-height:1.45}
+.emapx .lk .u{font-size:11.5px;color:var(--accent);margin-top:6px;word-break:break-all}
+
+
+.emapx /* ── figures,.emapx charts,.emapx schematic ── */
+.fig{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+  padding:22px 24px 16px;margin:8px 0 22px}
+.emapx .fig svg{display:block;width:100%;height:auto;overflow:visible}
+.emapx .fig-t{font-family:var(--serif);font-size:17px;font-weight:600;margin-bottom:14px}
+.emapx .figcap{font-size:12px;color:var(--ink-dim);line-height:1.5;margin:14px 0 0;max-width:none}
+.emapx .figcap a{color:var(--accent)}
+.emapx .figcap b{color:var(--ink-muted)}
+.emapx /* schematic */
+.area rect{fill:var(--surface);stroke:#CBD6D6;stroke-width:1.5}
+.emapx .area text{font-family:var(--sans);font-size:13px;font-weight:600;fill:var(--ink);
+  text-anchor:middle;dominant-baseline:middle}
+.emapx .area.e rect{stroke:#2a78d6} .emapx .area.w rect{stroke:#eb6834}
+.emapx .area.iso rect{stroke-dasharray:4 3}
+.emapx .ln{stroke:#9AA8AC;stroke-width:2;fill:none}
+.emapx .lnfc{stroke:#7C8D92;stroke-width:2;fill:none;stroke-dasharray:5 4}
+.emapx .fc{fill:#FDF3E7;stroke:#DD7B2F;stroke-width:1.6}
+.emapx .fct{font-family:var(--sans);font-size:12px;font-weight:700;fill:#C0651F;text-anchor:middle}
+.emapx .fh{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em}
+.emapx .cap2{font-family:var(--sans);font-size:10.5px;fill:#7C8D92;text-anchor:middle;paint-order:stroke;stroke:var(--surface);stroke-width:5;stroke-linejoin:round}
+.emapx .cap2.iso2{font-style:italic}
+.emapx /* composition bar */
+.seg text{font-family:var(--sans);font-size:12.5px;font-weight:600;fill:#fff;dominant-baseline:middle}
+.emapx .axl{font-family:var(--sans);font-size:11.5px;fill:#7C8D92}
+.emapx /* bar chart */
+.grid{stroke:#EDF1F1;stroke-width:1}
+.emapx .axis{stroke:#CBD6D6;stroke-width:1}
+.emapx .gl{font-family:var(--sans);font-size:10.5px;fill:#9AA8AC;text-anchor:end}
+.emapx .xl{font-family:var(--sans);font-size:12px;fill:var(--ink-muted);text-anchor:middle}
+.emapx .bar1 rect{fill:#1baf7a}
+.emapx .bar1 text{font-family:var(--sans);font-size:15px;font-weight:700;fill:var(--ink);text-anchor:middle}
+.emapx /* stat pair */
+.stats{display:flex;align-items:center;gap:18px;flex-wrap:wrap;background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--r);padding:20px 24px;margin:0 0 22px}
+.emapx .st .k{font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:4px}
+.emapx .st .v{font-family:var(--serif);font-size:30px;font-weight:700;line-height:1}
+.emapx .st .v small{font-family:var(--sans);font-size:13px;font-weight:500;color:var(--ink-muted)}
+.emapx .st.arrow{font-size:24px;color:var(--ink-dim)}
+.emapx .st.note{flex:1 1 240px;font-size:11.5px;color:var(--ink-dim);line-height:1.5}
+.emapx .st.note a{color:var(--accent)}
+.emapx /* pending slot */
+.pending{background:var(--sunken);border:1px dashed #CBD6D6;border-radius:var(--r);
+  padding:20px 22px;margin:6px 0 22px}
+.emapx .pending .t{font-size:13px;font-weight:600;color:var(--ink-muted);margin-bottom:6px}
+.emapx .pending p{font-size:13px;color:var(--ink-dim);line-height:1.55;margin:0}
+.emapx .pending a{color:var(--accent)}
+
+.emapx footer{border-top:1px solid var(--border);padding:30px 0;font-size:12px;color:var(--ink-dim);line-height:1.6}
+@media(prefers-reduced-motion:reduce){.emapx *{transition-duration:.01ms!important}}
+</style>
+<div class="emapx">
+<div class="wrap">
+  <header class="mh">
+    <div class="top">
+      <span class="bchip">Pool clearing</span>
+      <span class="reviewed">Last reviewed 16 August 2026</span>
+    </div>
+    <h1>Philippines</h1>
+    <p class="one">Asia's most granular spot pool — five-minute nodal pricing across three separate island grids — arriving at the moment its only domestic gas field runs down and imported LNG takes over the margin.</p>
+    <div class="facts"><div class="fi"><div class="k">Power exchange</div><div class="v">WESM (operator: IEMOP)</div></div><div class="fi"><div class="k">Price unit</div><div class="v">PHP / MWh</div></div><div class="fi"><div class="k">Dispatch interval</div><div class="v">5 minutes</div></div><div class="fi"><div class="k">System operator</div><div class="v">NGCP</div></div><div class="fi"><div class="k">Gas position</div><div class="v">Domestic field in decline; now an LNG importer</div></div></div>
+  </header>
+
+  <div class="body">
+    <aside class="toc" id="toc">
+      <div class="t">On this page</div>
+      <a href="#s1">01 Overview</a>
+      <a href="#s2">02 Market structure</a>
+      <a href="#s3">03 Infrastructure</a>
+      <a href="#s4">04 Demand and supply</a>
+      <a href="#s5">05 Price setting</a>
+      <a href="#s6">06 Regulatory regime</a>
+      <a href="#s7">Key links</a>
+    </aside>
+    <main><section class="sec" id="s1"><span class="sn">01</span><h2>Overview</h2>
+<p class="lead">One of Asia's few genuine energy-only spot pools runs here, across three electrically
+separate island grids, at the moment the country's only domestic gas field winds down. Every price
+printed in this market carries both of those facts.</p>
+
+<p>Wholesale power trades on the <strong>Wholesale Electricity Spot Market (WESM)</strong>, created by
+the Electric Power Industry Reform Act of 2001 and in commercial operation in Luzon since
+<a href="https://www.wesm.ph/about-us/wesm-history-timeline" target="_blank" rel="noopener">26 June 2006</a>.
+It is a gross pool with locational marginal pricing. A price is computed at every node, so congestion
+and losses land directly on what a buyer pays and a generator earns. Since 2021 it clears every five
+minutes.</p>
+
+<p>Coal dominates the supply side, with gas as the swing fuel around Manila. That gas came almost
+entirely from the offshore <strong>Malampaya</strong> field, which is in decline and has been
+<a href="https://www.icis.com/explore/resources/news/2024/11/22/11053419/overview-of-lng-gas-infrastructure-in-the-philippines/" target="_blank" rel="noopener">estimated to deplete in the second half of this decade</a>.
+So the Luzon gas fleet has moved to imported LNG, swapping a domestic contracted fuel cost for exposure
+to the Asian spot marker.</p>
+
+<h3>Why a trader should care</h3>
+<p>For a market this size the Philippines behaves oddly. Prices are nodal and the grids are weakly tied,
+so a Luzon print tells you next to nothing about Mindanao. The plant on the margin around the capital is
+increasingly an LNG-fuelled CCGT, importing a global price into a domestic pool. And retail competition
+is real: large end-users contract bilaterally with licensed suppliers, which leaves the spot market as
+the residual. Thin markets move.</p>
+
+<div class="pull"><div class="t">The structural shift in one line</div>
+<p>A country that used to burn its own gas now buys it at the global clearing price. What a cargo costs
+delivered into Batangas is becoming a direct input to the Luzon power price.</p></div>
+</section><section class="sec" id="s2"><span class="sn">02</span><h2>Market structure</h2>
+<p class="lead">An energy-only pool, an independent market operator, a private transmission
+concessionaire and a retail market on top. Underneath all of it, a physical system split three ways.</p>
+
+<h3>Who does what</h3>
+<table><thead><tr><th>Function</th><th>Body</th><th>Role</th></tr></thead><tbody>
+<tr><td>Market operator</td><td>IEMOP</td><td>Runs the WESM and acts as Central Registration Body for retail competition</td></tr>
+<tr><td>Market governance</td><td>PEMC</td><td>Philippine Electricity Market Corporation — governance and market surveillance</td></tr>
+<tr><td>Transmission and system operation</td><td>NGCP</td><td>Private concessionaire operating the national grid</td></tr>
+<tr><td>Transmission asset owner</td><td>TransCo</td><td>State-owned owner of the transmission assets NGCP operates</td></tr>
+<tr><td>Policy</td><td>Department of Energy</td><td>Energy planning, circulars, LNG and downstream gas policy</td></tr>
+<tr><td>Economic regulation</td><td>Energy Regulatory Commission</td><td>Tariffs, price caps, licensing, market rule approvals</td></tr>
+</tbody></table>
+
+<h3>Three grids, not one</h3>
+<p>Luzon, the Visayas and Mindanao are separate synchronous systems. Luzon and the Visayas have been
+AC-interconnected for years. Mindanao sat electrically alone until the
+<a href="https://www.ngcp.ph/article?cid=16636" target="_blank" rel="noopener">Mindanao–Visayas Interconnection Project</a>,
+a 450 MW HVDC link expandable to 900 MW, was energised in April 2023. Mindanao joined WESM commercial
+operations on
+<a href="https://www.wesm.ph/about-us/wesm-history-timeline" target="_blank" rel="noopener">26 January 2023</a>,
+completing national coverage. The Visayas had been integrated back in December 2010.</p>
+
+<p>A few hundred megawatts of HVDC does not merge two systems into one price zone. It moves energy when
+that is economic and the cable is available. When it binds, the grids price apart. Know which grid you
+are exposed to, and in fact which node.</p>
+
+<h3>The retail layer</h3>
+<p>Retail Competition and Open Access opened on
+<a href="https://www.wesm.ph/about-us/wesm-history-timeline" target="_blank" rel="noopener">26 June 2013</a>.
+Customers above the demand threshold buy from licensed Retail Electricity Suppliers instead of their
+distribution utility, and smaller users can pool demand under the retail aggregation programme. A
+parallel Green Energy Option Program lets qualifying consumers contract 100% renewable supply direct.
+Distribution utilities must still take a minimum share of their requirement from the spot market. Without
+that rule bilateral contracting would have hollowed the pool out years ago.</p>
+</section><section class="sec" id="s3"><span class="sn">03</span><h2>Infrastructure — power and gas</h2>
+<p class="lead">Three grids joined by one HVDC cable. A gas chain that has flipped in three years from
+a single domestic field to a cluster of import terminals.</p>
+
+<h3>Power</h3>
+<div class="cards">
+<div class="card"><h4>Luzon</h4><p>The demand centre: Metro Manila, the industrial corridor and nearly all
+the gas-fired fleet. Coal-heavy, with LNG-fuelled CCGTs often on the margin.</p></div>
+<div class="card"><h4>Visayas</h4><p>AC-interconnected with Luzon and home to most of the country's
+geothermal capacity. Smaller, and readier to congest locally.</p></div>
+<div class="card"><h4>Mindanao</h4><p>Hydro-led and isolated for most of its history. HVDC-connected to the
+Visayas since 2023, and inside WESM the same year.</p></div>
+</div>
+
+<h3>Gas and LNG</h3>
+<p>Malampaya, offshore Palawan, has supplied
+<a href="https://www.icis.com/explore/resources/news/2024/11/22/11053419/overview-of-lng-gas-infrastructure-in-the-philippines/" target="_blank" rel="noopener">more than 99% of domestic gas production</a>
+since 2001, feeding the Batangas power complex down a dedicated subsea pipeline. As output fell, import
+terminals went in alongside the same complex: a First Gen FSRU at Batangas and the AG&amp;P-developed
+Philippines LNG facility, with more regasification capacity in development. Regasified LNG goes into the
+same pipeline and the same plants. The molecules changed origin, the steel did not.</p>
+
+<div class="fig">
+  <svg viewBox="0 0 900 300" role="img" aria-label="Schematic of the three Philippine grids and the gas chain into Luzon">
+    <defs><marker id="arp" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 z" fill="#7C8D92"/></marker></defs>
+    <text x="30" y="26" class="fh" fill="#2a78d6">THREE SYNCHRONOUS GRIDS</text>
+    <text x="620" y="26" class="fh" fill="#eb6834">GAS CHAIN INTO LUZON</text>
+    <rect x="30" y="44" width="520" height="228" rx="10" fill="#2a78d6" opacity=".05"/>
+    <rect x="590" y="44" width="280" height="228" rx="10" fill="#eb6834" opacity=".05"/>
+
+    <g class="area e"><rect x="70" y="66" width="150" height="46" rx="7"/><text x="145" y="94">Luzon</text></g>
+    <g class="area e"><rect x="70" y="150" width="150" height="46" rx="7"/><text x="145" y="178">Visayas</text></g>
+    <g class="area w"><rect x="70" y="226" width="150" height="46" rx="7"/><text x="145" y="254">Mindanao</text></g>
+
+    <path class="ln" d="M145,112 V150" marker-end="url(#arp)"/>
+    <text x="300" y="130" class="cap2">AC interconnection</text>
+    <path class="lnfc" d="M145,196 V226"/>
+    <rect x="250" y="228" width="60" height="42" rx="6" class="fc"/>
+    <text x="280" y="254" class="fct">HVDC</text>
+    <path class="lnfc" d="M220,249 H250"/>
+    <text x="420" y="254" class="cap2">450 MW link, energised 2023</text>
+    <text x="420" y="196" class="cap2 iso2">constrained transfer — grids can price apart</text>
+
+    <g class="area w"><rect x="620" y="66" width="220" height="42" rx="7"/><text x="730" y="92">Malampaya (declining)</text></g>
+    <g class="area w"><rect x="620" y="130" width="220" height="42" rx="7"/><text x="730" y="156">LNG import terminals</text></g>
+    <g class="area w"><rect x="620" y="212" width="220" height="42" rx="7"/><text x="730" y="238">Batangas CCGT fleet</text></g>
+    <path class="ln" d="M730,108 V130" marker-end="url(#arp)"/>
+    <path class="ln" d="M730,172 V212" marker-end="url(#arp)"/>
+    <text x="730" y="196" class="cap2">shared pipeline and plants</text>
+    <path class="lnfc" d="M620,233 H480 V89 H220"/>
+  </svg>
+  <p class="figcap"><b>Schematic — system topology, not a geographic map.</b> Three separate power
+  systems, one HVDC link, and a gas chain in which imported LNG has been substituted into
+  infrastructure originally built around a single domestic field. Link capacity and energisation date
+  from <a href="https://www.ngcp.ph/article?cid=16636" target="_blank" rel="noopener">NGCP</a>.</p>
+</div>
+
+<div class="mapslot"><div class="t">Geographic infrastructure map</div>
+<div class="s">A sourced map of the three grids, the HVDC route and the Batangas LNG cluster belongs
+here — reproduced from an official DOE or NGCP publication rather than redrawn.</div></div>
+</section><section class="sec" id="s4"><span class="sn">04</span><h2>Demand and supply</h2>
+<p class="lead">Demand grows fast by regional standards. Coal still supplies well over half of
+generation, and the gas share is now an imported quantity rather than a domestic one.</p>
+
+<h3>Demand</h3>
+<p>Japan and Korea are past the steep part of the electrification curve. The Philippines is not:
+population growth, air-conditioning and industrial load all push consumption the same way. Ember puts
+Philippine electricity demand per person at
+<a href="https://ember-energy.org/countries-and-regions/philippines-the/" target="_blank" rel="noopener">0.3 times the global average</a>,
+which says most of what needs saying about the length of the runway. It matters commercially because a
+tight, growing system running a low reserve margin prices scarcity regularly. That is not a tail event
+here. It is a Tuesday.</p>
+
+<h3>Supply</h3>
+<p>Coal dominates. Gas fills the flexible middle of the stack around Luzon, geothermal and hydro carry
+most of the low-carbon output, and solar is growing off a small base. Ember reports
+<a href="https://ember-energy.org/countries-and-regions/philippines-the/" target="_blank" rel="noopener">23% of generation from low-carbon sources in 2025</a>,
+against a global average of 43%.</p>
+
+<div class="fig">
+  <div class="fig-t">Where Philippine electricity came from</div>
+  <svg viewBox="0 0 900 150" role="img" aria-label="Philippines generation mix by source">
+    <g class="seg"><rect x="0" y="18" width="493" height="40" rx="4" fill="#2a78d6"/><text x="12" y="39">Coal 56%</text></g>
+    <g class="seg"><rect x="497" y="18" width="158" height="40" rx="4" fill="#eb6834"/><text x="509" y="39">Gas 18%</text></g>
+    <g class="seg"><rect x="659" y="18" width="97" height="40" rx="4" fill="#1baf7a"/><text x="671" y="39">Hydro 11%</text></g>
+    <rect x="760" y="18" width="70" height="40" rx="4" fill="#eda100"/>
+    <rect x="834" y="18" width="35" height="40" rx="4" fill="#e87ba4"/>
+    <rect x="873" y="18" width="27" height="40" rx="4" fill="#9AA8AC"/>
+    <line class="grid" x1="795" y1="58" x2="795" y2="80"/>
+    <text x="795" y="94" class="axl" text-anchor="middle">Geothermal 8%</text>
+    <line class="grid" x1="886" y1="58" x2="886" y2="80"/>
+    <text x="900" y="94" class="axl" text-anchor="end">Other 3%</text>
+    <line class="grid" x1="851" y1="58" x2="851" y2="104"/>
+    <text x="851" y="118" class="axl" text-anchor="middle">Solar 4%</text>
+    <text x="0" y="118" class="axl">Fossil fuels supply roughly three quarters of generation.</text>
+    <text x="0" y="140" class="axl">“Other” covers wind, biomass and oil-fired plant.</text>
+  </svg>
+  <p class="figcap">Twelve months to March 2026. Source:
+  <a href="https://lowcarbonpower.org/region/Philippines" target="_blank" rel="noopener">Low Carbon Power</a>,
+  corroborated on the low-carbon total by
+  <a href="https://ember-energy.org/countries-and-regions/philippines-the/" target="_blank" rel="noopener">Ember</a>.
+  Shares rounded; components sum to 100.</p>
+</div>
+
+<h3>The gas transition, in numbers you can check</h3>
+<table><thead><tr><th>Element</th><th>Position</th></tr></thead><tbody>
+<tr><td>Malampaya</td><td>Supplied over 99% of domestic gas production; in decline, with depletion expected this decade</td></tr>
+<tr><td>Import terminals</td><td>First Gen Batangas FSRU and Philippines LNG in operation, with further capacity in development</td></tr>
+<tr><td>Gas-fired fleet</td><td>Concentrated at Batangas, fed by the same pipeline that carried Malampaya gas</td></tr>
+<tr><td>Fuel price exposure</td><td>Shifts from a domestic contracted price to the Asian spot LNG marker</td></tr>
+</tbody></table>
+<p class="axl">Source: <a href="https://www.icis.com/explore/resources/news/2024/11/22/11053419/overview-of-lng-gas-infrastructure-in-the-philippines/" target="_blank" rel="noopener">ICIS overview of Philippine LNG and gas infrastructure</a>.</p>
+
+<div class="pull"><div class="t">What this changes for the price</div>
+<p>Domestic gas insulated the Luzon marginal cost from the world market. Imported LNG does no such
+thing. As regasified cargoes displace Malampaya, the Asian LNG marker and the Luzon spot price should
+correlate more tightly, through the same channel that already ties JKM to Japanese and Korean power
+prices.</p></div>
+</section><section class="sec" id="s5"><span class="sn">05</span><h2>Price setting mechanism</h2>
+<p class="lead">Five-minute clearing, energy and reserve co-optimised, nodal prices, and a two-stage cap
+over the top. Follow both halves and you read the spike. Follow one and the spike reads you.</p>
+
+<h3>The auction</h3>
+<p>WESM is a gross pool. All generation and all withdrawals are scheduled through the market, and
+bilateral contracts settle financially outside it. Offers stack cheapest first and clear against
+forecast demand. Pricing is <strong>locational</strong>, so the clearing price is computed at each node
+and carries transmission losses and congestion with it. Two generators on the same grid can be paid
+very different prices in the same interval.</p>
+
+<p>The clock is short. WESM moved from an hourly to a
+<a href="https://powerphilippines.com/5-minute-wesm-trading-interval-begins/" target="_blank" rel="noopener">five-minute trading and dispatch interval on 27 June 2021</a>
+under the Enhanced WESM Design and Operations programme. Shorter intervals pull the settled price
+closer to the physical system. A plant that fails to follow dispatch is exposed within minutes instead
+of being smoothed away across an hour.</p>
+
+<h3>Energy and reserves together</h3>
+<p>Since
+<a href="https://www.iemop.ph/news/iemop-commences-the-full-commercial-operations-of-reserve-market/" target="_blank" rel="noopener">26 January 2024</a>
+the reserve market has run in full commercial operation, co-optimised with energy. IEMOP describes
+co-optimisation as optimising capacity across several services at once to get the best mix at the
+lowest price. In practice a unit's energy schedule and its regulation, contingency and dispatchable
+reserve schedules all come out of one problem. Holding capacity back from energy to chase a reserve
+price no longer works cleanly, and reserve scarcity now turns up in the energy price.</p>
+
+<h3>The caps</h3>
+<p>Two of them. An offer price cap limits how high any single offer can go. Above it sits a
+<strong>secondary price cap</strong>, a circuit breaker that swaps the clearing price for a lower
+administered value once prices have stayed high for long enough. In November 2025 the Energy
+Regulatory Commission
+<a href="https://powerphilippines.com/erc-approves-higher-secondary-price-cap-thresholds-in-wesm/" target="_blank" rel="noopener">raised the secondary cap to PHP 7,423 per MWh and the trigger to a PHP 12,413 per MWh 72-hour rolling average</a>,
+up from PHP 6,245 and PHP 9,000 respectively.</p>
+
+<div class="pull"><div class="t">Why the trigger matters more than the cap</div>
+<p>The secondary cap is path-dependent. It binds on a rolling average, not on a single interval. A
+short violent spike can clear well above the cap value. A long moderate squeeze gets cut off. Model
+this market on a simple capped-price assumption and you will misprice both.</p></div>
+</section><section class="sec" id="s6"><span class="sn">06</span><h2>Regulatory regime</h2>
+<p class="lead">One statute sets the architecture, one regulator sets the economics, one department sets
+policy. Governance of the market is kept deliberately apart from operation of it.</p>
+
+<h3>The founding statute</h3>
+<p>Start with the <strong>Electric Power Industry Reform Act of 2001</strong>, EPIRA. It unbundled
+generation, transmission, distribution and supply, privatised the state generating assets, mandated a
+wholesale spot market and laid out the path to retail competition. WESM, the transmission concession
+and the contestability regime are all its children.</p>
+
+<h3>Who holds which lever</h3>
+<table><thead><tr><th>Body</th><th>Remit</th></tr></thead><tbody>
+<tr><td>Department of Energy</td><td>Energy policy and planning; circulars establishing market design changes such as reserve co-optimisation</td></tr>
+<tr><td>Energy Regulatory Commission</td><td>Economic regulation — tariffs, price caps, licences, approval of market rules and price determination methodology</td></tr>
+<tr><td>PEMC</td><td>Governance of the WESM and market surveillance</td></tr>
+<tr><td>IEMOP</td><td>Independent operation of the market and central registration for retail competition</td></tr>
+<tr><td>NGCP</td><td>System operation and transmission service under concession</td></tr>
+</tbody></table>
+
+<h3>How change actually happens</h3>
+<p>The pattern rarely varies. The Department of Energy issues a circular setting direction. The market
+operator and the governance body work up the rule change. The Energy Regulatory Commission signs off
+the pricing consequences before anything goes live. Reserve co-optimisation took exactly that route,
+mandated by DOE circular and held up until the regulator approved a price determination methodology,
+before
+<a href="https://www.iemop.ph/news/iemop-commences-the-full-commercial-operations-of-reserve-market/" target="_blank" rel="noopener">full commercial operations began</a>.</p>
+
+<p>Reform here is slow, visible and reversible. The reserve market was suspended within two months of
+launch and only resumed later in
+<a href="https://www.wesm.ph/about-us/wesm-history-timeline" target="_blank" rel="noopener">2024</a>.
+Retail competition arrived by lowering the contestability threshold step by step, never in one move.
+Caps and thresholds are not constants either, the November 2025 revision being the latest proof. Any
+Philippine exposure carries a live regulatory parameter alongside its fuel and weather risk.</p>
+
+<h3>The gas side</h3>
+<p>Downstream gas has never had its own EPIRA. The framework for LNG import terminals, third-party
+access and gas transmission has been assembled from departmental circulars and project-level approvals.
+Policy there is live while import capacity scales up, and it will decide how competitively a delivered
+cargo reaches the Batangas fleet.</p>
+</section><section class="sec" id="s7"><span class="sn">SOURCES</span><h2>Key links</h2><p class="lead">Primary sources for this market. Figures on this page are drawn from these and from published market data.</p><div class="links"><a class="lk" href="https://www.iemop.ph/" target="_blank" rel="noopener"><div class="n">IEMOP</div><div class="d">Independent Electricity Market Operator — live WESM prices, demand, generation mix and market reports</div><div class="u">https://www.iemop.ph/</div></a><a class="lk" href="https://www.wesm.ph/about-us/wesm-history-timeline" target="_blank" rel="noopener"><div class="n">PEMC / WESM</div><div class="d">Philippine Electricity Market Corporation — market governance, rules and the WESM history timeline</div><div class="u">https://www.wesm.ph/about-us/wesm-history-timeline</div></a><a class="lk" href="https://www.doe.gov.ph/" target="_blank" rel="noopener"><div class="n">Department of Energy</div><div class="d">Energy policy, circulars, planning documents and downstream gas and LNG policy</div><div class="u">https://www.doe.gov.ph/</div></a><a class="lk" href="https://www.ngcp.ph/" target="_blank" rel="noopener"><div class="n">NGCP</div><div class="d">National Grid Corporation of the Philippines — transmission and system operation</div><div class="u">https://www.ngcp.ph/</div></a><a class="lk" href="https://ember-energy.org/countries-and-regions/philippines-the/" target="_blank" rel="noopener"><div class="n">Ember — Philippines</div><div class="d">Independent electricity data: generation mix, demand and low-carbon share</div><div class="u">https://ember-energy.org/countries-and-regions/philippines-the/</div></a><a class="lk" href="https://lowcarbonpower.org/region/Philippines" target="_blank" rel="noopener"><div class="n">Low Carbon Power — Philippines</div><div class="d">Rolling twelve-month generation mix by source</div><div class="u">https://lowcarbonpower.org/region/Philippines</div></a></div></section></main>
+  </div>
+</div>
+
+
+
+<script>
+var links=[].slice.call(document.querySelectorAll('.toc a[href^="#s"]'));
+var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))}).filter(Boolean);
+function onScroll(){var y=window.scrollY+150,c=0;
+  secs.forEach(function(s,i){if(s.offsetTop<=y)c=i});
+  links.forEach(function(a,i){a.classList.toggle('on',i===c)})}
+window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+</script>
+</div>

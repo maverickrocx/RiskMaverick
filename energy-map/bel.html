@@ -1,0 +1,429 @@
+---
+layout: default
+title: Belgium
+permalink: /energy-map/bel/
+blurb: "Belgium — Pool clearing. Market structure, infrastructure, demand and supply, price formation and regulation."
+---
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet"><style>
+.emapx{
+  --bg:#FAFAF8; --surface:#FFFFFF; --sunken:#F4F7F7;
+  --ink:#14262B; --ink-muted:#4A5B60; --ink-dim:#7C8D92;
+  --border:#E2E8E8;
+  --s5:#C0392B; --s4:#DD7B2F; --s3:#E8AE28; --s2:#3B8B60; --s1:#1F7A52;
+  --accent:#3B8B60;
+  --r:8px; --micro:180ms; --ease:cubic-bezier(.2,.6,.2,1);
+  --serif:"Source Serif 4",Georgia,serif;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+.emapx *{box-sizing:border-box;margin:0;padding:0}
+.emapx{scroll-behavior:smooth}
+.emapx{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.5;
+  -webkit-font-smoothing:antialiased;font-feature-settings:"tnum" 1}
+.emapx h1,.emapx h2,.emapx h3{font-family:var(--serif);line-height:1.16;letter-spacing:-.02em;font-weight:600}
+.emapx .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+@media(max-width:767px){.emapx .wrap{padding:0 16px}}
+.emapx .proto{background:#14262B;color:#F3F6F6;font-size:12px;padding:8px 16px;text-align:center}
+.emapx nav{position:sticky;top:0;z-index:60;height:64px;display:flex;align-items:center;
+  background:rgba(250,250,248,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.emapx nav .wrap{display:flex;align-items:center;gap:26px;width:100%}
+.emapx .logo{font-family:var(--serif);font-size:20px;font-weight:700;display:flex;align-items:center;gap:10px}
+.emapx .logo .mark{width:22px;height:22px;border:2px solid var(--accent);border-radius:3px;position:relative;flex:none}
+.emapx .logo .mark::after{content:"";position:absolute;inset:4px 4px auto 4px;height:2px;background:var(--s3)}
+.emapx .crumb{font-size:13px;color:var(--ink-dim)}
+.emapx .crumb a{color:var(--ink-muted);text-decoration:none}
+.emapx .crumb a:hover{color:var(--ink)}
+.emapx .navlinks{display:flex;gap:22px;margin-left:auto;font-size:14px}
+.emapx .navlinks a{color:var(--ink-muted);text-decoration:none}
+.emapx .navlinks a:hover{color:var(--ink)}
+
+.emapx /* header */
+.mh{padding:46px 0 30px}
+.emapx .mh .top{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.emapx .bchip{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:5px 12px;border-radius:999px;background:var(--accent);color:#fff}
+.emapx .reviewed{font-size:12px;color:var(--ink-dim);margin-left:auto}
+.emapx .mh h1{font-size:56px;margin-bottom:12px}
+@media(max-width:767px){.emapx .mh h1{font-size:34px}}
+.emapx .mh .one{font-size:20px;color:var(--ink-muted);max-width:62ch;line-height:1.45}
+.emapx .facts{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);
+  border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin-top:28px}
+@media(max-width:900px){.emapx .facts{grid-template-columns:repeat(2,1fr)}}
+.emapx .fi{background:var(--surface);padding:15px 16px}
+.emapx .fi .k{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:5px}
+.emapx .fi .v{font-size:15px;font-weight:600;line-height:1.3}
+
+.emapx /* layout */
+.body{display:grid;grid-template-columns:190px 1fr;gap:44px;padding-bottom:20px}
+@media(max-width:1023px){.emapx .body{grid-template-columns:1fr;gap:0}.emapx .toc{display:none}}
+.emapx .toc{position:sticky;top:88px;align-self:start;padding-top:40px}
+.emapx .toc .t{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:10px}
+.emapx .toc a{display:block;font-size:13px;color:var(--ink-muted);text-decoration:none;padding:7px 0 7px 13px;
+  border-left:2px solid var(--border);transition:all var(--micro) var(--ease)}
+.emapx .toc a:hover{color:var(--ink);border-left-color:var(--ink-dim)}
+.emapx .toc a.on{color:var(--ink);font-weight:600;border-left-color:var(--accent)}
+
+.emapx /* sections */
+.sec{padding:40px 0;border-top:1px solid var(--border)}
+.emapx .sec:first-child{border-top:0;padding-top:12px}
+.emapx .sn{font-family:var(--serif);font-size:13px;font-weight:700;color:var(--accent);display:block;margin-bottom:5px}
+.emapx .sec h2{font-size:31px;margin-bottom:8px}
+.emapx .sec .lead{font-size:17px;color:var(--ink-muted);line-height:1.6;max-width:70ch;margin-bottom:20px}
+.emapx .sec p{font-size:15.5px;line-height:1.68;color:var(--ink-muted);max-width:70ch;margin-bottom:16px}
+.emapx .sec p strong{color:var(--ink);font-weight:600}
+.emapx .sec h3{font-size:19px;margin:26px 0 10px}
+
+.emapx table{width:100%;border-collapse:collapse;font-size:14px;background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin:6px 0 20px}
+.emapx th{text-align:left;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-dim);
+  padding:10px 14px;border-bottom:1px solid var(--border);background:var(--sunken);font-weight:700}
+.emapx td{padding:11px 14px;border-bottom:1px solid var(--border);color:var(--ink-muted);vertical-align:top;line-height:1.5}
+.emapx tbody tr:last-child td{border-bottom:0}
+.emapx td:first-child{color:var(--ink);font-weight:500}
+.emapx tbody tr:hover td{background:var(--sunken)}
+
+.emapx .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:6px 0 20px}
+@media(max-width:900px){.emapx .cards{grid-template-columns:1fr}}
+.emapx .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:18px}
+.emapx .card h4{font-family:var(--sans);font-size:14px;font-weight:600;margin-bottom:7px;color:var(--accent)}
+.emapx .card p{font-size:13.5px;line-height:1.55;margin:0;color:var(--ink-muted)}
+
+.emapx .pull{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--accent);
+  border-radius:var(--r);padding:20px 22px;margin:6px 0 22px}
+.emapx .pull p{margin:0;font-size:15.5px;line-height:1.6}
+.emapx .pull .t{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:7px}
+
+.emapx /* map slot — a SOURCED map is placed here,.emapx never a rendered one */
+.mapslot{background:var(--sunken);border:1px dashed var(--border);border-radius:var(--r);
+  padding:34px 24px;text-align:center;margin:6px 0 20px}
+.emapx .mapslot .t{font-size:13px;font-weight:600;color:var(--ink-muted);margin-bottom:5px}
+.emapx .mapslot .s{font-size:12px;color:var(--ink-dim);line-height:1.5;max-width:56ch;margin:0 auto}
+
+.emapx /* key links */
+.links{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:6px}
+@media(max-width:767px){.emapx .links{grid-template-columns:1fr}}
+.emapx .lk{display:block;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+  padding:15px 17px;text-decoration:none;transition:all var(--micro) var(--ease)}
+.emapx .lk:hover{border-color:var(--accent);transform:translateY(-2px)}
+.emapx .lk .n{font-size:14.5px;font-weight:600;color:var(--ink);margin-bottom:3px}
+.emapx .lk .d{font-size:12.5px;color:var(--ink-dim);line-height:1.45}
+.emapx .lk .u{font-size:11.5px;color:var(--accent);margin-top:6px;word-break:break-all}
+
+
+.emapx /* ── figures,.emapx charts,.emapx schematic ── */
+.fig{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+  padding:22px 24px 16px;margin:8px 0 22px}
+.emapx .fig svg{display:block;width:100%;height:auto;overflow:visible}
+.emapx .fig-t{font-family:var(--serif);font-size:17px;font-weight:600;margin-bottom:14px}
+.emapx .figcap{font-size:12px;color:var(--ink-dim);line-height:1.5;margin:14px 0 0;max-width:none}
+.emapx .figcap a{color:var(--accent)}
+.emapx .figcap b{color:var(--ink-muted)}
+.emapx /* schematic */
+.area rect{fill:var(--surface);stroke:#CBD6D6;stroke-width:1.5}
+.emapx .area text{font-family:var(--sans);font-size:13px;font-weight:600;fill:var(--ink);
+  text-anchor:middle;dominant-baseline:middle}
+.emapx .area.e rect{stroke:#2a78d6} .emapx .area.w rect{stroke:#eb6834}
+.emapx .area.iso rect{stroke-dasharray:4 3}
+.emapx .ln{stroke:#9AA8AC;stroke-width:2;fill:none}
+.emapx .lnfc{stroke:#7C8D92;stroke-width:2;fill:none;stroke-dasharray:5 4}
+.emapx .fc{fill:#FDF3E7;stroke:#DD7B2F;stroke-width:1.6}
+.emapx .fct{font-family:var(--sans);font-size:12px;font-weight:700;fill:#C0651F;text-anchor:middle}
+.emapx .fh{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em}
+.emapx .cap2{font-family:var(--sans);font-size:10.5px;fill:#7C8D92;text-anchor:middle;paint-order:stroke;stroke:var(--surface);stroke-width:5;stroke-linejoin:round}
+.emapx .cap2.iso2{font-style:italic}
+.emapx /* composition bar */
+.seg text{font-family:var(--sans);font-size:12.5px;font-weight:600;fill:#fff;dominant-baseline:middle}
+.emapx .axl{font-family:var(--sans);font-size:11.5px;fill:#7C8D92}
+.emapx /* bar chart */
+.grid{stroke:#EDF1F1;stroke-width:1}
+.emapx .axis{stroke:#CBD6D6;stroke-width:1}
+.emapx .gl{font-family:var(--sans);font-size:10.5px;fill:#9AA8AC;text-anchor:end}
+.emapx .xl{font-family:var(--sans);font-size:12px;fill:var(--ink-muted);text-anchor:middle}
+.emapx .bar1 rect{fill:#1baf7a}
+.emapx .bar1 text{font-family:var(--sans);font-size:15px;font-weight:700;fill:var(--ink);text-anchor:middle}
+.emapx /* stat pair */
+.stats{display:flex;align-items:center;gap:18px;flex-wrap:wrap;background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--r);padding:20px 24px;margin:0 0 22px}
+.emapx .st .k{font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:4px}
+.emapx .st .v{font-family:var(--serif);font-size:30px;font-weight:700;line-height:1}
+.emapx .st .v small{font-family:var(--sans);font-size:13px;font-weight:500;color:var(--ink-muted)}
+.emapx .st.arrow{font-size:24px;color:var(--ink-dim)}
+.emapx .st.note{flex:1 1 240px;font-size:11.5px;color:var(--ink-dim);line-height:1.5}
+.emapx .st.note a{color:var(--accent)}
+.emapx /* pending slot */
+.pending{background:var(--sunken);border:1px dashed #CBD6D6;border-radius:var(--r);
+  padding:20px 22px;margin:6px 0 22px}
+.emapx .pending .t{font-size:13px;font-weight:600;color:var(--ink-muted);margin-bottom:6px}
+.emapx .pending p{font-size:13px;color:var(--ink-dim);line-height:1.55;margin:0}
+.emapx .pending a{color:var(--accent)}
+
+.emapx footer{border-top:1px solid var(--border);padding:30px 0;font-size:12px;color:var(--ink-dim);line-height:1.6}
+@media(prefers-reduced-motion:reduce){.emapx *{transition-duration:.01ms!important}}
+</style>
+<div class="emapx">
+<div class="wrap">
+  <header class="mh">
+    <div class="top">
+      <span class="bchip">Pool clearing</span>
+      <span class="reviewed">Last reviewed 16 August 2026</span>
+    </div>
+    <h1>Belgium</h1>
+    <p class="one">A single coupled bidding zone that imports roughly a fifth of its electricity, buys firm capacity through Europe's most active capacity market, and sits on the pipelines that make Zeebrugge a crossroads for north-west European gas.</p>
+    <div class="facts"><div class="fi"><div class="k">Power exchange</div><div class="v">Coupled day-ahead auction</div></div><div class="fi"><div class="k">Bidding zone</div><div class="v">Single national zone</div></div><div class="fi"><div class="k">System operator</div><div class="v">Elia</div></div><div class="fi"><div class="k">Capacity market</div><div class="v">CRM — Y-4, Y-2, Y-1 auctions</div></div><div class="fi"><div class="k">Gas hub</div><div class="v">ZTP (Zeebrugge Trading Point)</div></div></div>
+  </header>
+
+  <div class="body">
+    <aside class="toc" id="toc">
+      <div class="t">On this page</div>
+      <a href="#s1">01 Overview</a>
+      <a href="#s2">02 Market structure</a>
+      <a href="#s3">03 Infrastructure</a>
+      <a href="#s4">04 Demand and supply</a>
+      <a href="#s5">05 Price setting</a>
+      <a href="#s6">06 Regulatory regime</a>
+      <a href="#s7">Key links</a>
+    </aside>
+    <main><section class="sec" id="s1"><span class="sn">01</span><h2>Overview</h2>
+<p class="lead">Belgium is small, densely industrialised and short. It imports a great deal of its electricity and almost all of its gas. In exchange it sits at the physical crossroads through which much of north-west Europe's gas moves.</p>
+
+<p>The power market is liberalised and coupled to its neighbours, with a day-ahead auction clearing
+into the wider European market coupling. The auction design is standard European practice. What sets Belgium apart is the weight carried by <strong>the transmission system operator</strong> and by <strong>the capacity mechanism</strong>. Elia is not a wire company. It runs the adequacy studies that determine how much firm capacity the country buys,
+it administers the auctions that buy it, and it builds the offshore and cross-border infrastructure
+that determines how much power can physically arrive.</p>
+
+<p>The politics behind the supply picture have been eventful. A 2003 federal law required every Belgian reactor to close by 2025. That law was repealed by parliament in May 2025, and the two newest units,
+Doel 4 and Tihange 3, are running under a ten-year extension, with a federal ambition to go further
+and an agreement signed in April 2026 to bring the fleet into state hands
+(<a href="https://world-nuclear.org/information-library/country-profiles/countries-a-f/belgium" target="_blank" rel="noopener">World Nuclear Association</a>). Few markets in Europe have turned round that hard. The reversal is now the largest single swing factor in Belgian supply.</p>
+
+<p>On gas, Belgium consumes modestly and handles a great deal. The Zeebrugge complex is an LNG import and transhipment terminal sitting on subsea pipelines to Norway and Great Britain, with onward links to France and Germany. That makes the country a transit corridor rather than a cul-de-sac. Fluxys operates twelve
+interconnection points with eight countries (<a href="https://www.fluxys.com/en/natural-gas-and-biomethane/supplying-europe/belgium" target="_blank" rel="noopener">Fluxys</a>), and the Zeebrugge Trading
+Point (ZTP) is where that flow is priced.</p>
+
+<div class="pull"><div class="t">Why this market matters beyond Belgium</div>
+<p>Belgium's grid and pipelines are the hinge between Great Britain, France, Germany and the
+Netherlands. Flows through the country give a real-time read on relative scarcity across four larger markets. Belgium therefore trades as a spread at least as often as an outright.</p></div>
+</section><section class="sec" id="s2"><span class="sn">02</span><h2>Market structure</h2>
+<p class="lead">Standard European market design. One operator carries more of the commercial architecture than is usual anywhere else in Europe.</p>
+
+<h3>Who does what</h3>
+<table><thead><tr><th>Function</th><th>Body</th><th>Role</th></tr></thead><tbody>
+<tr><td>Transmission</td><td>Elia</td><td>TSO; adequacy studies, CRM auctions, offshore and cross-border build</td></tr>
+<tr><td>Gas transmission and LNG</td><td>Fluxys Belgium</td><td>Pipeline network, Zeebrugge LNG, Loenhout storage, ZTP</td></tr>
+<tr><td>Federal regulation</td><td>CREG</td><td>Tariffs, market monitoring, oversight of the capacity mechanism</td></tr>
+<tr><td>Regional regulation</td><td>VREG, CWaPE, BRUGEL</td><td>Distribution and supply in Flanders, Wallonia and Brussels</td></tr>
+<tr><td>Power trading</td><td>Coupled day-ahead and intraday auctions</td><td>Belgian bidding zone, coupled with neighbouring zones</td></tr>
+</tbody></table>
+
+<h3>Elia's unusual reach</h3>
+<p>In most European markets the TSO keeps the lights on and stays out of commercial design. Not here. Elia effectively defines the demand curve for firm capacity: its adequacy and flexibility study sets the volume the state buys, and it runs prequalification, the auction and availability monitoring. It is also building the offshore hub that will land the next tranche of wind. Elia's publications are a primary commercial input in Belgium, not background reading.</p>
+
+<h3>One zone, four borders</h3>
+<p>There are no internal price splits. All of the interesting price behaviour sits at the border instead. The country is interconnected with France, the Netherlands,
+Luxembourg, Germany (via the <a href="https://www.elia.be/-/media/project/elia/shared/documents/press-releases/2020/20201109_cp-alegro-inauguration_en.pdf" target="_blank" rel="noopener">ALEGrO HVDC link</a>, 1,000 MW, commissioned in
+November 2020) and Great Britain (via <a href="https://www.nemolink.co.uk/" target="_blank" rel="noopener">Nemo Link</a>, offering up to 1,012 MW in
+auctions). Because domestic firm capacity is thin relative to peak demand, Belgian prices tend to track whichever neighbour is setting the marginal cost of imported power: usually France, sometimes the Netherlands, and Great Britain when the GB spark spread widens.</p>
+
+<div class="pull"><div class="t">The practical consequence</div>
+<p>Belgium rarely trades on its own fundamentals alone. Interconnector availability, French nuclear
+output and Dutch gas-fired economics are frequently better predictors of the Belgian day-ahead price
+than Belgian demand is.</p></div>
+</section><section class="sec" id="s3"><span class="sn">03</span><h2>Infrastructure — power and gas</h2>
+<p class="lead">A compact, heavily meshed grid with more cross-border capacity per unit of demand than
+almost any peer, and a gas system built for transit rather than for domestic consumption.</p>
+
+<h3>Power</h3>
+<div class="cards">
+<div class="card"><h4>Interconnection</h4><p>Links to France, the Netherlands, Luxembourg, Germany and
+Great Britain. ALEGrO and Nemo Link are both HVDC, which means flows across them are scheduled by
+traders rather than determined by physics.</p></div>
+<div class="card"><h4>Modular Offshore Grid</h4><p>A shared offshore substation platform that
+aggregates the first wind concession and lands it on a single set of export cables, rather than each
+farm building its own route to shore.</p></div>
+<div class="card"><h4>Princess Elisabeth Island</h4><p>An artificial energy island extending that idea:
+up to 3.5 GW from the second offshore zone alongside the 2.3 GW first concession, with construction and
+commissioning phased across 2026–2030.</p></div>
+</div>
+
+<p>The offshore build changes the shape of the Belgian supply curve. Wind lands in concentrated blocks. When it blows, near-zero-marginal-cost energy displaces gas across several hours at once and the day-ahead curve develops a pronounced midday and windy-night trough.
+The island is also designed as a landing point for future interconnectors to Great Britain and Denmark
+(<a href="https://www.elia.be/en/infrastructure-and-projects/infrastructure-projects/princess-elisabeth-island" target="_blank" rel="noopener">Elia</a>), which would give Belgium hybrid assets that are simultaneously
+generation connections and trading routes.</p>
+
+<h3>Gas and LNG</h3>
+<p>Fluxys Belgium operates the high-pressure network, with twelve interconnection points connecting
+the Netherlands, Norway, France, Germany, Spain, Switzerland, Italy and the United Kingdom, serving
+more than 200 industrial sites and power plants and eleven distribution operators
+(<a href="https://www.fluxys.com/en/natural-gas-and-biomethane/supplying-europe/belgium" target="_blank" rel="noopener">Fluxys</a>). Seasonal flexibility comes from the Loenhout aquifer store, with a
+capacity of 770 million cubic metres.</p>
+
+<p>Zeebrugge is the centrepiece. The terminal unloads, reloads, transships between ships and loads trucks, and it sits alongside subsea pipelines from Norway and to Great Britain. Belgian gas infrastructure therefore earns from molecules that are never burned in Belgium, and that transit business is worth more the wider the spread between north-west European hubs runs.</p>
+
+<div class="fig">
+  <svg viewBox="0 0 900 300" role="img" aria-label="Schematic of the Belgian bidding zone and its cross-border links">
+    <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 z" fill="#7C8D92"/></marker></defs>
+    <text x="120" y="26" class="fh" fill="#2a78d6">IMPORT PATHS</text>
+    <text x="620" y="26" class="fh" fill="#eb6834">DOMESTIC SYSTEM</text>
+    <rect x="30" y="44" width="300" height="228" rx="10" fill="#2a78d6" opacity=".05"/>
+    <rect x="470" y="44" width="400" height="228" rx="10" fill="#eb6834" opacity=".05"/>
+
+    <g class="area e"><rect x="60" y="60" width="140" height="42" rx="7"/><text x="130" y="86">Great Britain</text></g>
+    <g class="area e"><rect x="60" y="112" width="140" height="42" rx="7"/><text x="130" y="138">Netherlands</text></g>
+    <g class="area e"><rect x="60" y="164" width="140" height="42" rx="7"/><text x="130" y="190">France</text></g>
+    <g class="area e"><rect x="60" y="216" width="140" height="42" rx="7"/><text x="130" y="242">Germany</text></g>
+
+    <g class="area w"><rect x="500" y="60" width="150" height="42" rx="7"/><text x="575" y="86">Offshore wind</text></g>
+    <g class="area w"><rect x="500" y="112" width="150" height="42" rx="7"/><text x="575" y="138">Nuclear</text></g>
+    <g class="area w"><rect x="500" y="164" width="150" height="42" rx="7"/><text x="575" y="190">Gas-fired CCGT</text></g>
+    <g class="area w"><rect x="500" y="216" width="150" height="42" rx="7"/><text x="575" y="242">Solar and storage</text></g>
+
+    <g class="area w iso"><rect x="700" y="112" width="150" height="94" rx="7"/><text x="775" y="164">Belgian zone</text></g>
+
+    <rect x="370" y="120" width="60" height="80" rx="6" class="fc"/>
+    <text x="400" y="156" class="fct">MOG</text><text x="400" y="176" class="fct">HUB</text>
+
+    <path class="lnfc" d="M200,81 H340 V140 H370" marker-end="url(#ar)"/>
+    <path class="lnfc" d="M200,133 H370" marker-end="url(#ar)"/>
+    <path class="lnfc" d="M200,185 H370" marker-end="url(#ar)"/>
+    <path class="lnfc" d="M200,237 H340 V180 H370" marker-end="url(#ar)"/>
+    <path class="ln" d="M650,81 H700 V112"/>
+    <path class="ln" d="M650,133 H700"/>
+    <path class="ln" d="M650,185 H700"/>
+    <path class="ln" d="M650,237 H700 V206"/>
+    <path class="ln" d="M430,160 H500" marker-end="url(#ar)"/>
+    <text x="300" y="290" class="cap2">one price for the whole zone — all congestion sits at the borders</text>
+  </svg>
+  <p class="figcap"><b>Schematic — system topology, not a geographic map.</b> Belgium is a single bidding
+  zone; imports arrive across four borders and offshore generation lands through the Modular Offshore
+  Grid and, from the end of this decade, the Princess Elisabeth hub.</p>
+</div>
+
+<div class="mapslot"><div class="t">Geographic infrastructure map</div>
+<div class="s">A sourced map of the transmission grid, interconnectors, offshore zones and the Fluxys
+gas network belongs here — reproduced from an official publication rather than redrawn.</div></div>
+</section><section class="sec" id="s4"><span class="sn">04</span><h2>Demand and supply</h2>
+<p class="lead">Flat demand, a shrinking nuclear base that has stopped shrinking, fast-growing solar,
+and an import block that is now the largest single component of supply.</p>
+
+<h3>Demand</h3>
+<p>Belgian electricity consumption was 80.1 TWh in 2025, against 81 TWh in 2024
+(<a href="https://www.marketscreener.com/news/electricity-mix-in-2025-21-increase-in-solar-generation-pushes-renewables-to-new-high-imports-con-ce7e59dade8efe27" target="_blank" rel="noopener">Elia, year-end electricity mix</a>). Mature, and slightly declining. Industrial demand is exposed to European competitiveness pressure, and efficiency gains broadly offset the electrification of heat and transport. The trading interest sits on the supply side and in the shape of the day.</p>
+
+<h3>Supply</h3>
+<p>Nuclear still supplied 34% of Belgian generation in 2025 even as output declined with reactor
+closures. Solar generation reached 10.1 TWh, up 21% on 2024, and wind contributed 12.3 TWh; net
+imports came to 14 TWh (<a href="https://www.marketscreener.com/news/electricity-mix-in-2025-21-increase-in-solar-generation-pushes-renewables-to-new-high-imports-con-ce7e59dade8efe27" target="_blank" rel="noopener">Elia</a>). Gas-fired CCGT provides the swing. Its running hours are whatever is left once imports, nuclear and weather-driven renewables have been netted off demand.</p>
+
+<table><thead><tr><th>Indicator</th><th>Direction</th><th>Comment</th></tr></thead><tbody>
+<tr><td>Electricity demand</td><td>Flat to declining</td><td>80.1 TWh in 2025, from 81 TWh in 2024</td></tr>
+<tr><td>Nuclear output</td><td>Stabilising</td><td>Phase-out repealed; Doel 4 and Tihange 3 extended</td></tr>
+<tr><td>Solar</td><td>Rising fast</td><td>10.1 TWh in 2025, up 21% year on year</td></tr>
+<tr><td>Net imports</td><td>Rising</td><td>14 TWh in 2025; the largest single block of supply</td></tr>
+<tr><td>Battery storage</td><td>Rising</td><td>Batteries a growing share of capacity-auction awards</td></tr>
+</tbody></table>
+
+<div class="fig">
+  <div class="fig-t">Where the electricity Belgium consumes comes from</div>
+  <svg viewBox="0 0 900 118" role="img" aria-label="Belgium electricity supply mix by source including net imports">
+    <g class="seg"><rect x="0"   y="18" width="194" height="40" rx="4" fill="#2a78d6"/><text x="10"  y="43">Net imports 22%</text></g>
+    <g class="seg"><rect x="198" y="18" width="176" height="40" rx="4" fill="#eb6834"/><text x="208" y="43">Nuclear 20%</text></g>
+    <g class="seg"><rect x="378" y="18" width="158" height="40" rx="4" fill="#1baf7a"/><text x="388" y="43">Gas 18%</text></g>
+    <g class="seg"><rect x="540" y="18" width="158" height="40" rx="4" fill="#eda100"/><text x="550" y="43">Wind 18%</text></g>
+    <g class="seg"><rect x="702" y="18" width="119" height="40" rx="4" fill="#e87ba4"/><text x="712" y="43">Solar 13%</text></g>
+    <g class="seg"><rect x="825" y="18" width="75"  height="40" rx="4" fill="#9AA8AC"/><text x="835" y="43">Other 9%</text></g>
+    <text x="0"   y="82" class="axl">Imports are the single largest block — larger than any domestic fuel.</text>
+    <text x="900" y="82" class="axl" text-anchor="end">Biofuels, coal and hydro sit inside “Other”.</text>
+  </svg>
+  <p class="figcap">Share of electricity consumed, twelve months to May 2026, including net imports.
+  Source: <a href="https://lowcarbonpower.org/region/Belgium" target="_blank" rel="noopener">Low Carbon Power</a>.</p>
+</div>
+
+<div class="stats">
+  <div class="st"><div class="k">Consumption, 2024</div><div class="v">81 <small>TWh</small></div></div>
+  <div class="st arrow">→</div>
+  <div class="st"><div class="k">Consumption, 2025</div><div class="v">80.1 <small>TWh</small></div></div>
+  <div class="st note">Source: <a href="https://www.marketscreener.com/news/electricity-mix-in-2025-21-increase-in-solar-generation-pushes-renewables-to-new-high-imports-con-ce7e59dade8efe27" target="_blank" rel="noopener">Elia year-end electricity mix, December 2025</a>.</div>
+</div>
+
+<div class="pull"><div class="t">What import dependence does to risk</div>
+<p>Import roughly a fifth of your electricity and you import your neighbours' risks with it. A French nuclear outage programme, a cold snap in the Netherlands or an interconnector fault reaches Belgian prices within hours. Adequacy is not a domestic calculation here, which is why Belgium pays separately for firm capacity.</p></div>
+</section><section class="sec" id="s5"><span class="sn">05</span><h2>Price setting mechanism</h2>
+<p class="lead">A marginal-cost day-ahead auction coupled to Europe, sitting on top of a capacity
+mechanism that pays separately for being there when it counts.</p>
+
+<h3>The energy price</h3>
+<p>Generators and retailers bid into the day-ahead auction for the Belgian zone. Offers are stacked
+cheapest first, and the last unit needed to meet demand sets the clearing price for everyone. Coupling means the algorithm optimises across borders at the same time. While interconnector capacity is available, Belgian and neighbouring prices converge; they separate only when a border is congested. Practically, Belgium prices at the French or Dutch level for most
+hours and only reveals its own scarcity when the wires are full.</p>
+
+<p>The marginal unit is usually a gas-fired CCGT, so the Belgian power price is largely a gas price
+divided by plant efficiency plus carbon cost. In windy or sunny hours the marginal unit can be an
+import or a renewable, which is where the low and negative prints come from.</p>
+
+<h3>The capacity price</h3>
+<p>Energy revenue on its own has not kept firm capacity available. Belgium first
+responded with a <strong>strategic reserve</strong> — units contracted out of the market and held
+outside it, called only in emergency. That was a stopgap; it kept plant alive without giving investors
+a forward signal.</p>
+
+<p>Since 2021 Belgium has run a full <strong>Capacity Remuneration Mechanism</strong>, a market-wide
+auction held four years, two years and one year ahead of delivery
+(<a href="https://www.elia.be/en/electricity-market-and-system/adequacy/capacity-remuneration-mechanism" target="_blank" rel="noopener">Elia</a>). Capacity is derated by technology, cleared pay-as-bid, and carries a
+payback obligation: if the day-ahead price exceeds a strike price, the capacity holder returns the
+difference. That caps the upside a contracted unit can earn in a scarcity event, and it feeds directly into how any Belgian asset should be valued.</p>
+
+<h3>What the auctions have printed</h3>
+<p>The first Y-4 auction, held in 2021 for delivery in 2025-26, cleared 4,447.7 MW at €49,993 per MW
+per year (<a href="https://www.creg.be/sites/default/files/assets/Publications/Decisions/B2298Annex.pdf" target="_blank" rel="noopener">CREG independent auditor report</a>). The October 2025 round cleared far
+lower: 4,556 MW at €14.1k/MW/year for 2026-27, 3,238 MW at €25.1k for 2027-28, and 4,690 MW at €27.3k
+for 2029-30 (<a href="https://www.elia.be/en/press/2025/10/20251030_elia-publishes-crm-auction-results" target="_blank" rel="noopener">Elia</a>).</p>
+
+<div class="pull"><div class="t">Two revenue streams, one asset</div>
+<p>A Belgian plant's economics are a spark spread plus a capacity contract minus a payback obligation.
+Modelling the spark spread alone will overstate volatility and understate the floor.</p></div>
+</section><section class="sec" id="s6"><span class="sn">06</span><h2>Regulatory regime</h2>
+<p class="lead">Federal regulation of networks and markets, regional regulation of distribution and
+supply, and an energy policy that has changed direction more decisively than almost any in Europe.</p>
+
+<table><thead><tr><th>Body</th><th>Remit</th></tr></thead><tbody>
+<tr><td>CREG</td><td>Federal regulator: transmission tariffs, market monitoring, oversight of the capacity mechanism</td></tr>
+<tr><td>VREG</td><td>Flemish regional regulator: distribution tariffs, supply licences, certificates</td></tr>
+<tr><td>CWaPE</td><td>Walloon regional regulator, same remit for Wallonia</td></tr>
+<tr><td>BRUGEL</td><td>Brussels-Capital regional regulator</td></tr>
+<tr><td>Elia</td><td>TSO: adequacy studies, CRM administration, grid development plans</td></tr>
+</tbody></table>
+
+<h3>Federal and regional, side by side</h3>
+<p>Belgium's constitutional settlement splits energy competence. The federal level keeps transmission,
+generation policy, nuclear and the capacity mechanism; the three regions keep distribution, supply
+licensing and renewable support. Four regulators rather than one, each approving documents within its own remit (<a href="https://www.elia.be/en/company/regulators" target="_blank" rel="noopener">Elia</a>). For a market participant this is mostly
+an administrative cost rather than a price risk — but it does mean retail rules and renewable support
+differ across regions of a country smaller than many single European bidding zones.</p>
+
+<h3>The nuclear reversal</h3>
+<p>The 2003 phase-out law required every reactor closed by 2025. Successive governments suspended parts of it and agreed a ten-year extension for Doel 4 and Tihange 3. In May 2025 parliament repealed the law outright, by a large majority. The federal ambition now runs to operating those units beyond
+2035 and to building new capacity, with an agreement signed in April 2026 to take the fleet into state
+ownership (<a href="https://world-nuclear.org/information-library/country-profiles/countries-a-f/belgium" target="_blank" rel="noopener">World Nuclear Association</a>). Three reactors totalling 2,056 MWe are
+currently in service.</p>
+
+<h3>Why the policy risk is two-sided</h3>
+<p>For two decades Belgian policy risk ran one way. Reactors would close; gas and imports would fill the gap. That assumption has been withdrawn. Extended or new nuclear output changes the
+residual demand that gas plant and the capacity mechanism exist to serve, and it does so on political
+timelines rather than commercial ones. Belgian adequacy is a legislative variable as much as an
+engineering one.</p>
+</section><section class="sec" id="s7"><span class="sn">SOURCES</span><h2>Key links</h2><p class="lead">Primary sources for this market. Figures on this page are drawn from these and from published market data.</p><div class="links"><a class="lk" href="https://www.elia.be/en/electricity-market-and-system/adequacy/capacity-remuneration-mechanism" target="_blank" rel="noopener"><div class="n">Elia — Capacity Remuneration Mechanism</div><div class="d">Design, auction calendar and prequalification rules for Belgium's capacity market</div><div class="u">https://www.elia.be/en/electricity-market-and-system/adequacy/capacity-remuneration-mechanism</div></a><a class="lk" href="https://www.elia.be/en/press/2025/10/20251030_elia-publishes-crm-auction-results" target="_blank" rel="noopener"><div class="n">Elia — CRM auction results</div><div class="d">Cleared volumes and prices from the Y-4, Y-2 and Y-1 auctions</div><div class="u">https://www.elia.be/en/press/2025/10/20251030_elia-publishes-crm-auction-results</div></a><a class="lk" href="https://www.elia.be/en/infrastructure-and-projects/infrastructure-projects/princess-elisabeth-island" target="_blank" rel="noopener"><div class="n">Elia — Princess Elisabeth Island</div><div class="d">The offshore energy hub and the second Belgian wind zone</div><div class="u">https://www.elia.be/en/infrastructure-and-projects/infrastructure-projects/princess-elisabeth-island</div></a><a class="lk" href="https://www.creg.be/sites/default/files/assets/Publications/Decisions/B2298Annex.pdf" target="_blank" rel="noopener"><div class="n">CREG — CRM auction audit</div><div class="d">Independent auditor report on the first Y-4 capacity auction</div><div class="u">https://www.creg.be/sites/default/files/assets/Publications/Decisions/B2298Annex.pdf</div></a><a class="lk" href="https://www.fluxys.com/en/natural-gas-and-biomethane/supplying-europe/belgium" target="_blank" rel="noopener"><div class="n">Fluxys — Belgium</div><div class="d">Gas transmission network, Zeebrugge LNG, Loenhout storage and the ZTP</div><div class="u">https://www.fluxys.com/en/natural-gas-and-biomethane/supplying-europe/belgium</div></a><a class="lk" href="https://www.nemolink.co.uk/" target="_blank" rel="noopener"><div class="n">Nemo Link</div><div class="d">The Belgium–Great Britain HVDC interconnector and its capacity auctions</div><div class="u">https://www.nemolink.co.uk/</div></a></div></section></main>
+  </div>
+</div>
+
+
+
+<script>
+var links=[].slice.call(document.querySelectorAll('.toc a[href^="#s"]'));
+var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))}).filter(Boolean);
+function onScroll(){var y=window.scrollY+150,c=0;
+  secs.forEach(function(s,i){if(s.offsetTop<=y)c=i});
+  links.forEach(function(a,i){a.classList.toggle('on',i===c)})}
+window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+</script>
+</div>
