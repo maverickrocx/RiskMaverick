@@ -104,6 +104,8 @@ blurb: "Twenty gas and power markets, shaded by how open their price formation i
   stroke:var(--s4)}
 .emapx .cty.unpub:hover,.emapx .cty.unpub.act{fill-opacity:.8}
 .emapx .cty.dim{opacity:.2}
+.emapx /* invisible enlarged hit area — keeps small countries clickable without changing how the map looks */
+.cty.hitpad{fill:none!important;stroke:transparent!important;stroke-width:calc(14px * var(--ls,1));pointer-events:stroke}
 .emapx .mk{cursor:pointer}
 .emapx .mkdot{fill:var(--s2);stroke:#FFFFFF;stroke-width:calc(1.6px * var(--ls,1))}
 .emapx .mkring{fill:none;stroke:var(--s2);stroke-width:calc(1.1px * var(--ls,1));opacity:.5}
@@ -370,6 +372,12 @@ function select(k,moveRail){
     (!m.pub?'<div class="callout"><b>In review.</b> Published, with provincial spot-market detail still being verified against primary NDRC and NEA notices.</div>':'');
   if(moveRail!==false) setPos(m.pos,false);
 }
+document.querySelectorAll('#shapes .cty[data-k]').forEach(function(p){
+  var pad=p.cloneNode(false);
+  pad.classList.add('hitpad');
+  pad.removeAttribute('tabindex'); pad.removeAttribute('role'); pad.removeAttribute('aria-label');
+  p.parentNode.insertBefore(pad,p);
+});
 document.querySelectorAll('.cty,.mk,tr[data-k],.node').forEach(function(el){
   var k=el.dataset.k;
   el.addEventListener('mouseenter',function(){select(k)});
