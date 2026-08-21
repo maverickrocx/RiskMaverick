@@ -48,7 +48,23 @@ layout: default
 </section>
 {% endif %}
 
-
+{% assign energy_countries = "USA~JPN~CAN~FRA~ITA~DEU~GBR" %}
+<section class="sec--tight">
+  <div class="sec__head">
+    <h2>Global energy mix</h2>
+    <a class="row__meta" href="https://ourworldindata.org/electricity-mix" target="_blank" rel="noopener">Source: Our World in Data &rarr;</a>
+  </div>
+  <div class="energy-maps">
+    <div class="energy-map-card">
+      <div class="energy-map-card__head"><span>Fossil fuels</span><small>Share of electricity generation</small></div>
+      <iframe src="https://ourworldindata.org/grapher/electricity-mix?tab=map&amp;frequency=annual&amp;metric=share_of_generation&amp;source=fossil&amp;country={{ energy_countries }}" loading="lazy" style="width:100%;height:500px;border:0;display:block" allow="web-share; clipboard-write" title="Fossil fuel share of electricity generation by country, Our World in Data"></iframe>
+    </div>
+    <div class="energy-map-card">
+      <div class="energy-map-card__head"><span>Renewables</span><small>Share of electricity generation</small></div>
+      <iframe src="https://ourworldindata.org/grapher/electricity-mix?tab=map&amp;frequency=annual&amp;metric=share_of_generation&amp;source=renewables&amp;country={{ energy_countries }}" loading="lazy" style="width:100%;height:500px;border:0;display:block" allow="web-share; clipboard-write" title="Renewable share of electricity generation by country, Our World in Data"></iframe>
+    </div>
+  </div>
+</section>
 
 <section class="band">
   <h2>Interactive risk tools</h2>
