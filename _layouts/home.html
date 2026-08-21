@@ -38,7 +38,7 @@ layout: default
     {% for post in site.posts limit: 6 %}
       {% unless post.url == featured.url %}
       <a class="row" href="{{ post.url | relative_url }}">
-        <span class="row__title">{{ post.title }}</span>
+        <h3 class="row__title">{{ post.title }}</h3>
         <span class="row__meta">{{ post.date | date: "%-d %b %Y" }}</span>
         <p>{{ post.excerpt | strip_html | truncate: 150 }}</p>
       </a>
