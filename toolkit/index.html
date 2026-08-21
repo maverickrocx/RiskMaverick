@@ -5,8 +5,11 @@ permalink: /toolkit/
 ---
 <section class="hub-head"><p class="eyebrow">Concepts</p><h1>Risk Toolkit</h1>
 <p class="hub-blurb">The cross-asset methods for measuring and managing risk.</p></section>
-<div class="card-grid" data-train>
+<div class="card-grid card-grid--icons card-grid--3" data-train>
   {% for t in site.data.toolkit %}
-  <a class="card" href="{{ t.url | relative_url }}"><h3>{{ t.label }}</h3><p>{{ t.blurb }}</p></a>
+  <a class="card card--tile" href="{{ t.url | relative_url }}">
+    <span class="tile-art"><svg class="ico" aria-hidden="true"><use href="#icon-{{ t.slug }}"></use></svg></span>
+    <span class="tile-body"><h3>{{ t.label }}</h3><p>{{ t.blurb }}</p></span>
+  </a>
   {% endfor %}
 </div>

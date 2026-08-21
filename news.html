@@ -24,8 +24,9 @@ blurb: "A daily brief on commodity and cross-asset risk — what moved, and why 
 <p class="sr-only" aria-live="polite" id="wireStatus"></p>
 
 <div class="wirefeed" id="wireFeed">
+  {% assign empty_sectors = "" | split: "" %}
   {% for b in briefs %}
-  {% assign secs = b.sectors | default: sectors %}
+  {% assign secs = b.sectors | default: empty_sectors %}
   <section class="wireday-group" data-sectors="{{ secs | join: ' ' }}">
     <h2 class="wireday">{{ b.date | date: "%A, %-d %B %Y" }}</h2>
     <article class="wire">

@@ -5,12 +5,25 @@ permalink: /markets/
 ---
 <section class="hub-head"><p class="eyebrow">Cross-asset</p><h1>Markets</h1>
 <p class="hub-blurb">Commodities are our flagship, backed by equities, fixed income, FX and rates.</p></section>
-{% assign groups = site.data.markets | group_by: "group" %}
-{% for g in groups %}
-<h2 class="group-h">{{ g.name }}</h2>
-<div class="card-grid"{% if g.items.size >= 4 %} data-train{% endif %}>
-  {% for m in g.items %}
-  <a class="card" href="{{ m.url | relative_url }}"><span class="card-ico">{{ m.icon }}</span><h3>{{ m.label }}</h3><p>{{ m.blurb }}</p></a>
+{% assign commodities = site.data.markets | where: "group", "Commodities" %}
+{% assign crossasset = site.data.markets | where_exp: "m", "m.group != 'Commodities'" %}
+
+<h2 class="group-h" id="commodities">Commodities</h2>
+<div class="card-grid card-grid--icons" data-train>
+  {% for m in commodities %}
+  <a class="card card--tile" href="{{ m.url | relative_url }}">
+    <span class="tile-art"><img src="{{ '/assets/img/tiles/' | append: m.slug | append: '.jpg' | relative_url }}" alt="" loading="lazy"></span>
+    <span class="tile-body"><h3>{{ m.label }}</h3><p>{{ m.blurb }}</p></span>
+  </a>
   {% endfor %}
 </div>
-{% endfor %}
+
+<h2 class="group-h" id="cross-asset">Cross-asset</h2>
+<div class="card-grid card-grid--icons card-grid--4" data-train>
+  {% for m in crossasset %}
+  <a class="card card--tile" href="{{ m.url | relative_url }}">
+    <span class="tile-art"><img src="{{ '/assets/img/tiles/' | append: m.slug | append: '.jpg' | relative_url }}" alt="" loading="lazy"></span>
+    <span class="tile-body"><h3>{{ m.label }}</h3><p>{{ m.blurb }}</p></span>
+  </a>
+  {% endfor %}
+</div>

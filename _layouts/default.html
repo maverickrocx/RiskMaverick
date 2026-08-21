@@ -7,6 +7,11 @@
   {% include ticker.html %}
   {% include nav.html %}
   <main class="site-main" id="main">
+    {% assign is_country_map_page = false %}
+    {% if page.url contains "/energy-map/" and page.url != "/energy-map/" and page.url != "/energy-map/detail/" %}
+      {% assign is_country_map_page = true %}
+    {% endif %}
+    {% if is_country_map_page %}{% include energy-map-subnav.html %}{% endif %}
     {{ content }}
   </main>
   {% include footer.html %}
@@ -18,5 +23,6 @@
   <script src="{{ '/assets/js/train.js' | relative_url }}"></script>
   <script src="{{ '/assets/js/hero-surface.js' | relative_url }}"></script>
   <script src="{{ '/assets/js/external-links.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/edge-guide.js' | relative_url }}"></script>
 </body>
 </html>

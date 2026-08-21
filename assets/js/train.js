@@ -1,11 +1,10 @@
-// assets/js/train.js — continuous card train.
-// Replaces the 3D cylinder: front-facing cards that scroll steadily in one
-// direction and wrap seamlessly, like a ticker made of cards.
+// assets/js/train.js — draggable, bidirectional card cylinder.
 //
-// Same seam maths as the price ticker: the track is width:max-content holding
-// two identical groups, so translating it -50% lands group two exactly where
-// group one began. The gap after the last card equals the gap between cards,
-// so the rhythm never stutters at the wrap.
+// Cards drift left on their own, like before, but the strip is three
+// identical groups wide (prev / current / next) instead of two, so the
+// user can grab it with a mouse or a finger and drag either direction —
+// the loop still seams up because groups B and C (or A and B) are pixel
+// identical. Letting go resumes the ambient drift.
 //
 // A grid opts in with data-train. Without JS (or under reduced motion) the
 // original grid renders untouched — this is pure enhancement.
@@ -13,8 +12,8 @@
   if (!window.matchMedia) return;
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  var MIN_CARDS = 4;          // fewer than this and a marquee is just noise
-  var PX_PER_SEC = 42;        // readable drift; duration is derived from width
+  var MIN_CARDS = 4;      // fewer than this and a carousel is just noise
+  var PX_PER_SEC = 34;    // ambient drift speed while not being dragged
 
   [].forEach.call(document.querySelectorAll('[data-train]'), function (grid) {
     var cards = [].slice.call(grid.querySelectorAll('.card'));
@@ -28,37 +27,97 @@
 
     var track = document.createElement('div');
     track.className = 'train-track';
+    track.style.animation = 'none'; // JS drives transform directly
 
-    var group = document.createElement('div');
-    group.className = 'train-group';
-    cards.forEach(function (c) { group.appendChild(c); });
+    var groupB = document.createElement('div');
+    groupB.className = 'train-group';
+    cards.forEach(function (c) { groupB.appendChild(c); });
 
-    var clone = group.cloneNode(true);
-    clone.setAttribute('aria-hidden', 'true');
-    // the duplicate must not be reachable by keyboard or screen readers
-    [].forEach.call(clone.querySelectorAll('a, button'), function (el) { el.tabIndex = -1; });
+    var groupA = groupB.cloneNode(true);
+    var groupC = groupB.cloneNode(true);
+    [groupA, groupC].forEach(function (g) {
+      g.setAttribute('aria-hidden', 'true');
+      [].forEach.call(g.querySelectorAll('a, button'), function (el) { el.tabIndex = -1; });
+    });
 
-    track.appendChild(group);
-    track.appendChild(clone);
+    track.appendChild(groupA);
+    track.appendChild(groupB);
+    track.appendChild(groupC);
     view.appendChild(track);
     wrap.appendChild(view);
 
     grid.parentNode.insertBefore(wrap, grid);
     grid.hidden = true;
 
-    function retime() {
-      var w = group.getBoundingClientRect().width;
-      if (!w) return;
-      track.style.animationDuration = (w / PX_PER_SEC).toFixed(2) + 's';
-    }
-    retime();
-    window.addEventListener('resize', retime);
+    var groupW = 0, pos = 0, dragging = false, paused = false;
+    var dragStartX = 0, dragStartPos = 0, lastT = null;
 
-    // Pause while a card is hovered or focused, so it can actually be read
-    // and clicked — a moving target you cannot catch is not navigation.
-    wrap.addEventListener('mouseenter', function () { track.style.animationPlayState = 'paused'; });
-    wrap.addEventListener('mouseleave', function () { track.style.animationPlayState = 'running'; });
-    wrap.addEventListener('focusin',  function () { track.style.animationPlayState = 'paused'; });
-    wrap.addEventListener('focusout', function () { track.style.animationPlayState = 'running'; });
+    function measure() {
+      var w = groupB.getBoundingClientRect().width;
+      if (!w) return;
+      groupW = w;
+      if (pos === 0) pos = -groupW; // start centred on the real (B) group
+    }
+    measure();
+    window.addEventListener('resize', measure);
+
+    function wrapPos() {
+      if (!groupW) return;
+      while (pos <= -groupW * 2) pos += groupW;
+      while (pos >= 0) pos -= groupW;
+    }
+
+    function frame(now) {
+      if (lastT === null) lastT = now;
+      var dt = Math.min((now - lastT) / 1000, 0.1);
+      lastT = now;
+      if (!dragging && !paused) pos -= PX_PER_SEC * dt;
+      wrapPos();
+      track.style.transform = 'translateX(' + pos.toFixed(1) + 'px)';
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+
+    function dragDown(x, id) {
+      dragging = true;
+      dragStartX = x;
+      dragStartPos = pos;
+      wrap.classList.add('is-dragging');
+      if (id !== undefined && view.setPointerCapture) {
+        try { view.setPointerCapture(id); } catch (e) {}
+      }
+    }
+    function dragMove(x) {
+      if (!dragging) return;
+      pos = dragStartPos + (x - dragStartX);
+    }
+    function dragUp() {
+      dragging = false;
+      wrap.classList.remove('is-dragging');
+    }
+
+    if (window.PointerEvent) {
+      view.addEventListener('pointerdown', function (e) {
+        if (e.button !== undefined && e.button !== 0) return;
+        dragDown(e.clientX, e.pointerId);
+      });
+      view.addEventListener('pointermove', function (e) { dragMove(e.clientX); });
+      view.addEventListener('pointerup', dragUp);
+      view.addEventListener('pointercancel', dragUp);
+    } else {
+      view.addEventListener('mousedown', function (e) { dragDown(e.clientX); });
+      window.addEventListener('mousemove', function (e) { dragMove(e.clientX); });
+      window.addEventListener('mouseup', dragUp);
+      view.addEventListener('touchstart', function (e) { dragDown(e.touches[0].clientX); }, { passive: true });
+      view.addEventListener('touchmove', function (e) { dragMove(e.touches[0].clientX); }, { passive: true });
+      view.addEventListener('touchend', dragUp);
+    }
+
+    // Pause ambient drift (not the user's own drag) while hovered or focused,
+    // so a card can actually be read and clicked.
+    wrap.addEventListener('mouseenter', function () { paused = true; });
+    wrap.addEventListener('mouseleave', function () { paused = false; });
+    wrap.addEventListener('focusin', function () { paused = true; });
+    wrap.addEventListener('focusout', function () { paused = false; });
   });
 })();

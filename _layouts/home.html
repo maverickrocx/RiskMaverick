@@ -1,15 +1,20 @@
 ---
 layout: default
 ---
+{% assign energy_countries = "USA~JPN~CAN~FRA~ITA~DEU~GBR" %}
 <section class="hero">
   <canvas class="hero__canvas" data-surface aria-hidden="true"></canvas>
   <div class="hero__inner">
     <p class="eyebrow">Commodity &amp; Cross-Asset Risk Intelligence</p>
     <h1>Risk management, <em>explained by practitioners</em>.</h1>
     <p class="lede">Deep coverage of commodity and cross-asset markets, and the tools and frameworks used to manage their risk.</p>
-    <div class="hero__cta">
-      <a class="btn btn--primary" href="{{ '/markets/' | relative_url }}">Browse the markets</a>
-      <a class="btn btn--ghost" href="{{ '/tools/' | relative_url }}">Open the tools</a>
+    <div class="hero__cta hero__cta--grid">
+      <a class="btn btn--primary btn--sm" href="{{ '/markets/' | relative_url }}">Markets</a>
+      <a class="btn btn--primary btn--sm" href="{{ '/markets/' | relative_url }}#cross-asset">Cross Asset</a>
+      <a class="btn btn--primary btn--sm" href="{{ '/toolkit/' | relative_url }}">Risk Toolkit</a>
+      <a class="btn btn--primary btn--sm" href="{{ '/energy-map/' | relative_url }}">Gas &amp; Power</a>
+      <a class="btn btn--primary btn--sm" href="{{ '/insights/' | relative_url }}">Insights</a>
+      <a class="btn btn--primary btn--sm" href="{{ '/news/' | relative_url }}">Read News</a>
     </div>
     <div class="hero__trust">
       <div class="stat"><b>{{ site.data.markets | size }}</b><span>Markets covered</span></div>
@@ -18,56 +23,35 @@ layout: default
       <div class="stat"><b>{{ site.news | size }}</b><span>Risk Wire briefs</span></div>
     </div>
   </div>
-</section>
-
-<hr class="rule">
-
-{% assign featured = site.posts | first %}
-{% if featured %}
-<section class="sec--tight">
-  <div class="sec__head">
-    <h2>Latest analysis</h2>
-    <a class="row__meta" href="{{ '/insights/' | relative_url }}">All insights →</a>
-  </div>
-  <section class="home-featured">
-    {% include article-card.html post=featured %}
-  </section>
-
-  {%- comment -%}Article listings stay flat rows — never wrapped in the drum.{%- endcomment -%}
-  <div class="rows">
-    {% for post in site.posts limit: 6 %}
-      {% unless post.url == featured.url %}
-      <a class="row" href="{{ post.url | relative_url }}">
-        <h3 class="row__title">{{ post.title }}</h3>
-        <span class="row__meta">{{ post.date | date: "%-d %b %Y" }}</span>
-        <p>{{ post.excerpt | strip_html | truncate: 150 }}</p>
-      </a>
-      {% endunless %}
-    {% endfor %}
-  </div>
-</section>
-{% endif %}
-
-{% assign energy_countries = "USA~JPN~CAN~FRA~ITA~DEU~GBR" %}
-<section class="sec--tight">
-  <div class="sec__head">
-    <h2>Global energy mix</h2>
-    <a class="row__meta" href="https://ourworldindata.org/electricity-mix" target="_blank" rel="noopener">Source: Our World in Data &rarr;</a>
-  </div>
-  <div class="energy-maps">
-    <div class="energy-map-card">
-      <div class="energy-map-card__head"><span>Fossil fuels</span><small>Share of electricity generation</small></div>
-      <iframe src="https://ourworldindata.org/grapher/electricity-mix?tab=map&amp;frequency=annual&amp;metric=share_of_generation&amp;source=fossil&amp;country={{ energy_countries }}" loading="lazy" style="width:100%;height:500px;border:0;display:block" allow="web-share; clipboard-write" title="Fossil fuel share of electricity generation by country, Our World in Data"></iframe>
+  <div class="hero__visual hero__visual--tall hero__visual--maps">
+    <div class="hero__maptabs" role="tablist" aria-label="Select energy mix map">
+      <button class="hero__maptab is-on" data-map="fossil" type="button" aria-selected="true">Fossil fuels</button>
+      <button class="hero__maptab" data-map="renewables" type="button" aria-selected="false">Renewables</button>
     </div>
-    <div class="energy-map-card">
-      <div class="energy-map-card__head"><span>Renewables</span><small>Share of electricity generation</small></div>
-      <iframe src="https://ourworldindata.org/grapher/electricity-mix?tab=map&amp;frequency=annual&amp;metric=share_of_generation&amp;source=renewables&amp;country={{ energy_countries }}" loading="lazy" style="width:100%;height:500px;border:0;display:block" allow="web-share; clipboard-write" title="Renewable share of electricity generation by country, Our World in Data"></iframe>
+    <div class="hero__mapstack">
+      <iframe class="hero__mapframe is-on" data-map-frame="fossil" src="https://ourworldindata.org/grapher/electricity-mix?tab=map&amp;frequency=annual&amp;metric=share_of_generation&amp;source=fossil&amp;country={{ energy_countries }}" title="Fossil fuel share of electricity generation by country, Our World in Data"></iframe>
+      <iframe class="hero__mapframe" data-map-frame="renewables" src="https://ourworldindata.org/grapher/electricity-mix?tab=map&amp;frequency=annual&amp;metric=share_of_generation&amp;source=renewables&amp;country={{ energy_countries }}" title="Renewable share of electricity generation by country, Our World in Data"></iframe>
     </div>
+    <a class="hero__mapsrc" href="https://ourworldindata.org/electricity-mix" target="_blank" rel="noopener">Source: Our World in Data &rarr;</a>
   </div>
 </section>
 
-<section class="band">
-  <h2>Interactive risk tools</h2>
-  <p class="lede">VaR &amp; Expected Shortfall calculator, a volatility surface, a correlation matrix and a live markets board.</p>
-  <div class="hero__cta"><a class="btn btn--primary" href="{{ '/tools/' | relative_url }}">Open Tools</a></div>
-</section>
+<script>
+(function () {
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.hero__maptab'));
+  var frames = Array.prototype.slice.call(document.querySelectorAll('.hero__mapframe'));
+  tabs.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var want = btn.getAttribute('data-map');
+      tabs.forEach(function (b) {
+        var on = b === btn;
+        b.classList.toggle('is-on', on);
+        b.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      frames.forEach(function (f) {
+        f.classList.toggle('is-on', f.getAttribute('data-map-frame') === want);
+      });
+    });
+  });
+})();
+</script>

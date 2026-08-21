@@ -45,7 +45,7 @@
     var fade = Math.max(0, 1 - window.scrollY / 520);
     if (fade <= 0.01) { raf = requestAnimationFrame(draw); return; }
 
-    var cx = w * 0.66, cy = h * 0.56;
+    var cx = w * 0.26, cy = h * 0.56;
     var scale = Math.min(w, h) * 0.62;
     var yaw = t * 0.18 + mx * 0.35;
     var tilt = 0.42 + my * 0.10;
