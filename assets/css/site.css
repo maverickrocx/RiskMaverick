@@ -91,6 +91,7 @@
   --accent-dim: rgba(255,122,26,.16);
   --pos: #16A34A;
   --neg: #DC2626;
+  --amber: #B45309;
   --shadow: 0 1px 3px rgba(0,0,0,.08);
   /* The nav and ticker are translucent veils over the page. These were
      defined only in :root, so both stayed dark under the light theme. */
@@ -328,7 +329,7 @@ a:visited{color:inherit;}
 .nav-item{position:relative;} .nav-item .mega{position:absolute;top:130%;left:0;display:none;grid-template-columns:1fr 1fr;gap:2px;min-width:340px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:8px;}
 .nav-item:hover .mega{display:grid;} .mega a{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:var(--r-chip);color:var(--ink-muted);text-decoration:none;font:500 13px/1.2 Inter,sans-serif;} .mega a:hover{background:var(--surface-2);color:var(--ink);}
 .nav-act{display:flex;align-items:center;gap:10px;justify-self:end;}
-.nav-toggle{display:none;background:none;border:0;color:var(--ink);font-size:22px;cursor:pointer;}
+.nav-toggle{display:none;width:36px;height:36px;place-items:center;background:none;border:0;color:var(--ink);font-size:22px;cursor:pointer;}
 .icon-btn{display:grid;place-items:center;background:transparent;border:1px solid var(--border);border-radius:var(--r);color:var(--ink);cursor:pointer;}
 .icon-btn:hover{border-color:var(--accent);color:var(--accent-text);}
 .icon-btn svg{width:18px;height:18px;}
@@ -340,7 +341,7 @@ a:visited{color:inherit;}
 .nav-act .icon-btn svg{width:16px;height:16px;}
 @media(max-width:820px){
   .nav-inner{display:flex;justify-content:space-between;}
-  .nav-toggle{display:block;}
+  .nav-toggle{display:grid;}
   .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:flex-start;gap:4px;background:var(--surface);border-bottom:1px solid var(--border);padding:12px 20px;}
   .nav-links.open{display:flex;}
   .nav-item{width:100%;} .nav-item .mega{position:static;display:none;grid-template-columns:1fr;min-width:0;border:0;padding:0 0 0 12px;}
