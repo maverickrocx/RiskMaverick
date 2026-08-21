@@ -49,8 +49,11 @@
     grid.parentNode.insertBefore(wrap, grid);
     grid.hidden = true;
 
+    var DRAG_THRESHOLD = 6; // px of movement before a tap becomes a drag
+
     var groupW = 0, pos = 0, dragging = false, paused = false;
     var dragStartX = 0, dragStartPos = 0, lastT = null;
+    var pointerId = null;
 
     function measure() {
       var w = groupB.getBoundingClientRect().width;
@@ -78,21 +81,31 @@
     }
     requestAnimationFrame(frame);
 
+    // A plain tap must resolve as a normal click on whatever was tapped (a
+    // card's link, say). Pointer capture redirects that click to the
+    // capturing element, so it's only engaged once real drag movement is
+    // seen — not on pointerdown itself.
     function dragDown(x, id) {
-      dragging = true;
+      dragging = false;
       dragStartX = x;
       dragStartPos = pos;
-      wrap.classList.add('is-dragging');
-      if (id !== undefined && view.setPointerCapture) {
-        try { view.setPointerCapture(id); } catch (e) {}
-      }
+      pointerId = id;
     }
     function dragMove(x) {
-      if (!dragging) return;
+      if (pointerId === null) return;
+      if (!dragging) {
+        if (Math.abs(x - dragStartX) < DRAG_THRESHOLD) return;
+        dragging = true;
+        wrap.classList.add('is-dragging');
+        if (pointerId !== undefined && view.setPointerCapture) {
+          try { view.setPointerCapture(pointerId); } catch (e) {}
+        }
+      }
       pos = dragStartPos + (x - dragStartX);
     }
     function dragUp() {
       dragging = false;
+      pointerId = null;
       wrap.classList.remove('is-dragging');
     }
 
@@ -105,10 +118,10 @@
       view.addEventListener('pointerup', dragUp);
       view.addEventListener('pointercancel', dragUp);
     } else {
-      view.addEventListener('mousedown', function (e) { dragDown(e.clientX); });
+      view.addEventListener('mousedown', function (e) { dragDown(e.clientX, undefined); });
       window.addEventListener('mousemove', function (e) { dragMove(e.clientX); });
       window.addEventListener('mouseup', dragUp);
-      view.addEventListener('touchstart', function (e) { dragDown(e.touches[0].clientX); }, { passive: true });
+      view.addEventListener('touchstart', function (e) { dragDown(e.touches[0].clientX, undefined); }, { passive: true });
       view.addEventListener('touchmove', function (e) { dragMove(e.touches[0].clientX); }, { passive: true });
       view.addEventListener('touchend', dragUp);
     }
