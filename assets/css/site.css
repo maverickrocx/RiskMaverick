@@ -104,6 +104,7 @@
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 h1,h2,h3,h4{font-family:var(--font-display);font-weight:400;letter-spacing:-0.02em;}
+html{overflow-x:hidden;}
 body{position:relative;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:15px;line-height:1.6;min-height:100vh;display:flex;flex-direction:column;}
 /* Overflow guide-rails: at the 1cm margin line, not the viewport edge —
    anything drawn past these means content overran the page margin.
@@ -700,8 +701,8 @@ table.specs tr:last-child td{border-bottom:0;}
 .emap-soon{font:600 9.5px/1 var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--amber);background:var(--amber-dim);padding:3px 5px;border-radius:var(--r-chip);margin-left:4px;}
 .emap-tabs--static .emap-tab{cursor:default;}
 
-.emap-subnav{margin:0 auto;padding:14px var(--content-inset) 0;display:flex;justify-content:space-between;align-items:center;gap:12px;}
-.emap-subnav a{font:700 13px/1 Inter,sans-serif;color:var(--ink-muted);text-decoration:none;padding:6px 2px;}
+.emap-subnav{position:sticky;top:61px;z-index:40;margin:0 auto;padding:14px var(--content-inset);display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--bg-veil);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);}
+.emap-subnav a{font:700 13px/1 Inter,sans-serif;color:var(--ink-muted);text-decoration:none;padding:6px 2px;white-space:nowrap;}
 .emap-subnav a:hover{color:var(--accent-text);}
 .emap-panel{display:none;}
 .emap-panel.active{display:block;}
@@ -762,6 +763,10 @@ table.specs tr:last-child td{border-bottom:0;}
 .emap-table th{text-align:left;font:700 10.5px/1 var(--mono);text-transform:uppercase;letter-spacing:.09em;color:var(--ink-muted);padding:.9rem 1rem;border-bottom:1px solid var(--border);white-space:nowrap;}
 .emap-table td{padding:.85rem 1rem;font-size:13px;color:var(--ink-muted);border-bottom:1px solid var(--border);vertical-align:top;}
 .emap-table tr:last-child td{border-bottom:0;}
+/* Country-page data tables already carry their own border/background; the
+   wrapper here exists only to let them scroll horizontally on narrow screens. */
+.emapx .emap-tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:none;background:transparent;border-radius:0;margin:6px 0 20px;max-width:100%;}
+.emapx .emap-tablewrap table{margin:0;}
 .emap-table td strong{color:var(--ink);}
 .emap-table td.num{font-family:var(--mono);color:var(--ink);white-space:nowrap;}
 /* Correlation bars — fill is a chart line/bar, same accent role as the trend bars above */
