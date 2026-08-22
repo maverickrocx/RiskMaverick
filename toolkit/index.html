@@ -8,7 +8,7 @@ permalink: /toolkit/
 <div class="card-grid card-grid--icons card-grid--3" data-train>
   {% for t in site.data.toolkit %}
   <a class="card card--tile" href="{{ t.url | relative_url }}">
-    <span class="tile-art"><svg class="ico" aria-hidden="true"><use href="#icon-{{ t.slug }}"></use></svg></span>
+    <span class="tile-art"><img src="{{ '/assets/img/tiles/' | append: t.slug | append: '.jpg' | relative_url }}" alt="" loading="lazy"></span>
     <span class="tile-body"><h3>{{ t.label }}</h3><p>{{ t.blurb }}</p></span>
   </a>
   {% endfor %}
