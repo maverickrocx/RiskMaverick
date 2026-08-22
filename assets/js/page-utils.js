@@ -1,8 +1,8 @@
 // assets/js/page-utils.js — floating back + back-to-top controls on every page.
 //
-// Both buttons fade in once the reader has scrolled past the fold; at the top
-// of a page the main nav (and, on map pages, the sticky subnav) already covers
-// navigation, so the cluster stays out of the way until it's useful.
+// The back button shows whenever there is history to go back to; back-to-top
+// only fades in once the reader has scrolled past the fold, since at the top
+// of a page it has nothing to do.
 (function () {
   var wrap = document.createElement('div');
   wrap.className = 'pageutils';
@@ -28,11 +28,9 @@
   wrap.appendChild(top);
   document.body.appendChild(wrap);
 
-  var canGoBack = window.history.length > 1;
+  back.classList.toggle('show', window.history.length > 1);
   function update() {
-    var scrolled = window.scrollY > 300;
-    top.classList.toggle('show', scrolled);
-    back.classList.toggle('show', canGoBack && scrolled);
+    top.classList.toggle('show', window.scrollY > 300);
   }
   window.addEventListener('scroll', update, { passive: true });
   update();
