@@ -275,12 +275,16 @@ slug outside the list renders but can never be filtered.
 Two or three items per file:
 
 ```markdown
-**Bold one-line lede.** Two or three sentences of fact, with the actual numbers.
-— [Publisher](https://url) · [Publisher](https://url)
+**Bold one-line lede, with the actual numbers.** — [Publisher](https://url) · [Publisher](https://url)
 
 *Risk lens:* **Bullish (front-month TTF)** — one sentence on what this does to a
 risk book.
 ```
+
+**One sentence per item, not two or three.** The bold lede carries the whole
+fact — including the concrete figure — by itself. Do not add a second,
+unbolded sentence of supporting detail; if the lede needs a second sentence to
+land, tighten the first one until it doesn't.
 
 **The lens sits below the link and opens with Bullish, Bearish or Neutral.** This
 ordering is deliberate — facts and attribution first, then opinion, visibly
