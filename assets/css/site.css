@@ -79,6 +79,17 @@
   --m-counter: 900ms; /* counters, cubic ease-out */
 }
 
+/* --edge/--content-inset are fixed physical-unit margins (1cm / 1.5cm) meant
+   for desktop's wide canvas. Unscaled, they eat ~30% of a 375px phone width
+   as pure padding on every page's nav, content column and footer. Scale them
+   down as the viewport narrows so mobile content actually uses the screen. */
+@media(max-width:767px){
+  :root{--edge:20px;--content-inset:28px;}
+}
+@media(max-width:420px){
+  :root{--edge:14px;--content-inset:20px;}
+}
+
 /* ── Light theme values (attribute-switching wired up in a later task) ── */
 [data-theme="light"] {
   --bg: #FBFBF9;
