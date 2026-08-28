@@ -2,41 +2,41 @@
 # Each mark carries the date and publisher it came from.
 
 de_da:
-  price: "€125.54"
-  asof: "27 Aug 2026"
+  price: "€143.55"
+  asof: "28 Aug 2026"
   source: "SMARD"
-  low: 0.06
-  high: 212.09
+  low: 92.07
+  high: 193.95
   points: 96
 estr:
-  price: "2.187%"
-  asof: "26 Aug 2026"
+  price: "2.188%"
+  asof: "27 Aug 2026"
   source: "ECB"
 henry_hub:
   price: "$2.70"
   asof: "25 Aug 2026"
   source: "EIA"
 lme_al:
-  price: "$3,228"
-  asof: "26 Aug 2026"
+  price: "$3,212"
+  asof: "27 Aug 2026"
   source: "LME"
 lme_cu:
-  price: "$14,525"
-  asof: "26 Aug 2026"
+  price: "$14,490"
+  asof: "27 Aug 2026"
   source: "LME"
 sofr:
   price: "3.64%"
-  asof: "26 Aug 2026"
+  asof: "27 Aug 2026"
   source: "NY Fed"
 us10y:
-  price: "4.66%"
-  asof: "26 Aug 2026"
+  price: "4.67%"
+  asof: "27 Aug 2026"
   source: "US Treasury"
 us2y:
-  price: "4.19%"
-  asof: "26 Aug 2026"
+  price: "4.20%"
+  asof: "27 Aug 2026"
   source: "US Treasury"
 us30y:
-  price: "5.18%"
-  asof: "26 Aug 2026"
+  price: "5.19%"
+  asof: "27 Aug 2026"
   source: "US Treasury"
