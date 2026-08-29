@@ -1015,3 +1015,138 @@ a.row:hover{padding-left:var(--s3);}
 .flow[data-focus="nea"] .fn:not([data-flow="nea"]),.flow[data-focus="nea"] .fe:not([data-flow="nea"]){opacity:.16;}
 .flow-src{font:400 12px/1.55 Inter,sans-serif;color:var(--ink-muted);margin:var(--s4) 0 0;}
 .flow-src a{color:var(--accent-text);text-decoration:none;}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   REFERENCE-ARTICLE FURNITURE
+   Long-form Insights posts carry data tables, SVG figures, stat strips and
+   callouts. Everything is scoped to `.post-body`, so short posts are
+   untouched, and every colour is a token, so both themes track automatically.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Base rhythm inside a long article ── */
+.post-body h3{font:400 19px/1.35 var(--font-display);color:var(--ink);margin:28px 0 10px;}
+.post-body h4{font:600 12px/1.4 Inter,sans-serif;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-muted);margin:22px 0 8px;}
+.post-body p{margin:0 0 16px;}
+.post-body strong{color:var(--ink);font-weight:600;}
+.post-body ul,.post-body ol{margin:0 0 18px;padding-left:22px;text-align:left;-webkit-hyphens:manual;hyphens:manual;}
+.post-body li{margin:7px 0;}
+.post-body hr{border:0;border-top:1px solid var(--border);margin:30px 0;}
+.post-body code{font:500 13px/1 var(--mono);background:var(--surface-2);color:var(--ink);padding:2px 6px;border-radius:var(--r-chip);}
+
+/* ── Data tables. Kramdown pipe tables and hand-written HTML both land here.
+      Wrap wide tables in <div class="rm-tw"> so they scroll on their own. ── */
+.rm-tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:6px 0 22px;max-width:100%;}
+.rm-tw table{margin:0;}
+.post-body table{width:100%;border-collapse:collapse;background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--r);overflow:hidden;
+  font:400 13.5px/1.5 Inter,sans-serif;text-align:left;margin:6px 0 22px;min-width:540px;}
+.post-body th{text-align:left;font:700 10.5px/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-muted);background:var(--surface-2);padding:11px 13px;border-bottom:1px solid var(--border);
+  vertical-align:bottom;-webkit-hyphens:manual;hyphens:manual;}
+.post-body td{padding:11px 13px;border-bottom:1px solid var(--border);color:var(--ink-muted);
+  vertical-align:top;text-align:left;-webkit-hyphens:manual;hyphens:manual;}
+.post-body tbody tr:last-child td{border-bottom:0;}
+.post-body td:first-child{color:var(--ink);font-weight:500;}
+.post-body tbody tr:hover td{background:var(--surface-2);}
+.post-body td.num,.post-body th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;
+  text-align:right;white-space:nowrap;color:var(--ink);}
+.post-body td.num.neg{color:var(--neg);} .post-body td.num.pos{color:var(--pos);}
+.post-body tr.rm-total td{border-top:1px solid var(--border);background:var(--surface-2);color:var(--ink);font-weight:600;}
+
+/* ── Figures: a bordered card holding an inline SVG chart or a diagram ── */
+.rm-fig{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+  padding:20px 22px 16px;margin:8px 0 24px;}
+.rm-fig svg{display:block;width:100%;height:auto;overflow:visible;}
+.rm-fig-t{font:400 16px/1.35 var(--font-display);color:var(--ink);margin:0 0 4px;text-align:left;}
+.rm-fig-s{font:400 12.5px/1.5 Inter,sans-serif;color:var(--ink-muted);margin:0 0 16px;text-align:left;}
+.rm-cap{font:400 12px/1.55 Inter,sans-serif;color:var(--ink-muted);margin:14px 0 0;text-align:left;
+  -webkit-hyphens:manual;hyphens:manual;}
+.rm-cap b{color:var(--ink);font-weight:600;}
+.rm-legend{display:flex;flex-wrap:wrap;gap:14px;margin:0 0 14px;}
+.rm-legend span{display:inline-flex;align-items:center;gap:6px;font:500 11.5px/1 Inter,sans-serif;color:var(--ink-muted);}
+.rm-legend i{width:11px;height:11px;border-radius:2px;flex:none;display:block;}
+
+/* ── Key-facts strip: the numbers a reader should leave with ── */
+.rm-kf{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);
+  border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin:8px 0 24px;}
+.rm-kf > div{background:var(--surface);padding:14px 15px;}
+.rm-kf .k{font:700 9.5px/1.3 var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:6px;}
+.rm-kf .v{font:400 21px/1.15 var(--font-display);color:var(--ink);font-variant-numeric:tabular-nums;}
+.rm-kf .n{font:400 11.5px/1.4 Inter,sans-serif;color:var(--ink-muted);margin-top:5px;}
+@media(max-width:640px){.rm-kf{grid-template-columns:repeat(2,1fr);}}
+
+/* ── Callout: the one thing to remember from a section ── */
+.rm-call{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--accent);
+  border-radius:var(--r);padding:17px 20px;margin:8px 0 24px;}
+.rm-call .t{font:700 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent-text);margin-bottom:8px;}
+.rm-call p{font:400 15px/1.62 Inter,sans-serif;color:var(--ink-muted);margin:0;text-align:left;}
+.rm-call p + p{margin-top:10px;}
+
+/* ── Card grid for parallel concepts (two or three abreast) ── */
+.rm-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:8px 0 24px;}
+.rm-cards.two{grid-template-columns:repeat(2,1fr);}
+.rm-cards > div{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:16px 17px;}
+.rm-cards h4{margin:0 0 7px;color:var(--accent-text);letter-spacing:.05em;}
+.rm-cards p{font:400 13.5px/1.55 Inter,sans-serif;color:var(--ink-muted);margin:0;text-align:left;}
+.rm-cards p + p{margin-top:8px;}
+@media(max-width:760px){.rm-cards,.rm-cards.two{grid-template-columns:1fr;}}
+
+/* ── Flow diagram: labelled steps joined by chevrons, built in HTML so it
+      reflows on a phone instead of shrinking to nothing like an SVG would ── */
+.rm-flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:8px;margin:8px 0 24px;}
+.rm-flow > div{flex:1 1 130px;background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--r);padding:13px 14px;position:relative;}
+.rm-flow .s{font:700 9.5px/1 var(--mono);letter-spacing:.09em;color:var(--accent-text);margin-bottom:7px;}
+.rm-flow .h{font:600 13px/1.35 Inter,sans-serif;color:var(--ink);margin-bottom:5px;}
+.rm-flow .d{font:400 12px/1.5 Inter,sans-serif;color:var(--ink-muted);}
+
+/* ── Two-column comparison ("this vs that") ── */
+.rm-vs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:8px 0 24px;}
+.rm-vs > div{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:17px 18px;}
+.rm-vs > div:first-child{border-top:2px solid var(--accent);}
+.rm-vs > div:last-child{border-top:2px solid var(--amber);}
+.rm-vs h4{margin:0 0 10px;color:var(--ink);font:600 14px/1.3 Inter,sans-serif;letter-spacing:0;text-transform:none;}
+.rm-vs dl{margin:0;} .rm-vs dt{font:700 9.5px/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-muted);margin-top:12px;}
+.rm-vs dd{margin:3px 0 0;font:400 13px/1.5 Inter,sans-serif;color:var(--ink-muted);}
+@media(max-width:640px){.rm-vs{grid-template-columns:1fr;}}
+
+/* ── Worked-arithmetic block: shows the sum, not just the answer ── */
+.rm-calc{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+  padding:6px 0;margin:8px 0 24px;font-family:var(--mono);font-variant-numeric:tabular-nums;}
+.rm-calc div{display:flex;justify-content:space-between;gap:16px;padding:9px 18px;font-size:13px;color:var(--ink-muted);}
+.rm-calc div span:last-child{white-space:nowrap;color:var(--ink);}
+.rm-calc div.rule{border-top:1px solid var(--border);color:var(--ink);font-weight:700;}
+.rm-calc div.rule span:last-child{color:var(--accent-text);}
+.rm-calc .lbl{font-family:Inter,sans-serif;}
+
+@media(max-width:560px){
+  .rm-fig{padding:15px 14px 12px;}
+  .post-body{font-size:16px;text-align:left;}
+}
+
+/* ── Grid blow-out guard ──────────────────────────────────────────────────
+   `.post-body` is a grid item, and a grid item's default `min-width:auto`
+   lets it stretch to its widest child. A wide data table would therefore
+   widen the whole article instead of scrolling inside its own wrapper, and
+   the page would scroll sideways on a phone. Pinning min-width to 0 hands
+   the overflow back to `.rm-tw`, where it belongs.                        */
+.post-cols{min-width:0;}
+.post-body{min-width:0;max-width:100%;}
+@media(max-width:900px){.post-cols{grid-template-columns:minmax(0,1fr);}}
+
+/* Worked-arithmetic rows: let a long label wrap rather than push the row wide */
+.rm-calc div{flex-wrap:wrap;}
+.rm-calc div span:first-child{min-width:0;flex:1 1 60%;}
+.rm-calc div span:last-child{flex:0 0 auto;}
+
+/* ── "In Plain English" box ───────────────────────────────────────────────
+   The same point as the section above it, with the jargon removed. Kept
+   deliberately quieter than .rm-call — a texture change rather than a colour
+   change — so a reader can skim past them, or read only these.           */
+.rm-pe{background:var(--surface-2);border-radius:var(--r);
+  border-left:3px solid var(--ink-muted);padding:15px 18px;margin:10px 0 26px;}
+.rm-pe .t{font:700 9.5px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-muted);margin-bottom:8px;}
+.rm-pe p{font:400 15px/1.62 Inter,sans-serif;color:var(--ink-muted);margin:0;text-align:left;
+  -webkit-hyphens:manual;hyphens:manual;}
+.rm-pe p + p{margin-top:9px;}
