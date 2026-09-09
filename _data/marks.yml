@@ -2,8 +2,8 @@
 # Each mark carries the date and publisher it came from.
 
 brent:
-  price: "$97.77"
-  asof: "8 Sep 2026"
+  price: "$99.44"
+  asof: "9 Sep 2026"
   source: "market feed"
 brent_spot:
   price: "$96.02"
@@ -14,31 +14,31 @@ brent_wti:
   asof: "1 Sep 2026"
   source: "derived"
 de_da:
-  price: "€146.58"
-  asof: "8 Sep 2026"
+  price: "€143.15"
+  asof: "9 Sep 2026"
   source: "SMARD"
-  low: 0.01
-  high: 271.63
+  low: 56.34
+  high: 220.07
   points: 96
 estr:
   price: "2.188%"
   asof: "7 Sep 2026"
   source: "ECB"
 eurusd:
-  price: "1.1623"
-  asof: "8 Sep 2026"
+  price: "1.1629"
+  asof: "9 Sep 2026"
   source: "market feed"
 fed_target:
   price: "3.50–3.75%"
-  asof: "7 Sep 2026"
+  asof: "8 Sep 2026"
   source: "Federal Reserve"
 gbpusd:
-  price: "1.3538"
-  asof: "8 Sep 2026"
+  price: "1.3542"
+  asof: "9 Sep 2026"
   source: "market feed"
 gold:
-  price: "$4,481.30"
-  asof: "8 Sep 2026"
+  price: "$4,417.30"
+  asof: "9 Sep 2026"
   source: "market feed"
 henry_hub:
   price: "$2.90"
@@ -53,40 +53,40 @@ lme_cu:
   asof: "28 Aug 2026"
   source: "LME"
 n225:
-  price: "66,431.71"
-  asof: "8 Sep 2026"
+  price: "65,447.15"
+  asof: "9 Sep 2026"
   source: "market feed"
 rggi:
   price: "$35.00"
   asof: "Auction 72, Jun 2026"
   source: "RGGI"
 sofr:
-  price: "3.66%"
-  asof: "3 Sep 2026"
+  price: "3.65%"
+  asof: "4 Sep 2026"
   source: "NY Fed"
 sp500:
-  price: "7,718.60"
-  asof: "4 Sep 2026"
+  price: "7,674.13"
+  asof: "8 Sep 2026"
   source: "market feed"
 stoxx50:
-  price: "6,410.10"
-  asof: "8 Sep 2026"
+  price: "6,384.60"
+  asof: "9 Sep 2026"
   source: "market feed"
 us10y:
-  price: "4.78%"
-  asof: "4 Sep 2026"
+  price: "4.80%"
+  asof: "8 Sep 2026"
   source: "US Treasury"
 us2y:
-  price: "4.37%"
-  asof: "4 Sep 2026"
+  price: "4.39%"
+  asof: "8 Sep 2026"
   source: "US Treasury"
 us30y:
-  price: "5.24%"
-  asof: "4 Sep 2026"
+  price: "5.25%"
+  asof: "8 Sep 2026"
   source: "US Treasury"
 usdjpy:
-  price: "153.57"
-  asof: "8 Sep 2026"
+  price: "153.60"
+  asof: "9 Sep 2026"
   source: "market feed"
 wti:
   price: "$91.48"
