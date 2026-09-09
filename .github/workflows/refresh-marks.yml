@@ -1,8 +1,10 @@
 name: Refresh benchmark marks
 
 # Pulls benchmark prices from free primary sources (EIA, US Treasury, NY Fed,
-# ECB, SMARD, LME) into _data/marks.yml and commits any change, which triggers
-# a Pages rebuild. No API keys required.
+# ECB, SMARD, LME, RGGI) into _data/marks.yml and commits any change, which
+# triggers a Pages rebuild. No API key is required for those. FMP_API_KEY is
+# optional: with it the script also refreshes the fallback prices behind the
+# tiles that hydrate live in the browser; without it those are skipped.
 on:
   schedule:
     # 05:40 UTC every day — after the US Treasury posts the prior session's
@@ -33,6 +35,8 @@ jobs:
 
       - name: Fetch marks from primary sources
         run: python scripts/refresh_marks.py
+        env:
+          FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
 
       - name: Show diff
         run: git --no-pager diff --stat -- _data/marks.yml || true

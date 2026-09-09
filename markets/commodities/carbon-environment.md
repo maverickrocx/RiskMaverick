@@ -9,7 +9,7 @@ standfirst: "A commodity created by regulation. Supply is set by a policy cap, n
 reviewed: 2026-07-30
 benchmarks:
   - { name: "EUA", region: "EU ETS · ICE", price: "€83.40", unit: "/t", asof: "27 Jul 2026", source: "market" }
-  - { name: "RGGI", region: "US Northeast · auction", price: "$35.00", unit: "/short ton", asof: "Auction 72, Jun 2026", source: "RGGI" }
+  - { name: "RGGI", key: "rggi", region: "US Northeast · auction", price: "$35.00", unit: "/short ton", asof: "Auction 72, Jun 2026", source: "RGGI" }
 benchmark_note: "Compliance-market levels with their dates. RGGI is an auction clearing price, not a continuous quote — and note the unit difference: RGGI allowances are short tons, EUAs are tonnes CO₂e."
 key_benchmarks:
   - { code: "EUA", full: "EU Emission Allowance", desc: "The world’s largest compliance carbon market; one EUA permits one tonne of CO₂ under the EU ETS cap-and-trade scheme." }

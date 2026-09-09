@@ -1,0 +1,56 @@
+{
+  "$comment": [
+    "Project permissions for the daily risk-wire routine (.claude/skills/risk-wire).",
+    "The routine runs unattended from a fresh clone, so every tool it needs is",
+    "allowed here rather than prompted for. Scoped deliberately: the marks",
+    "endpoints, the wire's own content paths, and read-only Gmail. Anything",
+    "outside this list still prompts, which is the point.",
+    "Machine-local one-off grants live in settings.local.json and are not shared."
+  ],
+  "permissions": {
+    "allow": [
+      "Bash(python scripts/refresh_marks.py)",
+      "Bash(python3 scripts/refresh_marks.py)",
+      "Bash(bundle exec jekyll build:*)",
+      "Bash(date:*)",
+
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git branch:*)",
+      "Bash(git rev-parse:*)",
+      "Bash(git checkout:*)",
+      "Bash(git switch:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git pull:*)",
+      "Bash(git push:*)",
+      "Bash(gh pr create:*)",
+      "Bash(gh pr view:*)",
+      "Bash(gh pr list:*)",
+
+      "WebFetch(domain:fred.stlouisfed.org)",
+      "WebFetch(domain:home.treasury.gov)",
+      "WebFetch(domain:markets.newyorkfed.org)",
+      "WebFetch(domain:data-api.ecb.europa.eu)",
+      "WebFetch(domain:api.energy-charts.info)",
+      "WebFetch(domain:www.westmetall.com)",
+      "WebFetch(domain:www.rggi.org)",
+      "WebFetch(domain:financialmodelingprep.com)",
+      "WebSearch",
+
+      "Read(//**)",
+      "Edit(_news/**)",
+      "Write(_news/**)",
+      "Edit(_general/**)",
+      "Write(_general/**)",
+      "Edit(_data/marks.yml)",
+      "Edit(markets/**)",
+
+      "mcp__8a637e48-5842-4f56-ae5e-a07781123e9c__search_threads",
+      "mcp__8a637e48-5842-4f56-ae5e-a07781123e9c__get_thread",
+      "mcp__8a637e48-5842-4f56-ae5e-a07781123e9c__get_message",
+      "mcp__8a637e48-5842-4f56-ae5e-a07781123e9c__list_labels"
+    ]
+  }
+}
