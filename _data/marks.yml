@@ -2,7 +2,7 @@
 # Each mark carries the date and publisher it came from.
 
 brent:
-  price: "$99.44"
+  price: "$99.38"
   asof: "9 Sep 2026"
   source: "market feed"
 brent_spot:
@@ -33,11 +33,11 @@ fed_target:
   asof: "8 Sep 2026"
   source: "Federal Reserve"
 gbpusd:
-  price: "1.3542"
+  price: "1.3544"
   asof: "9 Sep 2026"
   source: "market feed"
 gold:
-  price: "$4,417.30"
+  price: "$4,413.10"
   asof: "9 Sep 2026"
   source: "market feed"
 henry_hub:
@@ -53,7 +53,7 @@ lme_cu:
   asof: "28 Aug 2026"
   source: "LME"
 n225:
-  price: "65,447.15"
+  price: "65,495.23"
   asof: "9 Sep 2026"
   source: "market feed"
 rggi:
@@ -69,7 +69,7 @@ sp500:
   asof: "8 Sep 2026"
   source: "market feed"
 stoxx50:
-  price: "6,384.60"
+  price: "6,385.60"
   asof: "9 Sep 2026"
   source: "market feed"
 us10y:
@@ -85,7 +85,7 @@ us30y:
   asof: "8 Sep 2026"
   source: "US Treasury"
 usdjpy:
-  price: "153.60"
+  price: "153.57"
   asof: "9 Sep 2026"
   source: "market feed"
 wti:
