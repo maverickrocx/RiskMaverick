@@ -9,8 +9,8 @@ standfirst: "Electricity is the only major commodity that can’t be stored, so 
 reviewed: 2026-07-30
 benchmarks:
   - { name: "German day-ahead", key: "de_da", region: "DE-LU · EPEX", price: "€146.58", unit: "/MWh avg", asof: "8 Sep 2026", source: "SMARD" }
-  - { name: "EUA Carbon", region: "EU · ICE", price: "€83.40", unit: "/t", asof: "27 Jul 2026", source: "market" }
-benchmark_note: "The German figure is the average across all 96 quarter-hours of the day-ahead auction — that day ranged from €0.01 to €271.63/MWh, which is the shape risk this hub is about. Data from Bundesnetzagentur (SMARD) via energy-charts, CC BY 4.0. For zonal marks across other markets, see the Gas & Power Map."
+  - { name: "EUA Carbon", region: "EU · ICE", price: "€85.42", unit: "/t", asof: "8 Sep 2026", source: "ICE" }
+benchmark_note: "The German figure is the average across all 96 quarter-hours of the day-ahead auction — that day ranged from €0.01 to €271.63/MWh, which is the shape risk this hub is about. Data from Bundesnetzagentur (SMARD) via energy-charts, CC BY 4.0. The EUA is the ICE December-2026 benchmark on 8 September 2026. For zonal marks across other markets, see the Gas & Power Map."
 key_benchmarks:
   - { code: "Day-ahead", full: "Hourly / block auction", desc: "Most physical power clears in day-ahead auctions (EPEX, Nord Pool, PJM); the hourly shape is the core price signal." }
   - { code: "Forward / PPA", full: "Baseload & peakload", desc: "Longer-dated hedging trades as baseload and peakload blocks, or bilateral Power Purchase Agreements with generators." }
