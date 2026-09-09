@@ -8,9 +8,9 @@ blurb: "EU ETS, RECs, offsets and policy risk."
 standfirst: "A commodity created by regulation. Supply is set by a policy cap, not a mine or a well — so the dominant risk here is the direction of climate policy itself."
 reviewed: 2026-07-30
 benchmarks:
-  - { name: "EUA", region: "EU ETS · ICE", price: "€83.40", unit: "/t", asof: "27 Jul 2026", source: "market" }
+  - { name: "EUA", region: "EU ETS · ICE", price: "€85.42", unit: "/t", asof: "8 Sep 2026", source: "ICE" }
   - { name: "RGGI", key: "rggi", region: "US Northeast · auction", price: "$35.00", unit: "/short ton", asof: "Auction 72, Jun 2026", source: "RGGI" }
-benchmark_note: "Compliance-market levels with their dates. RGGI is an auction clearing price, not a continuous quote — and note the unit difference: RGGI allowances are short tons, EUAs are tonnes CO₂e."
+benchmark_note: "Compliance-market levels with their dates. The EUA is the ICE December-2026 benchmark contract on 8 September 2026, cross-checked at €85.41–85.42 across two published sources; there is no free primary feed for it. RGGI is an auction clearing price, not a continuous quote — and note the unit difference: RGGI allowances are short tons, EUAs are tonnes CO₂e."
 key_benchmarks:
   - { code: "EUA", full: "EU Emission Allowance", desc: "The world’s largest compliance carbon market; one EUA permits one tonne of CO₂ under the EU ETS cap-and-trade scheme." }
   - { code: "RECs", full: "Renewable Energy Certificates", desc: "Tradable proof that one MWh of renewable power was generated — used to meet clean-energy obligations." }
