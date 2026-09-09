@@ -307,13 +307,44 @@ once at the foot of every Risk Wire page from `_layouts/news.html` (`.nws-caveat
 
 ---
 
+## Step 5b — Refresh the hub benchmark tiles
+
+Run this every day, on every run, before opening the PR. It is the price half of
+the routine: the briefs go stale in a day, and so do the tiles beside them.
+
+```bash
+python scripts/refresh_marks.py
+```
+
+The script rewrites `_data/marks.yml` from free primary publishers — EIA, US
+Treasury, NY Fed, ECB, SMARD, LME, the Fed's own target-range series and the
+RGGI auction results — and, if `FMP_API_KEY` is set, also refreshes the
+fallback prices behind the tiles that hydrate live in the browser. It needs no
+key for the primary marks.
+
+**Read the last block it prints.** Anything listed under *"Hand-curated tiles
+needing attention"* has no free feed — today that is corn, soybeans, wheat, TTF,
+JKM and EUA. For each one either:
+
+- refresh it from a **named published report**, updating `price:` and `asof:`
+  together and citing the source in `source:`; or
+- **leave it exactly as it is.** A stale-but-true mark with a visible date beats
+  a guess. Say in the PR body which ones you left and why.
+
+Never invent a level, and never move `asof:` without moving `price:`.
+
+A failed fetch is not a failure of the run — the script keeps the previous value
+and prints `KEEP`. Only report it if the same mark has been failing for days.
+
+---
+
 ## Step 6 — Open a pull request
 
 Never push to `main`.
 
 ```bash
 git checkout -b wire-<YYYY-MM-DD>
-git add _news/<YYYY-MM-DD>.md _general/<YYYY-MM-DD>.md
+git add _news/<YYYY-MM-DD>.md _general/<YYYY-MM-DD>.md _data/marks.yml
 git commit -m "content(wire): Risk Wire + General Wire for <D Month YYYY>"
 git push -u origin wire-<YYYY-MM-DD>
 ```
@@ -324,7 +355,8 @@ unavailable, fall back to `mcp__github__create_pull_request`. In the body state:
 - which sectors were covered;
 - **which stories came from Gmail and which from the web sweep**;
 - any sector deliberately omitted for want of news;
-- if the run was web-only, say so plainly.
+- if the run was web-only, say so plainly;
+- **which benchmark tiles moved, and which hand-curated ones you left stale.**
 
-Commit only the brief files, plus `_data/marks.yml` and `markets/` tiles if you
-refreshed them (see runbook §3). Nothing else.
+Commit only the brief files, `_data/marks.yml`, and any `markets/` tiles you
+hand-refreshed in Step 5b (see runbook §3). Nothing else.

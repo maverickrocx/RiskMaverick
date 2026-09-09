@@ -8,10 +8,10 @@ blurb: "The curve, central banks and interest-rate swaps."
 standfirst: "The discount rate under every other asset. The curve’s front end is set by central banks; its slope is the market’s verdict on growth and inflation."
 reviewed: 2026-07-30
 benchmarks:
-  - { name: "SOFR", key: "sofr", region: "US · NY Fed", price: "3.65%", unit: "o/n", asof: "29 Jul 2026", source: "NY Fed" }
-  - { name: "€STR", key: "estr", region: "EU · ECB", price: "2.185%", unit: "o/n", asof: "29 Jul 2026", source: "ECB" }
-  - { name: "Fed funds target", region: "US · FOMC", price: "3.50–3.75%", unit: "range", asof: "Jul 2026", source: "Federal Reserve" }
-benchmark_note: "Overnight benchmarks published daily by the New York Fed and the ECB. Market pricing into the 29 July FOMC favoured a hold, with the risk skewed to a hike rather than a cut."
+  - { name: "SOFR", key: "sofr", region: "US · NY Fed", price: "3.66%", unit: "o/n", asof: "3 Sep 2026", source: "NY Fed" }
+  - { name: "€STR", key: "estr", region: "EU · ECB", price: "2.189%", unit: "o/n", asof: "4 Sep 2026", source: "ECB" }
+  - { name: "Fed funds target", key: "fed_target", region: "US · FOMC", price: "3.50–3.75%", unit: "range", asof: "7 Sep 2026", source: "Federal Reserve" }
+benchmark_note: "Overnight benchmarks published daily by the New York Fed and the ECB, alongside the FOMC’s current target range. SOFR prints inside that range; €STR tracks the ECB’s policy corridor."
 key_benchmarks:
   - { code: "Policy rates", full: "Fed · ECB · BoE", desc: "Central banks set the curve’s front end directly — the anchor for all short-dated rates." }
   - { code: "Overnight RFRs", full: "SOFR · €STR · SONIA", desc: "The post-LIBOR risk-free rates that floating legs and derivatives now reference." }

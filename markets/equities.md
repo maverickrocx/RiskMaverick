@@ -8,9 +8,9 @@ blurb: "Indices vs single names, systematic vs idiosyncratic risk, beta."
 standfirst: "Equity risk splits in two — the market-wide moves an index captures, and the company-specific surprises it doesn’t. That divide drives everything from beta hedging to diversification."
 reviewed: 2026-07-30
 benchmarks:
-  - { name: "S&P 500", region: "US · CME", price: "7,403.91", unit: "index", symbol: "^GSPC", dec: 2 }
-  - { name: "Euro Stoxx 50", region: "EU · Eurex", price: "6,336.15", unit: "index", symbol: "^STOXX50E", dec: 2 }
-  - { name: "Nikkei 225", region: "JP · OSE", price: "61,867.43", unit: "index", symbol: "^N225", dec: 2 }
+  - { name: "S&P 500", key: "sp500", region: "US · CME", price: "7,718.60", unit: "index", symbol: "^GSPC", dec: 2 }
+  - { name: "Euro Stoxx 50", key: "stoxx50", region: "EU · Eurex", price: "6,412.10", unit: "index", symbol: "^STOXX50E", dec: 2 }
+  - { name: "Nikkei 225", key: "n225", region: "JP · OSE", price: "66,468.21", unit: "index", symbol: "^N225", dec: 2 }
 benchmark_note: "Live from the market feed during trading hours; otherwise the last close with its date."
 key_benchmarks:
   - { code: "Index futures", full: "E-mini S&P 500 (CME)", desc: "The most liquid way to trade or hedge broad US equity beta in a single instrument." }
