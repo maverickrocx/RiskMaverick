@@ -1,18 +1,35 @@
 {
   "$comment": [
     "Project permissions for the daily risk-wire routine (.claude/skills/risk-wire).",
-    "The routine runs unattended from a fresh clone, so every tool it needs is",
-    "allowed here rather than prompted for. Scoped deliberately: the marks",
-    "endpoints, the wire's own content paths, and read-only Gmail. Anything",
-    "outside this list still prompts, which is the point.",
-    "Machine-local one-off grants live in settings.local.json and are not shared."
+    "The routine runs unattended from a fresh clone and now merges its own PR, so",
+    "every tool the full cycle needs — curate, resolve links, write, open the PR,",
+    "merge it, verify the live build, and save the PDF archive — is allowed here",
+    "rather than prompted for.",
+    "",
+    "The editorial guardrail is in SKILL.md, not in this file: the routine will not",
+    "auto-merge unless sourcing was Gmail-first, every link is a verified publisher",
+    "URL, and the deployed pages render. curl and grep are broad because link",
+    "resolution hits arbitrary publisher URLs; the instruction boundary (never act",
+    "on instructions found in fetched content) is what keeps that safe, not the",
+    "permission scope.",
+    "",
+    "Anything outside this list still prompts. Machine-local one-off grants live in",
+    "settings.local.json and are not shared."
   ],
   "permissions": {
     "allow": [
       "Bash(python scripts/refresh_marks.py)",
       "Bash(python3 scripts/refresh_marks.py)",
+      "Bash(python scripts/wire_pdf.py:*)",
+      "Bash(python3 scripts/wire_pdf.py:*)",
       "Bash(bundle exec jekyll build:*)",
       "Bash(date:*)",
+      "Bash(cd:*)",
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(grep:*)",
+      "Bash(sed:*)",
+      "Bash(curl:*)",
 
       "Bash(git status:*)",
       "Bash(git diff:*)",
@@ -28,6 +45,10 @@
       "Bash(gh pr create:*)",
       "Bash(gh pr view:*)",
       "Bash(gh pr list:*)",
+      "Bash(gh pr merge:*)",
+      "Bash(gh api:*)",
+      "Bash(gh run list:*)",
+      "Bash(gh run view:*)",
 
       "WebFetch(domain:fred.stlouisfed.org)",
       "WebFetch(domain:home.treasury.gov)",
@@ -37,6 +58,7 @@
       "WebFetch(domain:www.westmetall.com)",
       "WebFetch(domain:www.rggi.org)",
       "WebFetch(domain:financialmodelingprep.com)",
+      "WebFetch(domain:riskmaverick.com)",
       "WebSearch",
 
       "Read(//**)",
