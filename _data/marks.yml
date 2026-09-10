@@ -2,8 +2,8 @@
 # Each mark carries the date and publisher it came from.
 
 brent:
-  price: "$100.44"
-  asof: "9 Sep 2026"
+  price: "$102.24"
+  asof: "10 Sep 2026"
   source: "market feed"
 brent_spot:
   price: "$96.02"
@@ -21,24 +21,24 @@ de_da:
   high: 585.1
   points: 96
 estr:
-  price: "2.188%"
-  asof: "8 Sep 2026"
+  price: "2.189%"
+  asof: "9 Sep 2026"
   source: "ECB"
 eurusd:
-  price: "1.1628"
-  asof: "9 Sep 2026"
+  price: "1.1634"
+  asof: "10 Sep 2026"
   source: "market feed"
 fed_target:
   price: "3.50–3.75%"
-  asof: "8 Sep 2026"
+  asof: "9 Sep 2026"
   source: "Federal Reserve"
 gbpusd:
-  price: "1.3535"
-  asof: "9 Sep 2026"
+  price: "1.3550"
+  asof: "10 Sep 2026"
   source: "market feed"
 gold:
-  price: "$4,433.70"
-  asof: "9 Sep 2026"
+  price: "$4,437.20"
+  asof: "10 Sep 2026"
   source: "market feed"
 henry_hub:
   price: "$2.90"
@@ -53,8 +53,8 @@ lme_cu:
   asof: "28 Aug 2026"
   source: "LME"
 n225:
-  price: "65,142.78"
-  asof: "9 Sep 2026"
+  price: "65,270.95"
+  asof: "10 Sep 2026"
   source: "market feed"
 rggi:
   price: "$35.00"
@@ -65,12 +65,12 @@ sofr:
   asof: "8 Sep 2026"
   source: "NY Fed"
 sp500:
-  price: "7,673.52"
-  asof: "8 Sep 2026"
+  price: "7,636.36"
+  asof: "9 Sep 2026"
   source: "market feed"
 stoxx50:
-  price: "6,319.30"
-  asof: "9 Sep 2026"
+  price: "6,311.30"
+  asof: "10 Sep 2026"
   source: "market feed"
 us10y:
   price: "4.83%"
@@ -85,8 +85,8 @@ us30y:
   asof: "9 Sep 2026"
   source: "US Treasury"
 usdjpy:
-  price: "153.60"
-  asof: "9 Sep 2026"
+  price: "153.69"
+  asof: "10 Sep 2026"
   source: "market feed"
 wti:
   price: "$91.48"
