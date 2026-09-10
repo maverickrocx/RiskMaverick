@@ -4,9 +4,10 @@ description: >
   Build and publish the daily Risk Wire and General Wire briefs for riskmaverick.com.
   Reads the morning newsletters (Economist, Bloomberg, Moneycontrol, Economic Times)
   from Gmail for curation, resolves every tracking link to the publisher's own
-  article, writes one markdown file per day into _news/ and _general/, and opens a
-  pull request. Use when the user asks to run, build, write or publish the Risk
-  Wire, the General Wire, the wires, or the daily brief.
+  article, writes one markdown file per day into _news/ and _general/, opens a
+  pull request, merges it once the sourcing guardrail passes, verifies the live
+  deploy, and saves a PDF copy to records/. Use when the user asks to run, build,
+  write or publish the Risk Wire, the General Wire, the wires, or the daily brief.
 ---
 
 # Risk Wire & General Wire
@@ -312,6 +313,11 @@ once at the foot of every Risk Wire page from `_layouts/news.html` (`.nws-caveat
 Run this every day, on every run, before opening the PR. It is the price half of
 the routine: the briefs go stale in a day, and so do the tiles beside them.
 
+**No exceptions for weekends or holidays.** Run it even when markets were shut —
+the script handles a stale or missing feed itself (it prints `KEEP` and holds the
+previous value), so a closed-market day costs nothing and a skipped day leaves
+the hub showing last week's prices with today's date beside the briefs.
+
 ```bash
 python scripts/refresh_marks.py
 ```
@@ -360,3 +366,90 @@ unavailable, fall back to `mcp__github__create_pull_request`. In the body state:
 
 Commit only the brief files, `_data/marks.yml`, and any `markets/` tiles you
 hand-refreshed in Step 5b (see runbook §3). Nothing else.
+
+---
+
+## Step 7 — Merge the pull request (only if the guardrail passes)
+
+The routine merges its own PR. There is no human review between opening it and it
+going live, so the merge is **gated on the sourcing guardrail**. Walk this
+checklist explicitly and write the result into the PR body before doing anything:
+
+1. **Gmail was the source of record.** The session had the Gmail tools and you
+   actually read the newsletters. A web-only run (Step 0) never auto-merges.
+2. **Every item has a real, working publisher link.** No tracking redirects
+   (`click.e.economist.com`, `sendgrid.net`, `nltrack.indiatimes.com`), no
+   bare headlines. You re-checked every URL in Step 1 / Step 3.
+3. **Every source is Gmail or one of the seven gap-fill publishers** (Step 2).
+   Nothing from an aggregator, forum, SEO farm or AI-generated site.
+4. **No invented figure, quote or link** anywhere in either file.
+5. **Slug contract holds** — every slug in each `sectors:` list appears in the
+   matching page's chip config (Step 4), confirmed by grep.
+
+**All five true → merge:**
+
+```bash
+gh pr merge <n> --squash --delete-branch
+```
+
+**Any one in doubt → do not merge.** Leave the PR open, and end the run by
+telling the user which check failed and that the PR is waiting for them. A brief
+that sits in an open PR for a day is a good outcome; a shaky one on the live site
+is not.
+
+Still never push to `main` directly — the merge always goes through the PR.
+
+---
+
+## Step 8 — Verify the live build
+
+After merging, confirm the deploy actually landed. Do not report success until
+you have seen the new content on the live domain.
+
+```bash
+gh run list --workflow "Build and deploy site" --limit 3
+```
+
+Wait for the run triggered by the merge to reach `completed / success`
+(`gh run view <run-id>`). It usually takes 1–3 minutes. If it fails, say so,
+link the run, and stop — the merge is done but the site is stale.
+
+Then check each published page and its anchors. **Use `curl`, not `WebFetch`** —
+WebFetch strips the heading `id`s you need to confirm:
+
+```bash
+curl -s "https://riskmaverick.com/news/<YYYY-MM-DD>/"        | grep -oE 'id="(oil-products|gas-power|lng|carbon)"'
+curl -s "https://riskmaverick.com/general-wire/<YYYY-MM-DD>/" | grep -oE 'id="(business|economics|finance|politics|tech-ai)"'
+curl -s "https://riskmaverick.com/news/"         | grep -c "<YYYY-MM-DD>"
+curl -s "https://riskmaverick.com/general-wire/"  | grep -c "<YYYY-MM-DD>"
+```
+
+Every slug listed in the brief's `sectors:` must come back as an `id="…"` match,
+and both index pages must reference the new date. Anything missing → report it.
+
+---
+
+## Step 9 — Save the PDF copy for records
+
+Once Step 8 is green, archive the day's wires:
+
+```bash
+python scripts/wire_pdf.py <YYYY-MM-DD>
+```
+
+It fetches each live page, pins it to the site's light theme, and prints it with
+headless Chrome to `records/<YYYY-MM-DD>-risk-wire.pdf` and
+`records/<YYYY-MM-DD>-general-wire.pdf`, skipping whichever wire was not
+published that day. `records/` is git-ignored — the PDFs are a run artifact,
+never committed.
+
+If Step 8 did not go green, skip this step: an archive of a broken page is
+worse than no archive.
+
+---
+
+## Finishing the run
+
+Report to the user: the PR number and URL, whether it was merged or left open
+(and why), the sectors covered, the Gmail-vs-web split, the build-workflow
+result, and the `records/` filenames written.

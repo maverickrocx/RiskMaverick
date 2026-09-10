@@ -5,6 +5,11 @@ vendor/
 .superpowers/
 night-desk-reference/
 
+# Daily PDF archive of the wires — a run artifact, not site content.
+# Written by scripts/wire_pdf.py after each risk-wire run.
+records/
+__pycache__/
+
 # Local Claude Code skills — tooling, not site content
 # Excluding the contents rather than the directory itself — git cannot
 # re-include a path inside an excluded directory, so a trailing-slash rule here
