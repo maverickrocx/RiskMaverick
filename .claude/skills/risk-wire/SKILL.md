@@ -313,6 +313,11 @@ once at the foot of every Risk Wire page from `_layouts/news.html` (`.nws-caveat
 Run this every day, on every run, before opening the PR. It is the price half of
 the routine: the briefs go stale in a day, and so do the tiles beside them.
 
+**No exceptions for weekends or holidays.** Run it even when markets were shut —
+the script handles a stale or missing feed itself (it prints `KEEP` and holds the
+previous value), so a closed-market day costs nothing and a skipped day leaves
+the hub showing last week's prices with today's date beside the briefs.
+
 ```bash
 python scripts/refresh_marks.py
 ```
@@ -432,10 +437,11 @@ Once Step 8 is green, archive the day's wires:
 python scripts/wire_pdf.py <YYYY-MM-DD>
 ```
 
-It prints the live pages to `records/<YYYY-MM-DD>-risk-wire.pdf` and
-`records/<YYYY-MM-DD>-general-wire.pdf` with headless Chrome, skipping whichever
-wire was not published that day. `records/` is git-ignored — the PDFs are a
-run artifact, never committed.
+It fetches each live page, pins it to the site's light theme, and prints it with
+headless Chrome to `records/<YYYY-MM-DD>-risk-wire.pdf` and
+`records/<YYYY-MM-DD>-general-wire.pdf`, skipping whichever wire was not
+published that day. `records/` is git-ignored — the PDFs are a run artifact,
+never committed.
 
 If Step 8 did not go green, skip this step: an archive of a broken page is
 worse than no archive.
