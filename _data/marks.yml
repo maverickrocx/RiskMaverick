@@ -14,11 +14,11 @@ brent_wti:
   asof: "9 Sep 2026"
   source: "derived"
 de_da:
-  price: "€195.23"
-  asof: "11 Sep 2026"
+  price: "€137.96"
+  asof: "12 Sep 2026"
   source: "SMARD"
-  low: 121.92
-  high: 326.46
+  low: -0.48
+  high: 212.04
   points: 96
 estr:
   price: "2.190%"
@@ -30,7 +30,7 @@ eurusd:
   source: "market feed"
 fed_target:
   price: "3.50–3.75%"
-  asof: "10 Sep 2026"
+  asof: "11 Sep 2026"
   source: "Federal Reserve"
 gbpusd:
   price: "1.3510"
@@ -57,12 +57,12 @@ n225:
   asof: "11 Sep 2026"
   source: "market feed"
 rggi:
-  price: "$35.00"
-  asof: "Auction 72, Jun 2026"
+  price: "$37.65"
+  asof: "Auction 73, Sep 2026"
   source: "RGGI"
 sofr:
-  price: "3.64%"
-  asof: "9 Sep 2026"
+  price: "3.62%"
+  asof: "10 Sep 2026"
   source: "NY Fed"
 sp500:
   price: "7,591.70"
@@ -73,16 +73,16 @@ stoxx50:
   asof: "11 Sep 2026"
   source: "market feed"
 us10y:
-  price: "4.95%"
-  asof: "10 Sep 2026"
+  price: "4.96%"
+  asof: "11 Sep 2026"
   source: "US Treasury"
 us2y:
-  price: "4.56%"
-  asof: "10 Sep 2026"
+  price: "4.63%"
+  asof: "11 Sep 2026"
   source: "US Treasury"
 us30y:
-  price: "5.37%"
-  asof: "10 Sep 2026"
+  price: "5.35%"
+  asof: "11 Sep 2026"
   source: "US Treasury"
 usdjpy:
   price: "154.09"
