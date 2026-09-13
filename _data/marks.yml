@@ -14,27 +14,27 @@ brent_wti:
   asof: "9 Sep 2026"
   source: "derived"
 de_da:
-  price: "€137.96"
-  asof: "12 Sep 2026"
+  price: "€166.10"
+  asof: "13 Sep 2026"
   source: "SMARD"
-  low: -0.48
-  high: 212.04
+  low: 92.83
+  high: 239.96
   points: 96
 estr:
   price: "2.190%"
   asof: "10 Sep 2026"
   source: "ECB"
 eurusd:
-  price: "1.1601"
-  asof: "12 Sep 2026"
+  price: "1.1603"
+  asof: "13 Sep 2026"
   source: "market feed"
 fed_target:
   price: "3.50–3.75%"
-  asof: "11 Sep 2026"
+  asof: "12 Sep 2026"
   source: "Federal Reserve"
 gbpusd:
-  price: "1.3526"
-  asof: "12 Sep 2026"
+  price: "1.3528"
+  asof: "13 Sep 2026"
   source: "market feed"
 gold:
   price: "$4,408.90"
@@ -85,8 +85,8 @@ us30y:
   asof: "11 Sep 2026"
   source: "US Treasury"
 usdjpy:
-  price: "153.58"
-  asof: "12 Sep 2026"
+  price: "153.57"
+  asof: "13 Sep 2026"
   source: "market feed"
 wti:
   price: "$97.26"
