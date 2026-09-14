@@ -14,11 +14,11 @@ brent_wti:
   asof: "9 Sep 2026"
   source: "derived"
 de_da:
-  price: "€166.10"
-  asof: "13 Sep 2026"
+  price: "€256.55"
+  asof: "14 Sep 2026"
   source: "SMARD"
-  low: 92.83
-  high: 239.96
+  low: 152.0
+  high: 740.01
   points: 96
 estr:
   price: "2.190%"
@@ -30,7 +30,7 @@ eurusd:
   source: "market feed"
 fed_target:
   price: "3.50–3.75%"
-  asof: "13 Sep 2026"
+  asof: "14 Sep 2026"
   source: "Federal Reserve"
 gbpusd:
   price: "1.3528"
@@ -62,7 +62,7 @@ rggi:
   source: "RGGI"
 sofr:
   price: "3.62%"
-  asof: "10 Sep 2026"
+  asof: "11 Sep 2026"
   source: "NY Fed"
 sp500:
   price: "7,656.98"
