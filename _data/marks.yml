@@ -2,8 +2,8 @@
 # Each mark carries the date and publisher it came from.
 
 brent:
-  price: "$107.32"
-  asof: "14 Sep 2026"
+  price: "$107.42"
+  asof: "15 Sep 2026"
   source: "market feed"
 brent_spot:
   price: "$109.51"
@@ -14,31 +14,31 @@ brent_wti:
   asof: "9 Sep 2026"
   source: "derived"
 de_da:
-  price: "€256.55"
-  asof: "14 Sep 2026"
+  price: "€180.07"
+  asof: "15 Sep 2026"
   source: "SMARD"
-  low: 152.0
-  high: 740.01
+  low: 26.39
+  high: 312.4
   points: 96
 estr:
-  price: "2.189%"
-  asof: "11 Sep 2026"
+  price: "2.190%"
+  asof: "14 Sep 2026"
   source: "ECB"
 eurusd:
-  price: "1.1540"
-  asof: "14 Sep 2026"
+  price: "1.1538"
+  asof: "15 Sep 2026"
   source: "market feed"
 fed_target:
   price: "3.50–3.75%"
   asof: "14 Sep 2026"
   source: "Federal Reserve"
 gbpusd:
-  price: "1.3484"
-  asof: "14 Sep 2026"
+  price: "1.3475"
+  asof: "15 Sep 2026"
   source: "market feed"
 gold:
-  price: "$4,332.20"
-  asof: "14 Sep 2026"
+  price: "$4,310.80"
+  asof: "15 Sep 2026"
   source: "market feed"
 henry_hub:
   price: "$2.81"
@@ -53,8 +53,8 @@ lme_cu:
   asof: "28 Aug 2026"
   source: "LME"
 n225:
-  price: "63,492.99"
-  asof: "14 Sep 2026"
+  price: "63,484.10"
+  asof: "15 Sep 2026"
   source: "market feed"
 rggi:
   price: "$37.65"
@@ -65,28 +65,28 @@ sofr:
   asof: "11 Sep 2026"
   source: "NY Fed"
 sp500:
-  price: "7,656.98"
-  asof: "11 Sep 2026"
+  price: "7,619.98"
+  asof: "14 Sep 2026"
   source: "market feed"
 stoxx50:
-  price: "6,280.80"
-  asof: "14 Sep 2026"
+  price: "6,256.20"
+  asof: "15 Sep 2026"
   source: "market feed"
 us10y:
-  price: "4.96%"
-  asof: "11 Sep 2026"
+  price: "4.97%"
+  asof: "14 Sep 2026"
   source: "US Treasury"
 us2y:
-  price: "4.63%"
-  asof: "11 Sep 2026"
+  price: "4.65%"
+  asof: "14 Sep 2026"
   source: "US Treasury"
 us30y:
-  price: "5.35%"
-  asof: "11 Sep 2026"
+  price: "5.34%"
+  asof: "14 Sep 2026"
   source: "US Treasury"
 usdjpy:
-  price: "154.57"
-  asof: "14 Sep 2026"
+  price: "154.83"
+  asof: "15 Sep 2026"
   source: "market feed"
 wti:
   price: "$97.26"
