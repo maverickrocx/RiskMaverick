@@ -2,8 +2,8 @@
 # Each mark carries the date and publisher it came from.
 
 brent:
-  price: "$103.42"
-  asof: "17 Sep 2026"
+  price: "$103.41"
+  asof: "18 Sep 2026"
   source: "market feed"
 brent_spot:
   price: "$130.80"
@@ -14,31 +14,31 @@ brent_wti:
   asof: "15 Sep 2026"
   source: "derived"
 de_da:
-  price: "€142.89"
-  asof: "17 Sep 2026"
+  price: "€120.53"
+  asof: "18 Sep 2026"
   source: "SMARD"
-  low: 0.1
-  high: 232.7
+  low: 0.0
+  high: 221.78
   points: 96
 estr:
-  price: "2.441%"
-  asof: "16 Sep 2026"
+  price: "2.440%"
+  asof: "17 Sep 2026"
   source: "ECB"
 eurusd:
-  price: "1.1479"
-  asof: "17 Sep 2026"
+  price: "1.1484"
+  asof: "18 Sep 2026"
   source: "market feed"
 fed_target:
-  price: "3.50–3.75%"
-  asof: "16 Sep 2026"
+  price: "3.75–4.00%"
+  asof: "17 Sep 2026"
   source: "Federal Reserve"
 gbpusd:
-  price: "1.3404"
-  asof: "17 Sep 2026"
+  price: "1.3370"
+  asof: "18 Sep 2026"
   source: "market feed"
 gold:
-  price: "$4,349.40"
-  asof: "17 Sep 2026"
+  price: "$4,416.10"
+  asof: "18 Sep 2026"
   source: "market feed"
 henry_hub:
   price: "$2.97"
@@ -53,40 +53,40 @@ lme_cu:
   asof: "28 Aug 2026"
   source: "LME"
 n225:
-  price: "64,136.25"
-  asof: "17 Sep 2026"
+  price: "65,018.95"
+  asof: "18 Sep 2026"
   source: "market feed"
 rggi:
   price: "$37.65"
   asof: "Auction 73, Sep 2026"
   source: "RGGI"
 sofr:
-  price: "3.64%"
-  asof: "15 Sep 2026"
+  price: "3.62%"
+  asof: "16 Sep 2026"
   source: "NY Fed"
 sp500:
-  price: "7,551.81"
-  asof: "16 Sep 2026"
+  price: "7,637.76"
+  asof: "17 Sep 2026"
   source: "market feed"
 stoxx50:
-  price: "6,315.30"
-  asof: "17 Sep 2026"
+  price: "6,280.00"
+  asof: "18 Sep 2026"
   source: "market feed"
 us10y:
-  price: "5.01%"
-  asof: "16 Sep 2026"
+  price: "4.94%"
+  asof: "17 Sep 2026"
   source: "US Treasury"
 us2y:
-  price: "4.74%"
-  asof: "16 Sep 2026"
+  price: "4.67%"
+  asof: "17 Sep 2026"
   source: "US Treasury"
 us30y:
-  price: "5.35%"
-  asof: "16 Sep 2026"
+  price: "5.29%"
+  asof: "17 Sep 2026"
   source: "US Treasury"
 usdjpy:
-  price: "155.65"
-  asof: "17 Sep 2026"
+  price: "157.91"
+  asof: "18 Sep 2026"
   source: "market feed"
 wti:
   price: "$107.02"
