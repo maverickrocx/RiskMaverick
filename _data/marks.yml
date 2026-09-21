@@ -30,7 +30,7 @@ eurusd:
   source: "market feed"
 fed_target:
   price: "3.75–4.00%"
-  asof: "20 Sep 2026"
+  asof: "21 Sep 2026"
   source: "Federal Reserve"
 gbpusd:
   price: "1.3383"
@@ -62,7 +62,7 @@ rggi:
   source: "RGGI"
 sofr:
   price: "3.85%"
-  asof: "17 Sep 2026"
+  asof: "18 Sep 2026"
   source: "NY Fed"
 sp500:
   price: "7,650.50"
