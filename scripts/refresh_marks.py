@@ -45,15 +45,57 @@ def band(name, value, lo, hi):
 
 # ── Fetchers: each returns (price_string, asof_string, source) ───────────
 
+_EIA_DAILY = {}
+
+
+def eia_daily():
+    """EIA's own daily prices page, updated each weekday morning (US ET).
+
+    FRED's copies of the EIA spot series (DCOILWTICO etc.) only update when
+    EIA posts its weekly history file, so they run up to ~8 days behind. This
+    page carries the prior session's WTI, Brent and Henry Hub the next morning.
+    Returns {"date": date, "wti": float, "brent": float, "henry_hub": float};
+    raises if the page layout has changed."""
+    if not _EIA_DAILY:
+        html = get("https://www.eia.gov/todayinenergy/prices.php")
+        m = re.search(r"Wholesale Spot Petroleum Prices,\s*(\d{1,2})/(\d{1,2})/(\d{2})\s*Close", html)
+        if not m:
+            raise ValueError("EIA daily page: no spot-petroleum close date")
+        out = {"date": datetime.date(2000 + int(m.group(3)), int(m.group(1)), int(m.group(2)))}
+        # Henry Hub is the "Louisiana" row of the spot gas table.
+        for key, label in (("wti", "WTI"), ("brent", "Brent"), ("henry_hub", "Louisiana")):
+            r = re.search(r'<td class="s[12]">\s*' + label + r'\s*</td>\s*<td class="d1">\s*([\d.,]+)\s*</td>', html)
+            if not r:
+                raise ValueError(f"EIA daily page: no {label} row")
+            out[key] = float(r.group(1).replace(",", ""))
+        _EIA_DAILY.update(out)
+    return _EIA_DAILY
+
+
+def _eia_or_fred(key, series_id, lo, hi):
+    """Newest of EIA's daily page and FRED's copy of the same EIA series —
+    FRED stays as the fallback if the daily page is down or changes layout."""
+    cands = []
+    try:
+        e = eia_daily()
+        cands.append((e["date"], band(key, e[key if key != "brent_spot" else "brent"], lo, hi)))
+    except Exception as ex:
+        print(f"  note {key:10s} EIA daily page unavailable ({ex}); using FRED")
+    try:
+        obs = fred(series_id)
+        if obs:
+            d = max(obs)
+            cands.append((d, band(key, obs[d], lo, hi)))
+    except Exception as ex:
+        print(f"  note {key:10s} FRED unavailable ({ex})")
+    if not cands:
+        raise ValueError(f"no {key} observation from EIA or FRED")
+    d, v = max(cands)
+    return f"${v:,.2f}", fmt_date(d), "EIA"
+
+
 def henry_hub():
-    rows = [r for r in csv.reader(io.StringIO(get(
-        "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DHHNGSP"))) if len(r) == 2]
-    for date, val in reversed(rows[1:]):
-        if val not in (".", ""):
-            v = band("henry_hub", float(val), 0.5, 40)
-            d = datetime.date.fromisoformat(date)
-            return f"${v:.2f}", fmt_date(d), "EIA"
-    raise ValueError("no Henry Hub observation")
+    return _eia_or_fred("henry_hub", "DHHNGSP", 0.5, 40)
 
 
 def treasury():
@@ -103,7 +145,10 @@ def german_power():
 
 def lme(field, key, lo, hi):
     html = get(f"https://www.westmetall.com/en/markdaten.php?action=table&field={field}")
-    cells = re.findall(r"<td[^>]*>([^<]{3,16})</td>", html)
+    # Dates render as "23. September 2026" — 18 chars. The cap must fit the
+    # longest month name, or long months are skipped and the parser silently
+    # falls through to an older row (it froze at 28 Aug for all of September).
+    cells = re.findall(r"<td[^>]*>([^<]{3,30})</td>", html)
     for i, c in enumerate(cells):
         m = re.match(r"^\s*(\d{1,2})\.\s*([A-Za-z]+)\s*(\d{4})\s*$", c)
         if m and i + 1 < len(cells):
@@ -131,35 +176,38 @@ def fred(series_id):
     return _FRED_CACHE[series_id]
 
 
-def _fred_last(series_id, key, lo, hi, pfx="$", dec=2):
-    obs = fred(series_id)
-    if not obs:
-        raise ValueError(f"no {series_id} observations")
-    d = max(obs)
-    v = band(key, obs[d], lo, hi)
-    return f"{pfx}{v:,.{dec}f}", fmt_date(d), "EIA"
-
-
 def wti():
     """EIA Cushing WTI spot — the primary published US crude benchmark."""
-    return _fred_last("DCOILWTICO", "wti", 5, 300)
+    return _eia_or_fred("wti", "DCOILWTICO", 5, 300)
 
 
 def brent_spot():
     """EIA Europe Brent spot. Feeds the Brent-WTI tile; the Brent tile
     itself hydrates live in the browser from the market feed."""
-    return _fred_last("DCOILBRENTEU", "brent_spot", 5, 300)
+    return _eia_or_fred("brent_spot", "DCOILBRENTEU", 5, 300)
 
 
 def brent_wti():
     """Transatlantic spread, derived from the two EIA spot series on the
     latest date both publish — never mix dates across the two legs."""
-    b, w = fred("DCOILBRENTEU"), fred("DCOILWTICO")
-    common = set(b) & set(w)
-    if not common:
+    cands = []
+    try:
+        e = eia_daily()   # both legs sit in one table under one close date
+        cands.append((e["date"], e["brent"] - e["wti"]))
+    except Exception:
+        pass
+    try:
+        b, w = fred("DCOILBRENTEU"), fred("DCOILWTICO")
+        common = set(b) & set(w)
+        if common:
+            d = max(common)
+            cands.append((d, b[d] - w[d]))
+    except Exception:
+        pass
+    if not cands:
         raise ValueError("no common Brent/WTI date")
-    d = max(common)
-    v = band("brent_wti", b[d] - w[d], -30, 40)
+    d, v = max(cands)
+    v = band("brent_wti", v, -30, 40)
     return f"${v:,.2f}", fmt_date(d), "derived"
 
 
@@ -232,6 +280,9 @@ def feed_marks():
 # are curated by hand, so the only thing automation can do is say out loud
 # when one has drifted past its shelf life and needs a named published source.
 STALE_AFTER_DAYS = 14
+# Automated daily marks: a long weekend plus a local holiday run (e.g. Japan's
+# September "Silver Week") can legitimately leave a gap of ~6 days.
+MARK_STALE_DAYS = 7
 _BENCH_RE = re.compile(r'^\s*-\s*\{(?P<body>.*)\}\s*$')
 
 
@@ -334,6 +385,24 @@ def main():
             lines.append(f'  {k}: "{v}"' if isinstance(v, str) else f"  {k}: {v}")
     OUT.write_text("\n".join(lines) + "\n", encoding="utf-8")
     print(f"\nwrote {OUT.relative_to(ROOT)} ({len(marks)} marks, {len(failures)} failed)")
+
+    # A fetch can "succeed" and still return an old observation — a parser
+    # that skips the newest row, or a source that stopped publishing. Say so
+    # loudly (and as a GitHub annotation) instead of printing "ok" forever.
+    today, old = datetime.date.today(), []
+    for key in sorted(marks):
+        try:
+            d = datetime.datetime.strptime(marks[key].get("asof", ""), "%d %b %Y").date()
+        except ValueError:
+            continue          # e.g. "Auction 73, Sep 2026" — not a daily mark
+        if (today - d).days > MARK_STALE_DAYS:
+            old.append(f"{key} as of {marks[key]['asof']} ({(today - d).days}d)")
+    if old:
+        print(f"\nAutomated marks older than {MARK_STALE_DAYS}d — check the source/parser:")
+        for s in old:
+            print(f"  STALE {s}")
+            if os.environ.get("GITHUB_ACTIONS"):
+                print(f"::warning title=Stale benchmark mark::{s}")
 
     stale = stale_tiles()
     if stale:
