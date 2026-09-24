@@ -45,12 +45,12 @@ henry_hub:
   asof: "22 Sep 2026"
   source: "EIA"
 lme_al:
-  price: "$3,222"
-  asof: "28 Aug 2026"
+  price: "$3,240"
+  asof: "23 Sep 2026"
   source: "LME"
 lme_cu:
-  price: "$14,535"
-  asof: "28 Aug 2026"
+  price: "$14,735"
+  asof: "23 Sep 2026"
   source: "LME"
 n225:
   price: "65,018.95"
