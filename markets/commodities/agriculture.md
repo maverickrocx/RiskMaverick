@@ -8,10 +8,10 @@ blurb: "Grains and softs, weather and seasonality risk."
 standfirst: "The one commodity complex where the crop is grown to a calendar — so weather and the planting-to-harvest cycle drive price in a way no other market shares."
 reviewed: 2026-07-30
 benchmarks:
-  - { name: "Corn", region: "US · CBOT", price: "$5.06", unit: "/bu", asof: "9 Sep 2026", source: "CBOT" }
-  - { name: "Soybeans", region: "US · CBOT", price: "$12.93", unit: "/bu", asof: "9 Sep 2026", source: "CBOT" }
-  - { name: "Wheat", region: "US · CBOT", price: "$7.22", unit: "/bu", asof: "9 Sep 2026", source: "CBOT" }
-benchmark_note: "CBOT front-month futures, converted from the exchange’s cents-per-bushel quote, as reported by Trading Economics on 9 September 2026. Front-month, not new-crop: the December contracts trade higher — corn was 529¢ against the front month’s 506¢ on the same day. Indicative only — not for trading or execution."
+  - { name: "Corn", region: "US · CBOT", price: "$5.28", unit: "/bu", asof: "25 Sep 2026", source: "CBOT" }
+  - { name: "Soybeans", region: "US · CBOT", price: "$13.19", unit: "/bu", asof: "25 Sep 2026", source: "CBOT" }
+  - { name: "Wheat", region: "US · CBOT", price: "$7.03", unit: "/bu", asof: "25 Sep 2026", source: "CBOT" }
+benchmark_note: "CBOT front-month settlements on 25 September 2026, converted from the exchange’s cents-per-bushel quote: December corn 528¼¢, November soybeans 1,319¢ and December wheat 703¼¢, as reported by Trading Economics and cross-checked against Brownfield Ag News’ closing futures report. With the September contracts expired, the front month is now the new-crop contract. Indicative only — not for trading or execution."
 key_benchmarks:
   - { code: "CBOT grains", full: "Chicago Board of Trade", desc: "The global reference for corn, soybeans and wheat futures — the deepest and most-watched ag benchmarks." }
   - { code: "ICE softs", full: "Coffee, sugar, cocoa, cotton", desc: "The ‘softs’ complex trades on ICE, driven by tropical weather and concentrated growing regions." }
