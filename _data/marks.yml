@@ -30,7 +30,7 @@ eurusd:
   source: "market feed"
 fed_target:
   price: "3.75–4.00%"
-  asof: "26 Sep 2026"
+  asof: "27 Sep 2026"
   source: "Federal Reserve"
 gbpusd:
   price: "1.3246"
