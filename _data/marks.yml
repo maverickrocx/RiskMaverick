@@ -14,15 +14,15 @@ brent_wti:
   asof: "24 Sep 2026"
   source: "derived"
 de_da:
-  price: "€111.06"
-  asof: "27 Sep 2026"
+  price: "€195.40"
+  asof: "28 Sep 2026"
   source: "SMARD"
-  low: -2.99
-  high: 201.28
+  low: 114.49
+  high: 390.6
   points: 96
 estr:
   price: "2.440%"
-  asof: "24 Sep 2026"
+  asof: "25 Sep 2026"
   source: "ECB"
 eurusd:
   price: "1.1391"
