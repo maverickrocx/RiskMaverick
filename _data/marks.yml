@@ -6,19 +6,19 @@ brent:
   asof: "29 Sep 2026"
   source: "market feed"
 brent_spot:
-  price: "$116.01"
-  asof: "25 Sep 2026"
+  price: "$119.97"
+  asof: "28 Sep 2026"
   source: "EIA"
 brent_wti:
-  price: "$30.78"
-  asof: "25 Sep 2026"
+  price: "$20.60"
+  asof: "28 Sep 2026"
   source: "derived"
 de_da:
-  price: "€165.83"
-  asof: "29 Sep 2026"
+  price: "€140.75"
+  asof: "30 Sep 2026"
   source: "SMARD"
-  low: 63.94
-  high: 244.45
+  low: 13.33
+  high: 255.37
   points: 96
 estr:
   price: "2.440%"
@@ -30,7 +30,7 @@ eurusd:
   source: "market feed"
 fed_target:
   price: "3.75–4.00%"
-  asof: "28 Sep 2026"
+  asof: "29 Sep 2026"
   source: "Federal Reserve"
 gbpusd:
   price: "1.3241"
@@ -41,16 +41,16 @@ gold:
   asof: "29 Sep 2026"
   source: "market feed"
 henry_hub:
-  price: "$3.21"
-  asof: "25 Sep 2026"
+  price: "$3.13"
+  asof: "28 Sep 2026"
   source: "EIA"
 lme_al:
-  price: "$3,248"
-  asof: "28 Sep 2026"
+  price: "$3,226"
+  asof: "29 Sep 2026"
   source: "LME"
 lme_cu:
-  price: "$14,544"
-  asof: "28 Sep 2026"
+  price: "$14,474"
+  asof: "29 Sep 2026"
   source: "LME"
 n225:
   price: "65,481.27"
@@ -62,7 +62,7 @@ rggi:
   source: "RGGI"
 sofr:
   price: "3.90%"
-  asof: "25 Sep 2026"
+  asof: "28 Sep 2026"
   source: "NY Fed"
 sp500:
   price: "7,683.69"
@@ -73,22 +73,22 @@ stoxx50:
   asof: "29 Sep 2026"
   source: "market feed"
 us10y:
-  price: "5.24%"
-  asof: "28 Sep 2026"
+  price: "5.26%"
+  asof: "29 Sep 2026"
   source: "US Treasury"
 us2y:
-  price: "4.92%"
-  asof: "28 Sep 2026"
+  price: "4.89%"
+  asof: "29 Sep 2026"
   source: "US Treasury"
 us30y:
-  price: "5.56%"
-  asof: "28 Sep 2026"
+  price: "5.59%"
+  asof: "29 Sep 2026"
   source: "US Treasury"
 usdjpy:
   price: "157.26"
   asof: "29 Sep 2026"
   source: "market feed"
 wti:
-  price: "$85.23"
-  asof: "25 Sep 2026"
+  price: "$99.37"
+  asof: "28 Sep 2026"
   source: "EIA"
