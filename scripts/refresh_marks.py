@@ -35,6 +35,17 @@ def fmt_date(d):
     return f"{d.day} {d:%b %Y}"
 
 
+def last_trading_day(d):
+    """Roll a Saturday/Sunday back to the Friday it carries over from.
+
+    Weekend runs otherwise stamp a weekday-only market with the run date,
+    labelling Friday's close as "27 Sep". Exchange holidays are not handled:
+    a holiday run still shows the holiday date."""
+    while d.weekday() >= 5:
+        d -= datetime.timedelta(days=1)
+    return d
+
+
 def band(name, value, lo, hi):
     """Reject implausible values — a parser that silently grabs the wrong
     column is more dangerous than no update at all."""
@@ -214,7 +225,11 @@ def brent_wti():
 def fed_target():
     """FOMC target range from the Board's own published series."""
     lo_s, hi_s = fred("DFEDTARL"), fred("DFEDTARU")
-    d = max(set(lo_s) & set(hi_s))
+    common = set(lo_s) & set(hi_s)
+    # The series is published for every calendar day, weekends included.
+    d = last_trading_day(max(common))
+    if d not in common:
+        d = max(common)
     lo = band("fed_target_lo", lo_s[d], 0.0, 25.0)
     hi = band("fed_target_hi", hi_s[d], 0.0, 25.0)
     if hi < lo:
@@ -268,8 +283,9 @@ def feed_marks():
             q = d[0]
             v = band(key, float(q["price"]), 0, hi)
             ts = q.get("timestamp")
-            when = (datetime.datetime.fromtimestamp(ts, datetime.timezone.utc).date()
-                    if ts else datetime.date.today())
+            when = last_trading_day(
+                datetime.datetime.fromtimestamp(ts, datetime.timezone.utc).date()
+                if ts else datetime.date.today())
             yield key, (f"{pfx}{v:,.{dec}f}", fmt_date(when), "market feed")
         except Exception as e:
             print(f"  KEEP {key:10s} (feed fallback refresh failed: {e})")
