@@ -2,55 +2,55 @@
 # Each mark carries the date and publisher it came from.
 
 brent:
-  price: "$100.08"
+  price: "$102.25"
   asof: "2 Oct 2026"
   source: "market feed"
 brent_spot:
-  price: "$115.91"
-  asof: "30 Sep 2026"
+  price: "$114.82"
+  asof: "1 Oct 2026"
   source: "EIA"
 brent_wti:
-  price: "$18.73"
-  asof: "30 Sep 2026"
+  price: "$15.05"
+  asof: "1 Oct 2026"
   source: "derived"
 de_da:
-  price: "€200.50"
-  asof: "2 Oct 2026"
+  price: "€169.01"
+  asof: "3 Oct 2026"
   source: "SMARD"
-  low: 134.72
-  high: 328.58
+  low: 52.77
+  high: 243.06
   points: 96
 estr:
   price: "2.442%"
   asof: "1 Oct 2026"
   source: "ECB"
 eurusd:
-  price: "1.1239"
-  asof: "2 Oct 2026"
+  price: "1.1257"
+  asof: "3 Oct 2026"
   source: "market feed"
 fed_target:
   price: "3.75–4.00%"
-  asof: "1 Oct 2026"
+  asof: "2 Oct 2026"
   source: "Federal Reserve"
 gbpusd:
-  price: "1.3209"
-  asof: "2 Oct 2026"
+  price: "1.3242"
+  asof: "3 Oct 2026"
   source: "market feed"
 gold:
-  price: "$4,217.70"
+  price: "$4,162.30"
   asof: "2 Oct 2026"
   source: "market feed"
 henry_hub:
-  price: "$3.02"
-  asof: "30 Sep 2026"
+  price: "$3.00"
+  asof: "1 Oct 2026"
   source: "EIA"
 lme_al:
-  price: "$3,120"
-  asof: "1 Oct 2026"
+  price: "$3,110"
+  asof: "2 Oct 2026"
   source: "LME"
 lme_cu:
-  price: "$14,335"
-  asof: "1 Oct 2026"
+  price: "$14,355"
+  asof: "2 Oct 2026"
   source: "LME"
 n225:
   price: "68,309.46"
@@ -61,34 +61,34 @@ rggi:
   asof: "Auction 73, Sep 2026"
   source: "RGGI"
 sofr:
-  price: "3.90%"
-  asof: "30 Sep 2026"
+  price: "3.87%"
+  asof: "1 Oct 2026"
   source: "NY Fed"
 sp500:
-  price: "7,666.45"
-  asof: "1 Oct 2026"
+  price: "7,722.72"
+  asof: "2 Oct 2026"
   source: "market feed"
 stoxx50:
-  price: "6,243.70"
+  price: "6,257.40"
   asof: "2 Oct 2026"
   source: "market feed"
 us10y:
-  price: "5.24%"
-  asof: "1 Oct 2026"
+  price: "5.28%"
+  asof: "2 Oct 2026"
   source: "US Treasury"
 us2y:
-  price: "4.78%"
-  asof: "1 Oct 2026"
+  price: "4.83%"
+  asof: "2 Oct 2026"
   source: "US Treasury"
 us30y:
-  price: "5.61%"
-  asof: "1 Oct 2026"
+  price: "5.63%"
+  asof: "2 Oct 2026"
   source: "US Treasury"
 usdjpy:
-  price: "157.76"
-  asof: "2 Oct 2026"
+  price: "157.83"
+  asof: "3 Oct 2026"
   source: "market feed"
 wti:
-  price: "$97.18"
-  asof: "30 Sep 2026"
+  price: "$99.77"
+  asof: "1 Oct 2026"
   source: "EIA"
