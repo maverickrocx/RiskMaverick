@@ -17,24 +17,24 @@ de_da:
   price: "€169.01"
   asof: "3 Oct 2026"
   source: "SMARD"
-  low: 52.77
-  high: 243.06
-  points: 96
+  low: "52.77"
+  high: "243.06"
+  points: "96"
 estr:
   price: "2.442%"
   asof: "1 Oct 2026"
   source: "ECB"
 eurusd:
-  price: "1.1257"
-  asof: "3 Oct 2026"
+  price: "1.1255"
+  asof: "4 Oct 2026"
   source: "market feed"
 fed_target:
   price: "3.75–4.00%"
-  asof: "2 Oct 2026"
+  asof: "3 Oct 2026"
   source: "Federal Reserve"
 gbpusd:
-  price: "1.3242"
-  asof: "3 Oct 2026"
+  price: "1.3240"
+  asof: "4 Oct 2026"
   source: "market feed"
 gold:
   price: "$4,162.30"
@@ -86,7 +86,7 @@ us30y:
   source: "US Treasury"
 usdjpy:
   price: "157.83"
-  asof: "3 Oct 2026"
+  asof: "4 Oct 2026"
   source: "market feed"
 wti:
   price: "$99.77"
