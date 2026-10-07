@@ -2,7 +2,7 @@
 # Each mark carries the date and publisher it came from.
 
 brent:
-  price: "$101.43"
+  price: "$101.32"
   asof: "7 Oct 2026"
   source: "market feed"
 brent_spot:
@@ -14,7 +14,7 @@ brent_wti:
   asof: "5 Oct 2026"
   source: "derived"
 corn:
-  price: "$5.09"
+  price: "$5.04"
   asof: "7 Oct 2026"
   source: "CBOT via Yahoo"
 de_da:
@@ -25,15 +25,15 @@ de_da:
   high: 280.42
   points: 96
 estr:
-  price: "2.438%"
-  asof: "5 Oct 2026"
+  price: "2.439%"
+  asof: "6 Oct 2026"
   source: "ECB"
 eua:
-  price: "€84.31"
-  asof: "6 Oct 2026"
+  price: "€83.83"
+  asof: "7 Oct 2026"
   source: "EEX auction"
 eurusd:
-  price: "1.1232"
+  price: "1.1183"
   asof: "7 Oct 2026"
   source: "market feed"
 fed_target:
@@ -41,11 +41,11 @@ fed_target:
   asof: "6 Oct 2026"
   source: "Federal Reserve"
 gbpusd:
-  price: "1.3248"
+  price: "1.3211"
   asof: "7 Oct 2026"
   source: "market feed"
 gold:
-  price: "$4,165.20"
+  price: "$4,143.70"
   asof: "7 Oct 2026"
   source: "market feed"
 henry_hub:
@@ -61,7 +61,7 @@ lme_cu:
   asof: "6 Oct 2026"
   source: "LME"
 n225:
-  price: "70,113.85"
+  price: "70,035.71"
   asof: "7 Oct 2026"
   source: "market feed"
 rggi:
@@ -73,7 +73,7 @@ sofr:
   asof: "5 Oct 2026"
   source: "NY Fed"
 soybeans:
-  price: "$13.09"
+  price: "$13.04"
   asof: "7 Oct 2026"
   source: "CBOT via Yahoo"
 sp500:
@@ -81,7 +81,7 @@ sp500:
   asof: "6 Oct 2026"
   source: "market feed"
 stoxx50:
-  price: "6,240.60"
+  price: "6,172.40"
   asof: "7 Oct 2026"
   source: "market feed"
 ttf:
@@ -101,11 +101,11 @@ us30y:
   asof: "6 Oct 2026"
   source: "US Treasury"
 usdjpy:
-  price: "158.41"
+  price: "158.19"
   asof: "7 Oct 2026"
   source: "market feed"
 wheat:
-  price: "$7.04"
+  price: "$6.99"
   asof: "7 Oct 2026"
   source: "CBOT via Yahoo"
 wti:
