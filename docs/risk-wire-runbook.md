@@ -14,34 +14,9 @@ This runbook holds only what the skill defers to it: the benchmark marks below.
 
 ## 2. Sectors
 
-One file per sector, never a combined post — the filter chips match on
-`sector:`, so a combined post cannot be filtered.
-
-**Risk Wire** → `_news/<YYYY-MM-DD>-<sector>.md`
-
-| `sector:` | Chip label |
-|---|---|
-| `oil-products` | Oil / Products |
-| `gas-power` | Gas & Power |
-| `lng` | LNG |
-| `carbon` | Carbon |
-
-**General Wire** → `_general/<YYYY-MM-DD>-<sector>.md`
-
-| `sector:` | Chip label |
-|---|---|
-| `business` | Business |
-| `economics` | Economics |
-| `finance` | Finance |
-| `politics` | Politics |
-| `tech-ai` | Tech / AI |
-
-These slugs are the contract with `news.html` and `general-wire.html`. If you
-change one, change all three together — a post whose `sector:` is not in the
-page's list renders but cannot be filtered.
-
-Only write a file for a sector with real news. Nine files is the ceiling, not
-the target; four to six is a normal day.
+The sector slugs, file naming (one file per day per wire, with a `sectors:`
+list) and section headings are all specified in the skill, Step 4. They are the
+contract with the chip lists in `news.html` and `general-wire.html`.
 
 ## 3. Refresh the hub benchmark marks
 
@@ -73,6 +48,18 @@ routine.
 | German day-ahead power | `de_da` | `https://api.energy-charts.info/price?bzn=DE-LU` (Bundesnetzagentur/SMARD, CC BY 4.0) |
 | LME copper / aluminium cash | `lme_cu` `lme_al` | `https://www.westmetall.com/en/markdaten.php?action=table&field=LME_Cu_cash` (and `LME_Al_cash`) |
 | RGGI allowance auction | `rggi` | `https://www.rggi.org/auctions/auction-results/prices-volumes` — quarterly, so `asof` is the auction, not a trade date |
+| EUA (both tiles) | `eua` | `https://public.eex-group.com/eex/eua-auction-report/emission-spot-primary-market-auction-report-<year>-data.xlsx` — latest successful EU ETS primary auction on EEX; an auction clearing price, not the ICE December future |
+
+### Automated — public delayed feed, no API key
+
+CBOT and ICE Endex publish no free feed, so these come from Yahoo Finance's
+public chart endpoint (`query1.finance.yahoo.com/v8/finance/chart/<symbol>`);
+the tile's source reads "… via Yahoo" so nobody mistakes it for the exchange.
+
+| Mark | `key:` | Symbol |
+|---|---|---|
+| Corn · Soybeans · Wheat (CBOT front-month, ¢/bu → $/bu) | `corn` `soybeans` `wheat` | `ZC=F` `ZS=F` `ZW=F` |
+| TTF (ICE Endex front-month, €/MWh) | `ttf` | `TTF=F` |
 
 For the German power tile, publish the **average across all quarter-hours**
 returned, and keep the daily min/max in the `benchmark_note` — the spread is the
@@ -85,11 +72,13 @@ in the browser. The script refreshes their server-rendered fallback from the sam
 feed when `FMP_API_KEY` is in the environment, and silently skips them when it is
 not — that is not an error, and no primary mark depends on it.
 
-### Manual — no free primary feed exists
+### Manual — no free feed exists
 
-**Corn, soybeans, wheat, TTF, JKM, EUA.** The script cannot price these; at the
-end of every run it prints them under *"Hand-curated tiles needing attention"*
-once they pass 14 days old. For each, either refresh from a **named published
-report** — moving `price:` and `asof:` together, never one without the other, and
-citing it in `source:` — or leave the previous value and its date rather than
-guessing. A stale-but-true mark with a visible date beats a fabricated one.
+**JKM only.** Platts is proprietary and no public feed carries it. The script
+prints it under *"Hand-curated tiles needing attention"* once it passes 14 days
+old. The wire routine refreshes it whenever a Bloomberg article or newsletter it
+read that day, or another named public report, quotes a JKM level: move
+`price:` and `asof:` together in `markets/commodities/natural-gas-lng.md`,
+set `source:` to the publisher, and say so in the PR body. If no source quotes
+a level, leave the previous value and its date — a stale-but-true mark with a
+visible date beats a fabricated one.

@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Refresh benchmark marks from free primary sources into _data/marks.yml.
 
-Every mark endpoint here is published by the primary source, is free, and
-needs no API key. The one optional extra is the live-feed fallback refresh,
+Every mark endpoint here is free and needs no API key. Most are the primary
+publisher's own; the grains and TTF come from Yahoo Finance's public chart
+feed, as CBOT and ICE Endex publish none. The one optional extra is the live-feed fallback refresh,
 which uses FMP_API_KEY if it is set and is silently skipped if it is not.
 Run daily by .github/workflows/refresh-marks.yml, and again by the risk-wire
 routine so the hub tiles are current before the brief goes out.
@@ -235,6 +236,60 @@ def rggi():
     return f"${v:,.2f}", f"Auction {m.group(1)}, {d:%b %Y}", "RGGI"
 
 
+def eua():
+    """Latest successful EU ETS primary auction on EEX — the official auction
+    platform's own clearing price, published as a public workbook each day.
+    Like RGGI it is an auction result, not the ICE December future, so the
+    tile labels it as such. Parsed with the stdlib: no openpyxl in CI."""
+    import zipfile
+    year = datetime.date.today().year
+    req = urllib.request.Request(
+        "https://public.eex-group.com/eex/eua-auction-report/"
+        f"emission-spot-primary-market-auction-report-{year}-data.xlsx", headers=UA)
+    with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
+        z = zipfile.ZipFile(io.BytesIO(r.read()))
+    strings = [re.sub(r"<[^>]+>", "", s) for s in re.findall(
+        r"<si>(.*?)</si>", z.read("xl/sharedStrings.xml").decode("utf-8"), re.S)]
+    best = None
+    for row in re.findall(r"<row[^>]*>(.*?)</row>",
+                          z.read("xl/worksheets/sheet1.xml").decode("utf-8"), re.S):
+        cells = {}
+        for col, attrs, body in re.findall(
+                r'<c r="([A-Z]+)\d+"([^>]*?)(?:/>|>(.*?)</c>)', row, re.S):
+            v = re.search(r"<v>(.*?)</v>", body or "")
+            v = v.group(1) if v else ""
+            cells[col] = strings[int(v)] if 't="s"' in attrs and v else v
+        # B = Excel serial date, F = status, G = auction clearing price €/t.
+        try:
+            serial, price = float(cells.get("B", "")), float(cells.get("G", ""))
+        except ValueError:
+            continue          # header and title rows
+        if cells.get("F", "").strip().lower() != "successful":
+            continue
+        d = datetime.date(1899, 12, 30) + datetime.timedelta(days=int(serial))
+        if best is None or d > best[0]:
+            best = (d, price)
+    if not best:
+        raise ValueError("no successful EUA auction row parsed")
+    v = band("eua", best[1], 5, 300)
+    return f"€{v:,.2f}", fmt_date(best[0]), "EEX auction"
+
+
+def yahoo_future(sym, key, pfx, scale, lo, hi, source):
+    """Front-month settlement from Yahoo Finance's public chart endpoint, for
+    benchmarks whose exchange (CBOT, ICE Endex) publishes no free feed. Only
+    `v8/finance/chart` answers scripts; `quoteSummary` is blocked. Delayed,
+    third-party data — the tile's source label says so."""
+    req = urllib.request.Request(
+        f"https://query1.finance.yahoo.com/v8/finance/chart/{urllib.parse.quote(sym)}"
+        "?range=5d&interval=1d", headers={"User-Agent": "Mozilla/5.0"})
+    with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
+        meta = json.loads(r.read().decode("utf-8"))["chart"]["result"][0]["meta"]
+    v = band(key, float(meta["regularMarketPrice"]) * scale, lo, hi)
+    d = datetime.datetime.fromtimestamp(meta["regularMarketTime"], datetime.timezone.utc).date()
+    return f"{pfx}{v:,.2f}", fmt_date(d), source
+
+
 # ── Live-feed fallbacks ─────────────────────────────────────────────────
 # The tiles carrying `symbol:` hydrate in the browser from FMP (see
 # assets/js/rm-data.js). Their front-matter price is only the fallback shown
@@ -276,9 +331,9 @@ def feed_marks():
 
 
 # ── Stale-tile report ───────────────────────────────────────────────────
-# Some tiles have no free primary feed at all — grains, TTF, JKM, EUA. They
-# are curated by hand, so the only thing automation can do is say out loud
-# when one has drifted past its shelf life and needs a named published source.
+# JKM is the one tile with no free feed at all (Platts is proprietary). It is
+# curated by hand, so the only thing automation can do is say out loud when it
+# has drifted past its shelf life and needs a named published source.
 STALE_AFTER_DAYS = 14
 # Automated daily marks: a long weekend plus a local holiday run (e.g. Japan's
 # September "Silver Week") can legitimately leave a gap of ~6 days.
@@ -324,6 +379,12 @@ TASKS = {
     "brent_wti": brent_wti,
     "fed_target": fed_target,
     "rggi": rggi,
+    "eua": eua,
+    # CBOT quotes grains in cents per bushel; the tiles show dollars.
+    "corn": lambda: yahoo_future("ZC=F", "corn", "$", 0.01, 1.5, 20, "CBOT via Yahoo"),
+    "soybeans": lambda: yahoo_future("ZS=F", "soybeans", "$", 0.01, 4, 40, "CBOT via Yahoo"),
+    "wheat": lambda: yahoo_future("ZW=F", "wheat", "$", 0.01, 2, 30, "CBOT via Yahoo"),
+    "ttf": lambda: yahoo_future("TTF=F", "ttf", "€", 1, 3, 500, "ICE Endex via Yahoo"),
 }
 
 
