@@ -328,14 +328,18 @@ RGGI auction results — and, if `FMP_API_KEY` is set, also refreshes the
 fallback prices behind the tiles that hydrate live in the browser. It needs no
 key for the primary marks.
 
-**Read the last block it prints.** Anything listed under *"Hand-curated tiles
-needing attention"* has no free feed — today that is corn, soybeans, wheat, TTF,
-JKM and EUA. For each one either:
+The grains, TTF and EUA are now automated too (Yahoo's public chart feed and
+EEX's auction results — see runbook §3).
 
-- refresh it from a **named published report**, updating `price:` and `asof:`
-  together and citing the source in `source:`; or
+**Read the last block it prints.** Anything listed under *"Hand-curated tiles
+needing attention"* has no free feed — today that is **JKM only**. Either:
+
+- refresh it from a **Bloomberg article or newsletter you read this run, or
+  another named public report**, that quotes a JKM level: update `price:` and
+  `asof:` together in `markets/commodities/natural-gas-lng.md` and set
+  `source:` to the publisher; or
 - **leave it exactly as it is.** A stale-but-true mark with a visible date beats
-  a guess. Say in the PR body which ones you left and why.
+  a guess. Say in the PR body which one you did and why.
 
 Never invent a level, and never move `asof:` without moving `price:`.
 
@@ -364,8 +368,8 @@ unavailable, fall back to `mcp__github__create_pull_request`. In the body state:
 - if the run was web-only, say so plainly;
 - **which benchmark tiles moved, and which hand-curated ones you left stale.**
 
-Commit only the brief files, `_data/marks.yml`, and any `markets/` tiles you
-hand-refreshed in Step 5b (see runbook §3). Nothing else.
+Commit only the brief files, `_data/marks.yml`, and the JKM tile if you
+hand-refreshed it in Step 5b (see runbook §3). Nothing else.
 
 ---
 
@@ -446,10 +450,17 @@ never committed.
 If Step 8 did not go green, skip this step: an archive of a broken page is
 worse than no archive.
 
+**In a cloud session, skip this step.** The archive lives in `records/` on the
+owner's PC, which the cloud cannot reach. The desktop backfills it whenever it
+is on with `python scripts/wire_pdf.py --missing`, which renders every
+published brief from the last 14 days that has no PDF yet. Say in the final
+report that the PDFs were left for the desktop backfill.
+
 ---
 
 ## Finishing the run
 
 Report to the user: the PR number and URL, whether it was merged or left open
 (and why), the sectors covered, the Gmail-vs-web split, the build-workflow
-result, and the `records/` filenames written.
+result, and the `records/` filenames written (or, in a cloud run, that the PDFs
+are left for the desktop backfill).

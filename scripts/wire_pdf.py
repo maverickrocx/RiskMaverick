@@ -14,7 +14,9 @@ Only wires that were actually published that day are exported — the script
 looks for _news/<date>.md and _general/<date>.md and skips whichever is absent.
 
     python scripts/wire_pdf.py 2026-09-09
+    python scripts/wire_pdf.py --missing      # backfill the last 14 days
 """
+import datetime
 import os
 import shutil
 import subprocess
@@ -97,25 +99,51 @@ def render(chrome, url, out_path):
     return True, size
 
 
-def main():
-    if len(sys.argv) != 2:
-        sys.exit("usage: python scripts/wire_pdf.py <YYYY-MM-DD>")
-    date = sys.argv[1]
-
-    repo = Path(__file__).resolve().parent.parent
+def jobs_for(repo, date):
     jobs = []
     if (repo / "_news" / f"{date}.md").exists():
         jobs.append((f"{date}-risk-wire.pdf", f"{SITE}/news/{date}/"))
     if (repo / "_general" / f"{date}.md").exists():
         jobs.append((f"{date}-general-wire.pdf", f"{SITE}/general-wire/{date}/"))
-    if not jobs:
-        sys.exit(f"no brief files for {date} in _news/ or _general/ — nothing to export")
+    return jobs
+
+
+def main():
+    usage = ("usage: python scripts/wire_pdf.py <YYYY-MM-DD>\n"
+             "       python scripts/wire_pdf.py --missing [DAYS]   (default 14)")
+    if len(sys.argv) < 2 or len(sys.argv) > 3:
+        sys.exit(usage)
+
+    repo = Path(__file__).resolve().parent.parent
+    out_dir = repo / "records"
+
+    if sys.argv[1] == "--missing":
+        # Backfill mode: the wire now runs in the cloud, which cannot reach this
+        # machine's records/ folder, so the desktop catches up whenever it is on.
+        # Covers every published brief in the window with no PDF yet.
+        days = int(sys.argv[2]) if len(sys.argv) == 3 else 14
+        cutoff = (datetime.date.today() - datetime.timedelta(days=days)).isoformat()
+        dates = sorted({p.stem for d in ("_news", "_general")
+                        for p in (repo / d).glob("????-??-??.md") if p.stem >= cutoff})
+        jobs = [j for date in dates for j in jobs_for(repo, date)
+                if not (out_dir / j[0]).exists()]
+        if not jobs:
+            print(f"records/ is complete for the last {days} days — nothing to backfill")
+            return
+        label = f"backfill of {len(jobs)} PDF(s)"
+    else:
+        if len(sys.argv) != 2:
+            sys.exit(usage)
+        date = sys.argv[1]
+        jobs = jobs_for(repo, date)
+        if not jobs:
+            sys.exit(f"no brief files for {date} in _news/ or _general/ — nothing to export")
+        label = date
 
     chrome = find_chrome()
     if not chrome:
         sys.exit("no Chrome / Edge / Chromium found for PDF export")
 
-    out_dir = repo / "records"
     out_dir.mkdir(exist_ok=True)
 
     failures = []
@@ -125,11 +153,13 @@ def main():
         if ok:
             print(f"  wrote records/{name}  ({detail:,} bytes)  <- {url}")
         else:
+            # Never leave an undersized PDF behind: backfill would treat it as done.
+            out_path.unlink(missing_ok=True)
             failures.append(f"{name}: {detail}")
 
     if failures:
         sys.exit("PDF export failed:\n  " + "\n  ".join(failures))
-    print(f"records/ updated for {date}")
+    print(f"records/ updated ({label})")
 
 
 if __name__ == "__main__":

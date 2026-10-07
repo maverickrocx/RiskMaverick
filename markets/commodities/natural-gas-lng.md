@@ -9,9 +9,9 @@ standfirst: "Gas has no single global price. Three regional benchmarks — and t
 reviewed: 2026-07-30
 benchmarks:
   - { name: "Henry Hub", key: "henry_hub", region: "US · spot", price: "$2.90", unit: "/MMBtu", asof: "1 Sep 2026", source: "EIA" }
-  - { name: "TTF", region: "EU · ICE", price: "€76.70", unit: "/MWh", asof: "9 Sep 2026", source: "ICE" }
+  - { name: "TTF", key: "ttf", region: "EU · ICE", price: "€76.70", unit: "/MWh", asof: "9 Sep 2026", source: "ICE" }
   - { name: "JKM", region: "Asia · Platts", price: "$24.39", unit: "/MMBtu", asof: "8 Sep 2026", source: "Platts" }
-benchmark_note: "Henry Hub is the EIA daily spot series. TTF and JKM are front-month settlements — ICE Endex October-26 and the Platts October-26 marker — taken from published quotes, as neither has a free primary feed. Note the spread: European and Asian gas sit far above a Henry Hub anchored near $2.90, which is the basis risk this hub exists to explain."
+benchmark_note: "Henry Hub is the EIA daily spot series. TTF is the ICE Endex front-month, refreshed daily from Yahoo Finance’s delayed feed. JKM is the Platts front-month marker, which has no free feed, so it is updated by hand from a dated Bloomberg report or other published quote. Note the spread: European and Asian gas sit far above a Henry Hub anchored near $2.90, which is the basis risk this hub exists to explain."
 key_benchmarks:
   - { code: "Henry Hub", full: "Erath, Louisiana", desc: "The US physical & futures benchmark, settled on NYMEX. Deep, liquid, and the reference for North-American gas hedging." }
   - { code: "TTF", full: "Title Transfer Facility", desc: "The Dutch virtual hub that became Europe’s pricing anchor — the reference for pipeline gas and European LNG imports." }
