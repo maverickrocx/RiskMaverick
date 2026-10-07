@@ -6,19 +6,19 @@ brent:
   asof: "6 Oct 2026"
   source: "market feed"
 brent_spot:
-  price: "$135.51"
-  asof: "2 Oct 2026"
+  price: "$125.51"
+  asof: "5 Oct 2026"
   source: "EIA"
 brent_wti:
-  price: "$37.62"
-  asof: "2 Oct 2026"
+  price: "$29.38"
+  asof: "5 Oct 2026"
   source: "derived"
 de_da:
-  price: "€201.70"
-  asof: "6 Oct 2026"
+  price: "€192.03"
+  asof: "7 Oct 2026"
   source: "SMARD"
-  low: 124.33
-  high: 406.0
+  low: 122.91
+  high: 280.42
   points: 96
 estr:
   price: "2.438%"
@@ -41,16 +41,16 @@ gold:
   asof: "6 Oct 2026"
   source: "market feed"
 henry_hub:
-  price: "$2.90"
-  asof: "2 Oct 2026"
+  price: "$2.96"
+  asof: "5 Oct 2026"
   source: "EIA"
 lme_al:
-  price: "$3,107"
-  asof: "5 Oct 2026"
+  price: "$3,134"
+  asof: "6 Oct 2026"
   source: "LME"
 lme_cu:
-  price: "$14,430"
-  asof: "5 Oct 2026"
+  price: "$14,505"
+  asof: "6 Oct 2026"
   source: "LME"
 n225:
   price: "70,683.98"
@@ -73,22 +73,22 @@ stoxx50:
   asof: "6 Oct 2026"
   source: "market feed"
 us10y:
-  price: "5.31%"
-  asof: "5 Oct 2026"
+  price: "5.27%"
+  asof: "6 Oct 2026"
   source: "US Treasury"
 us2y:
-  price: "4.84%"
-  asof: "5 Oct 2026"
+  price: "4.79%"
+  asof: "6 Oct 2026"
   source: "US Treasury"
 us30y:
-  price: "5.66%"
-  asof: "5 Oct 2026"
+  price: "5.64%"
+  asof: "6 Oct 2026"
   source: "US Treasury"
 usdjpy:
   price: "158.13"
   asof: "6 Oct 2026"
   source: "market feed"
 wti:
-  price: "$97.89"
-  asof: "2 Oct 2026"
+  price: "$96.13"
+  asof: "5 Oct 2026"
   source: "EIA"
