@@ -2,27 +2,27 @@
 # Each mark carries the date and publisher it came from.
 
 brent:
-  price: "$102.79"
+  price: "$104.72"
   asof: "9 Oct 2026"
   source: "market feed"
 brent_spot:
-  price: "$126.00"
-  asof: "7 Oct 2026"
+  price: "$130.18"
+  asof: "8 Oct 2026"
   source: "EIA"
 brent_wti:
-  price: "$30.98"
-  asof: "7 Oct 2026"
+  price: "$31.92"
+  asof: "8 Oct 2026"
   source: "derived"
 corn:
-  price: "$5.00"
+  price: "$4.80"
   asof: "9 Oct 2026"
   source: "CBOT via Yahoo"
 de_da:
-  price: "€78.58"
-  asof: "9 Oct 2026"
+  price: "€51.08"
+  asof: "10 Oct 2026"
   source: "SMARD"
-  low: 0.08
-  high: 166.56
+  low: -0.01
+  high: 174.01
   points: 96
 estr:
   price: "2.439%"
@@ -33,32 +33,32 @@ eua:
   asof: "9 Oct 2026"
   source: "EEX auction"
 eurusd:
-  price: "1.1210"
-  asof: "9 Oct 2026"
+  price: "1.1204"
+  asof: "10 Oct 2026"
   source: "market feed"
 fed_target:
   price: "3.75–4.00%"
-  asof: "8 Oct 2026"
+  asof: "9 Oct 2026"
   source: "Federal Reserve"
 gbpusd:
-  price: "1.3227"
-  asof: "9 Oct 2026"
+  price: "1.3228"
+  asof: "10 Oct 2026"
   source: "market feed"
 gold:
-  price: "$4,206.40"
+  price: "$4,216.30"
   asof: "9 Oct 2026"
   source: "market feed"
 henry_hub:
-  price: "$3.16"
-  asof: "7 Oct 2026"
+  price: "$3.24"
+  asof: "8 Oct 2026"
   source: "EIA"
 lme_al:
-  price: "$3,060"
-  asof: "8 Oct 2026"
+  price: "$3,056"
+  asof: "9 Oct 2026"
   source: "LME"
 lme_cu:
-  price: "$14,526"
-  asof: "8 Oct 2026"
+  price: "$14,689"
+  asof: "9 Oct 2026"
   source: "LME"
 n225:
   price: "69,030.92"
@@ -73,42 +73,42 @@ sofr:
   asof: "8 Oct 2026"
   source: "NY Fed"
 soybeans:
-  price: "$12.94"
+  price: "$12.92"
   asof: "9 Oct 2026"
   source: "CBOT via Yahoo"
 sp500:
-  price: "7,765.36"
-  asof: "8 Oct 2026"
+  price: "7,811.54"
+  asof: "9 Oct 2026"
   source: "market feed"
 stoxx50:
-  price: "6,198.80"
+  price: "6,173.37"
   asof: "9 Oct 2026"
   source: "market feed"
 ttf:
-  price: "€77.14"
+  price: "€81.43"
   asof: "9 Oct 2026"
   source: "ICE Endex via Yahoo"
 us10y:
-  price: "5.22%"
-  asof: "8 Oct 2026"
+  price: "5.24%"
+  asof: "9 Oct 2026"
   source: "US Treasury"
 us2y:
-  price: "4.75%"
-  asof: "8 Oct 2026"
+  price: "4.80%"
+  asof: "9 Oct 2026"
   source: "US Treasury"
 us30y:
   price: "5.60%"
-  asof: "8 Oct 2026"
+  asof: "9 Oct 2026"
   source: "US Treasury"
 usdjpy:
-  price: "158.25"
-  asof: "9 Oct 2026"
+  price: "158.29"
+  asof: "10 Oct 2026"
   source: "market feed"
 wheat:
-  price: "$6.83"
+  price: "$6.71"
   asof: "9 Oct 2026"
   source: "CBOT via Yahoo"
 wti:
-  price: "$95.02"
-  asof: "7 Oct 2026"
+  price: "$98.26"
+  asof: "8 Oct 2026"
   source: "EIA"
