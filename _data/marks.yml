@@ -14,23 +14,23 @@ brent_wti:
   asof: "8 Oct 2026"
   source: "derived"
 corn:
-  price: "$4.82"
-  asof: "12 Oct 2026"
+  price: "$4.83"
+  asof: "13 Oct 2026"
   source: "CBOT via Yahoo"
 de_da:
-  price: "€197.23"
-  asof: "12 Oct 2026"
+  price: "€160.23"
+  asof: "13 Oct 2026"
   source: "SMARD"
-  low: 136.09
-  high: 291.47
+  low: 110.12
+  high: 247.76
   points: 96
 estr:
-  price: "2.437%"
-  asof: "9 Oct 2026"
+  price: "2.439%"
+  asof: "12 Oct 2026"
   source: "ECB"
 eua:
-  price: "€86.28"
-  asof: "12 Oct 2026"
+  price: "€87.04"
+  asof: "13 Oct 2026"
   source: "EEX auction"
 eurusd:
   price: "1.1177"
@@ -38,7 +38,7 @@ eurusd:
   source: "market feed"
 fed_target:
   price: "3.75–4.00%"
-  asof: "12 Oct 2026"
+  asof: "13 Oct 2026"
   source: "Federal Reserve"
 gbpusd:
   price: "1.3232"
@@ -53,12 +53,12 @@ henry_hub:
   asof: "8 Oct 2026"
   source: "EIA"
 lme_al:
-  price: "$3,056"
-  asof: "9 Oct 2026"
+  price: "$3,055"
+  asof: "12 Oct 2026"
   source: "LME"
 lme_cu:
-  price: "$14,689"
-  asof: "9 Oct 2026"
+  price: "$14,822"
+  asof: "12 Oct 2026"
   source: "LME"
 n225:
   price: "69,030.92"
@@ -70,11 +70,11 @@ rggi:
   source: "RGGI"
 sofr:
   price: "3.87%"
-  asof: "8 Oct 2026"
+  asof: "9 Oct 2026"
   source: "NY Fed"
 soybeans:
-  price: "$12.88"
-  asof: "12 Oct 2026"
+  price: "$12.86"
+  asof: "13 Oct 2026"
   source: "CBOT via Yahoo"
 sp500:
   price: "7,818.00"
@@ -85,8 +85,8 @@ stoxx50:
   asof: "12 Oct 2026"
   source: "market feed"
 ttf:
-  price: "€83.03"
-  asof: "12 Oct 2026"
+  price: "€86.50"
+  asof: "13 Oct 2026"
   source: "ICE Endex via Yahoo"
 us10y:
   price: "5.24%"
@@ -106,7 +106,7 @@ usdjpy:
   source: "market feed"
 wheat:
   price: "$6.71"
-  asof: "12 Oct 2026"
+  asof: "13 Oct 2026"
   source: "CBOT via Yahoo"
 wti:
   price: "$98.26"
