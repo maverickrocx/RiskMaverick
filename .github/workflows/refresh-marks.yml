@@ -7,12 +7,14 @@ name: Refresh benchmark marks
 # tiles that hydrate live in the browser; without it those are skipped.
 on:
   schedule:
-    # 05:40 UTC every day — after the US Treasury posts the prior session's
-    # curve and the European day-ahead auction has cleared. Runs weekends too:
+    # 13:00 UTC every day — after every source has posted the prior session:
+    # ECB €STR (~07:00 UTC), EIA's daily prices page (~11:30–12:30 UTC) and
+    # NY Fed SOFR (~12:00 UTC). At the old 05:40 slot those three had not yet
+    # published, so each ran a further day behind. Runs weekends too:
     # scripts/refresh_marks.py just re-writes the last traded values when a
     # market was closed, so a Saturday/Sunday run is a harmless no-op commit
     # skip rather than a stale ticker.
-    - cron: "40 5 * * *"
+    - cron: "0 13 * * *"
   workflow_dispatch: {}   # allow a manual run from the Actions tab
 
 permissions:
