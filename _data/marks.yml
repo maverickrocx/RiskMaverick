@@ -73,7 +73,7 @@ sofr:
   asof: "21 Oct 2026"
   source: "NY Fed"
 soybeans:
-  price: "$12.64"
+  price: "$12.66"
   asof: "23 Oct 2026"
   source: "CBOT via Yahoo"
 sp500:
@@ -85,7 +85,7 @@ stoxx50:
   asof: "23 Oct 2026"
   source: "market feed"
 ttf:
-  price: "€94.00"
+  price: "€93.80"
   asof: "23 Oct 2026"
   source: "ICE Endex via Yahoo"
 us10y:
@@ -105,7 +105,7 @@ usdjpy:
   asof: "23 Oct 2026"
   source: "market feed"
 wheat:
-  price: "$6.24"
+  price: "$6.25"
   asof: "23 Oct 2026"
   source: "CBOT via Yahoo"
 wti:
