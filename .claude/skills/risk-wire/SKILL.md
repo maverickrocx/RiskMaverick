@@ -450,20 +450,14 @@ never committed.
 If Step 8 did not go green, skip this step: an archive of a broken page is
 worse than no archive.
 
-**In a cloud session, render the PDFs and upload them to Google Drive.** The
-cloud cannot reach the owner's PC, so Drive is the archive for cloud runs:
-
-1. Run `python scripts/wire_pdf.py <YYYY-MM-DD>` as above. It needs
-   `riskmaverick.com` allowed in the environment's network settings; if the fetch
-   is refused, say so in the report and stop this step (never fake a PDF).
-2. Upload each file in `records/` for today to the Drive folder **Risk Maverick
-   Wires** (id `1GCTD8mZFiV2f-tRa4ZA7FjwlbVV-h-B5`) with the Drive
-   `create_file` tool: `title` = the filename, `parentId` = that id,
-   `contentMimeType` = `application/pdf`, `disableConversionToGoogleType` = true,
-   `base64Content` = `base64 -w0 records/<file>`. Search the folder first and
-   skip a file already there with the same title.
-3. If Google Drive is not connected, leave the PDFs for the desktop backfill
-   (`python scripts/wire_pdf.py --missing`) and say so in the report.
+**In a cloud session, skip this step.** The cloud cannot reach the owner's PC,
+and the Drive connector only accepts a file as inline base64 (~450 KB of text
+per PDF), which cannot be passed through reliably. The owner's PC archives the
+wires instead: a Windows scheduled task runs `scripts/archive_wires.bat` each
+morning, which pulls `main` and runs `python scripts/wire_pdf.py --missing`
+into its own `records/` folder (catching up the last 14 days if the PC was
+off). Say "PDFs left for the desktop archive task" in the report. Never upload
+a placeholder.
 
 ---
 
@@ -471,5 +465,5 @@ cloud cannot reach the owner's PC, so Drive is the archive for cloud runs:
 
 Report to the user: the PR number and URL, whether it was merged or left open
 (and why), the sectors covered, the Gmail-vs-web split, the build-workflow
-result, and the `records/` filenames written (in a cloud run, the Google Drive
-links of the uploaded PDFs, or why they were left for the desktop backfill).
+result, and the `records/` filenames written (in a cloud run, say the PDFs
+were left for the desktop archive task).

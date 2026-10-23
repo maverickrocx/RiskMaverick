@@ -82,3 +82,21 @@ read that day, or another named public report, quotes a JKM level: move
 set `source:` to the publisher, and say so in the PR body. If no source quotes
 a level, leave the previous value and its date — a stale-but-true mark with a
 visible date beats a fabricated one.
+
+## 4. PDF archive (owner's PC)
+
+Cloud runs do not save PDFs. The owner's PC archives the wires into its own
+`records/` folder with a Windows scheduled task that runs
+`scripts/archive_wires.bat` every day at 10:30 IST, after the 09:30 routine has
+published. The batch file pulls `main`, then runs
+`python scripts/wire_pdf.py --missing`, so a day the PC was off is caught up on
+the next run (14-day window). Output is logged to `records\archive.log`.
+
+Create the task once, from Command Prompt in the repo folder:
+
+```bat
+schtasks /Create /TN "RiskMaverick wire PDFs" /SC DAILY /ST 10:30 /F /TR "\"%CD%\scripts\archive_wires.bat\""
+```
+
+Test it with `schtasks /Run /TN "RiskMaverick wire PDFs"`, then check
+`records\archive.log`.
