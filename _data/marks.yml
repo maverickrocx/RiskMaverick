@@ -21,9 +21,9 @@ de_da:
   price: "€148.61"
   asof: "22 Oct 2026"
   source: "SMARD"
-  low: 70.0
-  high: 287.06
-  points: 96
+  low: "70.0"
+  high: "287.06"
+  points: "96"
 estr:
   price: "2.440%"
   asof: "21 Oct 2026"
