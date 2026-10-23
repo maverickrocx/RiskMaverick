@@ -34,6 +34,7 @@ CHROME_CANDIDATES = [
     "google-chrome-stable",
     "chromium",
     "chromium-browser",
+    "/opt/pw-browsers/chromium",  # Claude cloud sessions
 ]
 
 SITE = "https://riskmaverick.com"
@@ -77,9 +78,12 @@ def render(chrome, url, out_path):
         page = Path(work) / "page.html"
         page.write_text(html, encoding="utf-8")
         profile = Path(work) / "profile"
+        # Chrome refuses to start sandboxed as root, which is how cloud sessions run.
+        as_root = hasattr(os, "geteuid") and os.geteuid() == 0
         proc = subprocess.run(
             [
                 chrome,
+                *(["--no-sandbox"] if as_root else []),
                 "--headless",
                 "--disable-gpu",
                 "--no-pdf-header-footer",
