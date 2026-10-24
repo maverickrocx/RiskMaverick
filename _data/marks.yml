@@ -21,9 +21,9 @@ de_da:
   price: "€30.12"
   asof: "24 Oct 2026"
   source: "SMARD"
-  low: 0.0
-  high: 111.31
-  points: 96
+  low: "0.0"
+  high: "111.31"
+  points: "96"
 estr:
   price: "2.442%"
   asof: "22 Oct 2026"
@@ -38,7 +38,7 @@ eurusd:
   source: "market feed"
 fed_target:
   price: "3.75–4.00%"
-  asof: "23 Oct 2026"
+  asof: "24 Oct 2026"
   source: "Federal Reserve"
 gbpusd:
   price: "1.3375"
