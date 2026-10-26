@@ -14,16 +14,16 @@ brent_wti:
   asof: "22 Oct 2026"
   source: "derived"
 corn:
-  price: "$4.56"
-  asof: "23 Oct 2026"
+  price: "$4.51"
+  asof: "26 Oct 2026"
   source: "CBOT via Yahoo"
 de_da:
-  price: "€13.12"
-  asof: "25 Oct 2026"
+  price: "€116.57"
+  asof: "26 Oct 2026"
   source: "SMARD"
-  low: -0.01
-  high: 71.61
-  points: 100
+  low: 15.37
+  high: 250.15
+  points: 96
 estr:
   price: "2.442%"
   asof: "22 Oct 2026"
@@ -38,7 +38,7 @@ eurusd:
   source: "market feed"
 fed_target:
   price: "3.75–4.00%"
-  asof: "24 Oct 2026"
+  asof: "25 Oct 2026"
   source: "Federal Reserve"
 gbpusd:
   price: "1.3374"
@@ -73,8 +73,8 @@ sofr:
   asof: "22 Oct 2026"
   source: "NY Fed"
 soybeans:
-  price: "$12.56"
-  asof: "23 Oct 2026"
+  price: "$12.41"
+  asof: "26 Oct 2026"
   source: "CBOT via Yahoo"
 sp500:
   price: "7,623.68"
@@ -105,8 +105,8 @@ usdjpy:
   asof: "25 Oct 2026"
   source: "market feed"
 wheat:
-  price: "$6.25"
-  asof: "23 Oct 2026"
+  price: "$6.23"
+  asof: "26 Oct 2026"
   source: "CBOT via Yahoo"
 wti:
   price: "$104.27"
