@@ -2,8 +2,8 @@
 # Each mark carries the date and publisher it came from.
 
 brent:
-  price: "$116.72"
-  asof: "23 Oct 2026"
+  price: "$114.99"
+  asof: "26 Oct 2026"
   source: "market feed"
 brent_spot:
   price: "$125.39"
@@ -14,7 +14,7 @@ brent_wti:
   asof: "22 Oct 2026"
   source: "derived"
 corn:
-  price: "$4.51"
+  price: "$4.54"
   asof: "26 Oct 2026"
   source: "CBOT via Yahoo"
 de_da:
@@ -26,27 +26,27 @@ de_da:
   points: 96
 estr:
   price: "2.442%"
-  asof: "22 Oct 2026"
+  asof: "23 Oct 2026"
   source: "ECB"
 eua:
-  price: "€85.89"
-  asof: "23 Oct 2026"
+  price: "€87.68"
+  asof: "26 Oct 2026"
   source: "EEX auction"
 eurusd:
-  price: "1.1202"
-  asof: "25 Oct 2026"
+  price: "1.1196"
+  asof: "26 Oct 2026"
   source: "market feed"
 fed_target:
   price: "3.75–4.00%"
   asof: "25 Oct 2026"
   source: "Federal Reserve"
 gbpusd:
-  price: "1.3374"
-  asof: "25 Oct 2026"
+  price: "1.3350"
+  asof: "26 Oct 2026"
   source: "market feed"
 gold:
-  price: "$4,007.90"
-  asof: "23 Oct 2026"
+  price: "$4,024.80"
+  asof: "26 Oct 2026"
   source: "market feed"
 henry_hub:
   price: "$2.95"
@@ -61,8 +61,8 @@ lme_cu:
   asof: "23 Oct 2026"
   source: "LME"
 n225:
-  price: "62,693.16"
-  asof: "23 Oct 2026"
+  price: "62,189.65"
+  asof: "26 Oct 2026"
   source: "market feed"
 rggi:
   price: "$37.65"
@@ -73,7 +73,7 @@ sofr:
   asof: "22 Oct 2026"
   source: "NY Fed"
 soybeans:
-  price: "$12.41"
+  price: "$12.51"
   asof: "26 Oct 2026"
   source: "CBOT via Yahoo"
 sp500:
@@ -81,12 +81,12 @@ sp500:
   asof: "23 Oct 2026"
   source: "market feed"
 stoxx50:
-  price: "6,070.80"
-  asof: "23 Oct 2026"
+  price: "6,105.70"
+  asof: "26 Oct 2026"
   source: "market feed"
 ttf:
-  price: "€93.85"
-  asof: "23 Oct 2026"
+  price: "€96.08"
+  asof: "26 Oct 2026"
   source: "ICE Endex via Yahoo"
 us10y:
   price: "5.00%"
@@ -101,11 +101,11 @@ us30y:
   asof: "23 Oct 2026"
   source: "US Treasury"
 usdjpy:
-  price: "156.84"
-  asof: "25 Oct 2026"
+  price: "157.35"
+  asof: "26 Oct 2026"
   source: "market feed"
 wheat:
-  price: "$6.23"
+  price: "$6.27"
   asof: "26 Oct 2026"
   source: "CBOT via Yahoo"
 wti:
