@@ -14,7 +14,7 @@ brent_wti:
   asof: "27 Oct 2026"
   source: "derived"
 corn:
-  price: "$4.53"
+  price: "$4.52"
   asof: "29 Oct 2026"
   source: "CBOT via Yahoo"
 de_da:
@@ -25,12 +25,12 @@ de_da:
   high: 574.28
   points: 96
 estr:
-  price: "2.440%"
-  asof: "27 Oct 2026"
+  price: "2.439%"
+  asof: "28 Oct 2026"
   source: "ECB"
 eua:
-  price: "€87.84"
-  asof: "28 Oct 2026"
+  price: "€88.05"
+  asof: "29 Oct 2026"
   source: "EEX auction"
 eurusd:
   price: "1.1127"
@@ -73,7 +73,7 @@ sofr:
   asof: "27 Oct 2026"
   source: "NY Fed"
 soybeans:
-  price: "$12.33"
+  price: "$12.31"
   asof: "29 Oct 2026"
   source: "CBOT via Yahoo"
 sp500:
@@ -85,8 +85,8 @@ stoxx50:
   asof: "28 Oct 2026"
   source: "market feed"
 ttf:
-  price: "€99.90"
-  asof: "28 Oct 2026"
+  price: "€97.10"
+  asof: "29 Oct 2026"
   source: "ICE Endex via Yahoo"
 us10y:
   price: "5.05%"
