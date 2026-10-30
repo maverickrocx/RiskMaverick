@@ -2,8 +2,8 @@
 # Each mark carries the date and publisher it came from.
 
 brent:
-  price: "$115.20"
-  asof: "28 Oct 2026"
+  price: "$113.26"
+  asof: "30 Oct 2026"
   source: "market feed"
 brent_spot:
   price: "$119.20"
@@ -26,27 +26,27 @@ de_da:
   points: 96
 estr:
   price: "2.439%"
-  asof: "28 Oct 2026"
+  asof: "29 Oct 2026"
   source: "ECB"
 eua:
-  price: "€88.05"
-  asof: "29 Oct 2026"
+  price: "€89.55"
+  asof: "30 Oct 2026"
   source: "EEX auction"
 eurusd:
-  price: "1.1127"
-  asof: "28 Oct 2026"
+  price: "1.1195"
+  asof: "30 Oct 2026"
   source: "market feed"
 fed_target:
   price: "3.75–4.00%"
   asof: "29 Oct 2026"
   source: "Federal Reserve"
 gbpusd:
-  price: "1.3288"
-  asof: "28 Oct 2026"
+  price: "1.3427"
+  asof: "30 Oct 2026"
   source: "market feed"
 gold:
-  price: "$4,060.60"
-  asof: "28 Oct 2026"
+  price: "$3,982.10"
+  asof: "30 Oct 2026"
   source: "market feed"
 henry_hub:
   price: "$2.86"
@@ -61,8 +61,8 @@ lme_cu:
   asof: "29 Oct 2026"
   source: "LME"
 n225:
-  price: "63,954.19"
-  asof: "28 Oct 2026"
+  price: "63,290.11"
+  asof: "30 Oct 2026"
   source: "market feed"
 rggi:
   price: "$37.65"
@@ -73,20 +73,20 @@ sofr:
   asof: "28 Oct 2026"
   source: "NY Fed"
 soybeans:
-  price: "$12.37"
+  price: "$12.32"
   asof: "30 Oct 2026"
   source: "CBOT via Yahoo"
 sp500:
-  price: "7,722.60"
-  asof: "27 Oct 2026"
+  price: "7,720.39"
+  asof: "29 Oct 2026"
   source: "market feed"
 stoxx50:
-  price: "6,159.70"
-  asof: "28 Oct 2026"
+  price: "6,157.90"
+  asof: "30 Oct 2026"
   source: "market feed"
 ttf:
-  price: "€97.51"
-  asof: "29 Oct 2026"
+  price: "€102.79"
+  asof: "30 Oct 2026"
   source: "ICE Endex via Yahoo"
 us10y:
   price: "4.98%"
@@ -101,11 +101,11 @@ us30y:
   asof: "29 Oct 2026"
   source: "US Treasury"
 usdjpy:
-  price: "157.89"
-  asof: "28 Oct 2026"
+  price: "157.07"
+  asof: "30 Oct 2026"
   source: "market feed"
 wheat:
-  price: "$6.06"
+  price: "$6.05"
   asof: "30 Oct 2026"
   source: "CBOT via Yahoo"
 wti:
