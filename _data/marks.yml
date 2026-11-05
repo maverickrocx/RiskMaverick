@@ -6,23 +6,23 @@ brent:
   asof: "4 Nov 2026"
   source: "market feed"
 brent_spot:
-  price: "$107.39"
-  asof: "2 Nov 2026"
+  price: "$107.03"
+  asof: "3 Nov 2026"
   source: "EIA"
 brent_wti:
-  price: "$7.33"
-  asof: "2 Nov 2026"
+  price: "$7.39"
+  asof: "3 Nov 2026"
   source: "derived"
 corn:
-  price: "$4.42"
-  asof: "4 Nov 2026"
+  price: "$4.46"
+  asof: "5 Nov 2026"
   source: "CBOT via Yahoo"
 de_da:
-  price: "€248.99"
-  asof: "4 Nov 2026"
+  price: "€257.38"
+  asof: "5 Nov 2026"
   source: "SMARD"
-  low: 198.99
-  high: 321.45
+  low: 192.13
+  high: 352.51
   points: 96
 estr:
   price: "2.445%"
@@ -49,16 +49,16 @@ gold:
   asof: "4 Nov 2026"
   source: "market feed"
 henry_hub:
-  price: "$2.54"
-  asof: "2 Nov 2026"
+  price: "$2.63"
+  asof: "3 Nov 2026"
   source: "EIA"
 lme_al:
-  price: "$3,082"
-  asof: "3 Nov 2026"
+  price: "$3,135"
+  asof: "4 Nov 2026"
   source: "LME"
 lme_cu:
-  price: "$14,110"
-  asof: "3 Nov 2026"
+  price: "$14,201"
+  asof: "4 Nov 2026"
   source: "LME"
 n225:
   price: "62,188.63"
@@ -73,8 +73,8 @@ sofr:
   asof: "3 Nov 2026"
   source: "NY Fed"
 soybeans:
-  price: "$12.08"
-  asof: "4 Nov 2026"
+  price: "$12.03"
+  asof: "5 Nov 2026"
   source: "CBOT via Yahoo"
 sp500:
   price: "7,568.92"
@@ -85,20 +85,20 @@ stoxx50:
   asof: "4 Nov 2026"
   source: "market feed"
 ttf:
-  price: "€87.77"
+  price: "€85.03"
   asof: "4 Nov 2026"
   source: "ICE Endex via Yahoo"
 us10y:
-  price: "4.95%"
-  asof: "3 Nov 2026"
+  price: "4.90%"
+  asof: "4 Nov 2026"
   source: "US Treasury"
 us2y:
-  price: "4.61%"
-  asof: "3 Nov 2026"
+  price: "4.58%"
+  asof: "4 Nov 2026"
   source: "US Treasury"
 us30y:
-  price: "5.32%"
-  asof: "3 Nov 2026"
+  price: "5.28%"
+  asof: "4 Nov 2026"
   source: "US Treasury"
 usdjpy:
   price: "158.29"
@@ -106,9 +106,9 @@ usdjpy:
   source: "market feed"
 wheat:
   price: "$6.01"
-  asof: "4 Nov 2026"
+  asof: "5 Nov 2026"
   source: "CBOT via Yahoo"
 wti:
-  price: "$100.06"
-  asof: "2 Nov 2026"
+  price: "$99.64"
+  asof: "3 Nov 2026"
   source: "EIA"
