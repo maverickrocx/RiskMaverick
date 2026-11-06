@@ -6,27 +6,27 @@ brent:
   asof: "5 Nov 2026"
   source: "market feed"
 brent_spot:
-  price: "$107.03"
-  asof: "3 Nov 2026"
+  price: "$91.84"
+  asof: "4 Nov 2026"
   source: "EIA"
 brent_wti:
-  price: "$7.39"
-  asof: "3 Nov 2026"
+  price: "$0.11"
+  asof: "4 Nov 2026"
   source: "derived"
 corn:
-  price: "$4.46"
-  asof: "5 Nov 2026"
+  price: "$4.40"
+  asof: "6 Nov 2026"
   source: "CBOT via Yahoo"
 de_da:
-  price: "€257.38"
-  asof: "5 Nov 2026"
+  price: "€275.64"
+  asof: "6 Nov 2026"
   source: "SMARD"
-  low: 192.13
-  high: 352.51
+  low: 220.07
+  high: 368.98
   points: 96
 estr:
-  price: "2.445%"
-  asof: "3 Nov 2026"
+  price: "2.442%"
+  asof: "4 Nov 2026"
   source: "ECB"
 eua:
   price: "€90.01"
@@ -49,8 +49,8 @@ gold:
   asof: "5 Nov 2026"
   source: "market feed"
 henry_hub:
-  price: "$2.63"
-  asof: "3 Nov 2026"
+  price: "$2.61"
+  asof: "4 Nov 2026"
   source: "EIA"
 lme_al:
   price: "$3,135"
@@ -73,8 +73,8 @@ sofr:
   asof: "4 Nov 2026"
   source: "NY Fed"
 soybeans:
-  price: "$12.07"
-  asof: "5 Nov 2026"
+  price: "$11.89"
+  asof: "6 Nov 2026"
   source: "CBOT via Yahoo"
 sp500:
   price: "7,688.62"
@@ -85,30 +85,30 @@ stoxx50:
   asof: "5 Nov 2026"
   source: "market feed"
 ttf:
-  price: "€89.28"
+  price: "€89.64"
   asof: "5 Nov 2026"
   source: "ICE Endex via Yahoo"
 us10y:
-  price: "4.90%"
-  asof: "4 Nov 2026"
+  price: "4.84%"
+  asof: "5 Nov 2026"
   source: "US Treasury"
 us2y:
-  price: "4.58%"
-  asof: "4 Nov 2026"
+  price: "4.46%"
+  asof: "5 Nov 2026"
   source: "US Treasury"
 us30y:
-  price: "5.28%"
-  asof: "4 Nov 2026"
+  price: "5.25%"
+  asof: "5 Nov 2026"
   source: "US Treasury"
 usdjpy:
   price: "158.44"
   asof: "5 Nov 2026"
   source: "market feed"
 wheat:
-  price: "$6.03"
-  asof: "5 Nov 2026"
+  price: "$5.95"
+  asof: "6 Nov 2026"
   source: "CBOT via Yahoo"
 wti:
-  price: "$99.64"
-  asof: "3 Nov 2026"
+  price: "$91.73"
+  asof: "4 Nov 2026"
   source: "EIA"
