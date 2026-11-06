@@ -2,8 +2,8 @@
 # Each mark carries the date and publisher it came from.
 
 brent:
-  price: "$97.11"
-  asof: "5 Nov 2026"
+  price: "$98.32"
+  asof: "6 Nov 2026"
   source: "market feed"
 brent_spot:
   price: "$91.84"
@@ -14,7 +14,7 @@ brent_wti:
   asof: "4 Nov 2026"
   source: "derived"
 corn:
-  price: "$4.40"
+  price: "$4.41"
   asof: "6 Nov 2026"
   source: "CBOT via Yahoo"
 de_da:
@@ -26,67 +26,67 @@ de_da:
   points: 96
 estr:
   price: "2.442%"
-  asof: "4 Nov 2026"
+  asof: "5 Nov 2026"
   source: "ECB"
 eua:
-  price: "€90.01"
-  asof: "5 Nov 2026"
+  price: "€87.51"
+  asof: "6 Nov 2026"
   source: "EEX auction"
 eurusd:
-  price: "1.1219"
-  asof: "5 Nov 2026"
+  price: "1.1163"
+  asof: "6 Nov 2026"
   source: "market feed"
 fed_target:
   price: "3.75–4.00%"
-  asof: "5 Nov 2026"
+  asof: "6 Nov 2026"
   source: "Federal Reserve"
 gbpusd:
-  price: "1.3462"
-  asof: "5 Nov 2026"
+  price: "1.3386"
+  asof: "6 Nov 2026"
   source: "market feed"
 gold:
-  price: "$4,125.90"
-  asof: "5 Nov 2026"
+  price: "$4,069.20"
+  asof: "6 Nov 2026"
   source: "market feed"
 henry_hub:
   price: "$2.61"
   asof: "4 Nov 2026"
   source: "EIA"
 lme_al:
-  price: "$3,135"
-  asof: "4 Nov 2026"
+  price: "$3,160"
+  asof: "5 Nov 2026"
   source: "LME"
 lme_cu:
-  price: "$14,201"
-  asof: "4 Nov 2026"
+  price: "$14,110"
+  asof: "5 Nov 2026"
   source: "LME"
 n225:
-  price: "61,077.90"
-  asof: "5 Nov 2026"
+  price: "57,434.77"
+  asof: "6 Nov 2026"
   source: "market feed"
 rggi:
   price: "$37.65"
   asof: "Auction 73, Sep 2026"
   source: "RGGI"
 sofr:
-  price: "3.94%"
-  asof: "4 Nov 2026"
+  price: "3.92%"
+  asof: "5 Nov 2026"
   source: "NY Fed"
 soybeans:
-  price: "$11.89"
+  price: "$11.90"
   asof: "6 Nov 2026"
   source: "CBOT via Yahoo"
 sp500:
-  price: "7,688.62"
-  asof: "4 Nov 2026"
+  price: "7,353.73"
+  asof: "5 Nov 2026"
   source: "market feed"
 stoxx50:
-  price: "6,311.70"
-  asof: "5 Nov 2026"
+  price: "6,139.20"
+  asof: "6 Nov 2026"
   source: "market feed"
 ttf:
-  price: "€89.64"
-  asof: "5 Nov 2026"
+  price: "€88.63"
+  asof: "6 Nov 2026"
   source: "ICE Endex via Yahoo"
 us10y:
   price: "4.84%"
@@ -101,11 +101,11 @@ us30y:
   asof: "5 Nov 2026"
   source: "US Treasury"
 usdjpy:
-  price: "158.44"
-  asof: "5 Nov 2026"
+  price: "158.32"
+  asof: "6 Nov 2026"
   source: "market feed"
 wheat:
-  price: "$5.95"
+  price: "$5.89"
   asof: "6 Nov 2026"
   source: "CBOT via Yahoo"
 wti:
