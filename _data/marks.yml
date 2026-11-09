@@ -15,14 +15,14 @@ brent_wti:
   source: "derived"
 corn:
   price: "$4.42"
-  asof: "6 Nov 2026"
+  asof: "9 Nov 2026"
   source: "CBOT via Yahoo"
 de_da:
-  price: "€242.13"
-  asof: "8 Nov 2026"
+  price: "€345.64"
+  asof: "9 Nov 2026"
   source: "SMARD"
-  low: 206.09
-  high: 321.5
+  low: 213.53
+  high: 653.38
   points: 96
 estr:
   price: "2.442%"
@@ -38,7 +38,7 @@ eurusd:
   source: "market feed"
 fed_target:
   price: "3.75–4.00%"
-  asof: "7 Nov 2026"
+  asof: "8 Nov 2026"
   source: "Federal Reserve"
 gbpusd:
   price: "1.3354"
@@ -73,8 +73,8 @@ sofr:
   asof: "5 Nov 2026"
   source: "NY Fed"
 soybeans:
-  price: "$11.94"
-  asof: "6 Nov 2026"
+  price: "$12.01"
+  asof: "9 Nov 2026"
   source: "CBOT via Yahoo"
 sp500:
   price: "7,376.86"
@@ -106,7 +106,7 @@ usdjpy:
   source: "market feed"
 wheat:
   price: "$5.91"
-  asof: "6 Nov 2026"
+  asof: "9 Nov 2026"
   source: "CBOT via Yahoo"
 wti:
   price: "$94.05"
