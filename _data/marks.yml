@@ -6,23 +6,23 @@ brent:
   asof: "10 Nov 2026"
   source: "market feed"
 brent_spot:
-  price: "$97.83"
-  asof: "6 Nov 2026"
+  price: "$91.03"
+  asof: "9 Nov 2026"
   source: "EIA"
 brent_wti:
-  price: "$3.46"
-  asof: "6 Nov 2026"
+  price: "$0.63"
+  asof: "9 Nov 2026"
   source: "derived"
 corn:
-  price: "$4.40"
-  asof: "10 Nov 2026"
+  price: "$4.49"
+  asof: "11 Nov 2026"
   source: "CBOT via Yahoo"
 de_da:
-  price: "€351.48"
-  asof: "10 Nov 2026"
+  price: "€316.65"
+  asof: "11 Nov 2026"
   source: "SMARD"
-  low: 207.71
-  high: 534.66
+  low: 198.24
+  high: 457.77
   points: 96
 estr:
   price: "2.442%"
@@ -49,16 +49,16 @@ gold:
   asof: "10 Nov 2026"
   source: "market feed"
 henry_hub:
-  price: "$2.60"
-  asof: "6 Nov 2026"
+  price: "$2.89"
+  asof: "9 Nov 2026"
   source: "EIA"
 lme_al:
-  price: "$3,147"
-  asof: "9 Nov 2026"
+  price: "$3,137"
+  asof: "10 Nov 2026"
   source: "LME"
 lme_cu:
-  price: "$14,030"
-  asof: "9 Nov 2026"
+  price: "$13,992"
+  asof: "10 Nov 2026"
   source: "LME"
 n225:
   price: "60,459.58"
@@ -73,8 +73,8 @@ sofr:
   asof: "9 Nov 2026"
   source: "NY Fed"
 soybeans:
-  price: "$11.87"
-  asof: "10 Nov 2026"
+  price: "$12.24"
+  asof: "11 Nov 2026"
   source: "CBOT via Yahoo"
 sp500:
   price: "7,549.94"
@@ -85,30 +85,30 @@ stoxx50:
   asof: "10 Nov 2026"
   source: "market feed"
 ttf:
-  price: "€82.75"
+  price: "€84.95"
   asof: "10 Nov 2026"
   source: "ICE Endex via Yahoo"
 us10y:
-  price: "4.88%"
-  asof: "9 Nov 2026"
+  price: "4.98%"
+  asof: "10 Nov 2026"
   source: "US Treasury"
 us2y:
-  price: "4.56%"
-  asof: "9 Nov 2026"
+  price: "4.73%"
+  asof: "10 Nov 2026"
   source: "US Treasury"
 us30y:
-  price: "5.26%"
-  asof: "9 Nov 2026"
+  price: "5.35%"
+  asof: "10 Nov 2026"
   source: "US Treasury"
 usdjpy:
   price: "158.48"
   asof: "10 Nov 2026"
   source: "market feed"
 wheat:
-  price: "$5.88"
-  asof: "10 Nov 2026"
+  price: "$5.94"
+  asof: "11 Nov 2026"
   source: "CBOT via Yahoo"
 wti:
-  price: "$94.37"
-  asof: "6 Nov 2026"
+  price: "$90.40"
+  asof: "9 Nov 2026"
   source: "EIA"
