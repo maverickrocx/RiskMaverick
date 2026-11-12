@@ -14,15 +14,15 @@ brent_wti:
   asof: "9 Nov 2026"
   source: "derived"
 corn:
-  price: "$4.47"
-  asof: "11 Nov 2026"
+  price: "$4.48"
+  asof: "12 Nov 2026"
   source: "CBOT via Yahoo"
 de_da:
-  price: "€316.65"
-  asof: "11 Nov 2026"
+  price: "€199.04"
+  asof: "12 Nov 2026"
   source: "SMARD"
-  low: 198.24
-  high: 457.77
+  low: 122.24
+  high: 250.25
   points: 96
 estr:
   price: "2.442%"
@@ -38,7 +38,7 @@ eurusd:
   source: "market feed"
 fed_target:
   price: "3.75–4.00%"
-  asof: "10 Nov 2026"
+  asof: "11 Nov 2026"
   source: "Federal Reserve"
 gbpusd:
   price: "1.3312"
@@ -53,12 +53,12 @@ henry_hub:
   asof: "9 Nov 2026"
   source: "EIA"
 lme_al:
-  price: "$3,137"
-  asof: "10 Nov 2026"
+  price: "$3,224"
+  asof: "11 Nov 2026"
   source: "LME"
 lme_cu:
-  price: "$13,992"
-  asof: "10 Nov 2026"
+  price: "$13,876"
+  asof: "11 Nov 2026"
   source: "LME"
 n225:
   price: "61,248.59"
@@ -73,8 +73,8 @@ sofr:
   asof: "9 Nov 2026"
   source: "NY Fed"
 soybeans:
-  price: "$12.23"
-  asof: "11 Nov 2026"
+  price: "$12.27"
+  asof: "12 Nov 2026"
   source: "CBOT via Yahoo"
 sp500:
   price: "7,520.93"
@@ -85,7 +85,7 @@ stoxx50:
   asof: "11 Nov 2026"
   source: "market feed"
 ttf:
-  price: "€86.69"
+  price: "€87.22"
   asof: "11 Nov 2026"
   source: "ICE Endex via Yahoo"
 us10y:
@@ -105,8 +105,8 @@ usdjpy:
   asof: "11 Nov 2026"
   source: "market feed"
 wheat:
-  price: "$5.95"
-  asof: "11 Nov 2026"
+  price: "$5.99"
+  asof: "12 Nov 2026"
   source: "CBOT via Yahoo"
 wti:
   price: "$90.40"
