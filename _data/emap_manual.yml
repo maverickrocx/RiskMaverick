@@ -1,0 +1,10 @@
+# Hand-maintained inputs for the country-brief KPI band (_includes/emap-kpis.html)
+# that no free feed covers. Update with each brief review; keep the date in the note.
+# gas_mark / carbon_mark name a key in _data/marks.yml, so those tiles stay live.
+
+deu:
+  gas_mark: ttf
+  carbon_mark: eua
+  storage_value: "58.5%"
+  storage_note: "11 Nov 2026 · 144.7 TWh in store, well below previous years"
+  storage_source: 'Storage: <a href="https://www.bundesnetzagentur.de/DE/Gasversorgung/aktuelle_gasversorgung/start.html" target="_blank" rel="noopener">Bundesnetzagentur</a>.'
