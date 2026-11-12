@@ -53,9 +53,9 @@ blurb: "Germany — Pool clearing. Market structure, infrastructure, demand and 
 .emapx .fi .v{font-size:15px;font-weight:600;line-height:1.3}
 
 .emapx /* layout */
-.body{display:grid;grid-template-columns:190px 1fr;gap:44px;padding-bottom:20px}
+.body{display:grid;grid-template-columns:190px minmax(0,1fr);gap:44px;padding-bottom:20px}
 .emapx .toc{display:block;position:sticky;top:88px;align-self:start;padding-top:40px}
-@media(max-width:1023px){.emapx .body{grid-template-columns:1fr;gap:0}.emapx .toc{display:none}}
+@media(max-width:1023px){.emapx .body{grid-template-columns:minmax(0,1fr);gap:0}.emapx .toc{display:none}}
 .emapx .toc .t{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:10px}
 .emapx .toc a{display:block;font-size:13px;color:var(--ink-muted);text-decoration:none;padding:7px 0 7px 13px;
   border-left:2px solid var(--border);transition:all var(--micro) var(--ease)}
@@ -165,200 +165,178 @@ blurb: "Germany — Pool clearing. Market structure, infrastructure, demand and 
   <header class="mh">
     <div class="top">
       <span class="bchip">Pool clearing</span>
-      <span class="reviewed">Last reviewed 22 August 2026</span>
+      <span class="reviewed">Last reviewed 12 November 2026</span>
     </div>
     <h1>Germany</h1>
-    <p class="one">Europe's largest power market, cleared as a single price zone from the Baltic to the Alps. Wind and solar now set the price for much of the year; the grid charge settles the rest.</p>
-    <div class="facts"><div class="fi"><div class="k">Power exchange</div><div class="v">EPEX SPOT / EEX</div></div><div class="fi"><div class="k">Price unit</div><div class="v">EUR / MWh</div></div><div class="fi"><div class="k">Bidding zone</div><div class="v">Germany–Luxembourg</div></div><div class="fi"><div class="k">Transmission</div><div class="v">Four TSOs</div></div><div class="fi"><div class="k">Gas hub</div><div class="v">Trading Hub Europe</div></div></div>
+    <p class="one">Europe's largest power market, cleared as one price zone from the Baltic to the Alps. In 2026 it is where the Middle East gas shock lands first: thin storage, gas back at the margin, and a winter priced for scarcity.</p>
+    {% include emap-kpis.html code="deu" %}
   </header>
 
   <div class="body">
     <aside class="toc" id="toc">
       <div class="t">On this page</div>
-      <a href="#s1">01 Overview</a>
-      <a href="#s2">02 Market structure</a>
-      <a href="#s3">03 Infrastructure</a>
-      <a href="#s4">04 Demand and supply</a>
-      <a href="#s5">05 Price setting</a>
-      <a href="#s6">06 Regulatory regime</a>
-      <a href="#s7">Key links</a>
+      <a href="#s0">At a glance</a>
+      <a href="#s1">01 Market snapshot</a>
+      <a href="#s2">02 Infrastructure</a>
+      <a href="#s3">03 Demand and supply</a>
+      <a href="#s4">04 Prices</a>
+      <a href="#s5">05 Policy in 2026</a>
+      <a href="#s6">06 Risk radar</a>
+      <a href="#s7">07 Next six months</a>
+      <a href="#s8">Sources</a>
     </aside>
-    <main><section class="sec" id="s1"><span class="sn">01</span><h2>Overview</h2>
-<p class="lead">Germany is the largest power market in Europe. Since Russian pipeline supply ended it is also one of the largest buyers of imported gas anywhere on the continent. And it is where the economics of a very high renewables share get tested first, at full scale, with everyone watching.</p>
-
-<p>Day-ahead and intraday power clears on <strong>EPEX SPOT</strong>. Futures, options and emissions allowances trade on <strong>EEX</strong>. Gas has a single virtual point, <strong>Trading Hub Europe (THE)</strong>. All of it sits inside the European market coupling framework, which means a German price is never purely German. It falls out of an auction that clears across most of the continent at the same moment.</p>
-
-<p>Two changes define the market as it stands. The first is generation. The last three nuclear reactors closed in April 2023, coal has a legislated exit date, and wind and solar together supplied more than half of net public electricity generation in 2025, per <a href="https://www.ise.fraunhofer.de/en/press-media/press-releases/2026/german-public-electricity-generation-in-2025-wind-and-solar-power-take-the-lead.html" target="_blank" rel="noopener">Fraunhofer ISE</a>.
-The second is gas. Russian pipeline flows stopped in 2022. Norwegian gas, re-routed volumes through the Netherlands and Belgium, and a new fleet of floating LNG import terminals on the German coast took their place.</p>
-
-<p>So the average cost of energy keeps falling while the cost of moving it keeps rising. Renewables are concentrated in the north. Industrial demand sits in the south and west. Germany prices the whole country as one zone anyway. Anyone taking a German position needs to know what that costs and who ends up paying it.</p>
-
-<div class="pull"><div class="t">Why this market matters beyond Germany</div>
-<p>Germany is the physical and commercial centre of the continental grid, trading with nine neighbours in both directions. Its bidding-zone design, its renewable build-out and its gas import requirement set the reference conditions for power prices from Denmark to Switzerland.</p></div>
-</section><section class="sec" id="s2"><span class="sn">02</span><h2>Market structure</h2>
-<p class="lead">One bidding zone, four transmission system operators, two exchanges, one gas hub. Unusually simple on paper. Unusually strained in practice.</p>
-
-<h3>Who does what</h3>
+    <main><section class="sec" id="s0"><span class="sn">SUMMARY</span><h2>At a glance</h2>
+<ul class="pts">
+<li><strong>Gas sets the price, and Hormuz sets gas.</strong> Qatari LNG has been under force majeure since March (<a href="https://www.bloomberg.com/news/articles/2026-08-28/qatar-extends-lng-force-majeure-as-hormuz-traffic-remains-halted" target="_blank" rel="noopener">Bloomberg</a>). By late October Europe's gas benchmark had more than tripled on the year (<a href="https://www.bloomberg.com/news/newsletters/2026-10-26/surging-natural-gas-price-tests-europe-s-appetite-for-action" target="_blank" rel="noopener">Bloomberg</a>).</li>
+<li><strong>Power is 36% dearer than in 2025</strong> so far this year. Prices have been above €250/MWh most days since late October.</li>
+<li><strong>Storage is the weak point.</strong> 58.5% full on 11 November, well below previous years. The regulator is watching a 30% requirement for 1 February 2027.</li>
+<li><strong>Germany stopped importing power.</strong> Net imports of about 19 TWh last year have fallen to roughly zero, so domestic gas plants ran 25% harder.</li>
+<li><strong>Policy is buying firm capacity.</strong> The first capacity auction awarded about 5.2 GW of new controllable plant, and 2027 grid fees are set to rise even with a €5.5bn subsidy.</li>
+</ul>
+<div class="pull"><div class="t">The call</div>
+<p>German winter power is a gas option. Wind and solar cap prices on good days; the top end is open, because the marginal molecule is priced against Asian buyers and a strait that can close overnight.</p></div>
+</section><section class="sec" id="s1"><span class="sn">01</span><h2>Market snapshot</h2>
 <div class="emap-tablewrap">
-<table><thead><tr><th>Function</th><th>Body</th><th>Role</th></tr></thead><tbody>
-<tr><td>Day-ahead and intraday power</td><td>EPEX SPOT</td><td>Hourly and quarter-hourly auctions and continuous trading</td></tr>
-<tr><td>Power derivatives, gas, emissions</td><td>EEX</td><td>Futures and options; EU ETS allowance auctions</td></tr>
-<tr><td>Transmission</td><td>50Hertz, Amprion, TenneT, TransnetBW</td><td>Four control areas covering the country</td></tr>
-<tr><td>Gas market area</td><td>Trading Hub Europe</td><td>Single virtual trading point and balancing</td></tr>
-<tr><td>Regulation</td><td>Bundesnetzagentur (BNetzA)</td><td>Network access, tariffs, market surveillance</td></tr>
+<table><thead><tr><th>Item</th><th>Germany</th></tr></thead><tbody>
+<tr><td>Market model</td><td>Pool clearing, coupled with Europe through single day-ahead coupling</td></tr>
+<tr><td>Power exchanges</td><td>EPEX SPOT (day-ahead, intraday), EEX (futures, options, EU ETS auctions)</td></tr>
+<tr><td>Bidding zone</td><td>One zone with Luxembourg (DE-LU); prices in EUR/MWh, quarter-hourly</td></tr>
+<tr><td>Grid operators</td><td>Four TSOs: 50Hertz, Amprion, TenneT, TransnetBW</td></tr>
+<tr><td>Gas hub</td><td>Trading Hub Europe (THE), a single virtual trading point</td></tr>
+<tr><td>Regulator</td><td>Bundesnetzagentur (BNetzA); policy with the Federal Ministry for Economic Affairs and Energy (BMWE)</td></tr>
+<tr><td>Gas emergency plan</td><td>Early warning level since 1 July 2025</td></tr>
+</tbody></table>
+</div>
+<ul class="pts">
+<li><strong>One price, two physical halves.</strong> Wind sits in the north and heavy load in the south. The auction ignores the grid inside the zone, and the TSOs fix the gap afterwards by <strong>redispatch</strong>, paid for through network charges.</li>
+<li><strong>Coupled, never purely German.</strong> The price clears together with neighbouring markets until an interconnector fills, so a German position is partly a bet on France, the Nordics and the Netherlands.</li>
+</ul>
+</section><section class="sec" id="s2"><span class="sn">02</span><h2>Infrastructure — power and gas</h2>
+{%- assign k = site.data.emap.deu %}
+<h3>Power — installed capacity, {{ k.capacity_year }}</h3>
+<div class="emap-tablewrap">
+<table><thead><tr><th>Source</th><th>GW</th></tr></thead><tbody>
+{%- for c in k.capacity %}<tr><td>{{ c.label }}</td><td>{{ c.gw }}</td></tr>{% endfor %}
+</tbody></table>
+</div>
+<p class="figcap">Source: <a href="https://www.energy-charts.info/charts/installed_power/chart.htm?l=en&c=DE" target="_blank" rel="noopener">Energy-Charts, installed net capacity</a>. Solar is AC capacity. Nuclear is zero since April 2023.</p>
+
+<h3>Power — cross-border flows, {{ k.period }}</h3>
+<div class="emap-tablewrap">
+<table><thead><tr><th>Neighbour</th><th>Net flow (TWh)</th><th>Direction</th></tr></thead><tbody>
+{%- for f in k.flows %}<tr><td>{{ f.name }}</td><td>{{ f.twh | abs }}</td><td>{% if f.twh > 0 %}Import to Germany{% elsif f.twh < 0 %}Export from Germany{% else %}Balanced{% endif %}</td></tr>{% endfor %}
+</tbody></table>
+</div>
+<p class="figcap">Physical flows. Source: <a href="https://www.energy-charts.info/charts/import_export/chart.htm?l=en&c=DE" target="_blank" rel="noopener">Energy-Charts</a>.</p>
+
+<h3>Power — key grid projects</h3>
+<div class="emap-tablewrap">
+<table><thead><tr><th>Project</th><th>What it does</th><th>Planned online</th></tr></thead><tbody>
+<tr><td>SuedLink (TenneT, TransnetBW)</td><td>HVDC line carrying northern wind to Bavaria and Baden-Württemberg; can only start as a whole</td><td>2028 (<a href="https://www.bundesnetzagentur.de/SharedDocs/Pressemitteilungen/DE/2025/20250226_V4V3.html" target="_blank" rel="noopener">BNetzA</a>)</td></tr>
+<tr><td>SuedOstLink (50Hertz, TenneT)</td><td>About 540 km HVDC from Wolmirstedt to the former Isar plant site in Bavaria</td><td>2027; extension 5a in 2030 (<a href="https://www.netzausbau.de/SharedDocs/Textbausteine/DE/RSS/2025/V0505a-82-D1_PFabgeschlossen.html" target="_blank" rel="noopener">BNetzA</a>, as of 2025)</td></tr>
 </tbody></table>
 </div>
 
-<h3>One price for a country that is physically two</h3>
-<p>Germany and Luxembourg form a <strong>single bidding zone</strong>. Every megawatt-hour clears at the same price, whether it comes out of an offshore wind farm in the Baltic or goes into a chemical plant in Bavaria. The auction proceeds as though the transmission network inside the zone had infinite capacity.</p>
-
-<p>It does not. Wind capacity sits in the north and on the coast, the heaviest industrial load in the south and west, and the north–south corridors are not yet big enough to carry the difference. What the market produces is a schedule the grid cannot physically deliver. The four TSOs then have to intervene, after the auction has cleared, to make it work.</p>
-
-<h3>Redispatch — the cost of the single zone</h3>
-<p>That intervention is <strong>redispatch</strong>. Constrained generators in the north are paid to turn down; generators in the south are paid to turn up. The difference goes on network charges. Congestion management cost the German system <a href="https://www.renewable-energy-industry.com/countries/article-7332-grid-congestion-management-2025-power-grid-stable-costs-slightly-up-amid-strong-renewable-expansion" target="_blank" rel="noopener">around €3.07bn in 2025</a>,
-up almost 4% on the €2.95bn recorded in 2024, per the Bundesnetzagentur's SMARD analysis. Compensation for curtailed renewables alone fell from €554m in 2024 to €433m in 2025.</p>
-
-<div class="pull"><div class="t">What this means for a position</div>
-<p>The exchange price is a national average that ignores location on purpose. What it actually costs to supply a site is that price plus a grid charge that varies sharply by region. Two identical contracts can therefore have very different economics, depending only on where the meter sits.</p></div>
-</section><section class="sec" id="s3"><span class="sn">03</span><h2>Infrastructure — power and gas</h2>
-<p class="lead">Four control areas inside one price zone. A north–south transmission build-out that is still years from finished, and a gas system rebuilt around new entry points on the coast.</p>
-
-<h3>Power</h3>
-<div class="cards">
-<div class="card"><h4>Four TSOs</h4><p>50Hertz in the north and east, TenneT down the centre, Amprion in the west, TransnetBW in the south-west. Separate control areas, one shared bidding zone, and joint working on balancing and redispatch.</p></div>
-<div class="card"><h4>North–south corridors</h4><p>High-capacity HVDC links are being built to carry northern wind to southern industrial load. Until they are energised, redispatch stands in for the missing wires.</p></div>
-<div class="card"><h4>Nine interconnected neighbours</h4><p>Germany trades physically with Denmark,
-Poland, Czechia, Austria, Switzerland, France, Luxembourg, Belgium and the Netherlands. Net imports
-were <a href="https://www.ise.fraunhofer.de/content/dam/ise/en/documents/press-releases/2026/0126_ISE_e_PR_Net%20electricity%20generation%202025.pdf" target="_blank" rel="noopener">about 21.9 TWh in 2025</a>.</p></div>
-</div>
-
-<h3>Gas and LNG</h3>
-<p>Domestic production is now a rounding error: <a href="https://www.bundesnetzagentur.de/SharedDocs/Pressemitteilungen/EN/2026/20260112_GAS.html" target="_blank" rel="noopener">34 TWh in 2025</a> against consumption of 864 TWh. What defines the system is its entry points, and those have been rebuilt since 2022. Norwegian pipeline gas now supplies 44% of imports, the Netherlands 24% and Belgium 21%, while a new set of floating storage and regasification units brings LNG in directly at
-<a href="https://energynow.com/2025/11/how-germany-is-building-up-lng-import-terminals-3/" target="_blank" rel="noopener">Wilhelmshaven, Brunsbüttel and Mukran</a>. Germany also holds the largest gas storage capacity in the European Union. That is why its fill level gets read as a continental indicator rather than a national one.</p>
-
-<div class="fig">
-  <svg viewBox="0 0 900 300" role="img" aria-label="Schematic of the German single bidding zone, four TSO control areas and the north-south flow">
-    <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-      <path d="M0,0 L6,3 L0,6 z" fill="#7C8D92"/></marker></defs>
-    <text x="60" y="26" class="fh" fill="#2a78d6">SURPLUS — WIND, NORTH AND COAST</text>
-    <text x="560" y="26" class="fh" fill="#eb6834">DEFICIT — INDUSTRIAL LOAD, SOUTH</text>
-    <rect x="30" y="44" width="840" height="228" rx="10" fill="#3B8B60" opacity=".05"/>
-
-    <g class="area e"><rect x="60" y="66" width="150" height="42" rx="7"/><text x="135" y="92">50Hertz</text></g>
-    <g class="area e"><rect x="60" y="132" width="150" height="42" rx="7"/><text x="135" y="158">TenneT DE</text></g>
-    <g class="area w"><rect x="690" y="132" width="150" height="42" rx="7"/><text x="765" y="158">Amprion</text></g>
-    <g class="area w"><rect x="690" y="198" width="150" height="42" rx="7"/><text x="765" y="224">TransnetBW</text></g>
-
-    <path class="ln" d="M135,108 V132" marker-end="url(#ar)"/>
-    <path class="ln" d="M765,174 V198" marker-end="url(#ar)"/>
-
-    <rect x="380" y="120" width="140" height="66" rx="6" class="fc"/>
-    <text x="450" y="146" class="fct">ONE BIDDING ZONE</text>
-    <text x="450" y="166" class="fct">DE – LU</text>
-
-    <path class="lnfc" d="M210,153 H380" marker-end="url(#ar)"/>
-    <path class="lnfc" d="M520,153 H690" marker-end="url(#ar)"/>
-    <text x="295" y="136" class="cap2">one uniform clearing price</text>
-    <text x="605" y="136" class="cap2">for every location</text>
-    <text x="450" y="228" class="cap2">north–south transfer capacity binds — the gap is closed after the auction, by redispatch</text>
-    <text x="450" y="258" class="cap2 iso2">redispatch cost is recovered through network charges, not through the exchange price</text>
-  </svg>
-  <p class="figcap"><b>Schematic — system topology, not a geographic map.</b> Four control areas clear
-  inside one price zone; the physical constraint between them is resolved afterwards and billed
-  separately.</p>
-</div>
-
-<div class="mapslot"><div class="t">Geographic infrastructure map</div>
-<div class="s">A sourced map of the transmission network, LNG entry points and storage sites belongs
-here — reproduced from an official publication rather than redrawn.</div></div>
-</section><section class="sec" id="s4"><span class="sn">04</span><h2>Demand and supply</h2>
-<p class="lead">Flat to falling load. A generation mix now led by wind and solar, and a gas requirement that has settled well below its pre-2022 level.</p>
-
-<h3>Demand</h3>
-<p>German electricity demand is not growing. Public grid load came in at <a href="https://www.ise.fraunhofer.de/content/dam/ise/en/documents/press-releases/2026/0126_ISE_e_PR_Net%20electricity%20generation%202025.pdf" target="_blank" rel="noopener">466 TWh in 2025</a>,
-roughly 3.5 TWh below 2024. Add self-consumed solar and industrial gas-fired self-generation and the total reaches 495 TWh. Gas consumption of <a href="https://www.bundesnetzagentur.de/SharedDocs/Pressemitteilungen/EN/2026/20260112_GAS.html" target="_blank" rel="noopener">864 TWh</a> came in 2.2% above 2024 and still around 13.5% below the 2018–2021 average. That demand has not come back. In parts of industry it probably will not.</p>
-
-<h3>Supply</h3>
-<p>The mix has inverted inside a decade. Wind is the single largest source. Solar passed lignite for the first time in 2025 and nuclear is zero. Coal keeps declining, with gas-fired output rising into the space it leaves.</p>
-
-<div class="fig">
-  <div class="fig-t">Net public electricity generation by source, 2025 (TWh)</div>
-  <svg viewBox="0 0 900 118" role="img" aria-label="German net public electricity generation 2025 by source">
-    <g class="seg"><rect x="0"   y="18" width="290" height="40" rx="4" fill="#2a78d6"/><text x="10"  y="43">Wind 132 TWh</text></g>
-    <g class="seg"><rect x="294" y="18" width="206" height="40" rx="4" fill="#eb6834"/><text x="304" y="43">Coal 94</text></g>
-    <g class="seg"><rect x="504" y="18" width="156" height="40" rx="4" fill="#eda100"/><text x="514" y="43">Solar 71</text></g>
-    <g class="seg"><rect x="664" y="18" width="115" height="40" rx="4" fill="#4a3aa7"/><text x="674" y="43">Gas 52</text></g>
-    <g class="seg"><rect x="783" y="18" width="117" height="40" rx="4" fill="#9AA8AC"/><text x="793" y="43">Other 54</text></g>
-    <text x="0"   y="82" class="axl">Coal is lignite 67 TWh plus hard coal 27 TWh.</text>
-    <text x="900" y="82" class="axl" text-anchor="end">“Other” is biomass 36 TWh and hydro 18 TWh.</text>
-  </svg>
-  <p class="figcap">Segment widths are proportional to the 403 TWh covered by these categories; small
-  residual sources are not shown. Source: <a href="https://www.ise.fraunhofer.de/content/dam/ise/en/documents/press-releases/2026/0126_ISE_e_PR_Net%20electricity%20generation%202025.pdf" target="_blank" rel="noopener">Fraunhofer ISE, net public electricity generation 2025</a>,
-  corroborated by <a href="https://ember-energy.org/countries-and-regions/germany/" target="_blank" rel="noopener">Ember</a>.</p>
-</div>
-
+<h3>Gas — supply, week to 9 November 2026</h3>
 <div class="emap-tablewrap">
-<table><thead><tr><th>Indicator</th><th>Direction</th><th>Comment</th></tr></thead><tbody>
-<tr><td>Electricity demand</td><td>Flat to declining</td><td>Public grid load down about 3.5 TWh on 2024</td></tr>
-<tr><td>Wind and solar</td><td>Rising</td><td>Solar output up 21% in 2025; solar passed lignite for the first time</td></tr>
-<tr><td>Coal</td><td>Declining</td><td>Legislated exit path; lignite the larger of the two</td></tr>
-<tr><td>Nuclear</td><td>Zero</td><td>Final three reactors closed in April 2023</td></tr>
-<tr><td>Gas-fired generation</td><td>Rising</td><td>Offsetting the coal decline; total fossil output broadly flat</td></tr>
-<tr><td>Gas consumption</td><td>Below pre-2022</td><td>Around 13.5% under the 2018–2021 average</td></tr>
+<table><thead><tr><th>Route</th><th>Volume</th><th>Note</th></tr></thead><tbody>
+<tr><td>Pipeline imports</td><td>18.1 TWh</td><td>Mainly Norway, the Netherlands and Belgium</td></tr>
+<tr><td>LNG terminals</td><td>1.2 TWh</td><td>Average utilisation 29.2%</td></tr>
+<tr><td>Domestic production</td><td>Small</td><td>34 TWh in all of 2025 (<a href="https://www.bundesnetzagentur.de/SharedDocs/Pressemitteilungen/EN/2026/20260112_GAS.html" target="_blank" rel="noopener">BNetzA</a>)</td></tr>
 </tbody></table>
 </div>
+<p class="figcap">Source: <a href="https://www.bundesnetzagentur.de/DE/Gasversorgung/aktuelle_gasversorgung/start.html" target="_blank" rel="noopener">Bundesnetzagentur, gas supply status, 11 November 2026</a>.</p>
 
-<div class="stats">
-  <div class="st"><div class="k">Gas consumption, 2025</div><div class="v">864 <small>TWh</small></div></div>
-  <div class="st arrow">→</div>
-  <div class="st"><div class="k">Gas imports, 2025</div><div class="v">1,031 <small>TWh</small></div></div>
-  <div class="st note">The gap is re-export: 221 TWh left Germany in 2025, mainly to Austria, Czechia and
-  Switzerland. Source: <a href="https://www.bundesnetzagentur.de/SharedDocs/Pressemitteilungen/EN/2026/20260112_GAS.html" target="_blank" rel="noopener">Bundesnetzagentur</a>.</div>
-</div>
-
-<div class="pull"><div class="t">The transit role is now the story</div>
-<p>Germany exported 221 TWh of gas in 2025, against 89 TWh a year earlier. It is not merely a consumer of imported gas any more. It is increasingly the route by which central Europe gets supplied, which turns German entry capacity and levy policy into a regional pricing question.</p></div>
-</section><section class="sec" id="s5"><span class="sn">05</span><h2>Price setting mechanism</h2>
-<p class="lead">A marginal-cost auction, coupled across Europe. The price is allowed to go negative, and it does so often.</p>
-
-<h3>How the auction works</h3>
-<p>Generators and suppliers bid into EPEX SPOT for each hour and quarter-hour of the following day. Offers stack cheapest first, and the last unit needed to meet demand, the <strong>marginal unit</strong>, sets the price paid to everyone who cleared. Wind and solar bid close to zero because their fuel is free. Whenever the weather cooperates they push the expensive end of the stack out of the money.</p>
-
-<p>The auction is not run for Germany alone. Under the European <strong>single day-ahead coupling</strong> framework, national order books clear together with whatever cross-border capacity is available, so prices converge until an interconnector saturates. Any German position is therefore partly a bet on France, the Nordics and the Netherlands.</p>
-
-<h3>Negative prices are a feature, not a fault</h3>
-<p>High renewable output against low demand takes the market below zero. Generators pay to keep running rather than shut down and eat the subsidy loss or the restart cost. The German day-ahead market saw <a href="https://www.ffe.de/en/publications/german-electricity-prices-on-the-epex-spot-exchange-in-2025/" target="_blank" rel="noopener">close to 575 negative-price hours in 2025</a>, against a previous record of 459 hours in 2024. The annual average base-load price was still <a href="https://www.ise.fraunhofer.de/content/dam/ise/en/documents/press-releases/2026/0126_ISE_e_PR_Net%20electricity%20generation%202025.pdf" target="_blank" rel="noopener">€86.55/MWh</a>, around 10.9% above 2024.</p>
-
-<div class="pull"><div class="t">Volatility is where the return is</div>
-<p>The average price tells you almost nothing. The average daily spread in 2025 was <a href="https://www.ffe.de/en/publications/german-electricity-prices-on-the-epex-spot-exchange-in-2025/" target="_blank" rel="noopener">about €130/MWh</a>. The market pays for flexibility between hours far more than it pays for energy across the year. Battery, pumped-storage and demand-response economics all run off that arithmetic.</p></div>
-
-<h3>What the consumer actually pays</h3>
-<p>The exchange price is one line on a delivered price. The <strong>EEG levy</strong> that funded renewable support went to zero in July 2022 and moved onto the federal budget, taking a large and visible surcharge off bills. <strong>Network charges</strong> have filled the gap. They rose roughly 47% for households between 2020 and 2025 and are now the politically sensitive line, so Berlin is subsidising transmission charges with <a href="https://www.cleanenergywire.org/news/german-public-support-grid-fees-lower-electricity-prices-2026" target="_blank" rel="noopener">€6.5bn in 2026</a>, which should cut household grid fees by about 16% on average. For an industrial offtaker the grid charge, how it varies by region and whether an exemption is available can matter more to landed cost than the commodity does.</p>
-</section><section class="sec" id="s6"><span class="sn">06</span><h2>Regulatory regime</h2>
-<p class="lead">A national regulator with unusually broad powers, working inside a European rulebook it does not write.</p>
-
+<h3>Gas — LNG terminals</h3>
 <div class="emap-tablewrap">
-<table><thead><tr><th>Body</th><th>Remit</th></tr></thead><tbody>
-<tr><td>Bundesnetzagentur (BNetzA)</td><td>Network access and tariffs, market surveillance, security of supply, LNG and hydrogen infrastructure</td></tr>
-<tr><td>Federal ministry for economic affairs and energy</td><td>Energy policy, the coal exit path, subsidy design</td></tr>
-<tr><td>Trading Hub Europe</td><td>Gas market area management, balancing and the storage regime</td></tr>
-<tr><td>European Commission / ACER</td><td>Market coupling rules, bidding-zone review, state aid approval</td></tr>
+<table><thead><tr><th>Terminal</th><th>Operator</th><th>Grid feed-in capacity</th><th>Status</th></tr></thead><tbody>
+<tr><td>Wilhelmshaven 1</td><td>DET</td><td>up to 4.8 bcm/yr (2026)</td><td>Operating since Dec 2022</td></tr>
+<tr><td>Wilhelmshaven 2</td><td>DET</td><td>up to 4.3 bcm/yr (2026)</td><td>Operating</td></tr>
+<tr><td>Brunsbüttel</td><td>DET</td><td>up to 4.0 bcm/yr (2026)</td><td>Operating; FSRU moves to a new jetty after winter 2026/27</td></tr>
+<tr><td>Stade</td><td>DET</td><td>up to 1.7 bcm to end-2026</td><td>First LNG tanker arrived 3 Nov 2026; commissioning under way</td></tr>
+<tr><td>Mukran (Deutsche Ostsee)</td><td>Deutsche ReGas</td><td>Not published on operator site</td><td>Operating</td></tr>
 </tbody></table>
 </div>
+<p class="figcap">Source: <a href="https://energy-terminal.de/en/terminals" target="_blank" rel="noopener">Deutsche Energy Terminal (DET)</a>.</p>
 
-<h3>What BNetzA controls</h3>
-<p>BNetzA sets the revenue network operators may earn, which sets the grid charges that flow into every delivered power and gas price. It also runs the reserve procurement standing behind security of supply and publishes the market data platform <a href="https://www.smard.de/en" target="_blank" rel="noopener">SMARD</a>. Generation, price and cross-border flow data are all there, and by international standards that is a lot of transparency. Its current work on grid tariff reform is the file with the most direct bearing on where new industrial and data-centre load chooses to sit.</p>
-
-<h3>The gas rebuild in regulation</h3>
-<p>In 2021 the <strong>NCG and GASPOOL</strong> market areas merged into Trading Hub Europe. One virtual trading point instead of two, one balancing regime, and a materially more liquid gas curve. Storage obligations brought in after 2022 were funded by a <strong>gas storage levy</strong> charged on withdrawals, which neighbouring markets supplied through Germany complained about for years. THE confirmed the levy would <a href="https://www.tradinghub.eu/en-gb/About-us/Newsroom/News/Details-en-GB/ArtMID/1412/ArticleID/260/Press-Release" target="_blank" rel="noopener">cease to be charged from 1 January 2026</a>,
-subject to the enabling legislation. That takes a cost off every cross-border molecule.</p>
-
-<h3>The constraint that will not go away</h3>
-<p>The European bidding-zone review keeps coming back to one question. Is a single German zone compatible with the physical network? Splitting it would shift congestion cost out of network charges and into the market price, producing a cheap north and an expensive south. Successive German governments have resisted, and there is real political weight behind uniform pricing. Model Germany beyond the next few years and zone configuration belongs in the risk column, not the assumptions column.</p>
-
-<h3>The exit paths</h3>
-<p>Nuclear ended in April 2023 and current law does not bring it back. Coal must be gone by 2038 at the latest, earlier for parts of the lignite fleet, and the exit comes with tenders for new gas-fired capacity to cover the still hours. Watch those tenders. Each one is a direct signal about future German gas demand.</p>
-</section><section class="sec" id="s7"><span class="sn">SOURCES</span><h2>Key links</h2><p class="lead">Primary sources for this market. Figures on this page are drawn from these and from published market data.</p><div class="links"><a class="lk" href="https://www.epexspot.com/en" target="_blank" rel="noopener"><div class="n">EPEX SPOT</div><div class="d">Day-ahead and intraday power auctions for Germany and eleven other markets</div><div class="u">https://www.epexspot.com/en</div></a><a class="lk" href="https://www.eex.com/en/" target="_blank" rel="noopener"><div class="n">EEX</div><div class="d">Power derivatives, gas contracts and EU ETS allowance auctions</div><div class="u">https://www.eex.com/en/</div></a><a class="lk" href="https://www.bundesnetzagentur.de/EN/Home/home_node.html" target="_blank" rel="noopener"><div class="n">Bundesnetzagentur</div><div class="d">The regulator: network access, tariffs, security of supply and market surveillance</div><div class="u">https://www.bundesnetzagentur.de/EN/Home/home_node.html</div></a><a class="lk" href="https://www.smard.de/en" target="_blank" rel="noopener"><div class="n">SMARD</div><div class="d">BNetzA's market data platform — generation, prices, balancing and cross-border flows</div><div class="u">https://www.smard.de/en</div></a><a class="lk" href="https://www.tradinghub.eu/en-gb/" target="_blank" rel="noopener"><div class="n">Trading Hub Europe</div><div class="d">The single German gas market area — balancing, capacity and the storage regime</div><div class="u">https://www.tradinghub.eu/en-gb/</div></a><a class="lk" href="https://www.energy-charts.info/?l=en&c=DE" target="_blank" rel="noopener"><div class="n">Energy-Charts (Fraunhofer ISE)</div><div class="d">Independent interactive data on German generation, load and spot prices</div><div class="u">https://www.energy-charts.info/?l=en&c=DE</div></a></div></section></main>
+<h3>Gas — storage</h3>
+<div class="emap-tablewrap">
+<table><thead><tr><th>Measure</th><th>Value</th></tr></thead><tbody>
+<tr><td>In store, 11 Nov 2026</td><td>144.7 TWh (58.5%)</td></tr>
+<tr><td>Implied working capacity</td><td>about 247 TWh, the largest in the EU</td></tr>
+<tr><td>Next regulatory check</td><td>30% full on 1 February 2027</td></tr>
+</tbody></table>
+</div>
+<p class="figcap">Source: <a href="https://www.bundesnetzagentur.de/DE/Gasversorgung/aktuelle_gasversorgung/start.html" target="_blank" rel="noopener">Bundesnetzagentur</a>; capacity is our calculation from the fill level.</p>
+</section><section class="sec" id="s3"><span class="sn">03</span><h2>Demand and supply</h2>
+<div class="emap-tablewrap">
+<table><thead><tr><th>1 Jan – 11 Nov</th><th>2025</th><th>2026</th><th>Change</th></tr></thead><tbody>
+<tr><td>Load</td><td>397 TWh</td><td>401 TWh</td><td>+1%</td></tr>
+<tr><td>Wind</td><td>107 TWh</td><td>115 TWh</td><td>+8%</td></tr>
+<tr><td>Solar</td><td>68 TWh</td><td>82 TWh</td><td>+21%</td></tr>
+<tr><td>Coal</td><td>80 TWh</td><td>84 TWh</td><td>+5%</td></tr>
+<tr><td>Gas-fired</td><td>38 TWh</td><td>48 TWh</td><td>+25%</td></tr>
+<tr><td>Net imports</td><td>19 TWh</td><td>about 0</td><td>Balanced</td></tr>
+</tbody></table>
+</div>
+<p class="figcap">Source: <a href="https://www.energy-charts.info/charts/power/chart.htm?l=en&c=DE" target="_blank" rel="noopener">Energy-Charts</a>, retrieved 12 November 2026. Coal excludes coal-derived gas. Figures rounded.</p>
+<ul class="pts">
+<li><strong>Demand is flat.</strong> Power load is up about 1% on 2025.</li>
+<li><strong>Solar had its biggest year yet</strong>, and wind is still the largest single source.</li>
+<li><strong>Gas burn rose despite the price.</strong> Neighbours had less power to spare, so German gas plants filled the gap.</li>
+<li><strong>Gas demand is being leaned on.</strong> The regulator advises households to use gas sparingly while prices stay high (<a href="https://www.bundesnetzagentur.de/EN/Areas/Energy/SecurityOfSupply/GasSupply/start.html" target="_blank" rel="noopener">BNetzA</a>).</li>
+</ul>
+</section><section class="sec" id="s4"><span class="sn">04</span><h2>Prices</h2>
+<ul class="pts">
+<li><strong>Marginal pricing.</strong> Offers stack cheapest first, and the last unit needed sets the price for all. Wind and solar bid near zero; in still hours a gas plant is usually marginal, so its offer tracks TTF plus carbon.</li>
+<li><strong>Two halves of 2026.</strong> Spring and early summer stayed moderate because solar kept middays cheap. From August, gas took over: monthly averages ran €127/MWh in August, €145/MWh in September and €169/MWh in October.</li>
+<li><strong>November spike.</strong> The first eleven days averaged close to €280/MWh, with daily averages above €340/MWh on 9 and 10 November.</li>
+<li><strong>Volatility pays.</strong> The average daily high–low spread widened to about €182/MWh, from €136/MWh in the same period of 2025. That is the revenue case for batteries and demand response.</li>
+<li><strong>Negative prices are fewer</strong> but still frequent: 465 hours so far, against 575 in the same period of 2025.</li>
+</ul>
+<p class="figcap">Source: <a href="https://www.energy-charts.info/charts/price_spot_market/chart.htm?l=en&c=DE" target="_blank" rel="noopener">Energy-Charts, EPEX SPOT day-ahead DE-LU</a>; our time-weighted calculation.</p>
+<h3>What the consumer pays</h3>
+<ul class="pts">
+<li><strong>Levies are gone.</strong> The EEG levy went to zero in 2022, and the gas storage levy ended on 1 January 2026, with the cost taken over by the federal budget (<a href="https://www.bundesregierung.de/breg-de/aktuelles/abschaffung-gasspeicherumlage-2375074" target="_blank" rel="noopener">Federal Government</a>).</li>
+<li><strong>Grid fees are the moving line</strong> (see section 05).</li>
+<li><strong>Industrial power price.</strong> A €3.8bn scheme for 2026–2028 can bring the price eligible energy-intensive firms pay down to as little as €50/MWh (<a href="https://ec.europa.eu/commission/presscorner/detail/en/ip_26_815" target="_blank" rel="noopener">European Commission</a>).</li>
+</ul>
+</section><section class="sec" id="s5"><span class="sn">05</span><h2>Policy and regulation in 2026</h2>
+<div class="emap-tablewrap">
+<table><thead><tr><th>Date</th><th>Change</th><th>Why it matters</th></tr></thead><tbody>
+<tr><td>1 Jan 2026</td><td>Gas storage levy abolished; cost moves to the federal budget (<a href="https://www.bundesregierung.de/breg-de/aktuelles/abschaffung-gasspeicherumlage-2375074" target="_blank" rel="noopener">source</a>)</td><td>Removes a charge on every cross-border molecule</td></tr>
+<tr><td>16 Apr 2026</td><td>Commission approves the industrial power price (<a href="https://ec.europa.eu/commission/presscorner/detail/en/ip_26_815" target="_blank" rel="noopener">source</a>)</td><td>Caps power cost for energy-intensive industry through 2028</td></tr>
+<tr><td>1 Sep 2026</td><td>No forced coal closures needed: exits already beat the 2029 target (<a href="https://www.bundesnetzagentur.de/SharedDocs/Pressemitteilungen/EN/2026/20260901_Kohle.html" target="_blank" rel="noopener">source</a>)</td><td>Coal is leaving faster than the law requires</td></tr>
+<tr><td>1 Oct 2026</td><td>Provisional 2027 transmission fee 3.54 ct/kWh (2026: 2.86), or 6.52 ct/kWh without the €5.525bn subsidy; law still pending (<a href="https://www.amprion.net/Press/Press-Detail-Page_100352.html" target="_blank" rel="noopener">source</a>)</td><td>Fees rise further if the law is not certain by 7 December</td></tr>
+<tr><td>3 Nov 2026</td><td>First StromVKG capacity auction: 11 bids, about 5,160 MW, at €155,296 per MW per year against a €244,000 cap (<a href="https://www.bundesnetzagentur.de/SharedDocs/Pressemitteilungen/EN/2026/20261103_StromVKG.html" target="_blank" rel="noopener">source</a>)</td><td>New controllable plant to cover still hours as coal exits; a second round is being prepared</td></tr>
+</tbody></table>
+</div>
+<ul class="pts">
+<li><strong>Bidding-zone split stays a long-dated risk.</strong> Successive German governments have defended the single zone. If member states cannot agree, the European Commission can decide. A split would move congestion cost into the market price: a cheaper north and a dearer south.</li>
+</ul>
+</section><section class="sec" id="s6"><span class="sn">06</span><h2>Risk radar</h2>
+<div class="emap-tablewrap">
+<table class="radar"><thead><tr><th>Risk</th><th>Level</th><th>Trend</th><th>Why</th></tr></thead><tbody>
+<tr><td>LNG supply</td><td><span class="lv hi">High</span></td><td>→</td><td>Qatari loadings only about half of pre-war levels (<a href="https://www.bloomberg.com/news/articles/2026-11-10/qatar-lng-loadings-pick-up-to-around-half-of-pre-war-levels" target="_blank" rel="noopener">Bloomberg</a>); German LNG terminals at 29% use</td></tr>
+<tr><td>Storage cover</td><td><span class="lv hi">High</span></td><td>↑</td><td>58.5% in mid-November with the heating season just starting</td></tr>
+<tr><td>Price volatility</td><td><span class="lv hi">High</span></td><td>↑</td><td>Daily spreads and November prices at multi-year highs</td></tr>
+<tr><td>Grid fees and policy cost</td><td><span class="lv md">Medium</span></td><td>↑</td><td>2027 fee law pending; capacity-auction cost passes to consumers</td></tr>
+<tr><td>Bidding-zone split</td><td><span class="lv lo">Low</span></td><td>→</td><td>Berlin opposed; a long-dated rather than a winter risk</td></tr>
+</tbody></table>
+</div>
+<p class="figcap">Our assessment, not a forecast.</p>
+</section><section class="sec" id="s7"><span class="sn">07</span><h2>Next six months</h2>
+<div class="emap-tablewrap">
+<table><thead><tr><th>When</th><th>Watch</th><th>Likely price effect</th></tr></thead><tbody>
+<tr><td>Now – March</td><td>Cold, still spells draining storage and putting gas at the margin around the clock</td><td>Bullish</td></tr>
+<tr><td>Ongoing</td><td>Hormuz and Qatari loadings: a reopening frees cargoes, a setback removes them</td><td>Large, either way</td></tr>
+<tr><td>Winter</td><td>Chinese LNG demand: weak domestic prices are curbing its buying (<a href="https://www.bloomberg.com/news/articles/2026-11-09/china-s-cheap-domestic-gas-curbs-lng-buying-as-winter-nears" target="_blank" rel="noopener">Bloomberg</a>)</td><td>Bearish</td></tr>
+<tr><td>7 Dec 2026</td><td>Deadline for legal certainty on the 2027 grid-fee subsidy</td><td>Higher delivered cost if missed</td></tr>
+<tr><td>Dec 2026 onwards</td><td>Second StromVKG capacity auction</td><td>Signal for 2030s gas demand</td></tr>
+<tr><td>1 Feb 2027</td><td>30% storage requirement</td><td>Bullish if at risk</td></tr>
+</tbody></table>
+</div>
+</section><section class="sec" id="s8"><span class="sn">SOURCES</span><h2>Key links</h2><p class="lead">Primary sources for this market. Figures on this page are drawn from these and from published market data; news context from Bloomberg.</p><div class="links"><a class="lk" href="https://www.epexspot.com/en" target="_blank" rel="noopener"><div class="n">EPEX SPOT</div><div class="d">Day-ahead and intraday power auctions for Germany and other European markets</div><div class="u">https://www.epexspot.com/en</div></a><a class="lk" href="https://www.eex.com/en/" target="_blank" rel="noopener"><div class="n">EEX</div><div class="d">Power derivatives, gas contracts and EU ETS allowance auctions</div><div class="u">https://www.eex.com/en/</div></a><a class="lk" href="https://www.bundesnetzagentur.de/EN/Areas/Energy/SecurityOfSupply/GasSupply/start.html" target="_blank" rel="noopener"><div class="n">Bundesnetzagentur — gas supply status</div><div class="d">Gas imports, storage and security-of-supply assessment</div><div class="u">https://www.bundesnetzagentur.de</div></a><a class="lk" href="https://www.smard.de/en" target="_blank" rel="noopener"><div class="n">SMARD</div><div class="d">BNetzA's market data platform — generation, prices, balancing and cross-border flows</div><div class="u">https://www.smard.de/en</div></a><a class="lk" href="https://www.tradinghub.eu/en-gb/" target="_blank" rel="noopener"><div class="n">Trading Hub Europe</div><div class="d">The single German gas market area — balancing, capacity and storage</div><div class="u">https://www.tradinghub.eu/en-gb/</div></a><a class="lk" href="https://www.energy-charts.info/?l=en&c=DE" target="_blank" rel="noopener"><div class="n">Energy-Charts (Fraunhofer ISE)</div><div class="d">Generation, capacity, cross-border flows and spot prices used throughout this page</div><div class="u">https://www.energy-charts.info</div></a><a class="lk" href="https://energy-terminal.de/en/terminals" target="_blank" rel="noopener"><div class="n">Deutsche Energy Terminal</div><div class="d">Federal LNG terminals: capacity and status</div><div class="u">https://energy-terminal.de</div></a><a class="lk" href="https://www.netztransparenz.de/en/About-us/Grid-fees" target="_blank" rel="noopener"><div class="n">Netztransparenz — grid fees</div><div class="d">The four TSOs' joint publication of transmission grid fees</div><div class="u">https://www.netztransparenz.de</div></a></div></section></main>
   </div>
 </div>
 
