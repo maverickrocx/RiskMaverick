@@ -1,10 +1,43 @@
 # Hand-maintained inputs for the country-brief KPI band (_includes/emap-kpis.html)
-# that no free feed covers. Update with each brief review; keep the date in the note.
-# gas_mark / carbon_mark name a key in _data/marks.yml, so those tiles stay live.
+# that no free feed covers. Gas storage comes from GIE AGSI+ via
+# scripts/country_kpis.py where a country reports there; the storage_* keys
+# here are only the fallback. gas_mark / carbon_mark name a key in
+# _data/marks.yml, so those tiles stay live.
 
-deu:
+deu: {gas_mark: ttf, carbon_mark: eua}
+fra: {gas_mark: ttf, carbon_mark: eua}
+nld: {gas_mark: ttf, carbon_mark: eua}
+bel: {gas_mark: ttf, carbon_mark: eua}
+ita: {gas_mark: ttf, carbon_mark: eua, gas_tile: "Gas price, TTF (PSV trades at a premium)"}
+esp: {gas_mark: ttf, carbon_mark: eua, gas_tile: "Gas price, TTF (MIBGAS is local)"}
+dnk: {gas_mark: ttf, carbon_mark: eua}
+swe:
   gas_mark: ttf
   carbon_mark: eua
-  storage_value: "58.5%"
-  storage_note: "11 Nov 2026 · 144.7 TWh in store, well below previous years"
-  storage_source: 'Storage: <a href="https://www.bundesnetzagentur.de/DE/Gasversorgung/aktuelle_gasversorgung/start.html" target="_blank" rel="noopener">Bundesnetzagentur</a>.'
+  storage_label: "Gas storage"
+  storage_value: "Negligible"
+  storage_note: "One small site; gas plays almost no part in Swedish power"
+nor:
+  gas_mark: ttf
+  carbon_mark: eua
+  storage_label: "Gas storage"
+  storage_value: "None"
+  storage_note: "Norway is a producer and exporter; it holds no seasonal storage"
+fin:
+  gas_mark: ttf
+  carbon_mark: eua
+  storage_label: "Gas storage"
+  storage_value: "None"
+  storage_note: "No underground storage; supply via the Balticconnector and the Inkoo LNG terminal"
+gbr:
+  gas_tile: "Gas price, NBP (System Average Price)"
+  gas_value: "£74.48"
+  gas_note: "8 Nov 2026 · National Gas via ONS"
+  carbon_label: "Carbon, UK ETS"
+  carbon_value: "£63.94 <small>/t</small>"
+  carbon_note: "October 2026 monthly average · UK ETS Authority"
+  storage_label: "Gas storage"
+  storage_value: "Small"
+  storage_note: "Rough and smaller sites; GB no longer reports to GIE AGSI+"
+  power_title: "Wholesale power price (Market Index)"
+  data_note: 'Power prices and generation: <a href="https://bmrs.elexon.co.uk/" target="_blank" rel="noopener">Elexon BMRS</a> (Market Index Data, half-hourly; actual generation per type), our time-weighted averages; the current month is month to date. Gas: NBP System Average Price from <a href="https://www.ons.gov.uk/economy/economicoutputandproductivity/output/datasets/systemaveragepricesapofgas" target="_blank" rel="noopener">National Gas Transmission via ONS</a>, converted from p/kWh. Cross-border flows: Energy-Charts.'

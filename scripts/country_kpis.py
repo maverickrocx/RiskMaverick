@@ -35,18 +35,28 @@ OUT = ROOT / "_data" / "emap"
 EC = "https://api.energy-charts.info"
 UA = {"User-Agent": "Mozilla/5.0 (RiskMaverick country-kpis)"}
 
-# code: (Energy-Charts country, day-ahead bidding zone, gas symbol, gas label)
+# Per-country sources. power/mix/capacity/flows default to Energy-Charts;
+# Great Britain is not in Energy-Charts' price or mix data, so it reads
+# Elexon (BMRS) for power and the ONS-published System Average Price for gas.
+EU = {"gas": ("yahoo", "TTF=F"), "gas_label": "TTF front month", "ccy": "€"}
+AGSI = {"deu": "de", "fra": "fr", "nld": "nl", "bel": "be", "ita": "it", "esp": "es",
+        "dnk": "dk"}  # Norway and Finland have none; Sweden's is negligible; GB stopped reporting
 COUNTRIES = {
-    "deu": ("de", "DE-LU", "TTF=F", "TTF"),
-    "fra": ("fr", "FR", "TTF=F", "TTF"),
-    "nld": ("nl", "NL", "TTF=F", "TTF"),
-    "bel": ("be", "BE", "TTF=F", "TTF"),
-    "ita": ("it", "IT-North", "TTF=F", "TTF"),
-    "esp": ("es", "ES", "TTF=F", "TTF"),
-    "nor": ("no", "NO2", "TTF=F", "TTF"),
-    "swe": ("se", "SE3", "TTF=F", "TTF"),
-    "dnk": ("dk", "DK1", "TTF=F", "TTF"),
-    "fin": ("fi", "FI", "TTF=F", "TTF"),
+    "deu": dict(EU, ec="de", bzn="DE-LU"),
+    "fra": dict(EU, ec="fr", bzn="FR"),
+    # Energy-Charts' Dutch feed files solar under "Others", so the Dutch mix
+    # comes from CBS monthly statistics instead. (Belgium's nuclear series
+    # has empty hours, but they match Elia's own data: reactors offline.)
+    "nld": dict(EU, ec="nl", bzn="NL", mix="cbs"),
+    "bel": dict(EU, ec="be", bzn="BE"),
+    "ita": dict(EU, ec="it", bzn="IT-North"),
+    "esp": dict(EU, ec="es", bzn="ES"),
+    "nor": dict(EU, ec="no", bzn="NO2"),
+    "swe": dict(EU, ec="se", bzn="SE3"),
+    "dnk": dict(EU, ec="dk", bzn="DK1"),
+    "fin": dict(EU, ec="fi", bzn="FI"),
+    "gbr": dict(ec="uk", bzn="GB", power="elexon", mix="elexon", capacity=None,
+                gas=("ons_sap", None), gas_label="NBP System Average Price", ccy="£"),
 }
 
 MIX = [  # (label, Energy-Charts production types, colour)
@@ -103,6 +113,110 @@ def gas_months(sym, y0):
     return {m: sum(v) / len(v) for m, v in acc.items()}
 
 
+def chunks(start, end, days=7):
+    a = dt.date.fromisoformat(start)
+    e = dt.date.fromisoformat(end)
+    while a < e:
+        b = min(a + dt.timedelta(days=days), e)
+        yield a, b
+        a = b
+
+
+ELEXON = "https://data.elexon.co.uk/bmrs/api/v1"
+
+
+def elexon_prices(start, end):
+    """GB day-ahead proxy: Elexon Market Index Data (APX/EPEX), half-hourly £/MWh.
+    Returns [(unix_seconds, price)] sorted."""
+    out = {}
+    for a, b in chunks(start, end):
+        d = get(f"{ELEXON}/balancing/pricing/market-index?from={a}T00:00Z&to={b}T00:00Z&dataProviders=APXMIDP")
+        for r in d["data"]:
+            if r["volume"] and r["volume"] > 0:
+                t = int(dt.datetime.fromisoformat(r["startTime"].replace("Z", "+00:00")).timestamp())
+                out[t] = r["price"]
+    return sorted(out.items())
+
+
+def elexon_mix(start, end):
+    """Actual generation per type (AGPT), MW per half hour -> TWh by Energy-Charts-style name."""
+    names = {"Biomass": "Biomass", "Fossil Gas": "Fossil gas", "Fossil Hard coal": "Fossil hard coal",
+             "Fossil Oil": "Fossil oil", "Hydro Run-of-river and poundage": "Hydro Run-of-River",
+             "Nuclear": "Nuclear", "Other": "Others", "Solar": "Solar", "Wind Offshore": "Wind offshore",
+             "Wind Onshore": "Wind onshore"}
+    twh = defaultdict(float)
+    for a, b in chunks(start, end):
+        d = get(f"{ELEXON}/generation/actual/per-type?from={a}T00:00Z&to={b}T00:00Z")
+        for row in d["data"]:
+            for x in row["data"]:
+                n = names.get(x["psrType"])
+                if n and x["quantity"]:
+                    twh[n] += x["quantity"] * 0.5 / 1e6
+    return dict(twh)
+
+
+def cbs_mix(year):
+    """Netherlands net production by source, CBS table 84575ENG, months of
+    `year` published so far. Returns (TWh by Energy-Charts-style name, last month)."""
+    base = "https://opendata.cbs.nl/ODataApi/OData/84575ENG/TypedDataSet"
+    rows = get(f"{base}?$filter=substringof('{year}MM',Periods)")["value"]
+    cols = {"NuclearEnergy_4": "Nuclear", "Coal_6": "Fossil hard coal", "PetroleumProducts_7": "Fossil oil",
+            "NaturalGas_8": "Fossil gas", "Biomass_9": "Biomass", "OtherFuelsNonRenewable_10": "Others",
+            "HydroPower_11": "Hydro Run-of-River", "WindEnergyOnShore_13": "Wind onshore",
+            "WindEnergyOffShore_14": "Wind offshore", "SolarPhotovoltaic_15": "Solar", "OtherSources_16": "Others"}
+    twh, last = defaultdict(float), 0
+    for r in rows:
+        if r.get("NetProductionTotal_3") is None:
+            continue
+        last = max(last, int(r["Periods"].strip()[-2:]))
+        for c, n in cols.items():
+            twh[n] += (r.get(c) or 0) / 1000  # GWh -> TWh
+    return dict(twh), last
+
+
+def agsi(cc, day):
+    """Gas storage from GIE AGSI+ (needs an API key in the x-key header; set
+    AGSI_KEY, or run where a proxy injects it). Latest gas day on or before
+    `day`, with the same day one year earlier and the five-year average."""
+    import os
+    hdr = dict(UA)
+    if os.environ.get("AGSI_KEY"):
+        hdr["x-key"] = os.environ["AGSI_KEY"]
+
+    def one(d):
+        u = f"https://agsi.gie.eu/api?country={cc}&from={d - dt.timedelta(days=6)}&to={d}&size=7"
+        with urllib.request.urlopen(urllib.request.Request(u, headers=hdr), timeout=60) as r:
+            rows = [x for x in json.load(r).get("data", []) if x.get("full") not in (None, "", "-")]
+        return max(rows, key=lambda x: x["gasDayStart"]) if rows else None
+
+    now = one(day)
+    if not now:
+        return None
+    d0 = dt.date.fromisoformat(now["gasDayStart"])
+    past = [one(d0.replace(year=d0.year - k)) for k in range(1, 6)]
+    past_full = [float(x["full"]) for x in past if x]
+    return {"full": round(float(now["full"]), 1), "twh": round(float(now["gasInStorage"]), 1),
+            "capacity_twh": round(float(now["workingGasVolume"]), 1), "gas_day": d0.strftime("%-d %b %Y"),
+            "prev_year": round(past_full[0], 1) if past_full else None,
+            "avg5": round(sum(past_full) / len(past_full), 1) if len(past_full) == 5 else None}
+
+
+def ons_sap_months():
+    """GB System Average Price of gas (National Gas Transmission, via ONS), p/kWh -> £/MWh."""
+    import io, re, openpyxl
+    page = urllib.request.urlopen(urllib.request.Request(
+        "https://www.ons.gov.uk/economy/economicoutputandproductivity/output/datasets/systemaveragepricesapofgas",
+        headers=UA), timeout=60).read().decode("utf-8", "ignore")
+    href = re.search(r'href="(/file\?uri=[^"]+\.xlsx)"', page).group(1)
+    raw = urllib.request.urlopen(urllib.request.Request("https://www.ons.gov.uk" + href, headers=UA), timeout=120).read()
+    ws = openpyxl.load_workbook(io.BytesIO(raw), read_only=True, data_only=True)["1.Daily SAP Gas"]
+    acc = defaultdict(list)
+    for row in ws.iter_rows(values_only=True):
+        if isinstance(row[0], dt.datetime) and isinstance(row[1], (int, float)):
+            acc[row[0].strftime("%Y-%m")].append(row[1] * 10)
+    return {m: sum(v) / len(v) for m, v in acc.items()}
+
+
 def series(monthly, year, upto=12):
     return [monthly.get(f"{year}-{m:02d}") for m in range(1, upto + 1)]
 
@@ -134,29 +248,54 @@ def chart(lines):
 
 
 def build(code, today):
-    ec_c, bzn, gas_sym, gas_label = COUNTRIES[code]
+    cfg = COUNTRIES[code]
+    ec_c, bzn = cfg["ec"], cfg["bzn"]
     y = today.year
     end = today.isoformat()
     ytd_start, py_end = f"{y}-01-01", today.replace(year=y - 1).isoformat()
 
-    pm, _ = power_months(bzn, f"{y - 3}-01-01", end)
-    gm = gas_months(gas_sym, y - 3)
+    def prices(s, e):
+        if cfg.get("power") == "elexon":
+            pts = elexon_prices(s, e)
+            ts, pr = [t for t, _ in pts], [p for _, p in pts]
+        else:
+            d = get(f"{EC}/price?bzn={bzn}&start={s}&end={e}")
+            ts, pr = d["unix_seconds"], d["price"]
+        return ts, pr
+
+    ts, pr = prices(f"{y - 3}-01-01", end)
+    acc = defaultdict(lambda: [0.0, 0.0])
+    for t, p, h in zip(ts, pr, steps(ts)):
+        if p is not None:
+            acc[month_of(t)][0] += p * h
+            acc[month_of(t)][1] += h
+    pm = {m: v[0] / v[1] for m, v in acc.items()}
+
+    gsrc, gsym = cfg["gas"]
+    gm = ons_sap_months() if gsrc == "ons_sap" else gas_months(gsym, y - 3)
 
     # Year-to-date average versus the same days last year, time-weighted.
     def avg(s, e):
-        d = get(f"{EC}/price?bzn={bzn}&start={s}&end={e}")
+        ts, pr = prices(s, e)
         num = den = neg = 0.0
-        for p, h in zip(d["price"], steps(d["unix_seconds"])):
+        for p, h in zip(pr, steps(ts)):
             if p is not None:
                 num += p * h; den += h; neg += h if p < 0 else 0
         return num / den, neg
     ytd, neg = avg(ytd_start, end)
     pytd, pneg = avg(f"{y - 1}-01-01", py_end)
 
-    gen = get(f"{EC}/public_power?country={ec_c}&start={ytd_start}&end={end}")
-    st = steps(gen["unix_seconds"])
-    twh = {p["name"]: sum(v * h for v, h in zip(p["data"], st) if v is not None) / 1e6
-           for p in gen["production_types"]}
+    period = f"1 Jan – {today.strftime('%-d %b')} {y}"
+    if cfg.get("mix") == "elexon":
+        twh = elexon_mix(ytd_start, end)
+    elif cfg.get("mix") == "cbs":
+        twh, last = cbs_mix(y)
+        period = f"Jan – {dt.date(y, last, 1).strftime('%b')} {y}"
+    else:
+        gen = get(f"{EC}/public_power?country={ec_c}&start={ytd_start}&end={end}")
+        st = steps(gen["unix_seconds"])
+        twh = {p["name"]: sum(v * h for v, h in zip(p["data"], st) if v is not None) / 1e6
+               for p in gen["production_types"]}
     mix = []
     for label, names, colour in MIX:
         v = sum(max(twh.get(n, 0), 0) for n in names)
@@ -169,19 +308,20 @@ def build(code, today):
         m["w"] = round(m["twh"] / total * 100, 2)
         x += m["w"]
 
-    cap = get(f"{EC}/installed_power?country={ec_c}&time_step=yearly&installation_decommission=false")
-    yi = [i for i, t in enumerate(cap["time"]) if int(t) <= y]
     capacity, cap_year = [], None
-    for label, names in CAPACITY:
-        v = 0.0
-        for p in cap["production_types"]:
-            if p["name"] in names:
-                vals = [(cap["time"][i], p["data"][i]) for i in yi if p["data"][i] is not None]
-                if vals:
-                    cap_year = cap_year or vals[-1][0]
-                    v += vals[-1][1]
-        if v >= 0.05:
-            capacity.append({"label": label, "gw": round(v, 1)})
+    if cfg.get("capacity", "ec") == "ec":
+        cap = get(f"{EC}/installed_power?country={ec_c}&time_step=yearly&installation_decommission=false")
+        yi = [i for i, t in enumerate(cap["time"]) if int(t) <= y]
+        for label, names in CAPACITY:
+            v = 0.0
+            for p in cap["production_types"]:
+                if p["name"] in names:
+                    vals = [(cap["time"][i], p["data"][i]) for i in yi if p["data"][i] is not None]
+                    if vals:
+                        cap_year = cap_year or vals[-1][0]
+                        v += vals[-1][1]
+            if v >= 0.05:
+                capacity.append({"label": label, "gw": round(v, 1)})
 
     flows = []
     try:
@@ -196,14 +336,21 @@ def build(code, today):
     except Exception as e:  # cross-border data is optional
         print(f"  {code}: no cross-border flows ({e})")
 
+    storage = None
+    if code in AGSI:
+        try:
+            storage = agsi(AGSI[code], today)
+        except Exception as e:
+            print(f"  {code}: no storage ({e})")
+
     m_now = today.month
     p_lines = [("cur", series(pm, y, m_now)), ("prev", series(pm, y - 1)), ("avg", avg3(pm, y))]
     g_lines = [("cur", series(gm, y, m_now)), ("prev", series(gm, y - 1)), ("avg", avg3(gm, y))]
     return {
         "asof": today.strftime("%-d %B %Y"),
-        "period": f"1 Jan – {today.strftime('%-d %b')} {y}",
+        "period": period, "price_period": f"1 Jan – {today.strftime('%-d %b')} {y}",
         "year": y, "prev_year": y - 1, "avg_years": f"{y - 3}–{str(y - 1)[2:]}",
-        "bzn": bzn, "gas_label": gas_label,
+        "bzn": bzn, "gas_label": cfg["gas_label"], "ccy": cfg["ccy"],
         "power_ytd": round(ytd, 1), "power_pytd": round(pytd, 1),
         "power_yoy": round(100 * (ytd / pytd - 1)),
         "neg_hours": round(neg), "neg_hours_prev": round(pneg),
@@ -211,7 +358,7 @@ def build(code, today):
         "renewable_pct": round(sum(m["pct"] for m in mix if m["label"] in RENEWABLE)),
         "mix": mix, "mix_total": round(total),
         "capacity": capacity, "capacity_year": cap_year,
-        "flows": flows,
+        "flows": flows, "storage": storage,
         "power_chart": chart(p_lines), "gas_chart": chart(g_lines),
         "power_months": {k: [None if v is None else round(v, 1) for v in s] for k, s in p_lines},
         "gas_months": {k: [None if v is None else round(v, 1) for v in s] for k, s in g_lines},
@@ -229,7 +376,7 @@ def main():
             print(f"KEEP {code}: {e}")
             continue
         (OUT / f"{code}.json").write_text(json.dumps(data, indent=1, ensure_ascii=False) + "\n")
-        print(f"ok   {code}: power YTD €{data['power_ytd']} ({data['power_yoy']:+d}%), "
+        print(f"ok   {code}: power YTD {data['ccy']}{data['power_ytd']} ({data['power_yoy']:+d}%), "
               f"RES {data['renewable_pct']}%")
 
 
