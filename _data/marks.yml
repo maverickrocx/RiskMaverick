@@ -6,23 +6,23 @@ brent:
   asof: "12 Nov 2026"
   source: "market feed"
 brent_spot:
-  price: "$91.03"
-  asof: "9 Nov 2026"
+  price: "$92.14"
+  asof: "11 Nov 2026"
   source: "EIA"
 brent_wti:
-  price: "$0.63"
-  asof: "9 Nov 2026"
+  price: "$2.52"
+  asof: "11 Nov 2026"
   source: "derived"
 corn:
   price: "$4.46"
-  asof: "12 Nov 2026"
+  asof: "13 Nov 2026"
   source: "CBOT via Yahoo"
 de_da:
-  price: "€199.04"
-  asof: "12 Nov 2026"
+  price: "€161.73"
+  asof: "13 Nov 2026"
   source: "SMARD"
-  low: 122.24
-  high: 250.25
+  low: 88.64
+  high: 231.49
   points: 96
 estr:
   price: "2.439%"
@@ -49,16 +49,16 @@ gold:
   asof: "12 Nov 2026"
   source: "market feed"
 henry_hub:
-  price: "$2.89"
-  asof: "9 Nov 2026"
+  price: "$3.00"
+  asof: "11 Nov 2026"
   source: "EIA"
 lme_al:
-  price: "$3,224"
-  asof: "11 Nov 2026"
+  price: "$3,156"
+  asof: "12 Nov 2026"
   source: "LME"
 lme_cu:
-  price: "$13,876"
-  asof: "11 Nov 2026"
+  price: "$13,712"
+  asof: "12 Nov 2026"
   source: "LME"
 n225:
   price: "60,819.36"
@@ -73,8 +73,8 @@ sofr:
   asof: "10 Nov 2026"
   source: "NY Fed"
 soybeans:
-  price: "$12.25"
-  asof: "12 Nov 2026"
+  price: "$12.29"
+  asof: "13 Nov 2026"
   source: "CBOT via Yahoo"
 sp500:
   price: "7,619.38"
@@ -85,30 +85,30 @@ stoxx50:
   asof: "12 Nov 2026"
   source: "market feed"
 ttf:
-  price: "€90.67"
+  price: "€93.70"
   asof: "12 Nov 2026"
   source: "ICE Endex via Yahoo"
 us10y:
-  price: "4.98%"
-  asof: "10 Nov 2026"
+  price: "5.10%"
+  asof: "12 Nov 2026"
   source: "US Treasury"
 us2y:
-  price: "4.73%"
-  asof: "10 Nov 2026"
+  price: "4.86%"
+  asof: "12 Nov 2026"
   source: "US Treasury"
 us30y:
-  price: "5.35%"
-  asof: "10 Nov 2026"
+  price: "5.43%"
+  asof: "12 Nov 2026"
   source: "US Treasury"
 usdjpy:
   price: "159.72"
   asof: "12 Nov 2026"
   source: "market feed"
 wheat:
-  price: "$5.96"
-  asof: "12 Nov 2026"
+  price: "$5.91"
+  asof: "13 Nov 2026"
   source: "CBOT via Yahoo"
 wti:
-  price: "$90.40"
-  asof: "9 Nov 2026"
+  price: "$89.62"
+  asof: "11 Nov 2026"
   source: "EIA"
