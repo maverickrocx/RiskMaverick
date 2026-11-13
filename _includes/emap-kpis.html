@@ -46,11 +46,11 @@ _data/emap_manual.yml, live gas and carbon marks in _data/marks.yml.
 <div class="kband">
   <div class="ktiles">
     <div class="kt"><div class="k">Power price, {{ k.year }} to date</div>
-      <div class="v">€{{ k.power_ytd | round }} <small>/MWh</small></div>
-      <div class="d"><span class="{% if k.power_yoy >= 0 %}up{% else %}dn{% endif %}">{% if k.power_yoy >= 0 %}+{% endif %}{{ k.power_yoy }}%</span> vs same period {{ k.prev_year }} (€{{ k.power_pytd | round }})</div></div>
-    <div class="kt"><div class="k">Gas price, {{ k.gas_label }}</div>
-      <div class="v">{{ gasmark.price }} <small>/MWh</small></div>
-      <div class="d">{{ gasmark.asof }} · {{ k.year }} average €{{ k.gas_ytd | round }}</div></div>
+      <div class="v">{{ k.ccy }}{{ k.power_ytd | round }} <small>/MWh</small></div>
+      <div class="d"><span class="{% if k.power_yoy >= 0 %}up{% else %}dn{% endif %}">{% if k.power_yoy >= 0 %}+{% endif %}{{ k.power_yoy }}%</span> vs same period {{ k.prev_year }} ({{ k.ccy }}{{ k.power_pytd | round }})</div></div>
+    <div class="kt"><div class="k">{{ man.gas_tile | default: "Gas price, TTF" }}</div>
+      <div class="v">{% if gasmark %}{{ gasmark.price }}{% else %}{{ man.gas_value }}{% endif %} <small>/MWh</small></div>
+      <div class="d">{% if gasmark %}{{ gasmark.asof }}{% else %}{{ man.gas_note }}{% endif %} · {{ k.year }} average {{ k.ccy }}{{ k.gas_ytd | round }}</div></div>
     <div class="kt"><div class="k">{{ man.storage_label | default: "Gas storage" }}</div>
       <div class="v">{{ man.storage_value }}</div>
       <div class="d">{{ man.storage_note }}</div></div>
@@ -71,8 +71,8 @@ _data/emap_manual.yml, live gas and carbon marks in _data/marks.yml.
   <div class="kcharts">
   {%- assign charts = "power,gas" | split: "," -%}
   {%- for c in charts -%}
-    {%- if c == "power" -%}{%- assign ch = k.power_chart -%}{%- assign ttl = "Day-ahead power price, monthly average (€/MWh)" -%}{%- assign sub = k.bzn -%}
-    {%- else -%}{%- assign ch = k.gas_chart -%}{%- assign ttl = "Gas price, monthly average (€/MWh)" -%}{%- assign sub = k.gas_label | append: " front month" -%}{%- endif %}
+    {%- if c == "power" -%}{%- assign ch = k.power_chart -%}{%- assign ttl = "Day-ahead power price, monthly average (" | append: k.ccy | append: "/MWh)" -%}{%- assign sub = k.bzn -%}
+    {%- else -%}{%- assign ch = k.gas_chart -%}{%- assign ttl = "Gas price, monthly average (" | append: k.ccy | append: "/MWh)" -%}{%- assign sub = k.gas_label -%}{%- endif %}
     <div class="kpanel kchart">
       <div class="t">{{ ttl }} <span>· {{ sub }}</span></div>
       <svg viewBox="0 0 600 214" role="img" aria-label="{{ ttl }}: {{ k.year }}, {{ k.prev_year }} and {{ k.avg_years }} average">
@@ -89,5 +89,5 @@ _data/emap_manual.yml, live gas and carbon marks in _data/marks.yml.
     </div>
   {%- endfor %}
   </div>
-  <div class="ksrc">Data to {{ k.asof }}. Power prices, generation and capacity: <a href="https://www.energy-charts.info/?l=en" target="_blank" rel="noopener">Energy-Charts (Fraunhofer ISE)</a>, our time-weighted averages; the current month is month to date. Gas: ICE Endex {{ k.gas_label }} front month via Yahoo, monthly average of daily settlements. {{ man.storage_source }}</div>
+  <div class="ksrc">Data to {{ k.asof }}. {% if man.data_note %}{{ man.data_note }}{% else %}Power prices, generation and capacity: <a href="https://www.energy-charts.info/?l=en" target="_blank" rel="noopener">Energy-Charts (Fraunhofer ISE)</a>, our time-weighted averages; the current month is month to date. Gas: ICE Endex TTF front month via Yahoo, monthly average of daily settlements.{% endif %} {{ man.storage_source }}</div>
 </div>
