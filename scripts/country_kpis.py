@@ -39,6 +39,8 @@ UA = {"User-Agent": "Mozilla/5.0 (RiskMaverick country-kpis)"}
 # Great Britain is not in Energy-Charts' price or mix data, so it reads
 # Elexon (BMRS) for power and the ONS-published System Average Price for gas.
 EU = {"gas": ("yahoo", "TTF=F"), "gas_label": "TTF front month", "ccy": "€"}
+AGSI = {"deu": "de", "fra": "fr", "nld": "nl", "bel": "be", "ita": "it", "esp": "es", "swe": "se",
+        "dnk": "dk", "gbr": "gb"}  # Norway and Finland have no AGSI-reported storage
 COUNTRIES = {
     "deu": dict(EU, ec="de", bzn="DE-LU"),
     "fra": dict(EU, ec="fr", bzn="FR"),
@@ -170,6 +172,33 @@ def cbs_mix(year):
         for c, n in cols.items():
             twh[n] += (r.get(c) or 0) / 1000  # GWh -> TWh
     return dict(twh), last
+
+
+def agsi(cc, day):
+    """Gas storage from GIE AGSI+ (needs an API key in the x-key header; set
+    AGSI_KEY, or run where a proxy injects it). Latest gas day on or before
+    `day`, with the same day one year earlier and the five-year average."""
+    import os
+    hdr = dict(UA)
+    if os.environ.get("AGSI_KEY"):
+        hdr["x-key"] = os.environ["AGSI_KEY"]
+
+    def one(d):
+        u = f"https://agsi.gie.eu/api?country={cc}&from={d - dt.timedelta(days=6)}&to={d}&size=7"
+        with urllib.request.urlopen(urllib.request.Request(u, headers=hdr), timeout=60) as r:
+            rows = [x for x in json.load(r).get("data", []) if x.get("full") not in (None, "", "-")]
+        return max(rows, key=lambda x: x["gasDayStart"]) if rows else None
+
+    now = one(day)
+    if not now:
+        return None
+    d0 = dt.date.fromisoformat(now["gasDayStart"])
+    past = [one(d0.replace(year=d0.year - k)) for k in range(1, 6)]
+    past_full = [float(x["full"]) for x in past if x]
+    return {"full": round(float(now["full"]), 1), "twh": round(float(now["gasInStorage"]), 1),
+            "capacity_twh": round(float(now["workingGasVolume"]), 1), "gas_day": d0.strftime("%-d %b %Y"),
+            "prev_year": round(past_full[0], 1) if past_full else None,
+            "avg5": round(sum(past_full) / len(past_full), 1) if len(past_full) == 5 else None}
 
 
 def ons_sap_months():
@@ -307,6 +336,13 @@ def build(code, today):
     except Exception as e:  # cross-border data is optional
         print(f"  {code}: no cross-border flows ({e})")
 
+    storage = None
+    if code in AGSI:
+        try:
+            storage = agsi(AGSI[code], today)
+        except Exception as e:
+            print(f"  {code}: no storage ({e})")
+
     m_now = today.month
     p_lines = [("cur", series(pm, y, m_now)), ("prev", series(pm, y - 1)), ("avg", avg3(pm, y))]
     g_lines = [("cur", series(gm, y, m_now)), ("prev", series(gm, y - 1)), ("avg", avg3(gm, y))]
@@ -322,7 +358,7 @@ def build(code, today):
         "renewable_pct": round(sum(m["pct"] for m in mix if m["label"] in RENEWABLE)),
         "mix": mix, "mix_total": round(total),
         "capacity": capacity, "capacity_year": cap_year,
-        "flows": flows,
+        "flows": flows, "storage": storage,
         "power_chart": chart(p_lines), "gas_chart": chart(g_lines),
         "power_months": {k: [None if v is None else round(v, 1) for v in s] for k, s in p_lines},
         "gas_months": {k: [None if v is None else round(v, 1) for v in s] for k, s in g_lines},
