@@ -2,8 +2,8 @@ name: Americas
 slug: americas
 status: live
 order: 2
-reviewed: 2026-07-30
-data_vintage: "Market structure and H1 2026 outturn; auction and policy positions verified to 30 July 2026."
+reviewed: 2026-11-13
+data_vintage: "Market structure, 2026 prices and storage to mid-November; auction and policy positions verified to 13 November 2026. Waha basis is H1 2026."
 gas_ccy: "$"
 gas_unit: "/MMBtu"
 power_ccy: "$"
@@ -34,8 +34,11 @@ context:
   - stat: ">$10/MMBtu"
     label: Peak spread between Waha and Henry Hub in H1 2026 — the same molecule, priced on whether it could physically move east
     source: NGI / Reuters
-  - stat: "18.3 Bcf/d"
-    label: US peak LNG export capacity, on track past 19 Bcf/d during 2026 as Golden Pass and Corpus Christi Stage 3 ramp
+  - stat: "17.6 Bcf/d"
+    label: EIA's forecast for average US LNG exports in 2026, a record, rising to 19.0 Bcf/d in 2027
+    source: EIA
+  - stat: "+1.4%"
+    label: US working gas in storage against the five-year average at 30 October 2026 (3,801 Bcf)
     source: EIA
 
 trend:
@@ -45,8 +48,8 @@ trend:
     The most striking price move in North American environmental markets in the
     last year. Auction 71 in March 2026 exhausted the entire 2026 Cost
     Containment Reserve — 7.85 million allowances released against a $18.22
-    trigger — and the market still cleared $35.00 three months later, a 57%
-    rise in nine months. The Third Program Review tightens the cap through 2037
+    trigger — and the market still cleared $35.00 three months later and
+    $37.65 at Auction 73 in September 2026, up about 69% in a year. The Third Program Review tightens the cap through 2037
     from 2027 and fixes the CCR at roughly 11.7 million allowances per tier.
     Note the unit: RGGI allowances are metric tonnes, while EPA reports emitted
     mass in short tons.
@@ -54,6 +57,7 @@ trend:
     - { label: "Auction 69 · Sep 25", value: 22.25, source: RGGI }
     - { label: "Auction 71 · Mar 26", value: 24.99, source: RGGI }
     - { label: "Auction 72 · Jun 26", value: 35.00, source: RGGI }
+    - { label: "Auction 73 · Sep 26", value: 37.65, source: RGGI }
 
 countries:
   - country: US Gulf Coast
@@ -61,7 +65,7 @@ countries:
     role: The global gas benchmark
     gas_hub: Henry Hub
     gas_venue: NYMEX / ICE
-    gas_mark: 2.70
+    gas_mark: 2.89
     power_zone: MISO South / SERC
     power_venue: Bilateral
     note: >-
@@ -194,7 +198,7 @@ cross_cutting:
     note: >-
       Storage and other qualifying technologies are untouched until 2034. Read
       as a negative carbon price, this is the largest single policy variable in
-      the US build-out — and the date is three weeks behind us.
+      the US build-out; the construction-start deadline passed in July 2026.
   - name: A three-way carbon link, signed
     detail: >-
       Washington, California and Québec signed a linkage agreement on 25 June
@@ -218,8 +222,10 @@ cross_cutting:
       export terminal; Corpus Christi Stage 3 adds trains 5–7 and Plaquemines
       won DOE approval in March 2026 for a further 0.5 Bcf/d.
     note: >-
-      Capacity goes from roughly 17 Bcf/d at the end of 2025 to above 19 Bcf/d
-      during 2026 — the single largest structural pull on Henry Hub.
+      EIA forecasts LNG exports of 17.6 Bcf/d in 2026 and 19.0 Bcf/d in 2027,
+      up from 15.1 Bcf/d in 2025, with terminals near full capacity as the
+      Qatari outage keeps international prices high — the single largest
+      structural pull on Henry Hub.
 
 basis:
   - pair: Waha – Henry Hub
@@ -249,6 +255,12 @@ sources:
   - title: "The 9th U.S. LNG export terminal, Golden Pass, ships first cargo"
     publisher: US Energy Information Administration
     url: https://www.eia.gov/todayinenergy/detail.php?id=67564
+  - title: "Short-Term Energy Outlook, November 2026"
+    publisher: US Energy Information Administration
+    url: https://www.eia.gov/outlooks/steo/
+  - title: "Weekly Natural Gas Storage Report"
+    publisher: US Energy Information Administration
+    url: https://ir.eia.gov/ngs/ngs.html
   - title: "Permian Pipeline Constraints Push Waha Gas Prices Negative for 25th Straight Day"
     publisher: Pipeline & Gas Journal
     url: https://pgjonline.com/news/2026/march/permian-pipeline-constraints-push-waha-gas-prices-negative-for-25th-straight-day

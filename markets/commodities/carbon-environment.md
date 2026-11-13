@@ -6,7 +6,7 @@ tag: carbon-environment
 emoji: "🌱"
 blurb: "EU ETS, RECs, offsets and policy risk."
 standfirst: "A commodity created by regulation. Supply is set by a policy cap, not a mine or a well — so the dominant risk here is the direction of climate policy itself."
-reviewed: 2026-07-30
+reviewed: 2026-11-13
 benchmarks:
   - { name: "EUA", key: "eua", region: "EU ETS · EEX auction", price: "€85.42", unit: "/t", asof: "8 Sep 2026", source: "ICE" }
   - { name: "RGGI", key: "rggi", region: "US Northeast · auction", price: "$35.00", unit: "/short ton", asof: "Auction 72, Jun 2026", source: "RGGI" }
@@ -48,6 +48,16 @@ deepest and most liquid; **renewable energy certificates** and **voluntary
 offsets** sit alongside them but are thinner and more fragmented, with real
 differences in quality and verification. Managing risk here is less about
 physical fundamentals and more about **scenario-testing the rules themselves**.
+
+## 2026 so far — November update
+
+Carbon prices rose with energy prices in 2026, and new markets opened.
+
+- **EU allowances near €90/t.** The EUA traded around €89–90/t in November, up from about €85 in September (EEX auction data on this page).
+- **EU–UK linking.** The EU and UK are in the final stages of a deal to link their carbon markets, which would cut carbon-border-tax costs ([Bloomberg](https://www.bloomberg.com/news/articles/2026-11-08/eu-close-to-deal-to-link-uk-carbon-market-after-brexit-split)). UK allowances averaged £63.94/t in October ([UK ETS Authority](https://www.gov.uk/government/publications/uk-emissions-trading-scheme-markets/uk-emissions-trading-scheme-markets)).
+- **RGGI keeps rising.** Auction 73 in September cleared at $37.65 per allowance, above June's $35.00 ([RGGI](https://www.rggi.org/auctions/auction-results)).
+- **Japan starts trading.** The mandatory GX-ETS began in April 2026 for companies emitting over 100,000 tonnes a year ([METI](https://www.meti.go.jp/policy/energy_environment/global_warming/ets__leaflet.pdf)).
+- **Emissions dip on the oil shock.** The Global Carbon Budget expects fossil CO2 emissions to fall 0.4% in 2026, mainly from lower oil use ([Bloomberg](https://www.bloomberg.com/news/articles/2026-11-10/global-carbon-emissions-set-to-dip-in-2026-after-iran-war-oil-surge)).
 
 ## How the market works
 

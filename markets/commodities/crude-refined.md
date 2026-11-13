@@ -6,7 +6,7 @@ tag: crude-refined
 emoji: "🛢️"
 blurb: "Brent and WTI benchmarks, crack spreads and the refining-margin risks that sit between crude and product prices."
 standfirst: "The deepest commodity market in the world — but the money at a refinery is made in the spread between crude bought and product sold, not in the flat price alone."
-reviewed: 2026-07-30
+reviewed: 2026-11-13
 benchmarks:
   - { name: "Brent", key: "brent", region: "Global · ICE", price: "$97.67", unit: "/bbl", symbol: "BZUSD", dec: 2, pfx: "$" }
   - { name: "WTI", key: "wti", region: "US · NYMEX", price: "$91.48", unit: "/bbl", asof: "1 Sep 2026", source: "EIA" }
@@ -48,6 +48,16 @@ sector is the **crack spread** — the gap between the crude a refiner buys and
 the products it sells. A barrel can be fully hedged on crude and still lose
 money if that margin compresses, which is why crude and refined products are
 modelled as **distinct, related exposures** rather than one price.
+
+## 2026 so far — November update
+
+Oil spent 2026 pricing a war in the Gulf.
+
+- **A war premium that came and went.** Brent ended October at $117.64, up 13.6% on the month ([Economic Times](https://economictimes.indiatimes.com/markets/commodities/news/oil-prices-soar-14-in-october-to-end-at-6-month-high-as-us-weighs-fresh-attacks-after-midterm-elections-more-upside-ahead/articleshow/135388221.cms)), then fell below $90 in November as traders bet on a diplomatic resolution ([Bloomberg](https://www.bloomberg.com/news/articles/2026-11-09/latest-oil-market-news-and-analysis-for-nov-10)).
+- **Gulf supply is returning.** Saudi Arabia told OPEC its October output rose 26% to a wartime high ([Bloomberg](https://www.bloomberg.com/news/articles/2026-11-11/saudis-tell-opec-output-they-surged-26-to-new-war-time-high)), and Dubai's front spread flipped into contango ([Bloomberg](https://www.bloomberg.com/news/articles/2026-11-03/middle-east-oil-markets-flash-signs-of-abundance-as-flows-rise)).
+- **Products remain tight.** Refined-product loadings inside the Gulf were about 3 mb/d in October, still roughly half of pre-conflict levels ([Bloomberg](https://www.bloomberg.com/news/articles/2026-11-10/rising-fuel-flows-through-hormuz-may-help-ease-strained-market)).
+- **Rerouting adds cost.** Houthi threats pushed Saudi shipments around Africa and through Egypt, and the UAE is weighing a third pipeline that bypasses Hormuz ([Bloomberg](https://www.bloomberg.com/news/articles/2026-11-04/uae-mulls-third-crude-oil-pipeline-to-avoid-strait-of-hormuz)).
+- **Russian exports under fire.** Drone strikes hit the Ust-Luga port and refineries as peace talks with Ukraine continued ([Bloomberg](https://www.bloomberg.com/news/articles/2026-11-11/drone-attack-sparks-fire-at-russia-s-ust-luga-port-injures-3)).
 
 ## How the market works
 

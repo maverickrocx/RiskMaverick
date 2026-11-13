@@ -6,7 +6,7 @@ tag: metals
 emoji: "🪙"
 blurb: "Base and precious metals, LME pricing and warehousing."
 standfirst: "Two markets under one name: industrial base metals priced on physical supply and demand, and precious metals that trade as much on macro and safe-haven flows."
-reviewed: 2026-07-30
+reviewed: 2026-11-13
 benchmarks:
   - { name: "Gold", key: "gold", region: "Precious · COMEX", price: "$4,479.60", unit: "/oz", symbol: "GCUSD", dec: 2, pfx: "$" }
   - { name: "Copper", key: "lme_cu", region: "Base · LME cash", price: "$14,535", unit: "/t", asof: "28 Aug 2026", source: "LME" }
@@ -48,6 +48,15 @@ gold and silver, traded on **COMEX** and the **LBMA** — trade as much on the
 dollar, real yields and safe-haven demand as on physical supply. Because the
 two behave so differently, the biggest modelling mistake is treating them as one
 exposure; a metals book’s real risk lives in how those two halves interact.
+
+## 2026 so far — November update
+
+Metals were a sideshow to energy in 2026, but a volatile one.
+
+- **Copper eased from its highs.** LME cash copper was about $13,876/t on 11 November, down from $14,535 in late August, as traders grew wary of a rally built on tariffs that have not materialised ([Bloomberg](https://www.bloomberg.com/news/articles/2026-10-18/traders-grow-wary-of-copper-bull-market-with-no-sign-of-tariffs)).
+- **Aluminium flat.** LME aluminium was about $3,224/t, little changed since August.
+- **Gold swung around $4,000.** It sat near a one-year low of about $3,895/oz in early November on Fed hike expectations ([Economic Times](https://economictimes.indiatimes.com/markets/commodities/news/gold-lingers-near-one-year-low-as-fed-hike-expectations-firm/articleshow/135442111.cms)), then topped $4,000 after the US midterms ([Bloomberg](https://www.bloomberg.com/news/articles/2026-11-04/democrats-win-rattles-trump-trades-from-ai-stocks-to-crypto)).
+- **Traders profit from volatility.** Several top metals trading houses are heading for a second year of record profits ([Bloomberg](https://www.bloomberg.com/news/articles/2026-10-24/metals-traders-reap-bonanza-with-another-year-of-record-profits)).
 
 ## How the market works
 

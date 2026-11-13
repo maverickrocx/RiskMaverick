@@ -6,11 +6,11 @@ tag: natural-gas-lng
 emoji: "🔥"
 blurb: "Henry Hub, TTF and JKM benchmarks, storage economics, basis and the seasonal risks that define gas markets."
 standfirst: "Gas has no single global price. Three regional benchmarks — and the spreads between them — set physical flows, cargo economics and every hedging decision on the desk."
-reviewed: 2026-07-30
+reviewed: 2026-11-13
 benchmarks:
   - { name: "Henry Hub", key: "henry_hub", region: "US · spot", price: "$2.90", unit: "/MMBtu", asof: "1 Sep 2026", source: "EIA" }
   - { name: "TTF", key: "ttf", region: "EU · ICE", price: "€76.70", unit: "/MWh", asof: "9 Sep 2026", source: "ICE" }
-  - { name: "JKM", region: "Asia · Platts", price: "$24.39", unit: "/MMBtu", asof: "8 Sep 2026", source: "Platts" }
+  - { name: "JKM", region: "Asia · Platts", price: "4-yr high", unit: "", asof: "20 Oct 2026", source: "Bloomberg" }
 benchmark_note: "Henry Hub is the EIA daily spot series. TTF is the ICE Endex front-month, refreshed daily from Yahoo Finance’s delayed feed. JKM is the Platts front-month marker, which has no free feed, so it is updated by hand from a dated Bloomberg report or other published quote. Note the spread: European and Asian gas sit far above a Henry Hub anchored near $2.90, which is the basis risk this hub exists to explain."
 key_benchmarks:
   - { code: "Henry Hub", full: "Erath, Louisiana", desc: "The US physical & futures benchmark, settled on NYMEX. Deep, liquid, and the reference for North-American gas hedging." }
@@ -49,6 +49,17 @@ Dutch **TTF**, and Asian LNG off the **Japan-Korea Marker (JKM)**. LNG shipping
 links these pools, but only imperfectly — which means the **spreads between
 them**, not any single price, are what govern cargo economics and hedging
 strategy.
+
+## 2026 so far — November update
+
+Natural gas and LNG are the epicentre of 2026's energy shock.
+
+- **The Qatari outage.** QatarEnergy declared force majeure after Iranian strikes in March and has rolled it forward month by month; by early November Qatari loadings had recovered to only about half of pre-war levels ([Bloomberg](https://www.bloomberg.com/news/articles/2026-11-10/qatar-lng-loadings-pick-up-to-around-half-of-pre-war-levels)).
+- **Prices split by region.** Asian LNG hit its highest in almost four years and TTF rose above €90/MWh for the first time since 2022 in October ([Bloomberg](https://www.bloomberg.com/news/articles/2026-10-20/asian-lng-prices-jump-to-highest-since-2022-on-tanker-strikes)), while Henry Hub stayed near $3 and EIA expects $2.87/MMBtu this winter ([EIA](https://www.eia.gov/outlooks/steo/pdf/steo_full.pdf)).
+- **Europe's stores are thin.** EU storage was 71.3% full on 11 November against 82.3% a year earlier and a 2022–25 average of about 93% ([GIE AGSI+](https://agsi.gie.eu/)).
+- **The US is the winner.** EIA forecasts record LNG exports of 17.6 Bcf/d in 2026 and 19.0 Bcf/d in 2027, with terminals running near capacity.
+- **Contracts are being tested.** Poland's Orlen exited a Qatari supply deal, the first long-term contract Qatar has lost to the disruption ([Bloomberg](https://www.bloomberg.com/news/articles/2026-11-10/poland-s-orlen-terminates-lng-supply-deal-with-qatar-amid-war)).
+- **China is buying less.** Cheap domestic gas is curbing Chinese spot LNG purchases into winter, which frees cargoes for Europe and Japan ([Bloomberg](https://www.bloomberg.com/news/articles/2026-11-09/china-s-cheap-domestic-gas-curbs-lng-buying-as-winter-nears)).
 
 ## How the market works
 
