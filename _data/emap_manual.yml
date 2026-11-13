@@ -11,7 +11,12 @@ bel: {gas_mark: ttf, carbon_mark: eua}
 ita: {gas_mark: ttf, carbon_mark: eua, gas_tile: "Gas price, TTF (PSV trades at a premium)"}
 esp: {gas_mark: ttf, carbon_mark: eua, gas_tile: "Gas price, TTF (MIBGAS is local)"}
 dnk: {gas_mark: ttf, carbon_mark: eua}
-swe: {gas_mark: ttf, carbon_mark: eua}
+swe:
+  gas_mark: ttf
+  carbon_mark: eua
+  storage_label: "Gas storage"
+  storage_value: "Negligible"
+  storage_note: "One small site; gas plays almost no part in Swedish power"
 nor:
   gas_mark: ttf
   carbon_mark: eua

@@ -115,14 +115,7 @@
    "twh": -0.3
   }
  ],
- "storage": {
-  "full": 90.5,
-  "twh": 0.1,
-  "capacity_twh": 0.1,
-  "gas_day": "11 Nov 2026",
-  "prev_year": 102.1,
-  "avg5": 77.6
- },
+ "storage": null,
  "power_chart": {
   "ticks": [
    {

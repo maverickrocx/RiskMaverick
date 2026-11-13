@@ -39,8 +39,8 @@ UA = {"User-Agent": "Mozilla/5.0 (RiskMaverick country-kpis)"}
 # Great Britain is not in Energy-Charts' price or mix data, so it reads
 # Elexon (BMRS) for power and the ONS-published System Average Price for gas.
 EU = {"gas": ("yahoo", "TTF=F"), "gas_label": "TTF front month", "ccy": "€"}
-AGSI = {"deu": "de", "fra": "fr", "nld": "nl", "bel": "be", "ita": "it", "esp": "es", "swe": "se",
-        "dnk": "dk", "gbr": "gb"}  # Norway and Finland have no AGSI-reported storage
+AGSI = {"deu": "de", "fra": "fr", "nld": "nl", "bel": "be", "ita": "it", "esp": "es",
+        "dnk": "dk"}  # Norway and Finland have none; Sweden's is negligible; GB stopped reporting
 COUNTRIES = {
     "deu": dict(EU, ec="de", bzn="DE-LU"),
     "fra": dict(EU, ec="fr", bzn="FR"),
