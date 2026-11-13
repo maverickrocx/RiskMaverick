@@ -6,7 +6,7 @@ group: "Risk Toolkit · Instruments"
 emoji: "🛡️"
 blurb: "Futures, options, swaps and structured hedges."
 standfirst: "The instruments risk managers use to transfer unwanted exposure — and the art of offsetting a position so price risk falls away, leaving only basis, cost and margin."
-reviewed: 2026-07-08
+reviewed: 2026-11-13
 concepts:
   - "Futures & forwards"
   - "Options"
@@ -64,6 +64,14 @@ exchange for basis risk, cost and margin obligations.
 </svg>
 <figcaption class="conceptviz-src">Schematic. A perfect hedge removes <strong>price risk</strong> but never comes free — what remains is <strong>basis risk</strong> (hedge vs actual exposure), transaction cost and the obligation to fund <strong>margin calls</strong>.</figcaption>
 </figure>
+
+## Seen in 2026
+
+2026 was a live test of basis risk and contract terms.
+
+- **Basis blew out.** Oman crude traded above $60 over Dubai early in the war, falling to about $4 by October as exports recovered ([Bloomberg](https://www.bloomberg.com/news/articles/2026-10-21/key-mideast-oil-benchmark-hits-3-month-low-on-resilient-exports)).
+- **Regional gas hedges diverged.** Henry Hub stayed near $3/MMBtu while TTF and JKM hit multi-year highs, so a US gas hedge did nothing for a European or Asian exposure.
+- **Contract fine print mattered.** A delivery rule in US bond futures threatened to push 30-year yields towards 6% ([Bloomberg](https://www.bloomberg.com/news/articles/2026-10-05/new-hazard-for-treasuries-hides-in-bond-futures-fine-print)).
 
 ## In practice
 

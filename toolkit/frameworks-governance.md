@@ -6,7 +6,7 @@ group: "Risk Toolkit · Governance"
 emoji: "🏛️"
 blurb: "ERM, risk appetite, Basel and model risk."
 standfirst: "The scaffolding above the individual risk tools: enterprise risk management, a board-set risk appetite cascaded into limits, and the frameworks that keep it all accountable."
-reviewed: 2026-07-08
+reviewed: 2026-11-13
 concepts:
   - "Enterprise risk management"
   - "Risk appetite"
@@ -70,6 +70,14 @@ the risk that the very models used to measure risk are wrong or misused.
 </svg>
 <figcaption class="conceptviz-src">Schematic. A single board-level <strong>appetite</strong> is translated into ever-more-specific <strong>limits and mandates</strong> the closer you get to the trade — while <strong>ERM</strong> keeps the separate risk disciplines coherent and accountable.</figcaption>
 </figure>
+
+## Seen in 2026
+
+Governance questions in 2026 reached central banks and index providers.
+
+- **Central bank governance.** The Fed's watchdog found no criminality in its $2.4bn headquarters renovation but flagged numerous management deficiencies ([Bloomberg](https://www.bloomberg.com/news/articles/2026-09-30/fed-s-watchdog-finds-no-evidence-of-criminality-in-renovations)).
+- **Index rules move markets.** Indonesian stocks had their worst rout in nearly three decades after MSCI warned the country's emerging-market status was in jeopardy ([Bloomberg](https://www.bloomberg.com/news/articles/2026-10-15/indonesia-s-emerging-market-status-under-consultation-msci-says)).
+- **AI controls.** Banks are writing rules for AI use, as Goldman's restrictions on some tools show.
 
 ## In practice
 

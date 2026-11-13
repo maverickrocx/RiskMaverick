@@ -6,7 +6,7 @@ group: "Risk Toolkit · Credit"
 emoji: "🤝"
 blurb: "Counterparty exposure, credit support and CVA."
 standfirst: "Every trade carries the risk that the other side fails to perform. This is how that exposure is measured over a trade’s life — and pulled down with netting, collateral and CVA."
-reviewed: 2026-07-08
+reviewed: 2026-11-13
 concepts:
   - "Credit risk"
   - "Counterparty risk (CCR)"
@@ -66,6 +66,14 @@ the size of the exposure.
 </svg>
 <figcaption class="conceptviz-src">Schematic. Counterparty exposure isn’t a single number — it’s a <strong>profile over time</strong>. <strong>Netting and collateral</strong> compress it, and the residual expected loss from default is priced as <strong>CVA</strong>.</figcaption>
 </figure>
+
+## Seen in 2026
+
+2026 showed counterparty risk arriving through both price and contract.
+
+- **AI borrowers repriced.** Investors priced a more than 60% chance of CoreWeave defaulting within five years in October ([Bloomberg](https://www.bloomberg.com/news/articles/2026-10-16/coreweave-stock-wipeout-exposes-divide-between-ai-fear-and-greed)), and data-centre financing yields reached double digits ([Bloomberg](https://www.bloomberg.com/news/articles/2026-10-28/wall-street-s-ai-debt-machine-is-starting-to-choke-on-supply)).
+- **Force majeure as credit risk.** Qatar's LNG force majeure left buyers without contracted cargoes, and Poland's Orlen became the first to exit a long-term Qatari contract ([Bloomberg](https://www.bloomberg.com/news/articles/2026-11-10/poland-s-orlen-terminates-lng-supply-deal-with-qatar-amid-war)).
+- **Hedging demand surged.** Nvidia became one of the most-traded US credit default swaps as investors hedged hyperscaler-linked debt ([Bloomberg](https://www.bloomberg.com/news/articles/2026-09-23/nvidia-among-top-traded-us-credit-swaps-as-hedging-demand-soars)).
 
 ## In practice
 

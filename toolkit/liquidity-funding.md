@@ -6,7 +6,7 @@ group: "Risk Toolkit · Liquidity"
 emoji: "💧"
 blurb: "Margin calls, funding vs market liquidity."
 standfirst: "A hedge that is right on paper can still sink a firm if the margin calls can’t be funded. This is the difference between market and funding liquidity — and why it matters."
-reviewed: 2026-07-08
+reviewed: 2026-11-13
 concepts:
   - "Market liquidity"
   - "Funding liquidity"
@@ -66,6 +66,14 @@ plausible calls, not just marking the hedge to market.
 </svg>
 <figcaption class="conceptviz-src">Schematic. The danger isn’t being wrong on the hedge — it’s that <strong>variation margin is cash, now</strong>. If it can’t be funded, a solvent position is closed at a loss, which can push prices further and feed the loop.</figcaption>
 </figure>
+
+## Seen in 2026
+
+Liquidity in 2026 was tested by price spikes and by forced sellers.
+
+- **Funding costs spiked.** US five-year yields broke 5% for the first time since 2007 ([Bloomberg](https://www.bloomberg.com/news/articles/2026-09-23/us-treasury-five-year-yields-breach-5-for-first-time-since-2007)), raising the cost of carrying inventory and margin.
+- **Redemption runs.** Turkish regulators froze fund executives' assets after a Ponzi-like redemption crisis at an asset manager that had bet on illiquid stocks ([Bloomberg](https://www.bloomberg.com/news/articles/2026-09-21/turkey-freezes-assets-of-fund-executives-in-redemption-crisis)).
+- **Cash costs in physical markets.** A single spot LNG cargo cost Bangladesh over $100mn, about four times a contracted cargo ([Bloomberg](https://www.bloomberg.com/news/newsletters/2026-11-02/cash-strapped-lng-buyers-like-bangladesh-are-at-breaking-point)).
 
 ## In practice
 
