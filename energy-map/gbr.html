@@ -165,211 +165,146 @@ blurb: "United Kingdom — Pool clearing. Market structure, infrastructure, dema
   <header class="mh">
     <div class="top">
       <span class="bchip">Pool clearing</span>
-      <span class="reviewed">Last reviewed 22 August 2026</span>
+      <span class="reviewed">Last reviewed 13 November 2026</span>
     </div>
     <h1>United Kingdom</h1>
-    <p class="one">A single national price zone with two competing day-ahead auctions, the sharpest imbalance-pricing regime in Europe, and a gas system that now runs on Norwegian pipelines and LNG cargoes.</p>
-    <div class="facts"><div class="fi"><div class="k">Power exchanges</div><div class="v">N2EX and EPEX SPOT</div></div><div class="fi"><div class="k">Price unit</div><div class="v">GBP / MWh</div></div><div class="fi"><div class="k">Settlement</div><div class="v">30 minutes</div></div><div class="fi"><div class="k">System operator</div><div class="v">NESO</div></div><div class="fi"><div class="k">Gas benchmark</div><div class="v">NBP</div></div></div>
+    <p class="one">A single national power price set by gas most hours, with gas that arrives by Norwegian pipeline or LNG tanker. In 2026 Britain imports the global LNG shock directly into its power price.</p>
+    {% include emap-kpis.html code="gbr" %}
   </header>
 
   <div class="body">
     <aside class="toc" id="toc">
       <div class="t">On this page</div>
-      <a href="#s1">01 Overview</a>
-      <a href="#s2">02 Market structure</a>
-      <a href="#s3">03 Infrastructure</a>
-      <a href="#s4">04 Demand and supply</a>
-      <a href="#s5">05 Price setting</a>
-      <a href="#s6">06 Regulatory regime</a>
-      <a href="#s7">Key links</a>
+      <a href="#s0">At a glance</a>
+      <a href="#s1">01 Market snapshot</a>
+      <a href="#s2">02 Infrastructure</a>
+      <a href="#s3">03 Demand and supply</a>
+      <a href="#s4">04 Prices</a>
+      <a href="#s5">05 Policy in 2026</a>
+      <a href="#s6">06 Risk radar</a>
+      <a href="#s7">07 Next six months</a>
+      <a href="#s8">Sources</a>
     </aside>
-    <main><section class="sec" id="s1"><span class="sn">01</span><h2>Overview</h2>
-<p class="lead">Great Britain liberalised its power market before almost anyone else. It now imports more of its gas than almost anyone in Europe. Those two facts are really one fact. For most hours of the year a gas turbine sets the electricity price, and the gas burnt in it arrived by ship or down a pipe from Norway.</p>
-
-<p>Most wholesale power moves bilaterally. What is left goes through two day-ahead auctions, <strong>N2EX</strong>, run by Nord Pool, and <strong>EPEX SPOT</strong>. Anything still unmatched at gate closure lands in the <strong>balancing mechanism</strong> and is settled half-hourly by <strong>Elexon</strong> under the Balancing and Settlement Code. Gas trades at the <strong>National Balancing Point (NBP)</strong>, a virtual hub quoted in pence per therm. Most British gas hedges against it, and a good deal of European LNG does too.</p>
-
-<p>Two changes shape the current period. In October 2024 system operation was pulled out of National Grid and handed to the <a href="https://www.neso.energy/news/national-energy-system-operator-launches-today" target="_blank" rel="noopener">NESO</a>, publicly owned, operationally independent, and responsible for electricity and gas together. Then in July 2025 the government finished the <strong>Review of Electricity Market Arrangements</strong>. Zonal pricing was rejected and a reformed single national price adopted. That took the largest open question hanging over British generation assets since 2022 off the table.</p>
-
-<p>Two administered revenue streams sit alongside the wholesale market. The <strong>Capacity Market</strong> pays for availability; <strong>Contracts for Difference</strong> fix a strike price for low-carbon generation. Between them they now decide whether new build gets financed. Spot prices still drive dispatch, hour by hour. They have much less to say about what gets built.</p>
-
-<div class="pull"><div class="t">The one-line version</div>
-<p>An unusually transparent short-term market, bolted onto an unusually administered long-term one. Spot tells you what runs today. The auction results tell you what exists in five years.</p></div>
-</section><section class="sec" id="s2"><span class="sn">02</span><h2>Market structure</h2>
-<p class="lead">One national price zone. Two competing day-ahead exchanges, one balancing mechanism, and a settlement regime run under an industry code by a body that is not the system operator.</p>
-
-<h3>Who does what</h3>
+    <main><section class="sec" id="s0"><span class="sn">SUMMARY</span><h2>At a glance</h2>
+<ul class="pts">
+<li><strong>Wholesale power is about 38% dearer than in 2025</strong> so far this year, and gas at the NBP is more than double its level of a year ago.</li>
+<li><strong>Gas sets the price.</strong> Gas plants supplied about 30% of generation this year; wind about 34%. When wind drops, the marginal molecule is LNG or Norwegian pipeline gas.</li>
+<li><strong>Supply is adequate on paper.</strong> National Gas expects positive margins this winter even in severe cases, and NESO puts the electricity de-rated margin at 5.9 GW (<a href="https://www.nationalgas.com/media/news/national-gas-publishes-2026-gas-winter-outlook" target="_blank" rel="noopener">National Gas</a>, <a href="https://www.neso.energy/document/388726/download" target="_blank" rel="noopener">NESO</a>).</li>
+<li><strong>Bills are rising.</strong> Ofgem raised the price cap 4% for October to December 2026, to £1,723 a year for a typical household, with gas bills up 8% (<a href="https://www.ofgem.gov.uk/press-release/energy-price-cap-will-rise-4-october-2026" target="_blank" rel="noopener">Ofgem</a>).</li>
+<li><strong>Imports cover the gap.</strong> Britain is a net importer of power, mainly from France and Norway.</li>
+</ul>
+<div class="pull"><div class="t">The call</div>
+<p>British winter power is a spread trade against Europe. With little gas storage, Britain buys its marginal gas spot. Strong wind and full French interconnectors cap prices; a still, cold week with low French exports does not.</p></div>
+</section><section class="sec" id="s1"><span class="sn">01</span><h2>Market snapshot</h2>
 <div class="emap-tablewrap">
-<table><thead><tr><th>Function</th><th>Body</th><th>Role</th></tr></thead><tbody>
-<tr><td>System operation</td><td>NESO</td><td>Publicly owned, independent since 1 October 2024; electricity and gas</td></tr>
-<tr><td>Day-ahead trading</td><td>N2EX (Nord Pool), EPEX SPOT</td><td>Competing hourly and half-hourly auctions, coupled to Europe</td></tr>
-<tr><td>Settlement</td><td>Elexon</td><td>Administers the Balancing and Settlement Code; half-hourly imbalance settlement</td></tr>
-<tr><td>Gas transmission</td><td>National Gas Transmission</td><td>Owns and operates the National Transmission System</td></tr>
-<tr><td>Regulation</td><td>Ofgem</td><td>Licensing, network price controls, the retail price cap</td></tr>
-<tr><td>Policy</td><td>DESNZ</td><td>Market design, CfD allocation rounds, REMA</td></tr>
+<table><thead><tr><th>Item</th><th>Great Britain</th></tr></thead><tbody>
+<tr><td>Market model</td><td>Bilateral trading plus day-ahead auctions; one national price zone; half-hourly settlement</td></tr>
+<tr><td>Power exchanges</td><td>N2EX (Nord Pool) and EPEX SPOT</td></tr>
+<tr><td>System operator</td><td>NESO, publicly owned and independent since October 2024; electricity and gas</td></tr>
+<tr><td>Settlement</td><td>Elexon (Balancing and Settlement Code)</td></tr>
+<tr><td>Gas hub</td><td>National Balancing Point (NBP), quoted in pence per therm</td></tr>
+<tr><td>Gas transmission</td><td>National Gas Transmission</td></tr>
+<tr><td>Regulator and policy</td><td>Ofgem; Department for Energy Security and Net Zero (DESNZ)</td></tr>
 </tbody></table>
 </div>
-
-<h3>One price, one country</h3>
-<p>The United States and the Nordics price location. Great Britain does not: everything clears at a <strong>single national price</strong>. Transmission constraints sit outside the wholesale market entirely and are cleaned up afterwards, with NESO paying constrained-off wind to stop and constrained-on gas to start. Those redispatch costs are recovered through network charges. They never appear in the spot print.</p>
-
-<p>That design is what the <a href="https://www.gov.uk/government/publications/review-of-electricity-market-arrangements-rema-summer-update-2025/review-of-electricity-market-arrangements-rema-summer-update-2025-accessible-webpage" target="_blank" rel="noopener">REMA Summer Update 2025</a> examined. The government looked hard at splitting Britain into zones, so that scarcity and surplus would price where they occur, and said no. The reasons given were investor uncertainty, the effect on consumers in different regions, and a delivery timeline of roughly seven years. Reformed national pricing was adopted instead, with locational signals to be sharpened through reformed transmission charging by 2029.</p>
-
-<h3>The trading day</h3>
-<p>Positions get built in the forward market and refined in the day-ahead auctions. Continuous intraday trading then runs until gate closure, one hour before delivery. At that point NESO takes over, accepting bids and offers from the balancing mechanism to hold the system in balance second by second. Whatever is still unmatched settles against a single imbalance price.</p>
-
-<div class="pull"><div class="t">Why the zonal decision mattered</div>
-<p>A zonal Britain would have repriced every wind farm north of the border and every battery south of it. The July 2025 decision took that risk out of the discount rate. It also took away the option value some traders had been carrying on constraint spreads.</p></div>
-</section><section class="sec" id="s3"><span class="sn">03</span><h2>Infrastructure — power and gas</h2>
-<p class="lead">A mature national grid with one stubborn north-south constraint, subsea links to Europe, and a gas system that leans on ships and Norwegian pipelines rather than the North Sea.</p>
-
-<h3>Power</h3>
-<div class="cards">
-<div class="card"><h4>The B6 boundary</h4><p>The wind is in Scotland. The demand is in England. Transmission capability between the two binds, which is why constraint costs have risen faster than any other component of network charges.</p></div>
-<div class="card"><h4>Interconnectors</h4><p>Around 10.5 GW of operational capacity links Britain to
-France, Belgium, the Netherlands, Norway, Denmark and Ireland — up 2.5 GW since 2021, per <a href="https://www.regen.co.uk/insights/the-growth-of-gbs-interconnector-capacity" target="_blank" rel="noopener">Regen</a>.</p></div>
-<div class="card"><h4>Nuclear fleet</h4><p>An ageing AGR fleet running on extended lives, one PWR at
-Sizewell B, and Hinkley Point C under construction. Nuclear supplied around 11% of 2025 generation.</p></div>
-</div>
-
-<h3>Gas</h3>
-<p>Four routes bring gas into Britain: what is left of the UK Continental Shelf, Norwegian pipeline gas landing at Easington via Langeled and at St Fergus, LNG regasified at three terminals, and the Belgian and Dutch interconnectors. UKCS production ran around 27.5 Bcm in 2024 and fell a further 3.4% in 2025, its lowest level since 1973 (<a href="https://assets.publishing.service.gov.uk/media/6a69f4232c4b5ba9d1242a67/DUKES_2026_Chapter_4.pdf" target="_blank" rel="noopener">DUKES 2026</a>). The <a href="https://www.oxfordenergy.org/wpcms/wp-content/uploads/2025/10/NG201-UK-Gas-Volatility-of-Demand-and-Flexibility-of-Supply.pdf" target="_blank" rel="noopener">OIES</a> puts Norwegian pipeline supply at roughly 30 Bcm a year, with about 95 MMcm/d of import capability across the Belgian and Dutch links.</p>
-
-<p>The LNG terminals are <strong>Isle of Grain</strong> on the Thames, opened in 2005, and
-<strong>South Hook</strong> and <strong>Dragon</strong> at Milford Haven in south-west Wales, both
-opened in 2009. Relative to its own demand, that is the deepest regasification capacity in Europe. NBP therefore acts as the marginal sink for Atlantic-basin cargoes most of the time, and NBP and TTF trade as a spread rather than as two independent prices. NBP futures are quoted in
-pence per therm and sized at 1,000 therms a day per delivery period on <a href="https://www.ice.com/products/910/UK-NBP-Natural-Gas-Futures" target="_blank" rel="noopener">ICE</a>, physically delivered. Worth checking that convention before you put a British gas price next to a euro-per-megawatt-hour TTF quote.</p>
-
-<div class="fig">
-  <svg viewBox="0 0 900 300" role="img" aria-label="Schematic of the GB gas and power system topology">
-    <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-      <path d="M0,0 L6,3 L0,6 z" fill="#7C8D92"/></marker></defs>
-    <text x="120" y="26" class="fh" fill="#2a78d6">SUPPLY INTO GB</text>
-    <text x="600" y="26" class="fh" fill="#eb6834">DELIVERY AND MARKETS</text>
-    <rect x="30" y="44" width="300" height="228" rx="10" fill="#2a78d6" opacity=".05"/>
-    <rect x="470" y="44" width="400" height="228" rx="10" fill="#eb6834" opacity=".05"/>
-
-    <g class="area e"><rect x="60" y="66" width="140" height="42" rx="7"/><text x="130" y="92">UKCS</text></g>
-    <g class="area e"><rect x="60" y="122" width="140" height="42" rx="7"/><text x="130" y="148">Norway pipe</text></g>
-    <g class="area e"><rect x="60" y="178" width="140" height="42" rx="7"/><text x="130" y="204">LNG terminals</text></g>
-    <g class="area e"><rect x="60" y="234" width="140" height="42" rx="7"/><text x="130" y="260">IUK / BBL</text></g>
-
-    <g class="area w"><rect x="500" y="66" width="150" height="42" rx="7"/><text x="575" y="92">NBP</text></g>
-    <g class="area w"><rect x="690" y="66" width="160" height="42" rx="7"/><text x="770" y="92">Gas-fired CCGT</text></g>
-    <g class="area w"><rect x="690" y="140" width="160" height="42" rx="7"/><text x="770" y="166">N2EX / EPEX</text></g>
-    <g class="area w"><rect x="690" y="214" width="160" height="42" rx="7"/><text x="770" y="240">Balancing mech.</text></g>
-    <g class="area w"><rect x="500" y="177" width="150" height="42" rx="7"/><text x="575" y="203">Wind and solar</text></g>
-
-    <rect x="360" y="122" width="80" height="98" rx="6" class="fc"/>
-    <text x="400" y="165" class="fct">NTS</text><text x="400" y="185" class="fct">grid</text>
-
-    <path class="ln" d="M200,87 H360 V122" marker-end="url(#ar)"/>
-    <path class="lnfc" d="M200,143 H360"/><path class="lnfc" d="M200,199 H360"/>
-    <path class="ln" d="M200,255 H360 V220" marker-end="url(#ar)"/>
-    <path class="ln" d="M440,150 H470 V87 H500" marker-end="url(#ar)"/>
-    <path class="ln" d="M650,87 H690" marker-end="url(#ar)"/>
-    <path class="ln" d="M770,108 V140" marker-end="url(#ar)"/>
-    <path class="ln" d="M650,198 H670 V161 H690" marker-end="url(#ar)"/>
-    <path class="ln" d="M770,182 V214" marker-end="url(#ar)"/>
-    <text x="400" y="255" class="cap2">single national price zone</text>
-    <text x="575" y="262" class="cap2 iso2">constraints resolved after the market, not in it</text>
-  </svg>
-  <p class="figcap"><b>Schematic — system topology, not a geographic map.</b> Four gas supply routes feed
-  the National Transmission System and NBP; NBP prices the marginal CCGT, which in most hours prices the
-  day-ahead auction, with the balancing mechanism clearing the residual.</p>
-</div>
-
-<div class="mapslot"><div class="t">Geographic infrastructure map</div>
-<div class="s">A sourced map of LNG terminals, interconnector landing points and the transmission
-network belongs here — reproduced from an official publication rather than redrawn.</div></div>
-</section><section class="sec" id="s4"><span class="sn">04</span><h2>Demand and supply</h2>
-<p class="lead">Two decades of falling load, a generation mix now led by renewables, and a residual gas requirement that sets the price far more often than its share suggests.</p>
-
-<h3>Demand</h3>
-<p>Since the mid-2000s British electricity demand has gone one way: down. Deindustrialisation did most of that, efficiency the rest. It has only recently levelled off, as heat pumps, electric vehicles and data centres start pulling the other way. Total supply in 2025 was around 322 TWh, roughly 1% above 2024 (<a href="https://www.carbonbrief.org/analysis-uk-renewables-enjoy-record-year-in-2025-but-gas-power-still-rises/" target="_blank" rel="noopener">Carbon Brief</a>). Gas demand swings much harder. <a href="https://www.oxfordenergy.org/wpcms/wp-content/uploads/2025/10/NG201-UK-Gas-Volatility-of-Demand-and-Flexibility-of-Supply.pdf" target="_blank" rel="noopener">OIES</a> records total daily demand at under 150 MMcm/d in summer against 340–375 MMcm/d on a cold winter day. That range is what makes storage and LNG sendout flexibility worth paying for.</p>
-
-<h3>Supply</h3>
-<p>2025 was the first year renewables supplied more British electricity than any other category. Wind is the largest single clean source at 29% of generation. Coal is finished, the last plant having closed in 2024 (<a href="https://ember-energy.org/countries-and-regions/united-kingdom/" target="_blank" rel="noopener">Ember</a>). Net imports across the interconnectors run at roughly a tenth of supply now, which makes them structural rather than a swing factor.</p>
-
-<div class="fig">
-  <div class="fig-t">Where Britain's electricity came from, 2025</div>
-  <svg viewBox="0 0 900 130" role="img" aria-label="Great Britain generation mix 2025 by source">
-    <g class="seg"><rect x="0"   y="18" width="245" height="40" rx="4" fill="#2a78d6"/><text x="10"  y="43">Gas 28%</text></g>
-    <g class="seg"><rect x="249" y="18" width="236" height="40" rx="4" fill="#eb6834"/><text x="259" y="43">Wind 27%</text></g>
-    <g class="seg"><rect x="489" y="18" width="114" height="40" rx="4" fill="#1baf7a"/><text x="499" y="43">Biomass 13%</text></g>
-    <g class="seg"><rect x="607" y="18" width="96"  height="40" rx="4" fill="#eda100"/><text x="617" y="43">Nuclear 11%</text></g>
-    <g class="seg"><rect x="707" y="18" width="88"  height="40" rx="4" fill="#e87ba4"/><text x="717" y="43">Imports 10%</text></g>
-    <g class="seg"><rect x="799" y="18" width="53"  height="40" rx="4" fill="#4a3aa7"/><text x="825" y="74" text-anchor="middle">Solar 6%</text></g>
-    <g class="seg"><rect x="856" y="18" width="44"  height="40" rx="4" fill="#9AA8AC"/><text x="878" y="90" text-anchor="middle">Other 5%</text></g>
-    <text x="0"   y="112" class="axl">Renewables together supplied more than any other category.</text>
-    <text x="900" y="112" class="axl" text-anchor="end">Coal is zero — the last plant closed in 2024.</text>
-  </svg>
-  <p class="figcap">Shares of 322 TWh of 2025 supply, derived from <a href="https://www.carbonbrief.org/analysis-uk-renewables-enjoy-record-year-in-2025-but-gas-power-still-rises/" target="_blank" rel="noopener">Carbon Brief</a>; wind share and the coal phase-out
-  corroborated by <a href="https://ember-energy.org/countries-and-regions/united-kingdom/" target="_blank" rel="noopener">Ember</a>.</p>
-</div>
-
+<ul class="pts">
+<li><strong>One price, no zones.</strong> The government rejected zonal pricing in 2025 and kept a reformed national price (<a href="https://www.gov.uk/government/publications/review-of-electricity-market-arrangements-rema-summer-update-2025/review-of-electricity-market-arrangements-rema-summer-update-2025-accessible-webpage" target="_blank" rel="noopener">DESNZ</a>). Constraint costs sit in network charges, not the spot price.</li>
+<li><strong>What gets built is administered.</strong> The Capacity Market and Contracts for Difference decide new build; the spot market decides what runs today.</li>
+</ul>
+</section><section class="sec" id="s2"><span class="sn">02</span><h2>Infrastructure — power and gas</h2>
+{%- assign k = site.data.emap.gbr %}
+<h3>Power — capacity, end 2025</h3>
 <div class="emap-tablewrap">
-<table><thead><tr><th>Indicator</th><th>Direction</th><th>Comment</th></tr></thead><tbody>
-<tr><td>Electricity demand</td><td>Broadly flat</td><td>322 TWh in 2025, about 1% above 2024</td></tr>
-<tr><td>Wind output</td><td>Rising</td><td>Largest single clean source at 29% of generation</td></tr>
-<tr><td>Gas-fired generation</td><td>Resilient</td><td>Share falling, but still the price-setting plant most hours</td></tr>
-<tr><td>UKCS gas production</td><td>Declining</td><td>Down a further 3.4% in 2025 to the lowest level since 1973</td></tr>
-<tr><td>Net electricity imports</td><td>Rising</td><td>Roughly a tenth of supply across 10.5 GW of links</td></tr>
+<table><thead><tr><th>Measure</th><th>GW</th></tr></thead><tbody>
+<tr><td>Total de-rated capacity</td><td>74.5</td></tr>
+<tr><td>Gas (CCGT), installed</td><td>32.4</td></tr>
+<tr><td>Renewables, de-rated</td><td>27.7</td></tr>
+<tr><td>Winter peak demand, 2025</td><td>51.5</td></tr>
 </tbody></table>
 </div>
+<p class="figcap">Source: <a href="https://assets.publishing.service.gov.uk/media/6aba96e8997a4b2950ccf02c/DUKES_2026_Chapter_5.pdf" target="_blank" rel="noopener">DESNZ, DUKES 2026 chapter 5</a> and UK Energy in Brief 2026. De-rated capacity discounts intermittent sources for their expected availability. Coal is zero.</p>
 
-<div class="stats">
-  <div class="st"><div class="k">AR7 offshore wind cleared</div><div class="v">8.4 <small>GW</small></div></div>
-  <div class="st arrow">→</div>
-  <div class="st"><div class="k">at a strike price of</div><div class="v">£91 <small>/MWh</small></div></div>
-  <div class="st note">2024 money, results announced 14 January 2026. Source: <a href="https://www.energy-uk.org.uk/publications/energy-uk-explains-allocation-round-7-offshore-wind-results/" target="_blank" rel="noopener">Energy UK</a>.</div>
-</div>
-
-<div class="pull"><div class="t">Share is not the same as influence</div>
-<p>Gas made up a little over a quarter of 2025 generation. It set the marginal price in the large majority of half-hours. A falling gas share, on its own, does not decouple the power price from NBP.</p></div>
-</section><section class="sec" id="s5"><span class="sn">05</span><h2>Price setting mechanism</h2>
-<p class="lead">A marginal auction for energy and a single marginal price for imbalance. Two administered auctions supply most of the actual revenue for most of the fleet.</p>
-
-<h3>The day-ahead auction</h3>
-<p>Generators and suppliers submit bids and offers to N2EX and EPEX SPOT for each delivery period. Each exchange stacks offers cheapest first and clears where supply meets demand, and the marginal offer sets the price paid to everyone who cleared. One price zone means that price applies from Cornwall to Caithness, whatever the grid is doing in between. The two exchanges compete, arbitrage keeps them close, and both are coupled to the continent, so interconnector flows follow price differentials rather than bilateral nominations.</p>
-
-<h3>The balancing mechanism</h3>
-<p>One hour ahead of delivery, NESO becomes the only counterparty in the market. It accepts bids to reduce output and offers to increase it from participating units. Those accepted prices, together with the cost of reserve and constraint actions, feed the imbalance price calculation.</p>
-
-<h3>Cash-out: one price, sharply marginal</h3>
-<p>Britain settles imbalance on a <strong>single marginal price</strong>. System buy equals system sell in every half-hour, so a party long of energy is paid exactly what a party short of it pays. The price comes off the most expensive balancing actions taken, averaged over a Price Average Reference volume of just <strong>1 MWh</strong> (<a href="https://www.elexon.co.uk/bsc/settlement/imbalance-pricing/" target="_blank" rel="noopener">Elexon</a>). That is about as marginal as cash-out design gets. The design is deliberate. When the system is tight, cash-out is meant to hurt.</p>
-
-<div class="pull"><div class="t">What this means for a position</div>
-<p>With PAR at 1 MWh, cash-out can print several thousand pounds per MWh on a handful of tight half-hours a year while day-ahead barely twitches. Imbalance exposure is a tail risk rather than a spread. Size it that way.</p></div>
-
-<h3>The two administered revenue streams</h3>
-<p>The <strong>Capacity Market</strong>, administered by <a href="https://www.neso.energy/what-we-do/energy-markets/electricity-market-reform-emr-delivery-body/capacity-market" target="_blank" rel="noopener">NESO</a> as EMR Delivery Body, pays de-rated capacity to be available, through a descending-clock auction held four years ahead. The 2029/30 T-4 auction cleared at <strong>£27.10/kW/year</strong> for 40.1 GW on 11 March 2026. That is less than half the £60-plus of the preceding three rounds, the demand target having fallen (<a href="https://modoenergy.com/research/en/gb-capacity-market-t4-2029-30-battery-energy-storage-march-2026" target="_blank" rel="noopener">Modo Energy</a>).</p>
-
-<p><strong>Contracts for Difference</strong> run the other way. The generator receives the difference between a fixed strike price and a reference market price, and pays back whenever the market runs above strike. Allocation Round 7 procured 8.4 GW of offshore wind at £91/MWh in 2024 prices. A CfD generator barely cares what spot does. That is exactly why gas keeps setting the marginal price as the low-carbon fleet grows.</p>
-</section><section class="sec" id="s6"><span class="sn">06</span><h2>Regulatory regime</h2>
-<p class="lead">Policy sits with DESNZ, economic regulation with Ofgem, system operation with NESO. The detailed market rules live in industry codes. Nothing supra-national sits above any of it.</p>
-
+<h3>Power — cross-border flows, {{ k.period }}</h3>
 <div class="emap-tablewrap">
-<table><thead><tr><th>Body</th><th>Remit</th></tr></thead><tbody>
-<tr><td>DESNZ</td><td>Energy policy, market design, CfD allocation rounds, REMA</td></tr>
-<tr><td>Ofgem</td><td>Licensing, network price controls, consumer protection, the retail price cap</td></tr>
-<tr><td>NESO</td><td>System operation, EMR Delivery Body for the Capacity Market and CfDs</td></tr>
-<tr><td>Elexon</td><td>Balancing and Settlement Code administration and half-hourly settlement</td></tr>
-<tr><td>National Gas Transmission</td><td>Gas transmission ownership and the Uniform Network Code</td></tr>
+<table><thead><tr><th>Neighbour</th><th>Net flow (TWh)</th><th>Direction</th></tr></thead><tbody>
+{%- for f in k.flows %}<tr><td>{{ f.name }}</td><td>{{ f.twh | abs }}</td><td>{% if f.twh > 0 %}Import to GB{% elsif f.twh < 0 %}Export from GB{% else %}Balanced{% endif %}</td></tr>{% endfor %}
 </tbody></table>
 </div>
+<p class="figcap">Physical flows. Source: <a href="https://www.energy-charts.info/charts/import_export/chart.htm?l=en&c=UK" target="_blank" rel="noopener">Energy-Charts</a>.</p>
 
-<h3>The reform arc</h3>
-<p>Privatisation and unbundling came in 1990. The original Pool gave way to bilateral trading in 2001, and the design was extended to Scotland in 2005. Electricity Market Reform added the Capacity Market and CfDs in 2013. The most recent structural step was the creation of <a href="https://www.neso.energy/news/national-energy-system-operator-launches-today" target="_blank" rel="noopener">NESO</a> in October 2024,
-which moved system operation out of a listed network company and into a publicly owned body covering electricity and gas at once.</p>
+<h3>Gas — winter 2026/27 supply and demand</h3>
+<div class="emap-tablewrap">
+<table><thead><tr><th>Measure</th><th>Value</th></tr></thead><tbody>
+<tr><td>1-in-20 peak day demand</td><td>493 mcm/d, about 2% above last winter</td></tr>
+<tr><td>Peak supply capability</td><td>592 mcm/d</td></tr>
+<tr><td>LNG imports, winter</td><td>12.3 bcm forecast, up from 11.7 bcm</td></tr>
+<tr><td>Domestic (UK Continental Shelf) output</td><td>Forecast down about 5%</td></tr>
+<tr><td>Main LNG source</td><td>The US, over 80% of delivered LNG</td></tr>
+</tbody></table>
+</div>
+<p class="figcap">Source: <a href="https://www.nationalgas.com/sites/default/files/documents/Gas%20Winter%20Outlook%202026.pdf" target="_blank" rel="noopener">National Gas, Gas Winter Outlook 2026</a>, published 23 October 2026.</p>
 
-<p>The <a href="https://www.gov.uk/government/publications/review-of-electricity-market-arrangements-rema-summer-update-2025/review-of-electricity-market-arrangements-rema-summer-update-2025-accessible-webpage" target="_blank" rel="noopener">REMA Summer Update 2025</a> closed the design question in July 2025. Zonal pricing was rejected and reformed national pricing adopted. Reformed transmission network charging is to be delivered by 2029. Balancing and dispatch change too, with lower participation thresholds for batteries and work on 15-minute or 5-minute settlement, and a Strategic Spatial Energy Plan lands in late 2026 to coordinate where infrastructure gets built.</p>
-
-<h3>The retail price cap</h3>
-<p>Ofgem caps the per-unit rates and standing charges a supplier may charge a default-tariff household, and resets it quarterly. From July 2026 the cap implies <strong>£1,663 a year</strong> for a typical dual-fuel direct debit customer, up 13%, with gas up around a quarter on higher wholesale prices (<a href="https://www.ofgem.gov.uk/press-release/energy-price-cap-will-rise-13-july" target="_blank" rel="noopener">Ofgem</a>). It is not a ceiling on the bill, because it caps unit rates rather than consumption. It is the channel through which an NBP move reaches household politics, and household politics is what eventually moves policy.</p>
-
-<div class="pull"><div class="t">Regulatory risk, honestly stated</div>
-<p>Stable in structure, busy in detail. The zonal question is settled. Charging methodology, settlement granularity and Capacity Market parameters are not, and that is where the next repricing of assets comes from.</p></div>
-</section><section class="sec" id="s7"><span class="sn">SOURCES</span><h2>Key links</h2><p class="lead">Primary sources for this market. Figures on this page are drawn from these and from published market data.</p><div class="links"><a class="lk" href="https://www.neso.energy/" target="_blank" rel="noopener"><div class="n">NESO</div><div class="d">National Energy System Operator — system operation, Capacity Market and CfD delivery</div><div class="u">https://www.neso.energy/</div></a><a class="lk" href="https://www.elexon.co.uk/bsc/settlement/imbalance-pricing/" target="_blank" rel="noopener"><div class="n">Elexon BSC</div><div class="d">Balancing and Settlement Code administration and imbalance pricing methodology</div><div class="u">https://www.elexon.co.uk/bsc/settlement/imbalance-pricing/</div></a><a class="lk" href="https://www.ofgem.gov.uk/" target="_blank" rel="noopener"><div class="n">Ofgem</div><div class="d">Economic regulator — licensing, network price controls and the retail price cap</div><div class="u">https://www.ofgem.gov.uk/</div></a><a class="lk" href="https://www.nationalgas.com/" target="_blank" rel="noopener"><div class="n">National Gas Transmission</div><div class="d">Owner and operator of the gas National Transmission System behind NBP</div><div class="u">https://www.nationalgas.com/</div></a><a class="lk" href="https://www.gov.uk/government/publications/review-of-electricity-market-arrangements-rema-summer-update-2025/review-of-electricity-market-arrangements-rema-summer-update-2025-accessible-webpage" target="_blank" rel="noopener"><div class="n">DESNZ — REMA Summer Update 2025</div><div class="d">The decision against zonal pricing and the reformed national pricing package</div><div class="u">https://www.gov.uk/government/publications/review-of-electricity-market-arrangements-rema-summer-update-2025/review-of-electricity-market-arrangements-rema-summer-update-2025-accessible-webpage</div></a><a class="lk" href="https://www.nordpoolgroup.com/en/" target="_blank" rel="noopener"><div class="n">Nord Pool</div><div class="d">Operator of the N2EX day-ahead auction and publisher of GB market data</div><div class="u">https://www.nordpoolgroup.com/en/</div></a></div></section></main>
+<h3>Gas — import infrastructure</h3>
+<div class="emap-tablewrap">
+<table><thead><tr><th>Asset</th><th>Type</th><th>Role</th></tr></thead><tbody>
+<tr><td>Langeled and Norwegian links</td><td>Pipeline</td><td>Norwegian gas, the largest import source</td></tr>
+<tr><td>Isle of Grain, South Hook, Dragon</td><td>LNG terminals</td><td>Atlantic LNG, mostly US cargoes in 2026</td></tr>
+<tr><td>Interconnector (IUK), BBL</td><td>Pipelines to Belgium and the Netherlands</td><td>Two-way; GB exports in summer, imports in winter</td></tr>
+<tr><td>Rough and smaller sites</td><td>Storage</td><td>Small relative to demand; GB no longer reports to GIE AGSI+</td></tr>
+</tbody></table>
+</div>
+</section><section class="sec" id="s3"><span class="sn">03</span><h2>Demand and supply</h2>
+<div class="emap-tablewrap">
+<table><thead><tr><th>Source, {{ k.period }}</th><th>TWh</th><th>Share</th></tr></thead><tbody>
+{%- for m in k.mix %}{% if m.twh > 0 %}<tr><td>{{ m.label }}</td><td>{{ m.twh | round }}</td><td>{{ m.pct | round }}%</td></tr>{% endif %}{% endfor %}
+</tbody></table>
+</div>
+<p class="figcap">Transmission-connected generation. Source: <a href="https://bmrs.elexon.co.uk/" target="_blank" rel="noopener">Elexon BMRS</a>, actual generation per type.</p>
+<ul class="pts">
+<li><strong>Wind is the largest source</strong>, gas second. Coal is gone since Ratcliffe-on-Soar closed in 2024.</li>
+<li><strong>Gas burn for power is the swing demand.</strong> National Gas expects it to rise about 7% at peak this winter.</li>
+<li><strong>Peak power demand is rising</strong>: 51.5 GW in winter 2025, up 8.8% (<a href="https://assets.publishing.service.gov.uk/media/6aba96e8997a4b2950ccf02c/DUKES_2026_Chapter_5.pdf" target="_blank" rel="noopener">DUKES</a>).</li>
+</ul>
+</section><section class="sec" id="s4"><span class="sn">04</span><h2>Prices</h2>
+<ul class="pts">
+<li><strong>Gas sets the price most hours.</strong> A gas turbine is usually the marginal unit, so British power tracks NBP plus carbon.</li>
+<li><strong>The second half of 2026 broke away.</strong> The market index averaged about £130/MWh in August and September and £151/MWh in October. The first part of November averaged about £213/MWh.</li>
+<li><strong>Gas more than doubled.</strong> The NBP System Average Price averaged about £72/MWh in October, against £27/MWh in October 2025.</li>
+<li><strong>Fewer negative prices</strong>: 174 hours so far, against 244 in the same period of 2025.</li>
+<li><strong>Carbon adds cost.</strong> UK allowances averaged £63.94/t in October, up from £52.41 in May (<a href="https://www.gov.uk/government/publications/uk-emissions-trading-scheme-markets/uk-emissions-trading-scheme-markets" target="_blank" rel="noopener">UK ETS Authority</a>).</li>
+</ul>
+<p class="figcap">Power: Elexon Market Index Data; gas: National Gas Transmission via ONS. Our averages.</p>
+</section><section class="sec" id="s5"><span class="sn">05</span><h2>Policy and regulation in 2026</h2>
+<div class="emap-tablewrap">
+<table><thead><tr><th>Date</th><th>Change</th><th>Why it matters</th></tr></thead><tbody>
+<tr><td>26 Aug 2026</td><td>Ofgem sets the October–December cap at £1,723, up 4%; gas bills up 8% (<a href="https://www.ofgem.gov.uk/press-release/energy-price-cap-will-rise-4-october-2026" target="_blank" rel="noopener">Ofgem</a>)</td><td>Wholesale gas feeds straight into household bills</td></tr>
+<tr><td>1 Oct 2026</td><td>VAT removed from household electricity bills until 31 March 2027 (<a href="https://www.ofgem.gov.uk/energy-regulation/domestic-and-non-domestic/energy-pricing-rules/energy-price-cap" target="_blank" rel="noopener">Ofgem</a>)</td><td>Holds electricity bills roughly flat; gas still carries 5% VAT</td></tr>
+<tr><td>23 Oct 2026</td><td>National Gas and NESO winter outlooks: supply secure; government kept extra continental import capacity available</td><td>No rationing expected; price, not volume, is the risk</td></tr>
+<tr><td>By 25 Nov 2026</td><td>Ofgem announces the January–March 2027 cap</td><td>Next step for household bills</td></tr>
+</tbody></table>
+</div>
+</section><section class="sec" id="s6"><span class="sn">06</span><h2>Risk radar</h2>
+<div class="emap-tablewrap">
+<table class="radar"><thead><tr><th>Risk</th><th>Level</th><th>Trend</th><th>Why</th></tr></thead><tbody>
+<tr><td>LNG price and availability</td><td><span class="lv hi">High</span></td><td>↑</td><td>LNG supplies more of winter demand each year, and global LNG is short</td></tr>
+<tr><td>Low storage buffer</td><td><span class="lv hi">High</span></td><td>→</td><td>Britain buys marginal gas spot rather than drawing on stock</td></tr>
+<tr><td>Still, cold weather</td><td><span class="lv md">Medium</span></td><td>→</td><td>Wind is the largest source; a long lull puts gas at the margin all day</td></tr>
+<tr><td>Interconnector dependence</td><td><span class="lv md">Medium</span></td><td>→</td><td>Net imports from France and Norway; their own winters come first</td></tr>
+<tr><td>Electricity adequacy</td><td><span class="lv lo">Low</span></td><td>→</td><td>De-rated margin of 5.9 GW; NESO expects supply to stay secure</td></tr>
+</tbody></table>
+</div>
+<p class="figcap">Our assessment, not a forecast.</p>
+</section><section class="sec" id="s7"><span class="sn">07</span><h2>Next six months</h2>
+<div class="emap-tablewrap">
+<table><thead><tr><th>When</th><th>Watch</th><th>Likely price effect</th></tr></thead><tbody>
+<tr><td>By 25 Nov 2026</td><td>Ofgem's January–March cap</td><td>Retail pass-through</td></tr>
+<tr><td>Now – March</td><td>Low-wind cold spells and NESO margin notices</td><td>Bullish</td></tr>
+<tr><td>Ongoing</td><td>US LNG flows and Hormuz: Britain competes with Europe and Asia for cargoes</td><td>Either way</td></tr>
+<tr><td>Winter</td><td>French nuclear availability, which sets how much France can export</td><td>Bullish if low</td></tr>
+<tr><td>31 Mar 2027</td><td>End of VAT relief on electricity bills</td><td>Higher retail cost</td></tr>
+</tbody></table>
+</div>
+</section><section class="sec" id="s8"><span class="sn">SOURCES</span><h2>Key links</h2><p class="lead">Primary sources for this market. Figures on this page are drawn from these and from published market data.</p><div class="links"><a class="lk" href="https://www.neso.energy/" target="_blank" rel="noopener"><div class="n">NESO</div><div class="d">System operator: winter outlook, margins, capacity market</div><div class="u">https://www.neso.energy</div></a><a class="lk" href="https://www.nationalgas.com/" target="_blank" rel="noopener"><div class="n">National Gas</div><div class="d">Gas transmission and the Gas Winter Outlook</div><div class="u">https://www.nationalgas.com</div></a><a class="lk" href="https://www.ofgem.gov.uk/" target="_blank" rel="noopener"><div class="n">Ofgem</div><div class="d">Regulator and the household price cap</div><div class="u">https://www.ofgem.gov.uk</div></a><a class="lk" href="https://bmrs.elexon.co.uk/" target="_blank" rel="noopener"><div class="n">Elexon BMRS</div><div class="d">Market index prices and generation by fuel used on this page</div><div class="u">https://bmrs.elexon.co.uk</div></a><a class="lk" href="https://www.gov.uk/government/collections/digest-of-uk-energy-statistics-dukes" target="_blank" rel="noopener"><div class="n">DUKES (DESNZ)</div><div class="d">Official UK energy statistics, including capacity</div><div class="u">https://www.gov.uk</div></a><a class="lk" href="https://www.ice.com/products/910/UK-NBP-Natural-Gas-Futures" target="_blank" rel="noopener"><div class="n">ICE — NBP futures</div><div class="d">The traded British gas curve</div><div class="u">https://www.ice.com</div></a></div></section></main>
   </div>
 </div>
 

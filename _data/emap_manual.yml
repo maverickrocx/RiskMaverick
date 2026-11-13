@@ -24,3 +24,15 @@ fin:
   storage_label: "Gas storage"
   storage_value: "None"
   storage_note: "No underground storage; supply via the Balticconnector and the Inkoo LNG terminal"
+gbr:
+  gas_tile: "Gas price, NBP (System Average Price)"
+  gas_value: "£74.48"
+  gas_note: "8 Nov 2026 · National Gas via ONS"
+  carbon_label: "Carbon, UK ETS"
+  carbon_value: "£63.94 <small>/t</small>"
+  carbon_note: "October 2026 monthly average · UK ETS Authority"
+  storage_label: "Gas storage"
+  storage_value: "Small"
+  storage_note: "Rough and smaller sites; GB no longer reports to GIE AGSI+"
+  power_title: "Wholesale power price (Market Index)"
+  data_note: 'Power prices and generation: <a href="https://bmrs.elexon.co.uk/" target="_blank" rel="noopener">Elexon BMRS</a> (Market Index Data, half-hourly; actual generation per type), our time-weighted averages; the current month is month to date. Gas: NBP System Average Price from <a href="https://www.ons.gov.uk/economy/economicoutputandproductivity/output/datasets/systemaveragepricesapofgas" target="_blank" rel="noopener">National Gas Transmission via ONS</a>, converted from p/kWh. Cross-border flows: Energy-Charts.'

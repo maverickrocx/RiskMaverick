@@ -77,7 +77,7 @@ _data/emap_manual.yml, live gas and carbon marks in _data/marks.yml.
   <div class="kcharts">
   {%- assign charts = "power,gas" | split: "," -%}
   {%- for c in charts -%}
-    {%- if c == "power" -%}{%- assign ch = k.power_chart -%}{%- assign ttl = "Day-ahead power price, monthly average (" | append: k.ccy | append: "/MWh)" -%}{%- assign sub = k.bzn -%}
+    {%- if c == "power" -%}{%- assign ch = k.power_chart -%}{%- assign ptitle = man.power_title | default: "Day-ahead power price" -%}{%- assign ttl = ptitle | append: ", monthly average (" | append: k.ccy | append: "/MWh)" -%}{%- assign sub = k.bzn -%}
     {%- else -%}{%- assign ch = k.gas_chart -%}{%- assign ttl = "Gas price, monthly average (" | append: k.ccy | append: "/MWh)" -%}{%- assign sub = k.gas_label -%}{%- endif %}
     <div class="kpanel kchart">
       <div class="t">{{ ttl }} <span>· {{ sub }}</span></div>
