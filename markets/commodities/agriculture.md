@@ -6,7 +6,7 @@ tag: agriculture
 emoji: "🌾"
 blurb: "Grains and softs, weather and seasonality risk."
 standfirst: "The one commodity complex where the crop is grown to a calendar — so weather and the planting-to-harvest cycle drive price in a way no other market shares."
-reviewed: 2026-07-30
+reviewed: 2026-11-13
 benchmarks:
   - { name: "Corn", key: "corn", region: "US · CBOT", price: "$5.06", unit: "/bu", asof: "9 Sep 2026", source: "CBOT" }
   - { name: "Soybeans", key: "soybeans", region: "US · CBOT", price: "$12.93", unit: "/bu", asof: "9 Sep 2026", source: "CBOT" }
@@ -48,6 +48,16 @@ drought forecast can move the whole curve. Futures on the **CBOT** let a farmer
 or processor hedge the flat price — but not the yield on their own acres, nor
 the **local basis** between cash and futures. That gap between what you can and
 can’t hedge is what defines risk management across the agricultural supply chain.
+
+## 2026 so far — November update
+
+Grains rallied on war and weather in late summer, then gave much of it back.
+
+- **The August spike.** Global crop prices posted their biggest monthly gain since 2012 in August as wars and extreme weather disrupted supply ([Bloomberg](https://www.bloomberg.com/news/articles/2026-08-31/war-weather-push-crop-prices-to-biggest-monthly-gain-since-2012)).
+- **Then a retreat.** CBOT wheat fell from about $7.22/bu in early September to about $5.96 in mid-November, corn from $5.06 to $4.46 and soybeans from $12.93 to $12.25 (CBOT marks on this page).
+- **Black Sea risk.** A shipping impasse in the Black Sea disrupted wheat markets alongside the Hormuz crisis ([Bloomberg](https://www.bloomberg.com/news/features/2026-09-20/black-sea-shipping-turmoil-hits-wheat-market-amplifies-inflation-risks)).
+- **Fertiliser feels the gas shock.** Gas shortages linked to the war forced six major urea plants in Bangladesh to close or curtail output.
+- **A record El Niño** is skewing the northern winter warmer and shapes southern-hemisphere crop risk ([Bloomberg](https://www.bloomberg.com/news/newsletters/2026-11-11/qatar-s-loss-of-polish-lng-deal-is-a-serious-blow-to-expansion-plans)).
 
 ## How the market works
 

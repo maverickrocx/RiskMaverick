@@ -6,7 +6,7 @@ tag: power-renewables
 emoji: "⚡"
 blurb: "Non-storable power, PPAs, shape and volume risk."
 standfirst: "Electricity is the only major commodity that can’t be stored, so it must be balanced every second — which makes its risks shape, timing and volume, not just flat price."
-reviewed: 2026-07-30
+reviewed: 2026-11-13
 benchmarks:
   - { name: "German day-ahead", key: "de_da", region: "DE-LU · EPEX", price: "€146.58", unit: "/MWh avg", asof: "8 Sep 2026", source: "SMARD" }
   - { name: "EUA Carbon", key: "eua", region: "EU · EEX auction", price: "€85.42", unit: "/t", asof: "8 Sep 2026", source: "ICE" }
@@ -48,6 +48,17 @@ mix, and the exposures that matter are **shape** (matching the hourly profile),
 **volume** (uncertain quantity) and **locational basis** (congestion between
 nodes) — not just the average price. Power Purchase Agreements and shaped
 hedges exist precisely to manage risks other commodities never face.
+
+## 2026 so far — November update
+
+Power prices in 2026 split between gas-dependent and gas-independent markets.
+
+- **Gas set the price where gas is marginal.** Day-ahead power from 1 January to mid-November averaged about €160/MWh in northern Italy, €120 in Germany, the Netherlands and Belgium, and £111 in Britain, all 35–50% above 2025 ([Energy-Charts](https://www.energy-charts.info/?l=en), [Elexon](https://bmrs.elexon.co.uk/)).
+- **Renewables kept others cheap.** Spain averaged about €88/MWh and Finland about €58, and Australia's NEM fell 27% in the September quarter as batteries set the price in almost half of intervals ([AEMO](https://www.aemo.com.au/newsroom/media-release/qed-q3-2026)).
+- **Negative prices are still common.** Germany recorded about 465 negative-price hours and Spain about 700 in the year to mid-November.
+- **Capacity is the new scarcity.** PJM's 2028/29 capacity auction cleared at its $325/MW-day cap and still fell 6,831 MW short ([PJM](https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2028-2029/2028-2029-bra-results-report.pdf)); Germany's first capacity auction awarded about 5.2 GW ([Bundesnetzagentur](https://www.bundesnetzagentur.de/SharedDocs/Pressemitteilungen/EN/2026/20261103_StromVKG.html)).
+- **Demand is rising again** in the US, India and Australia, driven by data centres, heat and electrification.
+- Country detail is on the [Gas & Power Map](/energy-map/) briefs, rewritten for November 2026.
 
 ## How the market works
 
