@@ -6,7 +6,7 @@ tag: interest-rates
 emoji: "📉"
 blurb: "The curve, central banks and interest-rate swaps."
 standfirst: "The discount rate under every other asset. The curve’s front end is set by central banks; its slope is the market’s verdict on growth and inflation."
-reviewed: 2026-07-30
+reviewed: 2026-11-13
 benchmarks:
   - { name: "SOFR", key: "sofr", region: "US · NY Fed", price: "3.66%", unit: "o/n", asof: "3 Sep 2026", source: "NY Fed" }
   - { name: "€STR", key: "estr", region: "EU · ECB", price: "2.189%", unit: "o/n", asof: "4 Sep 2026", source: "ECB" }
@@ -45,6 +45,16 @@ Interest rates set the discount rate for nearly every other asset, and the
 shape of the curve reflects central bank policy and market expectations for
 growth and inflation. This hub covers rate curves, central bank drivers and the
 swaps used to manage rate exposure.
+
+## 2026 so far — November update
+
+Central banks spent 2026 raising rates again as the energy shock pushed inflation up.
+
+- **The Fed is hiking.** All 19 officials backed September's rate rise ([Bloomberg](https://www.bloomberg.com/news/articles/2026-10-07/fed-minutes-show-hawkish-unity-behind-september-rate-hike)); in October it held at 3.75–4.00% on a 10–2 vote, with two members wanting another hike ([Bloomberg](https://www.bloomberg.com/news/articles/2026-10-28/fed-holds-rates-says-more-data-will-help-next-decision)).
+- **December is live.** Core CPI rose 0.3% in October, beating forecasts for a third month, in the last print before the 8–9 December meeting ([Bloomberg](https://www.bloomberg.com/news/articles/2026-11-10/us-core-cpi-rises-more-than-forecast-0-3-supporting-rate-hike)).
+- **Europe and Britain too.** The ECB has hiked twice this year and a council member said it will probably have to hike again with inflation near 4% ([Bloomberg](https://www.bloomberg.com/news/articles/2026-10-14/ecb-will-probably-have-to-hike-interest-rates-again-wunsch-says)); the Bank of England raised Bank Rate to 4% on 5 November ([The Economist](https://www.economist.com/britain/2026/09/24/britains-chancellor-claims-that-the-economy-has-turned-a-corner)).
+- **Leadership change at the ECB.** Christine Lagarde will step down in February, nine months early ([Bloomberg](https://www.bloomberg.com/news/articles/2026-10-29/lagarde-will-step-down-as-ecb-president-in-february)).
+- **Emerging markets follow.** India's central bank raised rates for the first time in nearly four years as the rupee came under pressure ([Bloomberg](https://www.bloomberg.com/news/articles/2026-10-07/rupee-nears-record-low-as-rbi-hike-leaves-traders-wanting-more)).
 
 ## How the market works
 

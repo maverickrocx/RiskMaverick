@@ -6,7 +6,7 @@ tag: fx
 emoji: "💱"
 blurb: "Currency pairs, drivers, and transaction/translation exposure."
 standfirst: "The market beneath every cross-border trade. Rate differentials, flows and policy set the price; anyone with assets or liabilities in two currencies inherits the risk."
-reviewed: 2026-07-30
+reviewed: 2026-11-13
 benchmarks:
   - { name: "EUR/USD", key: "eurusd", region: "Majors · OTC", price: "1.1625", unit: "spot", symbol: "EURUSD", dec: 4 }
   - { name: "USD/JPY", key: "usdjpy", region: "Majors · OTC", price: "153.51", unit: "spot", symbol: "USDJPY", dec: 2 }
@@ -45,6 +45,15 @@ Currency markets sit beneath almost every cross-border trade and investment,
 turning interest-rate differentials, capital flows and policy into exposure
 for anyone holding assets or liabilities in more than one currency. This hub
 covers FX drivers and the transaction and translation risks that follow.
+
+## 2026 so far — November update
+
+Currencies in 2026 traded on rate gaps, fiscal stress and elections.
+
+- **Euro under fiscal pressure.** The euro fell to a 17-month low against the dollar in October as French bond stress spread to Italy, Belgium and Greece ([Bloomberg](https://www.bloomberg.com/news/articles/2026-10-05/euro-falls-to-17-month-low-on-region-s-fiscal-political-risks)); EUR/USD was about 1.109 on 12 November.
+- **Yen near 160.** USD/JPY breached 160 in late August, putting traders on intervention watch ([Bloomberg](https://www.bloomberg.com/news/articles/2026-08-31/yen-s-breach-of-160-to-dollar-puts-traders-on-intervention-watch)), and was about 159.7 on 12 November.
+- **Dollar slips after the midterms.** The dollar fell the most in two months after the Democratic win ([Bloomberg](https://www.bloomberg.com/news/articles/2026-11-04/democrats-win-rattles-trump-trades-from-ai-stocks-to-crypto)).
+- **Emerging-market shocks.** Brazil's real fell 8% in a day, its biggest drop since 1999, after Lula's re-election ([The Economist](https://www.economist.com/leaders/2026/10/26/markets-are-dismayed-by-lulas-surprise-win-and-for-good-reason)); India's central bank is defending the rupee around 97 per dollar ([Bloomberg](https://www.bloomberg.com/news/articles/2026-10-12/inr-usd-india-draws-line-in-sand-for-rupee-at-97-as-rbi-steps-up-defense)).
 
 ## How the market works
 

@@ -6,7 +6,7 @@ group: "Risk Toolkit · Measurement"
 emoji: "📉"
 blurb: "VaR, volatility, stress testing and the Greeks."
 standfirst: "The risk of loss from moving prices — and the family of measures, from VaR to Expected Shortfall, that put a single, comparable number on it."
-reviewed: 2026-07-08
+reviewed: 2026-11-13
 concepts:
   - "Value at Risk"
   - "Expected Shortfall"
@@ -65,6 +65,14 @@ averages.
 </svg>
 <figcaption class="conceptviz-src">Schematic. <strong>VaR</strong> answers “how far in does the worst 1% begin?”; <strong>Expected Shortfall</strong> answers “once you’re in that tail, how bad is it on average?” — the reason Basel moved the capital standard from VaR to ES.</figcaption>
 </figure>
+
+## Seen in 2026
+
+Volatility regimes changed fast in 2026, which is what breaks models calibrated on calm data.
+
+- **Calm ended abruptly.** The S&P 500's longest stretch of calm since 2020 ended in mid-October ([Bloomberg](https://www.bloomberg.com/news/articles/2026-10-14/s-p-500-ends-longest-streak-of-calm-since-2020-as-ai-trade-sinks)), followed by a 4.4% one-day fall in November.
+- **Commodities moved more.** Brent fell 11.4% in one day on 2 November ([Bloomberg](https://www.bloomberg.com/news/articles/2026-11-02/iran-s-khamenei-gives-government-powers-to-hold-talks-on-war)), and European gas more than tripled during the year.
+- **The lesson:** a VaR model trained on 2024–25 would have understated 2026 losses badly. Stress tests and regime-aware volatility matter more than the historical window.
 
 ## In practice
 

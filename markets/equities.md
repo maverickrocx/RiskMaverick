@@ -6,7 +6,7 @@ tag: equities
 emoji: "📈"
 blurb: "Indices vs single names, systematic vs idiosyncratic risk, beta."
 standfirst: "Equity risk splits in two — the market-wide moves an index captures, and the company-specific surprises it doesn’t. That divide drives everything from beta hedging to diversification."
-reviewed: 2026-07-30
+reviewed: 2026-11-13
 benchmarks:
   - { name: "S&P 500", key: "sp500", region: "US · CME", price: "7,718.60", unit: "index", symbol: "^GSPC", dec: 2 }
   - { name: "Euro Stoxx 50", key: "stoxx50", region: "EU · Eurex", price: "6,412.10", unit: "index", symbol: "^STOXX50E", dec: 2 }
@@ -45,6 +45,15 @@ Equity risk splits between **systematic** market moves and **idiosyncratic**,
 company-specific outcomes — the distinction that underpins index versus
 single-name exposure and beta-driven hedging. This hub covers how equity risk
 is measured and managed across both.
+
+## 2026 so far — November update
+
+Equities in 2026 were driven by the AI trade, and by its cracks.
+
+- **The AI rout.** The Nasdaq 100 fell 6.4% and the S&P 500 4.4% in a day on 5 November, the worst US rout since 2020, on fears of tighter AI regulation ([Bloomberg](https://www.bloomberg.com/news/articles/2026-11-05/worst-us-stock-rout-since-2020-leaves-virtually-nowhere-to-hide)). The S&P 500 was about 7,619 on 11 November.
+- **Asia hit hardest.** Japan's Nikkei 225 and Taiwan's Taiex entered bear markets ([Bloomberg](https://www.bloomberg.com/news/articles/2026-11-08/ai-slump-revives-asia-s-forgotten-trades-from-china-to-india)), foreign investors pulled a record $31.8bn from Taiwan in October ([Bloomberg](https://www.bloomberg.com/news/articles/2026-11-02/foreigners-make-record-withdrawal-from-taiwan-stocks-on-ai-rout)) and Chinese stocks entered a bear market ([Bloomberg](https://www.bloomberg.com/news/articles/2026-10-22/china-stocks-set-for-bear-market-as-ai-trade-policy-hopes-fade)).
+- **Rotation, not exit.** Citi downgraded US stocks and upgraded Europe ([Bloomberg](https://www.bloomberg.com/news/articles/2026-11-09/citi-strategists-cut-us-stocks-upgrade-europe-after-ai-turmoil)); emerging markets trade at their biggest-ever discount to the US ([Bloomberg](https://www.bloomberg.com/news/articles/2026-10-20/emerging-stocks-are-trading-at-their-biggest-ever-discount-to-us)).
+- **India's split year.** Foreign investors pulled a record amount from Indian equities in the first nine months ([Economic Times](https://economictimes.indiatimes.com/markets/stocks/news/fpis-pull-record-rs-3-lakh-crore-from-indian-equities-in-9-months-more-pain-ahead/articleshow/134630889.cms)), then the Nifty had its best week since 2021 in November.
 
 ## How the market works
 

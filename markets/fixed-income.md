@@ -6,7 +6,7 @@ tag: fixed-income
 emoji: "📊"
 blurb: "Government and corporate bonds, yields, duration and spreads."
 standfirst: "Two risks in one instrument: how far rates move (duration) and how far a borrower’s spread widens (credit). Government curves anchor the first; everything else prices above them."
-reviewed: 2026-07-30
+reviewed: 2026-11-13
 benchmarks:
   - { name: "US 2Y", key: "us2y", region: "US · Treasury", price: "4.37%", unit: "par yield", asof: "4 Sep 2026", source: "US Treasury" }
   - { name: "US 10Y", key: "us10y", region: "US · Treasury", price: "4.78%", unit: "par yield", asof: "4 Sep 2026", source: "US Treasury" }
@@ -36,7 +36,7 @@ sources:
   - { title: "Debt securities statistics", publisher: "Bank for International Settlements (BIS)", url: "https://www.bis.org/statistics/secstats.htm", note: "Primary global bond-market statistics · bis.org" }
   - { title: "Capital Markets Fact Book", publisher: "SIFMA", url: "https://www.sifma.org/resources/research/reports/fact-book/", note: "Industry-standard capital-markets statistics · sifma.org" }
   - { title: "International finance through the lens of BIS statistics: bond markets", publisher: "Bank for International Settlements (BIS)", url: "https://www.bis.org/publ/qtrpdf/r_qt2509e.htm", note: "Analysis of global bond-market structure · bis.org" }
-  - { title: "Daily Treasury Par Yield Curve Rates", publisher: "U.S. Department of the Treasury", url: "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/", note_label: "Primary:", note: "The official US benchmark curve · treasury.gov" }
+  - { title: "Daily Treasury Par Yield Curve Rates", publisher: "U.S. Department of the Treasury", url: "https://home.treasury.gov/policy-issues/financing-the-government/interest-rate-statistics", note_label: "Primary:", note: "The official US benchmark curve · treasury.gov" }
 tool_cta_title: "Model rate & credit risk"
 tool_cta_desc: "Decompose a bond book’s VaR into its duration and credit-spread contributions."
 ---
@@ -45,6 +45,15 @@ Fixed income risk is driven by yield curves, duration and credit spreads,
 spanning government bonds priced off risk-free rates to corporate debt priced
 with an additional spread for default risk. This hub covers how bond investors
 measure and manage that exposure.
+
+## 2026 so far — November update
+
+2026 brought the worst bond rout in two decades, then a partial reversal.
+
+- **Highest yields since 2002.** The US 10-year touched 5.35% and the 30-year 5.70% in early October, both the highest since 2002 ([Bloomberg](https://www.bloomberg.com/news/articles/2026-10-07/from-goldman-to-bofa-strategists-try-to-call-peak-bond-yields), [Bloomberg](https://www.bloomberg.com/news/articles/2026-10-05/new-hazard-for-treasuries-hides-in-bond-futures-fine-print)). The 10-year was back near 4.98% by 10 November (US Treasury).
+- **A global selloff.** Government bonds had their worst quarter since 2024 in Q3 as $100 oil fed inflation fears ([Bloomberg](https://www.bloomberg.com/news/articles/2026-09-30/global-bonds-face-worst-quarter-since-2024-on-inflation-fears)); long UK gilt yields passed 6% for the first time since 1998 ([Bloomberg](https://www.bloomberg.com/news/articles/2026-10-01/treasury-10-year-yield-hits-highest-since-2002-on-rate-outlook-mup7ryq2)) and Japanese yields hit levels last seen in 1996 ([Bloomberg](https://www.bloomberg.com/news/articles/2026-09-24/japan-10-year-bond-yield-jumps-10-basis-points-amid-global-rout)).
+- **France became the euro-area risk.** About €215bn of French corporate bonds now trade as safer than the government's own debt ([Bloomberg](https://www.bloomberg.com/news/articles/2026-10-08/france-s-debt-is-now-riskier-than-38-of-nation-s-company-bonds)).
+- **Credit widened on AI debt.** Global credit spreads hit a 17-month high on AI-related fears ([Bloomberg](https://www.bloomberg.com/news/articles/2026-10-23/ai-tech-fears-push-global-credit-spreads-to-17-month-high)), and SoftBank sold a record $11.1bn of junk bonds at yields up to 9.75% ([Bloomberg](https://www.bloomberg.com/news/articles/2026-09-28/a-23-trillion-market-swayed-softbank-in-hunt-for-more-ai-debt)).
 
 ## How the market works
 

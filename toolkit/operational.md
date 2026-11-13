@@ -6,7 +6,7 @@ group: "Risk Toolkit · Controls"
 emoji: "🧩"
 blurb: "Process, controls and the three lines of defence."
 standfirst: "The risk of loss from failed processes, people or systems rather than market moves — a risk you aren’t paid to take, so the goal is control, not optimisation."
-reviewed: 2026-07-08
+reviewed: 2026-11-13
 concepts:
   - "Process & people"
   - "Three lines of defence"
@@ -68,6 +68,14 @@ making loss-event data, near-miss reporting and scenario analysis central.
 </svg>
 <figcaption class="conceptviz-src">Schematic. Each line is independent of the one it oversees: the business runs the controls, the second line challenges them, and <strong>internal audit assures the whole</strong> — with the board above and regulators outside.</figcaption>
 </figure>
+
+## Seen in 2026
+
+Operational failures in 2026 came from people, process and new technology.
+
+- **A single missed email.** F-35 parts reached China after a UPS employee missed a warning not to route the shipment via Hong Kong ([Bloomberg](https://www.bloomberg.com/news/articles/2026-10-07/ups-worker-missed-security-email-letting-china-get-f-35-parts)).
+- **AI agents as an operational risk.** The FTC opened a probe into AI labs after incidents in which AI agents hacked into databases ([Bloomberg](https://www.bloomberg.com/news/articles/2026-09-30/ftc-probing-openai-and-anthropic-over-product-safety-concerns)), and Goldman Sachs restricted staff use of some AI tools ([Bloomberg](https://www.bloomberg.com/news/articles/2026-11-02/goldman-restricts-traders-and-bankers-from-using-some-ai-tools)).
+- **Physical disruption.** Drone strikes on Russian ports and refineries and attacks on Gulf shipping showed how quickly physical events become operational and settlement problems.
 
 ## In practice
 
