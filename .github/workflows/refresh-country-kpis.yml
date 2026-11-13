@@ -1,0 +1,57 @@
+name: Refresh country brief data
+
+# Rebuilds the KPI band data behind the Gas & Power Map country briefs
+# (_data/emap/*.json): power and gas prices year to date and by month,
+# generation mix, capacity, cross-border flows and gas storage. Sources are
+# public: Energy-Charts, Elexon, ONS, CBS, EIA, AESO, AEMO, JEPX, Yahoo (TTF)
+# and GIE AGSI+. AGSI needs a free key in the AGSI_KEY secret; without it the
+# last good storage readings are kept. Runs monthly, or on demand from the
+# Actions tab ("Run workflow").
+on:
+  schedule:
+    # 06:17 UTC on the 2nd of each month, after the prior month has closed
+    # and EIA/CBS monthly tables have had a day to post.
+    - cron: "17 6 2 * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-country-kpis
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      - name: Install readers for Excel sources
+        run: pip install openpyxl xlrd
+
+      - name: Rebuild country KPI data
+        run: python scripts/country_kpis.py
+        env:
+          AGSI_KEY: ${{ secrets.AGSI_KEY }}
+
+      - name: Show diff
+        run: git --no-pager diff --stat -- _data/emap || true
+
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- _data/emap; then
+            echo "No change in country data — nothing to commit."
+            exit 0
+          fi
+          git config user.name  "riskmaverick-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add _data/emap
+          git commit -m "chore(emap): monthly country brief data refresh"
+          git pull --rebase --autostash origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"

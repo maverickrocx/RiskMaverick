@@ -16,7 +16,7 @@ on:
   # recursion). Without this trigger the refreshed prices would sit in the repo
   # unpublished until the next human commit.
   workflow_run:
-    workflows: ["Refresh benchmark marks"]
+    workflows: ["Refresh benchmark marks", "Refresh country brief data"]
     types: [completed]
 
 permissions:
