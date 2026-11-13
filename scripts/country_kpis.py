@@ -365,18 +365,218 @@ def build(code, today):
     }
 
 
+# ── Outside Europe ──────────────────────────────────────────────────────────
+# No single feed covers these markets, so each draws on its own official
+# publisher. A "price series" here is a list of (date, value) points at the
+# publisher's native resolution; months and year-to-date figures are simple
+# averages of those points. Gas, mix and storage are optional: when a market
+# publishes no free monthly series the include leaves that panel out.
+EIA = "https://www.eia.gov"
+WORLD = {
+    "usa": dict(power=("ice", "PJM WH Real Time Peak"), bzn="PJM West hub, peak", ccy="$",
+                gas=("eia_hh",), gas_label="Henry Hub spot", gas_ccy="$", gas_unit="/MMBtu",
+                mix=("eia_epm",), storage=("eia_wngsr",)),
+    "can": dict(power=("aeso",), bzn="Alberta pool price", ccy="C$",
+                gas=("eia_hh",), gas_label="Henry Hub spot (US reference)", gas_ccy="US$", gas_unit="/MMBtu"),
+    "aus": dict(power=("aemo", "NSW1"), bzn="NEM, New South Wales", ccy="A$"),
+    "jpn": dict(power=("jepx",), bzn="JEPX system price", ccy="¥", power_unit="/kWh"),
+}
+
+
+def xl_rows(url, sheet=0):
+    import io
+    raw = urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=120).read()
+    if url.endswith(".xls"):
+        import xlrd
+        sh = xlrd.open_workbook(file_contents=raw).sheet_by_index(sheet)
+        return [sh.row_values(i) for i in range(sh.nrows)], xlrd
+    import openpyxl
+    ws = openpyxl.load_workbook(io.BytesIO(raw), read_only=True, data_only=True).worksheets[sheet]
+    return [list(r) for r in ws.iter_rows(values_only=True)], None
+
+
+def text(url, enc="utf-8"):
+    return urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=180).read().decode(enc, "ignore")
+
+
+def pts_ice(hub, y0, y1):
+    """EIA's daily ICE wholesale power hub prices, $/MWh (weighted average)."""
+    out = []
+    for y in range(y0, y1 + 1):
+        name = f"ice_electric-{y}.xlsx" if y == y1 else f"archive/ice_electric-{y}final.xlsx"
+        try:
+            rows, _ = xl_rows(f"{EIA}/electricity/wholesale/xls/{name}")
+        except Exception:
+            rows, _ = xl_rows(f"{EIA}/electricity/wholesale/xls/ice_electric-{y}final.xlsx")
+        for r in rows[1:]:
+            if (r and r[0] and str(r[0]).strip() == hub and isinstance(r[2], dt.datetime)
+                    and isinstance(r[6], (int, float))):
+                out.append((r[2].date(), float(r[6])))
+    return out
+
+
+def pts_eia_hh(y0):
+    rows, xlrd = xl_rows(f"{EIA}/dnav/ng/hist_xls/RNGWHHDd.xls", 1)
+    out = []
+    for r in rows[3:]:
+        if isinstance(r[0], float) and isinstance(r[1], float):
+            d = dt.date(*xlrd.xldate_as_tuple(r[0], 0)[:3])
+            if d.year >= y0:
+                out.append((d, r[1]))
+    return out
+
+
+def pts_aemo(region, y0, today):
+    out = []
+    m = dt.date(y0, 1, 1)
+    while m <= today:
+        try:
+            for line in text(f"https://aemo.com.au/aemo/data/nem/priceanddemand/PRICE_AND_DEMAND_{m:%Y%m}_{region}.csv").splitlines()[1:]:
+                f = line.split(",")
+                if len(f) > 3:
+                    out.append((dt.datetime.strptime(f[1][:10], "%Y/%m/%d").date(), float(f[3])))
+        except Exception as e:
+            print(f"  aemo {m:%Y-%m}: {e}")
+        m = (m.replace(day=28) + dt.timedelta(days=4)).replace(day=1)
+    return out
+
+
+def pts_aeso(y0, today):
+    out = []
+    m = dt.date(y0, 1, 1)
+    while m <= today:
+        e = min((m.replace(day=28) + dt.timedelta(days=4)).replace(day=1) - dt.timedelta(days=1), today)
+        u = ("http://ets.aeso.ca/ets_web/ip/Market/Reports/HistoricalPoolPriceReportServlet"
+             f"?beginDate={m:%m%d%Y}&endDate={e:%m%d%Y}&contentType=csv")
+        for line in text(u).splitlines():
+            f = [x.strip('"') for x in line.split('","')]
+            if len(f) >= 2 and f[0][:2].isdigit():
+                try:
+                    out.append((dt.datetime.strptime(f[0][:10], "%m/%d/%Y").date(), float(f[1])))
+                except ValueError:
+                    pass
+        m = e + dt.timedelta(days=1)
+    return out
+
+
+def pts_jepx(y0, today):
+    """JEPX day-ahead system price, ¥/kWh, half-hourly; files run by fiscal year (April)."""
+    out = []
+    for fy in range(y0 - 1, today.year + 1):
+        try:
+            for line in text(f"https://www.jepx.jp/market/excel/spot_{fy}.csv", "shift_jis").splitlines()[1:]:
+                f = line.split(",")
+                if len(f) > 5 and f[5]:
+                    out.append((dt.datetime.strptime(f[0], "%Y/%m/%d").date(), float(f[5])))
+        except Exception as e:
+            print(f"  jepx {fy}: {e}")
+    return out
+
+
+def eia_epm():
+    """US net generation by source, year to date (EIA Electric Power Monthly tables 1.1 and 1.1.A)."""
+    rows, _ = xl_rows(f"{EIA}/electricity/monthly/xls/table_1_01.xlsx")
+    rows_a, _ = xl_rows(f"{EIA}/electricity/monthly/xls/table_1_01_a.xlsx")
+    title = rows[0][0]
+
+    def ytd(rs, year):
+        i = next(k for k, r in enumerate(rs) if r[0] == "Year to Date")
+        return next(r for r in rs[i + 1:i + 4] if r[0] == year)
+    y = int(title.split("-")[-1].split()[-1])
+    r, a = ytd(rows, y), ytd(rows_a, y)
+    month = title.split("-")[-1].split()[0]
+    gwh = lambda v: (v or 0) / 1e3  # thousand MWh -> TWh
+    twh = {"Fossil hard coal": gwh(r[1]), "Fossil gas": gwh(r[4]) + gwh(r[5]), "Nuclear": gwh(r[6]),
+           "Hydro Run-of-River": gwh(r[7]), "Solar": gwh(r[15]), "Wind onshore": gwh(a[1]),
+           "Fossil oil": gwh(r[2]) + gwh(r[3]), "Biomass": gwh(a[4]) + gwh(a[5]) + gwh(a[6]) + gwh(a[7]),
+           "Geothermal": gwh(a[8]), "Others": gwh(r[11])}
+    return twh, f"Jan – {month[:3]} {y}"
+
+
+def eia_wngsr():
+    lines = text("https://ir.eia.gov/ngs/wngsr.csv", "utf-8-sig").splitlines()
+    import csv
+    rows = list(csv.reader(lines))
+    wk = next(r for r in rows if r and r[0].startswith("Released"))
+    tot = next(r for r in rows if r and r[0] == "Total")
+    hdr = next(r for r in rows if len(r) > 1 and r[1] and "-" in r[1] and r[1][0].isdigit())
+    num = lambda s: float(s.replace(",", ""))
+    return {"bcf": num(tot[1]), "yago_bcf": num(tot[13]), "yago_pct": num(tot[16]),
+            "avg5_bcf": num(tot[19]), "avg5_pct": num(tot[22]), "week": hdr[1],
+            "released": wk[0].split("Released: ")[1].split(" at")[0]}
+
+
+def monthly(points):
+    acc = defaultdict(list)
+    for d, v in points:
+        acc[d.strftime("%Y-%m")].append(v)
+    return {m: sum(v) / len(v) for m, v in acc.items()}
+
+
+def build_world(code, today):
+    cfg = WORLD[code]
+    y = today.year
+    kind = cfg["power"]
+    if kind[0] == "ice":
+        pp = pts_ice(kind[1], y - 3, y)
+    elif kind[0] == "aemo":
+        pp = pts_aemo(kind[1], y - 3, today)
+    elif kind[0] == "aeso":
+        pp = pts_aeso(y - 3, today)
+    elif kind[0] == "jepx":
+        pp = pts_jepx(y - 3, today)
+    pm = monthly(pp)
+    cut = lambda yr: [v for d, v in pp if d.year == yr and (d.month, d.day) <= (today.month, today.day)]
+    ytd, pytd = cut(y), cut(y - 1)
+    out = {"asof": today.strftime("%-d %B %Y"), "price_period": f"1 Jan – {today.strftime('%-d %b')} {y}",
+           "year": y, "prev_year": y - 1, "avg_years": f"{y - 3}–{str(y - 1)[2:]}",
+           "bzn": cfg["bzn"], "ccy": cfg["ccy"], "power_unit": cfg.get("power_unit", "/MWh"),
+           "power_ytd": round(sum(ytd) / len(ytd), 2), "power_pytd": round(sum(pytd) / len(pytd), 2),
+           "neg_hours": None, "flows": [], "capacity": [], "storage": None, "mix": [], "renewable_pct": None}
+    out["power_yoy"] = round(100 * (out["power_ytd"] / out["power_pytd"] - 1))
+    m_now = today.month
+    p_lines = [("cur", series(pm, y, m_now)), ("prev", series(pm, y - 1)), ("avg", avg3(pm, y))]
+    out["power_chart"] = chart(p_lines)
+    out["power_months"] = {k: [None if v is None else round(v, 2) for v in s] for k, s in p_lines}
+    if cfg.get("gas"):
+        gm = monthly(pts_eia_hh(y - 3))
+        g_lines = [("cur", series(gm, y, m_now)), ("prev", series(gm, y - 1)), ("avg", avg3(gm, y))]
+        cur = [v for v in g_lines[0][1] if v]
+        out.update(gas_label=cfg["gas_label"], gas_ccy=cfg["gas_ccy"], gas_unit=cfg["gas_unit"],
+                   gas_ytd=round(sum(cur) / len(cur), 2), gas_chart=chart(g_lines),
+                   gas_months={k: [None if v is None else round(v, 2) for v in s] for k, s in g_lines})
+    if cfg.get("mix"):
+        twh, period = eia_epm()
+        mix = []
+        for label, names, colour in MIX:
+            mix.append({"label": label, "twh": round(sum(max(twh.get(n, 0), 0) for n in names), 1), "colour": colour})
+        total = sum(m["twh"] for m in mix)
+        x = 0.0
+        for m in mix:
+            m["pct"] = round(100 * m["twh"] / total, 1); m["x"] = round(x, 2); m["w"] = round(m["twh"] / total * 100, 2)
+            x += m["w"]
+        out.update(mix=mix, mix_total=round(total), period=period,
+                   renewable_pct=round(sum(m["pct"] for m in mix if m["label"] in RENEWABLE)))
+    if cfg.get("storage"):
+        try:
+            out["storage_us"] = eia_wngsr()
+        except Exception as e:
+            print(f"  {code}: no storage ({e})")
+    return out
+
+
 def main():
     today = dt.date.today() - dt.timedelta(days=1)  # last complete day
-    codes = sys.argv[1:] or list(COUNTRIES)
+    codes = sys.argv[1:] or list(COUNTRIES) + list(WORLD)
     OUT.mkdir(parents=True, exist_ok=True)
     for code in codes:
         try:
-            data = build(code, today)
+            data = build_world(code, today) if code in WORLD else build(code, today)
         except Exception as e:
             print(f"KEEP {code}: {e}")
             continue
         (OUT / f"{code}.json").write_text(json.dumps(data, indent=1, ensure_ascii=False) + "\n")
-        print(f"ok   {code}: power YTD {data['ccy']}{data['power_ytd']} ({data['power_yoy']:+d}%), "
+        print(f"ok   {code}: power YTD {data['ccy']}{data['power_ytd']}{data.get('power_unit', '/MWh')} ({data['power_yoy']:+d}%), "
               f"RES {data['renewable_pct']}%")
 
 

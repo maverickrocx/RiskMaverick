@@ -45,16 +45,29 @@ _data/emap_manual.yml, live gas and carbon marks in _data/marks.yml.
 </style>
 <div class="kband">
   <div class="ktiles">
+  {%- if man.tiles %}
+    {%- for t in man.tiles %}
+    <div class="kt"><div class="k">{{ t.label }}</div><div class="v">{{ t.value }}</div><div class="d">{{ t.note }}</div></div>
+    {%- endfor %}
+  {%- else %}
+    {%- assign punit = k.power_unit | default: "/MWh" -%}
+    {%- if punit == "/kWh" %}{% assign pdec = 1 %}{% else %}{% assign pdec = 0 %}{% endif %}
     <div class="kt"><div class="k">Power price, {{ k.year }} to date</div>
-      <div class="v">{{ k.ccy }}{{ k.power_ytd | round }} <small>/MWh</small></div>
-      <div class="d"><span class="{% if k.power_yoy >= 0 %}up{% else %}dn{% endif %}">{% if k.power_yoy >= 0 %}+{% endif %}{{ k.power_yoy }}%</span> vs same period {{ k.prev_year }} ({{ k.ccy }}{{ k.power_pytd | round }})</div></div>
+      <div class="v">{{ k.ccy }}{{ k.power_ytd | round: pdec }} <small>{{ punit }}</small></div>
+      <div class="d"><span class="{% if k.power_yoy >= 0 %}up{% else %}dn{% endif %}">{% if k.power_yoy >= 0 %}+{% endif %}{{ k.power_yoy }}%</span> vs same period {{ k.prev_year }} ({{ k.ccy }}{{ k.power_pytd | round: pdec }})</div></div>
+    {%- assign gunit = k.gas_unit | default: man.gas_unit | default: "/MWh" -%}
+    {%- assign gccy = k.gas_ccy | default: k.ccy -%}
     <div class="kt"><div class="k">{{ man.gas_tile | default: "Gas price, TTF" }}</div>
-      <div class="v">{% if gasmark %}{{ gasmark.price }}{% else %}{{ man.gas_value }}{% endif %} <small>/MWh</small></div>
-      <div class="d">{% if gasmark %}{{ gasmark.asof }}{% else %}{{ man.gas_note }}{% endif %} · {{ k.year }} average {{ k.ccy }}{{ k.gas_ytd | round }}</div></div>
+      <div class="v">{% if gasmark %}{{ gasmark.price }}{% else %}{{ man.gas_value }}{% endif %} <small>{{ gunit }}</small></div>
+      <div class="d">{% if gasmark %}{{ gasmark.asof }}{% else %}{{ man.gas_note }}{% endif %}{% if k.gas_ytd %} · {{ k.year }} average {{ gccy }}{% if gunit == "/MWh" %}{{ k.gas_ytd | round }}{% else %}{{ k.gas_ytd | round: 2 }}{% endif %}{% endif %}</div></div>
     {%- if k.storage %}
     <div class="kt"><div class="k">Gas storage, {{ k.storage.gas_day }}</div>
       <div class="v">{{ k.storage.full }}<small>%</small></div>
       <div class="d">{{ k.storage.twh | round }} of {{ k.storage.capacity_twh | round }} TWh. A year ago {{ k.storage.prev_year }}%{% if k.storage.avg5 %}, 5-yr avg {{ k.storage.avg5 }}%{% endif %}</div></div>
+    {%- elsif k.storage_us %}
+    <div class="kt"><div class="k">Gas storage, week to {{ k.storage_us.week }}</div>
+      <div class="v">{{ k.storage_us.bcf | round }} <small>Bcf</small></div>
+      <div class="d">{% if k.storage_us.avg5_pct >= 0 %}+{% endif %}{{ k.storage_us.avg5_pct }}% vs 5-yr avg; {% if k.storage_us.yago_pct >= 0 %}+{% endif %}{{ k.storage_us.yago_pct }}% vs a year ago</div></div>
     {%- else %}
     <div class="kt"><div class="k">{{ man.storage_label | default: "Gas storage" }}</div>
       <div class="v">{{ man.storage_value }}</div>
@@ -63,22 +76,38 @@ _data/emap_manual.yml, live gas and carbon marks in _data/marks.yml.
     <div class="kt"><div class="k">{{ man.carbon_label | default: "Carbon, EU ETS" }}</div>
       <div class="v">{% if co2 %}{{ co2.price }} <small>/t</small>{% else %}{{ man.carbon_value }}{% endif %}</div>
       <div class="d">{% if co2 %}{{ co2.asof }} · {{ co2.source }}{% else %}{{ man.carbon_note }}{% endif %}</div></div>
-    <div class="kt"><div class="k">Renewables share, {{ k.year }}</div>
+    {%- if k.renewable_pct %}
+    <div class="kt"><div class="k">Renewables share, {{ k.period | default: k.year }}</div>
       <div class="v">{{ k.renewable_pct }}<small>%</small></div>
-      <div class="d">Wind, solar and hydro. {{ k.neg_hours }} negative-price hours (vs {{ k.neg_hours_prev }})</div></div>
+      <div class="d">Wind, solar and hydro.{% if k.neg_hours != nil %} {{ k.neg_hours }} negative-price hours (vs {{ k.neg_hours_prev }}){% endif %}</div></div>
+    {%- else %}
+    <div class="kt"><div class="k">{{ man.res_label | default: "Renewables share" }}</div>
+      <div class="v">{{ man.res_value }}</div>
+      <div class="d">{{ man.res_note }}</div></div>
+    {%- endif %}
+  {%- endif %}
   </div>
 
+  {%- if k.mix and k.mix.size > 0 %}
   <div class="kpanel">
     <div class="t">Generation mix <span>· {{ k.period }} · {{ k.mix_total }} TWh</span></div>
     <div class="mixbar" role="img" aria-label="Generation mix by source">{% for m in k.mix %}{% if m.w > 0 %}<i style="width:{{ m.w }}%;background:{{ m.colour }}" title="{{ m.label }} {{ m.pct }}%"></i>{% endif %}{% endfor %}</div>
     <div class="mixleg">{% for m in k.mix %}<span><i style="background:{{ m.colour }}"></i>{{ m.label }} <b>{{ m.pct | round }}%</b> · {{ m.twh | round }} TWh</span>{% endfor %}</div>
   </div>
+  {%- elsif man.mix %}
+  <div class="kpanel">
+    <div class="t">Generation mix <span>· {{ man.mix_period }}</span></div>
+    <div class="mixbar" role="img" aria-label="Generation mix by source">{% for m in man.mix %}<i style="width:{{ m.pct }}%;background:{{ m.colour }}" title="{{ m.label }} {{ m.pct }}%"></i>{% endfor %}</div>
+    <div class="mixleg">{% for m in man.mix %}<span><i style="background:{{ m.colour }}"></i>{{ m.label }} <b>{{ m.pct }}%</b></span>{% endfor %}</div>
+  </div>
+  {%- endif %}
 
+  {%- if k.power_chart %}
   <div class="kcharts">
-  {%- assign charts = "power,gas" | split: "," -%}
+  {%- if k.gas_chart %}{% assign charts = "power,gas" | split: "," %}{% else %}{% assign charts = "power" | split: "," %}{% endif -%}
   {%- for c in charts -%}
-    {%- if c == "power" -%}{%- assign ch = k.power_chart -%}{%- assign ptitle = man.power_title | default: "Day-ahead power price" -%}{%- assign ttl = ptitle | append: ", monthly average (" | append: k.ccy | append: "/MWh)" -%}{%- assign sub = k.bzn -%}
-    {%- else -%}{%- assign ch = k.gas_chart -%}{%- assign ttl = "Gas price, monthly average (" | append: k.ccy | append: "/MWh)" -%}{%- assign sub = k.gas_label -%}{%- endif %}
+    {%- if c == "power" -%}{%- assign ch = k.power_chart -%}{%- assign ptitle = man.power_title | default: "Day-ahead power price" -%}{%- assign ttl = ptitle | append: ", monthly average (" | append: k.ccy | append: punit | append: ")" -%}{%- assign sub = k.bzn -%}
+    {%- else -%}{%- assign ch = k.gas_chart -%}{%- assign ttl = "Gas price, monthly average (" | append: gccy | append: gunit | append: ")" -%}{%- assign sub = k.gas_label -%}{%- endif %}
     <div class="kpanel kchart">
       <div class="t">{{ ttl }} <span>· {{ sub }}</span></div>
       <svg viewBox="0 0 600 214" role="img" aria-label="{{ ttl }}: {{ k.year }}, {{ k.prev_year }} and {{ k.avg_years }} average">
@@ -95,5 +124,6 @@ _data/emap_manual.yml, live gas and carbon marks in _data/marks.yml.
     </div>
   {%- endfor %}
   </div>
-  <div class="ksrc">Data to {{ k.asof }}. {% if man.data_note %}{{ man.data_note }}{% else %}Power prices, generation and capacity: <a href="https://www.energy-charts.info/?l=en" target="_blank" rel="noopener">Energy-Charts (Fraunhofer ISE)</a>, our time-weighted averages; the current month is month to date. Gas: ICE Endex TTF front month via Yahoo, monthly average of daily settlements.{% endif %} {% if k.storage %}Storage: <a href="https://agsi.gie.eu/" target="_blank" rel="noopener">GIE AGSI+</a>.{% else %}{{ man.storage_source }}{% endif %}</div>
+  {%- endif %}
+  <div class="ksrc">{% if k.asof %}Data to {{ k.asof }}. {% endif %}{% if man.data_note %}{{ man.data_note }}{% else %}Power prices, generation and capacity: <a href="https://www.energy-charts.info/?l=en" target="_blank" rel="noopener">Energy-Charts (Fraunhofer ISE)</a>, our time-weighted averages; the current month is month to date. Gas: ICE Endex TTF front month via Yahoo, monthly average of daily settlements.{% endif %} {% if k.storage %}Storage: <a href="https://agsi.gie.eu/" target="_blank" rel="noopener">GIE AGSI+</a>.{% else %}{{ man.storage_source }}{% endif %}</div>
 </div>

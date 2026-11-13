@@ -41,3 +41,11 @@ gbr:
   storage_note: "Rough and smaller sites; GB no longer reports to GIE AGSI+"
   power_title: "Wholesale power price (Market Index)"
   data_note: 'Power prices and generation: <a href="https://bmrs.elexon.co.uk/" target="_blank" rel="noopener">Elexon BMRS</a> (Market Index Data, half-hourly; actual generation per type), our time-weighted averages; the current month is month to date. Gas: NBP System Average Price from <a href="https://www.ons.gov.uk/economy/economicoutputandproductivity/output/datasets/systemaveragepricesapofgas" target="_blank" rel="noopener">National Gas Transmission via ONS</a>, converted from p/kWh. Cross-border flows: Energy-Charts.'
+usa:
+  gas_mark: henry_hub
+  gas_tile: "Gas price, Henry Hub"
+  gas_unit: "/MMBtu"
+  carbon_mark: rggi
+  carbon_label: "Carbon, RGGI (north-east states)"
+  power_title: "Wholesale power, PJM West peak"
+  data_note: 'Power: daily ICE wholesale prices published by the <a href="https://www.eia.gov/electricity/wholesale/" target="_blank" rel="noopener">EIA</a> (PJM West hub, real-time peak), monthly averages. Gas: <a href="https://www.eia.gov/dnav/ng/hist/rngwhhdd.htm" target="_blank" rel="noopener">EIA Henry Hub spot</a>. Generation: <a href="https://www.eia.gov/electricity/monthly/" target="_blank" rel="noopener">EIA Electric Power Monthly</a>. Storage: <a href="https://ir.eia.gov/ngs/ngs.html" target="_blank" rel="noopener">EIA weekly storage report</a>, Lower 48.'
