@@ -41,3 +41,98 @@ gbr:
   storage_note: "Rough and smaller sites; GB no longer reports to GIE AGSI+"
   power_title: "Wholesale power price (Market Index)"
   data_note: 'Power prices and generation: <a href="https://bmrs.elexon.co.uk/" target="_blank" rel="noopener">Elexon BMRS</a> (Market Index Data, half-hourly; actual generation per type), our time-weighted averages; the current month is month to date. Gas: NBP System Average Price from <a href="https://www.ons.gov.uk/economy/economicoutputandproductivity/output/datasets/systemaveragepricesapofgas" target="_blank" rel="noopener">National Gas Transmission via ONS</a>, converted from p/kWh. Cross-border flows: Energy-Charts.'
+usa:
+  gas_mark: henry_hub
+  gas_tile: "Gas price, Henry Hub"
+  gas_unit: "/MMBtu"
+  carbon_mark: rggi
+  carbon_label: "Carbon, RGGI (north-east states)"
+  power_title: "Wholesale power, PJM West peak"
+  data_note: 'Power: daily ICE wholesale prices published by the <a href="https://www.eia.gov/electricity/wholesale/" target="_blank" rel="noopener">EIA</a> (PJM West hub, real-time peak), monthly averages. Gas: <a href="https://www.eia.gov/dnav/ng/hist/rngwhhdd.htm" target="_blank" rel="noopener">EIA Henry Hub spot</a>. Generation: <a href="https://www.eia.gov/electricity/monthly/" target="_blank" rel="noopener">EIA Electric Power Monthly</a>. Storage: <a href="https://ir.eia.gov/ngs/ngs.html" target="_blank" rel="noopener">EIA weekly storage report</a>, Lower 48.'
+can:
+  gas_mark: henry_hub
+  gas_tile: "Gas price, Henry Hub (AECO trades at a discount)"
+  gas_unit: "/MMBtu"
+  carbon_label: "Carbon"
+  carbon_value: "Industrial only"
+  carbon_note: "Consumer carbon charge removed in 2025; industrial pricing remains under provincial and federal systems"
+  storage_label: "Gas storage"
+  storage_value: "Ample"
+  storage_note: "Western Canada is long gas; prices are set by export capacity, not storage"
+  res_label: "Ontario demand, 2026"
+  res_value: "152 <small>TWh</small>"
+  res_note: "IESO reference forecast; 250 TWh by 2050"
+  power_title: "Alberta pool price"
+  data_note: 'Power: <a href="http://ets.aeso.ca/" target="_blank" rel="noopener">AESO</a> hourly pool price, monthly averages. Gas: <a href="https://www.eia.gov/dnav/ng/hist/rngwhhdd.htm" target="_blank" rel="noopener">EIA Henry Hub spot</a>, shown as the North American reference.'
+aus:
+  gas_tile: "Gas, Queensland LNG exports"
+  gas_value: "Q3 record"
+  gas_unit: " "
+  gas_note: "Export demand up 16 PJ on a year earlier (AEMO, Q3 2026)"
+  carbon_label: "Carbon"
+  carbon_value: "Safeguard"
+  carbon_note: "Baseline-and-credit for large emitters; no economy-wide price"
+  storage_label: "Domestic gas reservation"
+  storage_value: "20%"
+  storage_note: "Share of exports to be offered at home from 1 July 2027"
+  res_label: "Renewables share, NEM, Q3 2026"
+  res_value: "44.3<small>%</small>"
+  res_note: "A record for a September quarter (AEMO)"
+  power_title: "NEM spot price, New South Wales"
+  data_note: 'Power: <a href="https://aemo.com.au/energy-systems/electricity/national-electricity-market-nem/data-nem/aggregated-data" target="_blank" rel="noopener">AEMO aggregated price and demand data</a> (five-minute regional reference price, NSW1), simple monthly averages. Other tiles: <a href="https://www.aemo.com.au/energy-systems/major-publications/quarterly-energy-dynamics-qed" target="_blank" rel="noopener">AEMO Quarterly Energy Dynamics</a> and the Department of Industry.'
+jpn:
+  gas_tile: "LNG supply"
+  gas_value: "Watchful"
+  gas_unit: " "
+  gas_note: "METI, 4 Nov 2026: not an immediately tight situation; utilities asked to keep buying steadily"
+  carbon_label: "Carbon, GX-ETS"
+  carbon_value: "Year 1"
+  carbon_note: "Mandatory trading from April 2026 for firms over 100,000 t CO₂ (METI)"
+  storage_label: "LNG stocks"
+  storage_value: "≈3 weeks"
+  storage_note: "Of national consumption, per the minister in March 2026"
+  res_label: "Nuclear restart"
+  res_value: "KK-6"
+  res_note: "Kashiwazaki-Kariwa unit 6, TEPCO's first restart since 2011, in commercial operation from April 2026"
+  power_title: "JEPX day-ahead system price"
+  data_note: 'Power: <a href="https://www.jepx.jp/en/electricpower/market-data/spot/" target="_blank" rel="noopener">JEPX</a> day-ahead system price, half-hourly, simple monthly averages. Other tiles: METI and the Japan Atomic Industrial Forum.'
+chn:
+  tiles:
+    - {label: "Installed capacity, end Sep 2026", value: "4,130 <small>GW</small>", note: "+11.2% y/y (NEA)"}
+    - {label: "Solar capacity", value: "1,310 <small>GW</small>", note: "+16.5% y/y; now the largest source of capacity"}
+    - {label: "Wind capacity", value: "700 <small>GW</small>", note: "+20.4% y/y (NEA)"}
+    - {label: "Coal share of output, H1 2026", value: "49.7<small>%</small>", note: "Below half for the first time"}
+    - {label: "LNG buying", value: "Weak", note: "Cheap domestic gas curbing spot imports into winter (Bloomberg)"}
+  data_note: 'Sources: <a href="https://www.nea.gov.cn/20261026/7e48f52542c94c0f99c166262453627d/c.html" target="_blank" rel="noopener">National Energy Administration</a>, January–September 2026 statistics; <a href="https://english.www.gov.cn/archive/statistics/202607/30/content_WS6a6b131ac6d00ca5f9a0c7c4.html" target="_blank" rel="noopener">State Council</a>; Bloomberg. China publishes no single national wholesale price.'
+ind:
+  tiles:
+    - {label: "Peak demand, record", value: "270.8 <small>GW</small>", note: "May 2026; above 270 GW twice more in July (Ministry of Power)"}
+    - {label: "Peak demand growth, Apr–Jun", value: "+12<small>%</small>", note: "Year on year"}
+    - {label: "Coal share of supply, Apr–Jun", value: "69.5<small>%</small>", note: "Including lignite"}
+    - {label: "Installed capacity", value: "548.9 <small>GW</small>", note: "June 2026"}
+    - {label: "Gas power", value: "Six-year low", note: "Iran war cut LNG supply to gas plants (Bloomberg)"}
+  data_note: 'Sources: <a href="https://www.powermin.gov.in/static/uploads/2026/07/735ba31759c7c287608c26d5cafeca0c.pdf" target="_blank" rel="noopener">Ministry of Power, Lok Sabha reply, July 2026</a>; <a href="https://www.pib.gov.in/PressReleasePage.aspx?PRID=2256313&reg=3&lang=1" target="_blank" rel="noopener">PIB</a>; Bloomberg. Exchange prices: <a href="https://www.iexindia.com/market-data/day-ahead-market/market-snapshot" target="_blank" rel="noopener">IEX</a>.'
+sgp:
+  tiles:
+    - {label: "Household tariff, Q4 2026", value: "28.59 <small>¢/kWh</small>", note: "Before GST; −10.4% on Q3 (SP Group)"}
+    - {label: "Gas share of power", value: "95<small>%</small>", note: "Imported pipeline gas and LNG (EMA)"}
+    - {label: "Indonesian pipeline cut", value: "&lt;2<small>%</small>", note: "Of daily gas demand, per EMA (Oct 2026)"}
+    - {label: "Carbon tax", value: "S$45 <small>/t</small>", note: "2026–27 rate"}
+    - {label: "Tariff lag", value: "1 quarter", note: "Fuel costs reach tariffs the following quarter"}
+  data_note: 'Sources: <a href="https://www.ema.gov.sg/consumer-information/electricity/buying-electricity/buying-at-regulated-tariff" target="_blank" rel="noopener">Energy Market Authority</a>; <a href="https://www.spgroup.com.sg/our-services/utilities/tariff-information" target="_blank" rel="noopener">SP Group</a>; Bloomberg.'
+mys:
+  tiles:
+    - {label: "Fuel pass-through", value: "Monthly", note: "Automatic Fuel Adjustment in Peninsular Malaysia since 2025"}
+    - {label: "Household shield", value: "800 <small>kWh</small>", note: "Monthly use exempt from AFA surcharge, Sep–Dec 2026"}
+    - {label: "Petronas LNG sales, H1 2026", value: "20.3 <small>Mt</small>", note: "+17% y/y"}
+    - {label: "Power mix", value: "Coal + gas", note: "Coal and gas supply most of Peninsular generation"}
+    - {label: "Gas pricing", value: "Regulated", note: "Power-sector gas under RP4 tariffs to end-2027"}
+  data_note: 'Sources: <a href="https://www.tnb.com.my/" target="_blank" rel="noopener">Tenaga Nasional</a>; <a href="https://www.st.gov.my/" target="_blank" rel="noopener">Energy Commission (Suruhanjaya Tenaga)</a>; <a href="https://www.petronas.com/" target="_blank" rel="noopener">Petronas</a>.'
+phl:
+  tiles:
+    - {label: "WESM average price, Jul 2026", value: "₱8.31 <small>/kWh</small>", note: "Down 13% from ₱9.54 in June (IEMOP)"}
+    - {label: "Oct 2025 for comparison", value: "₱4.54 <small>/kWh</small>", note: "System-wide average"}
+    - {label: "Market", value: "WESM", note: "Gross pool, operated by IEMOP"}
+    - {label: "Gas", value: "LNG", note: "Malampaya declining; LNG imports at Batangas fill the gap"}
+    - {label: "Grid", value: "Three islands", note: "Luzon, Visayas and Mindanao prices can diverge"}
+  data_note: 'Sources: <a href="https://www.iemop.ph/market_reports_category/monthly-market-operations-highlights/" target="_blank" rel="noopener">IEMOP monthly market operations highlights</a>; <a href="https://www.doe.gov.ph/" target="_blank" rel="noopener">Department of Energy</a>.'
