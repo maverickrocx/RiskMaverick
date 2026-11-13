@@ -575,6 +575,11 @@ def main():
         except Exception as e:
             print(f"KEEP {code}: {e}")
             continue
+        prev = OUT / f"{code}.json"
+        if data.get("storage") is None and code in AGSI and prev.exists():
+            # No AGSI key (or AGSI down): keep the last good storage reading
+            # rather than blank the tile.
+            data["storage"] = json.loads(prev.read_text()).get("storage")
         (OUT / f"{code}.json").write_text(json.dumps(data, indent=1, ensure_ascii=False) + "\n")
         print(f"ok   {code}: power YTD {data['ccy']}{data['power_ytd']}{data.get('power_unit', '/MWh')} ({data['power_yoy']:+d}%), "
               f"RES {data['renewable_pct']}%")
