@@ -164,285 +164,114 @@ blurb: "India — Exchange alongside PPA. Market structure, infrastructure, dema
 <div class="wrap">
   <header class="mh">
     <div class="top">
-      <span class="bchip">Exchange alongside PPA</span>
-      <span class="reviewed">Last reviewed 22 August 2026</span>
+      <span class="bchip">Exchange + utilities</span>
+      <span class="reviewed">Last reviewed 13 November 2026</span>
     </div>
     <h1>India</h1>
-    <p class="one">The world's third-largest electricity market, cleared on a single national grid at one frequency — but with only a thin, volatile exchange slice sitting on top of a vast base of long-term PPAs.</p>
-    <div class="facts"><div class="fi"><div class="k">Power exchanges</div><div class="v">IEX, PXIL, HPX</div></div><div class="fi"><div class="k">Price unit</div><div class="v">INR / MWh</div></div><div class="fi"><div class="k">Settlement interval</div><div class="v">15 minutes</div></div><div class="fi"><div class="k">System operator</div><div class="v">Grid-India</div></div><div class="fi"><div class="k">Gas position</div><div class="v">Net LNG importer</div></div></div>
+    <p class="one">The world's fastest-growing large power market, run on coal with a fast-rising solar fleet. In 2026 demand hit records while the Iran war cut LNG to gas plants, and the government moved to stockpile coal.</p>
+    {% include emap-kpis.html code="ind" %}
   </header>
 
   <div class="body">
     <aside class="toc" id="toc">
       <div class="t">On this page</div>
-      <a href="#s1">01 Overview</a>
-      <a href="#s2">02 Market structure</a>
-      <a href="#s3">03 Infrastructure</a>
-      <a href="#s4">04 Demand and supply</a>
-      <a href="#s5">05 Price setting</a>
-      <a href="#s6">06 Regulatory regime</a>
-      <a href="#s7">Key links</a>
+      <a href="#s0">At a glance</a>
+      <a href="#s1">01 Market snapshot</a>
+      <a href="#s2">02 Infrastructure</a>
+      <a href="#s3">03 Demand and supply</a>
+      <a href="#s4">04 Prices</a>
+      <a href="#s5">05 Policy in 2026</a>
+      <a href="#s6">06 Risk radar</a>
+      <a href="#s7">07 Next six months</a>
+      <a href="#s8">Sources</a>
     </aside>
-    <main><section class="sec" id="s1"><span class="sn">01</span><h2>Overview</h2>
-<p class="lead">India is the world's third-largest electricity market and almost none of it is priced
-on an exchange. What trades is a thin, volatile slice sitting on a vast base of long-term power
-purchase agreements. Get that structure clear before you take a position, because everything else
-follows from it.</p>
-
-<p>Installed generating capacity passed <strong>500 GW</strong> in September 2025, more than half of it
-non-fossil by nameplate rating (<a href="https://www.deccanherald.com/amp/story/india%2Findias-installed-power-generation-capacity-crosses-500-gw-3779493" target="_blank" rel="noopener">Ministry of Power, via Deccan Herald</a>). Nameplate is not output. Coal still produces around two
-thirds of the electricity actually generated, because solar and wind run at capacity factors a thermal
-unit would be shut down for.</p>
-
-<p>Wholesale power trades on three exchanges: the dominant <strong>Indian Energy Exchange (IEX)</strong>,
-with <strong>PXIL</strong> and <strong>HPX</strong> behind it, across day-ahead, real-time, term-ahead
-and green segments. Gas trades separately on the <strong>Indian Gas Exchange (IGX)</strong>. Short-term
-transactions of every kind came to about 238 billion units in 2024-25, of which the exchanges carried
-108.62 BU (<a href="https://powerline.net.in/2025/10/29/hitting-record-volumes-power-trading-trends-and-developments/" target="_blank" rel="noopener">Power Line</a>). The rest moves under contracts signed years in advance.</p>
-
-<p>State-owned distribution companies are the buyers on those contracts, and their finances are the
-weak point in the whole sector. Aggregate technical and commercial losses ran at <strong>15.04%</strong>
-in 2024-25, with the cost-recovery gap narrowed to ₹0.06 per unit (<a href="https://psuwatch.com/newsupdates/discoms-turn-profitable-on-paper-but-unpaid-power-bills-remain-high" target="_blank" rel="noopener">14th Integrated Rating report, via PSU Watch</a>). A discom that cannot pay reliably under-contracts, buys short,
-and then pays whatever is asked when demand spikes. That behaviour is most of the volatility in the
-exchange slice.</p>
-
-<div class="pull"><div class="t">The shape of the risk</div>
-<p>In most liberalised markets the exchange price is the market. In India it is the residual, whatever
-is left once the long-term PPAs have dispatched. Residual markets are thin, and thin markets move.</p></div>
-</section><section class="sec" id="s2"><span class="sn">02</span><h2>Market structure</h2>
-<p class="lead">One national grid at one frequency. Three competing exchanges. And underneath them a
-contracting base of bilateral PPAs that never touch a market screen.</p>
-
-<h3>Who does what</h3>
+    <main><section class="sec" id="s0"><span class="sn">SUMMARY</span><h2>At a glance</h2>
+<ul class="pts">
+<li><strong>Record demand.</strong> Peak demand reached 270.8 GW in May 2026 and topped 270 GW twice more in July (<a href="https://www.powermin.gov.in/static/uploads/2026/07/735ba31759c7c287608c26d5cafeca0c.pdf" target="_blank" rel="noopener">Ministry of Power</a>).</li>
+<li><strong>Demand up 12%</strong> at peak in April–June on a year earlier, linked to heat.</li>
+<li><strong>Coal carries the load:</strong> about 69.5% of supply in April–June.</li>
+<li><strong>Gas power hit a six-year low</strong> as the Iran war cut LNG shipments (<a href="https://www.bloomberg.com/news/articles/2026-05-25/iran-war-squeezes-india-s-gas-power-supply-as-demand-hits-record" target="_blank" rel="noopener">Bloomberg</a>).</li>
+<li><strong>Coal stockpiles are being tripled</strong> before next summer after a supply crunch caused blackouts (<a href="https://www.bloomberg.com/news/articles/2026-11-04/india-pushes-to-triple-coal-stockpiles-to-avert-summer-blackouts" target="_blank" rel="noopener">Bloomberg</a>).</li>
+</ul>
+<div class="pull"><div class="t">The call</div>
+<p>Indian power is a coal-logistics trade with an LNG option. Gas plants run only when LNG is affordable; in 2026 it was not, so coal stocks and rail capacity decide whether summer peaks are met.</p></div>
+</section><section class="sec" id="s1"><span class="sn">01</span><h2>Market snapshot</h2>
 <div class="emap-tablewrap">
-<table><thead><tr><th>Function</th><th>Body</th><th>Role</th></tr></thead><tbody>
-<tr><td>Power exchanges</td><td>IEX, PXIL, HPX</td><td>Day-ahead, real-time, term-ahead and green contracts</td></tr>
-<tr><td>Gas exchange</td><td>IGX</td><td>Physical delivery-based gas contracts, intraday to semi-annual</td></tr>
-<tr><td>System operation</td><td>Grid-India</td><td>National and regional load despatch; scheduling and despatch</td></tr>
-<tr><td>Economic regulation</td><td>CERC</td><td>Inter-state tariffs, market design, exchange oversight</td></tr>
-<tr><td>State-level regulation</td><td>State ERCs</td><td>Retail tariffs and discom performance</td></tr>
-<tr><td>Technical planning</td><td>CEA</td><td>Capacity, resource adequacy and generation statistics</td></tr>
-<tr><td>Gas regulation</td><td>PNGRB</td><td>Pipelines, city gas networks and the gas exchange regime</td></tr>
+<table><thead><tr><th>Item</th><th>India</th></tr></thead><tbody>
+<tr><td>Market model</td><td>State utilities with long-term contracts; power exchanges for short-term trade</td></tr>
+<tr><td>Exchanges</td><td>Indian Energy Exchange (IEX), PXIL, HPX</td></tr>
+<tr><td>Grid operator</td><td>Grid-India</td></tr>
+<tr><td>Regulators</td><td>CERC (central), state commissions; Ministry of Power</td></tr>
+<tr><td>Gas</td><td>Domestic output plus LNG via west-coast terminals</td></tr>
 </tbody></table>
 </div>
-
-<h3>The exchange is a slice, not the market</h3>
-<p>Most Indian generation sells under 25-year PPAs between a generator and a state discom, on a
-two-part tariff: a fixed capacity charge that pays for the asset whether it runs or not, and a variable
-energy charge for fuel. Those megawatt-hours dispatch against a contract, not against a price. The
-exchange picks up the leftovers, whether that is a discom short of its contracted position, a generator
-with unrequisitioned capacity or an industrial buyer on open access.</p>
-
-<p>So exchange prices do not tell you what the system costs. They tell you where it is under strain.
-Tighten the residual and the day-ahead price can hit the regulatory ceiling inside a single 15-minute
-block. Flood the middle of the day with solar and it falls towards the floor. On 15 August 2026 the
-unconstrained day-ahead clearing price ran from ₹300 to ₹9,913 per MWh across the day (<a href="https://www.iexindia.com/market-data/day-ahead-market/market-snapshot" target="_blank" rel="noopener">IEX market snapshot</a>).</p>
-
-<h3>Three exchanges, converging on one price</h3>
-<p>IEX carries close to 90% of exchange volume, with PXIL and HPX sharing the rest (<a href="https://www.businesstoday.in/latest/policy/story/power-trading-overhaul-cerc-eyes-fee-rationalisation-as-market-coupling-nears-2026-rollout-508383-2025-12-28" target="_blank" rel="noopener">Business Today</a>). Each exchange used to
-discover its own price. From January 2026 CERC has been phasing in <strong>market coupling</strong> for
-the day-ahead market: bids from all three platforms are pooled into one clearing price, with the
-exchanges taking turns as coupling operator and Grid-India sitting behind them as backup and auditor.
-Cross-exchange basis goes away. The day-ahead price becomes a genuinely national number.</p>
-</section><section class="sec" id="s3"><span class="sn">03</span><h2>Infrastructure — power and gas</h2>
-<p class="lead">One synchronous grid covers the whole mainland at 50 Hz, which is unusual for a system
-this size. The gas network has not caught up: it is still regional rather than national.</p>
-
-<h3>Power</h3>
-<div class="cards">
-<div class="card"><h4>One frequency</h4><p>The five regional grids are synchronously interconnected into a
-single national system at 50 Hz. Energy can in principle run from Gujarat to Assam without touching a
-converter station.</p></div>
-<div class="card"><h4>Transmission corridors</h4><p>Interregional capacity is large, but not unlimited. When
-the coupled solution has to be re-run against network limits, congestion surfaces as area-specific
-clearing prices.</p></div>
-<div class="card"><h4>Coal at the core</h4><p>Thermal plant sits near the eastern coalfields. Solar and wind
-sit in the west and south. The grid's job is increasingly to carry renewable energy away from where it
-was made.</p></div>
-</div>
-
-<p>A national clearing price only means anything because of that single-frequency design. Japan, split
-at 50 and 60 Hz, watches its two halves price apart routinely. When Indian regions diverge it is a
-transmission constraint rather than a physical incompatibility, and constraints can be built away given
-money and time.</p>
-
-<h3>Gas and LNG</h3>
-<p>India produces a fair amount of its own gas. Not enough, so the balance comes in as LNG. Output from
-legacy domestic fields sells at an administered price and everything else at a market price. IGX now
-settles at <strong>19 delivery points</strong> across LNG terminals, domestic field landfalls and
-pipeline interconnections (<a href="https://www.tribuneindia.com/news/business/igx-records-180-yoy-surge-in-gas-volume-to-11-64-million-mmbtu-in-july-2026/" target="_blank" rel="noopener">IGX, July 2026</a>). That count is a decent proxy for how far
-physical liquidity now reaches.</p>
-
-<div class="fig">
-  <svg viewBox="0 0 900 300" role="img" aria-label="Schematic of the Indian power market: PPA base, exchange layer and system operation">
-    <text x="30" y="26" class="axl">CONTRACTING LAYERS — thickness reflects share of energy, not geography</text>
-    <rect x="30" y="44" width="840" height="76" rx="10" fill="#2a78d6" opacity=".08"/>
-    <rect x="40" y="56" width="820" height="52" rx="7" fill="#2a78d6"/>
-    <g class="seg"><text x="60" y="82">Long-term PPAs — generator to discom, 25 years, two-part tariff</text></g>
-
-    <rect x="30" y="136" width="840" height="60" rx="10" fill="#eb6834" opacity=".08"/>
-    <rect x="40" y="146" width="330" height="40" rx="7" fill="#eb6834"/>
-    <g class="seg"><text x="60" y="166">Bilateral short-term and traders</text></g>
-    <rect x="382" y="146" width="300" height="40" rx="7" fill="#1baf7a"/>
-    <g class="seg"><text x="402" y="166">Exchanges — DAM, RTM, TAM, GDAM</text></g>
-    <rect x="694" y="146" width="166" height="40" rx="7" fill="#9AA8AC"/>
-    <g class="seg"><text x="714" y="166">Deviation settlement</text></g>
-
-    <rect x="30" y="212" width="840" height="60" rx="10" fill="#4a3aa7" opacity=".08"/>
-    <rect x="40" y="222" width="820" height="40" rx="7" fill="#4a3aa7"/>
-    <g class="seg"><text x="60" y="242">Grid-India — one synchronous national grid at 50 Hz, 15-minute despatch</text></g>
-  </svg>
-  <p class="figcap"><b>Schematic — system topology, not a geographic map.</b> The long-term PPA base carries
-  the bulk of the energy; the short-term layer, of which the exchanges are one part, sits on top of it;
-  system operation sits under everything. Widths are illustrative of layering, not scaled to volume.</p>
-</div>
-
-<div class="mapslot"><div class="t">Geographic infrastructure map</div>
-<div class="s">A sourced map of the interregional transmission corridors, LNG terminals and the national
-gas grid belongs here — reproduced from a CEA or PNGRB publication rather than redrawn.</div></div>
-</section><section class="sec" id="s4"><span class="sn">04</span><h2>Demand and supply</h2>
-<p class="lead">Demand is growing fast and solar faster. When the sun goes down, coal still answers
-the phone.</p>
-
-<h3>Demand</h3>
-<p>Few large markets have demand growth this structural. Air conditioning, industrial load and
-electrification all pull the same way. Consumption hit 170.70 billion units in July 2026 alone, up
-around 11% year on year (<a href="https://www.business-standard.com/india-news/iex-electricity-prices-rise-19-to-5-per-unit-trade-volumes-up-7-7-126080401642_1.html" target="_blank" rel="noopener">Business Standard</a>).
-That is the mirror image of Japan, and it changes what a position here is actually exposed to. Nobody
-is worried about stagnation. The question is whether supply keeps up.</p>
-
-<h3>Supply</h3>
-<p>Coal is the backbone. Solar has grown far enough to soften midday prices as a matter of routine,
-but the evening peak still lands on thermal plant, and there is very little storage and no real
-demand-response market to take the edge off. Average prices are not falling. The intraday spread is
-widening instead.</p>
-
-<div class="fig">
-  <div class="fig-t">Where India's electricity came from, 2025</div>
-  <svg viewBox="0 0 900 200" role="img" aria-label="India generation mix 2025 by source">
-    <g class="seg"><rect x="0"   y="18" width="595" height="40" rx="4" fill="#2a78d6"/><text x="12" y="43">Coal 68%</text></g>
-    <g class="seg"><rect x="599" y="18" width="79"  height="40" rx="4" fill="#eb6834"/><text x="609" y="43">Solar 9%</text></g>
-    <g class="seg"><rect x="682" y="18" width="79"  height="40" rx="4" fill="#1baf7a"/><text x="692" y="43">Hydro 9%</text></g>
-    <g class="seg"><rect x="765" y="18" width="53"  height="40" rx="4" fill="#eda100"/></g>
-    <g class="seg"><rect x="822" y="18" width="26"  height="40" rx="4" fill="#e87ba4"/></g>
-    <g class="seg"><rect x="852" y="18" width="18"  height="40" rx="4" fill="#4a3aa7"/></g>
-    <g class="seg"><rect x="874" y="18" width="26"  height="40" rx="4" fill="#9AA8AC"/></g>
-    <line class="axis" x1="791" y1="58" x2="791" y2="74"/><text class="axl" x="791" y="88" text-anchor="middle">Wind 6%</text>
-    <line class="axis" x1="861" y1="58" x2="861" y2="74"/><text class="axl" x="861" y="88" text-anchor="middle">Gas 2%</text>
-    <line class="axis" x1="835" y1="58" x2="835" y2="96"/><text class="axl" x="835" y="110" text-anchor="middle">Nuclear 3%</text>
-    <line class="axis" x1="887" y1="58" x2="887" y2="118"/><text class="axl" x="900" y="132" text-anchor="end">Other 3%</text>
-    <text class="axl" x="0" y="170">Fossil fuels supply roughly seven tenths of generation.</text>
-    <text class="axl" x="900" y="170" text-anchor="end">Gas is a marginal fuel here, not a base fuel.</text>
-  </svg>
-  <p class="figcap">Shares for 2025, rounded. Source: <a href="https://lowcarbonpower.org/region/India" target="_blank" rel="noopener">Low Carbon Power</a>, corroborated by <a href="https://ember-energy.org/countries-and-regions/india/" target="_blank" rel="noopener">Ember</a>.</p>
-</div>
-
-<div class="fig">
-  <div class="fig-t">Short-term electricity transactions, 2024-25 — billion units</div>
-  <svg viewBox="0 0 900 250" role="img" aria-label="India short-term electricity volumes 2024-25 by route">
-    <line class="grid" x1="70" y1="44"  x2="880" y2="44"/><text class="gl" x="60" y="48">120</text>
-    <line class="grid" x1="70" y1="83"  x2="880" y2="83"/><text class="gl" x="60" y="87">90</text>
-    <line class="grid" x1="70" y1="122" x2="880" y2="122"/><text class="gl" x="60" y="126">60</text>
-    <line class="grid" x1="70" y1="161" x2="880" y2="161"/><text class="gl" x="60" y="165">30</text>
-    <line class="axis" x1="70" y1="200" x2="880" y2="200"/>
-    <g class="bar1"><rect x="150" y="59"  width="150" height="141" rx="4"/><text x="225" y="49">108.6</text></g>
-    <g class="bar1"><rect x="400" y="73"  width="150" height="127" rx="4"/><text x="475" y="63">97.6</text></g>
-    <g class="bar1"><rect x="650" y="158" width="150" height="42"  rx="4"/><text x="725" y="148">32.1</text></g>
-    <text class="xl" x="225" y="222">Power exchanges</text>
-    <text class="xl" x="475" y="222">Bilateral and traders</text>
-    <text class="xl" x="725" y="222">Deviation settlement</text>
-  </svg>
-  <p class="figcap">2024-25 short-term transactions totalled about 238 BU, roughly 15% of generation.
-  Source: <a href="https://powerline.net.in/2025/10/29/hitting-record-volumes-power-trading-trends-and-developments/" target="_blank" rel="noopener">Power Line</a>.</p>
-</div>
-
-<div class="stats">
-  <div class="st"><div class="k">IEX day-ahead, July 2026</div><div class="v">₹4.99 <small>/ unit</small></div></div>
-  <div class="st arrow">→</div>
-  <div class="st"><div class="k">IEX real-time, July 2026</div><div class="v">₹4.41 <small>/ unit</small></div></div>
-  <div class="st note">Day-ahead price up 19.3% year on year on volumes of 5,087 MU; total IEX volume
-  13,527 MU. Source: <a href="https://www.business-standard.com/india-news/iex-electricity-prices-rise-19-to-5-per-unit-trade-volumes-up-7-7-126080401642_1.html" target="_blank" rel="noopener">Business Standard</a>.</div>
-</div>
-
-<div class="pull"><div class="t">Why the gas number is small but not unimportant</div>
-<p>Gas makes a couple of per cent of Indian electricity, and sets the price in the western and southern
-states more often than that share suggests. Small fuels with large influence on the price are the ones
-that get mis-sized on a risk report.</p></div>
-</section><section class="sec" id="s5"><span class="sn">05</span><h2>Price setting mechanism</h2>
-<p class="lead">A uniform-price auction over 96 fifteen-minute blocks a day, clearing a residual volume
-under a capped price. The fuel costs that drive it are set outside the market altogether.</p>
-
-<h3>The power auction</h3>
-<p>Buyers and sellers bid for each <strong>15-minute block</strong>, 96 of them a day. The exchange
-builds a supply stack and a demand stack and clears them against each other, and the intersection is one
-price paid by every buyer and received by every seller in that block. Under market coupling the stack is
-built from all three exchanges at once, giving a single national clearing price before network
-constraints go on. Where transmission binds, the clearing is re-run and area prices separate.</p>
-
-<p>What separates this from a pool market is <strong>what is in the stack</strong>. Contracted PPA
-generation is already committed and never bids. What bids is surplus: an unrequisitioned thermal unit,
-merchant capacity, a discom long a block. The marginal unit is therefore often an expensive coal plant
-on part load, or an imported-coal unit. Day-ahead prices can sit well above the average cost of
-generation while the system as a whole is comfortably long.</p>
-
-<h3>The cap, and why it matters</h3>
-<p>A regulatory ceiling sits over exchange prices. Unconstrained clearing reached ₹9,913 per MWh on
-15 August 2026 (<a href="https://www.iexindia.com/market-data/day-ahead-market/market-snapshot" target="_blank" rel="noopener">IEX market snapshot</a>), pressed hard against the ceiling in individual blocks
-while the daily average came in at ₹3,281 per MWh. Write a hedge here and your upside is truncated by
-regulation rather than by fundamentals. The tail risk on a short position is bounded, and so is the
-value of an out-of-the-money call.</p>
-
-<h3>Gas pricing is administered, not discovered</h3>
-<p>Domestic gas from legacy fields sells at the <strong>APM price</strong>, set at 10% of the monthly
-Indian crude basket, floored at $4 and capped at <strong>$7/MMBtu</strong> since 1 April 2026 (<a href="https://www.etvbharat.com/en/bharat/government-raises-regulated-gas-price-for-ongc-and-oil-india-to-usd-7-per-mmbtu-enn26033106130" target="_blank" rel="noopener">Ministry of Petroleum and Natural Gas, via ETV Bharat</a>). Deepwater and difficult fields get a
-separate, higher ceiling. Imported LNG and free-market domestic gas price off the international market
-like everyone else. IGX's GIXI index settled at $19.17/MMBtu in July 2026 (<a href="https://www.tribuneindia.com/news/business/igx-records-180-yoy-surge-in-gas-volume-to-11-64-million-mmbtu-in-july-2026/" target="_blank" rel="noopener">IGX, July 2026</a>).</p>
-
-<div class="pull"><div class="t">Two gas prices, one pipeline</div>
-<p>Which bucket a buyer's molecules come from decides their economics. APM gas at $7 and free-market gas
-near $19 are not competing supplies. They are different entitlements. Model Indian gas demand without
-splitting the two and the answer is out by more than a factor of two.</p></div>
-
-<h3>Hedging</h3>
-<p>Cash-settled electricity derivatives launched in July 2025, the first route generators and discoms
-have had to lock forward prices (<a href="https://powerline.net.in/2025/10/29/hitting-record-volumes-power-trading-trends-and-developments/" target="_blank" rel="noopener">Power Line</a>). Liquidity is thin so far. The exchange price is
-nonetheless becoming a settlement reference as well as a physical one.</p>
-</section><section class="sec" id="s6"><span class="sn">06</span><h2>Regulatory regime</h2>
-<p class="lead">Two tiers: federal for inter-state trade, state-level for retail, with the gas
-regulator off to one side entirely. Where a transaction sits decides who governs it.</p>
-
+<ul class="pts">
+<li><strong>Exchange prices are capped</strong>, so scarcity shows up as shortages and high-price-segment trades rather than spikes.</li>
+<li><strong>Solar drives the daytime;</strong> evening peaks still need coal, hydro and gas.</li>
+</ul>
+</section><section class="sec" id="s2"><span class="sn">02</span><h2>Infrastructure — power and gas</h2>
+{%- assign k = site.data.emap.ind %}
+<h3>Power — key facts</h3>
 <div class="emap-tablewrap">
-<table><thead><tr><th>Body</th><th>Remit</th></tr></thead><tbody>
-<tr><td>Ministry of Power</td><td>Policy, schemes and the legislative framework</td></tr>
-<tr><td>CERC</td><td>Inter-state tariffs and transmission, market design, exchange and coupling regulation</td></tr>
-<tr><td>State Electricity Regulatory Commissions</td><td>Retail tariffs, open access charges, discom performance</td></tr>
-<tr><td>Grid-India</td><td>National and regional load despatch, scheduling, deviation settlement</td></tr>
-<tr><td>CEA</td><td>Technical standards, resource adequacy planning, generation statistics</td></tr>
-<tr><td>PNGRB</td><td>Gas pipelines, city gas distribution and the gas exchange regime</td></tr>
+<table><thead><tr><th>Item</th><th>Value</th></tr></thead><tbody>
+<tr><td>Installed capacity, June 2026</td><td>548.9 GW</td></tr>
+<tr><td>All-time peak demand</td><td>270.8 GW (May 2026)</td></tr>
+<tr><td>Previous record</td><td>256.1 GW (25 April 2026)</td></tr>
 </tbody></table>
 </div>
+<p class="figcap">Sources: <a href="https://www.powermin.gov.in/static/uploads/2026/07/735ba31759c7c287608c26d5cafeca0c.pdf" target="_blank" rel="noopener">Ministry of Power</a>; <a href="https://www.pib.gov.in/PressReleasePage.aspx?PRID=2256313&reg=3&lang=1" target="_blank" rel="noopener">PIB</a>.</p>
 
-<h3>Why the federal split matters commercially</h3>
-<p>A generator selling across a state border deals with CERC. A consumer buying through open access
-deals with their State Commission, and with state-level charges that can be revised in ways that gut
-the economics of a contract already signed. Open access has been legally available for two decades.
-Whether it is usable depends on the state, and that variation, not the national rules, decides whether
-a corporate power purchase works.</p>
 
-<h3>Market coupling</h3>
-<p>Nothing recent matters more than the phased introduction of market coupling from January 2026,
-starting with day-ahead and extending to term-ahead through a shadow pilot. CERC has also been
-reviewing exchange transaction fees, currently charged close to the 2 paise per unit ceiling, with
-reductions on the table (<a href="https://www.businesstoday.in/latest/policy/story/power-trading-overhaul-cerc-eyes-fee-rationalisation-as-market-coupling-nears-2026-rollout-508383-2025-12-28" target="_blank" rel="noopener">Business Today</a>). Coupling kills price differences between
-platforms. It also moves the exchanges' competitive ground from price discovery to services and fees.</p>
 
-<h3>Distribution reform is the binding constraint</h3>
-<p>Every serious analysis of the Indian power sector ends up in the same place. A market cannot be
-better than its buyers. AT&amp;C losses of 15.04% in 2024-25, a year in which the sector posted its first collective profit in over a decade (<a href="https://psuwatch.com/newsupdates/discoms-turn-profitable-on-paper-but-unpaid-power-bills-remain-high" target="_blank" rel="noopener">14th Integrated Rating report, via PSU Watch</a>), mean the
-counterparty on most long-term contracts has only just stopped losing money. Federal scheme after federal scheme has gone at
-this, and metering and collection have genuinely improved in the better states. Take multi-year Indian
-power exposure and you have taken a state-level credit view whether you priced one or not.</p>
-</section><section class="sec" id="s7"><span class="sn">SOURCES</span><h2>Key links</h2><p class="lead">Primary sources for this market. Figures on this page are drawn from these and from published market data.</p><div class="links"><a class="lk" href="https://cercind.gov.in/" target="_blank" rel="noopener"><div class="n">CERC</div><div class="d">Central Electricity Regulatory Commission — market design, orders and short-term market monitoring reports</div><div class="u">https://cercind.gov.in/</div></a><a class="lk" href="https://grid-india.in/" target="_blank" rel="noopener"><div class="n">Grid-India</div><div class="d">Grid Controller of India — system operation, scheduling and despatch procedures</div><div class="u">https://grid-india.in/</div></a><a class="lk" href="https://cea.nic.in/" target="_blank" rel="noopener"><div class="n">Central Electricity Authority</div><div class="d">Installed capacity, generation statistics and resource adequacy planning</div><div class="u">https://cea.nic.in/</div></a><a class="lk" href="https://www.iexindia.com/" target="_blank" rel="noopener"><div class="n">Indian Energy Exchange</div><div class="d">Day-ahead, real-time, term-ahead and green market data</div><div class="u">https://www.iexindia.com/</div></a><a class="lk" href="https://www.igxindia.com/" target="_blank" rel="noopener"><div class="n">Indian Gas Exchange</div><div class="d">Physical gas contracts, delivery points and the GIXI index</div><div class="u">https://www.igxindia.com/</div></a><a class="lk" href="https://ppac.gov.in/natural-gas/gas-price" target="_blank" rel="noopener"><div class="n">PPAC — gas price</div><div class="d">Petroleum Planning and Analysis Cell: notified domestic gas prices and ceilings</div><div class="u">https://ppac.gov.in/natural-gas/gas-price</div></a></div></section></main>
+<h3>Gas — role</h3>
+<div class="emap-tablewrap">
+<table><thead><tr><th>Item</th><th>Note</th></tr></thead><tbody>
+<tr><td>LNG terminals</td><td>Dahej, Hazira, Dabhol, Kochi, Ennore, Mundra and others</td></tr>
+<tr><td>2026</td><td>High LNG prices squeezed gas-fired generation to a six-year low</td></tr>
+</tbody></table>
+</div>
+</section><section class="sec" id="s3"><span class="sn">03</span><h2>Demand and supply</h2>
+<div class="emap-tablewrap">
+<table><thead><tr><th>Measure</th><th>Value</th></tr></thead><tbody>
+<tr><td>Peak demand growth, Apr–Jun 2026</td><td>+12%</td></tr>
+<tr><td>Coal share of supply, Apr–Jun 2026</td><td>69.5%</td></tr>
+</tbody></table>
+</div>
+<p class="figcap">Source: <a href="https://www.powermin.gov.in/static/uploads/2026/07/735ba31759c7c287608c26d5cafeca0c.pdf" target="_blank" rel="noopener">Ministry of Power, Lok Sabha reply, July 2026</a>.</p>
+<ul class="pts">
+<li><strong>Heat drives the peaks.</strong> April–June records were linked to El Niño conditions.</li>
+<li><strong>Coal logistics are the constraint</strong>, not generating capacity.</li>
+</ul>
+</section><section class="sec" id="s4"><span class="sn">04</span><h2>Prices</h2>
+<ul class="pts">
+<li><strong>Exchange prices rise with heat</strong> and fall when solar output is strong.</li>
+<li><strong>Retail tariffs are regulated</strong>, so price stress lands on utility finances and on shortages.</li>
+</ul>
+<p class="figcap">Exchange data: <a href="https://www.iexindia.com/market-data/day-ahead-market/market-snapshot" target="_blank" rel="noopener">IEX</a>.</p>
+</section><section class="sec" id="s5"><span class="sn">05</span><h2>Policy and regulation in 2026</h2>
+<div class="emap-tablewrap">
+<table><thead><tr><th>Date</th><th>Change</th><th>Why it matters</th></tr></thead><tbody>
+<tr><td>Apr–Jul 2026</td><td>Successive record peaks met without shortage (<a href="https://www.pib.gov.in/PressReleasePage.aspx?PRID=2256313&reg=3&lang=1" target="_blank" rel="noopener">PIB</a>)</td><td>System coped at record demand</td></tr>
+<tr><td>Nov 2026</td><td>Government asks miners and railways to triple coal stocks at power stations (<a href="https://www.bloomberg.com/news/articles/2026-11-04/india-pushes-to-triple-coal-stockpiles-to-avert-summer-blackouts" target="_blank" rel="noopener">Bloomberg</a>)</td><td>Preparing for summer 2027</td></tr>
+</tbody></table>
+</div>
+</section><section class="sec" id="s6"><span class="sn">06</span><h2>Risk radar</h2>
+<div class="emap-tablewrap">
+<table class="radar"><thead><tr><th>Risk</th><th>Level</th><th>Trend</th><th>Why</th></tr></thead><tbody>
+<tr><td>Summer adequacy</td><td><span class="lv hi">High</span></td><td>↑</td><td>Demand records every year; coal logistics strained</td></tr>
+<tr><td>LNG price</td><td><span class="lv hi">High</span></td><td>→</td><td>Gas plants idle when LNG is dear</td></tr>
+<tr><td>Coal supply</td><td><span class="lv md">Medium</span></td><td>↑</td><td>Stockpile drive under way</td></tr>
+</tbody></table>
+</div>
+<p class="figcap">Our assessment, not a forecast.</p>
+</section><section class="sec" id="s7"><span class="sn">07</span><h2>Next six months</h2>
+<div class="emap-tablewrap">
+<table><thead><tr><th>When</th><th>Watch</th><th>Likely price effect</th></tr></thead><tbody>
+<tr><td>Winter</td><td>Coal stock build at power stations</td><td>Sets summer risk</td></tr>
+<tr><td>Apr–Jun 2027</td><td>Peak demand records</td><td>Bullish exchange prices</td></tr>
+</tbody></table>
+</div>
+</section><section class="sec" id="s8"><span class="sn">SOURCES</span><h2>Key links</h2><p class="lead">Primary sources for this market. Figures on this page are drawn from these and from published market data.</p><div class="links"><a class="lk" href="https://powermin.gov.in/" target="_blank" rel="noopener"><div class="n">Ministry of Power</div><div class="d">Policy and statistics</div><div class="u">https://powermin.gov.in</div></a><a class="lk" href="https://cea.nic.in/" target="_blank" rel="noopener"><div class="n">Central Electricity Authority</div><div class="d">Power statistics</div><div class="u">https://cea.nic.in</div></a><a class="lk" href="https://www.iexindia.com/" target="_blank" rel="noopener"><div class="n">Indian Energy Exchange</div><div class="d">Exchange prices</div><div class="u">https://www.iexindia.com</div></a></div></section></main>
   </div>
 </div>
 

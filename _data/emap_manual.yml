@@ -96,3 +96,43 @@ jpn:
   res_note: "Kashiwazaki-Kariwa unit 6, TEPCO's first restart since 2011, in commercial operation from April 2026"
   power_title: "JEPX day-ahead system price"
   data_note: 'Power: <a href="https://www.jepx.jp/en/electricpower/market-data/spot/" target="_blank" rel="noopener">JEPX</a> day-ahead system price, half-hourly, simple monthly averages. Other tiles: METI and the Japan Atomic Industrial Forum.'
+chn:
+  tiles:
+    - {label: "Installed capacity, end Sep 2026", value: "4,130 <small>GW</small>", note: "+11.2% y/y (NEA)"}
+    - {label: "Solar capacity", value: "1,310 <small>GW</small>", note: "+16.5% y/y; now the largest source of capacity"}
+    - {label: "Wind capacity", value: "700 <small>GW</small>", note: "+20.4% y/y (NEA)"}
+    - {label: "Coal share of output, H1 2026", value: "49.7<small>%</small>", note: "Below half for the first time"}
+    - {label: "LNG buying", value: "Weak", note: "Cheap domestic gas curbing spot imports into winter (Bloomberg)"}
+  data_note: 'Sources: <a href="https://www.nea.gov.cn/20261026/7e48f52542c94c0f99c166262453627d/c.html" target="_blank" rel="noopener">National Energy Administration</a>, January–September 2026 statistics; <a href="https://english.www.gov.cn/archive/statistics/202607/30/content_WS6a6b131ac6d00ca5f9a0c7c4.html" target="_blank" rel="noopener">State Council</a>; Bloomberg. China publishes no single national wholesale price.'
+ind:
+  tiles:
+    - {label: "Peak demand, record", value: "270.8 <small>GW</small>", note: "May 2026; above 270 GW twice more in July (Ministry of Power)"}
+    - {label: "Peak demand growth, Apr–Jun", value: "+12<small>%</small>", note: "Year on year"}
+    - {label: "Coal share of supply, Apr–Jun", value: "69.5<small>%</small>", note: "Including lignite"}
+    - {label: "Installed capacity", value: "548.9 <small>GW</small>", note: "June 2026"}
+    - {label: "Gas power", value: "Six-year low", note: "Iran war cut LNG supply to gas plants (Bloomberg)"}
+  data_note: 'Sources: <a href="https://www.powermin.gov.in/static/uploads/2026/07/735ba31759c7c287608c26d5cafeca0c.pdf" target="_blank" rel="noopener">Ministry of Power, Lok Sabha reply, July 2026</a>; <a href="https://www.pib.gov.in/PressReleasePage.aspx?PRID=2256313&reg=3&lang=1" target="_blank" rel="noopener">PIB</a>; Bloomberg. Exchange prices: <a href="https://www.iexindia.com/market-data/day-ahead-market/market-snapshot" target="_blank" rel="noopener">IEX</a>.'
+sgp:
+  tiles:
+    - {label: "Household tariff, Q4 2026", value: "28.59 <small>¢/kWh</small>", note: "Before GST; −10.4% on Q3 (SP Group)"}
+    - {label: "Gas share of power", value: "95<small>%</small>", note: "Imported pipeline gas and LNG (EMA)"}
+    - {label: "Indonesian pipeline cut", value: "&lt;2<small>%</small>", note: "Of daily gas demand, per EMA (Oct 2026)"}
+    - {label: "Carbon tax", value: "S$45 <small>/t</small>", note: "2026–27 rate"}
+    - {label: "Tariff lag", value: "1 quarter", note: "Fuel costs reach tariffs the following quarter"}
+  data_note: 'Sources: <a href="https://www.ema.gov.sg/consumer-information/electricity/buying-electricity/buying-at-regulated-tariff" target="_blank" rel="noopener">Energy Market Authority</a>; <a href="https://www.spgroup.com.sg/our-services/utilities/tariff-information" target="_blank" rel="noopener">SP Group</a>; Bloomberg.'
+mys:
+  tiles:
+    - {label: "Fuel pass-through", value: "Monthly", note: "Automatic Fuel Adjustment in Peninsular Malaysia since 2025"}
+    - {label: "Household shield", value: "800 <small>kWh</small>", note: "Monthly use exempt from AFA surcharge, Sep–Dec 2026"}
+    - {label: "Petronas LNG sales, H1 2026", value: "20.3 <small>Mt</small>", note: "+17% y/y"}
+    - {label: "Power mix", value: "Coal + gas", note: "Coal and gas supply most of Peninsular generation"}
+    - {label: "Gas pricing", value: "Regulated", note: "Power-sector gas under RP4 tariffs to end-2027"}
+  data_note: 'Sources: <a href="https://www.tnb.com.my/" target="_blank" rel="noopener">Tenaga Nasional</a>; <a href="https://www.st.gov.my/" target="_blank" rel="noopener">Energy Commission (Suruhanjaya Tenaga)</a>; <a href="https://www.petronas.com/" target="_blank" rel="noopener">Petronas</a>.'
+phl:
+  tiles:
+    - {label: "WESM average price, Jul 2026", value: "₱8.31 <small>/kWh</small>", note: "Down 13% from ₱9.54 in June (IEMOP)"}
+    - {label: "Oct 2025 for comparison", value: "₱4.54 <small>/kWh</small>", note: "System-wide average"}
+    - {label: "Market", value: "WESM", note: "Gross pool, operated by IEMOP"}
+    - {label: "Gas", value: "LNG", note: "Malampaya declining; LNG imports at Batangas fill the gap"}
+    - {label: "Grid", value: "Three islands", note: "Luzon, Visayas and Mindanao prices can diverge"}
+  data_note: 'Sources: <a href="https://www.iemop.ph/market_reports_category/monthly-market-operations-highlights/" target="_blank" rel="noopener">IEMOP monthly market operations highlights</a>; <a href="https://www.doe.gov.ph/" target="_blank" rel="noopener">Department of Energy</a>.'
