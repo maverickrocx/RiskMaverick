@@ -103,7 +103,7 @@ _data/emap_manual.yml, live gas and carbon marks in _data/marks.yml.
   {%- endif %}
 
   {%- if k.power_chart %}
-  <div class="kcharts">
+  <div class="kcharts"{% unless k.gas_chart %} style="grid-template-columns:minmax(0,1fr)"{% endunless %}>
   {%- if k.gas_chart %}{% assign charts = "power,gas" | split: "," %}{% else %}{% assign charts = "power" | split: "," %}{% endif -%}
   {%- for c in charts -%}
     {%- if c == "power" -%}{%- assign ch = k.power_chart -%}{%- assign ptitle = man.power_title | default: "Day-ahead power price" -%}{%- assign ttl = ptitle | append: ", monthly average (" | append: k.ccy | append: punit | append: ")" -%}{%- assign sub = k.bzn -%}
