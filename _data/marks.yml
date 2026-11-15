@@ -18,11 +18,11 @@ corn:
   asof: "13 Nov 2026"
   source: "CBOT via Yahoo"
 de_da:
-  price: "€197.72"
-  asof: "14 Nov 2026"
+  price: "€139.70"
+  asof: "15 Nov 2026"
   source: "SMARD"
-  low: 144.93
-  high: 267.45
+  low: 97.85
+  high: 179.75
   points: 96
 estr:
   price: "2.443%"
@@ -33,16 +33,16 @@ eua:
   asof: "13 Nov 2026"
   source: "EEX auction"
 eurusd:
-  price: "1.1023"
-  asof: "14 Nov 2026"
+  price: "1.1022"
+  asof: "15 Nov 2026"
   source: "market feed"
 fed_target:
   price: "3.75–4.00%"
-  asof: "13 Nov 2026"
+  asof: "14 Nov 2026"
   source: "Federal Reserve"
 gbpusd:
   price: "1.3212"
-  asof: "14 Nov 2026"
+  asof: "15 Nov 2026"
   source: "market feed"
 gold:
   price: "$3,886.30"
@@ -101,8 +101,8 @@ us30y:
   asof: "13 Nov 2026"
   source: "US Treasury"
 usdjpy:
-  price: "159.73"
-  asof: "14 Nov 2026"
+  price: "159.69"
+  asof: "15 Nov 2026"
   source: "market feed"
 wheat:
   price: "$5.93"
