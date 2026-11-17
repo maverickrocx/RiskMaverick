@@ -6,23 +6,23 @@ brent:
   asof: "16 Nov 2026"
   source: "market feed"
 brent_spot:
-  price: "$95.42"
-  asof: "12 Nov 2026"
+  price: "$95.17"
+  asof: "13 Nov 2026"
   source: "EIA"
 brent_wti:
-  price: "$3.12"
-  asof: "12 Nov 2026"
+  price: "$3.21"
+  asof: "13 Nov 2026"
   source: "derived"
 corn:
-  price: "$4.45"
-  asof: "16 Nov 2026"
+  price: "$4.49"
+  asof: "17 Nov 2026"
   source: "CBOT via Yahoo"
 de_da:
-  price: "€194.49"
-  asof: "16 Nov 2026"
+  price: "€211.58"
+  asof: "17 Nov 2026"
   source: "SMARD"
-  low: 111.53
-  high: 273.0
+  low: 130.66
+  high: 267.97
   points: 96
 estr:
   price: "2.437%"
@@ -49,16 +49,16 @@ gold:
   asof: "16 Nov 2026"
   source: "market feed"
 henry_hub:
-  price: "$3.23"
-  asof: "12 Nov 2026"
+  price: "$3.26"
+  asof: "13 Nov 2026"
   source: "EIA"
 lme_al:
-  price: "$3,150"
-  asof: "13 Nov 2026"
+  price: "$3,332"
+  asof: "16 Nov 2026"
   source: "LME"
 lme_cu:
-  price: "$13,610"
-  asof: "13 Nov 2026"
+  price: "$13,375"
+  asof: "16 Nov 2026"
   source: "LME"
 n225:
   price: "59,662.02"
@@ -73,8 +73,8 @@ sofr:
   asof: "13 Nov 2026"
   source: "NY Fed"
 soybeans:
-  price: "$12.26"
-  asof: "16 Nov 2026"
+  price: "$12.27"
+  asof: "17 Nov 2026"
   source: "CBOT via Yahoo"
 sp500:
   price: "7,561.67"
@@ -85,30 +85,30 @@ stoxx50:
   asof: "16 Nov 2026"
   source: "market feed"
 ttf:
-  price: "€86.58"
+  price: "€84.05"
   asof: "16 Nov 2026"
   source: "ICE Endex via Yahoo"
 us10y:
-  price: "5.15%"
-  asof: "13 Nov 2026"
+  price: "5.12%"
+  asof: "16 Nov 2026"
   source: "US Treasury"
 us2y:
-  price: "4.88%"
-  asof: "13 Nov 2026"
+  price: "4.83%"
+  asof: "16 Nov 2026"
   source: "US Treasury"
 us30y:
-  price: "5.47%"
-  asof: "13 Nov 2026"
+  price: "5.46%"
+  asof: "16 Nov 2026"
   source: "US Treasury"
 usdjpy:
   price: "159.63"
   asof: "16 Nov 2026"
   source: "market feed"
 wheat:
-  price: "$5.90"
-  asof: "16 Nov 2026"
+  price: "$5.99"
+  asof: "17 Nov 2026"
   source: "CBOT via Yahoo"
 wti:
-  price: "$92.30"
-  asof: "12 Nov 2026"
+  price: "$91.96"
+  asof: "13 Nov 2026"
   source: "EIA"
