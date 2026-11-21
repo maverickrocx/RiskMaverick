@@ -2,7 +2,7 @@
 # Each mark carries the date and publisher it came from.
 
 brent:
-  price: "$91.02"
+  price: "$92.57"
   asof: "20 Nov 2026"
   source: "market feed"
 brent_spot:
@@ -14,15 +14,15 @@ brent_wti:
   asof: "19 Nov 2026"
   source: "derived"
 corn:
-  price: "$4.52"
+  price: "$4.49"
   asof: "20 Nov 2026"
   source: "CBOT via Yahoo"
 de_da:
-  price: "€214.51"
-  asof: "20 Nov 2026"
+  price: "€187.88"
+  asof: "21 Nov 2026"
   source: "SMARD"
-  low: 165.55
-  high: 259.55
+  low: 144.7
+  high: 232.19
   points: 96
 estr:
   price: "2.441%"
@@ -33,19 +33,19 @@ eua:
   asof: "20 Nov 2026"
   source: "EEX auction"
 eurusd:
-  price: "1.0988"
-  asof: "20 Nov 2026"
+  price: "1.0972"
+  asof: "21 Nov 2026"
   source: "market feed"
 fed_target:
   price: "3.75–4.00%"
-  asof: "20 Nov 2026"
+  asof: "21 Nov 2026"
   source: "Federal Reserve"
 gbpusd:
-  price: "1.3114"
-  asof: "20 Nov 2026"
+  price: "1.3081"
+  asof: "21 Nov 2026"
   source: "market feed"
 gold:
-  price: "$3,576.40"
+  price: "$3,515.40"
   asof: "20 Nov 2026"
   source: "market feed"
 henry_hub:
@@ -53,12 +53,12 @@ henry_hub:
   asof: "19 Nov 2026"
   source: "EIA"
 lme_al:
-  price: "$3,105"
-  asof: "19 Nov 2026"
+  price: "$3,184"
+  asof: "20 Nov 2026"
   source: "LME"
 lme_cu:
-  price: "$12,570"
-  asof: "19 Nov 2026"
+  price: "$12,230"
+  asof: "20 Nov 2026"
   source: "LME"
 n225:
   price: "56,436.65"
@@ -73,39 +73,39 @@ sofr:
   asof: "19 Nov 2026"
   source: "NY Fed"
 soybeans:
-  price: "$12.18"
+  price: "$12.21"
   asof: "20 Nov 2026"
   source: "CBOT via Yahoo"
 sp500:
-  price: "7,175.83"
-  asof: "19 Nov 2026"
+  price: "6,910.39"
+  asof: "20 Nov 2026"
   source: "market feed"
 stoxx50:
-  price: "5,989.60"
+  price: "5,912.30"
   asof: "20 Nov 2026"
   source: "market feed"
 ttf:
-  price: "€86.75"
+  price: "€88.45"
   asof: "20 Nov 2026"
   source: "ICE Endex via Yahoo"
 us10y:
-  price: "5.04%"
-  asof: "19 Nov 2026"
+  price: "4.92%"
+  asof: "20 Nov 2026"
   source: "US Treasury"
 us2y:
-  price: "4.76%"
-  asof: "19 Nov 2026"
+  price: "4.63%"
+  asof: "20 Nov 2026"
   source: "US Treasury"
 us30y:
-  price: "5.40%"
-  asof: "19 Nov 2026"
+  price: "5.31%"
+  asof: "20 Nov 2026"
   source: "US Treasury"
 usdjpy:
-  price: "158.74"
-  asof: "20 Nov 2026"
+  price: "158.53"
+  asof: "21 Nov 2026"
   source: "market feed"
 wheat:
-  price: "$5.96"
+  price: "$5.92"
   asof: "20 Nov 2026"
   source: "CBOT via Yahoo"
 wti:
