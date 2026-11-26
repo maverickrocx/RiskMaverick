@@ -2,8 +2,8 @@
 # Each mark carries the date and publisher it came from.
 
 brent:
-  price: "$93.23"
-  asof: "25 Nov 2026"
+  price: "$91.41"
+  asof: "26 Nov 2026"
   source: "market feed"
 brent_spot:
   price: "$91.80"
@@ -14,7 +14,7 @@ brent_wti:
   asof: "24 Nov 2026"
   source: "derived"
 corn:
-  price: "$4.56"
+  price: "$4.40"
   asof: "25 Nov 2026"
   source: "CBOT via Yahoo"
 de_da:
@@ -26,27 +26,27 @@ de_da:
   points: 96
 estr:
   price: "2.444%"
-  asof: "24 Nov 2026"
+  asof: "25 Nov 2026"
   source: "ECB"
 eua:
-  price: "€82.41"
-  asof: "25 Nov 2026"
+  price: "€83.15"
+  asof: "26 Nov 2026"
   source: "EEX auction"
 eurusd:
-  price: "1.0950"
-  asof: "25 Nov 2026"
+  price: "1.0974"
+  asof: "26 Nov 2026"
   source: "market feed"
 fed_target:
   price: "3.75–4.00%"
-  asof: "25 Nov 2026"
+  asof: "26 Nov 2026"
   source: "Federal Reserve"
 gbpusd:
-  price: "1.3063"
-  asof: "25 Nov 2026"
+  price: "1.3105"
+  asof: "26 Nov 2026"
   source: "market feed"
 gold:
-  price: "$3,445.10"
-  asof: "25 Nov 2026"
+  price: "$3,600.50"
+  asof: "26 Nov 2026"
   source: "market feed"
 henry_hub:
   price: "$3.30"
@@ -61,8 +61,8 @@ lme_cu:
   asof: "25 Nov 2026"
   source: "LME"
 n225:
-  price: "57,011.62"
-  asof: "25 Nov 2026"
+  price: "57,499.16"
+  asof: "26 Nov 2026"
   source: "market feed"
 rggi:
   price: "$37.65"
@@ -77,16 +77,16 @@ soybeans:
   asof: "25 Nov 2026"
   source: "CBOT via Yahoo"
 sp500:
-  price: "7,002.95"
+  price: "7,182.78"
   asof: "25 Nov 2026"
   source: "market feed"
 stoxx50:
-  price: "5,913.13"
-  asof: "25 Nov 2026"
+  price: "6,025.89"
+  asof: "26 Nov 2026"
   source: "market feed"
 ttf:
-  price: "€88.10"
-  asof: "25 Nov 2026"
+  price: "€88.87"
+  asof: "26 Nov 2026"
   source: "ICE Endex via Yahoo"
 us10y:
   price: "4.85%"
@@ -101,11 +101,11 @@ us30y:
   asof: "25 Nov 2026"
   source: "US Treasury"
 usdjpy:
-  price: "159.10"
-  asof: "25 Nov 2026"
+  price: "159.28"
+  asof: "26 Nov 2026"
   source: "market feed"
 wheat:
-  price: "$5.87"
+  price: "$5.64"
   asof: "25 Nov 2026"
   source: "CBOT via Yahoo"
 wti:
