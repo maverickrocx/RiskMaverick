@@ -18,11 +18,11 @@ corn:
   asof: "25 Nov 2026"
   source: "CBOT via Yahoo"
 de_da:
-  price: "€291.77"
-  asof: "26 Nov 2026"
+  price: "€301.82"
+  asof: "27 Nov 2026"
   source: "SMARD"
-  low: 195.81
-  high: 388.02
+  low: 203.35
+  high: 426.32
   points: 96
 estr:
   price: "2.444%"
@@ -85,7 +85,7 @@ stoxx50:
   asof: "26 Nov 2026"
   source: "market feed"
 ttf:
-  price: "€88.87"
+  price: "€87.55"
   asof: "26 Nov 2026"
   source: "ICE Endex via Yahoo"
 us10y:
